@@ -1,0 +1,309 @@
+\section{Results}\label{sec:results}
+
+\subsection{Mechanistic diagnosis}\label{sec:mechanism}
+
+The deployed inverse document frequency uses the vocabulary size,
+$\mathrm{idf}_{\mathrm{dep}}(v)=\log_{10}(K/\mathrm{df}(v))$, whereas canonical
+TF-IDF uses the number of documents,
+$\mathrm{idf}_{\mathrm{can}}(v)=\log_{10}(N/\mathrm{df}(v))$. Their relation is
+exact:
+\begin{equation}
+S_{\mathrm{dep}}(s)=S_{\mathrm{can}}(s)+D_s\log_{10}(K/N),
+\label{eq:idfrelation}
+\end{equation}
+where $D_s$ is the number of descriptors. The formulations therefore differ by
+an additive count term, not by rescaling. The identity holds within
+$3\times10^{-11}$ on all 93 segment slots. At cluster scale
+$N\in\{2,3,4\}$, so the additional term rewards count and contributes a median
+98.3\% of the deployed score. On a database of approximately $10^4$ documents,
+the term is negative and reverses the count ordering.
+
+The more general factorization separates the two available channels:
+\begin{equation}
+\mathrm{score}_i=\sum_v\mathrm{tf}_{iv}\mathrm{idf}_v
+=D_i\underbrace{\sum_v p_i(v)\mathrm{idf}_v}_{\overline{\mathrm{idf}}_i}.
+\label{eq:factor}
+\end{equation}
+Thus a score can vary through how many descriptors the extractor finds and
+through their mean IDF weight. The identity alone does not prove that either channel
+is uninformative; the relative contribution is measured empirically.
+
+\begin{figure}[!ht]
+\centering
+\begin{tikzpicture}[
+  box/.style={rectangle,rounded corners=3pt,minimum height=1.15cm,
+    text width=3.45cm,align=center,font=\sffamily\scriptsize,
+    draw=#1,fill=#1!8,line width=.9pt},
+  arr/.style={-{Stealth[length=5pt]},semithick,rulegray}]
+\node[box=catbovw] (score) {\textbf{BoVW+TF-IDF score}\\$D_i\,\overline{\mathrm{idf}}_i$};
+\node[box=accentorange,below left=.65cm and .55cm of score] (count)
+ {\textbf{Descriptor-count channel}\\KonIQ CV .938\\$\rho(S,D)=.998$};
+\node[box=accentpurple,below right=.65cm and .55cm of score] (rare)
+ {\textbf{Mean-IDF-weight channel}\\KonIQ CV .098\\19-extractor mean $|\rho|=.090$};
+\node[box=accentred,below=.7cm of count] (dep)
+ {\textbf{Deployed IDF shift}\\$D_i\log_{10}(K/N)$\\sign changes with document count};
+\node[box=accentgreen,below=.7cm of rare] (test)
+ {\textbf{Controlled consequence}\\65.1\% over 800 pairs\\noise 8\%; JPEG 6\%};
+\draw[arr] (score)--(count); \draw[arr] (score)--(rare);
+\draw[arr] (count)--(dep); \draw[arr] (rare)--(test);
+\draw[arr] (dep)--(test);
+\end{tikzpicture}
+\caption{Measured mechanism. The factorization identifies two channels; the
+data determine their relative variation and connect count dominance to the
+controlled-degradation failures.}
+\label{fig:mechanism}
+\end{figure}
+
+On KonIQ-10k, the coefficient of variation is .938 for $D_i$ and .098 for mean
+IDF weight. The canonical score consequently correlates .998 with descriptor
+count. Its association with human scores is statistically equivalent, within
+the operational $\pm.02$ margin, to that of keypoint density:
+$\rho^{*}=.447$ for both, with score-to-keypoint correlation .998. Steiger's
+$Z=.199$ is below the Bonferroni-corrected critical value of 3.95, and both
+one-sided equivalence tests reject. KADID gives the same association-level
+result under reference-block resampling: .125 for canonical BoVW and .123 for
+keypoint density, paired difference $+.0024$, 95\% CI
+$[-.0019,+.0084]$. This is equivalence of measured MOS/DMOS association, not
+identity of the scores or constructs. The deployed formulation is almost exactly the sign-reversed
+count on the large databases ($-.9999$ on KonIQ, $-.9998$ on KADID and
+$-.9947$ on CLIVE). In the deployment regime its own descriptor count remains
+dominant, $\rho(S_{\mathrm{dep}},D)=+.994$.
+
+Replacing SIFT with 19 convolutional extractors does not raise the external
+ceiling. Their mean $|\rho|$ is .090 on KonIQ and .112 on CLIVE, with no value
+above .238 on either database; KADID ranges from .156 to .418. Fixed spatial
+feature maps remove per-image count variation on the image databases, leaving
+the rarity channel measured by the ablation. On broadcast segments, however,
+the upstream key-frame selector varies the number of retained frames, so it
+reintroduces count variation: across the 19 variants,
+$\rho(S,D)=+.981$ to $+.997$. These results explain why exchanging the
+extractor changes individual choices without making the ordering a better
+predictor of quality. The explanation is limited to the evaluated vocabulary,
+normalization and extraction regimes.
+
+Simple normalization does not repair the mechanism. Dividing by descriptor
+count exposes the weak mean-IDF-weight channel already measured by the ablation. Dividing
+by frame count is also mismatched to the deployed operation because its internal
+key-frame selector makes descriptor count nearly independent of duration. On the
+42 clusters, frame normalization changes the uncalibrated DOVER two-branch-sum
+output only from 47.4\% to 50.6\% and induces an inverse duration association
+($\rho=-.52$). Full normalization and pooling results are in Tables~S6 and S9.
+
+\subsection{External validation and screening}\label{sec:screen_results}
+
+Within-reference KADID sensitivity separates the deployed operation from
+specialized quality methods. Its mean direction-aligned correlation is $-.077$
+(95\% CI $[-.124,-.030]$), with only 5 of 25 types above .50. LIQE,
+QualiCLIP and CLIP-IQA$+$ reach .807, .849 and .808, respectively, each with 22
+types above .50. Most remaining NR-IQA candidates also respond broadly, with
+means from .607 to .733.
+
+Table~\ref{tab:screening} applies the same complete-case rule to every method.
+Released-weight exposure is visible because an in-database correlation is not a
+generalization result. The generalization column reports the lowest signed
+$\rho^{*}$ over every unseen database, rather than using an absolute value that
+could hide inversion.
+
+\begin{table}[!ht]
+\centering
+\caption{Complete-case method screening. Sensitivity reports the within-reference
+mean and number of KADID types above .50. Generalization is the lowest signed
+$\rho^{*}$ over all unseen databases. Floor is normalized agreement with Q-Align
+on the common 42 clusters and its topic-block lower bound (L). Sup.: K =
+KonIQ-10k opinion training; L = LIVE; OU = opinion-unaware; -- = no opinion
+training; M = multi-database mixture. Q-Align is a reference, not a candidate.}
+\label{tab:screening}
+\scriptsize
+\setlength{\tabcolsep}{1.7pt}
+\renewcommand{\arraystretch}{1.08}
+\begin{tabular}{@{}lcccccc@{}}
+\toprule
+\rowcolor{headerblue}
+\hd{Method} & \hd{Sup.} & \hd{Pol.} & \hd{Sensitivity} &
+\hd{Lowest unseen $\rho^{*}$} & \hd{Floor; L} & \hd{Eligible} \\
+\midrule
+\rowcolor{accentgreen!15}\textbf{LIQE} & K & \polup & .807; 22 & .723 & .551; .284 & \textbf{yes} \\
+\rowcolor{accentgreen!15}\textbf{QualiCLIP} & OU & \polup & .849; 22 & .665 & .371; .143 & \textbf{yes} \\
+\rowcolor{accentgreen!15}\textbf{CLIP-IQA$+$} & K & \polup & .808; 22 & .654 & .236; .034 & \textbf{yes} \\
+\midrule
+TOPIQ & K & \polup & .721; 20 & .511 & .506; .289 & no \\
+\rowcolor{rowlight}MUSIQ & K & \polup & .733; 20 & .556 & .551; .297 & no \\
+DBCNN & K & \polup & .668; 19 & .484 & .461; .274 & no \\
+\rowcolor{rowlight}HyperIQA & K & \polup & .673; 19 & .462 & .371; .122 & no \\
+NIQE & OU & \poldown & .607; 19 & .368 & .281; .012 & no \\
+\rowcolor{rowlight}BRISQUE & L & \poldown & .657; 19 & .236 & .371; .136 & no \\
+CLIP-IQA & OU & \polup & .645; 20 & .501 & .371; .045 & no \\
+\rowcolor{catbovw!12}SIFT+BoVW (deployed) & -- & \polup & $-.077$; 5 & $-.445$ & .056; $-.308$ & no \\
+\midrule
+\rowcolor{rowlight}Q-Align & M & \polup & .880; 23 & -- & -- & reference \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Three methods are eligible: LIQE, QualiCLIP and CLIP-IQA$+$. This is an
+eligibility set, not a ranking. QualiCLIP has the largest sensitivity mean,
+whereas LIQE has the largest generalization margin. The set is unchanged when
+the generalization threshold varies from .60 to .65 or the sensitivity coverage
+cut varies from 12 to 22 types (Table~S10); at .55 MUSIQ is added, and at .70
+only LIQE remains. ARNIQA and TReS are reported on completed axes only, so
+neither enters this complete-case claim.
+
+The database-level values show why the universal unseen-database clause matters.
+LIQE obtains $\rho^{*}=.723$ on KADID and .865 on CLIVE; QualiCLIP obtains .665
+and .757; CLIP-IQA$+$ obtains .654 and .805. TOPIQ and MUSIQ are strong on the
+unseen authentic database (.811 and .789) but fall to .511 and .556 on KADID.
+DBCNN and HyperIQA similarly fall from .756 and .750 on CLIVE to .484 and .462
+on KADID. An existential rule would admit methods whose favourable authentic
+result masks failure under controlled synthetic distortion. Conversely, the
+three eligible methods pass the floor with overlapping topic-block intervals,
+so the small in-domain sample cannot order them.
+
+The floor axis illustrates that limitation directly. LIQE agrees with Q-Align
+on 32 of 42 clusters ($\kappa_{\mathrm{uniform}}=.551$, 95\% CI
+$[.284,.786]$); QualiCLIP agrees on 28 ($.371$, $[.143,.597]$); and
+CLIP-IQA$+$ on 25 ($.236$, $[.034,.435]$). The deployed operation agrees on 21,
+only 1.3 decisions above the uniform expectation, and its normalized interval
+crosses chance ($.056$, $[-.308,.412]$). The candidates pass the floor, but the
+broadly overlapping intervals do not support pairwise ordering. Results on the
+15 human-annotated redundancy clusters are retained in Tables~S7--S8 rather than
+mixed with the operational 42-cluster set.
+
+The full P.1401 triad and database-level correlations are in Tables~S4 and S15.
+The latter reports training-database contrasts descriptively, because database,
+content, architecture and objective are not matched. Conditioning on detectable
+keypoint density strongly attenuates the BoVW score but is not interpreted as a
+causal partition of ``content density'' (Table~S16). Cost is also secondary to
+eligibility: in the common environment the deployed operation takes 182~s per
+cluster and LIQE 1.9~s (Table~S14).
+
+\subsection{Constructed broadcast degradation}\label{sec:constructed_results}
+
+Table~\ref{tab:constructed} removes the reference model from the decision: each
+pair contains the same content before and after a known degradation. The
+deployed operation is correct on 65.1\% of 800 pairs. LIQE reaches 99.5\%; the
+paired difference is $+34.4$ percentage points, segment-block 95\% CI
+$[+31.1,+37.7]$. Every evaluated NR-IQA candidate exceeds the deployed score.
+
+\begin{table}[!ht]
+\centering
+\caption{Strict accuracy (\%) on 800 unmodified--degraded broadcast pairs: 20
+segments, eight types and five levels. The unmodified member is the
+construction-defined higher-fidelity signal; values below the 50\% chance floor
+are systematic inversions. Ties remain in the denominator.}
+\label{tab:constructed}
+\scriptsize
+\setlength{\tabcolsep}{1.9pt}
+\begin{tabular}{@{}lccccccccc@{}}
+\toprule
+\textbf{Method} & \textbf{dark} & \textbf{motion} & \textbf{blur} & \textbf{H.264}
+& \textbf{rescale} & \textbf{satur.} & \textbf{noise} & \textbf{JPEG} & \textbf{mean} \\
+\midrule
+\rowcolor{catbovw!12}SIFT+BoVW (deployed) & 100 & 100 & 90 & 90 & 88 &
+\textcolor{accentred}{\textbf{39}} & \textcolor{accentred}{\textbf{8}} &
+\textcolor{accentred}{\textbf{6}} & \textbf{65.1} \\
+\midrule
+LIQE & 97 & 100 & 100 & 100 & 100 & 100 & 99 & 100 & \textbf{99.5} \\
+TOPIQ & 93 & 100 & 100 & 100 & 100 & 93 & 100 & 100 & 98.2 \\
+MUSIQ & 93 & 100 & 100 & 100 & 100 & 86 & 100 & 100 & 97.4 \\
+QualiCLIP & 99 & 100 & 95 & 100 & 96 & 76 & 96 & 71 & 91.6 \\
+ARNIQA & 91 & 100 & 99 & 98 & 100 & 61 & 82 & 98 & 91.1 \\
+DBCNN & 84 & 97 & 92 & 97 & 95 & 92 & 85 & 81 & 90.4 \\
+NIQE & 100 & 100 & 98 & 97 & 98 & \textcolor{accentred}{\textbf{0}} & 100 & 96 & 86.1 \\
+CLIP-IQA$+$ & 76 & 99 & 79 & 100 & 91 & 87 & 84 & 64 & 85.0 \\
+HyperIQA & 47 & 100 & 100 & 100 & 100 & \textcolor{accentred}{\textbf{30}} & 100 & 100 & 84.6 \\
+CLIP-IQA & 58 & 100 & 83 & 100 & 92 & 91 & 55 & 76 & 81.9 \\
+BRISQUE & 100 & 100 & 100 & 99 & 100 & \textcolor{accentred}{\textbf{0}} & 67 & 80 & 80.8 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+No method ties on these pairs. Excluding darkening and desaturation leaves 600
+comparisons and does not repair the deployed operation: its accuracy is 63.7\%,
+whereas LIQE reaches 99.8\% and Q-Align 100\% (Table~S12). The main diagnosis
+therefore does not depend on treating those two transformations as universally
+worse in human perception.
+
+The average conceals the diagnostic result. SIFT+BoVW is at or above 88\% on
+five types but selects the degraded copy in 92\% of white-noise pairs and 94\%
+of JPEG pairs. Within segment, its score increases with severity for noise
+($\rho=+.720$, CI $[+.455,+.925]$) and JPEG ($+.640$, CI
+$[+.395,+.850]$). The mechanism is directly visible in the saved descriptor
+counts. The degraded copy has more descriptors in 92\% of noise pairs (mean
+change $+469$) and 95\% of JPEG pairs (mean change $+289$), with mean noise
+count increasing at every severity level. These measurements are consistent
+with noise and blocking creating detectable extrema that increase the count
+channel in Eq.~\ref{eq:factor}; structure-removing distortions instead happen
+to move count in the direction of fidelity. The score is therefore responsive,
+but not consistently to quality (Table~S12).
+
+Q-Align is correct on 98.2\% of these pairs (95\% CI $[97.2,99.1]$), which
+supports its technical-degradation competence on this broadcast content. It
+does not validate compositional preference. The exact downstream DOVER-T output
+reaches 97.6\% ($[96.1,99.0]$), or 99.8\% ($[99.5,100]$) without darkening and
+desaturation; neither result is a human judgment. The 19
+extractor substitutions average 44.9\% (CI $[41.0,48.9]$) and remain dominated
+by their descriptor count, corroborating the mechanism while refuting the
+registered prediction that fixed feature maps would force chance performance.
+The full prediction and overlay audits are in Table~S12.
+
+\subsection{Pipeline substitution}\label{sec:e2e}
+
+LIQE is used for the direct operation substitution because it has the largest
+generalization margin among the three eligible methods and near-ceiling accuracy
+on the constructed pairs. With the same ten uniformly spaced frames and mean
+pooling, SIFT+BoVW and LIQE still differ in 16 of 42 clusters. The LIQE--SIFT
+DOVER-T contrast is $+27.1$ range points (topic CI $[5.6,47.8]$; hierarchical
+$[2.4,52.5]$) and $+.0074$ raw, with both intervals positive (Table~S11).
+Table~\ref{tab:e2e} reports the complete-operation comparison and all eligible
+methods; screening does not rank them.
+
+\begin{table}[!ht]
+\centering
+\caption{Model-reference output over the 42 operational redundancy clusters.
+Changed counts representatives differing from the deployed operation. DOVER-T
+is the raw DOVER technical branch and is not used in screening; Q-Align defines
+the in-domain screening floor. Both outputs use the global-achievable-range
+estimand in Eq.~\ref{eq:globalrange}; Max is the percentage of clusters in which
+the selected representative has the highest DOVER-T score.}
+\label{tab:e2e}
+\small
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.08}
+\begin{tabular}{@{}lcrrr@{}}
+\toprule
+\rowcolor{headerblue}
+\hd{Quality operation} & \hd{Changed} & \hd{DOVER-T} & \hd{Max} & \hd{Q-Align} \\
+\midrule
+\rowcolor{catbovw!12}SIFT+BoVW & --- & 50.5\% & 54.8\% & 48.6\% \\
+\rowcolor{accentgreen!15}\textbf{LIQE} & \textbf{22/42} & \textbf{76.0\%} & 59.5\% & 90.2\% \\
+QualiCLIP & 19/42 & 71.9\% & 59.5\% & 80.6\% \\
+\rowcolor{rowlight}CLIP-IQA$+$ & 22/42 & 70.7\% & 50.0\% & 74.3\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Replacing the deployed visual-quality operation with the LIQE-based operation
+changes 22 of 42 representatives. On the primary DOVER technical branch, the
+global-achievable-range point estimate rises from 50.5\% to 76.0\%, a paired
+increase of $+25.5$ points. Its topic-block interval is $[-12.1,+54.9]$ and its
+hierarchical interval is $[-17.2,+59.6]$; neither confirms a population-level
+effect. The raw branch-score difference is $+.0069$ (topic-block
+$[-.0028,+.0178]$; hierarchical $[-.0041,+.0197]$), while mean per-cluster
+position and selected-maximum rate increase by 7.2 and 4.8 points, respectively.
+
+No cluster has zero DOVER-T range. Excluding the smallest 10\% or 25\% of ranges
+gives global-range differences of $+25.9$ and $+28.1$ points, so the positive
+point estimate is not generated solely by near-zero ranges. As a construct
+sensitivity analysis, the uncalibrated sum of DOVER's technical and aesthetic
+branches reproduces the earlier $+30.3$-point contrast, but that sum is neither
+the official standardized fused score nor a purely technical measure
+(Table~S11).
+
+The two model references have positive point estimates for the substitution but not on
+the ordering within the eligible set. That disagreement, together with
+overlapping intervals, is why the study reports eligibility rather than a
+winner. More importantly, neither column measures human preference for the
+composed summary. The supported end-to-end conclusion is that the operation
+substitution materially changes the selected evidence; the model-reference
+output effects are positive but imprecise, and improved viewer experience
+remains untested.

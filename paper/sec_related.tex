@@ -1,0 +1,97 @@
+\section{Related work}\label{sec:related}
+
+\subsection{Quality-aware multi-video summarization}
+
+Extractive summarization selects existing frames or temporal segments, whereas
+abstractive approaches generate derived representations
+~\citep{truong2007video_abstraction,apostolidis2021survey}. Multi-video methods
+add explicit cross-source redundancy and diversity. Video-MMR formalized the
+setting~\citep{li2010videommr}; sparse and collaborative formulations improved
+diversity across topic-related videos~\citep{panda2017diversity,
+panda2017collaborative}; graph models subsequently represented inter-video
+relations directly~\citep{wu2020mvsgcn}. These methods address
+representativeness, coverage and redundancy, but they do not validate a
+visual-quality proxy used to choose between redundant candidates.
+
+HSMVideoSumm instead derived selection criteria from human summarization
+practice and implemented each criterion as an explicit pipeline stage
+~\citep{barbieri2021content,barbieri2021tese}. This modularity permits a
+component-level audit: the same clusters, filters and ordering can be held fixed
+while the operation used for visual quality is tested and replaced. The object
+of comparison is therefore neither a new summarizer nor an overall benchmark
+against SumMe or TVSum; it is one inspectable decision inside a multi-source
+news pipeline.
+
+The use of image-quality assessment in summarization is not itself new.
+VSQUAL used objective IQA measures for shot-boundary detection, keyframe
+extraction and summary construction~\citep{cirne2014vsqual}. Jeong et al. also
+combined representativeness with contrast, blur and image-skew measures when
+selecting keyframes for static video summaries~\citep{jeong2016static}. The present
+contribution is different: it does not claim novelty for adding IQA, but for a
+mechanistic construct-validation audit of an already deployed quality operation,
+followed by dependency-aware propagation of an operation-level substitution.
+
+\subsection{No-reference quality assessment and transfer}
+
+Image quality assessment predicts perceived degradation. Full-reference
+measures require an undistorted original and are unsuitable when candidates come
+from different broadcasters~\citep{wang2004ssim,zhai2020iqa_survey}. NR-IQA
+instead estimates quality from the test image alone. BRISQUE and NIQE model
+departures from natural-scene statistics~\citep{mittal2012brisque,
+mittal2013niqe}; DBCNN and HyperIQA learn opinion-supervised convolutional
+representations~\citep{zhang2020dbcnn,su2020hyperiqa}; MUSIQ and TOPIQ use
+multi-scale or top-down attention~\citep{ke2021musiq,chen2024topiq}.
+
+Vision--language formulations based on Contrastive Language--Image Pre-training
+(CLIP) provide a different inductive bias. CLIP-IQA uses
+antonym prompts~\citep{wang2023clipiqa}; LIQE jointly predicts quality,
+distortion and scene~\citep{zhang2023liqe}; QualiCLIP learns from rankings of
+synthetically degraded pairs without opinion scores~\citep{agnolucci2024qualiclip}.
+Q-Align maps multimodal-model outputs to discrete quality levels
+~\citep{wu2024qalign}. These models differ not only architecturally but also in
+their exposure to opinion databases. A result on training data measures fit,
+whereas use in a new broadcast domain requires transfer. Cross-database
+evaluation is therefore essential, and published work has shown that
+in-database NR-IQA performance can overstate generalization
+~\citep{pinson2023nrbroadcast,cao2024datacentric}.
+
+KADID-10k supplies controlled synthetic distortions
+~\citep{lin2019kadid}; KonIQ-10k and LIVE In the Wild (CLIVE) contain authentic
+in-the-wild images~\citep{hosu2020koniq,ghadiyaram2016clive}. Their differences
+make them complementary validation settings, but comparisons among unmatched
+databases and checkpoints do not identify causal effects of training exposure
+or distortion regime. The complete descriptive contrasts are consequently kept
+in Supplementary Table~S15 rather than presented as a principal contribution.
+
+Two further cautions affect the broadcast application. First, professional and
+user-generated video can contain temporal impairments that a frame-wise image
+score cannot observe; video-quality models were developed partly for this reason
+~\citep{wang2021uvq,huang2023xgcvqa}. Second, high correlation on a reused
+database need not imply difficult pairwise discrimination. Database range and
+subjective-score uncertainty affect correlation~\citep{krasula2016methodology},
+and recent multimodal benchmarks report that comparative quality judgments can
+behave differently from absolute scoring~\citep{zhang2024qbenchplus}. Newer
+distributional quality models also exceed earlier reference-model results on
+some databases~\citep{you2025deqascore}. Accordingly, Q-Align and DOVER are
+treated here as complementary contemporary references, not definitive ground
+truth or evidence that temporal modeling itself causes an advantage.
+
+\subsection{The unresolved measurement problem}
+
+SIFT, BoVW and TF-IDF encode local-feature occurrence and rarity for retrieval
+~\citep{lowe2004sift,sivic2003videogoogle,csurka2004bovw,
+salton1988tfidf}. Spatial Information similarly quantifies scene complexity
+rather than perceptual quality~\citep{itu_p910,robitza2021siti}. Such features
+may correlate with opinion scores in a particular collection, but correlation
+does not show that they measure quality or remain valid under controlled
+degradation.
+
+The gap addressed here is narrower than the general problem of quality-aware
+summarization. Existing work establishes multi-video selection criteria,
+specialized NR-IQA methods and prior use of IQA in summarization, yet the
+operation implementing HSMVideoSumm's human-grounded visual-quality criterion
+was not validated as a quality measure. This study links a mechanistic analysis
+of that operation to external human scores, construction-defined degradation
+pairs and a controlled operation-level substitution in the pipeline. That
+combination distinguishes construct validation from merely integrating an
+available IQA model.

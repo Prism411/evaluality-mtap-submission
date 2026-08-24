@@ -1,0 +1,62 @@
+\section{Introduction}\label{sec:intro}
+
+Video summarization reduces long audiovisual collections to selected keyframes,
+shots or segments~\citep{truong2007video_abstraction,apostolidis2021survey}.
+When several sources cover the same topic, selection must also handle
+cross-source redundancy~\citep{li2010videommr,panda2017collaborative,
+wu2020mvsgcn}. A multi-video pipeline therefore combines several criteria: a
+segment can be relevant yet redundant, visually informative yet technically
+poor, or temporally misplaced.
+
+HSMVideoSumm makes those criteria inspectable. A study with human summarizers of
+multi-source news identified five recurrent strategies---removing introductory
+passages, filtering subjective content, detecting redundancy, selecting for
+visual quality and ordering chronologically---and implemented them as separate
+stages~\citep{barbieri2021content,barbieri2021tese}. The present study concerns
+only the fourth stage. Segmentation, subjectivity filtering, redundancy
+detection and ordering remain unchanged. Once the pipeline treats segments as a
+redundant cluster, visual quality acts as a tie-breaker; this conditional design
+does not imply that cluster members have identical semantic utility.
+
+The scientific issue is the distinction between a criterion and the operation
+that implements it. The criterion is human-grounded because it was observed in
+the summarization study. Its implementation is a later engineering choice:
+Scale-Invariant Feature Transform (SIFT) descriptors are quantized through
+Bag-of-Visual-Words (BoVW), weighted with term frequency--inverse document
+frequency (TF-IDF), and summed~\citep{lowe2004sift,sivic2003videogoogle,
+csurka2004bovw,salton1988tfidf}. SIFT, BoVW and TF-IDF were developed for
+matching, retrieval and categorization, not for predicting perceptual quality.
+Calling their aggregate a quality score does not establish construct validity.
+
+No-reference image quality assessment (NR-IQA) provides alternatives because
+segments from different broadcasters have no common undistorted reference. The
+available families include natural-scene-statistics, supervised convolutional
+and transformer regressors, and vision--language models
+~\citep{mittal2012brisque,mittal2013niqe,ke2021musiq,zhang2023liqe,
+agnolucci2024qualiclip}. The question is not whether a newer model produces a
+higher number, but whether the deployed operation responds to the construct it
+names, whether that behaviour can be explained, and whether replacing the
+operation changes the pipeline output.
+
+The study makes three contributions. First, it derives an exact factorization
+that isolates the descriptor-count and mean-IDF-weight channels of the deployed
+score, then measures which channel dominates across image databases, broadcast
+segments and 19 convolutional neural network (CNN) extractor substitutions.
+Second, it combines human-score
+association with within-reference degradation sensitivity and a constructed
+experiment containing 800 paired decisions between an unmodified signal and a
+deterministically degraded counterpart. Third, it applies a common screening
+rule and substitutes the complete visual-quality operation in 42 redundancy
+clusters while holding every other pipeline stage fixed, measuring both changed
+selections and model-reference scores of the selected segments. Training-database overlap,
+detectable-keypoint conditioning, alternative pooling, overlay strata,
+registered predictions and computational details are auxiliary diagnostics and
+are reported in the supplementary material.
+
+The resulting claim is deliberately bounded: the factorization explains the
+observed count dominance and failure of the evaluated BoVW+TF-IDF
+configurations. It is not a theorem that every possible visual vocabulary,
+normalization or extractor must fail. Likewise, the application study separates
+Q-Align, which defines the in-domain screening floor, from DOVER, which is used
+only for output sensitivity; neither model substitutes for human preference
+judgments.

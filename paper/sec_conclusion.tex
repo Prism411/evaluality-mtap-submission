@@ -1,0 +1,33 @@
+\section{Conclusion}\label{sec:conclusion}
+
+This study audited the operation implementing a human-grounded visual-quality
+criterion in one multi-video summarization pipeline. The deployed
+SIFT+BoVW+TF-IDF score factors into descriptor count and mean IDF weight. Under the
+evaluated vocabularies, normalizations and extractors, descriptor count dominates:
+the canonical score and keypoint density have statistically equivalent
+MOS/DMOS associations within the operational $\pm.02$ margin on KADID and
+KonIQ, whereas the deployed formulation produces a near-exact sign-reversed
+count ordering in the large-database regime. In the broadcast domain,
+the deployed score tracks its own descriptor count at $+.994$ and remains
+bounded when SIFT is replaced by 19 convolutional extractors.
+
+The mechanism predicts a consequential failure. Across 800 unmodified--degraded
+broadcast pairs, the deployed operation selects the construction-defined
+higher-fidelity member in 65.1\% of decisions and systematically prefers
+white-noise and JPEG-degraded copies. LIQE reaches 99.5\%. A dependency-aware
+screening rule retains LIQE, QualiCLIP and CLIP-IQA$+$; substituting the complete
+visual-quality operation with a LIQE-based operation, while holding every other
+pipeline stage fixed, changes 22 of 42 selected segments. The DOVER
+technical-branch global-range point estimate increases by 25.5 percentage
+points, but both topic-block and hierarchical intervals cross zero, so no
+population-level output effect is confirmed.
+
+The supported conclusion is therefore specific: the audited operation is not a
+reliable perceptual-quality proxy in the tested regimes, and eligible NR-IQA
+replacements materially alter its decisions. With frames and pooling matched,
+SIFT+BoVW and LIQE still disagree in 16 of 42 clusters; 13 of these disagreements
+overlap the 22 changes in the complete-operation comparison. The study does not establish that
+all BoVW formulations fail, that redundancy clusters contain semantically
+identical alternatives, or that viewers prefer the modified summaries. Human
+pairwise evaluation and broader video-native quality assessment remain the next
+tests needed to connect technical visual quality to compositional value.

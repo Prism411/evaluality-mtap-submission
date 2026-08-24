@@ -1,0 +1,301 @@
+\section{Audit design}\label{sec:method}
+
+The audit combines four forms of evidence (Fig.~\ref{fig:overview}): a
+mechanistic analysis of the deployed score, external validation against human
+opinion scores, construction-defined degradation pairs in the broadcast domain,
+and an operation-level substitution in the summarization pipeline. A method is
+eligible only if it responds to controlled degradation, generalizes to every
+unseen opinion database and exceeds a reference-model agreement floor in the
+deployment domain.
+
+\begin{figure}[!ht]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tikzpicture}[
+  stage/.style={rectangle,rounded corners=2.2pt,minimum height=.68cm,
+    text width=2.05cm,align=center,font=\sffamily\scriptsize,
+    draw=rulegray!85,fill=gray!5,line width=.55pt,inner xsep=3pt},
+  focus/.style={stage,draw=catbovw,fill=catbovw!10,line width=1.15pt,
+    font=\sffamily\bfseries\scriptsize},
+  operation/.style={rectangle,rounded corners=3pt,minimum height=.78cm,
+    text width=11.55cm,align=center,font=\sffamily\scriptsize,
+    draw=catbovw,fill=catbovw!6,line width=.9pt,inner ysep=4pt},
+  audit/.style={rectangle,rounded corners=2.5pt,minimum height=1.05cm,
+    text width=5.25cm,align=left,font=\sffamily\scriptsize,
+    draw=rulegray!90,fill=gray!3,line width=.65pt,inner xsep=7pt,inner ysep=5pt},
+  evidencehead/.style={rectangle,rounded corners=5pt,minimum height=.38cm,
+    font=\sffamily\bfseries\tiny,text=white,fill=headerblue,draw=headerblue,
+    inner xsep=9pt,inner ysep=2.5pt},
+  flow/.style={-{Stealth[length=4.8pt,width=4.2pt]},line width=.65pt,
+    draw=rulegray!95,shorten <=1pt,shorten >=1pt},
+  focusflow/.style={-{Stealth[length=5.2pt,width=4.6pt]},line width=.9pt,
+    draw=catbovw,shorten <=1pt,shorten >=1pt}]
+
+\node[font=\sffamily\bfseries\tiny,text=headerblue,anchor=west]
+  at (-6.15,5.05) {HSMVIDEOSUMM PIPELINE};
+\node[stage] (a) at (-5.10,4.47) {Introductory\\passages};
+\node[stage] (b) at (-2.55,4.47) {Subjectivity\\filtering};
+\node[stage] (c) at (0,4.47) {Redundancy\\detection};
+\node[focus] (d) at (2.55,4.47) {Visual-quality\\selection};
+\node[stage] (e) at (5.10,4.47) {Chronological\\ordering};
+\draw[flow] (a.east)--(b.west);
+\draw[flow] (b.east)--(c.west);
+\draw[flow] (c.east)--(d.west);
+\draw[flow] (d.east)--(e.west);
+
+\node[operation] (op) at (0,3.20)
+  {\textcolor{catbovw}{\textbf{AUDITED STAGE}}\enspace Visual-quality selection\\[1pt]
+   \textbf{Criterion:} visual quality\qquad
+   \textbf{Operation:} SIFT $\rightarrow$ BoVW $\rightarrow$ TF-IDF sum};
+\draw[focusflow] (d.south)--(d.south |- op.north);
+
+\node[evidencehead] (eh) at (0,2.30) {FOUR COMPLEMENTARY TESTS};
+\draw[focusflow] (op.south)--(eh.north);
+
+\node[audit] (m) at (-3.0,1.43)
+  {\textcolor{headerblue}{\textbf{01\enspace Mechanism}}\\[2pt]
+   Two IDF forms; count $\times$ mean IDF\\weight; 19 extractor substitutions.};
+\node[audit] (x) at (3.0,1.43)
+  {\textcolor{headerblue}{\textbf{02\enspace External validation}}\\[2pt]
+   KADID, KonIQ, CLIVE; MOS\\and controlled degradation levels.};
+\node[audit] (g) at (-3.0,.10)
+  {\textcolor{headerblue}{\textbf{03\enspace Constructed truth}}\\[2pt]
+   20 broadcast segments; 800\\original--degraded paired decisions.};
+\node[audit] (p) at (3.0,.10)
+  {\textcolor{headerblue}{\textbf{04\enspace Pipeline substitution}}\\[2pt]
+   42 clusters; topic-block and\\hierarchical intervals.};
+\end{tikzpicture}}
+\caption{Scope and evidence flow. Top: the five HSMVideoSumm stages, with
+visual-quality selection highlighted. Bottom: four complementary tests of the
+operation implementing that criterion. All other pipeline stages remain fixed.}
+\label{fig:overview}
+\end{figure}
+
+\subsection{Data and units of analysis}\label{sec:data}
+
+The external benchmark uses KADID-10k, KonIQ-10k and LIVE In the Wild (CLIVE).
+KADID-10k contains 10,125 distorted images derived from 81 references, with 25
+distortion types at five levels and Differential Mean Opinion Scores
+(DMOS)~\citep{lin2019kadid}. KonIQ-10k contains 10,073 authentically distorted
+images, approximately 1.2 million ratings and Mean Opinion Scores
+(MOS)~\citep{hosu2020koniq}; CLIVE
+contains 1,162 mobile photographs with authentic distortions
+~\citep{ghadiyaram2016clive}. No method is retrained or fine-tuned.
+
+The deployment analysis uses the redundancy stage produced by HSMVideoSumm over
+19 of its 21 news topics: 42 multi-member clusters, 93 segment slots and 83
+distinct segments. The other two topics contain no multi-member cluster. These
+clusters are operational inputs, not proof of equal semantic utility. The
+original human redundancy annotations cover only 15 clusters and are retained
+as a supplementary sensitivity analysis (Tables~S1, S7, S8 and S11); the
+42-cluster set is primary because it is the set encountered by the deployed
+pipeline.
+
+Still-image scorers receive frames sampled uniformly at 1 frame per second and
+are pooled by the arithmetic mean,
+\begin{equation}
+S(s)=\frac{1}{n_s}\sum_{i=1}^{n_s}\phi(f_i),
+\label{eq:meanpool}
+\end{equation}
+where $\phi$ is the per-frame score. The deployed operation instead applies its
+own key-frame selector, quantizes retained descriptors into a vocabulary of
+$K=300$ visual words and sums
+\begin{equation}
+S_{\mathrm{BoVW}}(s)=\sum_i\sum_{v=1}^{K}
+\mathrm{tf}(v,f_i)\,\mathrm{idf}(v).
+\label{eq:bovw}
+\end{equation}
+Sampling, scoring and pooling jointly define the operation occupying the
+visual-quality stage, so the primary comparison evaluates complete operations
+while holding every other stage fixed. A matched-input control additionally gives
+SIFT+BoVW and LIQE the same fixed set of at most ten uniformly spaced 1-fps
+frames and uses arithmetic-mean pooling for both. It thus isolates scorer
+identity within a matched-input regime; full scores and alternative
+normalizations are in Tables~S6, S9 and S11.
+
+\subsection{Scorers, references and polarity}\label{sec:methods}
+
+The complete-case comparison contains the deployed SIFT+BoVW score and ten
+NR-IQA candidates: BRISQUE, NIQE, DBCNN, HyperIQA, MUSIQ, TOPIQ, CLIP-IQA,
+CLIP-IQA$+$, LIQE and QualiCLIP. Keypoint density, Spatial Information, deep
+feature norms and the second IDF formulation are diagnostic controls. A
+separate ablation replaces SIFT with 19 convolutional extractors while holding
+the vocabulary, weighting and aggregation fixed. ARNIQA and TReS extend
+coverage on completed axes but are excluded from complete-case screening;
+MANIQA was not completed before the experimental freeze (Table~S13).
+Released-weight supervision, checkpoint role,
+polarity and GPU requirements are summarized in Table~\ref{tab:methods} and
+listed in full in Table~S13~\citep{agnolucci2024arniqa,golestaneh2022tres,
+yang2022maniqa}.
+
+\begin{table}[!ht]
+\centering
+\caption{Scorers needed to interpret the main comparison. Sup.: K = released
+KonIQ-10k opinion-trained checkpoint; L = LIVE opinion training; OU = opinion-
+unaware; M = multi-database opinion mixture; -- = no opinion data. Polarity is
+declared before evaluation. D = deployed, C = candidate, R = reference, X =
+diagnostic or ablation. Partial-coverage methods remain outside screening.}
+\label{tab:methods}
+\scriptsize
+\setlength{\tabcolsep}{3.3pt}
+\renewcommand{\arraystretch}{1.05}
+\begin{tabular}{@{}L{2.2cm}L{2.35cm}L{3.65cm}cccc@{}}
+\toprule
+\rowcolor{headerblue}
+\hd{Method} & \hd{Family} & \hd{Measured construct} & \hd{Sup.} & \hd{Pol.} & \hd{GPU} & \hd{Role} \\
+\midrule
+\rowcolor{catbovw!12}SIFT+BoVW & handcrafted retrieval & TF-IDF-weighted visual-word count & -- & \polup & no & D \\
+Keypoint density & handcrafted & detectable keypoints per frame & -- & \polup & no & X \\
+\rowcolor{rowlight}DINOv2 & self-supervised features & mean norm of patch tokens & -- & \polup & yes & X \\
+Spatial Information & ITU-T complexity & Sobel energy & -- & \polup & no & X \\
+\rowcolor{rowlight}BRISQUE & natural-scene statistics & deviation from learned natural statistics & L & \poldown & no & C \\
+NIQE & natural-scene statistics & distance from a pristine model & OU & \poldown & no & C \\
+\rowcolor{rowlight}DBCNN & CNN regression & bilinear distortion/content features & K & \polup & yes & C \\
+HyperIQA & CNN regression & content-adaptive quality regression & K & \polup & yes & C \\
+\rowcolor{rowlight}MUSIQ & transformer & multi-scale image quality & K & \polup & yes & C \\
+TOPIQ & transformer & top-down quality attention & K & \polup & yes & C \\
+\rowcolor{rowlight}CLIP-IQA & vision--language & antonym-prompt quality & OU & \polup & yes & C \\
+CLIP-IQA$+$ & vision--language & learned-prompt quality & K & \polup & yes & C \\
+\rowcolor{rowlight}QualiCLIP & vision--language & degradation-ranked quality & OU & \polup & yes & C \\
+LIQE & vision--language & quality, distortion and scene & K & \polup & yes & C \\
+\rowcolor{rowlight}Q-Align & multimodal language model & discrete textual quality levels & M & \polup & yes & R \\
+19 CNN+BoVW & descriptor ablation & TF-IDF-weighted visual-word count & -- & \polup & yes & X \\
+\rowcolor{rowlight}ARNIQA; TReS & partial coverage & distortion manifold; ranking consistency & K & \polup & yes & C \\
+\midrule
+\multicolumn{7}{@{}L{12.15cm}}{\scriptsize The 19-extractor ablation comprises
+ResNet-18/50/101, VGG-16/19, EfficientNet-B0/B4, MobileNet-V3-Large/V2,
+ConvNeXt-Tiny/Small, DenseNet-121/201, ResNeXt-50/101,
+Wide-ResNet-50/101, Inception-V3 and SqueezeNet-1.1. Released weights,
+endpoints and preprocessing are in Table~S13.} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Q-Align is an in-domain reference model rather than a candidate
+~\citep{wu2024qalign}. The
+\texttt{q-future/one-align} checkpoint is run with the \texttt{quality} task,
+\texttt{image} input, 4-bit NormalFloat4 (NF4) double quantization and FP16
+compute, then pooled by Eq.~\ref{eq:meanpool}. It was among the strongest public NR-IQA models when the
+inventory was frozen, is architecturally distinct from the candidates, and is
+13.7 times slower than LIQE under the measured setup; it is therefore reserved
+as a reference model rather than screened as an on-line candidate.
+
+DOVER is used only as an output-sensitivity reference and does not participate
+in screening~\citep{wu2023dover}. The official \texttt{DOVER.pth} checkpoint and
+\texttt{dover.yml} \texttt{val-l1080p} views are used (Table~S13). Its raw
+technical branch is primary; the uncalibrated technical--aesthetic sum is only a
+sensitivity analysis, and neither the official standardized fusion nor DOVER++
+is computed. The same technical output is tested on the 800 constructed pairs,
+using a common 5-fps MP4 wrapper and paired fragment seed 42. Because DOVER was
+developed for user-generated video, its output is not treated as broadcast-domain
+human ground truth.
+
+Score and target directions are declared before analysis. Direction-aligned
+correlation is $\rho^{*}=s_m s_y\rho$, where $s_m=+1$ for a higher-is-better
+method and $-1$ for a lower-is-better method, while $s_y=+1$ when a higher
+target means better quality and $-1$ when it means worse quality. All opinion
+targets used here---including KADID's released \texttt{dmos} field---are
+higher-is-better; degradation level is higher-is-worse. A negative $\rho^{*}$
+therefore denotes a genuine directional inversion rather than a scale
+convention.
+
+\subsection{Controlled degradation and constructed truth}\label{sec:controlled}
+
+KADID sensitivity is computed without treating derivatives of the same source
+as independent. For each distortion type, Spearman correlation between score
+and level is computed within each of the 81 references and averaged across
+references. Confidence intervals use $10^4$ block-bootstrap resamples of the
+reference images with seed 42.
+
+The broadcast experiment supplies a second controlled test. Eight degradations
+are applied at five levels: Gaussian blur, white noise, darkening, JPEG
+compression, low-bitrate H.264 transcoding, a
+$720\mathrm{p}\rightarrow480\mathrm{p}\rightarrow720\mathrm{p}$ round trip,
+horizontal motion blur and progressive desaturation. The last uses
+$S'_{\ell}=\operatorname{clip}(\alpha_{\ell}S,0,255)$ with
+$\alpha_{\ell}\in\{0.75,0.55,0.35,0.18,0.05\}$. H.264 is applied to the frame
+sequence; other transformations are frame-based.
+
+Twenty of the 83 broadcast segments are sampled without replacement by a seeded
+simple random draw (seed 42); they represent 13 of the 19 operational topics
+(Table~S2). Pairing each unmodified segment with every degradation and level gives
+$20\times8\times5=800$ binary decisions. The unmodified member is the
+construction-defined higher-fidelity signal, not a human perceptual judgment.
+Accuracy and paired differences are block-bootstrapped by segment
+($10^4$ resamples, seed 42). A second design correlates score with degradation
+level within each segment--type pair. Overlay strata, the complete registered
+prediction audit and parameters are reported in Tables~S2 and S12 and the
+reproducibility archive. Ties count as neither correct nor incorrect and remain
+in the denominator. A sensitivity analysis excludes darkening and desaturation,
+whose transformations define signal change more directly than universal
+perceptual worsening. These pairs test fidelity response, not preference between
+distinct broadcasts.
+
+\subsection{Screening and application inference}\label{sec:screen}
+
+The method-screening rule is operational and was not preregistered. Sensitivity
+passes when the within-reference mean is at least .50 and at least 15 of 25
+distortion types exceed .50. Generalization passes when the direction-aligned
+Spearman Rank Correlation Coefficient (SRCC) is at least .65 on \emph{every}
+database absent from the released checkpoint's
+opinion training. The in-domain floor is confirmed when normalized agreement
+with Q-Align is above chance and the lower bound of its 95\% topic-block
+bootstrap interval exceeds zero on the common 42 clusters. Cost is reported but
+not thresholded. Table~S10 varies the numerical thresholds and the quantifier
+over unseen databases.
+
+For cluster $c$ with $k_c$ candidates, independent uniform choices agree with
+probability $1/k_c$. The common-set floor is therefore
+$\bar p_e=|C|^{-1}\sum_{c\in C}1/k_c=.470$. Normalized agreement is
+$\kappa_{\mathrm{uniform}}=(p_o-\bar p_e)/(1-\bar p_e)$. This is a custom
+uniform-choice correction, not Cohen's kappa. A positive point estimate is
+reported separately from a confirmed pass so that a wide interval crossing
+chance cannot be read as affirmative evidence.
+
+External association uses Spearman correlation against MOS or DMOS. Confidence
+intervals (CIs) for KonIQ and CLIVE use the Fisher transform; KADID intervals and paired differences
+use reference-block bootstrap. Dependent correlations on the same images use
+Steiger's statistic~\citep{steiger1980comparing}. The operational equivalence
+margin is $|\Delta\rho^{*}|<.02$, chosen as the largest association difference
+treated as practically negligible for this diagnostic rather than as a
+literature-wide standard; the paired difference and interval are also reported
+so stricter margins can be applied. The multiplicity family contains all 630
+pairwise contrasts among 36 evaluated scores (17 methods and 19 ablations);
+Bonferroni correction gives $\alpha=0.05/630$ and critical $|z|=3.95$. The full accuracy, consistency and linearity
+triad after the monotonic mapping required by ITU-T P.1401 is reported in
+Table~S4~\citep{itu_p1401}.
+
+For each operation, the application selects one representative per cluster. If
+$y_c$, $l_c$ and $h_c$ are the selected, lowest and highest reference scores in
+cluster $c$, define $\bar y=|C|^{-1}\sum_{c\in C}y_c$ and analogously
+$\bar l$ and $\bar h$. The reported global-achievable-range estimand is
+\begin{equation}
+100\,\frac{\bar y-\bar l}{\bar h-\bar l}.
+\label{eq:globalrange}
+\end{equation}
+It is a ratio of means, not an average of independently rescaled clusters.
+Raw branch-score differences, mean per-cluster position, selected-maximum rate,
+range distributions and exclusions of the smallest 10\% and 25\% of ranges are
+reported in Table~S11. Zero-range clusters are undefined for per-cluster
+position and are counted explicitly. The primary interval resamples the 19
+topics and retains their clusters. A hierarchical sensitivity analysis
+additionally resamples clusters within each sampled topic. Both use $10^4$
+paired resamples and seed 42. Human compositional preference was not collected;
+the estimand is explicitly a model-reference output.
+
+Experiments ran on one NVIDIA RTX~4060 GPU (8~GB). NR-IQA implementations use
+the PyIQA toolbox~\citep{chen2022pyiqa}; SIFT uses OpenCV and the vocabulary uses
+mini-batch $K$-means with $K=300$ and \texttt{random\_state=42}. Q-Align is
+quantized to 4-bit NormalFloat4 with double quantization and FP16 compute to fit
+the GPU~\citep{dettmers2023qlora}; the official PyIQA architecture supports
+fp16, 4-bit and 8-bit inference, with NF4 used in 4-bit mode. No numerical
+equivalence to fp16 is assumed. Frames
+are decoded once and cached, and latency is re-measured in one software
+environment after ten warm-up and sixty timed iterations. The archive includes
+the scoring scripts, derived results, cluster definitions, annotations, seeds
+and environment information; redistribution of source news video remains
+subject to the broadcasters' terms. The final method inventory and analysis
+archive were frozen on 23 August 2026. The historical inference environment was
+not preserved as a fully pinned lockfile; the archive therefore reconstructs
+the reported statistics from hashed score caches and exposes the inference
+settings, but does not claim bit-identical regeneration of every neural score.
