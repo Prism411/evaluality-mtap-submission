@@ -105,13 +105,11 @@
 \node[font=\sffamily\scriptsize, anchor=west, text=black!75]
   at (\bx,1.70) {LIQE};
 
-% the equality bracket between the two 0.447 bars
-\draw[catbovw, line width=1pt]
-  ({\bx+0.125*\bw+0.78},2.87) -- ({\bx+0.125*\bw+1.05},2.87)
-  -- ({\bx+0.125*\bw+1.05},2.11) -- ({\bx+0.125*\bw+0.78},2.11);
-\node[font=\sffamily\scriptsize\bfseries, text=catbovw, anchor=west,
-      text width=3.1cm]
-  at (14.8,2.49) {equivalent within $\pm0.02$\\[1pt]
+% equivalence callout, kept clear of the two labels and numeric values
+\node[rectangle, rounded corners=2pt, draw=catbovw!55, fill=catbovw!4,
+      line width=0.8pt, inner sep=4pt, font=\sffamily\scriptsize\bfseries,
+      text=catbovw, anchor=west, text width=3.45cm, align=left]
+  at (13.35,2.49) {equivalent within $\pm0.02$\\[1pt]
   {\scriptsize\mdseries difference $+0.0024$; block CI\\$[-0.0019,+0.0084]$}};
 
 %% ---------- Stage 4: the take-away -----------------------------------------
