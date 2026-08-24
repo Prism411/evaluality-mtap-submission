@@ -1,0 +1,21 @@
+# LaTeX intermediates
+*.aux
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+*.toc
+
+# Release-only large artifacts
+release-assets/
+*.zip
+registered_prediction_commit.bundle
+
+# Local/editor files
+.DS_Store
+*~
+__pycache__/
+*.py[cod]
+
