@@ -83,17 +83,17 @@ article.
 
 \paragraph{Data availability}
 KADID-10k, KonIQ-10k and LIVE In the Wild are public. Supplementary Tables
-S1--S16 and a reproducibility archive accompany the submission. Before final
-acceptance, scripts, derived scores, clusters, annotations, seeds and latency
-results will receive a versioned Zenodo DOI. The HSMVideoSumm news videos remain
-subject to their original redistribution terms; only permitted derivatives will
-be archived. The submission archive includes a Git bundle that makes the full
-registered-prediction commit independently verifiable.
+S1--S16 and a frozen archive with cache hashes, environment information,
+commands and a table-to-script manifest accompany the submission; these
+materials will receive a versioned Zenodo DOI before final acceptance. The
+HSMVideoSumm videos retain their original redistribution terms. A Git bundle
+preserves the prediction-recording commit and metadata, but not a third-party
+timestamp; hence ``recorded in a commit whose metadata predates the experiment.''
 
 \paragraph{Code availability}
-Analysis scripts and machine-readable results accompany the submission and will
-be released at \url{https://github.com/Prism411/quality-benchmark} with the
-versioned archive.
+Scripts and machine-readable results accompany the submission in the frozen
+private repository \url{https://github.com/Prism411/evaluality-mtap-submission}
+and will become public with the versioned archive after review.
 
 \paragraph{Author contributions}
 %% TODO: adjust to the final author list.
@@ -107,5 +107,7 @@ Not applicable. The study uses publicly broadcast news material and three
 publicly released image quality databases; no new human subject data were
 collected.
 
+% Keep the reference list compact without changing the manuscript font or margins.
+\setlength{\bibsep}{2pt plus 0.3ex}
 \bibliography{references}
 \end{document}

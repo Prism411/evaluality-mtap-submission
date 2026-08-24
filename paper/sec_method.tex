@@ -109,9 +109,13 @@ Sampling, scoring and pooling jointly define the operation occupying the
 visual-quality stage, so the primary comparison evaluates complete operations
 while holding every other stage fixed. A matched-input control additionally gives
 SIFT+BoVW and LIQE the same fixed set of at most ten uniformly spaced 1-fps
-frames and uses arithmetic-mean pooling for both. It thus isolates scorer
-identity within a matched-input regime; full scores and alternative
-normalizations are in Tables~S6, S9 and S11.
+frames and arithmetic-mean pooling. For SIFT, common-frame descriptors fit a
+seeded per-cluster vocabulary with
+$K_{\mathrm{eff}}=\min(300,n_{\mathrm{descriptors}})$; candidate segments are
+the documents for the deployed $\log_{10}(K_{\mathrm{eff}}/\mathrm{df})$ IDF.
+Empty-descriptor frames remain as zeros in the mean; all observed segments
+yielded descriptors and no top-score ties occurred. This isolates scorer
+identity within the matched-input regime (Tables~S6, S9 and S11).
 
 \subsection{Scorers, references and polarity}\label{sec:methods}
 
@@ -159,7 +163,7 @@ CLIP-IQA$+$ & vision--language & learned-prompt quality & K & \polup & yes & C \
 \rowcolor{rowlight}QualiCLIP & vision--language & degradation-ranked quality & OU & \polup & yes & C \\
 LIQE & vision--language & quality, distortion and scene & K & \polup & yes & C \\
 \rowcolor{rowlight}Q-Align & multimodal language model & discrete textual quality levels & M & \polup & yes & R \\
-19 CNN+BoVW & descriptor ablation & TF-IDF-weighted visual-word count & -- & \polup & yes & X \\
+CNN+BoVW (19 extractors) & descriptor ablation & TF-IDF-weighted visual-word count & -- & \polup & yes & X \\
 \rowcolor{rowlight}ARNIQA; TReS & partial coverage & distortion manifold; ranking consistency & K & \polup & yes & C \\
 \midrule
 \multicolumn{7}{@{}L{12.15cm}}{\scriptsize The 19-extractor ablation comprises
@@ -223,8 +227,9 @@ $20\times8\times5=800$ binary decisions. The unmodified member is the
 construction-defined higher-fidelity signal, not a human perceptual judgment.
 Accuracy and paired differences are block-bootstrapped by segment
 ($10^4$ resamples, seed 42). A second design correlates score with degradation
-level within each segment--type pair. Overlay strata, the complete registered
-prediction audit and parameters are reported in Tables~S2 and S12 and the
+level within each segment--type pair. Overlay strata, the complete audit of
+predictions recorded in a commit whose metadata predates the experiment, and
+parameters are reported in Tables~S2 and S12 and the
 reproducibility archive. Ties count as neither correct nor incorrect and remain
 in the denominator. A sensitivity analysis excludes darkening and desaturation,
 whose transformations define signal change more directly than universal
@@ -259,9 +264,12 @@ Steiger's statistic~\citep{steiger1980comparing}. The operational equivalence
 margin is $|\Delta\rho^{*}|<.02$, chosen as the largest association difference
 treated as practically negligible for this diagnostic rather than as a
 literature-wide standard; the paired difference and interval are also reported
-so stricter margins can be applied. The multiplicity family contains all 630
-pairwise contrasts among 36 evaluated scores (17 methods and 19 ablations);
-Bonferroni correction gives $\alpha=0.05/630$ and critical $|z|=3.95$. The full accuracy, consistency and linearity
+so stricter margins can be applied. Within each database, 630 pairwise Steiger
+contrasts cover 36 scores (17 methods and 19 ablations); Bonferroni correction
+gives $\alpha=.05/630$ and critical $|z|=3.95$. Outside that family, the sole
+canonical-score--keypoint equivalence diagnostic uses two one-sided tests at
+$\alpha=.05$ against $\pm.02$; KADID also reports its paired block interval.
+The full accuracy, consistency and linearity
 triad after the monotonic mapping required by ITU-T P.1401 is reported in
 Table~S4~\citep{itu_p1401}.
 
@@ -289,7 +297,8 @@ mini-batch $K$-means with $K=300$ and \texttt{random\_state=42}. Q-Align is
 quantized to 4-bit NormalFloat4 with double quantization and FP16 compute to fit
 the GPU~\citep{dettmers2023qlora}; the official PyIQA architecture supports
 fp16, 4-bit and 8-bit inference, with NF4 used in 4-bit mode. No numerical
-equivalence to fp16 is assumed. Frames
+equivalence to fp16 is assumed; the reported eligibility set is therefore
+conditional on this documented NF4 reference configuration. Frames
 are decoded once and cached, and latency is re-measured in one software
 environment after ten warm-up and sixty timed iterations. The archive includes
 the scoring scripts, derived results, cluster definitions, annotations, seeds

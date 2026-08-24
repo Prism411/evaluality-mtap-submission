@@ -116,12 +116,13 @@ Summarization Pipeline''}
 This supplement holds the detailed breakdowns behind results reported in the
 article, relocated here to keep the article at a readable length. Nothing in it
 is new: every figure quoted in the article is reproduced in full below, and the
-article cites these tables as Table~S1, Table~S2, and so on.
+article cites these tables as Table~S1, Table~S2, and so on. Values, polarity
+arrows, labels and boldface make every colour cue redundant in grayscale.
 
 %% --- S1: tab:dataset ---
 \begin{table}[!ht]
 \centering
-\caption{In-domain collection: topics of Brazilian television news, with the
+\caption{Human-annotated sensitivity collection (15 clusters): Brazilian television news topics, with
 number of source videos, segment slots, redundancy clusters and segment
 duration range. \emph{Slots} counts cluster memberships; because two segments
 belong to two clusters each, the 33 slots correspond to 31 distinct segments.}
@@ -148,10 +149,12 @@ belong to two clusters each, the 33 slots correspond to 31 distinct segments.}
 \rowcolor{rowlight} \textbf{Total} & \textbf{18} & \textbf{33} & \textbf{15} &
   8--188 & --- \\
 \bottomrule
-\multicolumn{6}{@{}l}{\scriptsize $^{\dagger}$98 SIFT descriptors $<$ $K=300$
-$K$-means centroids. Slots exceed distinct segments in} \\
-\multicolumn{6}{@{}l}{\scriptsize \texttt{brumadinho} and \texttt{isencao\_imposto},
-where one segment belongs to two clusters.} \\
+\multicolumn{6}{@{}p{12.4cm}}{\scriptsize $^{\dagger}$This six-topic set excludes
+\texttt{esquema\_pcc}: 98 SIFT descriptors $<K=300$. The operational block
+below is a distinct 83-segment redundancy output with different boundaries and
+composition; its six \texttt{esquema\_pcc} segments form three valid clusters.
+The sets are not nested. Slots exceed distinct segments where a segment belongs
+to two clusters.} \\
 \end{tabular}
 \end{table}
 
@@ -656,16 +659,19 @@ Raw-branch $\Delta=+.00736$ (topic $[.00135,.01406]$; hierarchical
 $[.00057,.01683]$). Thirteen of the 16 disagreement clusters belong to the
 22-cluster complete-operation change set. Relative to the published deployed
 path, matched-input SIFT changes 12 choices and matched-input LIQE changes 22;
-the control isolates scorer identity, not the historical operation itself.} \\
+the control isolates scorer identity, not the historical operation itself.
+Matched SIFT uses a seeded per-cluster $K_{\mathrm{eff}}\leq300$ vocabulary,
+segment-level document frequency and deployed IDF; empty frames remain in the
+mean. Every segment yielded descriptors and no top-score ties occurred.} \\
 \end{tabular}
 \end{center}
 
-%% --- S12: registered predictions ---
+%% --- S12: predictions recorded before the experiment ---
 \begin{table}[!ht]
 \centering
-\caption{The eight predictions registered at commit \texttt{9377c07} before the
-constructed experiment, against the measurements. None is used to filter a
-method.}
+\caption{Eight predictions recorded in commit \texttt{9377c07}, whose Git
+metadata predates the experiment, against measurements. The bundle verifies
+content and metadata, not a third-party timestamp; none filters a method.}
 \label{tab:preds_supp}
 \footnotesize
 \setlength{\tabcolsep}{4pt}
@@ -685,12 +691,11 @@ P8 & Q-Align & Design~A accuracy above $0.90$ & $98.2\%$, CI $[97.2,99.1]$ & hol
 \end{tabular}
 \end{table}
 
-The complete registered commit is:
+The complete prediction-recording commit is:
 \par\smallskip\noindent\path{9377c07ca080ac61c7cff80e0ff6c7507b6ebaba}.
-\par\smallskip The submission archive
-contains \texttt{registered\_prediction\_commit.bundle}; the clone, bundle
-verification and object-inspection commands in its README make the commit and
-timestamp independently inspectable even before the public release.
+\par\smallskip The archive's \texttt{registered\_prediction\_commit.bundle}
+makes the object and metadata inspectable; Git dates are user-supplied fields,
+not an externally certified timestamp.
 
 \FloatBarrier
 \begin{center}
@@ -780,7 +785,7 @@ QualiCLIP & CLIP & quality score & OU & \polup & Yes & C \\
 LIQE & CLIP & quality, distortion, scene & K & \polup & Yes & C \\
 Q-Align & LMM & textual quality levels & M & \polup & Yes & R \\
 SI & ITU-T complexity & Sobel energy & -- & \polup & No & X \\
-19 CNN+BoVW & ablation & TF-IDF word count & -- & \polup & Yes & X \\
+CNN+BoVW (19 extractors) & ablation & TF-IDF word count & -- & \polup & Yes & X \\
 DBCNN & CNN regression & bilinear pooling & K & \polup & Yes & C \\
 HyperIQA & CNN regression & adaptive weights & K & \polup & Yes & C \\
 MUSIQ & Transformer & multi-scale score & K & \polup & Yes & C \\
@@ -874,7 +879,8 @@ $7\times7$ spatial fragments of size 32, 32 frames, interval 2, three clips;
 aesthetic: $224\times224$, 32 frames, interval 2, one clip & The technical
 branch is the primary output reference and is also evaluated on the 800 pairs
 with a common 5-fps MP4 wrapper and paired seed 42. The raw branch sum is only a
-sensitivity analysis; it is not the official standardised fusion or DOVER++. \\
+sensitivity analysis; it is not the official standardised fusion or DOVER++.
+Higher (less negative) raw technical output indicates better quality. \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -932,9 +938,9 @@ values are losses. K = KonIQ-10k opinion training, OU = opinion-unaware and L =
 LIVE opinion training. The contrasts do not isolate causal effects because the
 databases, architectures and objectives are unmatched.}
 \label{tab:exposure_supp}
-\small
+\footnotesize
 \setlength{\tabcolsep}{4.5pt}
-\renewcommand{\arraystretch}{1.12}
+\renewcommand{\arraystretch}{0.98}
 \begin{tabular}{@{}lcrrrrr@{}}
 \toprule
 \rowcolor{headerblue}
@@ -975,7 +981,7 @@ attenuations, not causal fractions of ``content density.''}
 \label{tab:partial_supp}
 \footnotesize
 \setlength{\tabcolsep}{2.5pt}
-\renewcommand{\arraystretch}{1.12}
+\renewcommand{\arraystretch}{0.98}
 \begin{tabular}{@{}lrrrrrrrr@{}}
 \toprule
 \rowcolor{headerblue}
