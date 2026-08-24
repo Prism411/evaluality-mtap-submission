@@ -1,0 +1,1390 @@
+{
+ "design": {
+  "source_sampling": "uniform 1 fps",
+  "common_frame_cap": 10,
+  "common_frame_choice": "uniform linspace indices when more than 10 frames",
+  "pooling": "arithmetic mean for both scorers",
+  "sift_vocabulary": {
+   "K": 300,
+   "idf": "log10(K/document_frequency)",
+   "random_state": 42,
+   "n_init": 1
+  }
+ },
+ "clusters": {
+  "acordo_mariana#0": {
+   "segments": {
+    "acordo_mariana|cnn|60.14|86.6": {
+     "n_common_frames": 10,
+     "n_descriptors": 22786
+    },
+    "acordo_mariana|jornal_nacional|191.51|220.8": {
+     "n_common_frames": 10,
+     "n_descriptors": 8426
+    }
+   },
+   "scores": {
+    "published_deployed": {
+     "acordo_mariana|cnn|60.14|86.6": 3560.2128240052666,
+     "acordo_mariana|jornal_nacional|191.51|220.8": 6409.19584597103
+    },
+    "liqe_matched_mean": {
+     "acordo_mariana|cnn|60.14|86.6": 4.182682132720947,
+     "acordo_mariana|jornal_nacional|191.51|220.8": 3.3686721682548524
+    },
+    "sift_matched_mean": {
+     "acordo_mariana|cnn|60.14|86.6": 4995.167202355281,
+     "acordo_mariana|jornal_nacional|191.51|220.8": 1834.1765548716453
+    }
+   },
+   "selected": {
+    "published_deployed": "acordo_mariana|jornal_nacional|191.51|220.8",
+    "liqe_matched_mean": "acordo_mariana|cnn|60.14|86.6",
+    "sift_matched_mean": "acordo_mariana|cnn|60.14|86.6"
+   }
+  },
+  "aumento_cafe#0": {
+   "segments": {
+    "aumento_cafe|cafe_record|0.21|45.41": {
+     "n_common_frames": 10,
+     "n_descriptors": 10379
+    },
+    "aumento_cafe|cafe_cnn|0.0|45.02": {
+     "n_common_frames": 10,
+     "n_descriptors": 13119
+    },
+    "aumento_cafe|cafe_band|0.27|45.43": {
+     "n_common_frames": 10,
+     "n_descriptors": 15771
+    },
+    "aumento_cafe|cafe_cnn|124.64|169.96": {
+     "n_common_frames": 10,
+     "n_descriptors": 23612
+    }
+   },
+   "scores": {
+    "published_deployed": {
+     "aumento_cafe|cafe_record|0.21|45.41": 2026.354744851162,
+     "aumento_cafe|cafe_cnn|0.0|45.02": 2054.6861112597126,
+     "aumento_cafe|cafe_band|0.27|45.43": 623.7254434963836,
+     "aumento_cafe|cafe_cnn|124.64|169.96": 8118.848336055954
+    },
+    "liqe_matched_mean": {
+     "aumento_cafe|cafe_record|0.21|45.41": 3.9938745737075805,
+     "aumento_cafe|cafe_cnn|0.0|45.02": 3.889367640018463,
+     "aumento_cafe|cafe_band|0.27|45.43": 4.244798398017883,
+     "aumento_cafe|cafe_cnn|124.64|169.96": 4.308668065071106
+    },
+    "sift_matched_mean": {
+     "aumento_cafe|cafe_record|0.21|45.41": 1946.3509750001406,
+     "aumento_cafe|cafe_cnn|0.0|45.02": 2467.833815444333,
+     "aumento_cafe|cafe_band|0.27|45.43": 2957.30904497898,
+     "aumento_cafe|cafe_cnn|124.64|169.96": 4436.095462045383
+    }
+   },
+   "selected": {
+    "published_deployed": "aumento_cafe|cafe_cnn|124.64|169.96",
+    "liqe_matched_mean": "aumento_cafe|cafe_cnn|124.64|169.96",
+    "sift_matched_mean": "aumento_cafe|cafe_cnn|124.64|169.96"
+   }
+  },
+  "bebe_real#0": {
+   "segments": {
+    "bebe_real|jornal_da_record|0.62|37.86": {
+     "n_common_frames": 10,
+     "n_descriptors": 15996
+    },
+    "bebe_real|jornal_da_band|6.28|24.72": {
+     "n_common_frames": 10,
+     "n_descriptors": 14846
+    },
+    "bebe_real|jornal_nacional|0.72|41.48": {
+     "n_common_frames": 10,
+     "n_descriptors": 11938
+    }
+   },
+   "scores": {
+    "published_deployed": {
+     "bebe_real|jornal_da_record|0.62|37.86": 4753.394343070193,
+     "bebe_real|jornal_da_band|6.28|24.72": 2678.2338195886105,
+     "bebe_real|jornal_nacional|0.72|41.48": 2242.754463994504
+    },
+    "liqe_matched_mean": {
+     "bebe_real|jornal_da_record|0.62|37.86": 1.9945331454277038,
+     "bebe_real|jornal_da_band|6.28|24.72": 1.911120879650116,
+     "bebe_real|jornal_nacional|0.72|41.48": 1.6491151928901673
+    },
+    "sift_matched_mean": {
+     "bebe_real|jornal_da_record|0.62|37.86": 3199.622619021734,
+     "bebe_real|jornal_da_band|6.28|24.72": 2976.859969768922,
+     "bebe_real|jornal_nacional|0.72|41.48": 2387.6352182518112
+    }
+   },
+   "selected": {
+    "published_deployed": "bebe_real|jornal_da_record|0.62|37.86",
+    "liqe_matched_mean": "bebe_real|jornal_da_record|0.62|37.86",
+    "sift_matched_mean": "bebe_real|jornal_da_record|0.62|37.86"
+   }
+  },
+  "bebe_real#1": {
+   "segments": {
+    "bebe_real|jornal_da_band|37.86|47.52": {
+     "n_common_frames": 10,
+     "n_descriptors": 14322
+    },
+    "bebe_real|jornal_da_record|46.12|56.9": {
+     "n_common_frames": 10,
+     "n_descriptors": 19044
+    }
+   },
+   "scores": {
+    "published_deployed": {
+     "bebe_real|jornal_da_band|37.86|47.52": 5384.496644886762,
+     "bebe_real|jornal_da_record|46.12|56.9": 2063.166662291046
+    },
+    "liqe_matched_mean": {
+     "bebe_real|jornal_da_band|37.86|47.52": 1.4935868620872497,
+     "bebe_real|jornal_da_record|46.12|56.9": 1.5882628202438354
+    },
+    "sift_matched_mean": {
+     "bebe_real|jornal_da_band|37.86|47.52": 3116.5979012195467,
+     "bebe_real|jornal_da_record|46.12|56.9": 4144.148193745639
+    }
+   },
+   "selected": {
+    "published_deployed": "bebe_real|jornal_da_band|37.86|47.52",
+    "liqe_matched_mean": "bebe_real|jornal_da_record|46.12|56.9",
+    "sift_matched_mean": "bebe_real|jornal_da_record|46.12|56.9"
+   }
+  },
+  "bolsonaro_trump#0": {
+   "segments": {
+    "bolsonaro_trump|jornal_nacional|56.66|79.6": {
+     "n_common_frames": 10,
+     "n_descriptors": 31508
+    },
+    "bolsonaro_trump|jornal_da_band|20.64|74.48": {
+     "n_common_frames": 10,
+     "n_descriptors": 24693
+    }
+   },
+   "scores": {
+    "published_deployed": {
+     "bolsonaro_trump|jornal_nacional|56.66|79.6": 4571.396208183414,
+     "bolsonaro_trump|jornal_da_band|20.64|74.48": 3086.7892675828357
+    },
+    "liqe_matched_mean": {
+     "bolsonaro_trump|jornal_nacional|56.66|79.6": 2.6501626849174498,
+     "bolsonaro_trump|jornal_da_band|20.64|74.48": 1.9470695734024048
+    },
+    "sift_matched_mean": {
+     "bolsonaro_trump|jornal_nacional|56.66|79.6": 6856.428339032641,
+     "bolsonaro_trump|jornal_da_band|20.64|74.48": 5377.4559479280915
+    }
+   },
+   "selected": {
+    "published_deployed": "bolsonaro_trump|jornal_nacional|56.66|79.6",
+    "liqe_matched_mean": "bolsonaro_trump|jornal_nacional|56.66|79.6",
+    "sift_matched_mean": "bolsonaro_trump|jornal_nacional|56.66|79.6"
+   }
+  },
+  "bolsonaro_trump#1": {
+   "segments": {
+    "bolsonaro_trump|jornal_da_record|1.22|38.04": {
+     "n_common_frames": 10,
+     "n_descriptors": 10215
+    },
+    "bolsonaro_trump|jornal_nacional|0.18|56.46": {
+     "n_common_frames": 10,
+     "n_descriptors": 13637
+    }
+   },
+   "scores": {
+    "published_deployed": {
+     "bolsonaro_trump|jornal_da_record|1.22|38.04": 2102.8516120426248,
+     "bolsonaro_trump|jornal_nacional|0.18|56.46": 2368.617904029742
+    },
+    "liqe_matched_mean": {
+     "bolsonaro_trump|jornal_da_record|1.22|38.04": 1.0945895314216614,
+     "bolsonaro_trump|jornal_nacional|0.18|56.46": 2.8461740970611573
+    },
+    "sift_matched_mean": {
+     "bolsonaro_trump|jornal_da_record|1.22|38.04": 2222.8772211253786,
+     "bolsonaro_trump|jornal_nacional|0.18|56.46": 2969.672962943447
+    }
+   },
+   "selected": {
+    "published_deployed": "bolsonaro_trump|jornal_nacional|0.18|56.46",
+    "liqe_matched_mean": "bolsonaro_trump|jornal_nacional|0.18|56.46",
+    "sift_matched_mean": "bolsonaro_trump|jornal_nacional|0.18|56.46"
+   }
+  },
+  "bolsonaro_trump#2": {
+   "segments": {
+    "bolsonaro_trump|jornal_da_record|144.22|162.42": {
+     "n_common_frames": 10,
+     "n_descriptors": 17398
+    },
+    "bolsonaro_trump|jornal_da_band|273.72|337.2": {
+     "n_common_frames": 10,
+     "n_descriptors": 30929
+    }
+   },
+   "scores": {
+    "published_deployed": {
+     "bolsonaro_trump|jornal_da_record|144.22|162.42": 5655.110131970444,
+     "bolsonaro_trump|jornal_da_band|273.72|337.2": 4953.125506893807
+    },
+    "liqe_matched_mean": {
+     "bolsonaro_trump|jornal_da_record|144.22|162.42": 1.1001200318336486,
+     "bolsonaro_trump|jornal_da_band|273.72|337.2": 1.0987247467041015
+    },
+    "sift_matched_mean": {
+     "bolsonaro_trump|jornal_da_record|144.22|162.42": 3785.9635725050744,
+     "bolsonaro_trump|jornal_da_band|273.72|337.2": 6733.653676086922
+    }
+   },
+   "selected": {
+    "published_deployed": "bolsonaro_trump|jornal_da_record|144.22|162.42",
+    "liqe_matched_mean": "bolsonaro_trump|jornal_da_record|144.22|162.42",
+    "sift_matched_mean": "bolsonaro_trump|jornal_da_band|273.72|337.2"
+   }
+  },
+  "brasil_omc#0": {
+   "segments": {
+    "brasil_omc|uol|27.68|54.92": {
+     "n_common_frames": 10,
+     "n_descriptors": 16494
+    },
+    "brasil_omc|record_news|126.96|156.04": {
+     "n_common_frames": 10,
+     "n_descriptors": 15505
+    }
+   },
+   "scores": {
+    "published_deployed": {
+     "brasil_omc|uol|27.68|54.92": 3740.6115162500087,
+     "brasil_omc|record_news|126.96|156.04": 3129.4845172910523
+    },
+    "liqe_matched_mean": {
+     "brasil_omc|uol|27.68|54.92": 3.3600906133651733,
+     "brasil_omc|record_news|126.96|156.04": 3.759988987445831
+    },
+    "sift_matched_mean": {
+     "brasil_omc|uol|27.68|54.92": 3610.1665073850877,
+     "brasil_omc|record_news|126.96|156.04": 3381.976689051363
+    }
+   },
+   "selected": {
+    "published_deployed": "brasil_omc|uol|27.68|54.92",
+    "liqe_matched_mean": "brasil_omc|record_news|126.96|156.04",
+    "sift_matched_mean": "brasil_omc|uol|27.68|54.92"
+   }
+  },
+  "brumadinho#0": {
+   "segments": {
+    "brumadinho|jornal_da_band|69.7|177.96": {
+     "n_common_frames": 10,
+     "n_descriptors": 68558
+    },
+    "brumadinho|jornal_nacional|78.0|97.32": {
+     "n_common_frames": 10,
+     "n_descriptors": 15596
+    }
+   },
+   "scores": {
+    "published_deployed": {
+     "brumadinho|jornal_da_band|69.7|177.96": 7389.75050283837,
+     "brumadinho|jornal_nacional|78.0|97.32": 1004.6832204029904
+    },
+    "liqe_matched_mean": {
+     "brumadinho|jornal_da_band|69.7|177.96": 1.5900532603263855,
+     "brumadinho|jornal_nacional|78.0|97.32": 1.453344190120697
+    },
+    "sift_matched_mean": {
+     "brumadinho|jornal_da_band|69.7|177.96": 14919.930161818329,
+     "brumadinho|jornal_nacional|78.0|97.32": 3393.8319276232405
+    }
+   },
+   "selected": {
+    "published_deployed": "brumadinho|jornal_da_band|69.7|177.96",
+    "liqe_matched_mean": "brumadinho|jornal_da_band|69.7|177.96",
+    "sift_matched_mean": "brumadinho|jornal_da_band|69.7|177.96"
+   }
+  },
+  "brumadinho#1": {
+   "segments": {
+    "brumadinho|jornal_da_record|264.5|452.12": {
+     "n_common_frames": 10,
+     "n_descriptors": 20423
+    },
+    "brumadinho|jornal_nacional|206.32|226.44": {
+     "n_common_frames": 10,
+     "n_descriptors": 138337
+    }
+   },
+   "scores": {
+    "published_deployed": {
+     "brumadinho|jornal_da_record|264.5|452.12": 5297.919897101,
+     "brumadinho|jornal_nacional|206.32|226.44": 17716.683940276867
+    },
+    "liqe_matched_mean": {
+     "brumadinho|jornal_da_record|264.5|452.12": 1.1286482095718384,
+     "brumadinho|jornal_nacional|206.32|226.44": 2.063664948940277
+    },
+    "sift_matched_mean": {
+     "brumadinho|jornal_da_record|264.5|452.12": 4444.231178369419,
+     "brumadinho|jornal_nacional|206.32|226.44": 30103.39365039858
+    }
+   },
+   "selected": {
+    "published_deployed": "brumadinho|jornal_nacional|206.32|226.44",
+    "liqe_matched_mean": "brumadinho|jornal_nacional|206.32|226.44",
+    "sift_matched_mean": "brumadinho|jornal_nacional|206.32|226.44"
+   }
+  },
+  "brumadinho#2": {
+   "segments": {
+    "brumadinho|jornal_da_band|0.0|12.86": {
+     "n_common_frames": 10,
+     "n_descriptors": 15902
+    },
+    "brumadinho|jornal_da_record|264.5|452.12": {
+     "n_common_frames": 10,
+     "n_descriptors": 20423
+    }
+   },
+   "scores": {
+    "published_deployed": {
+     "brumadinho|jornal_da_band|0.0|12.86": 2860.4502718030103,
+     "brumadinho|jornal_da_record|264.5|452.12": 5368.962976077705
+    },
+    "liqe_matched_mean": {
+     "brumadinho|jornal_da_band|0.0|12.86": 2.563152384757996,
+     "brumadinho|jornal_da_record|264.5|452.12": 1.1286482095718384
+    },
+    "sift_matched_mean": {
+     "brumadinho|jornal_da_band|0.0|12.86": 3460.420320150344,
+     "brumadinho|jornal_da_record|264.5|452.12": 4476.381181906331
+    }
+   },
+   "selected": {
+    "published_deployed": "brumadinho|jornal_da_record|264.5|452.12",
+    "liqe_matched_mean": "brumadinho|jornal_da_band|0.0|12.86",
+    "sift_matched_mean": "brumadinho|jornal_da_record|264.5|452.12"
+   }
+  },
+  "catedral_notre_dame#0": {
+   "segments": {
+    "catedral_notre_dame|jornal_da_band|0.06|94.12": {
+     "n_common_frames": 10,
+     "n_descriptors": 35115
+    },
+    "catedral_notre_dame|jornal_nacional|0.4|51.22": {
+     "n_common_frames": 10,
+     "n_descriptors": 25823
+    },
+    "catedral_notre_dame|jornal_da_record|31.88|49.78": {
+     "n_common_frames": 10,
+     "n_descriptors": 13667
+    }
+   },
+   "scores": {
+    "published_deployed": {
+     "catedral_notre_dame|jornal_da_band|0.06|94.12": 2426.376487092179,
+     "catedral_notre_dame|jornal_nacional|0.4|51.22": 2159.2402681846634,
+     "catedral_notre_dame|jornal_da_record|31.88|49.78": 3516.623203872896
+    },
+    "liqe_matched_mean": {
+     "catedral_notre_dame|jornal_da_band|0.06|94.12": 1.3051714658737184,
+     "catedral_notre_dame|jornal_nacional|0.4|51.22": 1.6226671576499938,
+     "catedral_notre_dame|jornal_da_record|31.88|49.78": 1.028005588054657
+    },
+    "sift_matched_mean": {
+     "catedral_notre_dame|jornal_da_band|0.06|94.12": 7024.620039583312,
+     "catedral_notre_dame|jornal_nacional|0.4|51.22": 5164.740873007244,
+     "catedral_notre_dame|jornal_da_record|31.88|49.78": 2733.4
+    }
+   },
+   "selected": {
+    "published_deployed": "catedral_notre_dame|jornal_da_record|31.88|49.78",
+    "liqe_matched_mean": "catedral_notre_dame|jornal_nacional|0.4|51.22",
+    "sift_matched_mean": "catedral_notre_dame|jornal_da_band|0.06|94.12"
+   }
+  },
+  "catedral_notre_dame#1": {
+   "segments": {
+    "catedral_notre_dame|jornal_da_band|0.06|94.12": {
+     "n_common_frames": 10,
+     "n_descriptors": 35115
+    },
+    "catedral_notre_dame|jornal_da_record|51.04|72.1": {
+     "n_common_frames": 10,
+     "n_descriptors": 30075
+    }
+   },
+   "scores": {
+    "published_deployed": {
+     "catedral_notre_dame|jornal_da_band|0.06|94.12": 2622.1899671621045,
+     "catedral_notre_dame|jornal_da_record|51.04|72.1": 20247.883546803216
+    },
+    "liqe_matched_mean": {
+     "catedral_notre_dame|jornal_da_band|0.06|94.12": 1.3051714658737184,
+     "catedral_notre_dame|jornal_da_record|51.04|72.1": 1.0496503353118896
+    },
+    "sift_matched_mean": {
+     "catedral_notre_dame|jornal_da_band|0.06|94.12": 7641.344456174025,
+     "catedral_notre_dame|jornal_da_record|51.04|72.1": 6544.594461609961
+    }
+   },
+   "selected": {
+    "published_deployed": "catedral_notre_dame|jornal_da_record|51.04|72.1",
+    "liqe_matched_mean": "catedral_notre_dame|jornal_da_band|0.06|94.12",
+    "sift_matched_mean": "catedral_notre_dame|jornal_da_band|0.06|94.12"
+   }
+  },
+  "cessar_fogo_ucrania#0": {
+   "segments": {
+    "cessar_fogo_ucrania|ucrania_band|0.24|39.88": {
+     "n_common_frames": 10,
+     "n_descriptors": 7277
+    },
+    "cessar_fogo_ucrania|ucrania_cnn|21.56|67.12": {
+     "n_common_frames": 10,
+     "n_descriptors": 15795
+    }
+   },
+   "scores": {
+    "published_deployed": {
+     "cessar_fogo_ucrania|ucrania_band|0.24|39.88": 1549.823402246819,
+     "cessar_fogo_ucrania|ucrania_cnn|21.56|67.12": 3146.5462357524975
+    },
+    "liqe_matched_mean": {
+     "cessar_fogo_ucrania|ucrania_band|0.24|39.88": 2.371010220050812,
+     "cessar_fogo_ucrania|ucrania_cnn|21.56|67.12": 4.806579494476319
+    },
+    "sift_matched_mean": {
+     "cessar_fogo_ucrania|ucrania_band|0.24|39.88": 1583.5416092148193,
+     "cessar_fogo_ucrania|ucrania_cnn|21.56|67.12": 3472.14593217417
+    }
+   },
+   "selected": {
+    "published_deployed": "cessar_fogo_ucrania|ucrania_cnn|21.56|67.12",
+    "liqe_matched_mean": "cessar_fogo_ucrania|ucrania_cnn|21.56|67.12",
+    "sift_matched_mean": "cessar_fogo_ucrania|ucrania_cnn|21.56|67.12"
+   }
+  },
+  "cessar_fogo_ucrania#1": {
+   "segments": {
+    "cessar_fogo_ucrania|ucrania_sbt|0.05|45.37": {
+     "n_common_frames": 10,
+     "n_descriptors": 8418
+    },
+    "cessar_fogo_ucrania|ucrania_band|41.44|86.54": {
+     "n_common_frames": 10,
+     "n_descriptors": 11872
+    }
+   },
+   "scores": {
+    "published_deployed": {
+     "cessar_fogo_ucrania|ucrania_sbt|0.05|45.37": 1616.6291616101498,
+     "cessar_fogo_ucrania|ucrania_band|41.44|86.54": 3810.4352087946704
+    },
+    "liqe_matched_mean": {
+     "cessar_fogo_ucrania|ucrania_sbt|0.05|45.37": 3.5835940837860107,
+     "cessar_fogo_ucrania|ucrania_band|41.44|86.54": 2.9730440258979796
+    },
+    "sift_matched_mean": {
+     "cessar_fogo_ucrania|ucrania_sbt|0.05|45.37": 1848.7515076293882,
+     "cessar_fogo_ucrania|ucrania_band|41.44|86.54": 2596.9416865566513
+    }
+   },
+   "selected": {
+    "published_deployed": "cessar_fogo_ucrania|ucrania_band|41.44|86.54",
+    "liqe_matched_mean": "cessar_fogo_ucrania|ucrania_sbt|0.05|45.37",
+    "sift_matched_mean": "cessar_fogo_ucrania|ucrania_band|41.44|86.54"
+   }
+  },
+  "cessar_fogo_ucrania#2": {
+   "segments": {
+    "cessar_fogo_ucrania|ucrania_sbt|0.05|45.37": {
+     "n_common_frames": 10,
+     "n_descriptors": 8418
+    },
+    "cessar_fogo_ucrania|ucrania_cnn|21.56|67.12": {
+     "n_common_frames": 10,
+     "n_descriptors": 15795
+    }
+   },
+   "scores": {
+    "published_deployed": {
+     "cessar_fogo_ucrania|ucrania_sbt|0.05|45.37": 1627.7672714497187,
+     "cessar_fogo_ucrania|ucrania_cnn|21.56|67.12": 3147.1482957438243
+    },
+    "liqe_matched_mean": {
+     "cessar_fogo_ucrania|ucrania_sbt|0.05|45.37": 3.5835940837860107,
+     "cessar_fogo_ucrania|ucrania_cnn|21.56|67.12": 4.806579494476319
+    },
+    "sift_matched_mean": {
+     "cessar_fogo_ucrania|ucrania_sbt|0.05|45.37": 1835.3857758219074,
+     "cessar_fogo_ucrania|ucrania_cnn|21.56|67.12": 3467.118731246582
+    }
+   },
+   "selected": {
+    "published_deployed": "cessar_fogo_ucrania|ucrania_cnn|21.56|67.12",
+    "liqe_matched_mean": "cessar_fogo_ucrania|ucrania_cnn|21.56|67.12",
+    "sift_matched_mean": "cessar_fogo_ucrania|ucrania_cnn|21.56|67.12"
+   }
+  },
+  "esquema_pcc#0": {
+   "segments": {
+    "esquema_pcc|g1|236.22|265.82": {
+     "n_common_frames": 10,
+     "n_descriptors": 14667
+    },
+    "esquema_pcc|band|168.62|197.54": {
+     "n_common_frames": 10,
+     "n_descriptors": 11634
+    }
+   },
+   "scores": {
+    "published_deployed": {
+     "esquema_pcc|g1|236.22|265.82": 1555.394971196965,
+     "esquema_pcc|band|168.62|197.54": 2796.106184977819
+    },
+    "liqe_matched_mean": {
+     "esquema_pcc|g1|236.22|265.82": 3.673070693016052,
+     "esquema_pcc|band|168.62|197.54": 3.580419492721558
+    },
+    "sift_matched_mean": {
+     "esquema_pcc|g1|236.22|265.82": 3201.426421516481,
+     "esquema_pcc|band|168.62|197.54": 2542.8628866240797
+    }
+   },
+   "selected": {
+    "published_deployed": "esquema_pcc|band|168.62|197.54",
+    "liqe_matched_mean": "esquema_pcc|g1|236.22|265.82",
+    "sift_matched_mean": "esquema_pcc|g1|236.22|265.82"
+   }
+  },
+  "esquema_pcc#1": {
+   "segments": {
+    "esquema_pcc|gazeta|141.04|170.56": {
+     "n_common_frames": 10,
+     "n_descriptors": 3988
+    },
+    "esquema_pcc|g1|65.68|94.12": {
+     "n_common_frames": 10,
+     "n_descriptors": 6619
+    }
+   },
+   "scores": {
+    "published_deployed": {
+     "esquema_pcc|gazeta|141.04|170.56": 792.982436669919,
+     "esquema_pcc|g1|65.68|94.12": 1925.3381184611228
+    },
+    "liqe_matched_mean": {
+     "esquema_pcc|gazeta|141.04|170.56": 3.347011613845825,
+     "esquema_pcc|g1|65.68|94.12": 3.3513275027275085
+    },
+    "sift_matched_mean": {
+     "esquema_pcc|gazeta|141.04|170.56": 871.0763180645766,
+     "esquema_pcc|g1|65.68|94.12": 1465.0994700125348
+    }
+   },
+   "selected": {
+    "published_deployed": "esquema_pcc|g1|65.68|94.12",
+    "liqe_matched_mean": "esquema_pcc|g1|65.68|94.12",
+    "sift_matched_mean": "esquema_pcc|g1|65.68|94.12"
+   }
+  },
+  "esquema_pcc#2": {
+   "segments": {
+    "esquema_pcc|gazeta|256.58|286.36": {
+     "n_common_frames": 10,
+     "n_descriptors": 6160
+    },
+    "esquema_pcc|band|27.56|54.24": {
+     "n_common_frames": 10,
+     "n_descriptors": 9405
+    }
+   },
+   "scores": {
+    "published_deployed": {
+     "esquema_pcc|gazeta|256.58|286.36": 1144.1749713001575,
+     "esquema_pcc|band|27.56|54.24": 2144.0901162846285
+    },
+    "liqe_matched_mean": {
+     "esquema_pcc|gazeta|256.58|286.36": 2.8729590654373167,
+     "esquema_pcc|band|27.56|54.24": 4.927567768096924
+    },
+    "sift_matched_mean": {
+     "esquema_pcc|gazeta|256.58|286.36": 1358.5340153181385,
+     "esquema_pcc|band|27.56|54.24": 2084.7543295924947
+    }
+   },
+   "selected": {
+    "published_deployed": "esquema_pcc|band|27.56|54.24",
+    "liqe_matched_mean": "esquema_pcc|band|27.56|54.24",
+    "sift_matched_mean": "esquema_pcc|band|27.56|54.24"
+   }
+  },
+  "fone_cancelamento_ruido#0": {
+   "segments": {
+    "fone_cancelamento_ruido|fone-cancelamento_ruido_bbc|59.56|75.98": {
+     "n_common_frames": 10,
+     "n_descriptors": 6987
+    },
+    "fone_cancelamento_ruido|fone-cancelamento_ruido_olhardigital|92.04|121.72": {
+     "n_common_frames": 10,
+     "n_descriptors": 8694
+    }
+   },
+   "scores": {
+    "published_deployed": {
+     "fone_cancelamento_ruido|fone-cancelamento_ruido_bbc|59.56|75.98": 906.5856079399841,
+     "fone_cancelamento_ruido|fone-cancelamento_ruido_olhardigital|92.04|121.72": 1821.005628991919
+    },
+    "liqe_matched_mean": {
+     "fone_cancelamento_ruido|fone-cancelamento_ruido_bbc|59.56|75.98": 3.2416621685028075,
+     "fone_cancelamento_ruido|fone-cancelamento_ruido_olhardigital|92.04|121.72": 3.9263390064239503
+    },
+    "sift_matched_mean": {
+     "fone_cancelamento_ruido|fone-cancelamento_ruido_bbc|59.56|75.98": 1527.8704035951048,
+     "fone_cancelamento_ruido|fone-cancelamento_ruido_olhardigital|92.04|121.72": 1894.9943495783482
+    }
+   },
+   "selected": {
+    "published_deployed": "fone_cancelamento_ruido|fone-cancelamento_ruido_olhardigital|92.04|121.72",
+    "liqe_matched_mean": "fone_cancelamento_ruido|fone-cancelamento_ruido_olhardigital|92.04|121.72",
+    "sift_matched_mean": "fone_cancelamento_ruido|fone-cancelamento_ruido_olhardigital|92.04|121.72"
+   }
+  },
+  "fone_cancelamento_ruido#1": {
+   "segments": {
+    "fone_cancelamento_ruido|fone_cancelamento_ruido_band|18.56|46.48": {
+     "n_common_frames": 10,
+     "n_descriptors": 22130
+    },
+    "fone_cancelamento_ruido|fone-cancelamento_ruido_bbc|29.6|59.42": {
+     "n_common_frames": 10,
+     "n_descriptors": 6329
+    }
+   },
+   "scores": {
+    "published_deployed": {
+     "fone_cancelamento_ruido|fone_cancelamento_ruido_band|18.56|46.48": 3056.7959205932543,
+     "fone_cancelamento_ruido|fone-cancelamento_ruido_bbc|29.6|59.42": 2408.149824753126
+    },
+    "liqe_matched_mean": {
+     "fone_cancelamento_ruido|fone_cancelamento_ruido_band|18.56|46.48": 3.404007077217102,
+     "fone_cancelamento_ruido|fone-cancelamento_ruido_bbc|29.6|59.42": 3.2922374963760377
+    },
+    "sift_matched_mean": {
+     "fone_cancelamento_ruido|fone_cancelamento_ruido_band|18.56|46.48": 4824.359620165345,
+     "fone_cancelamento_ruido|fone-cancelamento_ruido_bbc|29.6|59.42": 1399.0126265428466
+    }
+   },
+   "selected": {
+    "published_deployed": "fone_cancelamento_ruido|fone_cancelamento_ruido_band|18.56|46.48",
+    "liqe_matched_mean": "fone_cancelamento_ruido|fone_cancelamento_ruido_band|18.56|46.48",
+    "sift_matched_mean": "fone_cancelamento_ruido|fone_cancelamento_ruido_band|18.56|46.48"
+   }
+  },
+  "fone_cancelamento_ruido#2": {
+   "segments": {
+    "fone_cancelamento_ruido|fone-cancelamento_ruido_olhardigital|149.61|174.96": {
+     "n_common_frames": 10,
+     "n_descriptors": 5209
+    },
+    "fone_cancelamento_ruido|fone_cancelamento_ruido_band|46.98|76.18": {
+     "n_common_frames": 10,
+     "n_descriptors": 11357
+    }
+   },
+   "scores": {
+    "published_deployed": {
+     "fone_cancelamento_ruido|fone-cancelamento_ruido_olhardigital|149.61|174.96": 1697.5833307696926,
+     "fone_cancelamento_ruido|fone_cancelamento_ruido_band|46.98|76.18": 6949.792467877909
+    },
+    "liqe_matched_mean": {
+     "fone_cancelamento_ruido|fone-cancelamento_ruido_olhardigital|149.61|174.96": 2.308024895191193,
+     "fone_cancelamento_ruido|fone_cancelamento_ruido_band|46.98|76.18": 4.089838457107544
+    },
+    "sift_matched_mean": {
+     "fone_cancelamento_ruido|fone-cancelamento_ruido_olhardigital|149.61|174.96": 1133.5259368421043,
+     "fone_cancelamento_ruido|fone_cancelamento_ruido_band|46.98|76.18": 2488.756273659349
+    }
+   },
+   "selected": {
+    "published_deployed": "fone_cancelamento_ruido|fone_cancelamento_ruido_band|46.98|76.18",
+    "liqe_matched_mean": "fone_cancelamento_ruido|fone_cancelamento_ruido_band|46.98|76.18",
+    "sift_matched_mean": "fone_cancelamento_ruido|fone_cancelamento_ruido_band|46.98|76.18"
+   }
+  },
+  "fraude_inss#0": {
+   "segments": {
+    "fraude_inss|fraude_inss_SBT|0.0|45.04": {
+     "n_common_frames": 10,
+     "n_descriptors": 15616
+    },
+    "fraude_inss|fraude_inss_fraude|0.4|45.46": {
+     "n_common_frames": 10,
+     "n_descriptors": 10928
+    }
+   },
+   "scores": {
+    "published_deployed": {
+     "fraude_inss|fraude_inss_SBT|0.0|45.04": 2112.448828677187,
+     "fraude_inss|fraude_inss_fraude|0.4|45.46": 1962.1531359988392
+    },
+    "liqe_matched_mean": {
+     "fraude_inss|fraude_inss_SBT|0.0|45.04": 3.5298364639282225,
+     "fraude_inss|fraude_inss_fraude|0.4|45.46": 4.558805799484253
+    },
+    "sift_matched_mean": {
+     "fraude_inss|fraude_inss_SBT|0.0|45.04": 3406.0108900286154,
+     "fraude_inss|fraude_inss_fraude|0.4|45.46": 2378.664690886943
+    }
+   },
+   "selected": {
+    "published_deployed": "fraude_inss|fraude_inss_SBT|0.0|45.04",
+    "liqe_matched_mean": "fraude_inss|fraude_inss_fraude|0.4|45.46",
+    "sift_matched_mean": "fraude_inss|fraude_inss_SBT|0.0|45.04"
+   }
+  },
+  "fraude_inss#1": {
+   "segments": {
+    "fraude_inss|fraude_inss_cnn|0.0|45.06": {
+     "n_common_frames": 10,
+     "n_descriptors": 16410
+    },
+    "fraude_inss|fraude_inss_SBT|135.92|181.14": {
+     "n_common_frames": 10,
+     "n_descriptors": 9117
+    }
+   },
+   "scores": {
+    "published_deployed": {
+     "fraude_inss|fraude_inss_cnn|0.0|45.06": 2664.403047844468,
+     "fraude_inss|fraude_inss_SBT|135.92|181.14": 3132.8978665954896
+    },
+    "liqe_matched_mean": {
+     "fraude_inss|fraude_inss_cnn|0.0|45.06": 4.496817207336425,
+     "fraude_inss|fraude_inss_SBT|135.92|181.14": 4.231899166107178
+    },
+    "sift_matched_mean": {
+     "fraude_inss|fraude_inss_cnn|0.0|45.06": 3592.609812798613,
+     "fraude_inss|fraude_inss_SBT|135.92|181.14": 1983.9424008810645
+    }
+   },
+   "selected": {
+    "published_deployed": "fraude_inss|fraude_inss_SBT|135.92|181.14",
+    "liqe_matched_mean": "fraude_inss|fraude_inss_cnn|0.0|45.06",
+    "sift_matched_mean": "fraude_inss|fraude_inss_cnn|0.0|45.06"
+   }
+  },
+  "fraude_inss#2": {
+   "segments": {
+    "fraude_inss|fraude_inss_cnn|0.0|45.06": {
+     "n_common_frames": 10,
+     "n_descriptors": 16410
+    },
+    "fraude_inss|fraude_inss_fraude|0.4|45.46": {
+     "n_common_frames": 10,
+     "n_descriptors": 10928
+    }
+   },
+   "scores": {
+    "published_deployed": {
+     "fraude_inss|fraude_inss_cnn|0.0|45.06": 2783.008866136076,
+     "fraude_inss|fraude_inss_fraude|0.4|45.46": 1963.056225985832
+    },
+    "liqe_matched_mean": {
+     "fraude_inss|fraude_inss_cnn|0.0|45.06": 4.496817207336425,
+     "fraude_inss|fraude_inss_fraude|0.4|45.46": 4.558805799484253
+    },
+    "sift_matched_mean": {
+     "fraude_inss|fraude_inss_cnn|0.0|45.06": 3595.8609367517843,
+     "fraude_inss|fraude_inss_fraude|0.4|45.46": 2383.4510678180004
+    }
+   },
+   "selected": {
+    "published_deployed": "fraude_inss|fraude_inss_cnn|0.0|45.06",
+    "liqe_matched_mean": "fraude_inss|fraude_inss_fraude|0.4|45.46",
+    "sift_matched_mean": "fraude_inss|fraude_inss_cnn|0.0|45.06"
+   }
+  },
+  "google_huawei#0": {
+   "segments": {
+    "google_huawei|sbt_brasil|0.44|45.08": {
+     "n_common_frames": 10,
+     "n_descriptors": 36125
+    },
+    "google_huawei|jornal_nacional|22.62|93.9": {
+     "n_common_frames": 10,
+     "n_descriptors": 17097
+    }
+   },
+   "scores": {
+    "published_deployed": {
+     "google_huawei|sbt_brasil|0.44|45.08": 5603.434992068377,
+     "google_huawei|jornal_nacional|22.62|93.9": 6330.30048226904
+    },
+    "liqe_matched_mean": {
+     "google_huawei|sbt_brasil|0.44|45.08": 1.9093801975250244,
+     "google_huawei|jornal_nacional|22.62|93.9": 1.8888171553611754
+    },
+    "sift_matched_mean": {
+     "google_huawei|sbt_brasil|0.44|45.08": 7865.043063282281,
+     "google_huawei|jornal_nacional|22.62|93.9": 3720.4632256074983
+    }
+   },
+   "selected": {
+    "published_deployed": "google_huawei|jornal_nacional|22.62|93.9",
+    "liqe_matched_mean": "google_huawei|sbt_brasil|0.44|45.08",
+    "sift_matched_mean": "google_huawei|sbt_brasil|0.44|45.08"
+   }
+  },
+  "google_huawei#1": {
+   "segments": {
+    "google_huawei|jornal_da_band|0.08|43.64": {
+     "n_common_frames": 10,
+     "n_descriptors": 11147
+    },
+    "google_huawei|sbt_brasil|56.68|73.32": {
+     "n_common_frames": 10,
+     "n_descriptors": 26450
+    }
+   },
+   "scores": {
+    "published_deployed": {
+     "google_huawei|jornal_da_band|0.08|43.64": 2650.479153529829,
+     "google_huawei|sbt_brasil|56.68|73.32": 8145.344154248441
+    },
+    "liqe_matched_mean": {
+     "google_huawei|jornal_da_band|0.08|43.64": 1.8218486189842225,
+     "google_huawei|sbt_brasil|56.68|73.32": 1.6972108364105225
+    },
+    "sift_matched_mean": {
+     "google_huawei|jornal_da_band|0.08|43.64": 2425.688926469368,
+     "google_huawei|sbt_brasil|56.68|73.32": 5768.6153610171295
+    }
+   },
+   "selected": {
+    "published_deployed": "google_huawei|sbt_brasil|56.68|73.32",
+    "liqe_matched_mean": "google_huawei|jornal_da_band|0.08|43.64",
+    "sift_matched_mean": "google_huawei|sbt_brasil|56.68|73.32"
+   }
+  },
+  "google_huawei#2": {
+   "segments": {
+    "google_huawei|jornal_da_band|0.08|43.64": {
+     "n_common_frames": 10,
+     "n_descriptors": 11147
+    },
+    "google_huawei|jornal_nacional|22.62|93.9": {
+     "n_common_frames": 10,
+     "n_descriptors": 17097
+    }
+   },
+   "scores": {
+    "published_deployed": {
+     "google_huawei|jornal_da_band|0.08|43.64": 2651.0812135211536,
+     "google_huawei|jornal_nacional|22.62|93.9": 6375.756011614302
+    },
+    "liqe_matched_mean": {
+     "google_huawei|jornal_da_band|0.08|43.64": 1.8218486189842225,
+     "google_huawei|jornal_nacional|22.62|93.9": 1.8888171553611754
+    },
+    "sift_matched_mean": {
+     "google_huawei|jornal_da_band|0.08|43.64": 2426.832840452891,
+     "google_huawei|jornal_nacional|22.62|93.9": 3720.4632256074983
+    }
+   },
+   "selected": {
+    "published_deployed": "google_huawei|jornal_nacional|22.62|93.9",
+    "liqe_matched_mean": "google_huawei|jornal_nacional|22.62|93.9",
+    "sift_matched_mean": "google_huawei|jornal_nacional|22.62|93.9"
+   }
+  },
+  "isencao_imposto#0": {
+   "segments": {
+    "isencao_imposto|isencao_cnn|72.12|97.32": {
+     "n_common_frames": 10,
+     "n_descriptors": 14335
+    },
+    "isencao_imposto|isencao_band|166.52|196.46": {
+     "n_common_frames": 10,
+     "n_descriptors": 17453
+    }
+   },
+   "scores": {
+    "published_deployed": {
+     "isencao_imposto|isencao_cnn|72.12|97.32": 2930.0418156414194,
+     "isencao_imposto|isencao_band|166.52|196.46": 4713.428933563978
+    },
+    "liqe_matched_mean": {
+     "isencao_imposto|isencao_cnn|72.12|97.32": 4.468724632263184,
+     "isencao_imposto|isencao_band|166.52|196.46": 4.351897835731506
+    },
+    "sift_matched_mean": {
+     "isencao_imposto|isencao_cnn|72.12|97.32": 3123.09938580342,
+     "isencao_imposto|isencao_band|166.52|196.46": 3810.966673242131
+    }
+   },
+   "selected": {
+    "published_deployed": "isencao_imposto|isencao_band|166.52|196.46",
+    "liqe_matched_mean": "isencao_imposto|isencao_cnn|72.12|97.32",
+    "sift_matched_mean": "isencao_imposto|isencao_band|166.52|196.46"
+   }
+  },
+  "isencao_imposto#1": {
+   "segments": {
+    "isencao_imposto|isencao_band|0.04|26.92": {
+     "n_common_frames": 10,
+     "n_descriptors": 16830
+    },
+    "isencao_imposto|isencao_sbt|78.0|103.62": {
+     "n_common_frames": 10,
+     "n_descriptors": 12703
+    }
+   },
+   "scores": {
+    "published_deployed": {
+     "isencao_imposto|isencao_band|0.04|26.92": 842.9126446627265,
+     "isencao_imposto|isencao_sbt|78.0|103.62": 3636.671837739948
+    },
+    "liqe_matched_mean": {
+     "isencao_imposto|isencao_band|0.04|26.92": 3.208681893348694,
+     "isencao_imposto|isencao_sbt|78.0|103.62": 4.4727668285369875
+    },
+    "sift_matched_mean": {
+     "isencao_imposto|isencao_band|0.04|26.92": 3679.0085477509297,
+     "isencao_imposto|isencao_sbt|78.0|103.62": 2764.288726378432
+    }
+   },
+   "selected": {
+    "published_deployed": "isencao_imposto|isencao_sbt|78.0|103.62",
+    "liqe_matched_mean": "isencao_imposto|isencao_sbt|78.0|103.62",
+    "sift_matched_mean": "isencao_imposto|isencao_band|0.04|26.92"
+   }
+  },
+  "isencao_imposto#2": {
+   "segments": {
+    "isencao_imposto|isencao_cnn|147.68|175.87": {
+     "n_common_frames": 10,
+     "n_descriptors": 18225
+    },
+    "isencao_imposto|isencao_sbt|78.0|103.62": {
+     "n_common_frames": 10,
+     "n_descriptors": 12703
+    }
+   },
+   "scores": {
+    "published_deployed": {
+     "isencao_imposto|isencao_cnn|147.68|175.87": 4225.175787675959,
+     "isencao_imposto|isencao_sbt|78.0|103.62": 3466.288860194141
+    },
+    "liqe_matched_mean": {
+     "isencao_imposto|isencao_cnn|147.68|175.87": 4.429371309280396,
+     "isencao_imposto|isencao_sbt|78.0|103.62": 4.4727668285369875
+    },
+    "sift_matched_mean": {
+     "isencao_imposto|isencao_cnn|147.68|175.87": 3971.1943445530987,
+     "isencao_imposto|isencao_sbt|78.0|103.62": 2764.288726378432
+    }
+   },
+   "selected": {
+    "published_deployed": "isencao_imposto|isencao_cnn|147.68|175.87",
+    "liqe_matched_mean": "isencao_imposto|isencao_sbt|78.0|103.62",
+    "sift_matched_mean": "isencao_imposto|isencao_cnn|147.68|175.87"
+   }
+  },
+  "julgamento_bolsonaro#0": {
+   "segments": {
+    "julgamento_bolsonaro|jornal_record|119.28|148.6": {
+     "n_common_frames": 10,
+     "n_descriptors": 12468
+    },
+    "julgamento_bolsonaro|g1|29.56|40.7": {
+     "n_common_frames": 10,
+     "n_descriptors": 7988
+    }
+   },
+   "scores": {
+    "published_deployed": {
+     "julgamento_bolsonaro|jornal_record|119.28|148.6": 2854.830116073567,
+     "julgamento_bolsonaro|g1|29.56|40.7": 1786.966339807822
+    },
+    "liqe_matched_mean": {
+     "julgamento_bolsonaro|jornal_record|119.28|148.6": 3.9858983516693116,
+     "julgamento_bolsonaro|g1|29.56|40.7": 4.295430421829224
+    },
+    "sift_matched_mean": {
+     "julgamento_bolsonaro|jornal_record|119.28|148.6": 2737.3533934420075,
+     "julgamento_bolsonaro|g1|29.56|40.7": 1741.2418946907517
+    }
+   },
+   "selected": {
+    "published_deployed": "julgamento_bolsonaro|jornal_record|119.28|148.6",
+    "liqe_matched_mean": "julgamento_bolsonaro|g1|29.56|40.7",
+    "sift_matched_mean": "julgamento_bolsonaro|jornal_record|119.28|148.6"
+   }
+  },
+  "julgamento_bolsonaro#1": {
+   "segments": {
+    "julgamento_bolsonaro|g1|70.32|83.92": {
+     "n_common_frames": 10,
+     "n_descriptors": 5422
+    },
+    "julgamento_bolsonaro|sbt|48.66|77.32": {
+     "n_common_frames": 10,
+     "n_descriptors": 9797
+    }
+   },
+   "scores": {
+    "published_deployed": {
+     "julgamento_bolsonaro|g1|70.32|83.92": 1178.1250846847424,
+     "julgamento_bolsonaro|sbt|48.66|77.32": 2216.2379010558157
+    },
+    "liqe_matched_mean": {
+     "julgamento_bolsonaro|g1|70.32|83.92": 4.143094873428344,
+     "julgamento_bolsonaro|sbt|48.66|77.32": 4.2535051822662355
+    },
+    "sift_matched_mean": {
+     "julgamento_bolsonaro|g1|70.32|83.92": 1180.29812265392,
+     "julgamento_bolsonaro|sbt|48.66|77.32": 2173.789878893711
+    }
+   },
+   "selected": {
+    "published_deployed": "julgamento_bolsonaro|sbt|48.66|77.32",
+    "liqe_matched_mean": "julgamento_bolsonaro|sbt|48.66|77.32",
+    "sift_matched_mean": "julgamento_bolsonaro|sbt|48.66|77.32"
+   }
+  },
+  "julgamento_bolsonaro#2": {
+   "segments": {
+    "julgamento_bolsonaro|sbt|135.28|161.48": {
+     "n_common_frames": 10,
+     "n_descriptors": 10326
+    },
+    "julgamento_bolsonaro|jornal_record|119.28|148.6": {
+     "n_common_frames": 10,
+     "n_descriptors": 12468
+    }
+   },
+   "scores": {
+    "published_deployed": {
+     "julgamento_bolsonaro|sbt|135.28|161.48": 2639.570587232555,
+     "julgamento_bolsonaro|jornal_record|119.28|148.6": 2789.807637010144
+    },
+    "liqe_matched_mean": {
+     "julgamento_bolsonaro|sbt|135.28|161.48": 3.8287643432617187,
+     "julgamento_bolsonaro|jornal_record|119.28|148.6": 3.9858983516693116
+    },
+    "sift_matched_mean": {
+     "julgamento_bolsonaro|sbt|135.28|161.48": 2279.1818376378096,
+     "julgamento_bolsonaro|jornal_record|119.28|148.6": 2726.064768604608
+    }
+   },
+   "selected": {
+    "published_deployed": "julgamento_bolsonaro|jornal_record|119.28|148.6",
+    "liqe_matched_mean": "julgamento_bolsonaro|jornal_record|119.28|148.6",
+    "sift_matched_mean": "julgamento_bolsonaro|jornal_record|119.28|148.6"
+   }
+  },
+  "mounjaro#0": {
+   "segments": {
+    "mounjaro|mounjaro_domingo_esptacular|187.42|212.76": {
+     "n_common_frames": 10,
+     "n_descriptors": 9528
+    },
+    "mounjaro|mounjaro_domingo_esptacular|126.1|142.14": {
+     "n_common_frames": 10,
+     "n_descriptors": 10195
+    },
+    "mounjaro|mounjaro_record|0.1|14.12": {
+     "n_common_frames": 10,
+     "n_descriptors": 4515
+    },
+    "mounjaro|mounjaro_band|0.74|8.84": {
+     "n_common_frames": 8,
+     "n_descriptors": 2137
+    }
+   },
+   "scores": {
+    "published_deployed": {
+     "mounjaro|mounjaro_domingo_esptacular|187.42|212.76": 2010.3601975976217,
+     "mounjaro|mounjaro_domingo_esptacular|126.1|142.14": 1792.7517623601382,
+     "mounjaro|mounjaro_record|0.1|14.12": 775.9585029204246,
+     "mounjaro|mounjaro_band|0.74|8.84": 547.1509259749398
+    },
+    "liqe_matched_mean": {
+     "mounjaro|mounjaro_domingo_esptacular|187.42|212.76": 3.652915120124817,
+     "mounjaro|mounjaro_domingo_esptacular|126.1|142.14": 3.57715322971344,
+     "mounjaro|mounjaro_record|0.1|14.12": 4.935445261001587,
+     "mounjaro|mounjaro_band|0.74|8.84": 4.010500490665436
+    },
+    "sift_matched_mean": {
+     "mounjaro|mounjaro_domingo_esptacular|187.42|212.76": 1840.2393485250127,
+     "mounjaro|mounjaro_domingo_esptacular|126.1|142.14": 1974.850802733803,
+     "mounjaro|mounjaro_record|0.1|14.12": 855.8790843768063,
+     "mounjaro|mounjaro_band|0.74|8.84": 504.59906146291075
+    }
+   },
+   "selected": {
+    "published_deployed": "mounjaro|mounjaro_domingo_esptacular|187.42|212.76",
+    "liqe_matched_mean": "mounjaro|mounjaro_record|0.1|14.12",
+    "sift_matched_mean": "mounjaro|mounjaro_domingo_esptacular|126.1|142.14"
+   }
+  },
+  "recorde_calor_2024#0": {
+   "segments": {
+    "recorde_calor_2024|recorde_calor_record|0.6|24.66": {
+     "n_common_frames": 10,
+     "n_descriptors": 14046
+    },
+    "recorde_calor_2024|recorde_calor_band|0.0|26.3": {
+     "n_common_frames": 10,
+     "n_descriptors": 9268
+    },
+    "recorde_calor_2024|recorde_calor_cultura|53.4|81.42": {
+     "n_common_frames": 10,
+     "n_descriptors": 14459
+    }
+   },
+   "scores": {
+    "published_deployed": {
+     "recorde_calor_2024|recorde_calor_record|0.6|24.66": 1878.4365036222753,
+     "recorde_calor_2024|recorde_calor_band|0.0|26.3": 500.22619021733635,
+     "recorde_calor_2024|recorde_calor_cultura|53.4|81.42": 9087.473660080876
+    },
+    "liqe_matched_mean": {
+     "recorde_calor_2024|recorde_calor_record|0.6|24.66": 3.8789423584938048,
+     "recorde_calor_2024|recorde_calor_band|0.0|26.3": 3.101016092300415,
+     "recorde_calor_2024|recorde_calor_cultura|53.4|81.42": 2.945861291885376
+    },
+    "sift_matched_mean": {
+     "recorde_calor_2024|recorde_calor_record|0.6|24.66": 2812.175942278041,
+     "recorde_calor_2024|recorde_calor_band|0.0|26.3": 1854.1458829030726,
+     "recorde_calor_2024|recorde_calor_cultura|53.4|81.42": 2894.1067954936293
+    }
+   },
+   "selected": {
+    "published_deployed": "recorde_calor_2024|recorde_calor_cultura|53.4|81.42",
+    "liqe_matched_mean": "recorde_calor_2024|recorde_calor_record|0.6|24.66",
+    "sift_matched_mean": "recorde_calor_2024|recorde_calor_cultura|53.4|81.42"
+   }
+  },
+  "recorde_calor_2024#1": {
+   "segments": {
+    "recorde_calor_2024|recorde_calor_cultura|0.48|27.84": {
+     "n_common_frames": 10,
+     "n_descriptors": 8888
+    },
+    "recorde_calor_2024|recorde_calor_record|25.0|48.28": {
+     "n_common_frames": 10,
+     "n_descriptors": 19758
+    }
+   },
+   "scores": {
+    "published_deployed": {
+     "recorde_calor_2024|recorde_calor_cultura|0.48|27.84": 1355.1793089144624,
+     "recorde_calor_2024|recorde_calor_record|25.0|48.28": 2467.580258089092
+    },
+    "liqe_matched_mean": {
+     "recorde_calor_2024|recorde_calor_cultura|0.48|27.84": 3.1998041391372682,
+     "recorde_calor_2024|recorde_calor_record|25.0|48.28": 2.891068470478058
+    },
+    "sift_matched_mean": {
+     "recorde_calor_2024|recorde_calor_cultura|0.48|27.84": 1934.1099110486896,
+     "recorde_calor_2024|recorde_calor_record|25.0|48.28": 4300.755332624438
+    }
+   },
+   "selected": {
+    "published_deployed": "recorde_calor_2024|recorde_calor_record|25.0|48.28",
+    "liqe_matched_mean": "recorde_calor_2024|recorde_calor_cultura|0.48|27.84",
+    "sift_matched_mean": "recorde_calor_2024|recorde_calor_record|25.0|48.28"
+   }
+  },
+  "rio_celular#0": {
+   "segments": {
+    "rio_celular|rio_celular_cnn|0.12|28.16": {
+     "n_common_frames": 10,
+     "n_descriptors": 14945
+    },
+    "rio_celular|rio_celular_jornal_nacional|1.32|25.58": {
+     "n_common_frames": 10,
+     "n_descriptors": 8655
+    }
+   },
+   "scores": {
+    "published_deployed": {
+     "rio_celular|rio_celular_cnn|0.12|28.16": 3202.7189539761875,
+     "rio_celular|rio_celular_jornal_nacional|1.32|25.58": 1511.8578795664725
+    },
+    "liqe_matched_mean": {
+     "rio_celular|rio_celular_cnn|0.12|28.16": 4.887855148315429,
+     "rio_celular|rio_celular_jornal_nacional|1.32|25.58": 3.477715253829956
+    },
+    "sift_matched_mean": {
+     "rio_celular|rio_celular_cnn|0.12|28.16": 3288.863943130155,
+     "rio_celular|rio_celular_jornal_nacional|1.32|25.58": 1883.406984712692
+    }
+   },
+   "selected": {
+    "published_deployed": "rio_celular|rio_celular_cnn|0.12|28.16",
+    "liqe_matched_mean": "rio_celular|rio_celular_cnn|0.12|28.16",
+    "sift_matched_mean": "rio_celular|rio_celular_cnn|0.12|28.16"
+   }
+  },
+  "ucrania#0": {
+   "segments": {
+    "ucrania|ucrania_band|69.56|98.5": {
+     "n_common_frames": 10,
+     "n_descriptors": 10651
+    },
+    "ucrania|ucrania_cnn|115.9|145.3": {
+     "n_common_frames": 10,
+     "n_descriptors": 15145
+    }
+   },
+   "scores": {
+    "published_deployed": {
+     "ucrania|ucrania_band|69.56|98.5": 4989.672632498578,
+     "ucrania|ucrania_cnn|115.9|145.3": 3636.2637603314315
+    },
+    "liqe_matched_mean": {
+     "ucrania|ucrania_band|69.56|98.5": 3.7589511394500734,
+     "ucrania|ucrania_cnn|115.9|145.3": 4.8418408870697025
+    },
+    "sift_matched_mean": {
+     "ucrania|ucrania_band|69.56|98.5": 2324.106532928716,
+     "ucrania|ucrania_cnn|115.9|145.3": 3329.1045413585316
+    }
+   },
+   "selected": {
+    "published_deployed": "ucrania|ucrania_band|69.56|98.5",
+    "liqe_matched_mean": "ucrania|ucrania_cnn|115.9|145.3",
+    "sift_matched_mean": "ucrania|ucrania_cnn|115.9|145.3"
+   }
+  },
+  "ucrania#1": {
+   "segments": {
+    "ucrania|ucrania_sbt|0.4|27.36": {
+     "n_common_frames": 10,
+     "n_descriptors": 10003
+    },
+    "ucrania|ucrania_band|42.1|69.18": {
+     "n_common_frames": 10,
+     "n_descriptors": 16404
+    }
+   },
+   "scores": {
+    "published_deployed": {
+     "ucrania|ucrania_sbt|0.4|27.36": 1620.8435815494497,
+     "ucrania|ucrania_band|42.1|69.18": 2782.0395000236367
+    },
+    "liqe_matched_mean": {
+     "ucrania|ucrania_sbt|0.4|27.36": 3.597984790802002,
+     "ucrania|ucrania_band|42.1|69.18": 2.3540432333946226
+    },
+    "sift_matched_mean": {
+     "ucrania|ucrania_sbt|0.4|27.36": 2186.8586942877077,
+     "ucrania|ucrania_band|42.1|69.18": 3577.7578082383006
+    }
+   },
+   "selected": {
+    "published_deployed": "ucrania|ucrania_band|42.1|69.18",
+    "liqe_matched_mean": "ucrania|ucrania_sbt|0.4|27.36",
+    "sift_matched_mean": "ucrania|ucrania_band|42.1|69.18"
+   }
+  },
+  "ucrania#2": {
+   "segments": {
+    "ucrania|ucrania_cnn|29.2|57.28": {
+     "n_common_frames": 10,
+     "n_descriptors": 16346
+    },
+    "ucrania|ucrania_sbt|27.76|52.88": {
+     "n_common_frames": 10,
+     "n_descriptors": 8072
+    }
+   },
+   "scores": {
+    "published_deployed": {
+     "ucrania|ucrania_cnn|29.2|57.28": 4118.690106621779,
+     "ucrania|ucrania_sbt|27.76|52.88": 2069.3505296211724
+    },
+    "liqe_matched_mean": {
+     "ucrania|ucrania_cnn|29.2|57.28": 4.915014314651489,
+     "ucrania|ucrania_sbt|27.76|52.88": 3.137407922744751
+    },
+    "sift_matched_mean": {
+     "ucrania|ucrania_cnn|29.2|57.28": 3577.5088117575674,
+     "ucrania|ucrania_sbt|27.76|52.88": 1756.540864309746
+    }
+   },
+   "selected": {
+    "published_deployed": "ucrania|ucrania_cnn|29.2|57.28",
+    "liqe_matched_mean": "ucrania|ucrania_cnn|29.2|57.28",
+    "sift_matched_mean": "ucrania|ucrania_cnn|29.2|57.28"
+   }
+  },
+  "ultraprocessados#0": {
+   "segments": {
+    "ultraprocessados|ultraprocessados_sbt|0.0|45.18": {
+     "n_common_frames": 10,
+     "n_descriptors": 16259
+    },
+    "ultraprocessados|ultraprocessados_sc|71.49|116.57": {
+     "n_common_frames": 10,
+     "n_descriptors": 22169
+    },
+    "ultraprocessados|ultraprocessados_record|0.34|45.54": {
+     "n_common_frames": 10,
+     "n_descriptors": 14118
+    },
+    "ultraprocessados|ultraprocessados_sbt|45.18|90.8": {
+     "n_common_frames": 10,
+     "n_descriptors": 11514
+    }
+   },
+   "scores": {
+    "published_deployed": {
+     "ultraprocessados|ultraprocessados_sbt|0.0|45.18": 5966.443747420286,
+     "ultraprocessados|ultraprocessados_sc|71.49|116.57": 4416.665414876034,
+     "ultraprocessados|ultraprocessados_record|0.34|45.54": 766.1947153301307,
+     "ultraprocessados|ultraprocessados_sbt|45.18|90.8": 2426.268269934341
+    },
+    "liqe_matched_mean": {
+     "ultraprocessados|ultraprocessados_sbt|0.0|45.18": 3.4432783365249633,
+     "ultraprocessados|ultraprocessados_sc|71.49|116.57": 4.582423496246338,
+     "ultraprocessados|ultraprocessados_record|0.34|45.54": 3.7786527276039124,
+     "ultraprocessados|ultraprocessados_sbt|45.18|90.8": 4.012994027137756
+    },
+    "sift_matched_mean": {
+     "ultraprocessados|ultraprocessados_sbt|0.0|45.18": 3060.8312780718056,
+     "ultraprocessados|ultraprocessados_sc|71.49|116.57": 4157.210624896546,
+     "ultraprocessados|ultraprocessados_record|0.34|45.54": 2647.3114426456887,
+     "ultraprocessados|ultraprocessados_sbt|45.18|90.8": 2172.305157673635
+    }
+   },
+   "selected": {
+    "published_deployed": "ultraprocessados|ultraprocessados_sbt|0.0|45.18",
+    "liqe_matched_mean": "ultraprocessados|ultraprocessados_sc|71.49|116.57",
+    "sift_matched_mean": "ultraprocessados|ultraprocessados_sc|71.49|116.57"
+   }
+  }
+ },
+ "summary": {
+  "n_clusters": 42,
+  "sift_liqe_matched_disagreements": 16,
+  "sift_matched_changes_from_published_deployed": 12,
+  "liqe_matched_changes_from_published_deployed": 22,
+  "mean_common_frames": 9.978494623655914,
+  "segments_at_frame_cap": 92,
+  "segment_slots": 93
+ }
+}

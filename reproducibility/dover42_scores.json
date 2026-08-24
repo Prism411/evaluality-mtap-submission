@@ -1,0 +1,417 @@
+{
+ "acordo_mariana|cnn|60.14|86.6": {
+  "technical": -0.09436633437871933,
+  "aesthetic": 0.021711213514208794,
+  "overall": -0.07265512086451054
+ },
+ "acordo_mariana|jornal_nacional|191.51|220.8": {
+  "technical": -0.10131014138460159,
+  "aesthetic": 0.05950405076146126,
+  "overall": -0.041806090623140335
+ },
+ "aumento_cafe|cafe_record|0.21|45.41": {
+  "technical": -0.09159421175718307,
+  "aesthetic": 0.06144421175122261,
+  "overall": -0.030150000005960464
+ },
+ "aumento_cafe|cafe_cnn|0.0|45.02": {
+  "technical": -0.06344657391309738,
+  "aesthetic": 0.06185522302985191,
+  "overall": -0.0015913508832454681
+ },
+ "aumento_cafe|cafe_band|0.27|45.43": {
+  "technical": -0.07011730968952179,
+  "aesthetic": 0.09276275336742401,
+  "overall": 0.02264544367790222
+ },
+ "aumento_cafe|cafe_cnn|124.64|169.96": {
+  "technical": -0.08311337232589722,
+  "aesthetic": 0.058977652341127396,
+  "overall": -0.02413571998476982
+ },
+ "bebe_real|jornal_da_record|0.62|37.86": {
+  "technical": -0.024414829909801483,
+  "aesthetic": 0.09719632565975189,
+  "overall": 0.07278149574995041
+ },
+ "bebe_real|jornal_da_band|6.28|24.72": {
+  "technical": -0.05029134079813957,
+  "aesthetic": 0.0901060476899147,
+  "overall": 0.03981470689177513
+ },
+ "bebe_real|jornal_nacional|0.72|41.48": {
+  "technical": -0.08710435777902603,
+  "aesthetic": 0.03275933116674423,
+  "overall": -0.0543450266122818
+ },
+ "bebe_real|jornal_da_band|37.86|47.52": {
+  "technical": -0.06555213779211044,
+  "aesthetic": 0.06481215357780457,
+  "overall": -0.0007399842143058777
+ },
+ "bebe_real|jornal_da_record|46.12|56.9": {
+  "technical": -0.05405046418309212,
+  "aesthetic": 0.09808606654405594,
+  "overall": 0.04403560236096382
+ },
+ "bolsonaro_trump|jornal_nacional|56.66|79.6": {
+  "technical": -0.051321230828762054,
+  "aesthetic": 0.051822252571582794,
+  "overall": 0.0005010217428207397
+ },
+ "bolsonaro_trump|jornal_da_band|20.64|74.48": {
+  "technical": -0.07014448195695877,
+  "aesthetic": 0.06708908826112747,
+  "overall": -0.003055393695831299
+ },
+ "bolsonaro_trump|jornal_da_record|1.22|38.04": {
+  "technical": -0.09433581680059433,
+  "aesthetic": 0.05186687037348747,
+  "overall": -0.04246894642710686
+ },
+ "bolsonaro_trump|jornal_nacional|0.18|56.46": {
+  "technical": -0.05770301818847656,
+  "aesthetic": 0.06913658231496811,
+  "overall": 0.011433564126491547
+ },
+ "bolsonaro_trump|jornal_da_record|144.22|162.42": {
+  "technical": -0.08677174896001816,
+  "aesthetic": 0.08134017139673233,
+  "overall": -0.005431577563285828
+ },
+ "bolsonaro_trump|jornal_da_band|273.72|337.2": {
+  "technical": -0.0886620357632637,
+  "aesthetic": 0.053759075701236725,
+  "overall": -0.03490296006202698
+ },
+ "brasil_omc|uol|27.68|54.92": {
+  "technical": -0.08239366859197617,
+  "aesthetic": 0.001076925196684897,
+  "overall": -0.08131674339529127
+ },
+ "brasil_omc|record_news|126.96|156.04": {
+  "technical": -0.09010082483291626,
+  "aesthetic": 0.025866348296403885,
+  "overall": -0.06423447653651237
+ },
+ "brumadinho|jornal_da_band|69.7|177.96": {
+  "technical": -0.14062878489494324,
+  "aesthetic": 0.015942074358463287,
+  "overall": -0.12468671053647995
+ },
+ "brumadinho|jornal_nacional|78.0|97.32": {
+  "technical": -0.12839128077030182,
+  "aesthetic": 0.007093308959156275,
+  "overall": -0.12129797181114554
+ },
+ "brumadinho|jornal_da_record|264.5|452.12": {
+  "technical": -0.1246621236205101,
+  "aesthetic": 0.035053182393312454,
+  "overall": -0.08960894122719765
+ },
+ "brumadinho|jornal_nacional|206.32|226.44": {
+  "technical": -0.10234924405813217,
+  "aesthetic": 0.06246991083025932,
+  "overall": -0.03987933322787285
+ },
+ "brumadinho|jornal_da_band|0.0|12.86": {
+  "technical": -0.018127648159861565,
+  "aesthetic": 0.12950170040130615,
+  "overall": 0.11137405224144459
+ },
+ "catedral_notre_dame|jornal_da_band|0.06|94.12": {
+  "technical": -0.08417562395334244,
+  "aesthetic": 0.02089858241379261,
+  "overall": -0.06327704153954983
+ },
+ "catedral_notre_dame|jornal_nacional|0.4|51.22": {
+  "technical": -0.08706887811422348,
+  "aesthetic": 0.04844057187438011,
+  "overall": -0.03862830623984337
+ },
+ "catedral_notre_dame|jornal_da_record|31.88|49.78": {
+  "technical": -0.13837938010692596,
+  "aesthetic": 0.00027009594487026334,
+  "overall": -0.1381092841620557
+ },
+ "catedral_notre_dame|jornal_da_record|51.04|72.1": {
+  "technical": -0.16139483451843262,
+  "aesthetic": -0.003967198543250561,
+  "overall": -0.16536203306168318
+ },
+ "cessar_fogo_ucrania|ucrania_band|0.24|39.88": {
+  "technical": -0.11284515261650085,
+  "aesthetic": -0.015930162742733955,
+  "overall": -0.1287753153592348
+ },
+ "cessar_fogo_ucrania|ucrania_cnn|21.56|67.12": {
+  "technical": -0.06533516943454742,
+  "aesthetic": 0.061000287532806396,
+  "overall": -0.004334881901741028
+ },
+ "cessar_fogo_ucrania|ucrania_sbt|0.05|45.37": {
+  "technical": -0.0861566811800003,
+  "aesthetic": 0.03231049329042435,
+  "overall": -0.05384618788957596
+ },
+ "cessar_fogo_ucrania|ucrania_band|41.44|86.54": {
+  "technical": -0.09903164207935333,
+  "aesthetic": 0.01979266107082367,
+  "overall": -0.07923898100852966
+ },
+ "esquema_pcc|g1|236.22|265.82": {
+  "technical": -0.11240915954113007,
+  "aesthetic": 0.03176064416766167,
+  "overall": -0.0806485153734684
+ },
+ "esquema_pcc|band|168.62|197.54": {
+  "technical": -0.041694965213537216,
+  "aesthetic": 0.06294642388820648,
+  "overall": 0.021251458674669266
+ },
+ "esquema_pcc|gazeta|141.04|170.56": {
+  "technical": -0.0815814658999443,
+  "aesthetic": 0.04277554154396057,
+  "overall": -0.038805924355983734
+ },
+ "esquema_pcc|g1|65.68|94.12": {
+  "technical": -0.09490254521369934,
+  "aesthetic": 0.0644511878490448,
+  "overall": -0.03045135736465454
+ },
+ "esquema_pcc|gazeta|256.58|286.36": {
+  "technical": -0.05430635064840317,
+  "aesthetic": 0.11984151601791382,
+  "overall": 0.06553516536951065
+ },
+ "esquema_pcc|band|27.56|54.24": {
+  "technical": -0.06671496480703354,
+  "aesthetic": 0.0712302029132843,
+  "overall": 0.004515238106250763
+ },
+ "fone_cancelamento_ruido|fone-cancelamento_ruido_bbc|59.56|75.98": {
+  "technical": -0.0689624696969986,
+  "aesthetic": 0.036681778728961945,
+  "overall": -0.03228069096803665
+ },
+ "fone_cancelamento_ruido|fone-cancelamento_ruido_olhardigital|92.04|121.72": {
+  "technical": -0.0686807706952095,
+  "aesthetic": 0.0908731147646904,
+  "overall": 0.022192344069480896
+ },
+ "fone_cancelamento_ruido|fone_cancelamento_ruido_band|18.56|46.48": {
+  "technical": -0.07272125035524368,
+  "aesthetic": 0.05324694886803627,
+  "overall": -0.019474301487207413
+ },
+ "fone_cancelamento_ruido|fone-cancelamento_ruido_bbc|29.6|59.42": {
+  "technical": -0.07865583896636963,
+  "aesthetic": 0.05313972383737564,
+  "overall": -0.025516115128993988
+ },
+ "fone_cancelamento_ruido|fone-cancelamento_ruido_olhardigital|149.61|174.96": {
+  "technical": -0.07691339403390884,
+  "aesthetic": 0.07788079231977463,
+  "overall": 0.0009673982858657837
+ },
+ "fone_cancelamento_ruido|fone_cancelamento_ruido_band|46.98|76.18": {
+  "technical": -0.06432361900806427,
+  "aesthetic": 0.07229084521532059,
+  "overall": 0.007967226207256317
+ },
+ "fraude_inss|fraude_inss_SBT|0.0|45.04": {
+  "technical": -0.08745702356100082,
+  "aesthetic": 0.059891972690820694,
+  "overall": -0.02756505087018013
+ },
+ "fraude_inss|fraude_inss_fraude|0.4|45.46": {
+  "technical": -0.09144440293312073,
+  "aesthetic": 0.047132208943367004,
+  "overall": -0.04431219398975372
+ },
+ "fraude_inss|fraude_inss_cnn|0.0|45.06": {
+  "technical": -0.08458901196718216,
+  "aesthetic": 0.05892644450068474,
+  "overall": -0.02566256746649742
+ },
+ "fraude_inss|fraude_inss_SBT|135.92|181.14": {
+  "technical": -0.04514315351843834,
+  "aesthetic": 0.09757040441036224,
+  "overall": 0.052427250891923904
+ },
+ "google_huawei|sbt_brasil|0.44|45.08": {
+  "technical": -0.04405834898352623,
+  "aesthetic": 0.03350392356514931,
+  "overall": -0.010554425418376923
+ },
+ "google_huawei|jornal_nacional|22.62|93.9": {
+  "technical": -0.029157087206840515,
+  "aesthetic": 0.056829314678907394,
+  "overall": 0.02767222747206688
+ },
+ "google_huawei|jornal_da_band|0.08|43.64": {
+  "technical": -0.06502696126699448,
+  "aesthetic": 0.08712606877088547,
+  "overall": 0.02209910750389099
+ },
+ "google_huawei|sbt_brasil|56.68|73.32": {
+  "technical": -0.05657084286212921,
+  "aesthetic": 0.04111727699637413,
+  "overall": -0.015453565865755081
+ },
+ "isencao_imposto|isencao_cnn|72.12|97.32": {
+  "technical": -0.05982762947678566,
+  "aesthetic": 0.10173457860946655,
+  "overall": 0.04190694913268089
+ },
+ "isencao_imposto|isencao_band|166.52|196.46": {
+  "technical": -0.08235744386911392,
+  "aesthetic": 0.029028045013546944,
+  "overall": -0.05332939885556698
+ },
+ "isencao_imposto|isencao_band|0.04|26.92": {
+  "technical": -0.08515146374702454,
+  "aesthetic": 0.01755685918033123,
+  "overall": -0.0675946045666933
+ },
+ "isencao_imposto|isencao_sbt|78.0|103.62": {
+  "technical": -0.05964353680610657,
+  "aesthetic": 0.08057744055986404,
+  "overall": 0.020933903753757477
+ },
+ "isencao_imposto|isencao_cnn|147.68|175.87": {
+  "technical": -0.06361683458089828,
+  "aesthetic": 0.03985058516263962,
+  "overall": -0.023766249418258667
+ },
+ "julgamento_bolsonaro|jornal_record|119.28|148.6": {
+  "technical": -0.06018798053264618,
+  "aesthetic": 0.03980336710810661,
+  "overall": -0.020384613424539566
+ },
+ "julgamento_bolsonaro|g1|29.56|40.7": {
+  "technical": -0.07045672833919525,
+  "aesthetic": 0.0603114478290081,
+  "overall": -0.010145280510187149
+ },
+ "julgamento_bolsonaro|g1|70.32|83.92": {
+  "technical": -0.06814796477556229,
+  "aesthetic": 0.061452191323041916,
+  "overall": -0.0066957734525203705
+ },
+ "julgamento_bolsonaro|sbt|48.66|77.32": {
+  "technical": -0.06708754599094391,
+  "aesthetic": 0.06138275936245918,
+  "overall": -0.005704786628484726
+ },
+ "julgamento_bolsonaro|sbt|135.28|161.48": {
+  "technical": -0.056993041187524796,
+  "aesthetic": 0.05278905853629112,
+  "overall": -0.004203982651233673
+ },
+ "mounjaro|mounjaro_domingo_esptacular|187.42|212.76": {
+  "technical": -0.07980262488126755,
+  "aesthetic": 0.04029582440853119,
+  "overall": -0.03950680047273636
+ },
+ "mounjaro|mounjaro_domingo_esptacular|126.1|142.14": {
+  "technical": -0.10107899457216263,
+  "aesthetic": 0.03962252661585808,
+  "overall": -0.06145646795630455
+ },
+ "mounjaro|mounjaro_record|0.1|14.12": {
+  "technical": -0.05144893750548363,
+  "aesthetic": 0.09395241737365723,
+  "overall": 0.0425034798681736
+ },
+ "mounjaro|mounjaro_band|0.74|8.84": {
+  "technical": -0.038648318499326706,
+  "aesthetic": 0.13042804598808289,
+  "overall": 0.09177972748875618
+ },
+ "recorde_calor_2024|recorde_calor_record|0.6|24.66": {
+  "technical": -0.06302877515554428,
+  "aesthetic": 0.09480293095111847,
+  "overall": 0.03177415579557419
+ },
+ "recorde_calor_2024|recorde_calor_band|0.0|26.3": {
+  "technical": -0.07586108148097992,
+  "aesthetic": 0.06199327111244202,
+  "overall": -0.013867810368537903
+ },
+ "recorde_calor_2024|recorde_calor_cultura|53.4|81.42": {
+  "technical": -0.10960399359464645,
+  "aesthetic": 0.013305331580340862,
+  "overall": -0.09629866201430559
+ },
+ "recorde_calor_2024|recorde_calor_cultura|0.48|27.84": {
+  "technical": -0.08665820211172104,
+  "aesthetic": 0.016916664317250252,
+  "overall": -0.06974153779447079
+ },
+ "recorde_calor_2024|recorde_calor_record|25.0|48.28": {
+  "technical": -0.1002940684556961,
+  "aesthetic": -0.01740315742790699,
+  "overall": -0.1176972258836031
+ },
+ "rio_celular|rio_celular_cnn|0.12|28.16": {
+  "technical": -0.04916289448738098,
+  "aesthetic": 0.06653077900409698,
+  "overall": 0.017367884516716003
+ },
+ "rio_celular|rio_celular_jornal_nacional|1.32|25.58": {
+  "technical": -0.09266522526741028,
+  "aesthetic": -0.009429504163563251,
+  "overall": -0.10209472943097353
+ },
+ "ucrania|ucrania_band|69.56|98.5": {
+  "technical": -0.06654329597949982,
+  "aesthetic": 0.06837842613458633,
+  "overall": 0.0018351301550865173
+ },
+ "ucrania|ucrania_cnn|115.9|145.3": {
+  "technical": -0.052512362599372864,
+  "aesthetic": 0.032799381762742996,
+  "overall": -0.019712980836629868
+ },
+ "ucrania|ucrania_sbt|0.4|27.36": {
+  "technical": -0.05344877764582634,
+  "aesthetic": 0.05541574954986572,
+  "overall": 0.001966971904039383
+ },
+ "ucrania|ucrania_band|42.1|69.18": {
+  "technical": -0.11965347826480865,
+  "aesthetic": -0.011710486374795437,
+  "overall": -0.1313639646396041
+ },
+ "ucrania|ucrania_cnn|29.2|57.28": {
+  "technical": -0.05851395055651665,
+  "aesthetic": 0.06153567507863045,
+  "overall": 0.0030217245221138
+ },
+ "ucrania|ucrania_sbt|27.76|52.88": {
+  "technical": -0.09169869124889374,
+  "aesthetic": 0.020201951265335083,
+  "overall": -0.07149673998355865
+ },
+ "ultraprocessados|ultraprocessados_sbt|0.0|45.18": {
+  "technical": -0.06676183640956879,
+  "aesthetic": 0.07638297975063324,
+  "overall": 0.009621143341064453
+ },
+ "ultraprocessados|ultraprocessados_sc|71.49|116.57": {
+  "technical": -0.0399763323366642,
+  "aesthetic": 0.08723145723342896,
+  "overall": 0.047255124896764755
+ },
+ "ultraprocessados|ultraprocessados_record|0.34|45.54": {
+  "technical": -0.08173595368862152,
+  "aesthetic": 0.07283763587474823,
+  "overall": -0.008898317813873291
+ },
+ "ultraprocessados|ultraprocessados_sbt|45.18|90.8": {
+  "technical": -0.07504300773143768,
+  "aesthetic": 0.09678056091070175,
+  "overall": 0.02173755317926407
+ }
+}

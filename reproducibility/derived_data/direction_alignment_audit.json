@@ -1,0 +1,96 @@
+{
+  "absolute_value_used": false,
+  "definition": "rho_star = method_polarity * target_polarity * raw_srcc",
+  "methods": {
+    "brisque": {
+      "direction_aligned_srcc": 0.23566902365493114,
+      "method_polarity": -1,
+      "raw_srcc": -0.23566902365493114,
+      "source_database": "koniq",
+      "table_2_value": 0.236,
+      "target_polarity": 1
+    },
+    "clipiqa": {
+      "direction_aligned_srcc": 0.500859125792603,
+      "method_polarity": 1,
+      "raw_srcc": 0.500859125792603,
+      "source_database": "kadid",
+      "table_2_value": 0.501,
+      "target_polarity": 1
+    },
+    "clipiqa_plus": {
+      "direction_aligned_srcc": 0.6543598580002492,
+      "method_polarity": 1,
+      "raw_srcc": 0.6543598580002492,
+      "source_database": "kadid",
+      "table_2_value": 0.654,
+      "target_polarity": 1
+    },
+    "dbcnn": {
+      "direction_aligned_srcc": 0.48381760737509416,
+      "method_polarity": 1,
+      "raw_srcc": 0.48381760737509416,
+      "source_database": "kadid",
+      "table_2_value": 0.484,
+      "target_polarity": 1
+    },
+    "hyperiqa": {
+      "direction_aligned_srcc": 0.4623746432757004,
+      "method_polarity": 1,
+      "raw_srcc": 0.4623746432757004,
+      "source_database": "kadid",
+      "table_2_value": 0.462,
+      "target_polarity": 1
+    },
+    "liqe": {
+      "direction_aligned_srcc": 0.7229147880971377,
+      "method_polarity": 1,
+      "raw_srcc": 0.7229147880971377,
+      "source_database": "kadid",
+      "table_2_value": 0.723,
+      "target_polarity": 1
+    },
+    "musiq": {
+      "direction_aligned_srcc": 0.55552518834264,
+      "method_polarity": 1,
+      "raw_srcc": 0.55552518834264,
+      "source_database": "kadid",
+      "table_2_value": 0.556,
+      "target_polarity": 1
+    },
+    "niqe": {
+      "direction_aligned_srcc": 0.36801775086311295,
+      "method_polarity": -1,
+      "raw_srcc": -0.36801775086311295,
+      "source_database": "koniq",
+      "table_2_value": 0.368,
+      "target_polarity": 1
+    },
+    "qualiclip": {
+      "direction_aligned_srcc": 0.6651473627038992,
+      "method_polarity": 1,
+      "raw_srcc": 0.6651473627038992,
+      "source_database": "kadid",
+      "table_2_value": 0.665,
+      "target_polarity": 1
+    },
+    "sift_bovw": {
+      "direction_aligned_srcc": -0.4452569844281615,
+      "method_polarity": 1,
+      "raw_srcc": -0.4452569844281615,
+      "source_database": "koniq",
+      "table_2_value": -0.445,
+      "target_polarity": 1
+    },
+    "topiq_nr": {
+      "direction_aligned_srcc": 0.5111658881045363,
+      "method_polarity": 1,
+      "raw_srcc": 0.5111658881045363,
+      "source_database": "kadid",
+      "table_2_value": 0.511,
+      "target_polarity": 1
+    }
+  },
+  "table_2_reported_signed_values_verified": true,
+  "target_note": "KADID's released column is named dmos, but its documented [1,5] scale is higher-is-better; KonIQ and CLIVE MOS are also higher-is-better."
+}

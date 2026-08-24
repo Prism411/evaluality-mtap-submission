@@ -1,0 +1,923 @@
+{
+ "acordo_mariana#0": {
+  "acordo_mariana|cnn|60.14|86.6": {
+   "bovw_sum": 3560.2128240052666,
+   "bovw_fixed": 43.649349371277275,
+   "bovw_per_frame": 136.93126246174103,
+   "bovw_per_desc": 2.203101995052764,
+   "n_desc": 1616,
+   "n_frames": 26,
+   "kp_density": 2203.153846153846
+  },
+  "acordo_mariana|jornal_nacional|191.51|220.8": {
+   "bovw_sum": 6409.19584597103,
+   "bovw_fixed": 105.05946848672944,
+   "bovw_per_frame": 221.00675330934587,
+   "bovw_per_desc": 2.2123561774149225,
+   "n_desc": 2897,
+   "n_frames": 29,
+   "kp_density": 863.6206896551724
+  }
+ },
+ "aumento_cafe#0": {
+  "aumento_cafe|cafe_record|0.21|45.41": {
+   "bovw_sum": 2026.354744851162,
+   "bovw_fixed": 96.91670482110473,
+   "bovw_per_frame": 45.03010544113693,
+   "bovw_per_desc": 1.969246593635726,
+   "n_desc": 1029,
+   "n_frames": 45,
+   "kp_density": 1276.5333333333333
+  },
+  "aumento_cafe|cafe_cnn|0.0|45.02": {
+   "bovw_sum": 2054.6861112597126,
+   "bovw_fixed": 110.24758112252144,
+   "bovw_per_frame": 44.66708937521114,
+   "bovw_per_desc": 1.9813752278300025,
+   "n_desc": 1037,
+   "n_frames": 46,
+   "kp_density": 1279.9782608695652
+  },
+  "aumento_cafe|cafe_band|0.27|45.43": {
+   "bovw_sum": 623.7254434963836,
+   "bovw_fixed": 10.580410367298727,
+   "bovw_per_frame": 13.860565411030747,
+   "bovw_per_desc": 1.9074172583987266,
+   "n_desc": 327,
+   "n_frames": 45,
+   "kp_density": 1486.8444444444444
+  },
+  "aumento_cafe|cafe_cnn|124.64|169.96": {
+   "bovw_sum": 8118.848336055954,
+   "bovw_fixed": 417.97172730624334,
+   "bovw_per_frame": 180.41885191235454,
+   "bovw_per_desc": 1.9768318324947538,
+   "n_desc": 4107,
+   "n_frames": 45,
+   "kp_density": 2050.4666666666667
+  }
+ },
+ "bebe_real#0": {
+  "bebe_real|jornal_da_record|0.62|37.86": {
+   "bovw_sum": 4753.394343070193,
+   "bovw_fixed": 35.39434307019194,
+   "bovw_per_frame": 128.4701173802755,
+   "bovw_per_desc": 2.0150039606062706,
+   "n_desc": 2359,
+   "n_frames": 37,
+   "kp_density": 1480.6756756756756
+  },
+  "bebe_real|jornal_da_band|6.28|24.72": {
+   "bovw_sum": 2678.2338195886105,
+   "bovw_fixed": 18.233819588609627,
+   "bovw_per_frame": 148.7907677549228,
+   "bovw_per_desc": 2.013709638788429,
+   "n_desc": 1330,
+   "n_frames": 18,
+   "kp_density": 1582.888888888889
+  },
+  "bebe_real|jornal_nacional|0.72|41.48": {
+   "bovw_sum": 2242.754463994504,
+   "bovw_fixed": 4.754463994503394,
+   "bovw_per_frame": 54.70132839010986,
+   "bovw_per_desc": 2.004248850754695,
+   "n_desc": 1119,
+   "n_frames": 41,
+   "kp_density": 1438.7560975609756
+  }
+ },
+ "bebe_real#1": {
+  "bebe_real|jornal_da_band|37.86|47.52": {
+   "bovw_sum": 5384.496644886762,
+   "bovw_fixed": 135.76452804445552,
+   "bovw_per_frame": 538.4496644886761,
+   "bovw_per_desc": 2.232378376818724,
+   "n_desc": 2412,
+   "n_frames": 10,
+   "kp_density": 1434.1
+  },
+  "bebe_real|jornal_da_record|46.12|56.9": {
+   "bovw_sum": 2063.166662291046,
+   "bovw_fixed": 2.4082399653118496,
+   "bovw_per_frame": 206.3166662291046,
+   "bovw_per_desc": 2.1786342790824142,
+   "n_desc": 947,
+   "n_frames": 10,
+   "kp_density": 1904.6
+  }
+ },
+ "bolsonaro_trump#0": {
+  "bolsonaro_trump|jornal_nacional|56.66|79.6": {
+   "bovw_sum": 4571.396208183414,
+   "bovw_fixed": 112.58521837832897,
+   "bovw_per_frame": 198.75635687753976,
+   "bovw_per_desc": 2.2310376809094263,
+   "n_desc": 2049,
+   "n_frames": 23,
+   "kp_density": 3276.086956521739
+  },
+  "bolsonaro_trump|jornal_da_band|20.64|74.48": {
+   "bovw_sum": 3086.7892675828357,
+   "bovw_fixed": 14.148409796207117,
+   "bovw_per_frame": 57.16276421449696,
+   "bovw_per_desc": 2.1861113793079574,
+   "n_desc": 1412,
+   "n_frames": 54,
+   "kp_density": 2545.240740740741
+  }
+ },
+ "bolsonaro_trump#1": {
+  "bolsonaro_trump|jornal_da_record|1.22|38.04": {
+   "bovw_sum": 2102.8516120426248,
+   "bovw_fixed": 24.68445964444646,
+   "bovw_per_frame": 56.83382735250337,
+   "bovw_per_desc": 2.2019388607776174,
+   "n_desc": 955,
+   "n_frames": 37,
+   "kp_density": 1140.8648648648648
+  },
+  "bolsonaro_trump|jornal_nacional|0.18|56.46": {
+   "bovw_sum": 2368.617904029742,
+   "bovw_fixed": 44.55243935826922,
+   "bovw_per_frame": 42.296748286245396,
+   "bovw_per_desc": 2.217807026245077,
+   "n_desc": 1068,
+   "n_frames": 56,
+   "kp_density": 1364.5535714285713
+  }
+ },
+ "bolsonaro_trump#2": {
+  "bolsonaro_trump|jornal_da_record|144.22|162.42": {
+   "bovw_sum": 5655.110131970444,
+   "bovw_fixed": 16.857679757182947,
+   "bovw_per_frame": 314.1727851094691,
+   "bovw_per_desc": 2.182597503655131,
+   "n_desc": 2591,
+   "n_frames": 18,
+   "kp_density": 1631.5
+  },
+  "bolsonaro_trump|jornal_da_band|273.72|337.2": {
+   "bovw_sum": 4953.125506893807,
+   "bovw_fixed": 65.6245390547479,
+   "bovw_per_frame": 77.39258604521574,
+   "bovw_per_desc": 2.20530966469003,
+   "n_desc": 2246,
+   "n_frames": 64,
+   "kp_density": 2820.015625
+  }
+ },
+ "brasil_omc#0": {
+  "brasil_omc|uol|27.68|54.92": {
+   "bovw_sum": 3740.6115162500087,
+   "bovw_fixed": 97.8347485907939,
+   "bovw_per_frame": 138.54116726851885,
+   "bovw_per_desc": 2.234534955943852,
+   "n_desc": 1674,
+   "n_frames": 27,
+   "kp_density": 1636.0740740740741
+  },
+  "brasil_omc|record_news|126.96|156.04": {
+   "bovw_sum": 3129.4845172910523,
+   "bovw_fixed": 39.43492943198154,
+   "bovw_per_frame": 107.91325921693284,
+   "bovw_per_desc": 2.2038623361204595,
+   "n_desc": 1420,
+   "n_frames": 29,
+   "kp_density": 1673.0
+  }
+ },
+ "brumadinho#0": {
+  "brumadinho|jornal_da_band|69.7|177.96": {
+   "bovw_sum": 7389.75050283837,
+   "bovw_fixed": 426.25847386019655,
+   "bovw_per_frame": 68.42361576702194,
+   "bovw_per_desc": 2.309297032136991,
+   "n_desc": 3200,
+   "n_frames": 108,
+   "kp_density": 6790.240740740741
+  },
+  "brumadinho|jornal_nacional|78.0|97.32": {
+   "bovw_sum": 1004.6832204029904,
+   "bovw_fixed": 1.505149978319906,
+   "bovw_per_frame": 50.23416102014952,
+   "bovw_per_desc": 2.179356226470695,
+   "n_desc": 461,
+   "n_frames": 20,
+   "kp_density": 1466.9
+  }
+ },
+ "brumadinho#1": {
+  "brumadinho|jornal_da_record|264.5|452.12": {
+   "bovw_sum": 5297.919897101,
+   "bovw_fixed": 64.42041907209197,
+   "bovw_per_frame": 28.180424984579787,
+   "bovw_per_desc": 2.202877296091892,
+   "n_desc": 2405,
+   "n_frames": 188,
+   "kp_density": 2148.654255319149
+  },
+  "brumadinho|jornal_nacional|206.32|226.44": {
+   "bovw_sum": 17716.683940276867,
+   "bovw_fixed": 51.175099262876806,
+   "bovw_per_frame": 885.8341970138433,
+   "bovw_per_desc": 2.182395163867562,
+   "n_desc": 8118,
+   "n_frames": 20,
+   "kp_density": 13925.2
+  }
+ },
+ "brumadinho#2": {
+  "brumadinho|jornal_da_band|0.0|12.86": {
+   "bovw_sum": 2860.4502718030103,
+   "bovw_fixed": 5.418539921951662,
+   "bovw_per_frame": 220.03463629253926,
+   "bovw_per_desc": 2.1802212437522943,
+   "n_desc": 1312,
+   "n_frames": 13,
+   "kp_density": 1612.0
+  },
+  "brumadinho|jornal_da_record|264.5|452.12": {
+   "bovw_sum": 5368.962976077705,
+   "bovw_fixed": 135.46349804879154,
+   "bovw_per_frame": 28.558313702540985,
+   "bovw_per_desc": 2.232417037870148,
+   "n_desc": 2405,
+   "n_frames": 188,
+   "kp_density": 2148.654255319149
+  }
+ },
+ "catedral_notre_dame#0": {
+  "catedral_notre_dame|jornal_da_band|0.06|94.12": {
+   "bovw_sum": 2426.376487092179,
+   "bovw_fixed": 16.37648709217836,
+   "bovw_per_frame": 25.812515820129565,
+   "bovw_per_desc": 2.0135904457196507,
+   "n_desc": 1205,
+   "n_frames": 94,
+   "kp_density": 2499.3936170212764
+  },
+  "catedral_notre_dame|jornal_nacional|0.4|51.22": {
+   "bovw_sum": 2159.2402681846634,
+   "bovw_fixed": 15.240268184663044,
+   "bovw_per_frame": 42.338044474209084,
+   "bovw_per_desc": 2.0142166680827085,
+   "n_desc": 1072,
+   "n_frames": 51,
+   "kp_density": 2651.078431372549
+  },
+  "catedral_notre_dame|jornal_da_record|31.88|49.78": {
+   "bovw_sum": 3516.623203872896,
+   "bovw_fixed": 28.623203872894827,
+   "bovw_per_frame": 195.36795577071643,
+   "bovw_per_desc": 2.016412387541798,
+   "n_desc": 1744,
+   "n_frames": 18,
+   "kp_density": 1374.5
+  }
+ },
+ "catedral_notre_dame#1": {
+  "catedral_notre_dame|jornal_da_band|0.06|94.12": {
+   "bovw_sum": 2622.1899671621045,
+   "bovw_fixed": 0.0,
+   "bovw_per_frame": 27.895637948533025,
+   "bovw_per_desc": 2.1760912590556885,
+   "n_desc": 1205,
+   "n_frames": 94,
+   "kp_density": 2499.3936170212764
+  },
+  "catedral_notre_dame|jornal_da_record|51.04|72.1": {
+   "bovw_sum": 20247.883546803216,
+   "bovw_fixed": 267.01360615395134,
+   "bovw_per_frame": 964.1849308001531,
+   "bovw_per_desc": 2.205171372990984,
+   "n_desc": 9182,
+   "n_frames": 21,
+   "kp_density": 3010.714285714286
+  }
+ },
+ "cessar_fogo_ucrania#0": {
+  "cessar_fogo_ucrania|ucrania_band|0.24|39.88": {
+   "bovw_sum": 1549.823402246819,
+   "bovw_fixed": 24.383429648782478,
+   "bovw_per_frame": 39.73906159607228,
+   "bovw_per_desc": 2.2108750388685006,
+   "n_desc": 701,
+   "n_frames": 39,
+   "kp_density": 579.8717948717949
+  },
+  "cessar_fogo_ucrania|ucrania_cnn|21.56|67.12": {
+   "bovw_sum": 3146.5462357524975,
+   "bovw_fixed": 126.13156818320813,
+   "bovw_per_frame": 68.40317903809778,
+   "bovw_per_desc": 2.2669641467957473,
+   "n_desc": 1388,
+   "n_frames": 46,
+   "kp_density": 1591.195652173913
+  }
+ },
+ "cessar_fogo_ucrania#1": {
+  "cessar_fogo_ucrania|ucrania_sbt|0.05|45.37": {
+   "bovw_sum": 1616.6291616101498,
+   "bovw_fixed": 6.321629908943605,
+   "bovw_per_frame": 35.92509248022555,
+   "bovw_per_desc": 2.184634002175878,
+   "n_desc": 740,
+   "n_frames": 45,
+   "kp_density": 925.8888888888889
+  },
+  "cessar_fogo_ucrania|ucrania_band|41.44|86.54": {
+   "bovw_sum": 3810.4352087946704,
+   "bovw_fixed": 111.08006840000907,
+   "bovw_per_frame": 84.6763379732149,
+   "bovw_per_desc": 2.2414324757615707,
+   "n_desc": 1700,
+   "n_frames": 45,
+   "kp_density": 1367.2666666666667
+  }
+ },
+ "cessar_fogo_ucrania#2": {
+  "cessar_fogo_ucrania|ucrania_sbt|0.05|45.37": {
+   "bovw_sum": 1627.7672714497187,
+   "bovw_fixed": 17.45973974851091,
+   "bovw_per_frame": 36.172606032215974,
+   "bovw_per_desc": 2.1996855019590793,
+   "n_desc": 740,
+   "n_frames": 45,
+   "kp_density": 925.8888888888889
+  },
+  "cessar_fogo_ucrania|ucrania_cnn|21.56|67.12": {
+   "bovw_sum": 3147.1482957438243,
+   "bovw_fixed": 126.7336281745361,
+   "bovw_per_frame": 68.41626729877879,
+   "bovw_per_desc": 2.2673979075964152,
+   "n_desc": 1388,
+   "n_frames": 46,
+   "kp_density": 1591.195652173913
+  }
+ },
+ "esquema_pcc#0": {
+  "esquema_pcc|g1|236.22|265.82": {
+   "bovw_sum": 1555.394971196965,
+   "bovw_fixed": 82.18118881626687,
+   "bovw_per_frame": 53.63430935161948,
+   "bovw_per_desc": 2.297481493643966,
+   "n_desc": 677,
+   "n_frames": 29,
+   "kp_density": 1635.896551724138
+  },
+  "esquema_pcc|band|168.62|197.54": {
+   "bovw_sum": 2796.106184977819,
+   "bovw_fixed": 223.96631677400202,
+   "bovw_per_frame": 96.41745465440755,
+   "bovw_per_desc": 2.3655720685091532,
+   "n_desc": 1182,
+   "n_frames": 29,
+   "kp_density": 1238.2413793103449
+  }
+ },
+ "esquema_pcc#1": {
+  "esquema_pcc|gazeta|141.04|170.56": {
+   "bovw_sum": 792.982436669919,
+   "bovw_fixed": 20.47003970515072,
+   "bovw_per_frame": 26.4327478889973,
+   "bovw_per_desc": 2.2337533427321663,
+   "n_desc": 355,
+   "n_frames": 30,
+   "kp_density": 406.1
+  },
+  "esquema_pcc|g1|65.68|94.12": {
+   "bovw_sum": 1925.3381184611228,
+   "bovw_fixed": 110.4780084086811,
+   "bovw_per_frame": 66.39096960210769,
+   "bovw_per_desc": 2.3085588950373177,
+   "n_desc": 834,
+   "n_frames": 29,
+   "kp_density": 654.9655172413793
+  }
+ },
+ "esquema_pcc#2": {
+  "esquema_pcc|gazeta|256.58|286.36": {
+   "bovw_sum": 1144.1749713001575,
+   "bovw_fixed": 51.77715925420477,
+   "bovw_per_frame": 38.13916571000525,
+   "bovw_per_desc": 2.2792330105580825,
+   "n_desc": 502,
+   "n_frames": 30,
+   "kp_density": 579.5333333333333
+  },
+  "esquema_pcc|band|27.56|54.24": {
+   "bovw_sum": 2144.0901162846285,
+   "bovw_fixed": 142.08615795339912,
+   "bovw_per_frame": 79.41074504757883,
+   "bovw_per_desc": 2.3305327350919876,
+   "n_desc": 920,
+   "n_frames": 27,
+   "kp_density": 925.8518518518518
+  }
+ },
+ "fone_cancelamento_ruido#0": {
+  "fone_cancelamento_ruido|fone-cancelamento_ruido_bbc|59.56|75.98": {
+   "bovw_sum": 906.5856079399841,
+   "bovw_fixed": 44.8534693539332,
+   "bovw_per_frame": 56.66160049624901,
+   "bovw_per_desc": 2.2893575958080405,
+   "n_desc": 396,
+   "n_frames": 16,
+   "kp_density": 759.75
+  },
+  "fone_cancelamento_ruido|fone-cancelamento_ruido_olhardigital|92.04|121.72": {
+   "bovw_sum": 1821.005628991919,
+   "bovw_fixed": 125.83053818754415,
+   "bovw_per_frame": 62.79329755144548,
+   "bovw_per_desc": 2.3376195494119627,
+   "n_desc": 779,
+   "n_frames": 29,
+   "kp_density": 880.8275862068965
+  }
+ },
+ "fone_cancelamento_ruido#1": {
+  "fone_cancelamento_ruido|fone_cancelamento_ruido_band|18.56|46.48": {
+   "bovw_sum": 3056.7959205932543,
+   "bovw_fixed": 47.26170931924505,
+   "bovw_per_frame": 109.17128287833052,
+   "bovw_per_desc": 2.2102645846661275,
+   "n_desc": 1383,
+   "n_frames": 28,
+   "kp_density": 2211.6785714285716
+  },
+  "fone_cancelamento_ruido|fone-cancelamento_ruido_bbc|29.6|59.42": {
+   "bovw_sum": 2408.149824753126,
+   "bovw_fixed": 14.449439791871098,
+   "bovw_per_frame": 80.27166082510419,
+   "bovw_per_desc": 2.1892271134119325,
+   "n_desc": 1100,
+   "n_frames": 30,
+   "kp_density": 602.2
+  }
+ },
+ "fone_cancelamento_ruido#2": {
+  "fone_cancelamento_ruido|fone-cancelamento_ruido_olhardigital|149.61|174.96": {
+   "bovw_sum": 1697.5833307696926,
+   "bovw_fixed": 2.4082399653118496,
+   "bovw_per_frame": 67.90333323078771,
+   "bovw_per_desc": 2.1791827095888223,
+   "n_desc": 779,
+   "n_frames": 25,
+   "kp_density": 496.48
+  },
+  "fone_cancelamento_ruido|fone_cancelamento_ruido_band|46.98|76.18": {
+   "bovw_sum": 6949.792467877909,
+   "bovw_fixed": 190.8530172509641,
+   "bovw_per_frame": 231.65974892926363,
+   "bovw_per_desc": 2.237537819664491,
+   "n_desc": 3106,
+   "n_frames": 30,
+   "kp_density": 1227.3666666666666
+  }
+ },
+ "fraude_inss#0": {
+  "fraude_inss|fraude_inss_SBT|0.0|45.04": {
+   "bovw_sum": 2112.448828677187,
+   "bovw_fixed": 73.45131894201141,
+   "bovw_per_frame": 46.94330730393749,
+   "bovw_per_desc": 2.2544811405306158,
+   "n_desc": 937,
+   "n_frames": 45,
+   "kp_density": 1702.2444444444445
+  },
+  "fraude_inss|fraude_inss_fraude|0.4|45.46": {
+   "bovw_sum": 1962.1531359988392,
+   "bovw_fixed": 49.36891928889292,
+   "bovw_per_frame": 43.603403022196424,
+   "bovw_per_desc": 2.2322561274161994,
+   "n_desc": 879,
+   "n_frames": 45,
+   "kp_density": 1162.6
+  }
+ },
+ "fraude_inss#1": {
+  "fraude_inss|fraude_inss_cnn|0.0|45.06": {
+   "bovw_sum": 2664.403047844468,
+   "bovw_fixed": 40.0369894233095,
+   "bovw_per_frame": 57.921805387923214,
+   "bovw_per_desc": 2.2092894260733567,
+   "n_desc": 1206,
+   "n_frames": 46,
+   "kp_density": 1690.195652173913
+  },
+  "fraude_inss|fraude_inss_SBT|135.92|181.14": {
+   "bovw_sum": 3132.8978665954896,
+   "bovw_fixed": 77.66573888130715,
+   "bovw_per_frame": 69.61995259101089,
+   "bovw_per_desc": 2.231408736891374,
+   "n_desc": 1404,
+   "n_frames": 45,
+   "kp_density": 880.3555555555556
+  }
+ },
+ "fraude_inss#2": {
+  "fraude_inss|fraude_inss_cnn|0.0|45.06": {
+   "bovw_sum": 2783.008866136076,
+   "bovw_fixed": 158.6428077149181,
+   "bovw_per_frame": 60.50019274208861,
+   "bovw_per_desc": 2.307635875734723,
+   "n_desc": 1206,
+   "n_frames": 46,
+   "kp_density": 1690.195652173913
+  },
+  "fraude_inss|fraude_inss_fraude|0.4|45.46": {
+   "bovw_sum": 1963.056225985832,
+   "bovw_fixed": 50.27200927588486,
+   "bovw_per_frame": 43.62347168857404,
+   "bovw_per_desc": 2.2332835335447463,
+   "n_desc": 879,
+   "n_frames": 45,
+   "kp_density": 1162.6
+  }
+ },
+ "google_huawei#0": {
+  "google_huawei|sbt_brasil|0.44|45.08": {
+   "bovw_sum": 5603.434992068377,
+   "bovw_fixed": 0.0,
+   "bovw_per_frame": 124.5207776015195,
+   "bovw_per_desc": 2.1760912590556805,
+   "n_desc": 2575,
+   "n_frames": 45,
+   "kp_density": 3968.711111111111
+  },
+  "google_huawei|jornal_nacional|22.62|93.9": {
+   "bovw_sum": 6330.30048226904,
+   "bovw_fixed": 17.45973974851091,
+   "bovw_per_frame": 89.15916172209916,
+   "bovw_per_desc": 2.1821097836156635,
+   "n_desc": 2901,
+   "n_frames": 71,
+   "kp_density": 1562.2535211267605
+  }
+ },
+ "google_huawei#1": {
+  "google_huawei|jornal_da_band|0.08|43.64": {
+   "bovw_sum": 2650.479153529829,
+   "bovw_fixed": 0.0,
+   "bovw_per_frame": 61.63905008208905,
+   "bovw_per_desc": 2.176091259055689,
+   "n_desc": 1218,
+   "n_frames": 43,
+   "kp_density": 1199.046511627907
+  },
+  "google_huawei|sbt_brasil|56.68|73.32": {
+   "bovw_sum": 8145.344154248441,
+   "bovw_fixed": 183.02623736370057,
+   "bovw_per_frame": 479.13789142637887,
+   "bovw_per_desc": 2.226112094629254,
+   "n_desc": 3659,
+   "n_frames": 17,
+   "kp_density": 2519.176470588235
+  }
+ },
+ "google_huawei#2": {
+  "google_huawei|jornal_da_band|0.08|43.64": {
+   "bovw_sum": 2651.0812135211536,
+   "bovw_fixed": 0.6020599913279624,
+   "bovw_per_frame": 61.65305147723613,
+   "bovw_per_desc": 2.176585561183213,
+   "n_desc": 1218,
+   "n_frames": 43,
+   "kp_density": 1199.046511627907
+  },
+  "google_huawei|jornal_nacional|22.62|93.9": {
+   "bovw_sum": 6375.756011614302,
+   "bovw_fixed": 62.915269093772075,
+   "bovw_per_frame": 89.79938044527186,
+   "bovw_per_desc": 2.1977787010045855,
+   "n_desc": 2901,
+   "n_frames": 71,
+   "kp_density": 1562.2535211267605
+  }
+ },
+ "isencao_imposto#0": {
+  "isencao_imposto|isencao_cnn|72.12|97.32": {
+   "bovw_sum": 2930.0418156414194,
+   "bovw_fixed": 16.255619765854984,
+   "bovw_per_frame": 117.20167262565677,
+   "bovw_per_desc": 2.188231378372979,
+   "n_desc": 1339,
+   "n_frames": 25,
+   "kp_density": 1430.28
+  },
+  "isencao_imposto|isencao_band|166.52|196.46": {
+   "bovw_sum": 4713.428933563978,
+   "bovw_fixed": 56.59363918482847,
+   "bovw_per_frame": 157.11429778546594,
+   "bovw_per_desc": 2.2025368848429805,
+   "n_desc": 2140,
+   "n_frames": 30,
+   "kp_density": 1717.6
+  }
+ },
+ "isencao_imposto#1": {
+  "isencao_imposto|isencao_band|0.04|26.92": {
+   "bovw_sum": 842.9126446627265,
+   "bovw_fixed": 5.11750992628768,
+   "bovw_per_frame": 32.419717102412555,
+   "bovw_per_desc": 2.1893834926304585,
+   "n_desc": 385,
+   "n_frames": 26,
+   "kp_density": 1784.8846153846155
+  },
+  "isencao_imposto|isencao_sbt|78.0|103.62": {
+   "bovw_sum": 3636.671837739948,
+   "bovw_fixed": 196.27155717291575,
+   "bovw_per_frame": 139.87199375922876,
+   "bovw_per_desc": 2.300235191486368,
+   "n_desc": 1581,
+   "n_frames": 26,
+   "kp_density": 1266.3076923076924
+  }
+ },
+ "isencao_imposto#2": {
+  "isencao_imposto|isencao_cnn|147.68|175.87": {
+   "bovw_sum": 4225.175787675959,
+   "bovw_fixed": 62.31320910244411,
+   "bovw_per_frame": 150.8991352741414,
+   "bovw_per_desc": 2.208664813212734,
+   "n_desc": 1913,
+   "n_frames": 28,
+   "kp_density": 1835.642857142857
+  },
+  "isencao_imposto|isencao_sbt|78.0|103.62": {
+   "bovw_sum": 3466.288860194141,
+   "bovw_fixed": 25.888579627102384,
+   "bovw_per_frame": 133.31880231515927,
+   "bovw_per_desc": 2.1924660722290583,
+   "n_desc": 1581,
+   "n_frames": 26,
+   "kp_density": 1266.3076923076924
+  }
+ },
+ "julgamento_bolsonaro#0": {
+  "julgamento_bolsonaro|jornal_record|119.28|148.6": {
+   "bovw_sum": 2854.830116073567,
+   "bovw_fixed": 110.77903840434509,
+   "bovw_per_frame": 98.44241779564024,
+   "bovw_per_desc": 2.263941408464367,
+   "n_desc": 1261,
+   "n_frames": 29,
+   "kp_density": 1260.0344827586207
+  },
+  "julgamento_bolsonaro|g1|29.56|40.7": {
+   "bovw_sum": 1786.966339807822,
+   "bovw_fixed": 6.923689900271568,
+   "bovw_per_frame": 162.45148543707472,
+   "bovw_per_desc": 2.184555427637924,
+   "n_desc": 818,
+   "n_frames": 11,
+   "kp_density": 811.9090909090909
+  }
+ },
+ "julgamento_bolsonaro#1": {
+  "julgamento_bolsonaro|g1|70.32|83.92": {
+   "bovw_sum": 1178.1250846847424,
+   "bovw_fixed": 11.740169830895267,
+   "bovw_per_frame": 90.62500651421095,
+   "bovw_per_desc": 2.197994560978997,
+   "n_desc": 536,
+   "n_frames": 13,
+   "kp_density": 543.3076923076923
+  },
+  "julgamento_bolsonaro|sbt|48.66|77.32": {
+   "bovw_sum": 2216.2379010558157,
+   "bovw_fixed": 103.25328851274556,
+   "bovw_per_frame": 76.42199658813158,
+   "bovw_per_desc": 2.2824283224055772,
+   "n_desc": 971,
+   "n_frames": 29,
+   "kp_density": 970.3793103448276
+  }
+ },
+ "julgamento_bolsonaro#2": {
+  "julgamento_bolsonaro|sbt|135.28|161.48": {
+   "bovw_sum": 2639.570587232555,
+   "bovw_fixed": 67.43071902873179,
+   "bovw_per_frame": 101.52194566279059,
+   "bovw_per_desc": 2.2331392446975933,
+   "n_desc": 1182,
+   "n_frames": 26,
+   "kp_density": 1018.6923076923077
+  },
+  "julgamento_bolsonaro|jornal_record|119.28|148.6": {
+   "bovw_sum": 2789.807637010144,
+   "bovw_fixed": 45.75655934092514,
+   "bovw_per_frame": 96.20026334517738,
+   "bovw_per_desc": 2.212377190333183,
+   "n_desc": 1261,
+   "n_frames": 29,
+   "kp_density": 1260.0344827586207
+  }
+ },
+ "mounjaro#0": {
+  "mounjaro|mounjaro_domingo_esptacular|187.42|212.76": {
+   "bovw_sum": 2010.3601975976217,
+   "bovw_fixed": 129.67375041574638,
+   "bovw_per_frame": 80.41440790390487,
+   "bovw_per_desc": 2.004347156129234,
+   "n_desc": 1003,
+   "n_frames": 25,
+   "kp_density": 935.2
+  },
+  "mounjaro|mounjaro_domingo_esptacular|126.1|142.14": {
+   "bovw_sum": 1792.7517623601382,
+   "bovw_fixed": 116.44699288795982,
+   "bovw_per_frame": 112.04698514750864,
+   "bovw_per_desc": 2.0053151704252103,
+   "n_desc": 894,
+   "n_frames": 16,
+   "kp_density": 1018.625
+  },
+  "mounjaro|mounjaro_record|0.1|14.12": {
+   "bovw_sum": 775.9585029204246,
+   "bovw_fixed": 33.43424261731238,
+   "bovw_per_frame": 55.4256073514589,
+   "bovw_per_desc": 1.9594911689909713,
+   "n_desc": 396,
+   "n_frames": 14,
+   "kp_density": 457.64285714285717
+  },
+  "mounjaro|mounjaro_band|0.74|8.84": {
+   "bovw_sum": 547.1509259749398,
+   "bovw_fixed": 18.38364969848101,
+   "bovw_per_frame": 68.39386574686748,
+   "bovw_per_desc": 1.940251510549432,
+   "n_desc": 282,
+   "n_frames": 8,
+   "kp_density": 268.75
+  }
+ },
+ "recorde_calor_2024#0": {
+  "recorde_calor_2024|recorde_calor_record|0.6|24.66": {
+   "bovw_sum": 1878.4365036222753,
+   "bovw_fixed": 70.43650362227253,
+   "bovw_per_frame": 78.26818765092814,
+   "bovw_per_desc": 2.0779164863078265,
+   "n_desc": 904,
+   "n_frames": 24,
+   "kp_density": 1294.2916666666667
+  },
+  "recorde_calor_2024|recorde_calor_band|0.0|26.3": {
+   "bovw_sum": 500.22619021733635,
+   "bovw_fixed": 4.226190217336351,
+   "bovw_per_frame": 18.52689593397542,
+   "bovw_per_desc": 2.0170410895860336,
+   "n_desc": 248,
+   "n_frames": 27,
+   "kp_density": 867.074074074074
+  },
+  "recorde_calor_2024|recorde_calor_cultura|53.4|81.42": {
+   "bovw_sum": 9087.473660080876,
+   "bovw_fixed": 533.4736600808762,
+   "bovw_per_frame": 324.5526307171741,
+   "bovw_per_desc": 2.1247308066590778,
+   "n_desc": 4277,
+   "n_frames": 28,
+   "kp_density": 1502.0
+  }
+ },
+ "recorde_calor_2024#1": {
+  "recorde_calor_2024|recorde_calor_cultura|0.48|27.84": {
+   "bovw_sum": 1355.1793089144624,
+   "bovw_fixed": 25.587549631438403,
+   "bovw_per_frame": 50.1918262560912,
+   "bovw_per_desc": 2.2179694090253066,
+   "n_desc": 611,
+   "n_frames": 27,
+   "kp_density": 955.1111111111111
+  },
+  "recorde_calor_2024|recorde_calor_record|25.0|48.28": {
+   "bovw_sum": 2467.580258089092,
+   "bovw_fixed": 117.40169830895267,
+   "bovw_per_frame": 102.81584408704549,
+   "bovw_per_desc": 2.284796535267678,
+   "n_desc": 1080,
+   "n_frames": 24,
+   "kp_density": 1860.5416666666667
+  }
+ },
+ "rio_celular#0": {
+  "rio_celular|rio_celular_cnn|0.12|28.16": {
+   "bovw_sum": 3202.7189539761875,
+   "bovw_fixed": 167.07164759350957,
+   "bovw_per_frame": 114.38281978486384,
+   "bovw_per_desc": 2.2958558809865144,
+   "n_desc": 1395,
+   "n_frames": 28,
+   "kp_density": 1513.3214285714287
+  },
+  "rio_celular|rio_celular_jornal_nacional|1.32|25.58": {
+   "bovw_sum": 1511.8578795664725,
+   "bovw_fixed": 25.587549631438403,
+   "bovw_per_frame": 62.99407831526969,
+   "bovw_per_desc": 2.213554728501424,
+   "n_desc": 683,
+   "n_frames": 24,
+   "kp_density": 846.25
+  }
+ },
+ "ucrania#0": {
+  "ucrania|ucrania_band|69.56|98.5": {
+   "bovw_sum": 4989.672632498578,
+   "bovw_fixed": 41.241109405965425,
+   "bovw_per_frame": 172.0576769827096,
+   "bovw_per_desc": 2.194227191072374,
+   "n_desc": 2274,
+   "n_frames": 29,
+   "kp_density": 1025.2413793103449
+  },
+  "ucrania|ucrania_cnn|115.9|145.3": {
+   "bovw_sum": 3636.2637603314315,
+   "bovw_fixed": 56.59363918482847,
+   "bovw_per_frame": 121.20879201104772,
+   "bovw_per_desc": 2.210494687131569,
+   "n_desc": 1645,
+   "n_frames": 30,
+   "kp_density": 1507.6333333333334
+  }
+ },
+ "ucrania#1": {
+  "ucrania|ucrania_sbt|0.4|27.36": {
+   "bovw_sum": 1620.8435815494497,
+   "bovw_fixed": 10.536049848239342,
+   "bovw_per_frame": 60.03124376109073,
+   "bovw_per_desc": 2.190329164256013,
+   "n_desc": 740,
+   "n_frames": 27,
+   "kp_density": 1090.8148148148148
+  },
+  "ucrania|ucrania_band|42.1|69.18": {
+   "bovw_sum": 2782.0395000236367,
+   "bovw_fixed": 83.68633879458677,
+   "bovw_per_frame": 103.03850000087543,
+   "bovw_per_desc": 2.243580241954546,
+   "n_desc": 1240,
+   "n_frames": 27,
+   "kp_density": 1642.3333333333333
+  }
+ },
+ "ucrania#2": {
+  "ucrania|ucrania_cnn|29.2|57.28": {
+   "bovw_sum": 4118.690106621779,
+   "bovw_fixed": 162.55619765854985,
+   "bovw_per_frame": 147.0960752364921,
+   "bovw_per_desc": 2.2655061092529034,
+   "n_desc": 1818,
+   "n_frames": 28,
+   "kp_density": 1624.75
+  },
+  "ucrania|ucrania_sbt|27.76|52.88": {
+   "bovw_sum": 2069.3505296211724,
+   "bovw_fixed": 12.944289813551192,
+   "bovw_per_frame": 82.7740211848469,
+   "bovw_per_desc": 2.189788920234045,
+   "n_desc": 945,
+   "n_frames": 25,
+   "kp_density": 723.16
+  }
+ },
+ "ultraprocessados#0": {
+  "ultraprocessados|ultraprocessados_sbt|0.0|45.18": {
+   "bovw_sum": 5966.443747420286,
+   "bovw_fixed": 245.63183281220654,
+   "bovw_per_frame": 129.70529885696274,
+   "bovw_per_desc": 1.9555698942708246,
+   "n_desc": 3051,
+   "n_frames": 46,
+   "kp_density": 1380.6521739130435
+  },
+  "ultraprocessados|ultraprocessados_sc|71.49|116.57": {
+   "bovw_sum": 4416.665414876034,
+   "bovw_fixed": 186.5272046643573,
+   "bovw_per_frame": 98.14812033057855,
+   "bovw_per_desc": 1.9577417619131359,
+   "n_desc": 2256,
+   "n_frames": 45,
+   "kp_density": 2211.511111111111
+  },
+  "ultraprocessados|ultraprocessados_record|0.34|45.54": {
+   "bovw_sum": 766.1947153301307,
+   "bovw_fixed": 12.420087446669074,
+   "bovw_per_frame": 17.026549229558462,
+   "bovw_per_desc": 1.905957003308783,
+   "n_desc": 402,
+   "n_frames": 45,
+   "kp_density": 1391.4444444444443
+  },
+  "ultraprocessados|ultraprocessados_sbt|45.18|90.8": {
+   "bovw_sum": 2426.268269934341,
+   "bovw_fixed": 88.0668744848936,
+   "bovw_per_frame": 53.91707266520758,
+   "bovw_per_desc": 1.9456842581670737,
+   "n_desc": 1247,
+   "n_frames": 45,
+   "kp_density": 1071.4222222222222
+  }
+ }
+}
