@@ -1,0 +1,255 @@
+\begin{thebibliography}{46}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{{#1}}
+\providecommand{\urlprefix}{URL }
+\providecommand{\doi}[1]{\url{https://doi.org/#1}}
+\providecommand{\eprint}[2][]{\url{#2}}
+ \bibcommenthead
+
+\bibitem[{Agnolucci et~al.(2024{\natexlab{a}})Agnolucci, Galteri, and
+  Bertini}]{agnolucci2024qualiclip}
+Agnolucci L, Galteri L, Bertini M (2024{\natexlab{a}}) Quality-aware image-text
+  alignment for opinion-unaware image quality assessment. arXiv preprint
+  \doi{10.48550/arXiv.2403.11176},
+  \urlprefix\url{https://arxiv.org/abs/2403.11176}, version 3, March 2025
+
+\bibitem[{Agnolucci et~al.(2024{\natexlab{b}})Agnolucci, Galteri, Bertini, and
+  Del~Bimbo}]{agnolucci2024arniqa}
+Agnolucci L, Galteri L, Bertini M, et~al (2024{\natexlab{b}}) {ARNIQA}:
+  Learning distortion manifold for image quality assessment. In: Proc. IEEE/CVF
+  Winter Conference on Applications of Computer Vision (WACV), pp 189--198,
+  \doi{10.1109/WACV57701.2024.00026}
+
+\bibitem[{Apostolidis et~al.(2021)Apostolidis, Adamantidou, Metsai, Mezaris,
+  and Patras}]{apostolidis2021survey}
+Apostolidis E, Adamantidou E, Metsai AI, et~al (2021) Video summarization using
+  deep neural networks: A survey. Proceedings of the IEEE 109(11):1838--1863.
+  \doi{10.1109/JPROC.2021.3117472}
+
+\bibitem[{Barbieri(2021)}]{barbieri2021tese}
+Barbieri TTdS (2021) Sumariza\c{c}\~{a}o autom\'{a}tica multiv\'{i}deo baseada
+  em estrat\'{e}gias humanas. PhD thesis, Instituto de Ci\^{e}ncias
+  Matem\'{a}ticas e de Computa\c{c}\~{a}o, Universidade de S\~{a}o Paulo,
+  S\~{a}o Carlos, \doi{10.11606/T.55.2021.tde-27092021-101106}
+
+\bibitem[{Barbieri and Goularte(2021)}]{barbieri2021content}
+Barbieri TTS, Goularte R (2021) Content selection criteria for news multi-video
+  summarization based on human strategies. International Journal on Digital
+  Libraries 22:1--14. \doi{10.1007/s00799-020-00281-9}
+
+\bibitem[{Cao et~al.(2024)Cao, Li, and Ma}]{cao2024datacentric}
+Cao P, Li D, Ma K (2024) Image quality assessment: Integrating model-centric
+  and data-centric approaches. In: Proc. Conference on Parsimony and Learning
+  (CPAL), pp 529--541, arXiv:2207.14769
+
+\bibitem[{Chen and Mo(2022)}]{chen2022pyiqa}
+Chen C, Mo J (2022) {IQA-PyTorch}: {PyTorch} toolbox for image quality
+  assessment. GitHub, \urlprefix\url{https://github.com/chaofengc/IQA-PyTorch}
+
+\bibitem[{Chen et~al.(2024)Chen, Mo, Hou, Wu, Liao, Sun, Yan, and
+  Lin}]{chen2024topiq}
+Chen C, Mo J, Hou J, et~al (2024) {TOPIQ}: A top-down approach from semantics
+  to distortions for image quality assessment. IEEE Transactions on Image
+  Processing 33:2404--2418. \doi{10.1109/TIP.2024.3378466}
+
+\bibitem[{Cirne and Pedrini(2014)}]{cirne2014vsqual}
+Cirne MVM, Pedrini H (2014) Summarization of videos by image quality
+  assessment. In: Progress in Pattern Recognition, Image Analysis, Computer
+  Vision, and Applications, Lecture Notes in Computer Science, vol 8827.
+  Springer, pp 901--908, \doi{10.1007/978-3-319-12568-8_109}
+
+\bibitem[{Csurka et~al.(2004)Csurka, Dance, Fan, Willamowski, and
+  Bray}]{csurka2004bovw}
+Csurka G, Dance CR, Fan L, et~al (2004) Visual categorization with bags of
+  keypoints. In: Workshop on Statistical Learning in Computer Vision, ECCV, pp
+  1--22
+
+\bibitem[{Dettmers et~al.(2023)Dettmers, Pagnoni, Holtzman, and
+  Zettlemoyer}]{dettmers2023qlora}
+Dettmers T, Pagnoni A, Holtzman A, et~al (2023) {QLoRA}: Efficient finetuning
+  of quantized {LLMs}. In: NeurIPS, arXiv:2305.14314
+
+\bibitem[{Ghadiyaram and Bovik(2016)}]{ghadiyaram2016clive}
+Ghadiyaram D, Bovik AC (2016) Massive online crowdsourced study of subjective
+  and objective picture quality. IEEE Transactions on Image Processing
+  25(1):372--387. \doi{10.1109/TIP.2015.2500021}
+
+\bibitem[{Golestaneh et~al.(2022)Golestaneh, Dadsetan, and
+  Kitani}]{golestaneh2022tres}
+Golestaneh SA, Dadsetan S, Kitani KM (2022) No-reference image quality
+  assessment via transformers, relative ranking, and self-consistency. In:
+  Proceedings of the IEEE/CVF Winter Conference on Applications of Computer
+  Vision (WACV), pp 1220--1230
+
+\bibitem[{Hosu et~al.(2020)Hosu, Lin, Sziranyi, and Saupe}]{hosu2020koniq}
+Hosu V, Lin H, Sziranyi T, et~al (2020) {KonIQ-10k}: An ecologically valid
+  database for deep learning of blind image quality assessment. IEEE
+  Transactions on Image Processing 29:4041--4056.
+  \doi{10.1109/TIP.2020.2967829}
+
+\bibitem[{Huang et~al.(2023)Huang, Li, Bentaleb, Zimmermann, and
+  Zhai}]{huang2023xgcvqa}
+Huang X, Li C, Bentaleb A, et~al (2023) {XGC-VQA}: A unified video quality
+  assessment model for user, professionally, and occupationally-generated
+  content. In: Proc. IEEE BMSB, \doi{10.1109/BMSB58369.2023.10222328}
+
+\bibitem[{{International Telecommunication Union}(2020)}]{itu_p1401}
+{International Telecommunication Union} (2020) Methods, metrics and procedures
+  for statistical evaluation of objective quality prediction models. ITU-T
+  Recommendation P.1401
+
+\bibitem[{{International Telecommunication Union}(2023)}]{itu_p910}
+{International Telecommunication Union} (2023) Subjective video quality
+  assessment methods for multimedia applications. ITU-T Recommendation P.910
+
+\bibitem[{Jeong et~al.(2016)Jeong, Yoo, and Cho}]{jeong2016static}
+Jeong Dj, Yoo HJ, Cho NI (2016) A static video summarization method based on
+  the sparse coding of features and representativeness of frames. EURASIP
+  Journal on Image and Video Processing 2017(1):1.
+  \doi{10.1186/s13640-016-0122-9}
+
+\bibitem[{Ke et~al.(2021)Ke, Wang, Wang, Milanfar, and Yang}]{ke2021musiq}
+Ke J, Wang Q, Wang Y, et~al (2021) {MUSIQ}: Multi-scale image quality
+  transformer. In: Proc. IEEE/CVF International Conference on Computer Vision
+  (ICCV), pp 5148--5157, \doi{10.1109/ICCV48922.2021.00510}
+
+\bibitem[{Krasula et~al.(2016)Krasula, Fliegel, Le~Callet, and
+  Kl\'{i}ma}]{krasula2016methodology}
+Krasula L, Fliegel K, Le~Callet P, et~al (2016) On the accuracy of objective
+  image and video quality models: New methodology for performance evaluation.
+  In: Proc. 8th International Conference on Quality of Multimedia Experience
+  (QoMEX), \doi{10.1109/QoMEX.2016.7498936}
+
+\bibitem[{Li and Merialdo(2010)}]{li2010videommr}
+Li Y, Merialdo B (2010) Multi-video summarization based on {Video-MMR}. In:
+  Proc. WIAMIS
+
+\bibitem[{Lin et~al.(2019)Lin, Hosu, and Saupe}]{lin2019kadid}
+Lin H, Hosu V, Saupe D (2019) {KADID-10k}: A large-scale artificially distorted
+  {IQA} database. In: Proc. QoMEX, pp 1--3, \doi{10.1109/QoMEX.2019.8743252}
+
+\bibitem[{Lowe(2004)}]{lowe2004sift}
+Lowe DG (2004) Distinctive image features from scale-invariant keypoints.
+  International Journal of Computer Vision 60(2):91--110.
+  \doi{10.1023/B:VISI.0000029664.99615.94}
+
+\bibitem[{Mittal et~al.(2012)Mittal, Moorthy, and Bovik}]{mittal2012brisque}
+Mittal A, Moorthy AK, Bovik AC (2012) No-reference image quality assessment in
+  the spatial domain. IEEE Transactions on Image Processing 21(12):4695--4708.
+  \doi{10.1109/TIP.2012.2214050}
+
+\bibitem[{Mittal et~al.(2013)Mittal, Soundararajan, and Bovik}]{mittal2013niqe}
+Mittal A, Soundararajan R, Bovik AC (2013) Making a ``completely blind'' image
+  quality analyzer. IEEE Signal Processing Letters 20(3):209--212.
+  \doi{10.1109/LSP.2012.2227726}
+
+\bibitem[{Panda and Roy-Chowdhury(2017)}]{panda2017collaborative}
+Panda R, Roy-Chowdhury AK (2017) Collaborative summarization of topic-related
+  videos. In: Proc. CVPR, pp 4274--4283, \doi{10.1109/CVPR.2017.455}
+
+\bibitem[{Panda et~al.(2017)Panda, Mithun, and
+  Roy-Chowdhury}]{panda2017diversity}
+Panda R, Mithun NC, Roy-Chowdhury AK (2017) Diversity-aware multi-video
+  summarization. IEEE Transactions on Image Processing 26(10):4712--4724.
+  \doi{10.1109/TIP.2017.2708902}
+
+\bibitem[{Pinson(2023)}]{pinson2023nrbroadcast}
+Pinson MH (2023) Why no reference metrics for image and video quality lack
+  accuracy and reproducibility. IEEE Transactions on Broadcasting
+  69(1):97--117. \doi{10.1109/TBC.2022.3191059}
+
+\bibitem[{Robitza et~al.(2021)Robitza, Rao, G{\"o}ring, and
+  Raake}]{robitza2021siti}
+Robitza W, Rao RR, G{\"o}ring S, et~al (2021) Impact of spatial and temporal
+  information on video quality and compressibility. In: Proc. IEEE QoMEX, pp
+  65--70, \doi{10.1109/QoMEX51781.2021.9465452}
+
+\bibitem[{Salton and Buckley(1988)}]{salton1988tfidf}
+Salton G, Buckley C (1988) Term-weighting approaches in automatic text
+  retrieval. Information Processing \& Management 24(5):513--523.
+  \doi{10.1016/0306-4573(88)90021-0}
+
+\bibitem[{Sivic and Zisserman(2003)}]{sivic2003videogoogle}
+Sivic J, Zisserman A (2003) Video {Google}: A text retrieval approach to object
+  matching in videos. In: Proc. ICCV, pp 1470--1477,
+  \doi{10.1109/ICCV.2003.1238663}
+
+\bibitem[{Steiger(1980)}]{steiger1980comparing}
+Steiger JH (1980) Tests for comparing elements of a correlation matrix.
+  Psychological Bulletin 87(2):245--251. \doi{10.1037/0033-2909.87.2.245}
+
+\bibitem[{Su et~al.(2020)Su, Yan, Zhu, Zhang, Ge, Sun, and
+  Zhang}]{su2020hyperiqa}
+Su S, Yan Q, Zhu Y, et~al (2020) Blindly assess image quality in the wild
+  guided by a self-adaptive hyper network. In: Proc. CVPR, pp 3667--3676,
+  \doi{10.1109/CVPR42600.2020.00372}
+
+\bibitem[{Truong and Venkatesh(2007)}]{truong2007video_abstraction}
+Truong BT, Venkatesh S (2007) Video abstraction: A systematic review and
+  classification. ACM Transactions on Multimedia Computing, Communications, and
+  Applications 3(1):1--37. \doi{10.1145/1198302.1198305}
+
+\bibitem[{Wang et~al.(2023)Wang, Chan, and Loy}]{wang2023clipiqa}
+Wang J, Chan KCK, Loy CC (2023) Exploring {CLIP} for assessing the look and
+  feel of images. In: Proc. AAAI, pp 2555--2563, \doi{10.1609/aaai.v37i2.25353}
+
+\bibitem[{Wang et~al.(2021)Wang, Ke, Talebi et~al.}]{wang2021uvq}
+Wang Y, Ke J, Talebi H, et~al (2021) Rich features for perceptual quality
+  assessment of {UGC} videos. In: Proc. CVPR, pp 13435--13444,
+  \doi{10.1109/CVPR46437.2021.01323}
+
+\bibitem[{Wang et~al.(2004)Wang, Bovik, Sheikh, and Simoncelli}]{wang2004ssim}
+Wang Z, Bovik AC, Sheikh HR, et~al (2004) Image quality assessment: From error
+  visibility to structural similarity. IEEE Transactions on Image Processing
+  13(4):600--612. \doi{10.1109/TIP.2003.819861}
+
+\bibitem[{Wu et~al.(2023)Wu, Zhang, Liao et~al.}]{wu2023dover}
+Wu H, Zhang E, Liao L, et~al (2023) Exploring video quality assessment on user
+  generated contents from aesthetic and technical perspectives. In: Proc. ICCV,
+  pp 20144--20154, \doi{10.1109/ICCV51070.2023.01843}
+
+\bibitem[{Wu et~al.(2024)Wu, Zhang, Zhang et~al.}]{wu2024qalign}
+Wu H, Zhang Z, Zhang W, et~al (2024) {Q-Align}: Teaching {LMMs} for visual
+  scoring via discrete text-defined levels. In: Proc. ICML, pp 54015--54029,
+  pMLR 235, arXiv:2312.17090
+
+\bibitem[{Wu et~al.(2020)Wu, Zhong, Jiang, and Yang}]{wu2020mvsgcn}
+Wu J, Zhong S, Jiang J, et~al (2020) A novel graph convolutional network for
+  multi-video summarization. In: Proc. ACM MM, pp 2254--2262,
+  \doi{10.1145/3343031.3350938}
+
+\bibitem[{Yang et~al.(2022)Yang, Wu, Shi, Lao, Gong, Cao, Wang, and
+  Yang}]{yang2022maniqa}
+Yang S, Wu T, Shi S, et~al (2022) {MANIQA}: Multi-dimension attention network
+  for no-reference image quality assessment. In: Proceedings of the IEEE/CVF
+  Conference on Computer Vision and Pattern Recognition Workshops, pp
+  1191--1200
+
+\bibitem[{You et~al.(2025)You, Cai, Gu, Xue, and Dong}]{you2025deqascore}
+You Z, Cai X, Gu J, et~al (2025) Teaching large language models to regress
+  accurate image quality scores using score distribution. In: Proc. IEEE/CVF
+  Conference on Computer Vision and Pattern Recognition (CVPR), pp
+  14483--14494, arXiv:2501.11561
+
+\bibitem[{Zhai and Min(2020)}]{zhai2020iqa_survey}
+Zhai G, Min X (2020) Perceptual image quality assessment: A survey. Science
+  China Information Sciences 63(11):211301. \doi{10.1007/s11432-019-2757-1}
+
+\bibitem[{Zhang et~al.(2020)Zhang, Ma, Yan, Deng, and Wang}]{zhang2020dbcnn}
+Zhang W, Ma K, Yan J, et~al (2020) Blind image quality assessment using a deep
+  bilinear convolutional neural network. IEEE TCSVT 30(1):36--47.
+  \doi{10.1109/TCSVT.2018.2886771}
+
+\bibitem[{Zhang et~al.(2023)Zhang, Zhai, Wei, Yang, and Ma}]{zhang2023liqe}
+Zhang W, Zhai G, Wei Y, et~al (2023) Blind image quality assessment via
+  vision-language correspondence: A multitask learning perspective. In: Proc.
+  CVPR, pp 14071--14081, \doi{10.1109/CVPR52729.2023.01352}
+
+\bibitem[{Zhang et~al.(2024)Zhang, Wu, Zhang, Zhai, and
+  Lin}]{zhang2024qbenchplus}
+Zhang Z, Wu H, Zhang E, et~al (2024) {Q-Bench+}: A benchmark for multi-modal
+  foundation models on low-level vision from single images to pairs. IEEE
+  Transactions on Pattern Analysis and Machine Intelligence
+  46(12):10404--10418. \doi{10.1109/TPAMI.2024.3445770}, arXiv:2402.07116
+
+\end{thebibliography}
