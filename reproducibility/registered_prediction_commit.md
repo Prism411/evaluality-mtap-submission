@@ -10,9 +10,9 @@ constructed experiment at:
 
 The analysis repository's public default branch did not yet make this object
 reachable when the submission archive was frozen. This submission repository
-publishes it through the separate `registered-predictions` branch. Its private
-release also includes `registered_prediction_commit.bundle`, a complete Git
-bundle whose `master` reference resolves to the full commit above. After
+therefore tracks the prediction content and this provenance note on `main`.
+Its private release includes `registered_prediction_commit.bundle`, a complete
+Git bundle whose `master` reference resolves to the full commit above. After
 downloading that asset, verify it without network access:
 
 ```bash

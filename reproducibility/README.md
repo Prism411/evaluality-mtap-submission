@@ -35,8 +35,8 @@ bundle used to preserve the prediction-registration history.
   no absolute value is used.
 - Release asset `registered_prediction_commit.bundle`: complete Git history
   containing the prediction-registration commit
-  `9377c07ca080ac61c7cff80e0ff6c7507b6ebaba`. The same object is reachable in
-  this repository through the `registered-predictions` branch.
+  `9377c07ca080ac61c7cff80e0ff6c7507b6ebaba`. Its content and provenance note
+  are also tracked directly on this repository's `main` branch.
 - `registered_prediction_commit.md`: verification commands and provenance for
   that bundled commit.
 - `reproducibility_manifest.md`: table-to-script-to-data provenance map.

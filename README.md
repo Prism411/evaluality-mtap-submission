@@ -48,9 +48,10 @@ This snapshot was assembled from:
 - prediction-registration commit
   `9377c07ca080ac61c7cff80e0ff6c7507b6ebaba`.
 
-The prediction-registration object is published as the separate
-`registered-predictions` branch and is also preserved in the release bundle.
-See `reproducibility/registered_prediction_commit.md` for verification steps.
+The prediction-registration content and provenance note are tracked on `main`.
+The original Git object and its parent history are preserved in the private
+release asset `registered_prediction_commit.bundle`; see
+`reproducibility/registered_prediction_commit.md` for verification steps.
 
 ## Reproducibility boundary
 
@@ -68,4 +69,3 @@ terms. No restricted media or model weights are included here.
 Private manuscript under review. No public DOI or reuse licence has yet been
 assigned to this submission snapshot. Public release, archival deposition, and
 licensing remain subject to author approval and the journal's review policy.
-

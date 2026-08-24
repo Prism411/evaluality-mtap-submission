@@ -28,7 +28,7 @@ them.
 | Supplement S14, cost | scorer implementations and timed benchmark logs | `cost.json` and `clive_timing.json` | `cost.json` and `clive_timing.json` |
 | Supplement S15, training-database contrasts | descriptive aggregation in the analysis archive | `sens_real.json`, `metrics_clive.json`, KADID and KonIQ cached results | `major_revision_reanalysis.json` |
 | Supplement S16, detectable-keypoint conditioning | analysis cache reconstruction | `segment_word_counts.json` and database score caches | `major_revision_reanalysis.json` |
-| Supplement S12, registered predictions | Git object inspection | release asset `registered_prediction_commit.bundle` or branch `registered-predictions` | `registered_prediction_commit.md` |
+| Supplement S12, recorded predictions | Git object inspection | release asset `registered_prediction_commit.bundle`; prediction content tracked on `main` | `registered_prediction_commit.md` |
 
 ## Fixed analysis settings
 
@@ -60,7 +60,8 @@ statistics from hashed cached scores and inspection of all inference settings,
 but not a claim of bit-identical regeneration of every neural score on a new
 software stack.
 
-The registered-prediction commit is reachable through this repository's
-`registered-predictions` branch and the submission release bundle. Its complete
-identifier is `9377c07ca080ac61c7cff80e0ff6c7507b6ebaba`; release-asset hashes
-are recorded in `RELEASE_SHA256SUMS`.
+The prediction content and provenance note are tracked on `main`; the original
+commit and parent history remain inspectable through the submission release
+bundle. Its complete identifier is
+`9377c07ca080ac61c7cff80e0ff6c7507b6ebaba`; release-asset hashes are recorded
+in `RELEASE_SHA256SUMS`.
