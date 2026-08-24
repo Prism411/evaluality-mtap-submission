@@ -45,10 +45,10 @@ This snapshot was assembled from:
   `0bfb654b2be51cbc397546e7ae9fdde91ef3e309`;
 - analysis repository commit
   `af9e8d50b48463efc8bb48d9ac52c35d9f973673`;
-- prediction-registration commit
+- prediction-recording commit
   `9377c07ca080ac61c7cff80e0ff6c7507b6ebaba`.
 
-The prediction-registration content and provenance note are tracked on `main`.
+The prediction-recording content and provenance note are tracked on `main`.
 The original Git object and its parent history are preserved in the private
 release asset `registered_prediction_commit.bundle`; see
 `reproducibility/registered_prediction_commit.md` for verification steps.

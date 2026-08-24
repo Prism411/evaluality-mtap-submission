@@ -1,7 +1,7 @@
-# Registered-prediction commit provenance
+# Prediction-recording commit provenance
 
-The eight predictions in Supplementary Table S12 were committed before the
-constructed experiment at:
+The eight predictions in Supplementary Table S12 were recorded in a commit whose
+Git metadata predates the constructed experiment:
 
 - full commit: `9377c07ca080ac61c7cff80e0ff6c7507b6ebaba`
 - author date: `2026-08-06T16:08:41-04:00`
@@ -25,6 +25,8 @@ git -C registered-predictions show \
   9377c07ca080ac61c7cff80e0ff6c7507b6ebaba:PREDICTIONS_synthetic_indomain.md
 ```
 
-The Git bundle makes the registered object and its parent history independently
-inspectable. A future public archival release should expose the same full
-commit and may be deposited in Zenodo after author approval.
+The Git bundle makes the object, metadata and parent history independently
+inspectable, but author and committer dates are user-supplied Git fields rather
+than an external trusted timestamp. A future public archival release should
+expose the same full commit and may be deposited in Zenodo after author
+approval.

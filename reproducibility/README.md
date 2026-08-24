@@ -4,7 +4,7 @@ This directory contains the dependency-aware reanalysis and table-generation
 artefacts for *A Component-Level Audit of No-Reference Quality Scoring in a
 Multi-Video Summarization Pipeline*. The matching private GitHub release also
 contains a byte-for-byte copy of the original reproducibility ZIP and the Git
-bundle used to preserve the prediction-registration history.
+bundle used to preserve the prediction-recording history.
 
 ## Primary outputs
 
@@ -34,12 +34,15 @@ bundle used to preserve the prediction-registration history.
   Main Table 2 values, storing raw SRCC and both method and target polarities;
   no absolute value is used.
 - Release asset `registered_prediction_commit.bundle`: complete Git history
-  containing the prediction-registration commit
+  containing the prediction-recording commit
   `9377c07ca080ac61c7cff80e0ff6c7507b6ebaba`. Its content and provenance note
   are also tracked directly on this repository's `main` branch.
-- `registered_prediction_commit.md`: verification commands and provenance for
-  that bundled commit.
-- `reproducibility_manifest.md`: table-to-script-to-data provenance map.
+- `registered_prediction_commit.md`: verification commands, provenance and the
+  explicit limitation that Git metadata is not an external trusted timestamp.
+- `PREDICTIONS_synthetic_indomain.md`: the prediction text preserved from the
+  historical commit. Its original heading is retained verbatim and should not
+  be read as evidence of an externally timestamped preregistration.
+- `manifest.md`: table-to-script-to-data provenance map.
 
 ## Entry points
 
