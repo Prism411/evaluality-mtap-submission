@@ -1,0 +1,380 @@
+{
+ "_o_que_e": "⭐⭐ «INVERTE EM PELO MENOS UM TIPO» E ACHADO OU E O QUE UMA MOEDA FARIA?",
+ "_por_que_existe": "«inverte em pelo menos um tipo» e quase certo por acaso; o que separa e quantas invertem ALEM do acaso",
+ "_ancora": "as 120 celulas conferidas reproduzem a tabela publicada",
+ "n_operacoes_com_direcao": 15,
+ "n_pares_por_tipo": "100 menos os empates, como a tabela publicada conta",
+ "empates_por_operacao": {
+  "contraste_variancia": 0,
+  "glcm_contraste": 0,
+  "gygli_media_crua": 0,
+  "hasler_colorfulness": 0,
+  "huang_saturacao": 0,
+  "ke_colorfulness": 0,
+  "ke_contraste": 16,
+  "ke_edge_distribution": 4,
+  "ke_hue_count": 81,
+  "laplacian_var": 0,
+  "qaroush_entropia": 0,
+  "qaroush_gm": 0,
+  "qaroush_go": 0,
+  "qaroush_saliencia": 3,
+  "srinivas_quality": 0
+ },
+ "n_testes": 120,
+ "correcao": "Holm sobre os 120",
+ "com_ao_menos_um_tipo_abaixo_de_50": 15,
+ "com_ao_menos_um_tipo_SIGNIFICATIVO": 15,
+ "controle_da_moeda": {
+  "operacoes_simuladas": 15,
+  "quantas_acumulam_significancia": 0
+ },
+ "por_operacao": {
+  "contraste_variancia": {
+   "acuracia_por_tipo": {
+    "dark": 100.0,
+    "motion": 100.0,
+    "blur": 100.0,
+    "h264": 100.0,
+    "rescale": 100.0,
+    "satur": 22.0,
+    "noise": 25.0,
+    "jpeg": 90.0
+   },
+   "tipos_abaixo_de_50": [
+    "satur",
+    "noise"
+   ],
+   "tipos_significativos": [
+    "satur",
+    "noise"
+   ],
+   "n_significativos": 2,
+   "menor_acuracia": 22.0
+  },
+  "glcm_contraste": {
+   "acuracia_por_tipo": {
+    "dark": 100.0,
+    "motion": 100.0,
+    "blur": 100.0,
+    "h264": 100.0,
+    "rescale": 100.0,
+    "satur": 67.0,
+    "noise": 0.0,
+    "jpeg": 72.0
+   },
+   "tipos_abaixo_de_50": [
+    "noise"
+   ],
+   "tipos_significativos": [
+    "noise"
+   ],
+   "n_significativos": 1,
+   "menor_acuracia": 0.0
+  },
+  "gygli_media_crua": {
+   "acuracia_por_tipo": {
+    "dark": 100.0,
+    "motion": 100.0,
+    "blur": 100.0,
+    "h264": 100.0,
+    "rescale": 100.0,
+    "satur": 100.0,
+    "noise": 3.0,
+    "jpeg": 67.0
+   },
+   "tipos_abaixo_de_50": [
+    "noise"
+   ],
+   "tipos_significativos": [
+    "noise"
+   ],
+   "n_significativos": 1,
+   "menor_acuracia": 3.0
+  },
+  "hasler_colorfulness": {
+   "acuracia_por_tipo": {
+    "dark": 100.0,
+    "motion": 100.0,
+    "blur": 100.0,
+    "h264": 100.0,
+    "rescale": 100.0,
+    "satur": 100.0,
+    "noise": 3.0,
+    "jpeg": 79.0
+   },
+   "tipos_abaixo_de_50": [
+    "noise"
+   ],
+   "tipos_significativos": [
+    "noise"
+   ],
+   "n_significativos": 1,
+   "menor_acuracia": 3.0
+  },
+  "huang_saturacao": {
+   "acuracia_por_tipo": {
+    "dark": 13.0,
+    "motion": 100.0,
+    "blur": 100.0,
+    "h264": 15.0,
+    "rescale": 100.0,
+    "satur": 100.0,
+    "noise": 1.0,
+    "jpeg": 90.0
+   },
+   "tipos_abaixo_de_50": [
+    "dark",
+    "h264",
+    "noise"
+   ],
+   "tipos_significativos": [
+    "dark",
+    "h264",
+    "noise"
+   ],
+   "n_significativos": 3,
+   "menor_acuracia": 1.0
+  },
+  "ke_colorfulness": {
+   "acuracia_por_tipo": {
+    "dark": 100.0,
+    "motion": 100.0,
+    "blur": 100.0,
+    "h264": 100.0,
+    "rescale": 100.0,
+    "satur": 100.0,
+    "noise": 3.0,
+    "jpeg": 79.0
+   },
+   "tipos_abaixo_de_50": [
+    "noise"
+   ],
+   "tipos_significativos": [
+    "noise"
+   ],
+   "n_significativos": 1,
+   "menor_acuracia": 3.0
+  },
+  "ke_contraste": {
+   "acuracia_por_tipo": {
+    "dark": 100.0,
+    "motion": 100.0,
+    "blur": 100.0,
+    "h264": 100.0,
+    "rescale": 100.0,
+    "satur": 31.6,
+    "noise": 10.3,
+    "jpeg": 63.8
+   },
+   "tipos_abaixo_de_50": [
+    "satur",
+    "noise"
+   ],
+   "tipos_significativos": [
+    "satur",
+    "noise"
+   ],
+   "n_significativos": 2,
+   "menor_acuracia": 10.3
+  },
+  "ke_edge_distribution": {
+   "acuracia_por_tipo": {
+    "dark": 72.9,
+    "motion": 62.0,
+    "blur": 62.0,
+    "h264": 11.0,
+    "rescale": 74.0,
+    "satur": 97.0,
+    "noise": 100.0,
+    "jpeg": 31.0
+   },
+   "tipos_abaixo_de_50": [
+    "h264",
+    "jpeg"
+   ],
+   "tipos_significativos": [
+    "h264",
+    "jpeg"
+   ],
+   "n_significativos": 2,
+   "menor_acuracia": 11.0
+  },
+  "ke_hue_count": {
+   "acuracia_por_tipo": {
+    "dark": 21.7,
+    "motion": 15.7,
+    "blur": 12.3,
+    "h264": 83.7,
+    "rescale": 14.1,
+    "satur": 4.2,
+    "noise": 100.0,
+    "jpeg": 60.2
+   },
+   "tipos_abaixo_de_50": [
+    "dark",
+    "motion",
+    "blur",
+    "rescale",
+    "satur"
+   ],
+   "tipos_significativos": [
+    "dark",
+    "motion",
+    "blur",
+    "rescale",
+    "satur"
+   ],
+   "n_significativos": 5,
+   "menor_acuracia": 4.2
+  },
+  "laplacian_var": {
+   "acuracia_por_tipo": {
+    "dark": 100.0,
+    "motion": 100.0,
+    "blur": 100.0,
+    "h264": 95.0,
+    "rescale": 100.0,
+    "satur": 50.0,
+    "noise": 0.0,
+    "jpeg": 66.0
+   },
+   "tipos_abaixo_de_50": [
+    "noise"
+   ],
+   "tipos_significativos": [
+    "noise"
+   ],
+   "n_significativos": 1,
+   "menor_acuracia": 0.0
+  },
+  "qaroush_entropia": {
+   "acuracia_por_tipo": {
+    "dark": 100.0,
+    "motion": 77.0,
+    "blur": 83.0,
+    "h264": 10.0,
+    "rescale": 77.0,
+    "satur": 97.0,
+    "noise": 0.0,
+    "jpeg": 66.0
+   },
+   "tipos_abaixo_de_50": [
+    "h264",
+    "noise"
+   ],
+   "tipos_significativos": [
+    "h264",
+    "noise"
+   ],
+   "n_significativos": 2,
+   "menor_acuracia": 0.0
+  },
+  "qaroush_gm": {
+   "acuracia_por_tipo": {
+    "dark": 100.0,
+    "motion": 100.0,
+    "blur": 100.0,
+    "h264": 100.0,
+    "rescale": 100.0,
+    "satur": 23.0,
+    "noise": 0.0,
+    "jpeg": 5.0
+   },
+   "tipos_abaixo_de_50": [
+    "satur",
+    "noise",
+    "jpeg"
+   ],
+   "tipos_significativos": [
+    "satur",
+    "noise",
+    "jpeg"
+   ],
+   "n_significativos": 3,
+   "menor_acuracia": 0.0
+  },
+  "qaroush_go": {
+   "acuracia_por_tipo": {
+    "dark": 100.0,
+    "motion": 80.0,
+    "blur": 26.0,
+    "h264": 95.0,
+    "rescale": 9.0,
+    "satur": 21.0,
+    "noise": 0.0,
+    "jpeg": 100.0
+   },
+   "tipos_abaixo_de_50": [
+    "blur",
+    "rescale",
+    "satur",
+    "noise"
+   ],
+   "tipos_significativos": [
+    "blur",
+    "rescale",
+    "satur",
+    "noise"
+   ],
+   "n_significativos": 4,
+   "menor_acuracia": 0.0
+  },
+  "qaroush_saliencia": {
+   "acuracia_por_tipo": {
+    "dark": 63.3,
+    "motion": 29.0,
+    "blur": 20.0,
+    "h264": 94.0,
+    "rescale": 21.0,
+    "satur": 18.0,
+    "noise": 13.1,
+    "jpeg": 10.0
+   },
+   "tipos_abaixo_de_50": [
+    "motion",
+    "blur",
+    "rescale",
+    "satur",
+    "noise",
+    "jpeg"
+   ],
+   "tipos_significativos": [
+    "motion",
+    "blur",
+    "rescale",
+    "satur",
+    "noise",
+    "jpeg"
+   ],
+   "n_significativos": 6,
+   "menor_acuracia": 10.0
+  },
+  "srinivas_quality": {
+   "acuracia_por_tipo": {
+    "dark": 100.0,
+    "motion": 100.0,
+    "blur": 100.0,
+    "h264": 100.0,
+    "rescale": 100.0,
+    "satur": 98.0,
+    "noise": 29.0,
+    "jpeg": 69.0
+   },
+   "tipos_abaixo_de_50": [
+    "noise"
+   ],
+   "tipos_significativos": [
+    "noise"
+   ],
+   "n_significativos": 1,
+   "menor_acuracia": 29.0
+  }
+ },
+ "previsoes": {
+  "1_as_acuracias_reproduzem": "CONFIRMADA",
+  "2_a_maioria_tem_tipo_significativo": "CONFIRMADA",
+  "3_a_moeda_nao_acumula": "CONFIRMADA"
+ },
+ "leitura": "15 das 15 operacoes com direcao declarada tem pelo menos um tipo abaixo de 50 %, e 15 delas tem pelo menos um tipo abaixo do acaso com significancia sob Holm nos 120 testes. A moeda de controle, no mesmo desenho, acumula significancia em 0."
+}

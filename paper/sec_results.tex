@@ -19,9 +19,10 @@ Section~\ref{sec:synthesis} regroups the same accuracies by the work that uses e
 copy above the original} on at least one degradation type, and thirteen do so under white noise, where five of them are wrong on all one hundred pairs: gray-level co-occurrence matrix (GLCM) contrast, entropy, Laplacian
 variance, gradient orientation and gradient
 magnitude. Two operations, hue count and saliency area, are wrong on more than half
-the eight types, and a third is wrong on exactly half. The two exceptions to the noise pattern, hue count and edge
-distribution, fail elsewhere instead: hue count inverts on five of the eight types and
-edge distribution on H.264 and JPEG.
+the eight types, and a third is wrong on exactly half. The two exceptions to the noise pattern, hue count and edge distribution, fail elsewhere
+instead: hue count inverts on five of the eight types and edge distribution on H.264 and
+JPEG. All \invCelulas{} operation--type cells below chance are significant under Holm
+across the \invTestes{} tests; a coin-flip control in the same design yields \invMoeda{}.
 
 White noise concentrates the failures. These operations are statistics of local structure
 such as gradient magnitude, edge density, entropy, contrast and descriptor counts, and

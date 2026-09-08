@@ -42,6 +42,7 @@ def main():
     val = json.load(open(QB / 'o_que_cada_fonte_valida.json'))
     prov = json.load(open(QB / 'a_proveniencia_fecha_com_a_bib.json'))
     sub = json.load(open(QB / 'a_substituicao_concorda_acima_do_acaso.json'))
+    inv = json.load(open(QB / 'quantas_invertem_ALEM_DO_ACASO.json'))
     _q = json.load(open(QB / 'as_15_na_regra_do_artigo.json'))
     q15, regra = _q['por_operacao'], _q['regra']
     va = json.load(open(QB / 'o_vascore_do_qaroush_como_a_Eq20_manda.json'))
@@ -137,7 +138,12 @@ def main():
          f'\\newcommand{{\\subAcaso}}{{{100 * sub["acaso_medio"]:.1f}}}',
          f'\\newcommand{{\\subKappa}}{{{sem_zero("%.3f" % sub["por_linha"]["liqe_x_implantada"]["kappa_contra_o_acaso"])}}}',
          f'\\newcommand{{\\subIC}}{{[{sub["por_linha"]["liqe_x_implantada"]["ic_bloco_de_topico"][0]:.1f}, '
-         f'{sub["por_linha"]["liqe_x_implantada"]["ic_bloco_de_topico"][1]:.1f}]}}']
+         f'{sub["por_linha"]["liqe_x_implantada"]["ic_bloco_de_topico"][1]:.1f}]}}',
+         # ⛔ «inverte em pelo menos um tipo» e quase certo por acaso. O que separa e que
+         # TODA celula abaixo do acaso e significativa, e a moeda de controle nao acumula.
+         f'\\newcommand{{\\invCelulas}}{{{sum(len(v["tipos_abaixo_de_50"]) for v in inv["por_operacao"].values())}}}',
+         f'\\newcommand{{\\invTestes}}{{{inv["n_testes"]}}}',
+         f'\\newcommand{{\\invMoeda}}{{{"none" if inv["controle_da_moeda"]["quantas_acumulam_significancia"] == 0 else POREXT[inv["controle_da_moeda"]["quantas_acumulam_significancia"]]}}}']
     assert not ct2['qaroush']['ic_cruza_zero'], '⛔ o IC do Qaroush passou a cruzar zero'
     assert ct2['korolkov']['ic_cruza_zero'], '⛔ o IC do Korolkov deixou de cruzar zero: reescrever'
     assert ko['modulo_menos_melhor_membro'] < 0, '⛔ o modulo do Korolkov superou o membro'
@@ -150,6 +156,9 @@ def main():
         '⛔ o controle de implementacoes identicas parou de separar do acaso: o teste nao discrimina'
     assert not sub['por_linha']['controle_sorteio']['separa_do_acaso'], \
         '⛔ o sorteio passou a separar do acaso: o teste esta quebrado'
+    assert all(len(v['tipos_abaixo_de_50']) == v['n_significativos']
+               for v in inv['por_operacao'].values()), \
+        '⛔ ha celula abaixo do acaso que NAO e significativa: a frase da 4.1 cai'
     assert au['autonomas'] == 1, '⛔ mudou o numero de autonomas: reescrever a prosa'
     # ⚠️ as duas regras publicadas TEM de ficar abaixo da media, senao a frase da prosa cai
     assert nb < media, '⛔ o naive Bayes do Ke superou a media: reescrever a prosa'
