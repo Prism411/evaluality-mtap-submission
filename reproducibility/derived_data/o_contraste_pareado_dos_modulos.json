@@ -1,0 +1,26 @@
+{
+ "_o_que_e": "⭐ OS «8,8 PONTOS ABAIXO DO MELHOR COMPONENTE» TEM INTERVALO?\n\nPOR QUE EXISTE (07/09). O artigo afirma que cada modulo reproduzido fica abaixo do seu proprio\nmelhor termo, por 8,8 e 5,4 pontos. Essas sao diferencas de duas acuracias medidas nos MESMOS\npares, entao o contraste e PAREADO e o intervalo tem de ser pareado tambem: reamostrar as duas\nacuracias como se fossem independentes daria uma largura errada.\n\n⚠️ UNIDADE DE REAMOSTRAGEM: o bloco de SEGMENTO. Cada segmento contribui um original e ate 40\ndegradados, que nao sao observacoes independentes. Reamostrar par a par trataria 800 decisoes\nvindas de 20 segmentos como 800 unidades — foi exatamente o defeito que ja mordeu este projeto\numa vez, e a unidade fica declarada aqui e no artigo.",
+ "unidade": "bloco de segmento",
+ "B": 10000,
+ "semente": 42,
+ "qaroush": {
+  "melhor_membro": "hasler_colorfulness",
+  "ponto": -8.9,
+  "ic95": [
+   -10.3,
+   -7.3
+  ],
+  "n_segmentos": 20,
+  "ic_cruza_zero": false
+ },
+ "korolkov": {
+  "melhor_membro": "laplacian_var",
+  "ponto": -5.5,
+  "ic95": [
+   -10.6,
+   0.0
+  ],
+  "n_segmentos": 11,
+  "ic_cruza_zero": true
+ }
+}

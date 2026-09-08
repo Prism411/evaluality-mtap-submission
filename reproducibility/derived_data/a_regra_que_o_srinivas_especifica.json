@@ -1,0 +1,18 @@
+{
+ "_o_que_e": "🔴 RETRATADO EM 07/09: EU APLIQUEI A REGRA DO SRINIVAS NA CAMADA ERRADA.\n\nO QUE EU AFIRMEI E QUE ESTA ERRADO. Eu li a secao 3.6.1 do `srinivas2016rank` — «weights are\ndirectly proportional to the standard deviation» — e apliquei esse peso aos CINCO atributos\ndo Ke, apresentando o resultado (84,0 % contra 87,0 % da media) como «a regra que a fonte\nespecifica, medida». Nao e.\n\nO QUE A FONTE DE FATO DIZ, verbatim, nas duas camadas:\n\n  §3.1  «The Quality score for each frame is computed using the few metrics ... described in\n         the section 3.1.1 to 3.1.5. THE AVERAGE OF ALL THESE INDIVIDUAL SCORES FOR EACH\n         FRAME IS ITS QUALITY SCORE.»\n  §3.6.1 «the scores are computed for each frame using the techniques described in SECTION\n         3.1 TO 3.4. EACH SCORE REPRESENTS DIFFERENT FEATURE of a video ... weights are\n         directly proportional to the standard deviation.»\n\n⭐ Sao NIVEIS diferentes. A media e a regra do MODULO DE QUALIDADE, sobre os cinco atributos.\nO peso por desvio-padrao e a regra do ALGORITMO, sobre os quatro tipos de escore (qualidade,\natencao estatica, atencao temporal, representatividade), que sao coisas que nao temos.\n\n⭐⭐ E A CONSEQUENCIA INVERTE A LEITURA: a media crua que o campo executa NAO e uma\nsimplificacao do Srinivas nesse ponto — e exatamente a regra que ele publica. A comparacao\n«regra da fonte 84,0 % contra media do campo 87,0 %» nao existe.\n\nO QUE ESTE SCRIPT PASSA A FAZER:\n 1. verifica na fonte, verbatim, as duas frases acima, para a retratacao nao depender da\n    minha leitura;\n 2. mede a media (a regra da fonte) e, SEPARADAMENTE E ROTULADA COMO ADAPTACAO NOSSA, a\n    ponderacao por desvio aplicada aos cinco. A adaptacao continua util como controle de\n    sensibilidade a regra de combinacao; nao e reproducao.",
+ "verbatim_conferido": {
+  "a_media_e_a_regra_dos_cinco": "The average of all these individual scores for each frame is its Quality score",
+  "o_peso_por_desvio_e_de_outra_camada": "the techniques described in section 3.1 to 3.4"
+ },
+ "REGRA_DA_FONTE_media_dos_cinco": 87.0,
+ "ADAPTACAO_NOSSA_peso_sd_nos_cinco": 84.0,
+ "a_que_camada_o_peso_pertence": "aos quatro tipos de escore do §3.6.1 (qualidade, atencao estatica, atencao temporal, representatividade), que nao temos medidos",
+ "n_decisoes": 800,
+ "pesos_da_adaptacao": {
+  "ke_colorfulness": 0.33453131792238894,
+  "ke_brightness": 0.32588990547482416,
+  "ke_edge_distribution": 0.000539897654385389,
+  "ke_hue_count": 0.030748174024175148,
+  "ke_contraste": 0.30829070492422633
+ }
+}

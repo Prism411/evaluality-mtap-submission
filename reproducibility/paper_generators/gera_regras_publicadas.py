@@ -1,0 +1,139 @@
+#!/usr/bin/env python3
+"""As macros da secao que fecha «os modulos nao foram reproduzidos como publicados».
+
+Cada fonte que ESPECIFICA uma regra de combinacao teve essa regra implementada e medida na
+mesma bancada pareada. Nada aqui e escolha nossa de agregacao: e o que o PDF manda fazer.
+"""
+import json
+import re
+from pathlib import Path
+
+
+# ⛔ `` comia o zero INTERNO: 40.5 virava 4.5.
+# Tira so o zero a esquerda do ponto que nao vem depois de digito.
+def sem_zero(t):
+    return re.sub(r'(?<![0-9])0\.', '.', t)
+
+
+QB = Path('/dados/Projetos/quality-benchmark')
+SAIDA = Path(__file__).parent / 'regras_publicadas.tex'
+
+
+def sem_zero_negativo(x):
+    # ⛔ negar um 0.0 produz -0.0, e o PDF saia com «[-0.0, 10.6]». O valor da
+    # fonte e exatamente zero; o sinal e artefato da negacao.
+    v = -x
+    return 0.0 if v == 0 else v
+
+
+POREXT = {1: 'one', 2: 'two', 3: 'three', 4: 'four', 5: 'five', 6: 'six',
+          7: 'seven', 8: 'eight', 9: 'nine', 10: 'ten', 11: 'eleven',
+          12: 'twelve', 13: 'thirteen', 14: 'fourteen', 15: 'fifteen',
+          16: 'sixteen'}
+
+
+def main():
+    ke = json.load(open(QB / 'o_classificador_do_ke_recupera.json'))['ACURACIA']
+    sr = json.load(open(QB / 'a_regra_que_o_srinivas_especifica.json'))
+    qa = json.load(open(QB / 'onde_cada_termo_do_qaroush_entra.json'))
+    ct = json.load(open(QB / 'o_CT_do_qaroush_inverte_por_construcao.json'))
+    au = json.load(open(QB / 'quantas_sao_indice_autonomo_na_fonte.json'))
+    val = json.load(open(QB / 'o_que_cada_fonte_valida.json'))
+    _q = json.load(open(QB / 'as_15_na_regra_do_artigo.json'))
+    q15, regra = _q['por_operacao'], _q['regra']
+    va = json.load(open(QB / 'o_vascore_do_qaroush_como_a_Eq20_manda.json'))
+    ko = json.load(open(QB / 'o_modulo_do_korolkov_nos_11_segmentos.json'))
+    du = json.load(open(QB / 'a_concordancia_sem_as_duplicatas.json'))
+    ct2 = json.load(open(QB / 'o_contraste_pareado_dos_modulos.json'))
+    # ⚠️ estas macros viviam na tab_literatura.tex, que foi para o suplementar; o corpo
+    # perdeu as definicoes e o build quebrou em 7 pontos. Vivem aqui agora.
+    pz = {x['operacao']: x for x in
+          json.load(open(QB / 'o_piso_das_operacoes_isoladas_e_estavel.json'))['por_operacao']}
+    tab16 = json.load(open(QB / 'as_15_na_regra_do_artigo.json'))['por_operacao']
+    conta = {k: v for k, v in pz.items() if k != 'si'}
+    natab = {k: v for k, v in conta.items() if k in tab16}
+    PAL = {10: 'ten', 9: 'nine', 6: 'Six', 5: 'Five'}
+
+    media = sr['REGRA_DA_FONTE_media_dos_cinco']
+    assert abs(media - ke['media_crua_do_srinivas']) < 0.05, '⛔ as duas fontes discordam da media'
+    nb = ke['naive_bayes_fora_do_segmento']
+    sd = sr['ADAPTACAO_NOSSA_peso_sd_nos_cinco']
+    peso0 = sr['pesos_da_adaptacao']['ke_edge_distribution']
+    NUM = {1: 'one', 2: 'two', 3: 'three', 4: 'four', 14: 'fourteen',
+           15: 'fifteen', 16: 'sixteen'}
+
+    def n(x):
+        return f'{x:.1f}'
+
+    L = [f'\\newcommand{{\\regraMedia}}{{{n(media)}}}',
+         f'\\newcommand{{\\regraKe}}{{{n(nb)}}}',
+         f'\\newcommand{{\\regraSrinivasAdapt}}{{{n(sd)}}}',
+         f'\\newcommand{{\\regraKeQueda}}{{{abs(nb - media):.1f}}}',
+         f'\\newcommand{{\\regraSrinivasAdaptQueda}}{{{abs(sd - media):.1f}}}',
+         f'\\newcommand{{\\regraPesoZero}}{{{peso0:.5f}}}'.replace('{0.000', '{.000'),
+         f'\\newcommand{{\\regraPesoMedia}}{{{1/5:.2f}}}'.replace('{0.', '{.'),
+         f'\\newcommand{{\\qaroushFora}}{{{NUM[qa["fora_do_objetivo_de_qualidade"]]}}}',
+         f'\\newcommand{{\\qaroushDe}}{{{NUM[qa["de"]]}}}',
+         f'\\newcommand{{\\ctNiveis}}{{{ct["n_niveis"]}}}',
+         f'\\newcommand{{\\autVerificadas}}{{{NUM[au["verificadas"]]}}}',
+         f'\\newcommand{{\\autAutonomas}}{{{NUM[au["autonomas"]]}}}',
+         f'\\newcommand{{\\autResto}}{{{NUM[au["verificadas"] - au["autonomas"]]}}}',
+         f'\\newcommand{{\\vaModulo}}{{{va["modulo"]["VAScore_soma_crua_Eq20"]["media_sem_alinhados"]:.1f}}}',
+         f'\\newcommand{{\\vaMelhorMembro}}{{{max(m["media_sem_alinhados"] for m in va["membros"].values()):.1f}}}',
+         f'\\newcommand{{\\vaQueda}}{{{abs(va["modulo_menos_melhor_membro"]):.1f}}}',
+         f'\\newcommand{{\\vaRuido}}{{{va["modulo"]["VAScore_soma_crua_Eq20"]["por_tipo"]["noise"]:.0f}}}',
+         f'\\newcommand{{\\vaJpeg}}{{{va["modulo"]["VAScore_soma_crua_Eq20"]["por_tipo"]["jpeg"]:.0f}}}',
+         f'\\newcommand{{\\pisoPop}}{{{PAL[len(conta)].lower()}}}',
+         f'\\newcommand{{\\pisoPassam}}{{{PAL[sum(1 for v in conta.values() if v["passa"])]}}}',
+         f'\\newcommand{{\\pisoTabPop}}{{{PAL[len(natab)].lower()}}}',
+         f'\\newcommand{{\\pisoTabPassam}}{{{PAL[sum(1 for v in natab.values() if v["passa"])]}}}',
+         f'\\newcommand{{\\pisoMenorLo}}'
+         + '{$' + f'{min(v["ic_inferior"] for v in natab.values() if v["passa"]):+.3f}'
+          + '$}',
+         f'\\newcommand{{\\vaContraste}}{{{abs(ct2["qaroush"]["ponto"]):.1f}}}',
+         f'\\newcommand{{\\vaIC}}{{[{sem_zero_negativo(ct2["qaroush"]["ic95"][1]):.1f},\\,{sem_zero_negativo(ct2["qaroush"]["ic95"][0]):.1f}]}}',
+         f'\\newcommand{{\\koContraste}}{{{abs(ct2["korolkov"]["ponto"]):.1f}}}',
+         f'\\newcommand{{\\koIC}}{{[{sem_zero_negativo(ct2["korolkov"]["ic95"][1]):.1f},\\,{sem_zero_negativo(ct2["korolkov"]["ic95"][0]):.1f}]}}',
+         f'\\newcommand{{\\dupPares}}{{{du["sem_duplicatas"]["n_pares"]}}}',
+         f'\\newcommand{{\\dupDistintas}}{{eleven}}',
+         f'\\newcommand{{\\dupMediana}}{{{du["sem_duplicatas"]["mediana"]:.1f}}}',
+         f'\\newcommand{{\\dupAbaixo}}{{{du["sem_duplicatas"]["abaixo_do_acaso"]}}}',
+         f'\\newcommand{{\\koModulo}}{{{ko["modulo_media"]:.1f}}}',
+         f'\\newcommand{{\\koMelhorMembro}}{{{max(m["media"] for m in ko["membros"].values()):.1f}}}',
+         f'\\newcommand{{\\koQueda}}{{{abs(ko["modulo_menos_melhor_membro"]):.1f}}}',
+         f'\\newcommand{{\\koN}}{{{ko["n_segmentos"]}}}',
+         f'\\newcommand{{\\koDe}}{{{ko["de_segmentos"]}}}',
+         f'\\newcommand{{\\koPortao}}{{{ko["portao_laplacian_maior_dif"]:.1f}}}',
+         f'\\newcommand{{\\vaCT}}{{{va["membros"]["qaroush_ct"]["media_sem_alinhados"]:.1f}}}',
+         # ⛔ a formula antiga contava «com fonte E nao autonoma» = 14, que NAO e o numero de
+         # trechos conferidos. A frase do corpo fala de EXCERTO, entao o campo e este.
+         f'\\newcommand{{\\autTrechos}}{{{POREXT[au["trechos_conferidos"]]}}}',
+         # ⛔ estas TRES vinham escritas a mao no .tex e sumiam a cada regeneracao.
+         # A leitura dos PDFs das fontes mora em `o_que_cada_fonte_valida.json`.
+         # ⛔ a sintese tem de citar a MESMA media que a tabela imprime: a das oito.
+         # A de 74,3 exclui o tipo alinhado e vive na analise de sensibilidade.
+         f'\\newcommand{{\\vaModuloOito}}{{{sum(va["modulo"]["VAScore_soma_crua_Eq20"]["por_tipo"].values())/8:.1f}}}',
+         # ⛔ os quatro numeros da regra externa, da fonte e nao digitados na conclusao.
+         # `si` fica FORA dos maximos: ele nao declara direcao e nao carrega veredito.
+         f'\\newcommand{{\\pisoMelhorSens}}{{{sem_zero("%.3f" % max(v["sensibilidade_media"] for k, v in q15.items() if k != "si"))}}}',
+         f'\\newcommand{{\\pisoMelhorGen}}{{{sem_zero("%.3f" % max(v["menor_rho_em_base_nao_vista"] for k, v in q15.items() if k != "si"))}}}',
+         f'\\newcommand{{\\pisoLimSens}}{{{sem_zero("%.2f" % regra["sensibilidade_media_min"])}}}',
+         f'\\newcommand{{\\pisoLimGen}}{{{sem_zero("%.2f" % regra["generalizacao_min"])}}}',
+         f'\\newcommand{{\\valComPdf}}{{{POREXT[val["n_com_pdf"]]}}}',
+         f'\\newcommand{{\\valPropriedade}}{{{POREXT[len(val["validam_a_propriedade_que_nomeiam"])]}}}',
+         f'\\newcommand{{\\valSoResumo}}{{{POREXT[len(val["avaliam_so_o_resumo"])]}}}']
+    assert not ct2['qaroush']['ic_cruza_zero'], '⛔ o IC do Qaroush passou a cruzar zero'
+    assert ct2['korolkov']['ic_cruza_zero'], '⛔ o IC do Korolkov deixou de cruzar zero: reescrever'
+    assert ko['modulo_menos_melhor_membro'] < 0, '⛔ o modulo do Korolkov superou o membro'
+    assert va['modulo_menos_melhor_membro'] < 0, '⛔ o modulo superou o melhor membro: reescrever a prosa'
+    assert au['autonomas'] == 1, '⛔ mudou o numero de autonomas: reescrever a prosa'
+    # ⚠️ as duas regras publicadas TEM de ficar abaixo da media, senao a frase da prosa cai
+    assert nb < media, '⛔ o naive Bayes do Ke superou a media: reescrever a prosa'
+    SAIDA.write_text('\n'.join(L) + '\n')
+    print(f'  {len(L)} macros -> {SAIDA.name}')
+    for x in L:
+        print('   ', x)
+
+
+if __name__ == '__main__':
+    main()

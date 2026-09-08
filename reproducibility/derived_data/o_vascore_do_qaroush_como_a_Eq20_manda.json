@@ -1,0 +1,111 @@
+{
+ "_o_que_e": "⭐⭐ O MODULO COMPLETO DO QAROUSH (Eq. 20), E NAO OS TERMOS SOLTOS.\n\nA critica ao artigo era exata: avaliamos ATRIBUTOS ISOLADOS quando a fonte publica um MODULO.\nO Qaroush publica, verbatim:\n\n  VAScore(s_l) = CF(s_l) + CT(s_l) + VS(s_l) + GM(s_l) + MMI(s_l)      (Eq. 20)\n\nSoma NAO ponderada de cinco termos. Tres ja estavam no inventario (`hasler_colorfulness` para\nCF, `qaroush_saliencia` para VS, `qaroush_gm` para GM); os outros dois foram implementados e\nmedidos em 07/09 na mesma bancada: `qaroush_ct` (Eq. 8) e `qaroush_mmi` (fluxo optico medio).\n\n⚠️ TRES RESSALVAS, todas declaradas:\n 1. o Qaroush NAO declara normalizacao para a Eq. 20, e os cinco termos tem escalas muito\n    diferentes (GM ~15-95, MMI ~0,7-6,5). A soma crua e dominada pelo termo de maior escala.\n    Vao as duas leituras: crua (literal) e normalizada;\n 2. o `satur` sai da avaliacao: e alinhado por construcao com a colorfulness, um dos membros;\n 3. o CT, medido em 07/09, e ANTI-correlacionado com contraste por construcao (rho -1,0000).\n    Isso nao e escolha nossa: e a Eq. 8 como publicada, e o VAScore herda.",
+ "termos_da_Eq20": [
+  "hasler_colorfulness",
+  "qaroush_ct",
+  "qaroush_saliencia",
+  "qaroush_gm",
+  "qaroush_mmi"
+ ],
+ "tipos_fora": [
+  "satur"
+ ],
+ "modulo": {
+  "VAScore_soma_crua_Eq20": {
+   "por_tipo": {
+    "dark": 100.0,
+    "motion": 100.0,
+    "blur": 100.0,
+    "h264": 100.0,
+    "rescale": 100.0,
+    "satur": 100.0,
+    "noise": 0.0,
+    "jpeg": 20.0
+   },
+   "media_sem_alinhados": 74.3,
+   "tipos_abaixo_de_50": 2
+  },
+  "VAScore_soma_normalizada": {
+   "por_tipo": {
+    "dark": 79.0,
+    "motion": 85.0,
+    "blur": 93.0,
+    "h264": 100.0,
+    "rescale": 91.0,
+    "satur": 100.0,
+    "noise": 1.0,
+    "jpeg": 11.0
+   },
+   "media_sem_alinhados": 65.7,
+   "tipos_abaixo_de_50": 2
+  }
+ },
+ "membros": {
+  "hasler_colorfulness": {
+   "por_tipo": {
+    "dark": 100.0,
+    "motion": 100.0,
+    "blur": 100.0,
+    "h264": 100.0,
+    "rescale": 100.0,
+    "satur": 100.0,
+    "noise": 3.0,
+    "jpeg": 79.0
+   },
+   "media_sem_alinhados": 83.1
+  },
+  "qaroush_ct": {
+   "por_tipo": {
+    "dark": 0.0,
+    "motion": 0.0,
+    "blur": 0.0,
+    "h264": 3.0,
+    "rescale": 0.0,
+    "satur": 68.0,
+    "noise": 81.0,
+    "jpeg": 55.0
+   },
+   "media_sem_alinhados": 19.9
+  },
+  "qaroush_saliencia": {
+   "por_tipo": {
+    "dark": 62.0,
+    "motion": 29.0,
+    "blur": 20.0,
+    "h264": 94.0,
+    "rescale": 21.0,
+    "satur": 18.0,
+    "noise": 13.0,
+    "jpeg": 10.0
+   },
+   "media_sem_alinhados": 35.6
+  },
+  "qaroush_gm": {
+   "por_tipo": {
+    "dark": 100.0,
+    "motion": 100.0,
+    "blur": 100.0,
+    "h264": 100.0,
+    "rescale": 100.0,
+    "satur": 23.0,
+    "noise": 0.0,
+    "jpeg": 5.0
+   },
+   "media_sem_alinhados": 72.1
+  },
+  "qaroush_mmi": {
+   "por_tipo": {
+    "dark": 100.0,
+    "motion": 87.0,
+    "blur": 100.0,
+    "h264": 98.0,
+    "rescale": 98.0,
+    "satur": 14.0,
+    "noise": 9.0,
+    "jpeg": 10.0
+   },
+   "media_sem_alinhados": 71.7
+  }
+ },
+ "modulo_menos_melhor_membro": -8.8
+}

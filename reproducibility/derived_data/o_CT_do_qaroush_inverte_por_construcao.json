@@ -1,0 +1,10 @@
+{
+ "_o_que_e": "🔴 A EQ. 8 DO QAROUSH INVERTE A DIRECAO QUE ELE MESMO DECLARA.\n\nO QUE A FONTE DIZ (qaroush2025diversity, Eq. 8 e o texto imediatamente abaixo dela):\n\n  CT(s_l) = (1/K) * SUM_k | sigma_p(HE(gray(f_k))) - sigma_p(gray(f_k)) |\n  «where ... |A| is the absolute value of the number A. A HIGHER CT VALUE INDICATES\n   GREATER CONTRAST within the segment.»\n\n⭐ POR QUE ISSO NAO PODE VALER. A equalizacao de histograma leva QUALQUER imagem ao mesmo\nhistograma aproximadamente uniforme, entao `sigma_p(HE(g))` e praticamente constante (~74\nnum 8 bits). A quantidade medida e portanto a DISTANCIA entre o contraste da imagem e o\ncontraste maximo: ela e grande para imagem CHAPADA e vai a zero para imagem ja equalizada.\n\n⚠️ E nao e questao do modulo: sem ele a forma tambem inverte, porque sigma_HE - sigma e\npositivo e decrescente. A unica leitura que concorda com a direcao declarada e a RAZAO,\nque a equacao nao escreve.\n\n📌 Isto se detecta LENDO o protocolo, sem rodar nada — e da familia dos artefatos que o\nartigo cataloga. A varredura aqui e a confirmacao, nao a descoberta.",
+ "n_niveis": 25,
+ "semente": 42,
+ "spearman_com_o_contraste_real": {
+  "a_Eq8_com_modulo": -1.0,
+  "sem_o_modulo": -1.0,
+  "razao_que_a_fonte_NAO_escreve": 1.0
+ }
+}

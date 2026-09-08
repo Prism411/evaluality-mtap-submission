@@ -1,0 +1,22 @@
+{
+  "_o_que_e": "⭐⭐ O CLASSIFICADOR QUE O KE USA RECUPERA O QUE A MÉDIA PERDE?\n\n🔴 POR QUE EXISTE (05/09). Eu escrevi no artigo que *\"o remedio e uma regra de combinacao\ndeclarada, do tipo que o Ke usou\"*. ⛔ Nao medi. Suavizei a frase e vim medir, que e a\nordem certa. O Ke rejeita a media linear e usa **naive Bayes**; a pergunta e se o naive\nBayes sobre os MESMOS cinco termos passa dos 87,0 % da media crua.\n\nDesenho, fiel ao protocolo da ablacao:\n  - tarefa: em cada par (original, degradado), escolher o original;\n  - a media crua ja faz isso em 87,0 % das 800 decisoes;\n  - o classificador preve P(original) por QUADRO a partir dos cinco termos, e dentro do\n    par escolhe o de maior probabilidade;\n  - validacao DEIXA-UM-SEGMENTO-DE-FORA, porque segmento e a unidade de dependencia.\n\n⚠️ E o que isto NAO autoriza dizer: um classificador precisa de RÓTULO para treinar, que\ne exatamente o que as operacoes dispensam. Se ele passar, isso NAO devolve a operacao a\nelegibilidade; mostra que a perda vem da regra de combinacao e nao dos cinco termos.",
+  "unidade_de_reamostragem": "segmento (deixa-um-de-fora)",
+  "termos": [
+    "ke_colorfulness",
+    "ke_brightness",
+    "ke_edge_distribution",
+    "ke_hue_count",
+    "ke_contraste"
+  ],
+  "n_quadros": 820,
+  "n_segmentos": 20,
+  "n_decisoes": 800,
+  "ACURACIA": {
+    "naive_bayes_fora_do_segmento": 69.9,
+    "media_crua_do_srinivas": 87.0,
+    "minmax_global": 83.0,
+    "zscore_global": 79.4,
+    "ganho_sobre_a_media_crua": -17.1
+  },
+  "⚠️_o_que_isto_NAO_autoriza": "um classificador precisa de ROTULO para treinar, que e o que as operacoes dispensam. Passar aqui NAO devolve elegibilidade a operacao; mostra apenas se a perda esta na REGRA DE COMBINACAO ou nos cinco termos."
+}

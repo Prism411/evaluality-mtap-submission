@@ -1,0 +1,188 @@
+{
+  "_o_que_e": "⭐ DE QUE TRABALHO VEM CADA OPERACAO, explicito, e quantos trabalhos sao.\n\nPOR QUE EXISTE (05/09). ⭐ RESOLVIDO: o corpo hoje diz «drawn from ELEVEN source works», verificado em 07/09. Quando esta nota nasceu ele dizia \"fifteen visual-quality operations ...\ndrawn from THIRTEEN source works\". ⛔ Esse \"treze\" nao tinha arquivo nenhum que o\nsustentasse, e passou pelo `numeros_da_prosa.py` porque o verificador ignora numero\nPOR EXTENSO. Contando os trabalhos nomeados no `ops_da_literatura.py` eu chego a\noutro numero, entao o \"treze\" precisa ser conferido e nao repetido.\n\nO mapa abaixo e EXPLICITO e cada linha vem do cabecalho de secao do\n`ops_da_literatura.py`, que por sua vez foi conferido nos PDFs do vault-biblio.\n⚠️ Uma operacao pode ter MAIS DE UMA fonte (o `laplacian_var` aparece em tres\ntrabalhos), e por isso a contagem de trabalhos nao e a contagem de operacoes.\n\n⛔ AS CHAVES SAO AS DO `references.bib` DO ARTIGO, nao as dos meus comentarios:\no codigo diz `gygli2014creating` e `jeong2017static`, e o artigo tem\n`gygli2014summe` e `jeong2016static`. Sao as mesmas obras (o SumMe e o \"Creating\nSummaries from User Videos\"; o Jeong sai em volume 2017 com year 2016).\n",
+  "as_16_da_tabela_de_triagem": [
+    "contraste_variancia",
+    "glcm_contraste",
+    "gygli_media_crua",
+    "hasler_colorfulness",
+    "huang_saturacao",
+    "ke_colorfulness",
+    "ke_contraste",
+    "ke_edge_distribution",
+    "ke_hue_count",
+    "laplacian_var",
+    "qaroush_entropia",
+    "qaroush_gm",
+    "qaroush_go",
+    "qaroush_saliencia",
+    "si",
+    "srinivas_quality"
+  ],
+  "n_operacoes_da_triagem": 16,
+  "_por_que_16_e_nao_15": "a tabela de triagem tem as 15 da literatura de sumarizacao MAIS o `si`, que vem da ITU-T P.910 e nao da literatura de sumarizacao. As 15 vem de 11 trabalhos; o `si` nao acrescenta trabalho a essa conta.",
+  "unidade_de_reamostragem": "nao se aplica (mapa declarado)",
+  "n_operacoes_no_mapa": 25,
+  "as_15_da_tabela_S3": [
+    "qaroush_go",
+    "ke_edge_distribution",
+    "ke_hue_count",
+    "qaroush_entropia",
+    "ke_contraste",
+    "contraste_variancia",
+    "qaroush_saliencia",
+    "qaroush_gm",
+    "gygli_media_crua",
+    "srinivas_quality",
+    "glcm_contraste",
+    "huang_saturacao",
+    "laplacian_var",
+    "hasler_colorfulness",
+    "ke_colorfulness"
+  ],
+  "n_operacoes_das_15": 15,
+  "n_trabalhos_das_15": 11,
+  "trabalhos_das_15": [
+    "cakmak2025tripss",
+    "gygli2014summe",
+    "hasler2003colorfulness",
+    "huang2024aesthetic",
+    "jeong2016static",
+    "ke2006highlevel",
+    "korolkov2025keyframe",
+    "qaroush2025diversity",
+    "srinivas2016rank",
+    "xu2024property",
+    "yang2024keyframe"
+  ],
+  "n_operacoes_com_fonte": 24,
+  "n_trabalhos_de_todas": 14,
+  "trabalhos_de_todas": [
+    "cakmak2025tripss",
+    "gygli2014summe",
+    "hasler2003colorfulness",
+    "huang2024aesthetic",
+    "jeong2016static",
+    "ke2006highlevel",
+    "korolkov2025keyframe",
+    "nandini2022edgelbp",
+    "qaroush2025diversity",
+    "srinivas2016rank",
+    "xu2024property",
+    "yang2024keyframe",
+    "zhang2015aesthetics",
+    "zhang2016georeferenced"
+  ],
+  "operacoes_com_mais_de_uma_fonte": {
+    "srinivas_quality": [
+      "srinivas2016rank",
+      "ke2006highlevel"
+    ],
+    "laplacian_var": [
+      "cakmak2025tripss",
+      "korolkov2025keyframe"
+    ],
+    "contraste_variancia": [
+      "jeong2016static",
+      "xu2024property",
+      "ke2006highlevel"
+    ],
+    "lbp_uniformidade": [
+      "zhang2015aesthetics",
+      "zhang2016georeferenced",
+      "nandini2022edgelbp"
+    ],
+    "brilho": [
+      "jeong2016static",
+      "ke2006highlevel"
+    ]
+  },
+  "fora_da_literatura_de_sumarizacao": [
+    "si"
+  ],
+  "chaves_renomeadas": {
+    "gygli2014creating": "gygli2014summe",
+    "jeong2017static": "jeong2016static"
+  },
+  "proveniencia": {
+    "hasler_colorfulness": [
+      "hasler2003colorfulness"
+    ],
+    "ke_colorfulness": [
+      "ke2006highlevel"
+    ],
+    "ke_contraste": [
+      "ke2006highlevel"
+    ],
+    "ke_edge_distribution": [
+      "ke2006highlevel"
+    ],
+    "ke_hue_count": [
+      "ke2006highlevel"
+    ],
+    "srinivas_quality": [
+      "srinivas2016rank",
+      "ke2006highlevel"
+    ],
+    "laplacian_var": [
+      "cakmak2025tripss",
+      "korolkov2025keyframe"
+    ],
+    "contraste_variancia": [
+      "jeong2016static",
+      "xu2024property",
+      "ke2006highlevel"
+    ],
+    "huang_saturacao": [
+      "huang2024aesthetic"
+    ],
+    "qaroush_ses": [
+      "qaroush2025diversity"
+    ],
+    "qaroush_entropia": [
+      "qaroush2025diversity"
+    ],
+    "qaroush_saliencia": [
+      "qaroush2025diversity"
+    ],
+    "qaroush_movimento": [
+      "qaroush2025diversity"
+    ],
+    "qaroush_gm": [
+      "qaroush2025diversity"
+    ],
+    "qaroush_go": [
+      "qaroush2025diversity"
+    ],
+    "glcm_contraste": [
+      "yang2024keyframe"
+    ],
+    "glcm_homogeneidade": [
+      "yang2024keyframe"
+    ],
+    "lbp_uniformidade": [
+      "zhang2015aesthetics",
+      "zhang2016georeferenced",
+      "nandini2022edgelbp"
+    ],
+    "gygli_media_crua": [
+      "gygli2014summe"
+    ],
+    "huang_matiz": [
+      "huang2024aesthetic"
+    ],
+    "huang_exposicao": [
+      "huang2024aesthetic"
+    ],
+    "brilho": [
+      "jeong2016static",
+      "ke2006highlevel"
+    ],
+    "ke_brightness": [
+      "ke2006highlevel"
+    ],
+    "sobel_cv": [
+      "qaroush2025diversity"
+    ],
+    "si": []
+  }
+}

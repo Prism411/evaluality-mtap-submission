@@ -1,0 +1,10 @@
+{
+ "_o_que_e": "🔴 O TERMO DE BRILHO DO KOROLKOV PREMIA A SUPEREXPOSICAO QUE ELE DIZ PENALIZAR.\n\nO QUE A FONTE DIZ (korolkov2025keyframe, secao 4.3 e 4.4, verbatim):\n\n  «Brightness: Average luminance in the LAB color space ...\n   PENALIZES UNDER- AND OVER-EXPOSED FRAMES.»\n  «The final score is a weighted combination: score_i = w_sharp * z_sharp_i +\n   w_bright * z_bright_i. We set w_sharp = 0.7, w_bright = 0.3 to favor focused frames.»\n\n⭐ POR QUE ISSO NAO PODE VALER. «Penalizar os dois extremos» exige uma funcao NAO MONOTONA\nda exposicao: ela tem de cair quando escurece E quando estoura. A media de luminancia e\nmonotona crescente, e o peso na soma e POSITIVO (+0,3). Logo o quadro mais claro sempre\npontua mais, e a superexposicao e PREMIADA.\n\n📌 Como no CT do Qaroush, isto se detecta LENDO — a varredura so confirma. E a forma que\ncumpriria o texto (distancia ao meio da faixa, com sinal negativo) e nao-monotona, o que\nserve de controle: se ela tambem passasse monotona, a varredura nao estaria medindo\nexposicao.",
+ "n_niveis": 21,
+ "semente": 42,
+ "spearman_publicado_com_exposicao": 1.0,
+ "spearman_da_forma_que_cumpre_o_texto": -0.4883,
+ "publicado_sobe_na_metade_superexposta": true,
+ "a_que_cumpre_o_texto_cai_na_metade_superexposta": true,
+ "peso_do_brilho_no_modulo": 0.3
+}

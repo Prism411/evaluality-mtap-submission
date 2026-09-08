@@ -1,0 +1,230 @@
+{
+ "_o_que_e": "1.4 O JUSANTE LADO A LADO: modulo NR-IQA muda o resumo mais ou menos que\noperacao da literatura de sumarizacao?\n\nOs dois lados existem, medidos nos MESMOS clusters contra a MESMA linha de base\n(o SIFT+BoVW implantado):\n  - 14 NR-IQA e descritores, do proprio artigo (iqa/.../kappa42_full.json)\n  - 14 operacoes da literatura de sumarizacao, desta rodada\n\n⚠️ PORTAO 1: so entram linhas do artigo com n = 42, a mesma populacao. O\n`kappa42_full.json` tem linhas com n = 29 e elas NAO podem ser comparadas.\n⚠️ PORTAO 2: recontar a concordancia do meu lado a partir dos vencedores brutos,\nem vez de confiar no `analise_jusante.json`, que carrega uma marca `_PARCIAL`\npossivelmente velha. Se a recontagem bater com ele, a marca cai.",
+ "n_clusters": 42,
+ "piso_do_acaso_pct": 47.0,
+ "linhas": [
+  {
+   "nome": "liqe",
+   "familia": "NR-IQA / descritor (artigo)",
+   "concorda": 32,
+   "n": 42,
+   "pct": 76.2,
+   "kappa": 0.551
+  },
+  {
+   "nome": "musiq",
+   "familia": "NR-IQA / descritor (artigo)",
+   "concorda": 32,
+   "n": 42,
+   "pct": 76.2,
+   "kappa": 0.551
+  },
+  {
+   "nome": "topiq_nr",
+   "familia": "NR-IQA / descritor (artigo)",
+   "concorda": 31,
+   "n": 42,
+   "pct": 73.8,
+   "kappa": 0.506
+  },
+  {
+   "nome": "dbcnn",
+   "familia": "NR-IQA / descritor (artigo)",
+   "concorda": 30,
+   "n": 42,
+   "pct": 71.4,
+   "kappa": 0.461
+  },
+  {
+   "nome": "tres",
+   "familia": "NR-IQA / descritor (artigo)",
+   "concorda": 30,
+   "n": 42,
+   "pct": 71.4,
+   "kappa": 0.461
+  },
+  {
+   "nome": "sobel_cv",
+   "familia": "operacao de sumarizacao",
+   "concorda": 29,
+   "n": 42,
+   "pct": 69.0,
+   "kappa": null
+  },
+  {
+   "nome": "brisque",
+   "familia": "NR-IQA / descritor (artigo)",
+   "concorda": 28,
+   "n": 42,
+   "pct": 66.7,
+   "kappa": 0.371
+  },
+  {
+   "nome": "clipiqa",
+   "familia": "NR-IQA / descritor (artigo)",
+   "concorda": 28,
+   "n": 42,
+   "pct": 66.7,
+   "kappa": 0.371
+  },
+  {
+   "nome": "hyperiqa",
+   "familia": "NR-IQA / descritor (artigo)",
+   "concorda": 28,
+   "n": 42,
+   "pct": 66.7,
+   "kappa": 0.371
+  },
+  {
+   "nome": "qualiclip",
+   "familia": "NR-IQA / descritor (artigo)",
+   "concorda": 28,
+   "n": 42,
+   "pct": 66.7,
+   "kappa": 0.371
+  },
+  {
+   "nome": "contraste_variancia",
+   "familia": "operacao de sumarizacao",
+   "concorda": 27,
+   "n": 42,
+   "pct": 64.3,
+   "kappa": null
+  },
+  {
+   "nome": "niqe",
+   "familia": "NR-IQA / descritor (artigo)",
+   "concorda": 26,
+   "n": 42,
+   "pct": 61.9,
+   "kappa": 0.281
+  },
+  {
+   "nome": "arniqa",
+   "familia": "NR-IQA / descritor (artigo)",
+   "concorda": 25,
+   "n": 42,
+   "pct": 59.5,
+   "kappa": 0.236
+  },
+  {
+   "nome": "clipiqa+",
+   "familia": "NR-IQA / descritor (artigo)",
+   "concorda": 25,
+   "n": 42,
+   "pct": 59.5,
+   "kappa": 0.236
+  },
+  {
+   "nome": "laplacian_var",
+   "familia": "operacao de sumarizacao",
+   "concorda": 25,
+   "n": 42,
+   "pct": 59.5,
+   "kappa": null
+  },
+  {
+   "nome": "huang_exposicao",
+   "familia": "operacao de sumarizacao",
+   "concorda": 25,
+   "n": 42,
+   "pct": 59.5,
+   "kappa": null
+  },
+  {
+   "nome": "brilho",
+   "familia": "operacao de sumarizacao",
+   "concorda": 25,
+   "n": 42,
+   "pct": 59.5,
+   "kappa": null
+  },
+  {
+   "nome": "ke_brightness",
+   "familia": "operacao de sumarizacao",
+   "concorda": 25,
+   "n": 42,
+   "pct": 59.5,
+   "kappa": null
+  },
+  {
+   "nome": "ke_contraste",
+   "familia": "operacao de sumarizacao",
+   "concorda": 23,
+   "n": 42,
+   "pct": 54.8,
+   "kappa": null
+  },
+  {
+   "nome": "hasler_colorfulness",
+   "familia": "operacao de sumarizacao",
+   "concorda": 22,
+   "n": 42,
+   "pct": 52.4,
+   "kappa": null
+  },
+  {
+   "nome": "ke_colorfulness",
+   "familia": "operacao de sumarizacao",
+   "concorda": 22,
+   "n": 42,
+   "pct": 52.4,
+   "kappa": null
+  },
+  {
+   "nome": "srinivas_quality",
+   "familia": "operacao de sumarizacao",
+   "concorda": 22,
+   "n": 42,
+   "pct": 52.4,
+   "kappa": null
+  },
+  {
+   "nome": "huang_saturacao",
+   "familia": "operacao de sumarizacao",
+   "concorda": 19,
+   "n": 42,
+   "pct": 45.2,
+   "kappa": null
+  },
+  {
+   "nome": "huang_matiz",
+   "familia": "operacao de sumarizacao",
+   "concorda": 17,
+   "n": 42,
+   "pct": 40.5,
+   "kappa": null
+  },
+  {
+   "nome": "ke_edge_distribution",
+   "familia": "operacao de sumarizacao",
+   "concorda": 17,
+   "n": 42,
+   "pct": 40.5,
+   "kappa": null
+  },
+  {
+   "nome": "dinov2",
+   "familia": "NR-IQA / descritor (artigo)",
+   "concorda": 11,
+   "n": 42,
+   "pct": 26.2,
+   "kappa": -0.393
+  },
+  {
+   "nome": "ke_hue_count",
+   "familia": "operacao de sumarizacao",
+   "concorda": 11,
+   "n": 42,
+   "pct": 26.2,
+   "kappa": null
+  }
+ ],
+ "mediana_iqa": 66.7,
+ "mediana_sumarizacao": 53.6,
+ "excluidos_por_n_diferente": {
+  "maniqa": 29
+ },
+ "recontagem_bate_com_analise_jusante": true,
+ "_INUTILIZAVEL": "⛔ O LADO NR-IQA DESTE ARQUIVO COMPARA CONTRA OUTRA BASE. NAO USAR a mediana IQA 66,7 % nem qualquer leitura de um lado para o outro.\n\nO `kappa42_full.json` tem `agree` = concordancia com o **Q-Align**, nao com o SIFT implantado. O artigo diz isso em sec_results: «LIQE agrees with Q-Align on 32 of 42 clusters» e «The deployed operation agrees on 21». Este script supos SIFT e montou uma tabela com DUAS bases.\n\n⚠️ E o p_e nao denuncia: as 13 linhas implicam p_e = 0,4702, que e exatamente o acordo ao acaso dos 42 clusters {2:36, 3:3, 4:3}. Esse teste confirma a POPULACAO, e passa igual com qualquer referencia que escolha um vencedor por cluster. Ele nao distingue a base, e eu tomei o passe dele por prova.\n\n⚠️ Segundo impedimento, independente do primeiro: as 14 operacoes amostram a `target_fps=1` e o artigo amostra dez quadros uniformes. Duas amostragens.\n\n✅ O QUE CONTINUA VALENDO: o lado `operacao de sumarizacao` (14 linhas). Ele foi recontado dos vencedores brutos contra o `jusante_sift.json`, que E o SIFT implantado, nos mesmos clusters e nos mesmos quadros. Mediana 53,6 % contra piso 47,0 %."
+}

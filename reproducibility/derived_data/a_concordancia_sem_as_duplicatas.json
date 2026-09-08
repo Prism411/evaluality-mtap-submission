@@ -1,0 +1,25 @@
+{
+ "_o_que_e": "Concordancia par a par ANTES e DEPOIS de agrupar computacoes identicas. Tres variantes de brilho computam a mesma coisa e duas de colorfulness tambem; elas inflam a contagem de pares. Agrupadas, sobram 11 computacoes distintas e 55 pares.",
+ "piso_do_acaso_pct": 47.0,
+ "grupos_identicos": [
+  [
+   "brilho",
+   "huang_exposicao",
+   "ke_brightness"
+  ],
+  [
+   "hasler_colorfulness",
+   "ke_colorfulness"
+  ]
+ ],
+ "com_duplicatas": {
+  "n_pares": 91,
+  "mediana": 50.0,
+  "abaixo_do_acaso": 37
+ },
+ "sem_duplicatas": {
+  "n_pares": 55,
+  "mediana": 50.0,
+  "abaixo_do_acaso": 23
+ }
+}

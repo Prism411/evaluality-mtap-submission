@@ -1,0 +1,92 @@
+{
+ "_o_que_e": "⭐⭐⭐ QUANTAS DAS DEZESSEIS SAO, NA PROPRIA FONTE, UM ESCORE AUTONOMO DE QUALIDADE?\n\nA tese do artigo e que a literatura de sumarizacao carrega essas operacoes para um estagio de\nselecao e as le como «um quadro, sem modelo, maior = melhor qualidade tecnica». Esta contagem\nmede o quanto essa leitura se afasta da fonte, operacao por operacao, com trecho verbatim.\n\nCRITERIO, aplicado igual a todas: a operacao e AUTONOMA na fonte se, la, ela sozinha produz o\nnumero que ordena os candidatos. Nao e autonoma se entra como termo de uma soma, feature de um\nclassificador, bloco de um vetor de representacao, ou entrada de um filtro que combina sinais.\n\n⚠️ O `gygli2014summe` do .bib esta no acervo sob outro nome de arquivo, `gygli2014creating.pdf`\n(mesma obra: ECCV 2014, LNCS 8695, 505-520). Achado em 07/09; antes disso ficava fora da\ncontagem por «falta de PDF», que era falta de PROCURAR pelo titulo em vez do citekey.",
+ "por_operacao": {
+  "ke_edge_distribution": {
+   "fonte": "ke2006highlevel",
+   "autonoma_na_fonte": false,
+   "evidencia_verbatim": "use a naive Bayes classiﬁer to combine the quality metrics"
+  },
+  "ke_contraste": {
+   "fonte": "ke2006highlevel",
+   "autonoma_na_fonte": false,
+   "evidencia_verbatim": "use a naive Bayes classiﬁer to combine the quality metrics"
+  },
+  "ke_hue_count": {
+   "fonte": "ke2006highlevel",
+   "autonoma_na_fonte": false,
+   "evidencia_verbatim": "use a naive Bayes classiﬁer to combine the quality metrics"
+  },
+  "ke_colorfulness": {
+   "fonte": "ke2006highlevel",
+   "autonoma_na_fonte": false,
+   "evidencia_verbatim": "use a naive Bayes classiﬁer to combine the quality metrics"
+  },
+  "srinivas_quality": {
+   "fonte": "srinivas2016rank",
+   "autonoma_na_fonte": false,
+   "evidencia_verbatim": "Final score of the frames is the weighted sum"
+  },
+  "qaroush_gm": {
+   "fonte": "qaroush2025diversity",
+   "autonoma_na_fonte": false,
+   "evidencia_verbatim": "Each objective score is computed as the"
+  },
+  "qaroush_saliencia": {
+   "fonte": "qaroush2025diversity",
+   "autonoma_na_fonte": false,
+   "evidencia_verbatim": "Each objective score is computed as the"
+  },
+  "qaroush_entropia": {
+   "fonte": "qaroush2025diversity",
+   "autonoma_na_fonte": false,
+   "evidencia_verbatim": "To quantify coverage, we employ four key metrics"
+  },
+  "qaroush_go": {
+   "fonte": "qaroush2025diversity",
+   "autonoma_na_fonte": false,
+   "evidencia_verbatim": "Each objective score is computed as the"
+  },
+  "glcm_contraste": {
+   "fonte": "yang2024keyframe",
+   "autonoma_na_fonte": false,
+   "evidencia_verbatim": "are spliced together to form the intra-frame image features"
+  },
+  "laplacian_var": {
+   "fonte": "cakmak2025tripss",
+   "autonoma_na_fonte": false,
+   "evidencia_verbatim": "frames were discarded based"
+  },
+  "contraste_variancia": {
+   "fonte": "jeong2017static",
+   "autonoma_na_fonte": false,
+   "evidencia_verbatim": "combination of the distance"
+  },
+  "huang_saturacao": {
+   "fonte": "huang2024aesthetic",
+   "autonoma_na_fonte": false,
+   "evidencia_verbatim": "we choose saturation, hue, exposure of light, image contrast"
+  },
+  "hasler_colorfulness": {
+   "fonte": "hasler2003colorfulness",
+   "autonoma_na_fonte": true,
+   "evidencia_verbatim": "colourfulness"
+  },
+  "si": {
+   "fonte": null,
+   "autonoma_na_fonte": false,
+   "evidencia_verbatim": "ITU-T P.910: caracterizacao de sequencia de teste"
+  },
+  "gygli_media_crua": {
+   "fonte": "gygli2014creating",
+   "autonoma_na_fonte": false,
+   "evidencia_verbatim": "as a weighted sum of features"
+  }
+ },
+ "verificadas": 16,
+ "autonomas": 1,
+ "quais": [
+  "hasler_colorfulness"
+ ],
+ "sem_pdf_no_acervo": [],
+ "trechos_conferidos": 15
+}

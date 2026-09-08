@@ -1,0 +1,254 @@
+{
+  "_o_que_e": "⚠️ AS 7 OPERAÇÕES QUE PASSAM O PISO SOBREVIVEM A TIRAR UM TÓPICO?\n\nPOR QUE EXISTE (05/09). O artigo ja afirma que **7 de 11** operacoes com escolha a jusante\ndefinida passam o piso in-domain, e ja declara uma fragilidade: *\"four of the seven pass by\na margin smaller than the discretisation step\"*. ⛔ Mas isso e ARGUMENTO sobre o passo de\nkappa, nao medicao de estabilidade. ⭐ Em §267 apliquei deixa-um-topico-de-fora as\ncombinacoes publicadas e uma das cinco caiu; a mesma pergunta vale para a afirmacao que ja\nesta publicada, e e mais importante porque ela ja esta no artigo.\n\nMesmo desenho: 19 rodadas, cada uma tirando um topico, e conta em quantas o VEREDITO muda.",
+  "unidade_de_reamostragem": "topico deixado de fora (19 rodadas)",
+  "B_por_rodada": 4000,
+  "semente": 42,
+  "n_operacoes": 11,
+  "quantas_passam": 7,
+  "DAS_QUE_PASSAM_QUANTAS_SAO_FRAGEIS": {
+    "n": 2,
+    "de": 7,
+    "quais": [
+      "hasler_colorfulness",
+      "ke_colorfulness"
+    ]
+  },
+  "estaveis": [
+    "laplacian_var",
+    "si",
+    "srinivas_quality",
+    "ke_contraste",
+    "sobel_cv"
+  ],
+  "⚠️_comparacao": "o artigo ja declara fragilidade em 4 das 7, por argumento sobre o passo de discretizacao do kappa. Isto MEDE, e o numero pode diferir: passo pequeno e condicao necessaria, nao suficiente, para virar.",
+  "por_operacao": [
+    {
+      "operacao": "laplacian_var",
+      "kappa": 0.5506,
+      "ic_inferior": 0.328,
+      "passa": true,
+      "n_rodadas": 19,
+      "kappa_min": 0.5181,
+      "kappa_max": 0.6145,
+      "veredito_virou_em": 0,
+      "quais": []
+    },
+    {
+      "operacao": "si",
+      "kappa": 0.5056,
+      "ic_inferior": 0.28,
+      "passa": true,
+      "n_rodadas": 19,
+      "kappa_min": 0.4699,
+      "kappa_max": 0.5663,
+      "veredito_virou_em": 0,
+      "quais": []
+    },
+    {
+      "operacao": "srinivas_quality",
+      "kappa": 0.4157,
+      "ic_inferior": 0.1595,
+      "passa": true,
+      "n_rodadas": 19,
+      "kappa_min": 0.3735,
+      "kappa_max": 0.4783,
+      "veredito_virou_em": 0,
+      "quais": []
+    },
+    {
+      "operacao": "ke_contraste",
+      "kappa": 0.3708,
+      "ic_inferior": 0.1064,
+      "passa": true,
+      "n_rodadas": 19,
+      "kappa_min": 0.3253,
+      "kappa_max": 0.4308,
+      "veredito_virou_em": 0,
+      "quais": []
+    },
+    {
+      "operacao": "sobel_cv",
+      "kappa": 0.3258,
+      "ic_inferior": 0.0503,
+      "passa": true,
+      "n_rodadas": 19,
+      "kappa_min": 0.2771,
+      "kappa_max": 0.3834,
+      "veredito_virou_em": 0,
+      "quais": []
+    },
+    {
+      "operacao": "hasler_colorfulness",
+      "kappa": 0.2809,
+      "ic_inferior": 0.0112,
+      "passa": true,
+      "n_rodadas": 19,
+      "kappa_min": 0.2289,
+      "kappa_max": 0.3253,
+      "veredito_virou_em": 10,
+      "quais": [
+        {
+          "topico": "bebe_real",
+          "kappa": 0.2885,
+          "passa": false
+        },
+        {
+          "topico": "bolsonaro_trump",
+          "kappa": 0.2771,
+          "passa": false
+        },
+        {
+          "topico": "cessar_fogo_ucrania",
+          "kappa": 0.2289,
+          "passa": false
+        },
+        {
+          "topico": "esquema_pcc",
+          "kappa": 0.2771,
+          "passa": false
+        },
+        {
+          "topico": "fraude_inss",
+          "kappa": 0.2771,
+          "passa": false
+        },
+        {
+          "topico": "google_huawei",
+          "kappa": 0.2289,
+          "passa": false
+        },
+        {
+          "topico": "isencao_imposto",
+          "kappa": 0.2289,
+          "passa": false
+        },
+        {
+          "topico": "mounjaro",
+          "kappa": 0.2558,
+          "passa": false
+        },
+        {
+          "topico": "rio_celular",
+          "kappa": 0.2644,
+          "passa": false
+        },
+        {
+          "topico": "ucrania",
+          "kappa": 0.2289,
+          "passa": false
+        }
+      ]
+    },
+    {
+      "operacao": "ke_colorfulness",
+      "kappa": 0.2809,
+      "ic_inferior": 0.0117,
+      "passa": true,
+      "n_rodadas": 19,
+      "kappa_min": 0.2289,
+      "kappa_max": 0.3253,
+      "veredito_virou_em": 11,
+      "quais": [
+        {
+          "topico": "bolsonaro_trump",
+          "kappa": 0.2771,
+          "passa": false
+        },
+        {
+          "topico": "catedral_notre_dame",
+          "kappa": 0.2885,
+          "passa": false
+        },
+        {
+          "topico": "cessar_fogo_ucrania",
+          "kappa": 0.2289,
+          "passa": false
+        },
+        {
+          "topico": "esquema_pcc",
+          "kappa": 0.2771,
+          "passa": false
+        },
+        {
+          "topico": "fraude_inss",
+          "kappa": 0.2771,
+          "passa": false
+        },
+        {
+          "topico": "google_huawei",
+          "kappa": 0.2289,
+          "passa": false
+        },
+        {
+          "topico": "isencao_imposto",
+          "kappa": 0.2289,
+          "passa": false
+        },
+        {
+          "topico": "mounjaro",
+          "kappa": 0.2558,
+          "passa": false
+        },
+        {
+          "topico": "recorde_calor_2024",
+          "kappa": 0.2885,
+          "passa": false
+        },
+        {
+          "topico": "rio_celular",
+          "kappa": 0.2644,
+          "passa": false
+        },
+        {
+          "topico": "ucrania",
+          "kappa": 0.2289,
+          "passa": false
+        }
+      ]
+    },
+    {
+      "operacao": "contraste_variancia",
+      "kappa": 0.1011,
+      "ic_inferior": -0.1571,
+      "passa": false,
+      "n_rodadas": 19,
+      "kappa_min": 0.0361,
+      "kappa_max": 0.1462,
+      "veredito_virou_em": 0,
+      "quais": []
+    },
+    {
+      "operacao": "huang_saturacao",
+      "kappa": -0.0337,
+      "ic_inferior": -0.325,
+      "passa": false,
+      "n_rodadas": 19,
+      "kappa_min": -0.1084,
+      "kappa_max": 0.0361,
+      "veredito_virou_em": 0,
+      "quais": []
+    },
+    {
+      "operacao": "ke_hue_count",
+      "kappa": -0.2135,
+      "ic_inferior": -0.4744,
+      "passa": false,
+      "n_rodadas": 19,
+      "kappa_min": -0.2558,
+      "kappa_max": -0.1566,
+      "veredito_virou_em": 0,
+      "quais": []
+    },
+    {
+      "operacao": "ke_edge_distribution",
+      "kappa": -0.2584,
+      "ic_inferior": -0.4836,
+      "passa": false,
+      "n_rodadas": 19,
+      "kappa_min": -0.3012,
+      "kappa_max": -0.2048,
+      "veredito_virou_em": 0,
+      "quais": []
+    }
+  ]
+}

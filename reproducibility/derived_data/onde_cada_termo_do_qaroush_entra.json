@@ -1,0 +1,53 @@
+{
+ "_o_que_e": "⭐⭐ DUAS DAS QUATRO OPERACOES QUE TIRAMOS DO QAROUSH NAO SAO TERMOS DE QUALIDADE NELE.\n\nPOR QUE EXISTE (07/09). A tabela de inventario do artigo registra as quatro operacoes do\n`qaroush2025diversity` com o mesmo rotulo generico — «keyframe diversity and coverage / one\nterm among several». Da para ser exato: o artigo declara QUATRO funcoes-objetivo, por\nequacao numerada, e cada termo entra em UMA delas.\n\n  Eq. 19  CSScore = 0,6*CS + 0,4*CC                  (cluster)\n  Eq. 20  VAScore = CF + CT + VS + GM + MMI          (VISUAL ATTENTION)\n  Eq. 21  SCScore = SS + SE + NO + NP                (COBERTURA)\n  Eq. 22  SDScore = VD + MD + GO + ST                (DIVERSIDADE)\n\n⭐ Entao, das quatro que auditamos como operacao de QUALIDADE VISUAL:\n  - GM (gradient magnitude) e VS (saliency)  -> VAScore, atencao visual  ✅\n  - SE (entropy)                             -> SCScore, COBERTURA\n  - GO (gradient orientation)                -> SDScore, DIVERSIDADE\n\n⚠️ Isto NAO e defeito do Qaroush: ele nunca chamou entropia ou orientacao de medida de\nqualidade. E defeito de quem — nos inclusive — pega um termo de uma soma multiobjetivo e o\nusa como filtro de qualidade. E precisamente a tese do artigo, agora com a fonte na mao.",
+ "por_operacao": {
+  "qaroush_gm": {
+   "objetivo": "VAScore",
+   "o_objetivo_mede": "visual attention",
+   "sigla": "GM",
+   "membros_lidos_da_equacao": [
+    "CF",
+    "CT",
+    "VS",
+    "GM",
+    "MMI"
+   ]
+  },
+  "qaroush_saliencia": {
+   "objetivo": "VAScore",
+   "o_objetivo_mede": "visual attention",
+   "sigla": "VS",
+   "membros_lidos_da_equacao": [
+    "CF",
+    "CT",
+    "VS",
+    "GM",
+    "MMI"
+   ]
+  },
+  "qaroush_entropia": {
+   "objetivo": "SCScore",
+   "o_objetivo_mede": "segment coverage",
+   "sigla": "SE",
+   "membros_lidos_da_equacao": [
+    "SS",
+    "SE",
+    "NO",
+    "NP"
+   ]
+  },
+  "qaroush_go": {
+   "objetivo": "SDScore",
+   "o_objetivo_mede": "segment diversity",
+   "sigla": "GO",
+   "membros_lidos_da_equacao": [
+    "VD",
+    "MD",
+    "GO",
+    "ST"
+   ]
+  }
+ },
+ "fora_do_objetivo_de_qualidade": 2,
+ "de": 4
+}

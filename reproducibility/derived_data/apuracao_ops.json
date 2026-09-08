@@ -1,0 +1,597 @@
+{
+ "_o_que_e": "APURACAO FINAL: junta Desenho A, Desenho B e a analise de dominancia do\ncomposto do Srinivas, e monta a tabela de entrega.\n\nNao recomputa nada: le ops_da_literatura_designA.json e os JSON publicados do\nvault, e cruza tudo numa estrutura so.",
+ "n_segmentos": 20,
+ "ordem_tipos": [
+  "dark",
+  "motion",
+  "blur",
+  "h264",
+  "rescale",
+  "satur",
+  "noise",
+  "jpeg"
+ ],
+ "pares_alinhados_por_construcao": {
+  "huang_saturacao": [
+   "satur"
+  ],
+  "ke_colorfulness": [
+   "satur"
+  ],
+  "hasler_colorfulness": [
+   "satur"
+  ],
+  "laplacian_var": [
+   "blur",
+   "motion"
+  ],
+  "sobel_cv": [
+   "blur",
+   "motion"
+  ],
+  "ke_edge_distribution": [
+   "blur",
+   "motion"
+  ],
+  "contraste_variancia": [
+   "dark"
+  ],
+  "ke_contraste": [
+   "dark"
+  ],
+  "brilho": [
+   "dark"
+  ],
+  "huang_exposicao": [
+   "dark"
+  ],
+  "ke_brightness": [
+   "dark"
+  ]
+ },
+ "operacoes": {
+  "hasler_colorfulness": {
+   "direcao_maior_melhor": true,
+   "n_pares_por_tipo": {
+    "dark": 100,
+    "motion": 100,
+    "blur": 100,
+    "h264": 100,
+    "rescale": 100,
+    "satur": 100,
+    "noise": 100,
+    "jpeg": 100
+   },
+   "desenhoA_acuracia": {
+    "dark": 100.0,
+    "motion": 100.0,
+    "blur": 100.0,
+    "h264": 100.0,
+    "rescale": 100.0,
+    "satur": 100.0,
+    "noise": 3.0,
+    "jpeg": 79.0
+   },
+   "desenhoB_rho_medio": {
+    "dark": -1.0,
+    "motion": -1.0,
+    "blur": -1.0,
+    "h264": -0.98,
+    "rescale": -1.0,
+    "satur": -1.0,
+    "noise": 1.0,
+    "jpeg": 0.13
+   },
+   "tipos_alinhados_por_construcao": [
+    "satur"
+   ],
+   "acuracia_media_SEM_os_alinhados": 83.1
+  },
+  "laplacian_var": {
+   "direcao_maior_melhor": true,
+   "n_pares_por_tipo": {
+    "dark": 100,
+    "motion": 100,
+    "blur": 100,
+    "h264": 100,
+    "rescale": 100,
+    "satur": 100,
+    "noise": 100,
+    "jpeg": 100
+   },
+   "desenhoA_acuracia": {
+    "dark": 100.0,
+    "motion": 100.0,
+    "blur": 100.0,
+    "h264": 95.0,
+    "rescale": 100.0,
+    "satur": 50.0,
+    "noise": 0.0,
+    "jpeg": 66.0
+   },
+   "desenhoB_rho_medio": {
+    "dark": -1.0,
+    "motion": -1.0,
+    "blur": -1.0,
+    "h264": -0.905,
+    "rescale": -1.0,
+    "satur": 0.48,
+    "noise": 1.0,
+    "jpeg": -0.045
+   },
+   "tipos_alinhados_por_construcao": [
+    "blur",
+    "motion"
+   ],
+   "acuracia_media_SEM_os_alinhados": 68.5
+  },
+  "huang_saturacao": {
+   "direcao_maior_melhor": true,
+   "n_pares_por_tipo": {
+    "dark": 100,
+    "motion": 100,
+    "blur": 100,
+    "h264": 100,
+    "rescale": 100,
+    "satur": 100,
+    "noise": 100,
+    "jpeg": 100
+   },
+   "desenhoA_acuracia": {
+    "dark": 13.0,
+    "motion": 100.0,
+    "blur": 100.0,
+    "h264": 15.0,
+    "rescale": 100.0,
+    "satur": 100.0,
+    "noise": 1.0,
+    "jpeg": 90.0
+   },
+   "desenhoB_rho_medio": {
+    "dark": 0.7,
+    "motion": -1.0,
+    "blur": -1.0,
+    "h264": -0.615,
+    "rescale": -1.0,
+    "satur": -1.0,
+    "noise": 1.0,
+    "jpeg": -0.975
+   },
+   "tipos_alinhados_por_construcao": [
+    "satur"
+   ],
+   "acuracia_media_SEM_os_alinhados": 59.9
+  },
+  "huang_matiz": {
+   "direcao_maior_melhor": null,
+   "n_pares_por_tipo": {
+    "dark": 100,
+    "motion": 100,
+    "blur": 100,
+    "h264": 100,
+    "rescale": 100,
+    "satur": 100,
+    "noise": 100,
+    "jpeg": 100
+   },
+   "desenhoA_acuracia": {
+    "dark": null,
+    "motion": null,
+    "blur": null,
+    "h264": null,
+    "rescale": null,
+    "satur": null,
+    "noise": null,
+    "jpeg": null
+   },
+   "desenhoB_rho_medio": {
+    "dark": -1.0,
+    "motion": 0.24,
+    "blur": 0.725,
+    "h264": 0.485,
+    "rescale": 0.815,
+    "satur": -1.0,
+    "noise": 0.46,
+    "jpeg": -0.86
+   },
+   "tipos_alinhados_por_construcao": [],
+   "acuracia_media_SEM_os_alinhados": null
+  },
+  "huang_exposicao": {
+   "direcao_maior_melhor": null,
+   "n_pares_por_tipo": {
+    "dark": 100,
+    "motion": 100,
+    "blur": 100,
+    "h264": 100,
+    "rescale": 100,
+    "satur": 100,
+    "noise": 100,
+    "jpeg": 100
+   },
+   "desenhoA_acuracia": {
+    "dark": null,
+    "motion": null,
+    "blur": null,
+    "h264": null,
+    "rescale": null,
+    "satur": null,
+    "noise": null,
+    "jpeg": null
+   },
+   "desenhoB_rho_medio": {
+    "dark": -1.0,
+    "motion": 0.58,
+    "blur": -0.055,
+    "h264": -0.09,
+    "rescale": -0.88,
+    "satur": 1.0,
+    "noise": 0.705,
+    "jpeg": -0.3
+   },
+   "tipos_alinhados_por_construcao": [
+    "dark"
+   ],
+   "acuracia_media_SEM_os_alinhados": null
+  },
+  "contraste_variancia": {
+   "direcao_maior_melhor": true,
+   "n_pares_por_tipo": {
+    "dark": 100,
+    "motion": 100,
+    "blur": 100,
+    "h264": 100,
+    "rescale": 100,
+    "satur": 100,
+    "noise": 100,
+    "jpeg": 100
+   },
+   "desenhoA_acuracia": {
+    "dark": 100.0,
+    "motion": 100.0,
+    "blur": 100.0,
+    "h264": 100.0,
+    "rescale": 100.0,
+    "satur": 22.0,
+    "noise": 25.0,
+    "jpeg": 90.0
+   },
+   "desenhoB_rho_medio": {
+    "dark": -1.0,
+    "motion": -1.0,
+    "blur": -1.0,
+    "h264": -1.0,
+    "rescale": -1.0,
+    "satur": 0.835,
+    "noise": 0.8,
+    "jpeg": -0.585
+   },
+   "tipos_alinhados_por_construcao": [
+    "dark"
+   ],
+   "acuracia_media_SEM_os_alinhados": 76.7
+  },
+  "brilho": {
+   "direcao_maior_melhor": null,
+   "n_pares_por_tipo": {
+    "dark": 100,
+    "motion": 100,
+    "blur": 100,
+    "h264": 100,
+    "rescale": 100,
+    "satur": 100,
+    "noise": 100,
+    "jpeg": 100
+   },
+   "desenhoA_acuracia": {
+    "dark": null,
+    "motion": null,
+    "blur": null,
+    "h264": null,
+    "rescale": null,
+    "satur": null,
+    "noise": null,
+    "jpeg": null
+   },
+   "desenhoB_rho_medio": {
+    "dark": -1.0,
+    "motion": 0.58,
+    "blur": -0.055,
+    "h264": -0.09,
+    "rescale": -0.88,
+    "satur": 1.0,
+    "noise": 0.705,
+    "jpeg": -0.3
+   },
+   "tipos_alinhados_por_construcao": [
+    "dark"
+   ],
+   "acuracia_media_SEM_os_alinhados": null
+  },
+  "ke_colorfulness": {
+   "direcao_maior_melhor": true,
+   "n_pares_por_tipo": {
+    "dark": 100,
+    "motion": 100,
+    "blur": 100,
+    "h264": 100,
+    "rescale": 100,
+    "satur": 100,
+    "noise": 100,
+    "jpeg": 100
+   },
+   "desenhoA_acuracia": {
+    "dark": 100.0,
+    "motion": 100.0,
+    "blur": 100.0,
+    "h264": 100.0,
+    "rescale": 100.0,
+    "satur": 100.0,
+    "noise": 3.0,
+    "jpeg": 79.0
+   },
+   "desenhoB_rho_medio": {
+    "dark": -1.0,
+    "motion": -1.0,
+    "blur": -1.0,
+    "h264": -0.98,
+    "rescale": -1.0,
+    "satur": -1.0,
+    "noise": 1.0,
+    "jpeg": 0.13
+   },
+   "tipos_alinhados_por_construcao": [
+    "satur"
+   ],
+   "acuracia_media_SEM_os_alinhados": 83.1
+  },
+  "ke_brightness": {
+   "direcao_maior_melhor": null,
+   "n_pares_por_tipo": {
+    "dark": 100,
+    "motion": 100,
+    "blur": 100,
+    "h264": 100,
+    "rescale": 100,
+    "satur": 100,
+    "noise": 100,
+    "jpeg": 100
+   },
+   "desenhoA_acuracia": {
+    "dark": null,
+    "motion": null,
+    "blur": null,
+    "h264": null,
+    "rescale": null,
+    "satur": null,
+    "noise": null,
+    "jpeg": null
+   },
+   "desenhoB_rho_medio": {
+    "dark": -1.0,
+    "motion": 0.58,
+    "blur": -0.055,
+    "h264": -0.09,
+    "rescale": -0.88,
+    "satur": 1.0,
+    "noise": 0.705,
+    "jpeg": -0.3
+   },
+   "tipos_alinhados_por_construcao": [
+    "dark"
+   ],
+   "acuracia_media_SEM_os_alinhados": null
+  },
+  "ke_edge_distribution": {
+   "direcao_maior_melhor": true,
+   "n_pares_por_tipo": {
+    "dark": 100,
+    "motion": 100,
+    "blur": 100,
+    "h264": 100,
+    "rescale": 100,
+    "satur": 100,
+    "noise": 100,
+    "jpeg": 100
+   },
+   "desenhoA_acuracia": {
+    "dark": 70.0,
+    "motion": 62.0,
+    "blur": 62.0,
+    "h264": 11.0,
+    "rescale": 74.0,
+    "satur": 97.0,
+    "noise": 100.0,
+    "jpeg": 31.0
+   },
+   "desenhoB_rho_medio": {
+    "dark": -0.562,
+    "motion": -0.09,
+    "blur": -0.13,
+    "h264": 0.77,
+    "rescale": -0.135,
+    "satur": -0.84,
+    "noise": -0.75,
+    "jpeg": 0.665
+   },
+   "tipos_alinhados_por_construcao": [
+    "blur",
+    "motion"
+   ],
+   "acuracia_media_SEM_os_alinhados": 63.8
+  },
+  "ke_hue_count": {
+   "direcao_maior_melhor": true,
+   "n_pares_por_tipo": {
+    "dark": 100,
+    "motion": 100,
+    "blur": 100,
+    "h264": 100,
+    "rescale": 100,
+    "satur": 100,
+    "noise": 100,
+    "jpeg": 100
+   },
+   "desenhoA_acuracia": {
+    "dark": 20.0,
+    "motion": 13.0,
+    "blur": 10.0,
+    "h264": 77.0,
+    "rescale": 11.0,
+    "satur": 4.0,
+    "noise": 100.0,
+    "jpeg": 59.0
+   },
+   "desenhoB_rho_medio": {
+    "dark": 0.629,
+    "motion": 0.569,
+    "blur": 0.595,
+    "h264": -0.733,
+    "rescale": 0.538,
+    "satur": 0.949,
+    "noise": -0.939,
+    "jpeg": 0.265
+   },
+   "tipos_alinhados_por_construcao": [],
+   "acuracia_media_SEM_os_alinhados": 36.8
+  },
+  "ke_contraste": {
+   "direcao_maior_melhor": true,
+   "n_pares_por_tipo": {
+    "dark": 100,
+    "motion": 100,
+    "blur": 100,
+    "h264": 100,
+    "rescale": 100,
+    "satur": 100,
+    "noise": 100,
+    "jpeg": 100
+   },
+   "desenhoA_acuracia": {
+    "dark": 100.0,
+    "motion": 100.0,
+    "blur": 100.0,
+    "h264": 98.0,
+    "rescale": 100.0,
+    "satur": 30.0,
+    "noise": 10.0,
+    "jpeg": 60.0
+   },
+   "desenhoB_rho_medio": {
+    "dark": -1.0,
+    "motion": -0.995,
+    "blur": -1.0,
+    "h264": -0.906,
+    "rescale": -1.0,
+    "satur": 0.538,
+    "noise": 0.958,
+    "jpeg": -0.169
+   },
+   "tipos_alinhados_por_construcao": [
+    "dark"
+   ],
+   "acuracia_media_SEM_os_alinhados": 71.1
+  },
+  "srinivas_quality": {
+   "direcao_maior_melhor": true,
+   "n_pares_por_tipo": {
+    "dark": 100,
+    "motion": 100,
+    "blur": 100,
+    "h264": 100,
+    "rescale": 100,
+    "satur": 100,
+    "noise": 100,
+    "jpeg": 100
+   },
+   "desenhoA_acuracia": {
+    "dark": 100.0,
+    "motion": 100.0,
+    "blur": 100.0,
+    "h264": 100.0,
+    "rescale": 100.0,
+    "satur": 98.0,
+    "noise": 29.0,
+    "jpeg": 69.0
+   },
+   "desenhoB_rho_medio": {
+    "dark": -1.0,
+    "motion": -1.0,
+    "blur": -1.0,
+    "h264": -0.995,
+    "rescale": -1.0,
+    "satur": -0.63,
+    "noise": 0.955,
+    "jpeg": 0.02
+   },
+   "tipos_alinhados_por_construcao": [],
+   "acuracia_media_SEM_os_alinhados": 87.0
+  },
+  "sobel_cv": {
+   "direcao_maior_melhor": true,
+   "n_pares_por_tipo": {
+    "dark": 100,
+    "motion": 100,
+    "blur": 100,
+    "h264": 100,
+    "rescale": 100,
+    "satur": 100,
+    "noise": 100,
+    "jpeg": 100
+   },
+   "desenhoA_acuracia": {
+    "dark": 80.0,
+    "motion": 72.0,
+    "blur": 67.0,
+    "h264": 63.0,
+    "rescale": 67.0,
+    "satur": 49.0,
+    "noise": 14.0,
+    "jpeg": 65.0
+   },
+   "desenhoB_rho_medio": {
+    "dark": 0.28,
+    "motion": 0.215,
+    "blur": 0.35,
+    "h264": 0.14,
+    "rescale": 0.41,
+    "satur": -0.465,
+    "noise": -0.4,
+    "jpeg": -0.24
+   },
+   "tipos_alinhados_por_construcao": [
+    "blur",
+    "motion"
+   ],
+   "acuracia_media_SEM_os_alinhados": 56.3
+  }
+ },
+ "dominancia_no_composto_srinivas": {
+  "ke_colorfulness": {
+   "rho_com_o_composto": 0.4349,
+   "escala_media": 42.515,
+   "escala_dp": 25.377
+  },
+  "ke_brightness": {
+   "rho_com_o_composto": 0.5755,
+   "escala_media": 92.121,
+   "escala_dp": 27.952
+  },
+  "ke_edge_distribution": {
+   "rho_com_o_composto": -0.0189,
+   "escala_media": 0.092,
+   "escala_dp": 0.037
+  },
+  "ke_hue_count": {
+   "rho_com_o_composto": -0.4218,
+   "escala_media": 13.541,
+   "escala_dp": 4.435
+  },
+  "ke_contraste": {
+   "rho_com_o_composto": 0.8139,
+   "escala_media": 200.954,
+   "escala_dp": 45.151
+  }
+ },
+ "_nota_dominancia": "O srinivas2016rank soma as cinco por MEDIA SIMPLES, sem normalizar. rho alto com o composto e escala grande indicam qual termo manda."
+}

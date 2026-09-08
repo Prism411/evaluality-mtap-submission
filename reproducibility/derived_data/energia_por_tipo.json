@@ -1,0 +1,79 @@
+{
+ "_o_que_e": "O ruido e o unico dos oito tipos que ADICIONA energia de alta frequencia?\n\nSe for, a explicacao das 13 inversoes fecha: as operacoes de classe E seguem a\nenergia, e so um dos tipos a faz subir. Medimos a energia direto, com a mesma\nvariancia do Laplaciano que uma das operacoes usa, mas aqui como INSTRUMENTO e\nnao como operacao sob teste.\n\nAlem disso, o ataque ao proprio resultado da classificacao: como 14 das 16\noperacoes sao classe E, uma regra trivial que responde \"inverte\" para todas ja\nacerta 14. O que a classe pela formula acrescenta sao as 2 restantes, e o\narquivo mede exatamente esse acrescimo.\n",
+ "energia_por_tipo": {
+  "dark": {
+   "razao_mediana_ao_original": 0.2132,
+   "n": 100,
+   "adiciona_energia": false
+  },
+  "motion": {
+   "razao_mediana_ao_original": 0.2316,
+   "n": 100,
+   "adiciona_energia": false
+  },
+  "blur": {
+   "razao_mediana_ao_original": 0.0296,
+   "n": 100,
+   "adiciona_energia": false
+  },
+  "h264": {
+   "razao_mediana_ao_original": 0.748,
+   "n": 100,
+   "adiciona_energia": false
+  },
+  "rescale": {
+   "razao_mediana_ao_original": 0.0907,
+   "n": 100,
+   "adiciona_energia": false
+  },
+  "satur": {
+   "razao_mediana_ao_original": 0.9999,
+   "n": 100,
+   "adiciona_energia": false
+  },
+  "noise": {
+   "razao_mediana_ao_original": 6.9173,
+   "n": 100,
+   "adiciona_energia": true
+  },
+  "jpeg": {
+   "razao_mediana_ao_original": 0.9503,
+   "n": 100,
+   "adiciona_energia": false
+  }
+ },
+ "tipos_que_adicionam_energia": [
+  "noise"
+ ],
+ "inversoes_por_tipo": {
+  "dark": 2,
+  "motion": 1,
+  "blur": 2,
+  "h264": 2,
+  "rescale": 3,
+  "satur": 5,
+  "noise": 13,
+  "jpeg": 3
+ },
+ "ataque_a_classificacao": {
+  "n_operacoes": 16,
+  "acertos_da_classe_pela_formula": 16,
+  "acertos_da_regra_trivial_sempre_inverte": 13,
+  "ganho": 3,
+  "onde_o_ganho_mora": {
+   "ke_edge_distribution": {
+    "classe": "C",
+    "rho": -0.8571
+   },
+   "ke_hue_count": {
+    "classe": "C",
+    "rho": -0.9669
+   },
+   "sobel_cv": {
+    "classe": "N",
+    "rho": -0.355
+   }
+  },
+  "leitura": "a classe pela formula so se distingue da regra trivial nas operacoes que NAO sao classe E; sao poucas, e o valor da classe e prever ESSAS, nao o total"
+ }
+}
