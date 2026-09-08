@@ -371,10 +371,76 @@
    "menor_acuracia": 29.0
   }
  },
+ "a_outra_familia": {
+  "n_modelos": 11,
+  "com_ao_menos_um_tipo_abaixo_de_50": 3,
+  "com_ao_menos_um_tipo_SIGNIFICATIVO": 3,
+  "sem_nenhum_tipo_abaixo": 8,
+  "por_modelo": {
+   "liqe": {
+    "tipos_abaixo_de_50": [],
+    "tipos_significativos": []
+   },
+   "topiq_nr": {
+    "tipos_abaixo_de_50": [],
+    "tipos_significativos": []
+   },
+   "musiq": {
+    "tipos_abaixo_de_50": [],
+    "tipos_significativos": []
+   },
+   "qualiclip": {
+    "tipos_abaixo_de_50": [],
+    "tipos_significativos": []
+   },
+   "arniqa": {
+    "tipos_abaixo_de_50": [],
+    "tipos_significativos": []
+   },
+   "dbcnn": {
+    "tipos_abaixo_de_50": [],
+    "tipos_significativos": []
+   },
+   "niqe": {
+    "tipos_abaixo_de_50": [
+     "satur"
+    ],
+    "tipos_significativos": [
+     "satur"
+    ]
+   },
+   "clipiqa_plus": {
+    "tipos_abaixo_de_50": [],
+    "tipos_significativos": []
+   },
+   "hyperiqa": {
+    "tipos_abaixo_de_50": [
+     "dark",
+     "satur"
+    ],
+    "tipos_significativos": [
+     "satur"
+    ]
+   },
+   "clipiqa": {
+    "tipos_abaixo_de_50": [],
+    "tipos_significativos": []
+   },
+   "brisque": {
+    "tipos_abaixo_de_50": [
+     "satur"
+    ],
+    "tipos_significativos": [
+     "satur"
+    ]
+   }
+  }
+ },
  "previsoes": {
   "1_as_acuracias_reproduzem": "CONFIRMADA",
   "2_a_maioria_tem_tipo_significativo": "CONFIRMADA",
-  "3_a_moeda_nao_acumula": "CONFIRMADA"
+  "3_a_moeda_nao_acumula": "CONFIRMADA",
+  "4_a_outra_familia_inverte_MENOS": "CONFIRMADA"
  },
- "leitura": "15 das 15 operacoes com direcao declarada tem pelo menos um tipo abaixo de 50 %, e 15 delas tem pelo menos um tipo abaixo do acaso com significancia sob Holm nos 120 testes. A moeda de controle, no mesmo desenho, acumula significancia em 0."
+ "leitura": "15 das 15 operacoes com direcao declarada tem pelo menos um tipo abaixo de 50 %, e 15 delas tem pelo menos um tipo abaixo do acaso com significancia sob Holm nos 120 testes. A moeda de controle, no mesmo desenho, acumula significancia em 0. Na outra familia, 8 dos 11 modelos publicados nao invertem em tipo nenhum, e 3 invertem com significancia."
 }

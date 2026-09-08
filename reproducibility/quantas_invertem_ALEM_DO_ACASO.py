@@ -123,6 +123,23 @@ def main():
     aj_moeda = holm(moeda)
     moedas_com_sig = len({k.split('|')[0] for k, v in aj_moeda.items() if v < .05})
 
+    # ⭐ o mesmo instrumento na OUTRA familia: sem isso a leitura e de um lado so.
+    # ⚠️ os modelos nao empatam (`as_duas_contas_da_acuracia_por_tipo.json`: 0 empates),
+    # entao o denominador deles e 100 e a acuracia impressa da a contagem direto.
+    linhas = json.loads((QB / 'TABELA_FINAL.json').read_text())['linhas']
+    modelos = {l['nome']: l['acc'] for l in linhas
+               if 'NR-IQA' in l['familia'] and l['nome'] != 'SIFT+BoVW'}
+    pm = {'%s|%s' % (m, t2): binom_cauda_baixa(round(a2), 100)
+          for m, ac in modelos.items() for t2, a2 in ac.items()}
+    ajm = holm(pm)
+    por_modelo = {}
+    for m, ac in modelos.items():
+        ab = [t2 for t2, a2 in ac.items() if a2 < 50]
+        sg = [t2 for t2 in ac if ajm['%s|%s' % (m, t2)] < .05]
+        por_modelo[m] = {'tipos_abaixo_de_50': ab, 'tipos_significativos': sg}
+    modelos_com_abaixo = sum(1 for v in por_modelo.values() if v['tipos_abaixo_de_50'])
+    modelos_com_sig = sum(1 for v in por_modelo.values() if v['tipos_significativos'])
+
     n_com_sig = sum(1 for v in por_op.values() if v['n_significativos'])
     n_com_abaixo = sum(1 for v in por_op.values() if v['tipos_abaixo_de_50'])
     res = {
@@ -138,18 +155,28 @@ def main():
         'controle_da_moeda': {'operacoes_simuladas': len(com_direcao),
                               'quantas_acumulam_significancia': moedas_com_sig},
         'por_operacao': por_op,
+        'a_outra_familia': {'n_modelos': len(modelos),
+                            'com_ao_menos_um_tipo_abaixo_de_50': modelos_com_abaixo,
+                            'com_ao_menos_um_tipo_SIGNIFICATIVO': modelos_com_sig,
+                            'sem_nenhum_tipo_abaixo': len(modelos) - modelos_com_abaixo,
+                            'por_modelo': por_modelo},
     }
     res['previsoes'] = {
         '1_as_acuracias_reproduzem': 'CONFIRMADA',
         '2_a_maioria_tem_tipo_significativo':
             'CONFIRMADA' if n_com_sig > len(com_direcao) / 2 else '⛔ FALHOU',
         '3_a_moeda_nao_acumula': 'CONFIRMADA' if moedas_com_sig == 0 else '⛔ FALHOU',
+        '4_a_outra_familia_inverte_MENOS':
+            'CONFIRMADA' if modelos_com_sig < n_com_sig else '⛔ FALHOU',
     }
     res['leitura'] = (
         '%d das %d operacoes com direcao declarada tem pelo menos um tipo abaixo de 50 %%, e '
         '%d delas tem pelo menos um tipo abaixo do acaso com significancia sob Holm nos 120 '
         'testes. A moeda de controle, no mesmo desenho, acumula significancia em %d.'
-        % (n_com_abaixo, len(com_direcao), n_com_sig, moedas_com_sig))
+        % (n_com_abaixo, len(com_direcao), n_com_sig, moedas_com_sig)
+        + ' Na outra familia, %d dos %d modelos publicados nao invertem em tipo nenhum, e '
+          '%d invertem com significancia.' % (len(modelos) - modelos_com_abaixo,
+                                              len(modelos), modelos_com_sig))
     SAIDA.write_text(json.dumps(res, ensure_ascii=False, indent=1))
     for k, v in res['previsoes'].items():
         print(' ', k, '=', v)

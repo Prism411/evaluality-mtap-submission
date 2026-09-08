@@ -143,7 +143,10 @@ def main():
          # TODA celula abaixo do acaso e significativa, e a moeda de controle nao acumula.
          f'\\newcommand{{\\invCelulas}}{{{sum(len(v["tipos_abaixo_de_50"]) for v in inv["por_operacao"].values())}}}',
          f'\\newcommand{{\\invTestes}}{{{inv["n_testes"]}}}',
-         f'\\newcommand{{\\invMoeda}}{{{"none" if inv["controle_da_moeda"]["quantas_acumulam_significancia"] == 0 else POREXT[inv["controle_da_moeda"]["quantas_acumulam_significancia"]]}}}']
+         f'\\newcommand{{\\invMoeda}}{{{"none" if inv["controle_da_moeda"]["quantas_acumulam_significancia"] == 0 else POREXT[inv["controle_da_moeda"]["quantas_acumulam_significancia"]]}}}',
+         # ⭐ o mesmo teste na outra familia: sem ele a leitura e de um lado so
+         f'\\newcommand{{\\invModelosLimpos}}{{{POREXT[inv["a_outra_familia"]["sem_nenhum_tipo_abaixo"]]}}}',
+         f'\\newcommand{{\\invModelos}}{{{POREXT[inv["a_outra_familia"]["n_modelos"]]}}}']
     assert not ct2['qaroush']['ic_cruza_zero'], '⛔ o IC do Qaroush passou a cruzar zero'
     assert ct2['korolkov']['ic_cruza_zero'], '⛔ o IC do Korolkov deixou de cruzar zero: reescrever'
     assert ko['modulo_menos_melhor_membro'] < 0, '⛔ o modulo do Korolkov superou o membro'
