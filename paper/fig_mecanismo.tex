@@ -1,0 +1,25 @@
+\begin{figure}[!ht]
+\centering
+\begin{tikzpicture}[
+  box/.style={rectangle,rounded corners=3pt,minimum height=1.15cm,
+    text width=3.45cm,align=center,font=\sffamily\scriptsize,
+    draw=#1,fill=#1!8,line width=.9pt},
+  arr/.style={-{Stealth[length=5pt]},semithick,rulegray}]
+\node[box=catbovw] (score) {\textbf{BoVW+TF-IDF score}\\$D_i\,\overline{\mathrm{idf}}_i$};
+\node[box=accentorange,below left=.65cm and .55cm of score] (count)
+ {\textbf{Descriptor-count channel}\\KonIQ CV .938\\$\rho(S,D)=.998$};
+\node[box=accentpurple,below right=.65cm and .55cm of score] (rare)
+ {\textbf{Mean-IDF-weight channel}\\KonIQ CV .098\\19-extractor mean $|\rho|=.090$};
+\node[box=accentred,below=.7cm of count] (dep)
+ {\textbf{Deployed IDF shift}\\$D_i\log_{10}(K/N)$\\sign changes with document count};
+\node[box=accentgreen,below=.7cm of rare] (test)
+ {\textbf{Controlled consequence}\\65.1\% over 800 pairs\\noise 8\%; JPEG 6\%};
+\draw[arr] (score)--(count); \draw[arr] (score)--(rare);
+\draw[arr] (count)--(dep); \draw[arr] (rare)--(test);
+\draw[arr] (dep)--(test);
+\end{tikzpicture}
+\caption{Measured mechanism. The factorization identifies two channels; the
+data determine their relative variation and connect count dominance to the
+controlled-degradation failures.}
+\label{fig:mechanism}
+\end{figure}

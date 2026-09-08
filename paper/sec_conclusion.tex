@@ -1,33 +1,28 @@
 \section{Conclusion}\label{sec:conclusion}
 
-This study audited the operation implementing a human-grounded visual-quality
-criterion in one multi-video summarization pipeline. The deployed
-SIFT+BoVW+TF-IDF score factors into descriptor count and mean IDF weight. Under the
-evaluated vocabularies, normalizations and extractors, descriptor count dominates:
-the canonical score and keypoint density have statistically equivalent
-MOS/DMOS associations within the operational $\pm.02$ margin on KADID and
-KonIQ, whereas the deployed formulation produces a near-exact sign-reversed
-count ordering in the large-database regime. In the broadcast domain,
-the deployed score tracks its own descriptor count at $+.994$ and remains
-bounded when SIFT is replaced by 19 convolutional extractors.
+This study audited the technical-quality behavior of visual-selection operations drawn
+from the summarization literature, separating the role each source defines for an operation
+from the component, module or adaptation evaluated here. Across 800 controlled pairs, \textbf{every one of the fifteen operations with a declared direction ranks the degraded
+copy above the original}, on at least one of eight degradation types, and thirteen do so
+under white noise. None meets both external requirements, reaching \pisoMelhorSens{} in
+sensitivity against \pisoLimSens{} and \pisoMelhorGen{} in generalization against
+\pisoLimGen{}; neither do the nineteen evaluated combinations, of which one clears
+sensitivity and then fails transfer. Three of ten no-reference models meet both. Where a source specifies how its own terms
+combine, that rule was implemented as written: of the two complete modules, one scores
+measurably below its own best component and the other by a margin this sample does not
+resolve.
 
-The mechanism predicts a consequential failure. Across 800 unmodified--degraded
-broadcast pairs, the deployed operation selects the construction-defined
-higher-fidelity member in 65.1\% of decisions and systematically prefers
-white-noise and JPEG-degraded copies. LIQE reaches 99.5\%. A dependency-aware
-screening rule retains LIQE, QualiCLIP and CLIP-IQA$+$; substituting the complete
-visual-quality operation with a LIQE-based operation, while holding every other
-pipeline stage fixed, changes 22 of 42 selected segments. The DOVER
-technical-branch global-range point estimate increases by 25.5 percentage
-points, but both topic-block and hierarchical intervals cross zero, so no
-population-level output effect is confirmed.
+For the deployed BoVW+TF-IDF operation an exact factorization separates a descriptor count
+from a mean inverse-document-frequency weight. \textbf{The count dominates in every regime measured}, the relation survives replacing
+SIFT with 19 convolutional extractors, and over the 800 pairs the sign of the score
+difference follows the sign of the count difference in 797. That explains the inversions under noise and JPEG for one operation; across the other
+fifteen the outcome recurs as a pattern rather than a demonstrated common cause.
 
-The supported conclusion is therefore specific: the audited operation is not a
-reliable perceptual-quality proxy in the tested regimes, and eligible NR-IQA
-replacements materially alter its decisions. With frames and pooling matched,
-SIFT+BoVW and LIQE still disagree in 16 of 42 clusters; 13 of these disagreements
-overlap the 22 changes in the complete-operation comparison. The study does not establish that
-all BoVW formulations fail, that redundancy clusters contain semantically
-identical alternatives, or that viewers prefer the modified summaries. Human
-pairwise evaluation and broader video-native quality assessment remain the next
-tests needed to connect technical visual quality to compositional value.
+Within the fixed multi-video pipeline, fourteen operations produce eleven distinct
+representative selections over the same 42 clusters, and replacing the deployed
+operation with the LIQE-based one \textbf{changes 22 of 42 representatives}. These results
+make \textbf{visual-quality scoring an explicit design decision}, to be documented and
+evaluated against the requirement it is meant to serve. No human judged these segments, and a blind pairwise
+judgement of real candidates, asking separately about technical quality and about the
+information each preserves, remains necessary to decide whether the changed selections
+yield preferred summaries.

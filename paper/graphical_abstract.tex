@@ -44,7 +44,7 @@
 \node[font=\sffamily\bfseries\large, text=headerblue, anchor=west]
   at (0,5.15) {What does the visual-quality criterion actually measure?};
 \node[font=\sffamily\small, text=black!65, anchor=west]
-  at (0,4.62) {Seventeen complete scorers, a 19-extractor ablation, and
+  at (0,4.62) {Sixteen operations plus the deployed score, a 19-extractor ablation, and
                end-to-end segment substitution};
 \draw[headerblue!35, line width=1pt] (0,4.28) -- (24,4.28);
 
@@ -55,7 +55,7 @@
 \node[seg, below=0.16cm of sg2] (sg3) {CNN \ \ \ 1:12--1:37};
 \node[font=\sffamily\scriptsize, text=black!60, text width=3.1cm, align=center,
       below=0.24cm of sg3]
-  {candidates the pipeline treats\\as redundant --- exactly one\\enters the summary};
+  {candidates the pipeline treats\\as redundant, and exactly one\\enters the summary};
 
 %% ---------- Stage 2: the two operations ------------------------------------
 \node[ttl, anchor=west] at (4.35,3.75) {Scoring operation};
@@ -105,11 +105,13 @@
 \node[font=\sffamily\scriptsize, anchor=west, text=black!75]
   at (\bx,1.70) {LIQE};
 
-% equivalence callout, kept clear of the two labels and numeric values
-\node[rectangle, rounded corners=2pt, draw=catbovw!55, fill=catbovw!4,
-      line width=0.8pt, inner sep=4pt, font=\sffamily\scriptsize\bfseries,
-      text=catbovw, anchor=west, text width=3.45cm, align=left]
-  at (13.35,2.49) {equivalent within $\pm0.02$\\[1pt]
+% the equality bracket between the two 0.447 bars
+\draw[catbovw, line width=1pt]
+  ({\bx+0.125*\bw+0.78},2.87) -- ({\bx+0.125*\bw+1.05},2.87)
+  -- ({\bx+0.125*\bw+1.05},2.11) -- ({\bx+0.125*\bw+0.78},2.11);
+\node[font=\sffamily\scriptsize\bfseries, text=catbovw, anchor=west,
+      text width=3.1cm]
+  at (14.8,2.49) {equivalent within $\pm0.02$\\[1pt]
   {\scriptsize\mdseries difference $+0.0024$; block CI\\$[-0.0019,+0.0084]$}};
 
 %% ---------- Stage 4: the take-away -----------------------------------------
@@ -142,7 +144,7 @@
 \draw[ar] (c1) -- (c2); \draw[ar] (c2) -- (c3); \draw[ar] (c3) -- (c4);
 \node[font=\sffamily\scriptsize, text=black!60, anchor=west, right=0.55cm of c4,
       text width=4.4cm]
-  {the evidence streams are combined without claiming a universal ranking};
+  {four evidence streams, one protocol,\\one decision per redundancy cluster};
 
 \end{tikzpicture}
 \end{document}

@@ -1,57 +1,85 @@
 \section{Discussion and limitations}\label{sec:discussion}
 
-The evidence converges on a localized diagnosis. The canonical score and
-keypoint density have statistically equivalent MOS/DMOS associations within the
-operational $\pm.02$ margin on KADID and KonIQ; the implementation adds a
-count-proportional term whose sign changes with collection size; and all 19
-extractor substitutions remain bounded while tracking their descriptor counts.
-The constructed pairs reveal the consequence: noise and JPEG artefacts add
-detectable structure and reverse the ordering. A proxy can therefore appear
-competent on selected distortions while responding to the wrong construct.
+The BoVW+TF-IDF factorization separates descriptor count from mean IDF weight. Across the
+evaluated configurations \textbf{the measurements establish count dominance}; on the 800
+constructed pairs the signs of the score and count differences agree in 797. The count
+increases observed under noise and JPEG accompany the score inversions, linking the
+algebraic decomposition to the measured behavior.
 
-This is not an impossibility theorem for all BoVW uses. Equation~\ref{eq:factor}
-identifies the two channels in this aggregation but does not prove that count or
-mean IDF weight can never correlate with quality under another detector,
-vocabulary, normalization or distribution. The empirical result is that count
-dominates the evaluated configurations and that neither the measured
-mean-IDF-weight channel nor the extractor substitutions recover a reliable
-quality ordering.
+Across the other fifteen operations \textbf{failures under white noise are frequent},
+although their patterns and exceptions do not establish a common mechanism. Figure~S2 of the supplement orders the eight
+degradations by what they do to local high-frequency energy, measured on the same frames
+as the median ratio to the original. The seven that reduce that energy are answered
+correctly, from darkening at $84.3$ down to desaturation at $61.8$. \textbf{White noise is the only one that raises it}, by a factor of $6.9$, and it is the
+one the class answers at $19.1$ per cent, with a median of $3.0$ and thirteen of the fifteen operations below
+chance.
 
-The practical implication is to replace the operation rather than normalize it
+
+Two operations, hue count and edge distribution, answer white noise correctly at $100$ per
+cent and fail elsewhere instead. JPEG, which one might expect to add structure through
+block edges, in fact reduces the measured energy at a ratio of $0.95$, and is answered at
+$62.9$. \emph{Structure}, \emph{descriptor count} and \emph{high-frequency energy} are
+three different quantities, and only the first two were tied together by measurement.
+\textbf{These differences indicate recurring degradation-specific failures} rather than a
+single mechanism shared by all the evaluated operations.
+
+\textbf{Read across the works, the audit says three things about published practice.} The
+same computation carries different requirements: \citet{cakmak2025tripss} uses Laplacian
+variance as a threshold that discards blurred frames, \citet{korolkov2025keyframe} as the
+weighted majority of a ranking score. This bench measured the statistic as a scorer, so it
+speaks to the second use directly and to the first only through the statistic the filter
+reads. \textbf{An aggregate can also hide where a quality score would be used}: the
+visual-attention module of \citet{qaroush2025diversity} averages \vaModuloOito{} per cent
+over the full battery and sits at \vaRuido{} under noise and \vaJpeg{} under JPEG, the two
+degradations on which such a score would reject material. And \textbf{combining terms is not by itself evidence of
+robustness}: the one composite that clears sensitivity fails transfer, so a work that
+publishes a combination inherits the transfer question its members never answered.
+
+\textbf{The practical implication is to replace the operation rather than normalize it}
 by segment length or insert a newer retrieval descriptor. LIQE, QualiCLIP and
-CLIP-IQA$+$ meet the common rule and run substantially faster than the deployed
-path, but the rule does not rank them. The LIQE substitution demonstrates
-propagation, not universal superiority. The complete operation changes 22
-decisions; the matched control changes 16 and retains positive DOVER-T intervals.
-Thus scorer identity matters, but internal operation choices also contribute.
-DOVER does not isolate temporal modelling because architecture and training also
-differ.
+CLIP-IQA$+$ meet the common rule and run substantially faster than the deployed path. The
+complete operation changes 22 decisions and the matched control changes 16, so scorer
+identity carries the effect and the internal choices of an operation contribute as well.
 
-The summarization claim is conditional. Cluster membership means that the
-pipeline treats segments as redundant alternatives; it does not establish
-identical completeness, narrative utility, audio quality or semantic relevance.
-A technically cleaner representative can omit context or carry worse audio, so
-visual quality remains a tie-breaker rather than an objective for the summary as
-a whole. A future human study should separately ask which segment has better
-technical visual quality and which is preferred in the composed summary.
+\subsection{Limitations}\label{sec:limits}
 
-The references also have bounded roles. KADID and the broadcast construction
-test responses to degradation, not preference between distinct recordings.
-Q-Align's 98.2\% constructed-pair accuracy supports technical-degradation
-screening; the exact DOVER technical output used downstream reaches 97.6\% on
-the same pairs. This validates its response to the constructed technical
-changes, not its use as human ground truth or a compositional preference model.
-The official standardized fusion and DOVER++ remain outside the analysis.
+Every result above is a statement about one operation, in one reading, under one battery,
+and none is a verdict on a published system.
 
-The application remains imprecise: 42 clusters are nested in only 19 topics,
-and both DOVER-technical intervals cross zero. Positive raw, range and rank
-point estimates, including after removing small-range clusters, do not confirm a
-population-level output effect. Coverage is also incomplete: ARNIQA and TReS are
-partial, MANIQA is absent, and later models may change the eligible set.
+\textbf{Object and transfer.} What the bench measured is named beside each row: a term
+isolated from a joint objective, a module reproduced as published, or an adaptation of
+ours. A term that fails as a quality score has not thereby been shown to fail at the job
+its source gives it, and count dominance is established for the deployed aggregation in the
+configurations evaluated, not for every vocabulary, normalization or extractor.
 
-Finally, the auxiliary analyses are descriptive. KonIQ--CLIVE--KADID contrasts
-change content, capture, score distributions and model exposure together, while
-conditioning on keypoint density may remove legitimate quality signal. Tables
-S15 and S16 retain those diagnostics; the main conclusion rests on the exact
-factorization, dependency-aware external measurements, constructed pairs,
-matched-input control and controlled operation substitution.
+\textbf{Application.} The 42 clusters are nested in only 19 topics, and both
+DOVER-technical intervals cross zero: the positive raw, range and rank point estimates,
+including after removing small-range clusters, do not confirm a population-level output
+effect. Cluster membership means the pipeline treats segments as redundant alternatives,
+not that they carry identical completeness, narrative utility, audio quality or semantic
+relevance, so visual quality remains a tie-breaker rather than an objective for the summary
+as a whole. \textbf{No human judged these segments}, which makes the substitution result
+decision sensitivity and not preference; the study that would settle it is a blind pairwise
+judgement of real candidates, asking separately about technical visual quality and about
+the information each preserves.
+
+\textbf{References and coverage.} KADID and the broadcast construction test responses to
+degradation, not preference between distinct recordings. Q-Align's 98.2\% constructed-pair
+accuracy and the 97.6\% of the exact DOVER technical output validate their response to
+those constructed changes, not their use as human ground truth or as compositional
+preference models; the official standardized fusion and DOVER++ remain outside the
+analysis, and DOVER does not isolate temporal modeling because architecture and training
+differ along with it. The screening rule admits LIQE, QualiCLIP and CLIP-IQA$+$ without
+ordering them, so the LIQE substitution demonstrates propagation and not superiority.
+ARNIQA and TReS are reported on completed axes only and do not enter the complete-case
+claim, MANIQA is absent, and later models may change the eligible set.
+
+\textbf{Procedure and reproduction.} \textbf{The screening rule is operational and was not
+preregistered}, and the historical inference environment was not preserved as a fully
+pinned lockfile, so the archive reproduces the reported statistics without claiming
+bit-identical regeneration of every neural score. The auxiliary analyses are descriptive:
+the KonIQ--CLIVE--KADID contrasts change content, capture, score distributions and model
+exposure together, and conditioning on keypoint density may remove legitimate quality
+signal. Tables S15 and S16 retain those diagnostics; the main conclusion rests on the exact
+factorization, the dependency-aware external measurements, the constructed pairs, the
+matched-input control and the controlled operation substitution.

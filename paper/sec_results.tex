@@ -1,185 +1,36 @@
 \section{Results}\label{sec:results}
 
-\subsection{Mechanistic diagnosis}\label{sec:mechanism}
+\subsection{Responses to controlled degradation}\label{sec:class}
 
-The deployed inverse document frequency uses the vocabulary size,
-$\mathrm{idf}_{\mathrm{dep}}(v)=\log_{10}(K/\mathrm{df}(v))$, whereas canonical
-TF-IDF uses the number of documents,
-$\mathrm{idf}_{\mathrm{can}}(v)=\log_{10}(N/\mathrm{df}(v))$. Their relation is
-exact:
-\begin{equation}
-S_{\mathrm{dep}}(s)=S_{\mathrm{can}}(s)+D_s\log_{10}(K/N),
-\label{eq:idfrelation}
-\end{equation}
-where $D_s$ is the number of descriptors. The formulations therefore differ by
-an additive count term, not by rescaling. The identity holds within
-$3\times10^{-11}$ on all 93 segment slots. At cluster scale
-$N\in\{2,3,4\}$, so the additional term rewards count and contributes a median
-98.3\% of the deployed score. On a database of approximately $10^4$ documents,
-the term is negative and reverses the count ordering.
+Eight hundred pairs make the answer independent of any reference model: each pair holds
+the same broadcast content before and after a deterministic degradation, so the member a
+quality score should rank higher is fixed by construction. Figure~S4 of the supplement gives every operation on every degradation type as a single
+heatmap ordered by worst cell, and Table~\ref{tab:synthesis} in
+Section~\ref{sec:synthesis} regroups the same accuracies by the work that uses each one.
 
-The more general factorization separates the two available channels:
-\begin{equation}
-\mathrm{score}_i=\sum_v\mathrm{tf}_{iv}\mathrm{idf}_v
-=D_i\underbrace{\sum_v p_i(v)\mathrm{idf}_v}_{\overline{\mathrm{idf}}_i}.
-\label{eq:factor}
-\end{equation}
-Thus a score can vary through how many descriptors the extractor finds and
-through their mean IDF weight. The identity alone does not prove that either channel
-is uninformative; the relative contribution is measured empirically.
+\textbf{Every one of the fifteen operations with a declared direction ranks the degraded
+copy above the original} on at least one degradation type, and thirteen do so under white noise, where five of them are wrong on all one hundred pairs: gray-level co-occurrence matrix (GLCM) contrast, entropy, Laplacian
+variance, gradient orientation and gradient
+magnitude. Two operations, hue count and saliency area, are wrong on more than half
+the eight types, and a third is wrong on exactly half. The two exceptions to the noise pattern, hue count and edge
+distribution, fail elsewhere instead: hue count inverts on five of the eight types and
+edge distribution on H.264 and JPEG.
 
-\begin{figure}[!ht]
-\centering
-\begin{tikzpicture}[
-  box/.style={rectangle,rounded corners=3pt,minimum height=1.15cm,
-    text width=3.45cm,align=center,font=\sffamily\scriptsize,
-    draw=#1,fill=#1!8,line width=.9pt},
-  arr/.style={-{Stealth[length=5pt]},semithick,rulegray}]
-\node[box=catbovw] (score) {\textbf{BoVW+TF-IDF score}\\$D_i\,\overline{\mathrm{idf}}_i$};
-\node[box=accentorange,below left=.65cm and .55cm of score] (count)
- {\textbf{Descriptor-count channel}\\KonIQ CV .938\\$\rho(S,D)=.998$};
-\node[box=accentpurple,below right=.65cm and .55cm of score] (rare)
- {\textbf{Mean-IDF-weight channel}\\KonIQ CV .098\\19-extractor mean $|\rho|=.090$};
-\node[box=accentred,below=.7cm of count] (dep)
- {\textbf{Deployed IDF shift}\\$D_i\log_{10}(K/N)$\\sign changes with document count};
-\node[box=accentgreen,below=.7cm of rare] (test)
- {\textbf{Controlled consequence}\\65.1\% over 800 pairs\\noise 8\%; JPEG 6\%};
-\draw[arr] (score)--(count); \draw[arr] (score)--(rare);
-\draw[arr] (count)--(dep); \draw[arr] (rare)--(test);
-\draw[arr] (dep)--(test);
-\end{tikzpicture}
-\caption{Measured mechanism. The factorization identifies two channels; the
-data determine their relative variation and connect count dominance to the
-controlled-degradation failures.}
-\label{fig:mechanism}
-\end{figure}
+White noise concentrates the failures. These operations are statistics of local structure
+such as gradient magnitude, edge density, entropy, contrast and descriptor counts, and
+additive noise raises such statistics, so an operation reading more structure as more
+quality prefers the noisier frame. Section~\ref{sec:mechanism} measures one instance of that
+reasoning for the deployed BoVW score, which is not one of the fifteen: there the statistic
+is a descriptor count, and the sign of the score difference follows the sign of the count
+difference in 797 of the 800 pairs. \textbf{Across the fifteen the outcome recurs without that demonstration.}
 
-On KonIQ-10k, the coefficient of variation is .938 for $D_i$ and .098 for mean
-IDF weight. The canonical score consequently correlates .998 with descriptor
-count. Its association with human scores is statistically equivalent, within
-the operational $\pm.02$ margin, to that of keypoint density:
-$\rho^{*}=.447$ for both, with score-to-keypoint correlation .998. Steiger's
-$Z=.199$ is below the Bonferroni-corrected critical value of 3.95, and both
-one-sided equivalence tests reject. KADID gives the same association-level
-result under reference-block resampling: .125 for canonical BoVW and .123 for
-keypoint density, paired difference $+.0024$, 95\% CI
-$[-.0019,+.0084]$. This is equivalence of measured MOS/DMOS association, not
-identity of the scores or constructs. The deployed formulation is almost exactly the sign-reversed
-count on the large databases ($-.9999$ on KonIQ, $-.9998$ on KADID and
-$-.9947$ on CLIVE). In the deployment regime its own descriptor count remains
-dominant, $\rho(S_{\mathrm{dep}},D)=+.994$.
+On material where the better member is known, the reading tested here inverts: carrying
+these operations into a selection stage and treating a higher value as better technical
+quality is not supported by their response to controlled damage.
 
-Replacing SIFT with 19 convolutional extractors does not raise the external
-ceiling. Their mean $|\rho|$ is .090 on KonIQ and .112 on CLIVE, with no value
-above .238 on either database; KADID ranges from .156 to .418. Fixed spatial
-feature maps remove per-image count variation on the image databases, leaving
-the rarity channel measured by the ablation. On broadcast segments, however,
-the upstream key-frame selector varies the number of retained frames, so it
-reintroduces count variation: across the 19 variants,
-$\rho(S,D)=+.981$ to $+.997$. These results explain why exchanging the
-extractor changes individual choices without making the ordering a better
-predictor of quality. The explanation is limited to the evaluated vocabulary,
-normalization and extraction regimes.
-
-Simple normalization does not repair the mechanism. Dividing by descriptor
-count exposes the weak mean-IDF-weight channel already measured by the ablation. Dividing
-by frame count is also mismatched to the deployed operation because its internal
-key-frame selector makes descriptor count nearly independent of duration. On the
-42 clusters, frame normalization changes the uncalibrated DOVER two-branch-sum
-output only from 47.4\% to 50.6\% and induces an inverse duration association
-($\rho=-.52$). Full normalization and pooling results are in Tables~S6 and S9.
-
-\subsection{External validation and screening}\label{sec:screen_results}
-
-Within-reference KADID sensitivity separates the deployed operation from
-specialized quality methods. Its mean direction-aligned correlation is $-.077$
-(95\% CI $[-.124,-.030]$), with only 5 of 25 types above .50. LIQE,
-QualiCLIP and CLIP-IQA$+$ reach .807, .849 and .808, respectively, each with 22
-types above .50. Most remaining NR-IQA candidates also respond broadly, with
-means from .607 to .733.
-
-Table~\ref{tab:screening} applies the same complete-case rule to every method.
-Released-weight exposure is visible because an in-database correlation is not a
-generalization result. The generalization column reports the lowest signed
-$\rho^{*}$ over every unseen database, rather than using an absolute value that
-could hide inversion.
-
-\begin{table}[!ht]
-\centering
-\caption{Complete-case method screening. Sensitivity reports the within-reference
-mean and number of KADID types above .50. Generalization is the lowest signed
-$\rho^{*}$ over all unseen databases. Floor is normalized agreement with Q-Align
-on the common 42 clusters and its topic-block lower bound (L). Sup.: K =
-KonIQ-10k opinion training; L = LIVE; OU = opinion-unaware; -- = no opinion
-training; M = multi-database mixture. Q-Align is a reference, not a candidate.}
-\label{tab:screening}
-\scriptsize
-\setlength{\tabcolsep}{1.7pt}
-\renewcommand{\arraystretch}{1.08}
-\begin{tabular}{@{}lcccccc@{}}
-\toprule
-\rowcolor{headerblue}
-\hd{Method} & \hd{Sup.} & \hd{Pol.} & \hd{Sensitivity} &
-\hd{Lowest unseen $\rho^{*}$} & \hd{Floor; L} & \hd{Eligible} \\
-\midrule
-\rowcolor{accentgreen!15}\textbf{LIQE} & K & \polup & .807; 22 & .723 & .551; .284 & \textbf{yes} \\
-\rowcolor{accentgreen!15}\textbf{QualiCLIP} & OU & \polup & .849; 22 & .665 & .371; .143 & \textbf{yes} \\
-\rowcolor{accentgreen!15}\textbf{CLIP-IQA$+$} & K & \polup & .808; 22 & .654 & .236; .034 & \textbf{yes} \\
-\midrule
-TOPIQ & K & \polup & .721; 20 & .511 & .506; .289 & no \\
-\rowcolor{rowlight}MUSIQ & K & \polup & .733; 20 & .556 & .551; .297 & no \\
-DBCNN & K & \polup & .668; 19 & .484 & .461; .274 & no \\
-\rowcolor{rowlight}HyperIQA & K & \polup & .673; 19 & .462 & .371; .122 & no \\
-NIQE & OU & \poldown & .607; 19 & .368 & .281; .012 & no \\
-\rowcolor{rowlight}BRISQUE & L & \poldown & .657; 19 & .236 & .371; .136 & no \\
-CLIP-IQA & OU & \polup & .645; 20 & .501 & .371; .045 & no \\
-\rowcolor{catbovw!12}SIFT+BoVW (deployed) & -- & \polup & $-.077$; 5 & $-.445$ & .056; $-.308$ & no \\
-\midrule
-\rowcolor{rowlight}Q-Align & M & \polup & .880; 23 & -- & -- & reference \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-Three methods are eligible: LIQE, QualiCLIP and CLIP-IQA$+$. This is an
-eligibility set, not a ranking. QualiCLIP has the largest sensitivity mean,
-whereas LIQE has the largest generalization margin. The set is unchanged when
-the generalization threshold varies from .60 to .65 or the sensitivity coverage
-cut varies from 12 to 22 types (Table~S10); at .55 MUSIQ is added, and at .70
-only LIQE remains. ARNIQA and TReS are reported on completed axes only, so
-neither enters this complete-case claim.
-
-The database-level values show why the universal unseen-database clause matters.
-LIQE obtains $\rho^{*}=.723$ on KADID and .865 on CLIVE; QualiCLIP obtains .665
-and .757; CLIP-IQA$+$ obtains .654 and .805. TOPIQ and MUSIQ are strong on the
-unseen authentic database (.811 and .789) but fall to .511 and .556 on KADID.
-DBCNN and HyperIQA similarly fall from .756 and .750 on CLIVE to .484 and .462
-on KADID. An existential rule would admit methods whose favourable authentic
-result masks failure under controlled synthetic distortion. Conversely, the
-three eligible methods pass the floor with overlapping topic-block intervals,
-so the small in-domain sample cannot order them.
-
-The floor axis illustrates that limitation directly. LIQE agrees with Q-Align
-on 32 of 42 clusters ($\kappa_{\mathrm{uniform}}=.551$, 95\% CI
-$[.284,.786]$); QualiCLIP agrees on 28 ($.371$, $[.143,.597]$); and
-CLIP-IQA$+$ on 25 ($.236$, $[.034,.435]$). The deployed operation agrees on 21,
-only 1.3 decisions above the uniform expectation, and its normalized interval
-crosses chance ($.056$, $[-.308,.412]$). The candidates pass the floor, but the
-broadly overlapping intervals do not support pairwise ordering. Results on the
-15 human-annotated redundancy clusters are retained in Tables~S7--S8 rather than
-mixed with the operational 42-cluster set.
-
-The full P.1401 triad and database-level correlations are in Tables~S4 and S15.
-The latter reports training-database contrasts descriptively, because database,
-content, architecture and objective are not matched. Conditioning on detectable
-keypoint density strongly attenuates the BoVW score but is not interpreted as a
-causal partition of ``content density'' (Table~S16). Cost is also secondary to
-eligibility: in the common environment the deployed operation takes 182~s per
-cluster and LIQE 1.9~s (Table~S14).
-
-\subsection{Constructed broadcast degradation}\label{sec:constructed_results}
-
-Table~\ref{tab:constructed} removes the reference model from the decision: each
-pair contains the same content before and after a known degradation. The
+\textbf{The same 800 pairs place the deployed operation and the no-reference models}
+(Table~\ref{tab:constructed}), with the reference model out of the decision: each pair
+contains the same content before and after a known degradation. The
 deployed operation is correct on 65.1\% of 800 pairs. LIQE reaches 99.5\%; the
 paired difference is $+34.4$ percentage points, segment-block 95\% CI
 $[+31.1,+37.7]$. Every evaluated NR-IQA candidate exceeds the deployed score.
@@ -219,9 +70,7 @@ BRISQUE & 100 & 100 & 100 & 99 & 100 & \textcolor{accentred}{\textbf{0}} & 67 & 
 
 No method ties on these pairs. Excluding darkening and desaturation leaves 600
 comparisons and does not repair the deployed operation: its accuracy is 63.7\%,
-whereas LIQE reaches 99.8\% and Q-Align 100\% (Table~S12). The main diagnosis
-therefore does not depend on treating those two transformations as universally
-worse in human perception.
+whereas LIQE reaches 99.8\% and Q-Align 100\% (Table~S12). 
 
 The average conceals the diagnostic result. SIFT+BoVW is at or above 88\% on
 five types but selects the degraded copy in 92\% of white-noise pairs and 94\%
@@ -237,50 +86,278 @@ to move count in the direction of fidelity. The score is therefore responsive,
 but not consistently to quality (Table~S12).
 
 Q-Align is correct on 98.2\% of these pairs (95\% CI $[97.2,99.1]$), which
-supports its technical-degradation competence on this broadcast content. It
-does not validate compositional preference. The exact downstream DOVER-T output
+supports its technical-degradation competence on this broadcast content. The exact downstream DOVER technical branch (DOVER-T) output
 reaches 97.6\% ($[96.1,99.0]$), or 99.8\% ($[99.5,100]$) without darkening and
-desaturation; neither result is a human judgment. The 19
+desaturation. The 19
 extractor substitutions average 44.9\% (CI $[41.0,48.9]$) and remain dominated
 by their descriptor count, corroborating the mechanism while refuting the
-recorded prediction that fixed feature maps would force chance performance.
+registered prediction that fixed feature maps would force chance performance.
 The full prediction and overlay audits are in Table~S12.
+\subsection{Mechanistic diagnosis}\label{sec:mechanism}
 
-\subsection{Pipeline substitution}\label{sec:e2e}
+The deployed inverse document frequency uses the vocabulary size,
+$\mathrm{idf}_{\mathrm{dep}}(v)=\log_{10}(K/\mathrm{df}(v))$, whereas canonical
+TF-IDF uses the number of documents,
+$\mathrm{idf}_{\mathrm{can}}(v)=\log_{10}(N/\mathrm{df}(v))$. Their relation is
+exact:
+\begin{equation}
+S_{\mathrm{dep}}(s)=S_{\mathrm{can}}(s)+D_s\log_{10}(K/N),
+\label{eq:idfrelation}
+\end{equation}
+where $D_s$ is the number of descriptors. The formulations therefore differ by
+an additive count term, not by rescaling. The identity holds within
+$3\times10^{-11}$ on all 93 segment slots. At cluster scale
+$N\in\{2,3,4\}$, so the additional term rewards count and contributes a median
+98.3\% of the deployed score. On a database of approximately $10^4$ documents,
+the term is negative and reverses the count ordering.
 
-LIQE is used for the direct operation substitution because it has the largest
+The more general factorization separates the two available channels, and
+Figure~S1 of the supplement shows the two together with the evidence that fixes their
+relative weight:
+\begin{equation}
+\mathrm{score}_i=\sum_v\mathrm{tf}_{iv}\mathrm{idf}_v
+=D_i\underbrace{\sum_v p_i(v)\mathrm{idf}_v}_{\overline{\mathrm{idf}}_i}.
+\label{eq:factor}
+\end{equation}
+Thus a score can vary through how many descriptors the extractor finds and
+through their mean IDF weight. The relative contribution of the two channels is measured empirically.
+
+On KonIQ-10k, the coefficient of variation is .938 for $D_i$ and .098 for mean
+IDF weight. The canonical score consequently correlates .998 with descriptor
+count. Its association with human scores is statistically equivalent, within
+the operational $\pm.02$ margin, to that of keypoint density:
+$\rho^{*}=.447$ for both, with score-to-keypoint correlation .998. Steiger's
+$Z=.199$ is below the Bonferroni-corrected critical value of 3.95, and both
+one-sided equivalence tests reject. KADID gives the same association-level
+result under reference-block resampling: .125 for canonical BoVW and .123 for
+keypoint density, paired difference $+.0024$, 95\% CI
+$[-.0019,+.0084]$. This is equivalence of measured MOS/DMOS association, not
+identity of the scores or constructs. The deployed formulation is almost exactly the sign-reversed
+count on the large databases ($-.9999$ on KonIQ, $-.9998$ on KADID and
+$-.9947$ on CLIVE). In the deployment regime its own descriptor count remains
+dominant, $\rho(S_{\mathrm{dep}},D)=+.994$.
+
+Replacing SIFT with 19 convolutional extractors leaves the external ceiling where it was.
+Their mean $|\rho|$ is .090 on KonIQ and .112 on CLIVE, with no value
+above .238 on either database; KADID ranges from .156 to .418. Fixed spatial
+feature maps remove per-image count variation on the image databases, leaving
+the rarity channel measured by the ablation. On broadcast segments, however,
+the upstream key-frame selector varies the number of retained frames, so it
+reintroduces count variation: across the 19 variants,
+$\rho(S,D)=+.981$ to $+.997$. Exchanging the extractor therefore changes individual
+choices without making the ordering a better predictor of quality.
+
+Simple normalization does not repair the mechanism. Dividing by descriptor
+count exposes the weak mean-IDF-weight channel already measured by the ablation. Dividing
+by frame count is also mismatched to the deployed operation because its internal
+key-frame selector makes descriptor count nearly independent of duration. On the
+42 clusters, frame normalization changes the uncalibrated DOVER two-branch-sum
+output only from 47.4\% to 50.6\% and induces an inverse duration association
+($\rho=-.52$). Full normalization and pooling results are in Tables~S6 and S9.
+
+\subsection{Performance of the published combinations}\label{sec:combinations}
+
+The summarization literature publishes these operations in composites rather than one at a
+time. Nineteen distinct combinations were collected, twelve of them with more than one
+term, and each was put through the screening rule of Section~\ref{sec:screen} with the
+members aggregated by $z$-score mean and, as a stronger variant, by a ridge model fitted on
+the whole of KADID-10k.
+
+\textbf{One of the nineteen clears the sensitivity gate.} The composite of colourfulness, Laplacian variance and local binary pattern (LBP)
+uniformity
+reaches a within-reference mean of $.524$ on 17 of the 25 distortion types, above the $.50$
+and 15-type requirement that no individual operation met. Its transfer then collapses: on
+KonIQ-10k the same composite reaches $\rho^{*}=.061$, and fitting the ridge on the entirety
+of KADID before applying it to KonIQ moves that to $.067$, against a requirement of $.65$.
+The first figure is a within-reference severity response on KADID and the second an
+association with opinion scores on KonIQ, defined in Section~\ref{sec:screen}; the drop is
+what the second gate exists to detect in a combination calibrated on one severity ladder.
+The remaining 18 combinations do not reach even the first gate. \textbf{No combination
+evaluated here satisfies the protocol's two damage requirements at once.}
+
+The two aggregations above are our choices. Several sources do specify how their terms
+combine, and those specifications were implemented and put through the same bench; two of
+them prescribe a rule over the same attribute vector as implemented here, whose adaptations
+are identified in Table~S25 of the supplement, so the comparison isolates the rule. Ke~\citep{ke2006highlevel} rejects the linear option in the text, writing
+that ``a naive method might
+use a weighted linear combination of the quality metrics'' but that ``the quality metrics we
+defined are not linear'', and uses a naive Bayes classifier instead. What is reproduced
+here is that rule and not Ke's fitted model: the classifier is Gaussian naive Bayes over that
+same vector, but its labels are this bench's original and degraded members rather than
+the professional and snapshot photographs Ke trained on, and its probabilities are estimated
+here. Validated leaving one segment out it reaches \regraKe{} per cent against the
+\regraMedia{} per cent of the unweighted mean, a fall of \regraKeQueda{} points, so the loss
+is attributable to the combination rule and not to a change of terms.
+
+Srinivas~\citep{srinivas2016rank} takes edge distribution, hue count and contrast from Ke by
+citation and colourfulness from a different source, and specifies the other of the two
+alternatives: his
+quality score is ``the average of all these individual scores'', so \textbf{the mean the
+later literature executes is not a simplification of that source but the rule it gives}.
+His weights ``directly proportional to the standard deviation'' belong to another level of
+the same paper, combining four score types of which this bench carries one. Applying that
+weighting to the five attributes is an adaptation of ours, not a reproduction; as a
+sensitivity control it reaches \regraSrinivasAdapt{} per cent and gives edge distribution a
+weight of \regraPesoZero{} against the mean's \regraPesoMedia{}.
+
+One source specifies a complete module, reproduced here as published. The Qaroush~\citep{qaroush2025diversity} visual-attention objective is the unweighted sum of five named terms
+(Eq.~20); three were already in the inventory, and the other two, the contrast term of
+Eq.~8 and mean motion intensity, were implemented and measured on the same bench. Over the
+seven degradation types that are not aligned with any member by construction, desaturation
+being excluded because it acts directly on the colourfulness term, the module
+scores \vaModulo{} per cent while its best single term alone scores \vaMelhorMembro{}. It keeps the failure signature of the isolated operations, answering \vaRuido{} per cent of
+white-noise and \vaJpeg{} per cent of JPEG pairs, and its contrast term contributes
+\vaCT{} per cent alone, which the next paragraph explains.
+
+A second complete module behaves the same way. Korolkov~\citep{korolkov2025keyframe}
+specifies
+$0.7\,z(\text{sharpness})+0.3\,z(\text{brightness})$ with both weights and the $z$-score
+normalization given in the text. The normalization here is computed over all candidates of
+the bench, that is the original and every degraded member of each segment, which is the
+population a selector would rank; reproduced on the \koN{} of \koDe{} segments for which both terms
+were measured and over the seven types that exclude darkening, which acts directly on the
+brightness term, it scores \koModulo{} per cent where its own sharpness term alone scores
+\koMelhorMembro{}, and the paired contrast over the same decisions is
+\koContraste{} points with a segment-block interval of \koIC{} that touches zero, so at this
+sample size the shortfall is not established. \textbf{For the Qaroush module the same
+contrast is \vaContraste{} points with an interval of \vaIC{} that excludes zero: there the
+published module is measurably worse than its own best component.} The subset departs from the 20-segment result by \koPortao{} points on one
+degradation type, so it replicates the direction rather than estimating the size again.
+
+In two sources the published expression carries the opposite sign to the property the
+surrounding text names for it. The contrast term of the
+Qaroush visual-attention objective is anti-correlated by construction with contrast, at
+$-1.0000$ over a sweep in which contrast rises by construction; the brightness term of the
+Korolkov module is stated to penalize over-exposed frames, but the mean luminance it
+specifies rises monotonically with exposure and enters the module with a positive weight,
+so brighter always scores higher. \textbf{In both cases the expression contradicts the
+property the same paragraph claims for it}, and in both the contradiction is visible in the
+equation before any measurement (Table~S19 of the supplement).
+
+\subsection{External validation and screening}\label{sec:screen_results}
+
+The constructed pairs fix the better member by construction, but they use eight
+degradations we chose. A public database with human opinion scores asks the same question
+independently, and applies to the individual operations, their composites and the
+no-reference models alike. All sixteen operations go through a rule with two damage
+requirements, responding to distortion severity within a reference image and retaining that
+response on databases the method was never fitted on, plus one in-domain requirement.
+Table~S24 of the supplement reports each family's best value on each axis separately, so a
+family fails an axis only when its best member fails it.
+
+\textbf{No operation clears either damage gate, and the margin is not narrow.} The best
+within-reference mean among the fifteen is $.298$ against a requirement of $.50$, and the
+best lowest-unseen correlation is $.139$ against $.65$; the higher $.218$ in that column
+belongs to spatial information, which carries no verdict. Four operations are
+negative on the first requirement, which means their response runs against the direction
+their own use assumes. \pisoTabPassam{} of the \pisoTabPop{} operations in Table~S17
+that declare a direction and have a downstream choice defined do clear the in-domain
+requirement, and the bracketed lower bounds show how much of each pass survives its
+interval: the weakest is \pisoMenorLo{}. Several operations therefore agree with the reference model on unmodified material while
+failing both external damage requirements.
+
+Within-reference KADID sensitivity separates the deployed operation from
+specialized quality methods. Its mean direction-aligned correlation is $-.077$
+(95\% CI $[-.124,-.030]$), with only 5 of 25 types above .50. LIQE,
+QualiCLIP and CLIP-IQA$+$ reach .807, .849 and .808, respectively, each with 22
+types above .50. Most remaining NR-IQA candidates also respond broadly, with
+means from .607 to .733.
+
+Table~S21 applies the same complete-case rule to every method.
+Released-weight exposure is visible because an in-database correlation is not a
+generalization result. The generalization column reports the lowest signed
+$\rho^{*}$ over every unseen database, rather than using an absolute value that
+could hide inversion.
+
+Three methods are eligible: LIQE, QualiCLIP and CLIP-IQA$+$. QualiCLIP has the largest
+sensitivity mean and LIQE the largest generalization margin, so the three form an
+eligibility set rather than a ranking. The set is unchanged when the generalization
+threshold varies from .60 to .65 or the sensitivity coverage cut varies from 12 to 22
+types (Table~S10); at .55 MUSIQ is added, and at .70 only LIQE remains.
+
+The database-level values show why the universal unseen-database clause matters.
+LIQE obtains $\rho^{*}=.723$ on KADID and .865 on CLIVE; QualiCLIP obtains .665
+and .757; CLIP-IQA$+$ obtains .654 and .805. TOPIQ and MUSIQ are strong on the
+unseen authentic database (.811 and .789) but fall to .511 and .556 on KADID.
+DBCNN and HyperIQA similarly fall from .756 and .750 on CLIVE to .484 and .462
+on KADID. An existential rule would admit methods whose favorable authentic
+result masks failure under controlled synthetic distortion. Conversely, the
+three eligible methods pass the floor with overlapping topic-block intervals.
+
+The floor axis shows the same overlap. LIQE agrees with Q-Align
+on 32 of 42 clusters ($\kappa_{\mathrm{uniform}}=.551$, 95\% CI
+$[.284,.786]$); QualiCLIP agrees on 28 ($.371$, $[.143,.597]$); and
+CLIP-IQA$+$ on 25 ($.236$, $[.034,.435]$). The deployed operation agrees on 21,
+only 1.3 decisions above the uniform expectation, and its normalized interval
+crosses chance ($.056$, $[-.308,.412]$). Results on the 15 human-annotated redundancy clusters
+are in Tables~S7--S8, kept apart from the operational 42-cluster set.
+
+\textbf{The verdict travels with the benchmark that calibrates it.} The same
+sensitivity requirement, computed on the constructed broadcast pairs instead of KADID-10k,
+admits six of the fifteen directionally evaluated operations, and none meets the
+requirement on both benchmarks. Spatial information clears it there too, and is reported
+separately as a diagnostic control that receives no screening verdict. The two measure damage response by different routes, 25
+synthetic types on still photographs against eight types in the deployment domain, and the
+rule was applied at the same fraction of types on each.
+
+The full P.1401 triad and database-level correlations are in Tables~S4 and S15.
+The latter reports training-database contrasts, and conditioning on detectable keypoint density strongly attenuates the BoVW score (Table~S16). Cost is also secondary to
+eligibility: in the common environment the deployed operation takes 182~s per
+cluster and LIQE 1.9~s (Table~S14).
+
+\subsection{What the choice of operation does to the pipeline}\label{sec:menu}
+
+The preceding sections measure each operation against material with a known answer or
+against human opinion. This one asks a different question, and it needs no reference at
+all: if the pipeline keeps every stage fixed and only the visual-quality module is exchanged,
+\textbf{do the operations pick the same segments?}
+
+They do not. Fourteen operations for which a downstream choice is defined produce eleven
+distinct summaries over the same 42 redundancy clusters. Only two groups coincide, and
+both coincide for a reason that has nothing to do with agreement: the three brightness
+variants compute the same quantity under different names, and the two colourfulness
+implementations are the same Hasler expression reached through different source works.
+Every one of the 42 clusters contains at least two operations that disagree, and the
+average cluster draws $2.21$ distinct choices from the fourteen.
+
+Pairwise, the median agreement between two operations is \dupMediana{} per cent against a chance
+floor of $47.0$, and \textbf{37 of the 91 pairs agree below chance}; Figure~S3 of the
+supplement shows both distributions. Collapsing those duplicate computations leaves \dupDistintas{} distinct ones and
+\dupPares{} pairs, the same median of \dupMediana{} and \dupAbaixo{} below chance.
+\textbf{What this establishes is that the choice of operation changes which representatives
+the pipeline selects, with every other stage fixed.} No source work evaluates its operation
+against the others on common material.
+
+How far the decisions move is the next question, and it applies first to the alternatives
+\emph{the literature itself already offers}: a practitioner reading this literature is
+choosing among them, not among no-reference models. Figure~\ref{fig:jusante} answers it by
+replacing the deployed operation with each of the fourteen in turn, holding every other
+stage and the decoded frames fixed.
+
+\input{fig_jusante}
+
+The fourteen span from \jusMax{} to \jusMin{} per cent agreement with the
+deployed operation, so the choice among published operations rewrites between
+\jusReescreveMin{} and \jusReescreveMax{} per cent of what the stage outputs.
+The median operation retains \jusMediana{} per cent against a uniform-chance
+floor of \jusPiso{}, and \jusAbaixo{} operations (\jusAbaixoNomes{}) retain
+less than chance. Of the fourteen, \jusAuditadas{} belong to the main inventory and all \jusAuditadas{} fail
+the screening of Section~\ref{sec:screen_results}; the remaining \jusSoJusante{} are
+evaluated only in this substitution and carry no screening verdict. The last two columns of
+Table~\ref{tab:synthesis} link those \jusAuditadas{} to their other measurements, and
+Table~S19 records the complete coverage. Whichever of these operations a system adopts, it
+inherits a different summary, and the published record offers no measurement that would let
+an implementer prefer one. Because these percentages use one frame per second while
+Table~S20 scores each complete operation under its own sampling, the two must not be read
+across.
+
+A validated no-reference model in the same slot is the complementary case. LIQE is used for
+the direct operation substitution because it has the largest
 generalization margin among the three eligible methods and near-ceiling accuracy
 on the constructed pairs. With the same ten uniformly spaced frames and mean
 pooling, SIFT+BoVW and LIQE still differ in 16 of 42 clusters. The LIQE--SIFT
 DOVER-T contrast is $+27.1$ range points (topic CI $[5.6,47.8]$; hierarchical
-$[2.4,52.5]$) and $+.0074$ raw, with both intervals positive (Table~S11).
-Table~\ref{tab:e2e} reports the complete-operation comparison and all eligible
-methods; screening does not rank them.
-
-\begin{table}[!ht]
-\centering
-\caption{Model-reference output over the 42 operational redundancy clusters.
-Changed counts representatives differing from the deployed operation. DOVER-T
-is the raw DOVER technical branch and is not used in screening; Q-Align defines
-the in-domain screening floor. Both outputs use the global-achievable-range
-estimand in Eq.~\ref{eq:globalrange}; Max is the percentage of clusters in which
-the selected representative has the highest DOVER-T score.}
-\label{tab:e2e}
-\small
-\setlength{\tabcolsep}{5pt}
-\renewcommand{\arraystretch}{1.08}
-\begin{tabular}{@{}lcrrr@{}}
-\toprule
-\rowcolor{headerblue}
-\hd{Quality operation} & \hd{Changed} & \hd{DOVER-T} & \hd{Max} & \hd{Q-Align} \\
-\midrule
-\rowcolor{catbovw!12}SIFT+BoVW & --- & 50.5\% & 54.8\% & 48.6\% \\
-\rowcolor{accentgreen!15}\textbf{LIQE} & \textbf{22/42} & \textbf{76.0\%} & 59.5\% & 90.2\% \\
-QualiCLIP & 19/42 & 71.9\% & 59.5\% & 80.6\% \\
-\rowcolor{rowlight}CLIP-IQA$+$ & 22/42 & 70.7\% & 50.0\% & 74.3\% \\
-\bottomrule
-\end{tabular}
-\end{table}
+$[2.4,52.5]$) and $+.0074$ raw, with both intervals positive. Table~S20 reports the complete-operation comparison and all eligible methods.
 
 Replacing the deployed visual-quality operation with the LIQE-based operation
 changes 22 of 42 representatives. On the primary DOVER technical branch, the
@@ -299,11 +376,49 @@ branches reproduces the earlier $+30.3$-point contrast, but that sum is neither
 the official standardized fused score nor a purely technical measure
 (Table~S11).
 
-The two model references have positive point estimates for the substitution but not on
-the ordering within the eligible set. That disagreement, together with
-overlapping intervals, is why the study reports eligibility rather than a
-winner. More importantly, neither column measures human preference for the
-composed summary. The supported end-to-end conclusion is that the operation
-substitution materially changes the selected evidence; the model-reference
-output effects are positive but imprecise, and improved viewer experience
-remains untested.
+The reference-model columns give positive point estimates for the substitution, with
+overlapping intervals across the eligible set. \textbf{The supported end-to-end conclusion
+is that the operation substitution materially changes the selected evidence.}
+
+\subsection{The audit read by source work}\label{sec:synthesis}
+
+Table~\ref{tab:synthesis} brings together the roles the sources document and the results of
+the implementations evaluated here, organized by work and component.
+
+\input{tab_sintese}
+
+Three things are legible there. The first is that \emph{the same computation carries
+different claims}. Laplacian variance appears twice because two works use it, and the roles
+are not interchangeable: one applies it as a threshold that discards blurred frames, the
+other as the weighted majority of a keyframe score. The same statistic appears in both bands, each row on the
+sample its band names, and what was measured is the statistic as a scorer. It answers blur on every pair and
+inverts the ordering under noise. \textbf{That characterises the statistic, not the published
+filter}: a scorer can order a pair correctly while a threshold keeps or drops both members,
+and this bench did not run the threshold.
+
+The second is visible in the two module rows, whose means sit inside a band of red cells:
+an aggregate can pass while the types on which a quality score would reject material fail.
+Section~\ref{sec:combinations} gives those figures with their intervals, computed on the
+types not aligned with each module's own construction and therefore lower than the
+all-eight means in the table.
+
+The third is the clause that closes each band, read from the source itself. Of the
+\valComPdf{} works whose full text is in our archive, \valPropriedade{} test a measure against human
+judgement of the property it names, and in both the object tested is a whole:
+\citet{ke2006highlevel} evaluates the \emph{photo-quality classifier} against community
+ratings, not each of its four features alone, and \citet{hasler2003colorfulness} fits its
+\emph{colourfulness index} to a psychophysical scaling experiment. The remaining \valSoResumo{} report agreement
+with reference summaries, and \citet{korolkov2025keyframe} fixes its weights without testing
+them; Table~S26 of the supplement gives, source by source, the excerpt that fixes each
+reading. \textbf{A component that improves a summary has not thereby been shown to measure
+quality}, and that gap, not our bench, is what leaves the reading untested in its own
+sources. The two we could not read are marked as such rather than counted as absent
+validation.
+
+Of the \autVerificadas{} operations traced to a source, \autAutonomas{} is published as an
+autonomous index and it indexes colourfulness; the rest are classifier features, terms inside
+a joint objective, or thresholds, and two of the four taken from the diversity-and-coverage
+work serve coverage and diversity there. The \emph{here:} clause on each band is what
+separates the reading tested from the job the source gives the operation.
+
+\FloatBarrier

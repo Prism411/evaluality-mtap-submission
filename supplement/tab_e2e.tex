@@ -1,0 +1,24 @@
+\begin{table}[!ht]
+\centering
+\caption{Model-reference output over the 42 operational redundancy clusters.
+Changed counts representatives differing from the deployed operation. DOVER-T
+is the raw DOVER technical branch and is not used in screening; Q-Align defines
+the in-domain screening floor. Both outputs use the global-achievable-range
+estimand of Eq.~3 of the main article; Max is the percentage of clusters in which
+the selected representative has the highest DOVER-T score.}
+\label{tab:e2e}
+\small
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.08}
+\begin{tabular}{@{}lcrrr@{}}
+\toprule
+\rowcolor{headerblue}
+\hd{Quality operation} & \hd{Changed} & \hd{DOVER-T} & \hd{Max} & \hd{Q-Align} \\
+\midrule
+\rowcolor{catbovw!12}SIFT+BoVW & --- & 50.5\% & 54.8\% & 48.6\% \\
+\rowcolor{accentgreen!15}\textbf{LIQE} & \textbf{22/42} & \textbf{76.0\%} & 59.5\% & 90.2\% \\
+QualiCLIP & 19/42 & 71.9\% & 59.5\% & 80.6\% \\
+\rowcolor{rowlight}CLIP-IQA$+$ & 22/42 & 70.7\% & 50.0\% & 74.3\% \\
+\bottomrule
+\end{tabular}
+\end{table}

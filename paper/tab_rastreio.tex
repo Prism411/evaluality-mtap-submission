@@ -1,0 +1,33 @@
+\begin{table}[!ht]
+\centering
+\caption{Traceability of every audited operation: the source work, the formula as the source states it, the function that computes it, and the reference model used on the in-domain column. Every operation name and count printed elsewhere in this article is derived from this table. \textbf{Dir.} is the direction the source declares; spatial information declares none, which is why it is measured but carries no verdict.}
+\label{tab:trace}
+\scriptsize
+\setlength{\tabcolsep}{3.4pt}
+\renewcommand{\arraystretch}{1.12}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{2.15cm}>{\raggedright\arraybackslash}p{1.95cm}>{\raggedright\arraybackslash}p{3.70cm}>{\raggedright\arraybackslash}p{2.55cm}c c@{}}
+\toprule
+\rowcolor{headerblue}
+\hd{Operation} & \hd{Source} & \hd{Formula, as the source states it} & \hd{Function} & \hd{Dir.} & \hd{Ref.} \\
+\midrule
+Averaged aesthetics (3) & \citep{gygli2014summe} & unweighted mean of colourfulness, contrast, edge distribution & \texttt{gygli\_\allowbreak{}media\_\allowbreak{}crua} & $\uparrow$ & LIQE \\
+\rowcolor{rowlight}Colourfulness (Hasler) & \citep{hasler2003colorfulness} & $M^{(3)}=\sigma_{rgyb}+.3\mu_{rgyb}$ & \texttt{hasler\_\allowbreak{}colorfulness} & $\uparrow$ & LIQE \\
+Colourfulness (Ke) & \citep{ke2006highlevel} & Hasler $M^{(3)}$; Ke gives no formula & \texttt{hasler\_\allowbreak{}colorfulness} & $\uparrow$ & LIQE \\
+\rowcolor{rowlight}Composite of five & \citep{srinivas2016rank}, \citep{ke2006highlevel} & unweighted mean of the five Ke terms & \texttt{srinivas\_\allowbreak{}quality} & $\uparrow$ & LIQE \\
+Contrast & \citep{ke2006highlevel} & width of central 98\% of the grey histogram (Ke \S4.5) & \texttt{ke\_\allowbreak{}contraste} & $\uparrow$ & LIQE \\
+\rowcolor{rowlight}Contrast variance & \citep{jeong2016static}, \citep{xu2024property} & pixel variance & \texttt{contraste\_\allowbreak{}variancia} & $\uparrow$ & LIQE \\
+Edge distribution & \citep{ke2006highlevel} & $q_a=1-w_xw_y$ (Ke \S4.1) & \texttt{ke\_\allowbreak{}edge\_\allowbreak{}distribution} & $\uparrow$ & LIQE \\
+\rowcolor{rowlight}Entropy & \citep{qaroush2025diversity} & Shannon entropy over HSV histogram bins (Eq.~5) & \texttt{qaroush\_\allowbreak{}entropia} & $\uparrow$ & LIQE \\
+GLCM contrast & \citep{yang2024keyframe} & GLCM contrast descriptor & \texttt{glcm\_\allowbreak{}contraste} & $\uparrow$ & LIQE \\
+\rowcolor{rowlight}Gradient magnitude & \citep{qaroush2025diversity} & mean Sobel gradient magnitude (Eq.~10) & \texttt{qaroush\_\allowbreak{}gm} & $\uparrow$ & LIQE \\
+Gradient orientation & \citep{qaroush2025diversity} & SD of Sobel gradient orientations (Eq.~15) & \texttt{qaroush\_\allowbreak{}go} & $\uparrow$ & LIQE \\
+\rowcolor{rowlight}Hue count & \citep{ke2006highlevel} & $q_h=20-|N|$, $\alpha=.05$ (Ke \S4.3) & \texttt{ke\_\allowbreak{}hue\_\allowbreak{}count} & $\uparrow$ & LIQE \\
+Laplacian variance & \citep{cakmak2025tripss}, \citep{korolkov2025keyframe} & variance of the grey-scale Laplacian & \texttt{laplacian\_\allowbreak{}var} & $\uparrow$ & LIQE \\
+\rowcolor{rowlight}Saliency area & \citep{qaroush2025diversity} & area fraction above a saliency threshold (Eq.~6) & \texttt{qaroush\_\allowbreak{}saliencia} & $\uparrow$ & LIQE \\
+Saturation & \citep{huang2024aesthetic} & mean HSV saturation (\S III-A-1) & \texttt{huang\_\allowbreak{}saturacao} & $\uparrow$ & LIQE \\
+\rowcolor{rowlight}Spatial information & \citep{itu_p910} & Sobel energy, ITU-T P.910 & \texttt{si} & \textcolor{black!45}{none} & LIQE \\
+\midrule
+\multicolumn{6}{@{}p{0.97\linewidth}}{\scriptsize All sixteen are computed by \texttt{ops\_da\_literatura.py} on the same frames and pooled identically. \textbf{Ref.} is the model each operation is compared against on the in-domain column; the ten no-reference models in the main screening table use Q-Align there instead, so that column compares each family with its own reference. Colourfulness has no formula in Ke, who cites Datta; the Hasler expression is used and the substitution is declared here rather than silently. Scores for fifteen operations are in \texttt{corpus\_inteiro.json}; spatial information is scored on the extended 83-segment design by \texttt{si\_no\_corpus\_de\_video}, in \texttt{designA\_estendido\_83.json}.} \\
+\bottomrule
+\end{tabular}
+\end{table}

@@ -1,0 +1,33 @@
+\begin{table}[!ht]
+\centering
+\caption{The sixteen operations audited, each linked to the objective its source states and the role it has there. \emph{Tested reading} is the one this article evaluates: higher score means better technical visual quality, applied to a single frame without a model. No source is claimed to be wrong about its own objective; what is tested is the reuse. \emph{Inverts} counts degradation types on which the operation ranks the degraded copy higher (Fig.~2 of the main article). Where two works adopt the same operation the use can differ: Laplacian variance rejects low-light frames alongside grey-scale intensity and a Canny detector in \\citet{cakmak2025tripss}, and enters $0.7\\,z(\\mathrm{sharp})+0.3\\,z(\\mathrm{bright})$ in \\citet{korolkov2025keyframe}.}
+\label{tab:inventory}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.15}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{2.45cm}>{\raggedright\arraybackslash}p{3.5cm}>{\raggedright\arraybackslash}p{3.4cm}c@{}}
+\toprule
+\rowcolor{headerblue}
+\hd{Operation} & \hd{Objective in the source} & \hd{Role there} & \hd{Inverts} \\
+\midrule
+Averaged aesthetics (3)~\citep{gygli2014summe} & Keyframe interestingness & unweighted mean of three aesthetic terms; the source gives no weights & \textcolor{accentred}{\textbf{1}/8} \\
+\rowcolor{rowlight}Colourfulness (Hasler)~\citep{hasler2003colorfulness} & Perceived colourfulness of a scene & stand-alone perceptual index & \textcolor{accentred}{\textbf{1}/8} \\
+Colourfulness (Ke)~\citep{ke2006highlevel} & Professional vs.\ snapshot photograph & feature of a naive Bayes classifier & \textcolor{accentred}{\textbf{1}/8} \\
+\rowcolor{rowlight}Composite of five~\citep{srinivas2016rank} & Keyframe ranking & unweighted mean of five features & \textcolor{accentred}{\textbf{1}/8} \\
+Contrast~\citep{ke2006highlevel} & Professional vs.\ snapshot photograph & feature of a naive Bayes classifier & \textcolor{accentred}{\textbf{2}/8} \\
+\rowcolor{rowlight}Contrast variance~\citep{jeong2016static} & Static-frame selection & one of four inputs to a cost multiplicative in cluster distance & \textcolor{accentred}{\textbf{2}/8} \\
+Edge distribution~\citep{ke2006highlevel} & Professional vs.\ snapshot photograph & feature of a naive Bayes classifier & \textcolor{accentred}{\textbf{2}/8} \\
+\rowcolor{rowlight}Entropy~\citep{qaroush2025diversity} & Keyframe diversity and coverage & SE in segment coverage (Eq.~21) & \textcolor{accentred}{\textbf{2}/8} \\
+GLCM contrast~\citep{yang2024keyframe} & Keyframe extraction & texture descriptor & \textcolor{accentred}{\textbf{1}/8} \\
+\rowcolor{rowlight}Gradient magnitude~\citep{qaroush2025diversity} & Keyframe diversity and coverage & GM in visual attention (Eq.~20) & \textcolor{accentred}{\textbf{3}/8} \\
+Gradient orientation~\citep{qaroush2025diversity} & Keyframe diversity and coverage & GO in segment diversity (Eq.~22) & \textcolor{accentred}{\textbf{4}/8} \\
+\rowcolor{rowlight}Hue count~\citep{ke2006highlevel} & Professional vs.\ snapshot photograph & feature of a naive Bayes classifier & \textcolor{accentred}{\textbf{5}/8} \\
+Laplacian variance~\citep{cakmak2025tripss} & Blur rejection in frame filtering & sharpness threshold & \textcolor{accentred}{\textbf{1}/8} \\
+\rowcolor{rowlight}Saliency area~\citep{qaroush2025diversity} & Keyframe diversity and coverage & VS in visual attention (Eq.~20) & \textcolor{accentred}{\textbf{6}/8} \\
+Saturation~\citep{huang2024aesthetic} & Aesthetic scoring & one term among several & \textcolor{accentred}{\textbf{3}/8} \\
+\rowcolor{rowlight}Spatial information~\citep{itu_p910} & Spatial detail of a test sequence & characterization, not quality & \textcolor{black!45}{---} \\
+\midrule
+\multicolumn{4}{@{}p{0.95\linewidth}}{\footnotesize \emph{Tested reading, identical for all sixteen}: the operation is computed on one frame and read as a technical-quality score in which a higher value marks the better of two versions of the same content. Fifteen are closed-form; saliency area requires a learned map in its source and is marked as such.} \\
+\bottomrule
+\end{tabular}
+\end{table}

@@ -13,24 +13,41 @@
 \usetikzlibrary{arrows.meta,positioning,calc}
 \usepackage{enumitem}
 \usepackage{array}
+%% a Tabela 4 nao pode atravessar para dentro da Discussao
+\usepackage{placeins}
 \newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
 
 \definecolor{headerblue}{HTML}{1B4F72}
 \definecolor{rowlight}{HTML}{EDF3F8}
 \definecolor{rulegray}{HTML}{9AA5B1}
+\definecolor{accentblue}{HTML}{2471A3}
 \definecolor{accentgreen}{HTML}{1E8449}
 \definecolor{accentred}{HTML}{C0392B}
 \definecolor{accentorange}{HTML}{E67E22}
 \definecolor{accentpurple}{HTML}{7D3C98}
 \definecolor{catbovw}{HTML}{C2185B}
+%% escala de desempenho, a mesma do suplementar (vermelho -> verde)
+\definecolor{perf1}{HTML}{E74C3C}
+\definecolor{perf2}{HTML}{F5B041}
+\definecolor{perf3}{HTML}{F9E79F}
+\definecolor{perf4}{HTML}{7DCEA0}
+\definecolor{perf5}{HTML}{1E8449}
 \newcommand{\hd}[1]{\textcolor{white}{\textbf{#1}}}
 \newcommand{\polup}{\ensuremath{\uparrow}}
 \newcommand{\poldown}{\ensuremath{\downarrow}}
 
+% ⭐ empacotamento de floats: a p.10 terminava com ~10 linhas de folga porque um
+% float nao cabia. Isto deixa o float ocupar mais da pagina e reduz sobra encalhada.
+\renewcommand{\topfraction}{0.92}
+\renewcommand{\bottomfraction}{0.85}
+\renewcommand{\textfraction}{0.06}
+\renewcommand{\floatpagefraction}{0.72}
+\setcounter{topnumber}{3}
+\setcounter{totalnumber}{4}
+
 \begin{document}
 
-\title[Component-level audit of quality scoring]{A Component-Level Audit of
-No-Reference Quality Scoring in a Multi-Video Summarization Pipeline}
+\title[Do visual-selection heuristics measure technical quality?]{Do Visual-Selection Heuristics Measure Technical Quality? A Controlled Audit of Sixteen Operations Used in Video Summarization}
 
 %% NOTE: confirm author list, ORCIDs and affiliations before submission.
 \author*[1]{\fnm{Jader L.} \sur{de Souza Gon\c{c}alves}}\email{jaderlouis@proton.me}
@@ -39,34 +56,34 @@ No-Reference Quality Scoring in a Multi-Video Summarization Pipeline}
   \orgname{Universidade de S\~{a}o Paulo (USP)},
   \orgaddress{\city{S\~{a}o Carlos}, \state{SP}, \country{Brazil}}}
 
-\abstract{A visual-quality criterion in a multi-video summarization pipeline is
-implemented with Bag-of-Visual-Words and term frequency--inverse document
-frequency, techniques designed for retrieval rather than perceptual assessment.
-This study audits that operation while leaving the remaining pipeline stages
-unchanged. An exact factorization separates descriptor count from mean IDF weight;
-measurements on three image-quality databases and an ablation of 19 extractors
-show that descriptor count dominates the evaluated configurations. On 800
-paired decisions constructed by degrading the same broadcast content, the
-deployed score selects the unmodified member in 65.1\% of cases and reverses
-direction under white noise and JPEG compression; LIQE reaches 99.5\%. A dependency-aware
-screening protocol retains LIQE, QualiCLIP and CLIP-IQA$+$. The downstream
-technical output of DOVER, reserved from screening, reaches 97.6\% accuracy on
-the constructed pairs ($[96.1,99.0]$). With the
-same ten frames and mean pooling, SIFT+BoVW and LIQE still differ in 16 of 42
-clusters, with a positive hierarchical DOVER contrast. Replacing the complete deployed
-operation, while holding all other pipeline stages fixed, changes 22 of 42
-segments. The DOVER
-technical-branch point estimate rises by 25.5 percentage points of the global
-achievable range, but its topic-block $[-12.1,+54.9]$ and hierarchical
-$[-17.2,+59.6]$ intervals both cross zero. The application therefore establishes
-changed decisions, not improved viewer experience or a confirmed population-level
-output effect; no human compositional preferences were collected.}
+\abstract{
+Video summarization systems select segments using visual heuristics such as colourfulness,
+contrast and sharpness, read as measures of visual quality. These operations were designed
+for photograph classification, retrieval and broadcast monitoring; \textbf{only one is used
+as a stand-alone index in its own source, and it indexes colourfulness}. We reimplement 16
+such heuristics from 11 source works and screen them on 800 pairs in which the same content
+appears before and after a known degradation, so the better member is fixed by construction.
+\textbf{Thirteen prefer the degraded copy under white noise}, and the Bag-of-Visual-Words
+score deployed in a published summarizer inverts on 92\% of those pairs. An exact
+factorization explains the failure: the score is a descriptor count times a mean weight, and
+the sign of the score difference follows the count difference in 797 of the 800 pairs,
+which identifies descriptor-count dominance in the evaluated operation. No heuristic survives a rule
+requiring both degradation sensitivity and transfer to unseen databases, and neither do the
+nineteen evaluated combinations; three of ten no-reference models do. Substituting an
+eligible model into an otherwise fixed pipeline changes 22 of 42 selected segments. No human
+judged those segments, so the evidence bears on decision sensitivity rather than perceived
+preference. Within that scope, the three eligible no-reference models are a defensible replacement,
+and \textbf{the quality operation should be reported as a design choice, not an
+implementation detail}.
+}
 
 \keywords{Multi-video summarization, No-reference image quality assessment,
 Content selection criteria, Benchmark evaluation, Broadcast news video}
 
 \maketitle
 
+%% macros medidas: carregam antes das secoes, a 2.3 ja as usa
+\input{regras_publicadas}
 \input{sec_intro}
 \input{sec_related}
 \input{sec_method}
@@ -77,37 +94,33 @@ Content selection criteria, Benchmark evaluation, Broadcast news video}
 \section*{Statements and Declarations}
 
 \paragraph{Competing interests}
-The authors declare that they have no competing financial or non-financial
-interests that could have appeared to influence the work reported in this
-article.
+The authors declare no competing financial or non-financial interests.
 
 \paragraph{Data availability}
-KADID-10k, KonIQ-10k and LIVE In the Wild are public. Supplementary Tables
-S1--S16 and a frozen archive with cache hashes, environment information,
-commands and a table-to-script manifest accompany the submission; these
-materials will receive a versioned Zenodo DOI before final acceptance. The
-HSMVideoSumm videos retain their original redistribution terms. A Git bundle
-preserves the prediction-recording commit and metadata, but not a third-party
-timestamp; hence ``recorded in a commit whose metadata predates the experiment.''
+KADID-10k, KonIQ-10k and LIVE In the Wild are public. Supplementary Tables S1--S26, Supplementary Figures S1--S4 and a reproducibility archive accompany the
+submission; scripts, derived scores, clusters, annotations, seeds and latency
+results are released at a tagged version of the repository named under Code
+availability, together with a Git bundle that makes the registered-prediction
+commit independently verifiable. The HSMVideoSumm news videos remain subject to
+their original redistribution terms, and only permitted derivatives are archived.
 
 \paragraph{Code availability}
-Scripts and machine-readable results accompany the submission in the frozen
-private repository \url{https://github.com/Prism411/evaluality-mtap-submission}
-and will become public with the versioned archive after review.
+Analysis scripts and machine-readable results accompany the submission and are
+released at \url{https://github.com/Prism411/evaluality-mtap-submission}.
 
 \paragraph{Author contributions}
-%% TODO: adjust to the final author list.
 J.\,L.\,S.\,G. designed and implemented the evaluation protocol, ran the
 experiments and wrote the manuscript. R.\,G. supervised the research, defined
 the problem framing within the multi-video summarization pipeline and revised
 the manuscript. Both authors read and approved the final version.
 
-\paragraph{Ethics approval}
-Not applicable. The study uses publicly broadcast news material and three
-publicly released image quality databases; no new human subject data were
-collected.
+\paragraph{Ethics approval, consent to participate and consent for publication}
+Not applicable to all three: the study uses publicly broadcast news material and three
+public image-quality databases, collected no data from human participants, and contains no
+individual person's data in any form.
 
-% Keep the reference list compact without changing the manuscript font or margins.
-\setlength{\bibsep}{2pt plus 0.3ex}
+\paragraph{Funding}
+The authors received no specific funding for this work.
+
 \bibliography{references}
 \end{document}

@@ -70,6 +70,7 @@
 \definecolor{catcnnbovw}{HTML}{17A2B8}  % CNN + BoVW (ablation)
 \definecolor{catcnn}{HTML}{0E6655}      % NR-IQA, CNN regression
 \definecolor{cattrans}{HTML}{5B2C6F}    % NR-IQA, transformer
+\definecolor{accentpurple}{HTML}{7D3C98}
 
 %% Performance-shaded table cells. \pfA is the strongest band, \pfE the weakest.
 \newcommand{\pfA}[1]{\cellcolor{perf5}\textcolor{white}{\textbf{#1}}}
@@ -111,18 +112,20 @@ Summarization Pipeline''}
 
 \renewcommand{\thetable}{S\arabic{table}}
 \renewcommand{\theHtable}{S\arabic{table}}
+% ⚠️ o suplementar nunca tivera figura; sem isto a Fig. S1 sairia como «Fig. 1»
+\renewcommand{\thefigure}{S\arabic{figure}}
+\renewcommand{\theHfigure}{S\arabic{figure}}
 \setcounter{table}{0}
 
 This supplement holds the detailed breakdowns behind results reported in the
 article, relocated here to keep the article at a readable length. Nothing in it
 is new: every figure quoted in the article is reproduced in full below, and the
-article cites these tables as Table~S1, Table~S2, and so on. Values, polarity
-arrows, labels and boldface make every colour cue redundant in grayscale.
+article cites these tables as Table~S1, Table~S2, and so on.
 
 %% --- S1: tab:dataset ---
 \begin{table}[!ht]
 \centering
-\caption{Human-annotated sensitivity collection (15 clusters): Brazilian television news topics, with
+\caption{In-domain collection: topics of Brazilian television news, with the
 number of source videos, segment slots, redundancy clusters and segment
 duration range. \emph{Slots} counts cluster memberships; because two segments
 belong to two clusters each, the 33 slots correspond to 31 distinct segments.}
@@ -149,12 +152,10 @@ belong to two clusters each, the 33 slots correspond to 31 distinct segments.}
 \rowcolor{rowlight} \textbf{Total} & \textbf{18} & \textbf{33} & \textbf{15} &
   8--188 & --- \\
 \bottomrule
-\multicolumn{6}{@{}p{12.4cm}}{\scriptsize $^{\dagger}$This six-topic set excludes
-\texttt{esquema\_pcc}: 98 SIFT descriptors $<K=300$. The operational block
-below is a distinct 83-segment redundancy output with different boundaries and
-composition; its six \texttt{esquema\_pcc} segments form three valid clusters.
-The sets are not nested. Slots exceed distinct segments where a segment belongs
-to two clusters.} \\
+\multicolumn{6}{@{}l}{\scriptsize $^{\dagger}$98 SIFT descriptors $<$ $K=300$
+$K$-means centroids. Slots exceed distinct segments in} \\
+\multicolumn{6}{@{}l}{\scriptsize \texttt{brumadinho} and \texttt{isencao\_imposto},
+where one segment belongs to two clusters.} \\
 \end{tabular}
 \end{table}
 
@@ -408,7 +409,7 @@ deliver. \emph{Differs} counts the clusters in which the variant selects a
 different segment from the deployed one; \emph{Agreement} is top-1 agreement with
 the reference model over the 15 clusters; $r_{\mathrm{kp}}$ is the rank
 correlation with keypoint density over the 33 segment slots; and the last three
-columns are the summary the variant delivers, as in Table~\ref{tab:e2e}. The
+columns are the summary the variant delivers, as in Table~\ref{tab:e2e15}. The
 comparison between summing and averaging defined in the main article is
 therefore evaluated directly. The final column is the uncalibrated raw sum of
 the DOVER technical and aesthetic branches, used only as a scale-sensitivity
@@ -476,7 +477,7 @@ Roles follow Table~1: D = deployed, C = candidate and X = diagnostic.}
 \caption{The four redundancy clusters in which the method under study
 diverges from the majority of the quality references. Each row is a candidate
 segment; each column a scoring method. The top-1 choice of each method is
-shaded---\colorbox{catbovw!22}{pink} for SIFT+BoVW,
+shaded: \colorbox{catbovw!22}{pink} for SIFT+BoVW,
 \colorbox{perf5!22}{green} for the quality references. NIQE and BRISQUE are
 lower-is-better. Scores are reproduced from the aggregated per-cluster results.}
 \label{tab:divergence}
@@ -580,7 +581,7 @@ of a topic-block lower limit does not change the three-method set.} \\
 references agree closely here; their disagreement emerges on the 42-cluster
 analysis in the main article, which is the primary estimate. The DOVER column
 uses the uncalibrated raw technical-plus-aesthetic sum, not DOVER-T.}
-\label{tab:e2e}
+\label{tab:e2e15}
 \small
 \setlength{\tabcolsep}{4.5pt}
 \renewcommand{\arraystretch}{1.14}
@@ -659,19 +660,16 @@ Raw-branch $\Delta=+.00736$ (topic $[.00135,.01406]$; hierarchical
 $[.00057,.01683]$). Thirteen of the 16 disagreement clusters belong to the
 22-cluster complete-operation change set. Relative to the published deployed
 path, matched-input SIFT changes 12 choices and matched-input LIQE changes 22;
-the control isolates scorer identity, not the historical operation itself.
-Matched SIFT uses a seeded per-cluster $K_{\mathrm{eff}}\leq300$ vocabulary,
-segment-level document frequency and deployed IDF; empty frames remain in the
-mean. Every segment yielded descriptors and no top-score ties occurred.} \\
+the control isolates scorer identity, not the historical operation itself.} \\
 \end{tabular}
 \end{center}
 
-%% --- S12: predictions recorded before the experiment ---
+%% --- S12: registered predictions ---
 \begin{table}[!ht]
 \centering
-\caption{Eight predictions recorded in commit \texttt{9377c07}, whose Git
-metadata predates the experiment, against measurements. The bundle verifies
-content and metadata, not a third-party timestamp; none filters a method.}
+\caption{The eight predictions registered at commit \texttt{9377c07} before the
+constructed experiment, against the measurements. None is used to filter a
+method.}
 \label{tab:preds_supp}
 \footnotesize
 \setlength{\tabcolsep}{4pt}
@@ -691,11 +689,12 @@ P8 & Q-Align & Design~A accuracy above $0.90$ & $98.2\%$, CI $[97.2,99.1]$ & hol
 \end{tabular}
 \end{table}
 
-The complete prediction-recording commit is:
+The complete registered commit is:
 \par\smallskip\noindent\path{9377c07ca080ac61c7cff80e0ff6c7507b6ebaba}.
-\par\smallskip The archive's \texttt{registered\_prediction\_commit.bundle}
-makes the object and metadata inspectable; Git dates are user-supplied fields,
-not an externally certified timestamp.
+\par\smallskip The submission archive
+contains \texttt{registered\_prediction\_commit.bundle}; the clone, bundle
+verification and object-inspection commands in its README make the commit and
+timestamp independently inspectable even before the public release.
 
 \FloatBarrier
 \begin{center}
@@ -785,7 +784,7 @@ QualiCLIP & CLIP & quality score & OU & \polup & Yes & C \\
 LIQE & CLIP & quality, distortion, scene & K & \polup & Yes & C \\
 Q-Align & LMM & textual quality levels & M & \polup & Yes & R \\
 SI & ITU-T complexity & Sobel energy & -- & \polup & No & X \\
-CNN+BoVW (19 extractors) & ablation & TF-IDF word count & -- & \polup & Yes & X \\
+19 CNN+BoVW & ablation & TF-IDF word count & -- & \polup & Yes & X \\
 DBCNN & CNN regression & bilinear pooling & K & \polup & Yes & C \\
 HyperIQA & CNN regression & adaptive weights & K & \polup & Yes & C \\
 MUSIQ & Transformer & multi-scale score & K & \polup & Yes & C \\
@@ -846,9 +845,9 @@ EfficientNet-B4 & IMAGENET1K\_V1 & full \texttt{features} module \\
 MobileNet-V2 & IMAGENET1K\_V2 & full \texttt{features} module \\
 \bottomrule
 \multicolumn{3}{@{}p{0.96\linewidth}}{\scriptsize Common preprocessing:
-bicubic resize to 256 pixels, centre crop to $224\times224$, ImageNet mean and
+bicubic resize to 256 pixels, center crop to $224\times224$, ImageNet mean and
 standard deviation, and FP16 inference. Each spatial location is flattened into
-one descriptor and $\ell_2$-normalised in FP32. The same internal key-frame
+one descriptor and $\ell_2$-normalized in FP32. The same internal key-frame
 filter, vocabulary construction, TF--IDF weighting and segment aggregation are
 then applied. The archived implementation is \texttt{cnn\_bovw\_scorer.py}.} \\
 \end{tabular}
@@ -879,8 +878,7 @@ $7\times7$ spatial fragments of size 32, 32 frames, interval 2, three clips;
 aesthetic: $224\times224$, 32 frames, interval 2, one clip & The technical
 branch is the primary output reference and is also evaluated on the 800 pairs
 with a common 5-fps MP4 wrapper and paired seed 42. The raw branch sum is only a
-sensitivity analysis; it is not the official standardised fusion or DOVER++.
-Higher (less negative) raw technical output indicates better quality. \\
+sensitivity analysis; it is not the official standardised fusion or DOVER++. \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -925,7 +923,7 @@ Candidate latency was timed per decoded frame; the SIFT+BoVW row is the complete
 operation divided by its input-frame count and therefore includes key-frame
 selection, descriptor extraction, vocabulary quantisation and aggregation. The
 per-cluster column is the operational quantity; the per-frame SIFT value is an
-approximate normalisation rather than an identical-path microbenchmark.} \\
+approximate normalization rather than an identical-path microbenchmark.} \\
 \end{tabular}
 \end{table}
 
@@ -938,9 +936,9 @@ values are losses. K = KonIQ-10k opinion training, OU = opinion-unaware and L =
 LIVE opinion training. The contrasts do not isolate causal effects because the
 databases, architectures and objectives are unmatched.}
 \label{tab:exposure_supp}
-\footnotesize
+\small
 \setlength{\tabcolsep}{4.5pt}
-\renewcommand{\arraystretch}{0.98}
+\renewcommand{\arraystretch}{1.12}
 \begin{tabular}{@{}lcrrrrr@{}}
 \toprule
 \rowcolor{headerblue}
@@ -981,7 +979,7 @@ attenuations, not causal fractions of ``content density.''}
 \label{tab:partial_supp}
 \footnotesize
 \setlength{\tabcolsep}{2.5pt}
-\renewcommand{\arraystretch}{0.98}
+\renewcommand{\arraystretch}{1.12}
 \begin{tabular}{@{}lrrrrrrrr@{}}
 \toprule
 \rowcolor{headerblue}
@@ -1014,5 +1012,51 @@ row the partial coefficient is not reported because the denominator approaches
 zero and the result is numerically unstable.} \\
 \end{tabular}
 \end{table}
+
+
+\clearpage
+\input{tab_inventario}
+
+\clearpage
+\input{tab_literatura}
+
+\clearpage
+\input{tab_cobertura}
+
+\clearpage
+\input{fig_mecanismo}
+
+\clearpage
+\input{fig_direcao}
+
+\clearpage
+\input{tab_e2e}
+
+\clearpage
+\input{tab_screening}
+
+\clearpage
+\input{tab_ct}
+
+\clearpage
+\input{fig_menu}
+
+\clearpage
+\input{tab_rastreio}
+
+\clearpage
+\input{fig_inversao}
+
+\clearpage
+\input{tab_familias}
+
+\clearpage
+\input{tab_reuso}
+
+\clearpage
+\input{tab_validacao}
+
+% ⚠️ o suplementar cita 19 fontes na tabela de rastreio e nao tinha bibliografia
+\bibliography{references}
 
 \end{document}

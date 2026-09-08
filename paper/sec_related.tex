@@ -15,12 +15,40 @@ visual-quality proxy used to choose between redundant candidates.
 
 HSMVideoSumm instead derived selection criteria from human summarization
 practice and implemented each criterion as an explicit pipeline stage
-~\citep{barbieri2021content,barbieri2021tese}. This modularity permits a
-component-level audit: the same clusters, filters and ordering can be held fixed
-while the operation used for visual quality is tested and replaced. The object
-of comparison is therefore neither a new summarizer nor an overall benchmark
-against SumMe or TVSum; it is one inspectable decision inside a multi-source
-news pipeline.
+~\citep{barbieri2021content,barbieri2021tese}. A study with human summarizers of
+multi-source news derived thirteen criteria, eight for inclusion and five for exclusion,
+and the system implements ten of them across five stages. \textbf{The source defines the
+criterion of the stage audited here as whether a segment \emph{contains images of
+interest}}: a relevance criterion, and the same study reports that aesthetic quality was
+not relevant to its participants. Reading that stage as a technical-quality filter is the
+field's later interpretation, and it is the interpretation this article evaluates.
+
+The modular design enables controlled substitution of the visual-selection operation: the same clusters, filters and ordering can be held fixed while any candidate
+operation is dropped into the visual-quality slot, so sixteen operations from eleven
+different works can be compared under conditions none of their source papers shares. The
+object of comparison is therefore neither a new summarizer nor an overall benchmark
+against SumMe~\citep{gygli2014summe} or TVSum~\citep{song2015tvsum}. It is a decision that recurs across this literature, namely which of two
+redundant segments is visually better, together with the operations the literature
+offers for making it.
+
+The works audited here place that decision in three different structures, and the structure
+is what the later reading flattens. \textbf{Two build a stand-alone score for the frame}:
+\citet{srinivas2016rank} averages five attributes into a per-frame quality score, and
+\citet{korolkov2025keyframe} weights sharpness and brightness as
+$0.7\,z(\mathrm{sharp})+0.3\,z(\mathrm{bright})$. \textbf{Five carry a visual term inside a
+larger objective}: \citet{qaroush2025diversity} distributes four terms across visual
+attention, coverage and diversity; \citet{jeong2016static} places a badness term inside a
+cost multiplicative in cluster distance; \citet{yang2024keyframe} adds one texture term among
+several; and \citet{huang2024aesthetic} one aesthetic attribute among several, as
+\citet{gygli2014summe} does with three averaged. \textbf{One uses the statistic as a gate}:
+\citet{cakmak2025tripss} thresholds Laplacian variance to discard blurred frames.
+
+Two further works supply attributes without being summarizers, and separating them matters
+for what any result can be attributed to. \citet{ke2006highlevel} designed edge distribution,
+hue count, contrast and colourfulness as features of a naive Bayes classifier that separates
+professional photographs from snapshots, and \citet{hasler2003colorfulness} published a
+colourfulness index fitted to a psychophysical experiment. Later summarization work borrows
+their expressions; the borrowing, not the original design, is what this article tests.
 
 The use of image-quality assessment in summarization is not itself new.
 VSQUAL used objective IQA measures for shot-boundary detection, keyframe
@@ -87,11 +115,15 @@ does not show that they measure quality or remain valid under controlled
 degradation.
 
 The gap addressed here is narrower than the general problem of quality-aware
-summarization. Existing work establishes multi-video selection criteria,
-specialized NR-IQA methods and prior use of IQA in summarization, yet the
-operation implementing HSMVideoSumm's human-grounded visual-quality criterion
-was not validated as a quality measure. This study links a mechanistic analysis
-of that operation to external human scores, construction-defined degradation
-pairs and a controlled operation-level substitution in the pipeline. That
-combination distinguishes construct validation from merely integrating an
-available IQA model.
+summarization. Existing work establishes multi-video selection criteria, specialized
+NR-IQA methods and prior use of IQA in summarization, yet the evidence the sources
+themselves offer for that reading is thin. Of the \valComPdf{} whose full text is in our
+archive, \valPropriedade{} test a measure against human judgement of the property it names,
+and one of those two names colourfulness rather than quality. Another \valSoResumo{}
+report agreement with reference summaries, and \citet{korolkov2025keyframe} reports no isolated
+test of its rule. \textbf{Agreement with a reference summary is evidence about a summary,
+not about a quality measure}, and it is as a quality measure that these operations are used. This study puts sixteen of
+them through one protocol, described in Section~\ref{sec:method}, which pairs a provenance
+audit against the sources with four forms of measurement. That combination \textbf{distinguishes construct validation from merely integrating an
+available IQA model}, and it separates a defect of the operation from a defect of how the
+later literature aggregates it.

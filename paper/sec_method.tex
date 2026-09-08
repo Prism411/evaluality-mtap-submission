@@ -1,12 +1,51 @@
 \section{Audit design}\label{sec:method}
 
-The audit combines four forms of evidence (Fig.~\ref{fig:overview}): a
-mechanistic analysis of the deployed score, external validation against human
-opinion scores, construction-defined degradation pairs in the broadcast domain,
-and an operation-level substitution in the summarization pipeline. A method is
-eligible only if it responds to controlled degradation, generalizes to every
-unseen opinion database and exceeds a reference-model agreement floor in the
+The object of the audit is a class of operations, not a system. Sixteen visual operations
+that the summarization literature applies at the selection stage are reimplemented from
+the equations their source works publish, fifteen of them closed-form and one requiring
+a learned saliency map, and every one of them is put through a common protocol
+(Fig.~\ref{fig:overview}). Ten no-reference quality models and one deployed pipeline
+component are carried through that protocol, with the tests available for each
+implementation recorded in the coverage matrix, so that the class can be read against
+something.
+
+Four forms of evidence enter. Construction-defined degradation pairs in the broadcast
+domain fix the better member without a reference model and give the primary test.
+External validation against human opinion scores on three public databases gives the
+severity response and its transfer. A mechanistic analysis, available in closed form for
+the one operation that is a published pipeline component, supplies the explanation. An
+operation-level substitution in a working pipeline measures how far the choice moves real
+decisions. A method is eligible only if it responds to controlled degradation, generalizes
+to every unseen opinion database and exceeds a reference-model agreement floor in the
 deployment domain.
+
+\textbf{Three categories of implementation are kept apart throughout.} An operation is
+\emph{reproduced} when the source publishes an equation this article evaluates unchanged;
+\emph{adapted} when the source defines the term over a region, a sequence or a color space
+that the single-frame protocol requires reducing, in which case the reduction is stated;
+and \emph{exploratory} when no source declares a direction, in which case the operation is
+reported but excluded from any pass-or-fail count. Two of the sixteen are singled out on
+this basis and both are stated wherever they appear: the ITU Telecommunication Standardization Sector
+(ITU-T) spatial information index
+declares no quality direction and is therefore excluded from every accuracy count, leaving
+fifteen; and saliency area is the one operation whose source requires a learned map rather
+than a closed-form expression, the other fifteen being closed-form. Table~S17
+carries the per-operation detail. This separation matters because a negative result about a
+form the protocol had to reduce is a weaker claim than one about a form the source
+publishes outright, and the two should not be summed.
+
+Table~S23 of the supplement carries the correspondence: for each operation, the source
+work, the formula as that source states it, the function that computes it, the direction
+it declares and the reference model used on the in-domain column, with the results file
+named in its footnote. \textbf{Every operation name comes from that mapping}, and every value in the tables and
+figures of this article is generated from the measurement files it points to, with the
+supplementary tables transcribed from the same files.
+Sixteen operations are computed. Fifteen carry a direction their source declares and are the
+ones any pass-or-fail count refers to; spatial information is the sixteenth and carries
+none. The deployed BoVW score is \emph{not} one of
+the sixteen: it is the pipeline component under audit, screened by the same protocol and
+reported alongside them, which is why the tables show seventeen rows where both appear.
+
 
 \begin{figure}[!ht]
 \centering
@@ -32,44 +71,107 @@ deployment domain.
     draw=catbovw,shorten <=1pt,shorten >=1pt}]
 
 \node[font=\sffamily\bfseries\tiny,text=headerblue,anchor=west]
-  at (-6.15,5.05) {HSMVIDEOSUMM PIPELINE};
-\node[stage] (a) at (-5.10,4.47) {Introductory\\passages};
-\node[stage] (b) at (-2.55,4.47) {Subjectivity\\filtering};
-\node[stage] (c) at (0,4.47) {Redundancy\\detection};
-\node[focus] (d) at (2.55,4.47) {Visual-quality\\selection};
-\node[stage] (e) at (5.10,4.47) {Chronological\\ordering};
+  at (-6.15,5.50) {THE BENCH\enspace\textcolor{black!45}{a pipeline whose
+  visual-content stage is explicit}};
+\node[stage] (a) at (-5.10,4.92) {Introductory\\passages};
+\node[stage] (b) at (-2.55,4.92) {Subjectivity\\filtering};
+\node[stage] (c) at (0,4.92) {Redundancy\\detection};
+\node[focus] (d) at (2.55,4.92) {Visual-content\\selection};
+\node[stage] (e) at (5.10,4.92) {Chronological\\ordering};
 \draw[flow] (a.east)--(b.west);
 \draw[flow] (b.east)--(c.west);
 \draw[flow] (c.east)--(d.west);
 \draw[flow] (d.east)--(e.west);
 
-\node[operation] (op) at (0,3.20)
-  {\textcolor{catbovw}{\textbf{AUDITED STAGE}}\enspace Visual-quality selection\\[1pt]
-   \textbf{Criterion:} visual quality\qquad
-   \textbf{Operation:} SIFT $\rightarrow$ BoVW $\rightarrow$ TF-IDF sum};
+\node[operation] (op) at (0,3.32)
+  {\textcolor{catbovw}{\textbf{WHAT IS AUDITED}}\enspace the operations the field puts in
+   this slot \emph{as a quality filter}\\[1pt]
+   \textbf{16} from \textbf{11} source works, plus the \textbf{19} composites the
+   literature publishes\\[1pt]
+   \textcolor{black!55}{\itshape alongside them, the deployed
+   SIFT\,$\rightarrow$\,BoVW\,$\rightarrow$\,TF-IDF supplies the closed-form mechanism}};
 \draw[focusflow] (d.south)--(d.south |- op.north);
 
-\node[evidencehead] (eh) at (0,2.30) {FOUR COMPLEMENTARY TESTS};
+\node[evidencehead] (eh) at (0,2.18) {FOUR COMPLEMENTARY TESTS};
 \draw[focusflow] (op.south)--(eh.north);
 
-\node[audit] (m) at (-3.0,1.43)
-  {\textcolor{headerblue}{\textbf{01\enspace Mechanism}}\\[2pt]
-   Two IDF forms; count $\times$ mean IDF\\weight; 19 extractor substitutions.};
-\node[audit] (x) at (3.0,1.43)
+\node[audit] (m) at (-3.0,1.26)
+  {\textcolor{headerblue}{\textbf{01\enspace Constructed truth}}\\[2pt]
+   20 segments, 800 paired decisions;\\the better member fixed by construction.};
+\node[audit] (x) at (3.0,1.26)
   {\textcolor{headerblue}{\textbf{02\enspace External validation}}\\[2pt]
    KADID, KonIQ, CLIVE; MOS\\and controlled degradation levels.};
-\node[audit] (g) at (-3.0,.10)
-  {\textcolor{headerblue}{\textbf{03\enspace Constructed truth}}\\[2pt]
-   20 broadcast segments; 800\\original--degraded paired decisions.};
-\node[audit] (p) at (3.0,.10)
-  {\textcolor{headerblue}{\textbf{04\enspace Pipeline substitution}}\\[2pt]
-   42 clusters; topic-block and\\hierarchical intervals.};
+\node[audit] (g) at (-3.0,-.10)
+  {\textcolor{headerblue}{\textbf{03\enspace Mechanism}}\\[2pt]
+   Count $\times$ mean IDF weight;\\19 extractor substitutions.};
+\node[audit] (p) at (3.0,-.10)
+  {\textcolor{headerblue}{\textbf{04\enspace Decision sensitivity}}\\[2pt]
+   42 clusters; how far the choice\\of operation moves selections.};
 \end{tikzpicture}}
-\caption{Scope and evidence flow. Top: the five HSMVideoSumm stages, with
-visual-quality selection highlighted. Bottom: four complementary tests of the
-operation implementing that criterion. All other pipeline stages remain fixed.}
+\caption{Scope and evidence flow. Top: a deployed multi-video pipeline whose visual-content stage is
+explicit, which is what makes the slot testable. Middle: what is
+audited is the set of operations the summarization literature puts in that slot as a quality filter, sixteen
+from eleven source works, plus the nineteen composites the literature publishes, and not
+the pipeline itself. Bottom: the four tests, applied to the operations, to ten no-reference models and to the
+deployed case, with per-test coverage recorded in Table~S17 because it is not uniform. All
+other pipeline stages remain fixed.}
 \label{fig:overview}
 \end{figure}
+
+\subsection{Provenance audit and reproduction of the published rules}\label{sec:prov}
+
+Each operation was traced to the work the literature cites for it, and three things were
+recorded from that work rather than inferred: the objective it states, the role the
+operation has inside that objective, and a verbatim excerpt fixing both. One criterion was
+applied to all sixteen. \textbf{An operation is a stand-alone index in its source when it
+alone produces the number that orders the candidates there}; it is not when it enters as a
+term of a sum, a feature of a classifier, one block of a spliced representation vector, or
+one signal in a filter that discards frames. Where a source names a numbered objective, the
+equation is cited so that each term's membership is checkable.
+
+A fourth thing was recorded from every source whose full text is in our archive: the
+evidence the work itself reports for its visual criterion. For each we noted \textbf{the
+object the source evaluates}, whether an individual attribute, a combined module or the
+final summary; \textbf{the reference it evaluates against}, whether human ratings of the
+named property, agreement with reference summaries, or an internal ablation; and a verbatim
+excerpt fixing both. Sources whose full text is not in the archive are \textbf{marked as not assessed rather
+than as reporting no validation}, since the two are
+different claims. Table~S26 of the supplement carries the classification with its excerpts.
+
+Where a source also states \emph{how} its terms combine, that specification was implemented
+as written and put through the paired test of Section~\ref{sec:controlled} with the terms,
+frames and pooling held fixed, so the rule is the only thing that differs. Two limits are
+declared rather than worked around: a source stating no rule cannot be reproduced this way,
+and a module term needing a quantity the paired bench does not carry, such as a frame's
+distance from a cluster center, is reported as a structural observation, not a measurement.
+
+Table~S17 states, for each of the sixteen operations, the objective its
+source declares and the role it has there. The reading tested here is the one the summarization literature applies when it carries
+these operations into a selection stage: one frame, no model, higher is better technical
+quality.
+
+Table~S25 of the supplement links each source-defined role to the implementation
+evaluated here, including changes of input, aggregation and score direction, with the
+verbatim excerpt that fixes each role; \autTrechos{} of the \autVerificadas{} operations
+carry such an excerpt, the exception being spatial information, classified from the purpose
+ITU-T~P.910 states for it since the recommendation is not in the archive.
+Table~\ref{tab:synthesis} reports the corresponding results by source work and component.
+
+The four operations taken from Qaroush et al.~\citep{qaroush2025diversity} show the distinction at its sharpest: that
+source states four numbered objectives and its four terms do not share one. Gradient
+magnitude and saliency enter visual attention (Eq.~20), but entropy enters segment coverage
+(Eq.~21) and gradient orientation segment diversity (Eq.~22), so \qaroushFora{} of the
+\qaroushDe{} are not quality terms in their own source at all. Two works that adopt the same operation can also carry it
+differently: Laplacian variance is a discard threshold in Cakmak et
+al.~\citep{cakmak2025tripss} and a weighted term in Korolkov~\citep{korolkov2025keyframe},
+and in neither is it the score that orders candidates.
+
+Jeong et al.~\citep{jeong2016static} show the same distance in another form: contrast there
+is pixel variance, but it enters a \emph{badness} beside blur and skew inside
+$a_i=d_i\sqrt{c_i+b_i+g(c_i+b_i+s_i)}$, whose leading factor is the Mahalanobis distance of
+the frame from its cluster center. \textbf{The component audited here is pixel variance on
+its own}, read in the increasing direction.
+
 
 \subsection{Data and units of analysis}\label{sec:data}
 
@@ -80,7 +182,7 @@ distortion types at five levels and Differential Mean Opinion Scores
 images, approximately 1.2 million ratings and Mean Opinion Scores
 (MOS)~\citep{hosu2020koniq}; CLIVE
 contains 1,162 mobile photographs with authentic distortions
-~\citep{ghadiyaram2016clive}. No method is retrained or fine-tuned.
+~\citep{ghadiyaram2016clive}. No no-reference model is retrained or fine-tuned. Two \emph{combination} rules are fitted over the operations' outputs alone: the ridge variant of Section~\ref{sec:combinations} and the classifier reproducing Ke's rule, validated leaving one segment out.
 
 The deployment analysis uses the redundancy stage produced by HSMVideoSumm over
 19 of its 21 news topics: 42 multi-member clusters, 93 segment slots and 83
@@ -109,13 +211,9 @@ Sampling, scoring and pooling jointly define the operation occupying the
 visual-quality stage, so the primary comparison evaluates complete operations
 while holding every other stage fixed. A matched-input control additionally gives
 SIFT+BoVW and LIQE the same fixed set of at most ten uniformly spaced 1-fps
-frames and arithmetic-mean pooling. For SIFT, common-frame descriptors fit a
-seeded per-cluster vocabulary with
-$K_{\mathrm{eff}}=\min(300,n_{\mathrm{descriptors}})$; candidate segments are
-the documents for the deployed $\log_{10}(K_{\mathrm{eff}}/\mathrm{df})$ IDF.
-Empty-descriptor frames remain as zeros in the mean; all observed segments
-yielded descriptors and no top-score ties occurred. This isolates scorer
-identity within the matched-input regime (Tables~S6, S9 and S11).
+frames and uses arithmetic-mean pooling for both. It thus isolates scorer
+identity within a matched-input regime; full scores and alternative
+normalizations are in Tables~S6, S9 and S11.
 
 \subsection{Scorers, references and polarity}\label{sec:methods}
 
@@ -127,16 +225,16 @@ separate ablation replaces SIFT with 19 convolutional extractors while holding
 the vocabulary, weighting and aggregation fixed. ARNIQA and TReS extend
 coverage on completed axes but are excluded from complete-case screening;
 MANIQA was not completed before the experimental freeze (Table~S13).
-Released-weight supervision, checkpoint role,
-polarity and GPU requirements are summarized in Table~\ref{tab:methods} and
+Released-weight supervision, checkpoint role, polarity and graphics processing unit (GPU) requirements are summarized in Table~\ref{tab:methods} and
 listed in full in Table~S13~\citep{agnolucci2024arniqa,golestaneh2022tres,
 yang2022maniqa}.
 
 \begin{table}[!ht]
 \centering
-\caption{Scorers needed to interpret the main comparison. Sup.: K = released
-KonIQ-10k opinion-trained checkpoint; L = LIVE opinion training; OU = opinion-
-unaware; M = multi-database opinion mixture; -- = no opinion data. Polarity is
+\caption{Scorers needed to interpret the main comparison. Sup.: KQ = released
+KonIQ-10k opinion-trained checkpoint; LV = LIVE opinion training; OU = opinion-
+unaware; Mix = multi-database opinion mixture; -- = no opinion data. \textbf{KQ is the
+supervision code, distinct from the vocabulary size $K$ of Section~\ref{sec:mechanism}.} Polarity is
 declared before evaluation. D = deployed, C = candidate, R = reference, X =
 diagnostic or ablation. Partial-coverage methods remain outside screening.}
 \label{tab:methods}
@@ -150,21 +248,21 @@ diagnostic or ablation. Partial-coverage methods remain outside screening.}
 \midrule
 \rowcolor{catbovw!12}SIFT+BoVW & handcrafted retrieval & TF-IDF-weighted visual-word count & -- & \polup & no & D \\
 Keypoint density & handcrafted & detectable keypoints per frame & -- & \polup & no & X \\
-\rowcolor{rowlight}DINOv2 & self-supervised features & mean norm of patch tokens & -- & \polup & yes & X \\
-Spatial Information & ITU-T complexity & Sobel energy & -- & \polup & no & X \\
-\rowcolor{rowlight}BRISQUE & natural-scene statistics & deviation from learned natural statistics & L & \poldown & no & C \\
+\rowcolor{rowlight}DINOv2~\citep{oquab2024dinov2} & self-supervised features & mean norm of patch tokens & -- & \polup & yes & X \\
+Spatial Information & ITU-T complexity & Sobel energy & -- & \textcolor{black!45}{--} & no & X \\
+\rowcolor{rowlight}BRISQUE & natural-scene statistics & deviation from learned natural statistics & LV & \poldown & no & C \\
 NIQE & natural-scene statistics & distance from a pristine model & OU & \poldown & no & C \\
-\rowcolor{rowlight}DBCNN & CNN regression & bilinear distortion/content features & K & \polup & yes & C \\
-HyperIQA & CNN regression & content-adaptive quality regression & K & \polup & yes & C \\
-\rowcolor{rowlight}MUSIQ & transformer & multi-scale image quality & K & \polup & yes & C \\
-TOPIQ & transformer & top-down quality attention & K & \polup & yes & C \\
+\rowcolor{rowlight}DBCNN & CNN regression & bilinear distortion/content features & KQ & \polup & yes & C \\
+HyperIQA & CNN regression & content-adaptive quality regression & KQ & \polup & yes & C \\
+\rowcolor{rowlight}MUSIQ & transformer & multi-scale image quality & KQ & \polup & yes & C \\
+TOPIQ & transformer & top-down quality attention & KQ & \polup & yes & C \\
 \rowcolor{rowlight}CLIP-IQA & vision--language & antonym-prompt quality & OU & \polup & yes & C \\
-CLIP-IQA$+$ & vision--language & learned-prompt quality & K & \polup & yes & C \\
+CLIP-IQA$+$ & vision--language & learned-prompt quality & KQ & \polup & yes & C \\
 \rowcolor{rowlight}QualiCLIP & vision--language & degradation-ranked quality & OU & \polup & yes & C \\
-LIQE & vision--language & quality, distortion and scene & K & \polup & yes & C \\
-\rowcolor{rowlight}Q-Align & multimodal language model & discrete textual quality levels & M & \polup & yes & R \\
-CNN+BoVW (19 extractors) & descriptor ablation & TF-IDF-weighted visual-word count & -- & \polup & yes & X \\
-\rowcolor{rowlight}ARNIQA; TReS & partial coverage & distortion manifold; ranking consistency & K & \polup & yes & C \\
+LIQE & vision--language & quality, distortion and scene & KQ & \polup & yes & C \\
+\rowcolor{rowlight}Q-Align & multimodal language model & discrete textual quality levels & Mix & \polup & yes & R \\
+19 CNN+BoVW & descriptor ablation & TF-IDF-weighted visual-word count & -- & \polup & yes & X \\
+\rowcolor{rowlight}ARNIQA; TReS & partial coverage & distortion manifold; ranking consistency & KQ & \polup & yes & C \\
 \midrule
 \multicolumn{7}{@{}L{12.15cm}}{\scriptsize The 19-extractor ablation comprises
 ResNet-18/50/101, VGG-16/19, EfficientNet-B0/B4, MobileNet-V3-Large/V2,
@@ -176,15 +274,19 @@ endpoints and preprocessing are in Table~S13.} \\
 \end{table}
 
 Q-Align is an in-domain reference model rather than a candidate
-~\citep{wu2024qalign}. The
+~\citep{wu2024qalign}. \textbf{The two families are scored against different references on
+the in-domain axis}: the ten no-reference models are compared with Q-Align, and the
+summarization operations with LIQE, so that column compares each family with a reference
+outside its own kind and never across the two. The
 \texttt{q-future/one-align} checkpoint is run with the \texttt{quality} task,
-\texttt{image} input, 4-bit NormalFloat4 (NF4) double quantization and FP16
+\texttt{image} input, 4-bit NormalFloat4 (NF4) double quantization and 16-bit floating-point (FP16)
 compute, then pooled by Eq.~\ref{eq:meanpool}. It was among the strongest public NR-IQA models when the
 inventory was frozen, is architecturally distinct from the candidates, and is
 13.7 times slower than LIQE under the measured setup; it is therefore reserved
 as a reference model rather than screened as an on-line candidate.
 
-DOVER is used only as an output-sensitivity reference and does not participate
+The substitution study measures changes of selection and model-reference scores of the
+output; \textbf{it does not measure human preference} for the resulting summaries. DOVER is used only as an output-sensitivity reference and does not participate
 in screening~\citep{wu2023dover}. The official \texttt{DOVER.pth} checkpoint and
 \texttt{dover.yml} \texttt{val-l1080p} views are used (Table~S13). Its raw
 technical branch is primary; the uncalibrated technical--aesthetic sum is only a
@@ -198,7 +300,7 @@ Score and target directions are declared before analysis. Direction-aligned
 correlation is $\rho^{*}=s_m s_y\rho$, where $s_m=+1$ for a higher-is-better
 method and $-1$ for a lower-is-better method, while $s_y=+1$ when a higher
 target means better quality and $-1$ when it means worse quality. All opinion
-targets used here---including KADID's released \texttt{dmos} field---are
+targets used here, including KADID's released \texttt{dmos} field, are
 higher-is-better; degradation level is higher-is-worse. A negative $\rho^{*}$
 therefore denotes a genuine directional inversion rather than a scale
 convention.
@@ -227,9 +329,8 @@ $20\times8\times5=800$ binary decisions. The unmodified member is the
 construction-defined higher-fidelity signal, not a human perceptual judgment.
 Accuracy and paired differences are block-bootstrapped by segment
 ($10^4$ resamples, seed 42). A second design correlates score with degradation
-level within each segment--type pair. Overlay strata, the complete audit of
-predictions recorded in a commit whose metadata predates the experiment, and
-parameters are reported in Tables~S2 and S12 and the
+level within each segment--type pair. Overlay strata, the complete registered
+prediction audit and parameters are reported in Tables~S2 and S12 and the
 reproducibility archive. Ties count as neither correct nor incorrect and remain
 in the denominator. A sensitivity analysis excludes darkening and desaturation,
 whose transformations define signal change more directly than universal
@@ -238,13 +339,14 @@ distinct broadcasts.
 
 \subsection{Screening and application inference}\label{sec:screen}
 
-The method-screening rule is operational and was not preregistered. Sensitivity
+The screening rule has three conditions. Sensitivity
 passes when the within-reference mean is at least .50 and at least 15 of 25
 distortion types exceed .50. Generalization passes when the direction-aligned
 Spearman Rank Correlation Coefficient (SRCC) is at least .65 on \emph{every}
 database absent from the released checkpoint's
 opinion training. The in-domain floor is confirmed when normalized agreement
-with Q-Align is above chance and the lower bound of its 95\% topic-block
+with the reference designated for that family above, Q-Align for the no-reference models
+and LIQE for the operations, is above chance and the lower bound of its 95\% topic-block
 bootstrap interval exceeds zero on the common 42 clusters. Cost is reported but
 not thresholded. Table~S10 varies the numerical thresholds and the quantifier
 over unseen databases.
@@ -264,12 +366,9 @@ Steiger's statistic~\citep{steiger1980comparing}. The operational equivalence
 margin is $|\Delta\rho^{*}|<.02$, chosen as the largest association difference
 treated as practically negligible for this diagnostic rather than as a
 literature-wide standard; the paired difference and interval are also reported
-so stricter margins can be applied. Within each database, 630 pairwise Steiger
-contrasts cover 36 scores (17 methods and 19 ablations); Bonferroni correction
-gives $\alpha=.05/630$ and critical $|z|=3.95$. Outside that family, the sole
-canonical-score--keypoint equivalence diagnostic uses two one-sided tests at
-$\alpha=.05$ against $\pm.02$; KADID also reports its paired block interval.
-The full accuracy, consistency and linearity
+so stricter margins can be applied. The multiplicity family contains all 630
+pairwise contrasts among 36 evaluated scores (17 methods and 19 ablations);
+Bonferroni correction gives $\alpha=0.05/630$ and critical $|z|=3.95$. The full accuracy, consistency and linearity
 triad after the monotonic mapping required by ITU-T P.1401 is reported in
 Table~S4~\citep{itu_p1401}.
 
@@ -297,14 +396,11 @@ mini-batch $K$-means with $K=300$ and \texttt{random\_state=42}. Q-Align is
 quantized to 4-bit NormalFloat4 with double quantization and FP16 compute to fit
 the GPU~\citep{dettmers2023qlora}; the official PyIQA architecture supports
 fp16, 4-bit and 8-bit inference, with NF4 used in 4-bit mode. No numerical
-equivalence to fp16 is assumed; the reported eligibility set is therefore
-conditional on this documented NF4 reference configuration. Frames
+equivalence to fp16 is assumed. Frames
 are decoded once and cached, and latency is re-measured in one software
 environment after ten warm-up and sixty timed iterations. The archive includes
 the scoring scripts, derived results, cluster definitions, annotations, seeds
 and environment information; redistribution of source news video remains
 subject to the broadcasters' terms. The final method inventory and analysis
-archive were frozen on 23 August 2026. The historical inference environment was
-not preserved as a fully pinned lockfile; the archive therefore reconstructs
-the reported statistics from hashed score caches and exposes the inference
-settings, but does not claim bit-identical regeneration of every neural score.
+archive were frozen on 23 August 2026. The archive reconstructs the reported statistics from
+hashed score caches and exposes the inference settings.
