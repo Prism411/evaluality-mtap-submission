@@ -34,7 +34,10 @@ AFIRMACOES = [
     ('tres de dez modelos passam',    r'three of ten no-reference models'),
     ('a troca muda 22 de 42',         r'22 of (?:the )?42'),
     ('nenhum humano julgou',          r'No human judged'),
-    ('a recomendacao de substituir',  r'replace the operation rather than normalize'),
+    # ⚠️ a AFIRMACAO importa, nao a frase: em 08/09 ela foi condicionada ao requisito
+    # medido e virou «better-supported replacement candidates».
+    ('a recomendacao de substituir',
+     r'replace the operation rather than normalize|better-supported replacement candidates'),
 ]
 
 
