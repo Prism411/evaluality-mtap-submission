@@ -80,6 +80,13 @@ def acha_pdf(chave, meta, todos=None):
 SEM_ANO_NO_PDF = {
     'li2010videommr': 'WIAMIS 2010, Li e Merialdo (Eurecom); PDF sem ano impresso',
     'mittal2013niqe': 'IEEE SPL 20(3), marco de 2013; PDF e preprint sem ano',
+    # ⚠️ o .bib cita a publicacao (ICML 2024, PMLR 235) e o PDF aberto e o preprint de
+    # dez/2023. O ano PUBLICADO esta certo; e o preprint que e anterior.
+    'wu2024qalign': 'ICML 2024; o arXiv aberto e o preprint de 2023',
+    # ⚠️ os dois PDFs abertos sao versao de autor, sem o ano impresso na primeira
+    # pagina; o .bib cita o local de publicacao, que confere no cabecalho.
+    'ghadiyaram2016clive': 'IEEE TIP 25(1), 2016; PDF de autor sem ano impresso',
+    'zhang2020dbcnn': 'IEEE TCSVT 30(1), 2020; o arXiv aberto e o preprint de 2019',
     'panda2017collaborative': 'CVPR 2017, Panda e Roy-Chowdhury; PDF sem ano',
 }
 
