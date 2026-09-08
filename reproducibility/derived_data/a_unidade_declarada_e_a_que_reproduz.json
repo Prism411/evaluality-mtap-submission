@@ -1,0 +1,264 @@
+{
+  "B": 10000,
+  "semente": 42,
+  "tolerancia": 0.15,
+  "n_segmentos": 20,
+  "n_topicos": 13,
+  "unidade_declarada_na_S19": "topico",
+  "fonte": "rodada 03/09: nriqa_designA_os_nove.json + synth_portao_designA.json",
+  "por_modelo": {
+    "liqe": {
+      "ponto": 99.5,
+      "publicado": [
+        99.5,
+        98.2,
+        100.0
+      ],
+      "segmento": {
+        "ic": [
+          98.5,
+          100.0
+        ],
+        "reproduz": false
+      },
+      "topico": {
+        "ic": [
+          98.235,
+          100.0
+        ],
+        "reproduz": true
+      }
+    },
+    "topiq_nr": {
+      "ponto": 98.625,
+      "publicado": [
+        98.6,
+        97.7,
+        99.4
+      ],
+      "segmento": {
+        "ic": [
+          97.875,
+          99.375
+        ],
+        "reproduz": false
+      },
+      "topico": {
+        "ic": [
+          97.667,
+          99.375
+        ],
+        "reproduz": true
+      }
+    },
+    "musiq": {
+      "ponto": 97.375,
+      "publicado": [
+        97.4,
+        96.2,
+        98.6
+      ],
+      "segmento": {
+        "ic": [
+          96.25,
+          98.375
+        ],
+        "reproduz": false
+      },
+      "topico": {
+        "ic": [
+          96.184,
+          98.553
+        ],
+        "reproduz": true
+      }
+    },
+    "qualiclip": {
+      "ponto": 91.5,
+      "publicado": [
+        91.5,
+        87.7,
+        94.6
+      ],
+      "segmento": {
+        "ic": [
+          88.5,
+          94.125
+        ],
+        "reproduz": false
+      },
+      "topico": {
+        "ic": [
+          87.727,
+          94.625
+        ],
+        "reproduz": true
+      }
+    },
+    "arniqa": {
+      "ponto": 91.5,
+      "publicado": [
+        91.5,
+        87.5,
+        94.7
+      ],
+      "segmento": {
+        "ic": [
+          88.125,
+          94.5
+        ],
+        "reproduz": false
+      },
+      "topico": {
+        "ic": [
+          87.5,
+          94.737
+        ],
+        "reproduz": true
+      }
+    },
+    "dbcnn": {
+      "ponto": 90.75,
+      "publicado": [
+        90.8,
+        81.0,
+        97.4
+      ],
+      "segmento": {
+        "ic": [
+          82.125,
+          96.75
+        ],
+        "reproduz": false
+      },
+      "topico": {
+        "ic": [
+          80.952,
+          97.381
+        ],
+        "reproduz": true
+      }
+    },
+    "niqe": {
+      "ponto": 86.375,
+      "publicado": [
+        86.4,
+        85.1,
+        87.3
+      ],
+      "segmento": {
+        "ic": [
+          85.125,
+          87.375
+        ],
+        "reproduz": true
+      },
+      "topico": {
+        "ic": [
+          85.125,
+          87.262
+        ],
+        "reproduz": true
+      }
+    },
+    "clipiqa+": {
+      "ponto": 86.0,
+      "publicado": [
+        86.0,
+        80.3,
+        90.4
+      ],
+      "segmento": {
+        "ic": [
+          81.125,
+          90.125
+        ],
+        "reproduz": false
+      },
+      "topico": {
+        "ic": [
+          80.278,
+          90.37
+        ],
+        "reproduz": true
+      }
+    },
+    "hyperiqa": {
+      "ponto": 85.0,
+      "publicado": [
+        85.0,
+        82.1,
+        87.9
+      ],
+      "segmento": {
+        "ic": [
+          82.75,
+          87.5
+        ],
+        "reproduz": false
+      },
+      "topico": {
+        "ic": [
+          82.105,
+          87.942
+        ],
+        "reproduz": true
+      }
+    },
+    "clipiqa": {
+      "ponto": 81.625,
+      "publicado": [
+        81.6,
+        73.5,
+        88.9
+      ],
+      "segmento": {
+        "ic": [
+          75.25,
+          87.5
+        ],
+        "reproduz": false
+      },
+      "topico": {
+        "ic": [
+          73.523,
+          88.864
+        ],
+        "reproduz": true
+      }
+    },
+    "brisque": {
+      "ponto": 81.0,
+      "publicado": [
+        81.0,
+        80.0,
+        81.9
+      ],
+      "segmento": {
+        "ic": [
+          80.0,
+          82.0
+        ],
+        "reproduz": true
+      },
+      "topico": {
+        "ic": [
+          80.0,
+          81.912
+        ],
+        "reproduz": true
+      }
+    }
+  },
+  "previsoes": {
+    "1_os_pontos_da_S19_reproduzem_na_rodada_certa": "CONFIRMADA",
+    "2_a_unidade_declarada_reproduz_a_S19": "CONFIRMADA",
+    "3_a_outra_unidade_NAO_reproduz": "CONFIRMADA"
+  },
+  "quantos_reproduzem": {
+    "segmento": 2,
+    "topico": 11
+  },
+  "de": 11,
+  "leitura": "a S19 declara bloco de topico e e isso mesmo: reproduz 11 de 11 sob a unidade declarada e 2 de 11 sob a outra. ⛔ O que fica impreciso e a LEGENDA DA TABELA 3, que diz «resampled by segment» e manda o leitor as duas tabelas de intervalo: a S20 e por segmento, a S19 e por topico."
+}

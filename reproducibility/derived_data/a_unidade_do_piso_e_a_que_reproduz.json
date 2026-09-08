@@ -1,0 +1,62 @@
+{
+  "B": 10000,
+  "n_sementes": 40,
+  "tolerancia": 0.0015,
+  "unidade_declarada": "topico",
+  "por_metodo": {
+    "liqe": {
+      "clusters": 42,
+      "acordos": 32,
+      "limite_inferior_publicado": 0.2877,
+      "topico": {
+        "limite_inferior_modal": 0.2941,
+        "sementes_que_batem": 2,
+        "de": 40
+      },
+      "cluster": {
+        "limite_inferior_modal": 0.2915,
+        "sementes_que_batem": 2,
+        "de": 40
+      }
+    },
+    "qualiclip": {
+      "clusters": 42,
+      "acordos": 28,
+      "limite_inferior_publicado": 0.1394,
+      "topico": {
+        "limite_inferior_modal": 0.1429,
+        "sementes_que_batem": 5,
+        "de": 40
+      },
+      "cluster": {
+        "limite_inferior_modal": 0.0943,
+        "sementes_que_batem": 0,
+        "de": 40
+      }
+    },
+    "clipiqa+": {
+      "clusters": 42,
+      "acordos": 25,
+      "limite_inferior_publicado": 0.0294,
+      "topico": {
+        "limite_inferior_modal": 0.0345,
+        "sementes_que_batem": 1,
+        "de": 40
+      },
+      "cluster": {
+        "limite_inferior_modal": -0.0337,
+        "sementes_que_batem": 0,
+        "de": 40
+      }
+    }
+  },
+  "previsoes": {
+    "1_a_unidade_declarada_reproduz": "CONFIRMADA",
+    "2_a_unidade_rival_NAO_reproduz": "CONFIRMADA"
+  },
+  "quantos_reproduzem": {
+    "topico": 3,
+    "cluster": 1
+  },
+  "leitura": "bloco de topico reproduz 3/3 limites publicados e bloco de cluster 1/3. O piso usa a unidade que declara."
+}

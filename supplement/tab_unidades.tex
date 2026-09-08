@@ -1,0 +1,22 @@
+%% GERADO por gera_tab_unidades.py -- nao editar a mao
+\begin{table}[!ht]
+\centering
+\caption{Resampling unit per analysis, and the rival unit tested against it. Observations are nested, so the unit decides the width of every interval: the italic line under each row states the nesting. Each interval was recomputed under the declared unit and under the rival, and the declared unit is accepted only when the rival fails to reproduce the published bounds. One of the four did not pass and was corrected.}
+\label{tab:unidades}
+\footnotesize
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{1.1cm}>{\raggedright\arraybackslash}p{2.5cm}>{\raggedright\arraybackslash}p{1.7cm}>{\raggedright\arraybackslash}p{1.7cm}>{\raggedright\arraybackslash}p{4.4cm}@{}}
+\toprule
+\rowcolor{headerblue}
+\hd{Block} & \hd{Analysis} & \hd{Declared unit} & \hd{Rival tested} & \hd{Outcome} \\
+\midrule
+\rowcolor{perf3!45}Block 01 & Paired difference, 800 pairs & segment block & the pair & \textbf{the published interval matched the rival scheme; corrected to $[+29.8,+38.9]$} \\
+\rowcolor{perf3!45} & \multicolumn{4}{@{}l@{}}{\footnotesize\emph{20 segments, 40 pairs each; pairs within a segment share content}} \\
+\rowcolor{perf5!25}Block 01 & Strict accuracy, 800 pairs & topic block & the segment block & reproduces under the declared unit and not under the rival \\
+\rowcolor{perf5!25} & \multicolumn{4}{@{}l@{}}{\footnotesize\emph{the 20 segments come from 13 news topics}} \\
+\rowcolor{perf5!25}Block 04 & In-domain floor, 42 clusters & topic block & the cluster & reproduces under the declared unit and not under the rival \\
+\rowcolor{perf5!25} & \multicolumn{4}{@{}l@{}}{\footnotesize\emph{the 42 clusters come from 19 topics}} \\
+\rowcolor{perf5!25}Block 04 & Output contrast, 42 clusters & topic block & the cluster & reproduces under the declared unit and not under the rival \\
+\rowcolor{perf5!25} & \multicolumn{4}{@{}l@{}}{\footnotesize\emph{the 42 clusters come from 19 topics}} \\
+\bottomrule
+\end{tabular}
+\end{table}

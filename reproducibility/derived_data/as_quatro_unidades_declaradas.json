@@ -1,0 +1,80 @@
+{
+  "_o_que_e": "⭐⭐ A varredura da classe fechada: dos QUATRO eixos da tabela de calibracao, cada um declara uma unidade de reamostragem. A unidade declarada e a que reproduz o intervalo publicado?",
+  "_por_que_existe": "em 07/09 o IC da manchete se revelou rotulado «segment-block» sendo por PAR. O rotulo da unidade e prosa e o intervalo e numero, e nada os liga: e uma CLASSE, nao um caso. Este arquivo registra o resultado nos quatro.",
+  "_metodo": "recomputar sob a unidade DECLARADA e sob a RIVAL, e exigir que a declarada acerte E a rival erre. ⚠️ Sem o controle da rival o teste nao separa: duas unidades que acertem as duas nao dizem qual foi usada.",
+  "por_eixo": {
+    "diferenca pareada, 800 pares": {
+      "unidade_declarada": "bloco de segmento",
+      "reproduz_sob_a_declarada": false,
+      "reproduz_sob_a_rival": true,
+      "rival": "por par",
+      "veredito": "⛔ ERRADO, e CORRIGIDO em 07/09",
+      "publicado_antes": [
+        31.1,
+        37.7
+      ],
+      "publicado_agora": [
+        29.8,
+        38.9
+      ],
+      "detalhe": "o publicado batia com o esquema POR PAR em 16 de 40 sementes e com o bloco de segmento em 0 de 40. Corpo corrigido; SM38 explica a unidade",
+      "arquivo": "o_bloco_de_segmento_reproduz_um_intervalo_publicado.json"
+    },
+    "piso in-domain, 42 clusters": {
+      "unidade_declarada": "bloco de topico",
+      "rival": "bloco de cluster",
+      "reproduz_sob_a_declarada": true,
+      "reproduz_sob_a_rival": false,
+      "veredito": "✅ certo",
+      "quantos": "3 de 3 limites sob a declarada, 1 de 3 sob a rival",
+      "achado_extra": "sob a rival o CLIP-IQA+ cai para -0,03 e perderia a elegibilidade, enquanto LIQE e QualiCLIP ficam em +0,29 e +0,09",
+      "arquivo": "a_unidade_do_piso_e_a_que_reproduz.json"
+    },
+    "contraste de saida, 42 clusters": {
+      "unidade_declarada": "bloco de topico",
+      "rival": "bloco de cluster",
+      "reproduz_sob_a_declarada": true,
+      "reproduz_sob_a_rival": false,
+      "veredito": "✅ certo",
+      "ponto_recomputado": 25.534,
+      "ponto_publicado": 25.534,
+      "ic_publicado": [
+        -11.7,
+        55.6
+      ],
+      "dispersao_em_8_sementes_topico": [
+        [
+          -13.27,
+          -11.19
+        ],
+        [
+          54.62,
+          55.5
+        ]
+      ],
+      "dispersao_em_8_sementes_cluster": [
+        [
+          -6.9,
+          -5.81
+        ],
+        [
+          52.29,
+          52.94
+        ]
+      ],
+      "detalhe": "o publicado cai na dispersao do bloco de topico e fica LONGE da do cluster; a tolerancia fixa nao serve aqui porque a variacao por semente e de 1 a 2 pontos",
+      "arquivo": "o_contraste_de_saida_sobrevive_a_tirar_um_topico.json"
+    },
+    "acuracia estrita, 800 pares (S19)": {
+      "unidade_declarada": "bloco de topico",
+      "rival": "bloco de segmento",
+      "reproduz_sob_a_declarada": true,
+      "reproduz_sob_a_rival": false,
+      "veredito": "✅ certo",
+      "quantos": "11 de 11 sob a declarada, 2 de 11 sob a rival",
+      "arquivo": "a_unidade_declarada_e_a_que_reproduz.json"
+    }
+  },
+  "resumo": "3 dos 4 eixos declaravam a unidade que reproduz; 1 nao, e foi corrigido",
+  "⚠️_limite": "casar por valor nao prova qual codigo produziu o numero, so que a unidade e compativel. O que o teste separa bem e o caso em que a rival erra."
+}

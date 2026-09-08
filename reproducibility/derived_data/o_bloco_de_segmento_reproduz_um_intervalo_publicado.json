@@ -1,0 +1,205 @@
+{
+  "B": 8000,
+  "n_sementes": 40,
+  "tolerancia": 0.1,
+  "previsoes": {
+    "1_os_pontos_da_S12_reproduzem": "CONFIRMADA",
+    "2_o_bloco_de_segmento_reproduz_o_IC_da_S12": "CONFIRMADA",
+    "3_o_esquema_por_par_NAO_reproduz_o_IC_da_S12": "CONFIRMADA",
+    "4_os_pontos_da_manchete_reproduzem": "CONFIRMADA",
+    "5_o_IC_publicado_NAO_e_o_por_bloco_de_segmento": "CONFIRMADA",
+    "6_o_IC_publicado_E_o_por_par": "CONFIRMADA",
+    "7_o_IC_nao_depende_de_qual_rodada_se_le": "CONFIRMADA"
+  },
+  "s12": {
+    "ponto": 97.625,
+    "ponto_sem": 99.8333,
+    "publicado": {
+      "ponto": 97.6,
+      "ic": [
+        96.1,
+        99.0
+      ],
+      "ponto_sem": 99.8,
+      "ic_sem": [
+        99.5,
+        100.0
+      ]
+    },
+    "segmento": {
+      "modal": [
+        96.125,
+        99.0
+      ],
+      "n_modal": 20,
+      "sementes_que_batem": 20,
+      "de": 40,
+      "largura_mediana": 2.814,
+      "publicado": [
+        96.1,
+        99.0
+      ]
+    },
+    "par": {
+      "modal": [
+        96.5,
+        98.625
+      ],
+      "n_modal": 39,
+      "sementes_que_batem": 0,
+      "de": 40,
+      "largura_mediana": 2.125,
+      "publicado": [
+        96.1,
+        99.0
+      ]
+    },
+    "segmento_sem": {
+      "modal": [
+        99.5,
+        100.0
+      ],
+      "n_modal": 40,
+      "sementes_que_batem": 40,
+      "de": 40,
+      "largura_mediana": 0.5,
+      "publicado": [
+        99.5,
+        100.0
+      ]
+    },
+    "par_sem": {
+      "modal": [
+        99.5,
+        100.0
+      ],
+      "n_modal": 40,
+      "sementes_que_batem": 40,
+      "de": 40,
+      "largura_mediana": 0.5,
+      "publicado": [
+        99.5,
+        100.0
+      ]
+    }
+  },
+  "nota_sobre_o_teto": "o IC sem as duas operacoes esta no teto e os DOIS esquemas o acertam: ele nao discrimina, e quem valida e o IC geral",
+  "instrumento_validado": true,
+  "manchete": {
+    "implantada": 65.125,
+    "liqe": 99.5,
+    "dif": 34.375,
+    "publicado": {
+      "implantada": 65.1,
+      "liqe": 99.5,
+      "dif": 34.4,
+      "ic": [
+        31.1,
+        37.7
+      ]
+    },
+    "segmento": {
+      "modal": [
+        29.875,
+        38.875
+      ],
+      "n_modal": 12,
+      "sementes_que_batem": 0,
+      "de": 40,
+      "largura_mediana": 9.0,
+      "publicado": [
+        31.1,
+        37.7
+      ]
+    },
+    "par": {
+      "modal": [
+        31.0,
+        37.75
+      ],
+      "n_modal": 16,
+      "sementes_que_batem": 16,
+      "de": 40,
+      "largura_mediana": 6.75,
+      "publicado": [
+        31.1,
+        37.7
+      ]
+    },
+    "as_tres_unidades": {
+      "bloco_de_segmento": {
+        "n_blocos": 20,
+        "inferior": 29.75,
+        "superior": 38.875,
+        "largura": 9.125,
+        "sorteios": 30000000,
+        "imprime": [
+          "+29.8",
+          "+38.9"
+        ],
+        "ic_impresso": [
+          29.8,
+          38.9
+        ]
+      },
+      "bloco_de_topico": {
+        "n_blocos": 13,
+        "inferior": 30.2632,
+        "superior": 39.125,
+        "largura": 8.8618,
+        "sorteios": 10000000,
+        "imprime": [
+          "+30.3",
+          "+39.1"
+        ],
+        "ic_impresso": [
+          30.3,
+          39.1
+        ]
+      },
+      "por_par": {
+        "n_blocos": 800,
+        "inferior": 31.0,
+        "superior": 37.75,
+        "largura": 6.75,
+        "sorteios": 30000000,
+        "imprime": [
+          "+31.0",
+          "+37.8"
+        ],
+        "ic_impresso": [
+          31.0,
+          37.8
+        ]
+      }
+    },
+    "ic_por_bloco_de_segmento": {
+      "n_blocos": 20,
+      "inferior": 29.75,
+      "superior": 38.875,
+      "largura": 9.125,
+      "sorteios": 30000000,
+      "imprime": [
+        "+29.8",
+        "+38.9"
+      ],
+      "ic_impresso": [
+        29.8,
+        38.9
+      ],
+      "metodo": "menor atomo cuja massa acumulada alcanca 0,025 e 0,975, por contagem inteira (sem comparacao de float)",
+      "publicado_no_artigo": [
+        31.1,
+        37.7
+      ],
+      "largura_publicada": 6.6
+    }
+  },
+  "leitura": "o intervalo publicado na manchete NAO e por bloco de segmento, como o rotulo diz: ele reproduz pela reamostragem POR PAR, que trata 800 pares vindos de 20 segmentos como 800 observacoes independentes. O intervalo por bloco de segmento e ['+29.8', '+38.9'], de largura 9.125 contra os 6,60 publicados. ⭐ O SINAL SOBREVIVE: o limite inferior continua bem acima de zero, entao o achado nao muda de veredito; o que muda e a largura e o rotulo.",
+  "as_duas_rodadas": {
+    "pares_em_que_o_LIQE_discorda": 0,
+    "de": 800,
+    "a_implantada_tem_quantas_rodadas": 1,
+    "leitura": "o intervalo nao depende da rodada lida: o LIQE decide igual nos 800 pares e a implantada so foi rodada uma vez"
+  }
+}

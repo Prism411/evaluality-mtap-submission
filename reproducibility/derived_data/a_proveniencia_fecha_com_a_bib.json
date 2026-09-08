@@ -1,0 +1,35 @@
+{
+ "_o_que_e": "⭐⭐ A proveniencia das operacoes fecha com a bibliografia do artigo?",
+ "n_operacoes_da_triagem": 16,
+ "n_operacoes_das_15": 15,
+ "a_diferenca": [
+  "si"
+ ],
+ "_por_que_16_e_nao_15": "a tabela de triagem tem as 15 da literatura de sumarizacao MAIS o `si`, que vem da ITU-T P.910 e nao da literatura de sumarizacao. As 15 vem de 11 trabalhos; o `si` nao acrescenta trabalho a essa cont",
+ "n_trabalhos_das_15": 11,
+ "trabalhos": [
+  "cakmak2025tripss",
+  "gygli2014summe",
+  "hasler2003colorfulness",
+  "huang2024aesthetic",
+  "jeong2016static",
+  "ke2006highlevel",
+  "korolkov2025keyframe",
+  "qaroush2025diversity",
+  "srinivas2016rank",
+  "xu2024property",
+  "yang2024keyframe"
+ ],
+ "n_chaves_na_bib": 119,
+ "n_citekeys_citados_no_artigo": 65,
+ "⛔_trabalhos_sem_entrada_na_bib": [],
+ "⛔_trabalhos_que_o_artigo_nao_cita": [],
+ "⛔_entradas_incompletas": {},
+ "previsoes": {
+  "previsao_1_16_e_15_e_a_diferenca_e_o_indice_itu": "CONFIRMADA",
+  "previsao_2_onze_trabalhos": "CONFIRMADA",
+  "previsao_3_todos_na_bib": "CONFIRMADA",
+  "previsao_4_todos_citados": "CONFIRMADA",
+  "previsao_5_entradas_completas": "CONFIRMADA"
+ }
+}
