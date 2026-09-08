@@ -1,0 +1,75 @@
+{
+ "_o_que_e": "⭐⭐ A COLUNA `Sup.` DA TABELA 1 CONFERE COM O CHECKPOINT QUE O CODIGO CARREGA?\n\nPOR QUE EXISTE (08/09/2026). A regra de generalizacao exige «a menor correlacao em TODA base\nem que o metodo nao foi ajustado». Isso so vale se a coluna `Sup.` estiver certa: um\ncheckpoint atribuido a base errada muda quais bases contam como NAO VISTAS, e portanto quem\npassa na triagem. **Nada conferia essa coluna** — ela vinha da leitura de quem montou a\ntabela.\n\n⚠️ E ha uma distincao que so aparece quando se olha: o ARTIGO de cada modelo diz em que os\nAUTORES treinaram; a coluna afirma qual CHECKPOINT LIBERADO foi usado. Sao coisas\ndiferentes. O LIQE, por exemplo, foi treinado no KADID-10k E no KonIQ-10k separadamente; o\nque decide o veredito e qual dos dois o `pyiqa` carrega por padrao.\n\n⭐ A FONTE CERTA e o registro do `pyiqa`, que e o codigo que de fato roda.\n",
+ "_por_que_importa": "a coluna Sup. decide quais bases contam como nao vistas, e portanto quem passa na regra de generalizacao",
+ "n_conferidos": 11,
+ "n_divergem": 0,
+ "por_modelo": {
+  "DBCNN": {
+   "codigo_na_tabela": "KQ",
+   "checkpoint_ou_evidencia": "koniq",
+   "onde_foi_conferido": "pyiqa/default_model_configs.py",
+   "confere": true
+  },
+  "HyperIQA": {
+   "codigo_na_tabela": "KQ",
+   "checkpoint_ou_evidencia": "HyperIQA-resnet50-koniq10k",
+   "onde_foi_conferido": "archs/hypernet_arch.py",
+   "confere": true
+  },
+  "MUSIQ": {
+   "codigo_na_tabela": "KQ",
+   "checkpoint_ou_evidencia": "koniq10k",
+   "onde_foi_conferido": "pyiqa/default_model_configs.py",
+   "confere": true
+  },
+  "TOPIQ": {
+   "codigo_na_tabela": "KQ",
+   "checkpoint_ou_evidencia": "cfanet_nr_koniq_res50",
+   "onde_foi_conferido": "pyiqa/default_model_configs.py",
+   "confere": true
+  },
+  "LIQE": {
+   "codigo_na_tabela": "KQ",
+   "checkpoint_ou_evidencia": "koniq",
+   "onde_foi_conferido": "pyiqa/default_model_configs.py",
+   "confere": true
+  },
+  "ARNIQA": {
+   "codigo_na_tabela": "KQ",
+   "checkpoint_ou_evidencia": "koniq",
+   "onde_foi_conferido": "pyiqa/default_model_configs.py",
+   "confere": true
+  },
+  "TReS": {
+   "codigo_na_tabela": "KQ",
+   "checkpoint_ou_evidencia": "koniq",
+   "onde_foi_conferido": "pyiqa/default_model_configs.py",
+   "confere": true
+  },
+  "CLIP-IQA": {
+   "codigo_na_tabela": "OU",
+   "checkpoint_ou_evidencia": null,
+   "onde_foi_conferido": "pyiqa/default_model_configs.py",
+   "confere": true
+  },
+  "CLIP-IQA+": {
+   "codigo_na_tabela": "KQ",
+   "checkpoint_ou_evidencia": "trained on KonIQ-10k",
+   "onde_foi_conferido": "wang2023clipiqa.pdf",
+   "confere": true
+  },
+  "BRISQUE": {
+   "codigo_na_tabela": "LV",
+   "checkpoint_ou_evidencia": null,
+   "onde_foi_conferido": "pyiqa/default_model_configs.py",
+   "confere": true
+  },
+  "NIQE": {
+   "codigo_na_tabela": "OU",
+   "checkpoint_ou_evidencia": null,
+   "onde_foi_conferido": "pyiqa/default_model_configs.py",
+   "confere": true
+  }
+ },
+ "divergencias": []
+}
