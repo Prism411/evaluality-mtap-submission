@@ -1,7 +1,8 @@
 # Evaluality MTAP submission
 
-Private submission snapshot for **A Component-Level Audit of No-Reference
-Quality Scoring in a Multi-Video Summarization Pipeline**.
+Private submission snapshot for **Do Visual-Selection Heuristics Measure
+Technical Quality? A Controlled Audit of Sixteen Operations Used in Video
+Summarization**.
 
 This repository contains the canonical manuscript source, the supplementary
 material, revision responses, and the non-media reproducibility snapshot used
@@ -16,6 +17,12 @@ for the MTAP submission. It is private while the manuscript is under review.
 - `reproducibility/`: scripts, cached derived results, provenance manifest, and
   checksums. Restricted source media, database images, model weights, and
   vendor trees are not redistributed.
+  - `derived_data/`: every measurement file a number in the manuscript depends on.
+  - `paper_generators/`: the scripts that emit each table and figure from those
+    files, so that no number in the body is typed by hand.
+  - `paper_guards/`: the checks run before every build, each with a two-legged
+    self-test that must approve the correct state and reject the reintroduced
+    defect. `verifica_tudo.py` runs generators, build and guards in order.
 - `release-assets/`: local-only staging area for the complete submission and
   reproducibility archives. These files are attached to a private GitHub
   release rather than committed to Git.
@@ -33,7 +40,7 @@ cd ../supplement
 latexmk -pdf supplementary.tex
 ```
 
-The frozen PDFs contain 20 pages for the manuscript and 15 pages for the
+The frozen PDFs contain 30 pages for the manuscript and 31 pages for the
 supplement. The manuscript source of truth is `paper/main.tex`; no compact or
 alternate manuscript route is used.
 
