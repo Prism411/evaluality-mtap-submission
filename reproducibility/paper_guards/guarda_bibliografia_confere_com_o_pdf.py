@@ -87,6 +87,11 @@ SEM_ANO_NO_PDF = {
     # pagina; o .bib cita o local de publicacao, que confere no cabecalho.
     'ghadiyaram2016clive': 'IEEE TIP 25(1), 2016; PDF de autor sem ano impresso',
     'zhang2020dbcnn': 'IEEE TCSVT 30(1), 2020; o arXiv aberto e o preprint de 2019',
+    # ⚠️ mesmo padrao: preprint no arXiv anterior a publicacao. O local de publicacao
+    # foi conferido a mao no cabecalho de cada um.
+    'agnolucci2024arniqa': 'WACV 2024; o arXiv aberto e de nov/2023',
+    'chen2024topiq': 'IEEE TIP 2024; o arXiv aberto e de ago/2023',
+    'golestaneh2022tres': 'WACV 2022; o arXiv aberto nao imprime o ano',
     'panda2017collaborative': 'CVPR 2017, Panda e Roy-Chowdhury; PDF sem ano',
 }
 
