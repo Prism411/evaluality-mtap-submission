@@ -67,7 +67,7 @@ def main():
           # ⛔ toda contagem da legenda sai do JSON medido. O `2.21` estava DIGITADO:
           # conferia com a fonte, mas nao acompanharia uma mudanca dela.
           f'\\caption{{The same {d["n_clusters"]} redundancy clusters, the same pipeline, '
-          f'only the visual-quality module swapped; no reference model is involved. '
+          f'only the visual-selection operation swapped; no reference model is involved. '
           f'\\textbf{{Left}}: {POREXT[d["n_operacoes"]]} operations produce '
           f'{POREXT[d["resumos_distintos"]]} distinct summaries, and only two groups agree '
           f'completely: the three brightness variants and the two colourfulness '

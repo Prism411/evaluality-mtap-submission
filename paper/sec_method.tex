@@ -6,8 +6,7 @@ the equations their source works publish, fifteen of them closed-form and one re
 a learned saliency map, and every one of them is put through a common protocol
 (Fig.~\ref{fig:overview}). Ten no-reference quality models and one deployed pipeline
 component are carried through that protocol, with the tests available for each
-implementation recorded in the coverage matrix, so that the class can be read against
-something.
+implementation recorded in the coverage matrix, so that the audited operations have a contemporary quality-assessment reference.
 
 Four forms of evidence enter. Construction-defined degradation pairs in the broadcast
 domain fix the better member without a reference model and give the primary test.
@@ -29,20 +28,20 @@ this basis and both are stated wherever they appear: the International Telecommu
 (ITU-T) spatial information index
 declares no quality direction and is therefore excluded from every accuracy count, leaving
 fifteen; and saliency area is the one operation whose source requires a learned map rather
-than a closed-form expression, the other fifteen being closed-form. Table~S17
-carries the per-operation detail. This separation matters because a negative result about a
-form the protocol had to reduce is a weaker claim than one about a form the source
-publishes outright, and the two should not be summed.
+than a closed-form expression, the other fifteen being closed-form. Table~S23
+carries the per-operation detail. Reproduced and adapted forms are counted separately and never summed.
 
 Table~S23 of the supplement carries the correspondence: for each operation, the source
 work, the formula as that source states it, the function that computes it, the direction
 it declares and the reference model used on the in-domain column, with the results file
-named in its footnote. \textbf{Every operation name comes from that mapping}, and every value in the tables and
-figures of this article is generated from the measurement files it points to, with the
-supplementary tables transcribed from the same files.
-Sixteen operations are computed. Fifteen carry a direction their source declares and are the
-ones any pass-or-fail count refers to; spatial information is the sixteenth and carries
-none. The deployed BoVW score is \emph{not} one of
+named in its footnote. \textbf{Every operation name comes from that mapping}, and every value in this article's
+tables and figures is generated from the measurement files it points to.
+\textbf{The audited set is \fontesOperacoes{} operations: \fontesDaLiteratura{} that the
+summarization literature places in the visual-selection stage, drawn from
+\fontesTrabalhos{} source works, and spatial information, which comes from the ITU-T
+recommendation on subjective video testing rather than from that literature.} The
+\fontesDaLiteratura{} carry a direction their source declares and are the ones any
+pass-or-fail count refers to; spatial information carries none. The deployed BoVW score is \emph{not} one of
 the sixteen: it is the pipeline component under audit, screened by the same protocol and
 reported alongside them, which is why the tables show seventeen rows where both appear.
 
@@ -147,10 +146,10 @@ carries the classification with its excerpts.
 
 Where a source also states \emph{how} its terms combine, that specification was implemented
 as written and put through the paired test of Section~\ref{sec:controlled} with the terms,
-frames and pooling held fixed, so the rule is the only thing that differs. Two limits are
-declared rather than worked around: a source stating no rule cannot be reproduced this way,
-and a module term needing a quantity the paired bench does not carry, such as a frame's
-distance from a cluster center, is reported as a structural observation, not a measurement.
+frames and pooling held fixed, so the rule is the only thing that differs. Source-specified rules are
+reproduced only when every quantity they require is available on the paired bench;
+otherwise the relationship is reported structurally rather than evaluated experimentally,
+as with a term needing a frame's distance from its cluster center.
 
 Table~S17 states, for each of the sixteen operations, the objective its
 source declares and the role it has there. The reading tested here is the one the summarization literature applies when it carries
@@ -332,10 +331,13 @@ sequence; other transformations are frame-based.
 Twenty of the 83 broadcast segments are sampled without replacement by a seeded
 simple random draw (seed 42); they represent 13 of the 19 operational topics
 (Table~S2). Pairing each unmodified segment with every degradation and level gives
-$20\times8\times5=800$ binary decisions. The unmodified member is the
-construction-defined higher-fidelity signal, not a human perceptual judgment.
+$20\times8\times5=800$ binary decisions. The unmodified member is the construction-defined higher-fidelity signal.
 Accuracy and paired differences are block-bootstrapped by segment
-($10^4$ resamples, seed 42). A second design correlates score with degradation
+($10^4$ resamples, seed 42), because the 40 pairs inside a segment share content and are
+not independent observations. \textbf{Every interval was recomputed under its declared unit and
+under a rival unit}, and the declared unit is reported only where the rival fails to
+reproduce the published bounds. Table~S27 gives the four analyses, their units and the
+outcome. A second design correlates score with degradation
 level within each segment--type pair. Overlay strata, the complete registered
 prediction audit and parameters are reported in Tables~S2 and S12 and the
 reproducibility archive. Ties count as neither correct nor incorrect and remain

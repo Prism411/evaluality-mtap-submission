@@ -39,6 +39,7 @@ def main():
     ct = json.load(open(QB / 'o_CT_do_qaroush_inverte_por_construcao.json'))
     au = json.load(open(QB / 'quantas_sao_indice_autonomo_na_fonte.json'))
     val = json.load(open(QB / 'o_que_cada_fonte_valida.json'))
+    prov = json.load(open(QB / 'a_proveniencia_fecha_com_a_bib.json'))
     _q = json.load(open(QB / 'as_15_na_regra_do_artigo.json'))
     q15, regra = _q['por_operacao'], _q['regra']
     va = json.load(open(QB / 'o_vascore_do_qaroush_como_a_Eq20_manda.json'))
@@ -121,11 +122,20 @@ def main():
          f'\\newcommand{{\\pisoLimGen}}{{{sem_zero("%.2f" % regra["generalizacao_min"])}}}',
          f'\\newcommand{{\\valComPdf}}{{{POREXT[val["n_com_pdf"]]}}}',
          f'\\newcommand{{\\valPropriedade}}{{{POREXT[len(val["validam_a_propriedade_que_nomeiam"])]}}}',
-         f'\\newcommand{{\\valSoResumo}}{{{POREXT[len(val["avaliam_so_o_resumo"])]}}}']
+         f'\\newcommand{{\\valSoResumo}}{{{POREXT[len(val["avaliam_so_o_resumo"])]}}}',
+         # ⛔ a contagem das fontes vinha digitada em cinco lugares do corpo. Ela e
+         # medida: 16 = as 15 da literatura de sumarizacao + o `si`, que vem da ITU-T.
+         f'\\newcommand{{\\fontesOperacoes}}{{{POREXT[prov["n_operacoes_da_triagem"]]}}}',
+         f'\\newcommand{{\\fontesDaLiteratura}}{{{POREXT[prov["n_operacoes_das_15"]]}}}',
+         f'\\newcommand{{\\fontesTrabalhos}}{{{POREXT[prov["n_trabalhos_das_15"]]}}}']
     assert not ct2['qaroush']['ic_cruza_zero'], '⛔ o IC do Qaroush passou a cruzar zero'
     assert ct2['korolkov']['ic_cruza_zero'], '⛔ o IC do Korolkov deixou de cruzar zero: reescrever'
     assert ko['modulo_menos_melhor_membro'] < 0, '⛔ o modulo do Korolkov superou o membro'
     assert va['modulo_menos_melhor_membro'] < 0, '⛔ o modulo superou o melhor membro: reescrever a prosa'
+    assert prov['n_operacoes_das_15'] + 1 == prov['n_operacoes_da_triagem'], \
+        '⛔ a diferenca entre 16 e 15 deixou de ser so o `si`: reescrever a taxonomia'
+    assert val['n_com_pdf'] + 1 == prov['n_trabalhos_das_15'], \
+        '⛔ mudou quantas fontes foram lidas na integra: reescrever a prosa'
     assert au['autonomas'] == 1, '⛔ mudou o numero de autonomas: reescrever a prosa'
     # ⚠️ as duas regras publicadas TEM de ficar abaixo da media, senao a frase da prosa cai
     assert nb < media, '⛔ o naive Bayes do Ke superou a media: reescrever a prosa'

@@ -1,7 +1,14 @@
 \section{Discussion and limitations}\label{sec:discussion}
 
-The BoVW+TF-IDF factorization separates descriptor count from mean IDF weight. Across the
-evaluated configurations \textbf{the measurements establish count dominance}; on the 800
+\textbf{Taken together, the results connect provenance to behavior.} Operations move from
+heterogeneous source-defined roles into a common technical-quality interpretation; that
+interpretation fails under controlled degradation; a count-dominance mechanism explains the
+deployed case; and changing the operation changes which representatives the pipeline
+selects. The rest of this section develops those four links.
+
+The first link is documented in Section~\ref{sec:prov} and the second in
+Section~\ref{sec:class}. For the third, \textbf{the measurements establish count dominance}
+across the evaluated configurations; on the 800
 constructed pairs the signs of the score and count differences agree in 797. The count
 increases observed under noise and JPEG accompany the score inversions, linking the
 algebraic decomposition to the measured behavior.
@@ -59,10 +66,10 @@ including after removing small-range clusters, do not confirm a population-level
 effect. Cluster membership means the pipeline treats segments as redundant alternatives,
 not that they carry identical completeness, narrative utility, audio quality or semantic
 relevance, so visual quality remains a tie-breaker rather than an objective for the summary
-as a whole. \textbf{No human judged these segments}, which makes the substitution result
-decision sensitivity and not preference; the study that would settle it is a blind pairwise
-judgment of real candidates, asking separately about technical visual quality and about
-the information each preserves.
+as a whole. \textbf{No human judged these segments}, so what the substitution measures is how far the
+choice of operation moves the selection. Preference would be settled by a blind pairwise
+judgment of real candidates, asking separately about technical visual quality and about the
+information each preserves.
 
 \textbf{References and coverage.} KADID and the broadcast construction test responses to
 degradation, not preference between distinct recordings. Q-Align's 98.2\% constructed-pair

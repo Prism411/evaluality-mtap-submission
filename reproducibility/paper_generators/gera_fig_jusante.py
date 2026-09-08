@@ -65,7 +65,7 @@ def main():
           f'({piso/100*W:.2f},{base-0.06:.2f}) {{chance {piso:.0f}\\%}};',
           r'\end{tikzpicture}',
           r'\caption{What each operation does to the deployed summary. Every pipeline stage '
-          r'is held fixed and only the visual-quality module is replaced; the bar is the '
+          r'is held fixed and only the visual-selection operation is replaced; the bar is the '
           rf'percentage of the {n} redundancy-cluster representatives that survive the swap. '
           rf'\textbf{{The median operation keeps {med:.1f} per cent of the decisions against '
           rf'a chance floor of {piso:.0f}}}, and the {NUM[len(ab)]} in red keep fewer than '

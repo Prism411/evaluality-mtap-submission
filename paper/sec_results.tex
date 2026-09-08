@@ -1,5 +1,12 @@
 \section{Results}\label{sec:results}
 
+\textbf{The evidence comes in five blocks}: what the sources state
+(Section~\ref{sec:prov}), the operations on constructed truth, alone
+(Section~\ref{sec:class}) and as published composites (Section~\ref{sec:combinations}),
+the mechanism of the deployed case (Section~\ref{sec:mechanism}), the class against
+public databases (Section~\ref{sec:screen_results}), and the effect on the pipeline's
+own selections (Section~\ref{sec:menu}).
+
 \subsection{Responses to controlled degradation}\label{sec:class}
 
 Eight hundred pairs make the answer independent of any reference model: each pair holds
@@ -33,14 +40,12 @@ quality is not supported by their response to controlled damage.
 contains the same content before and after a known degradation. The
 deployed operation is correct on 65.1\% of 800 pairs. LIQE reaches 99.5\%; the
 paired difference is $+34.4$ percentage points, segment-block 95\% CI
-$[+31.1,+37.7]$. Every evaluated NR-IQA candidate exceeds the deployed score.
+$[+29.8,+38.9]$. Every evaluated NR-IQA candidate exceeds the deployed score.
 
 \begin{table}[!ht]
 \centering
 \caption{Strict accuracy (\%) on 800 unmodified--degraded broadcast pairs: 20
-segments, eight types and five levels. The unmodified member is the
-construction-defined higher-fidelity signal; values below the 50\% chance floor
-are systematic inversions. Ties remain in the denominator.}
+segments, eight types and five levels. Values below the 50\% chance floor are systematic inversions. Ties remain in the denominator.}
 \label{tab:constructed}
 \scriptsize
 \setlength{\tabcolsep}{1.9pt}
@@ -213,11 +218,10 @@ white-noise and \vaJpeg{} per cent of JPEG pairs, and its contrast term contribu
 A second complete module behaves the same way. Korolkov~\citep{korolkov2025keyframe}
 specifies
 $0.7\,z(\text{sharpness})+0.3\,z(\text{brightness})$ with both weights and the $z$-score
-normalization given in the text. The normalization here is computed over all candidates of
-the bench, that is the original and every degraded member of each segment, which is the
-population a selector would rank; reproduced on the \koN{} of \koDe{} segments for which both terms
-were measured and over the seven types that exclude darkening, which acts directly on the
-brightness term, it scores \koModulo{} per cent where its own sharpness term alone scores
+normalization given in the text. Normalization runs over all candidates of the bench, the original and every degraded
+member of each segment. On the \koN{} of \koDe{} segments where both terms were measured,
+over the seven types that exclude darkening, which acts directly on the brightness term, it
+scores \koModulo{} per cent where its own sharpness term alone scores
 \koMelhorMembro{}, and the paired contrast over the same decisions is
 \koContraste{} points with a segment-block interval of \koIC{} that touches zero, so at this
 sample size the shortfall is not established. \textbf{For the Qaroush module the same
@@ -337,12 +341,8 @@ stage and the decoded frames fixed.
 
 \input{fig_jusante}
 
-The fourteen span from \jusMax{} to \jusMin{} per cent agreement with the
-deployed operation, so the choice among published operations rewrites between
-\jusReescreveMin{} and \jusReescreveMax{} per cent of what the stage outputs.
-The median operation retains \jusMediana{} per cent against a uniform-chance
-floor of \jusPiso{}, and \jusAbaixo{} operations (\jusAbaixoNomes{}) retain
-less than chance. Of the fourteen, \jusAuditadas{} belong to the main inventory and all \jusAuditadas{} fail
+\jusAbaixo{} of the fourteen (\jusAbaixoNomes{}) retain less than chance, so adopting one
+published operation in place of another can rewrite most of what the stage outputs. Of the fourteen, \jusAuditadas{} belong to the main inventory and all \jusAuditadas{} fail
 the screening of Section~\ref{sec:screen_results}; the remaining \jusSoJusante{} are
 evaluated only in this substitution and carry no screening verdict. The last two columns of
 Table~\ref{tab:synthesis} link those \jusAuditadas{} to their other measurements, and
@@ -360,7 +360,7 @@ pooling, SIFT+BoVW and LIQE still differ in 16 of 42 clusters. The LIQE--SIFT
 DOVER-T contrast is $+27.1$ range points (topic CI $[5.6,47.8]$; hierarchical
 $[2.4,52.5]$) and $+.0074$ raw, with both intervals positive. Table~S20 reports the complete-operation comparison and all eligible methods.
 
-Replacing the deployed visual-quality operation with the LIQE-based operation
+Replacing the deployed visual-selection operation with the LIQE-based one
 changes 22 of 42 representatives. On the primary DOVER technical branch, the
 global-achievable-range point estimate rises from 50.5\% to 76.0\%, a paired
 increase of $+25.5$ points. Its topic-block interval is $[-12.1,+54.9]$ and its
@@ -381,7 +381,7 @@ The reference-model columns give positive point estimates for the substitution, 
 overlapping intervals across the eligible set. \textbf{The supported end-to-end conclusion
 is that the operation substitution materially changes the selected evidence.}
 
-\subsection{The audit read by source work}\label{sec:synthesis}
+\subsection{Source-level synthesis of the audit}\label{sec:synthesis}
 
 Table~\ref{tab:synthesis} brings together the roles the sources document and the results of
 the implementations evaluated here, organized by work and component.
@@ -389,8 +389,11 @@ the implementations evaluated here, organized by work and component.
 \input{tab_sintese}
 
 
-Three things are legible there. The first is that \emph{the same computation carries
-different claims}. Laplacian variance appears twice because two works use it, and the roles
+\textbf{Three patterns emerge: attribute borrowing, role inflation, and validation at the
+summary rather than the component level.}
+
+\emph{Role inflation} is the one the table makes hardest to miss: \emph{the same
+computation carries different claims}. Laplacian variance appears twice because two works use it, and the roles
 are not interchangeable: one applies it as a threshold that discards blurred frames, the
 other as the dominant weighted term of a keyframe score. The same statistic appears in both bands, each row on the
 sample its band names, and what was measured is the statistic as a scorer. It answers blur on every pair and
@@ -398,13 +401,15 @@ inverts the ordering under noise. \textbf{That characterizes the statistic, not 
 filter}: a scorer can order a pair correctly while a threshold keeps or drops both members,
 and this bench did not run the threshold.
 
-The second is visible in the two module rows, whose means sit inside a band of red cells:
+\emph{Aggregate masking} is visible in the two module rows, whose means sit inside a band
+of red cells:
 an aggregate can pass while the types on which a quality score would reject material fail.
 Section~\ref{sec:combinations} gives those figures with their intervals, computed on the
 types not aligned with each module's own construction and therefore lower than the
 all-eight means in the table.
 
-The third is the clause that closes each band, read from the source itself. Of the
+\emph{Attribute borrowing} and the level of validation are what the clause closing each
+band records, read from the source itself. Of the
 \valComPdf{} works whose full text is in our archive, \valPropriedade{} test a measure against human
 judgment of the property it names, and in both the object tested is a whole:
 \citet{ke2006highlevel} evaluates the \emph{photo-quality classifier} against community

@@ -51,7 +51,7 @@ def main():
         pass
     linhas = sorted(ops.items(), key=lambda x: -x[1]['sensibilidade_media'])
     L = [r'\begin{table}[!ht]', r'\centering',
-         r'\caption{The sixteen visual-quality operations the video-summarization '
+         r'\caption{The sixteen visual-selection operations the video-summarization '
          r'literature uses at the selection stage, reimplemented from the published '
          r'equations and measured under one protocol. \emph{Sensitivity} is the '
          r'direction-aligned SRCC within each KADID-10k reference, averaged over the 25 '
