@@ -1,3 +1,8 @@
+# ⚠️ OBSOLETO desde 08/09/2026: estes digests sao dos anexos do release de 2026-08-23,
+# anteriores a reescrita do manuscrito (titulo novo, Tabela 3 por trabalho, secao de
+# limitacoes). Os arquivos nomeados aqui nao estao nesta arvore: eles sao anexados a
+# um GitHub Release privado. REGERAR antes do proximo release; nao conferir contra
+# os PDFs atuais de paper/ e supplement/, que sao outros artefatos.
 9859b502e5a7f8089c3d2fa6e871eac0cec26a1c71db5830335446c8a4358032  ARTIGO-MTAP-EN.pdf
 a16a6107ab4378f81abc10b36e9a97012acb0dcb4c5e4b0843cd71a52b5afc5d  ARTIGO-MTAP-graphical-abstract.pdf
 ad5faa835b1f12ab2fb99dde7f343ed5538549a29baf573e88715f3c952f44b7  SUPPLEMENTARY-MTAP-EN.pdf
