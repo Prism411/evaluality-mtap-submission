@@ -116,14 +116,14 @@ Huang X, Li C, Bentaleb A, et~al (2023) {XGC-VQA}: A unified video quality
   assessment model for user, professionally, and occupationally-generated
   content. In: Proc. IEEE BMSB, \doi{10.1109/BMSB58369.2023.10222328}
 
+\bibitem[{{International Telecommunication Union}(2008)}]{itu_p910}
+{International Telecommunication Union} (2008) Subjective video quality
+  assessment methods for multimedia applications. ITU-T Recommendation P.910
+
 \bibitem[{{International Telecommunication Union}(2020)}]{itu_p1401}
 {International Telecommunication Union} (2020) Methods, metrics and procedures
   for statistical evaluation of objective quality prediction models. ITU-T
   Recommendation P.1401
-
-\bibitem[{{International Telecommunication Union}(2023)}]{itu_p910}
-{International Telecommunication Union} (2023) Subjective video quality
-  assessment methods for multimedia applications. ITU-T Recommendation P.910
 
 \bibitem[{Jeong et~al.(2017)Jeong, Yoo, and Cho}]{jeong2016static}
 Jeong Dj, Yoo HJ, Cho NI (2017) A static video summarization method based on

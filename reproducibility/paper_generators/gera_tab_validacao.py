@@ -24,7 +24,7 @@ CITE = {
 }
 
 ROTULO = {
-    'julgamento humano da propriedade': (r'\textbf{human judgement of the property}', 'perf5!35'),
+    'julgamento humano da propriedade': (r'\textbf{human judgment of the property}', 'perf5!35'),
     'so o resumo': ('the summary only', 'perf2!45'),
     'so o resumo, com ablacao de modulo': ('the summary, with an ablation', 'perf3!55'),
     'nem a regra nem os pesos': (r'\textbf{neither the rule nor its weights}', 'perf1!45'),
@@ -57,6 +57,10 @@ RESUMO = {
     'jeong2016static':
         'mean opinion scores from human subjects and precision/recall against labeled '
         'events; no ablation or isolated test of the contrast term',
+    'gygli2014summe':
+        'f-measure against multiple human-created summaries per video, collected in a study '
+        'with perception psychologists, plus an ablation measuring the gain of adding each '
+        'feature to the set',
 }
 
 

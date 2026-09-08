@@ -25,7 +25,7 @@ deployment domain.
 that the single-frame protocol requires reducing, in which case the reduction is stated;
 and \emph{exploratory} when no source declares a direction, in which case the operation is
 reported but excluded from any pass-or-fail count. Two of the sixteen are singled out on
-this basis and both are stated wherever they appear: the ITU Telecommunication Standardization Sector
+this basis and both are stated wherever they appear: the International Telecommunication Union Telecommunication Standardization Sector
 (ITU-T) spatial information index
 declares no quality direction and is therefore excluded from every accuracy count, leaving
 fifteen; and saliency area is the one operation whose source requires a learned map rather
@@ -100,7 +100,8 @@ reported alongside them, which is why the tables show seventeen rows where both 
    20 segments, 800 paired decisions;\\the better member fixed by construction.};
 \node[audit] (x) at (3.0,1.26)
   {\textcolor{headerblue}{\textbf{02\enspace External validation}}\\[2pt]
-   KADID, KonIQ, CLIVE; MOS\\and controlled degradation levels.};
+   KADID-10k, KonIQ-10k, LIVE In the Wild;\\human opinion scores and controlled
+degradation levels.};
 \node[audit] (g) at (-3.0,-.10)
   {\textcolor{headerblue}{\textbf{03\enspace Mechanism}}\\[2pt]
    Count $\times$ mean IDF weight;\\19 extractor substitutions.};
@@ -126,8 +127,12 @@ operation has inside that objective, and a verbatim excerpt fixing both. One cri
 applied to all sixteen. \textbf{An operation is a stand-alone index in its source when it
 alone produces the number that orders the candidates there}; it is not when it enters as a
 term of a sum, a feature of a classifier, one block of a spliced representation vector, or
-one signal in a filter that discards frames. Where a source names a numbered objective, the
-equation is cited so that each term's membership is checkable.
+one signal in a filter that discards frames. Where a source
+names a numbered objective, the equation is cited so that each term's membership is
+checkable. \textbf{By that criterion \autAutonomas{} of the \autVerificadas{} is a
+stand-alone index in its source}, the Hasler colourfulness expression, and it indexes
+colourfulness rather than quality; the rest enter as classifier features, terms of a sum,
+blocks of a spliced vector, or signals in a discard filter.
 
 A fourth thing was recorded from every source whose full text is in our archive: the
 evidence the work itself reports for its visual criterion. For each we noted \textbf{the
@@ -152,9 +157,10 @@ quality.
 
 Table~S25 of the supplement links each source-defined role to the implementation
 evaluated here, including changes of input, aggregation and score direction, with the
-verbatim excerpt that fixes each role; \autTrechos{} of the \autVerificadas{} operations
-carry such an excerpt, the exception being spatial information, classified from the purpose
-ITU-T~P.910 states for it since the recommendation is not in the archive.
+verbatim excerpt that fixes each role; Every one of the \autVerificadas{} operations carries such an excerpt, spatial
+information included: ITU-T~P.910 defines it as \emph{``a measure that generally indicates
+the amount of spatial detail of a picture''}, higher for more spatially complex scenes, and
+uses it to select test sequences~\citep{itu_p910}.
 Table~\ref{tab:synthesis} reports the corresponding results by source work and component.
 
 The four operations taken from Qaroush et al.~\citep{qaroush2025diversity} show the distinction at its sharpest: that
@@ -220,8 +226,7 @@ normalizations are in Tables~S6, S9 and S11.
 The complete-case comparison contains the deployed SIFT+BoVW score and ten
 NR-IQA candidates: BRISQUE, NIQE, DBCNN, HyperIQA, MUSIQ, TOPIQ, CLIP-IQA,
 CLIP-IQA$+$, LIQE and QualiCLIP. Keypoint density, Spatial Information, deep
-feature norms and the second IDF formulation are diagnostic controls. A
-separate ablation replaces SIFT with 19 convolutional extractors while holding
+feature norms and the second IDF formulation are diagnostic controls. A separate ablation replaces SIFT with 19 convolutional neural network (CNN) extractors while holding
 the vocabulary, weighting and aggregation fixed. ARNIQA and TReS extend
 coverage on completed axes but are excluded from complete-case screening;
 MANIQA was not completed before the experimental freeze (Table~S13).

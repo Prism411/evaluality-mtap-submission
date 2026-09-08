@@ -32,7 +32,7 @@ redundant segments is visually better, together with the operations the literatu
 offers for making it.
 
 The works audited here place that decision in three different structures, and the structure
-is what the later reading flattens. \textbf{Two build a stand-alone score for the frame}:
+is what the later reading flattens. \textbf{Two combine several terms into a stand-alone frame-level score}:
 \citet{srinivas2016rank} averages five attributes into a per-frame quality score, and
 \citet{korolkov2025keyframe} weights sharpness and brightness as
 $0.7\,z(\mathrm{sharp})+0.3\,z(\mathrm{bright})$. \textbf{Five carry a visual term inside a
@@ -117,11 +117,11 @@ degradation.
 The gap addressed here is narrower than the general problem of quality-aware
 summarization. Existing work establishes multi-video selection criteria, specialized
 NR-IQA methods and prior use of IQA in summarization, yet the evidence the sources
-themselves offer for that reading is thin. Of the \valComPdf{} whose full text is in our
-archive, \valPropriedade{} test a measure against human judgement of the property it names,
-and one of those two names colourfulness rather than quality. Another \valSoResumo{}
-report agreement with reference summaries, and \citet{korolkov2025keyframe} reports no isolated
-test of its rule. \textbf{Agreement with a reference summary is evidence about a summary,
+themselves offer for that reading is thin. Only \valPropriedade{} of the ten validate the
+named
+visual property directly, and one of those two names colourfulness rather than quality; the
+summarization works evaluate the resulting summary rather than the visual component in
+isolation, and \citet{korolkov2025keyframe} reports no isolated test of its weighting rule. \textbf{Agreement with a reference summary is evidence about a summary,
 not about a quality measure}, and it is as a quality measure that these operations are used. This study puts sixteen of
 them through one protocol, described in Section~\ref{sec:method}, which pairs a provenance
 audit against the sources with four forms of measurement. That combination \textbf{distinguishes construct validation from merely integrating an

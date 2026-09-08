@@ -38,7 +38,9 @@ LIMITACOES = [
     ('a fusao oficial ficou fora',              r'official standardized fusion|DOVER\+\+'),
     ('as auxiliares sao descritivas',           r'auxiliary analyses are descriptive'),
     ('condicionar por keypoint remove sinal',   r'legitimate quality signal'),
-    ('o estudo humano que decidiria',           r'blind pairwise judgement'),
+    # ⚠️ o padrao trazia a grafia britanica e quebrou quando o artigo passou para o
+    # americano. A AFIRMACAO importa, nao a grafia.
+    ('o estudo humano que decidiria',           r'blind pairwise judge?ment'),
     ('qualidade e criterio de desempate',       r'tie-breaker'),
     # ⚠️ a AFIRMACAO importa, nao a frase: em 08/09 ela foi reescrita como «the verdict
     # travels with the benchmark» e a guarda reprovou um texto que continuava dizendo.

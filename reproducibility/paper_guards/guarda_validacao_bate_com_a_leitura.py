@@ -67,11 +67,15 @@ def _autoteste():
     ok, f, n = confere()
     assert ok, '⛔ %s' % f
     corpo = (AQUI / 'tab_sintese.tex').read_text(encoding='utf-8')
-    # o mundo errado: uma fonte NAO LIDA ganha veredito
-    sujo = corpo.replace(SEM_PDF_BANDA, 'tests the summary', 1)
+    # ⚠️ desde 08/09 TODAS as dez fontes tem PDF, entao nao ha mais «nao lida» no corpo para
+    # trocar. O mundo errado passa a ser uma banda que afirma o tipo ERRADO: a guarda tem de
+    # reprovar um «summary-level agreement» onde a leitura diz «human ratings».
+    alvo = BANDA['julgamento humano da propriedade']
+    assert alvo in corpo, '⛔ nao achei a banda para montar o mundo errado'
+    sujo = corpo.replace(alvo, BANDA['so o resumo'], 1)
     assert sujo != corpo, '⛔ nao consegui montar o mundo errado'
-    assert not confere(corpo=sujo)[0], '⛔ NAO separa: veredito numa fonte nao lida passou'
-    print('  autoteste ✅ (com veredito plantado numa fonte nao lida, REPROVA)')
+    assert not confere(corpo=sujo)[0], '⛔ NAO separa: o tipo trocado passou'
+    print('  autoteste ✅ (com o tipo de evidencia trocado, REPROVA)')
     return True
 
 

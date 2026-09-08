@@ -72,9 +72,9 @@
    "evidencia_verbatim": "colourfulness"
   },
   "si": {
-   "fonte": null,
+   "fonte": "itu_p910",
    "autonoma_na_fonte": false,
-   "evidencia_verbatim": "ITU-T P.910: caracterizacao de sequencia de teste"
+   "evidencia_verbatim": "A measure that generally indicates the amount of spatial detail"
   },
   "gygli_media_crua": {
    "fonte": "gygli2014creating",
@@ -88,5 +88,5 @@
   "hasler_colorfulness"
  ],
  "sem_pdf_no_acervo": [],
- "trechos_conferidos": 15
+ "trechos_conferidos": 16
 }

@@ -32,9 +32,13 @@ def entradas(bib=None):
         a = re.search(r'author\s*=\s*[{"](.+?)[}"],?\s*\n', corpo, re.S)
         y = re.search(r'year\s*=\s*[{"]?(\d{4})', corpo)
         t = re.search(r'title\s*=\s*[{"](.+?)[}"],?\s*\n', corpo, re.S)
+        # ⚠️ autor INSTITUCIONAL vem em chaves duplas: `author = {{International
+        # Telecommunication Union}}`. O regex para no primeiro `}` e devolvia «Union}»,
+        # que nunca aparece no PDF. Tira as chaves antes de separar.
+        bruto = a.group(1).strip().strip('{}').strip() if a else None
         out[k.strip()] = {
-            'sobrenome': (re.split(r',| and ', a.group(1))[0].strip().split()[-1]
-                          if a else None),
+            'sobrenome': (re.split(r',| and ', bruto)[0].strip().split()[-1]
+                          if bruto else None),
             'ano': y.group(1) if y else None,
             'titulo': re.sub(r'[^a-z0-9 ]', '', t.group(1).lower()) if t else None}
     return out

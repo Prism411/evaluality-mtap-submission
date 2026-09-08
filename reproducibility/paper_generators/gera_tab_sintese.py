@@ -211,7 +211,10 @@ def main():
     L = []
     A = L.append
     A(r'%% GERADO por gera_tab_sintese.py. Nao editar a mao.')
-    A(r'\begin{table}[!ht]')
+    # ⚠️ `[!ht]` prendia a tabela e deixava 6 linhas orfas numa pagina inteira.
+    # `[!tbp]` deixa o LaTeX escolher, e o \FloatBarrier garante que ela nao atravesse
+    # para dentro da Discussao.
+    A(r'\begin{table}[!tbp]')
     A(r'\caption{\textbf{The audit read by source work.} Each band is one source, its role '
       r'for the component, what this bench measured, and what the source itself reports as '
       r'evidence; each row is one component. \emph{Dk} = darkening, \emph{Mo} = motion '

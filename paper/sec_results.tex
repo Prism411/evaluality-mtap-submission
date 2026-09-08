@@ -387,12 +387,13 @@ the implementations evaluated here, organized by work and component.
 
 \input{tab_sintese}
 
+
 Three things are legible there. The first is that \emph{the same computation carries
 different claims}. Laplacian variance appears twice because two works use it, and the roles
 are not interchangeable: one applies it as a threshold that discards blurred frames, the
-other as the weighted majority of a keyframe score. The same statistic appears in both bands, each row on the
+other as the dominant weighted term of a keyframe score. The same statistic appears in both bands, each row on the
 sample its band names, and what was measured is the statistic as a scorer. It answers blur on every pair and
-inverts the ordering under noise. \textbf{That characterises the statistic, not the published
+inverts the ordering under noise. \textbf{That characterizes the statistic, not the published
 filter}: a scorer can order a pair correctly while a threshold keeps or drops both members,
 and this bench did not run the threshold.
 
@@ -404,7 +405,7 @@ all-eight means in the table.
 
 The third is the clause that closes each band, read from the source itself. Of the
 \valComPdf{} works whose full text is in our archive, \valPropriedade{} test a measure against human
-judgement of the property it names, and in both the object tested is a whole:
+judgment of the property it names, and in both the object tested is a whole:
 \citet{ke2006highlevel} evaluates the \emph{photo-quality classifier} against community
 ratings, not each of its four features alone, and \citet{hasler2003colorfulness} fits its
 \emph{colourfulness index} to a psychophysical scaling experiment. The remaining \valSoResumo{} report agreement
@@ -415,10 +416,8 @@ quality}, and that gap, not our bench, is what leaves the reading untested in it
 sources. The two we could not read are marked as such rather than counted as absent
 validation.
 
-Of the \autVerificadas{} operations traced to a source, \autAutonomas{} is published as an
-autonomous index and it indexes colourfulness; the rest are classifier features, terms inside
-a joint objective, or thresholds, and two of the four taken from the diversity-and-coverage
-work serve coverage and diversity there. The \emph{here:} clause on each band is what
-separates the reading tested from the job the source gives the operation.
+Two of the four operations taken from the diversity-and-coverage work serve coverage and
+diversity there, not quality: the \emph{here:} clause on each band is what separates the
+reading tested from the job the source gives the operation.
 
 \FloatBarrier
