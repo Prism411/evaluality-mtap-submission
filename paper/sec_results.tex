@@ -352,16 +352,15 @@ an implementer prefer one. Because these percentages use one frame per second wh
 Table~S20 scores each complete operation under its own sampling, the two must not be read
 across.
 
-A validated no-reference model in the same slot is the complementary case. LIQE is used for
-the direct operation substitution because it has the largest
-generalization margin among the three eligible methods and near-ceiling accuracy
-on the constructed pairs. With the same ten uniformly spaced frames and mean
+LIQE fills the same slot for the direct substitution: among the three eligible methods it
+has the largest generalization margin and near-ceiling accuracy on the constructed pairs. With the same ten uniformly spaced frames and mean
 pooling, SIFT+BoVW and LIQE still differ in 16 of 42 clusters. The LIQE--SIFT
 DOVER-T contrast is $+27.1$ range points (topic CI $[5.6,47.8]$; hierarchical
 $[2.4,52.5]$) and $+.0074$ raw, with both intervals positive. Table~S20 reports the complete-operation comparison and all eligible methods.
 
 Replacing the deployed visual-selection operation with the LIQE-based one
-changes 22 of 42 representatives. On the primary DOVER technical branch, the
+changes 22 of 42 representatives. \textbf{The \subResta{} unchanged clusters are not agreement}: \subPct{} per cent against a
+\subAcaso{} per cent chance floor, kappa \subKappa{}, topic-block interval \subIC{}. On the primary DOVER technical branch, the
 global-achievable-range point estimate rises from 50.5\% to 76.0\%, a paired
 increase of $+25.5$ points. Its topic-block interval is $[-12.1,+54.9]$ and its
 hierarchical interval is $[-17.2,+59.6]$; neither confirms a population-level

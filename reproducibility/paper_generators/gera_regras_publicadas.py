@@ -29,7 +29,8 @@ def sem_zero_negativo(x):
 POREXT = {1: 'one', 2: 'two', 3: 'three', 4: 'four', 5: 'five', 6: 'six',
           7: 'seven', 8: 'eight', 9: 'nine', 10: 'ten', 11: 'eleven',
           12: 'twelve', 13: 'thirteen', 14: 'fourteen', 15: 'fifteen',
-          16: 'sixteen'}
+          16: 'sixteen', 17: 'seventeen', 18: 'eighteen', 19: 'nineteen',
+          20: 'twenty', 21: 'twenty-one', 22: 'twenty-two'}
 
 
 def main():
@@ -40,6 +41,7 @@ def main():
     au = json.load(open(QB / 'quantas_sao_indice_autonomo_na_fonte.json'))
     val = json.load(open(QB / 'o_que_cada_fonte_valida.json'))
     prov = json.load(open(QB / 'a_proveniencia_fecha_com_a_bib.json'))
+    sub = json.load(open(QB / 'a_substituicao_concorda_acima_do_acaso.json'))
     _q = json.load(open(QB / 'as_15_na_regra_do_artigo.json'))
     q15, regra = _q['por_operacao'], _q['regra']
     va = json.load(open(QB / 'o_vascore_do_qaroush_como_a_Eq20_manda.json'))
@@ -127,7 +129,15 @@ def main():
          # medida: 16 = as 15 da literatura de sumarizacao + o `si`, que vem da ITU-T.
          f'\\newcommand{{\\fontesOperacoes}}{{{POREXT[prov["n_operacoes_da_triagem"]]}}}',
          f'\\newcommand{{\\fontesDaLiteratura}}{{{POREXT[prov["n_operacoes_das_15"]]}}}',
-         f'\\newcommand{{\\fontesTrabalhos}}{{{POREXT[prov["n_trabalhos_das_15"]]}}}']
+         f'\\newcommand{{\\fontesTrabalhos}}{{{POREXT[prov["n_trabalhos_das_15"]]}}}',
+         # ⛔ a concordancia que SOBRA depois da substituicao, contra o acaso dos 42
+         # clusters. Sem isto o «muda 22 de 42» deixa em aberto o que os outros 20 sao.
+         f'\\newcommand{{\\subResta}}{{{POREXT[sub["por_linha"]["liqe_x_implantada"]["acertos"]]}}}',
+         f'\\newcommand{{\\subPct}}{{{sub["por_linha"]["liqe_x_implantada"]["pct"]:.1f}}}',
+         f'\\newcommand{{\\subAcaso}}{{{100 * sub["acaso_medio"]:.1f}}}',
+         f'\\newcommand{{\\subKappa}}{{{sem_zero("%.3f" % sub["por_linha"]["liqe_x_implantada"]["kappa_contra_o_acaso"])}}}',
+         f'\\newcommand{{\\subIC}}{{[{sub["por_linha"]["liqe_x_implantada"]["ic_bloco_de_topico"][0]:.1f}, '
+         f'{sub["por_linha"]["liqe_x_implantada"]["ic_bloco_de_topico"][1]:.1f}]}}']
     assert not ct2['qaroush']['ic_cruza_zero'], '⛔ o IC do Qaroush passou a cruzar zero'
     assert ct2['korolkov']['ic_cruza_zero'], '⛔ o IC do Korolkov deixou de cruzar zero: reescrever'
     assert ko['modulo_menos_melhor_membro'] < 0, '⛔ o modulo do Korolkov superou o membro'
@@ -136,6 +146,10 @@ def main():
         '⛔ a diferenca entre 16 e 15 deixou de ser so o `si`: reescrever a taxonomia'
     assert val['n_com_pdf'] + 1 == prov['n_trabalhos_das_15'], \
         '⛔ mudou quantas fontes foram lidas na integra: reescrever a prosa'
+    assert sub['por_linha']['controle_identicas']['separa_do_acaso'], \
+        '⛔ o controle de implementacoes identicas parou de separar do acaso: o teste nao discrimina'
+    assert not sub['por_linha']['controle_sorteio']['separa_do_acaso'], \
+        '⛔ o sorteio passou a separar do acaso: o teste esta quebrado'
     assert au['autonomas'] == 1, '⛔ mudou o numero de autonomas: reescrever a prosa'
     # ⚠️ as duas regras publicadas TEM de ficar abaixo da media, senao a frase da prosa cai
     assert nb < media, '⛔ o naive Bayes do Ke superou a media: reescrever a prosa'

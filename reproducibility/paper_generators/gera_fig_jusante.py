@@ -76,7 +76,9 @@ def main():
           r'across all fourteen operations and the deployed one, so nothing here comes from '
           r'a difference in sampling.}',
           r'\label{fig:jusante}', r'\end{figure}']
-    nom = {'ke_hue_count': 'hue count', 'huang_matiz': 'hue',
+    # ⚠️ «hue count, hue» lado a lado na prosa parece a mesma operacao duas vezes.
+    # Sao duas: a contagem de matizes do Ke e o termo de matiz do Huang.
+    nom = {'ke_hue_count': "Ke's hue count", 'huang_matiz': "Huang's hue",
            'ke_edge_distribution': 'edge distribution', 'huang_saturacao': 'saturation'}
     ext = ', '.join(nom[x['nome']] for x in sorted(ab, key=lambda z: z['pct']))
     L = ([f'\\newcommand{{\\jusAbaixo}}{{{NUM[len(ab)]}}}',

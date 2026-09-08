@@ -36,7 +36,10 @@ LIMITACOES = [
     ('DOVER nao isola modelagem temporal',      r'isolate temporal'),
     ('as referencias testam degradacao',        r'not preference between distinct recordings'),
     ('a fusao oficial ficou fora',              r'official standardized fusion|DOVER\+\+'),
-    ('as auxiliares sao descritivas',           r'auxiliary analyses are descriptive'),
+    # ⚠️ o padrao trazia «auxiliary analyses», que era a palavra e nao a afirmacao:
+    # ao uniformizar o vocabulario para «diagnostic control» a guarda reprovou sozinha.
+    ('as auxiliares sao descritivas',
+     r'(?:auxiliary analyses|diagnostic controls) are descriptive'),
     ('condicionar por keypoint remove sinal',   r'legitimate quality signal'),
     # ⚠️ o padrao trazia a grafia britanica e quebrou quando o artigo passou para o
     # americano. A AFIRMACAO importa, nao a grafia.

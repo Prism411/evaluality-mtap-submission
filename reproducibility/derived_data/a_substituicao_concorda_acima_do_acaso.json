@@ -1,0 +1,57 @@
+{
+ "_o_que_e": "⭐⭐ A SUBSTITUICAO PELO LIQE CONCORDA COM A OPERACAO IMPLANTADA ACIMA DO ACASO?",
+ "_por_que_existe": "o corpo diz que a substituicao muda 22 de 42; faltava dizer se os 20 que ficam sao concordancia ou sao o acaso",
+ "_unidade": "bloco de topico (19 topicos, 42 clusters), a unidade declarada",
+ "n_clusters": 42,
+ "n_topicos": 19,
+ "tamanhos": {
+  "2": 36,
+  "3": 3,
+  "4": 3
+ },
+ "acaso_medio": 0.4702,
+ "B": 10000,
+ "semente": 42,
+ "por_linha": {
+  "liqe_x_implantada": {
+   "acertos": 20,
+   "de": 42,
+   "pct": 47.6,
+   "ic_bloco_de_topico": [
+    31.8,
+    61.7
+   ],
+   "separa_do_acaso": false,
+   "kappa_contra_o_acaso": 0.0112
+  },
+  "controle_identicas": {
+   "acertos": 42,
+   "de": 42,
+   "pct": 100.0,
+   "ic_bloco_de_topico": [
+    100.0,
+    100.0
+   ],
+   "separa_do_acaso": true,
+   "kappa_contra_o_acaso": 1.0
+  },
+  "controle_sorteio": {
+   "acertos": 21,
+   "de": 42,
+   "pct": 50.0,
+   "ic_bloco_de_topico": [
+    36.8,
+    63.2
+   ],
+   "separa_do_acaso": false,
+   "kappa_contra_o_acaso": 0.0562
+  }
+ },
+ "previsoes": {
+  "1_o_acaso_reproduz_o_publicado": "CONFIRMADA",
+  "2_a_substituicao_NAO_separa_do_acaso": "CONFIRMADA",
+  "3_o_controle_de_identicas_SEPARA": "CONFIRMADA",
+  "4_o_controle_de_sorteio_NAO_separa": "CONFIRMADA"
+ },
+ "leitura": "a concordancia que sobra depois da substituicao e de 47.6 % contra um acaso de 47.0 %, kappa 0.0112, e o intervalo por bloco de topico cruza o acaso: os 20 clusters que NAO mudam nao sao evidencia de acordo entre a operacao implantada e um modelo validado."
+}
