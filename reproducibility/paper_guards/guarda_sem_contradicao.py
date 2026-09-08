@@ -26,9 +26,11 @@ ARQS = ['main.tex', 'sec_intro.tex', 'sec_related.tex', 'sec_method.tex',
 
 # (assunto, padrao do lado A, padrao do lado B) — os dois nao podem coexistir
 PARES = [
+    # ⚠️ o lado B tem de ser a afirmacao GERAL de nao ter lido. «whose full text is not in
+    # our archive» aplicado a UMA fonte nomeada e a excecao declarada, nao contradicao.
     ('as fontes foram lidas ou nao',
-     r'all ten are in the archive and were read|were read',
-     r'we could not read|full text is not in the archive|whose full text is not'),
+     r'were read in full|all ten are in the archive and were read',
+     r'we could not read|the two we could not|sources whose full text is not in the archive'),
     ('spatial information tem ou nao veredito',
      r'spatial information[^.]{0,80}(?:carries no verdict|receives no screening verdict|'
      r'diagnostic control)',

@@ -139,9 +139,11 @@ evidence the work itself reports for its visual criterion. For each we noted \te
 object the source evaluates}, whether an individual attribute, a combined module or the
 final summary; \textbf{the reference it evaluates against}, whether human ratings of the
 named property, summary-level evaluation, or an internal ablation; and a verbatim
-excerpt fixing both. A source whose full text were not in the archive would be \textbf{marked as not assessed
-rather than as reporting no validation}, since the two are different claims; all ten are in
-the archive and were read. Table~S26 of the supplement carries the classification with its excerpts.
+excerpt fixing both. \textbf{Ten of the eleven source works were read in full for this dimension}; the
+exception is \citet{xu2024property}, one of three sources for contrast variance, whose full
+text is not in our archive and which is therefore \textbf{marked as not assessed rather than
+as reporting no validation}, since the two are different claims. Table~S26 of the supplement
+carries the classification with its excerpts.
 
 Where a source also states \emph{how} its terms combine, that specification was implemented
 as written and put through the paired test of Section~\ref{sec:controlled} with the terms,
@@ -214,7 +216,7 @@ S_{\mathrm{BoVW}}(s)=\sum_i\sum_{v=1}^{K}
 \label{eq:bovw}
 \end{equation}
 Sampling, scoring and pooling jointly define the operation occupying the
-visual-quality stage, so the primary comparison evaluates complete operations
+visual-selection stage, so the primary comparison evaluates complete operations
 while holding every other stage fixed. A matched-input control additionally gives
 SIFT+BoVW and LIQE the same fixed set of at most ten uniformly spaced 1-fps
 frames and uses arithmetic-mean pooling for both. It thus isolates scorer
@@ -234,7 +236,7 @@ Released-weight supervision, checkpoint role, polarity and graphics processing u
 listed in full in Table~S13~\citep{agnolucci2024arniqa,golestaneh2022tres,
 yang2022maniqa}.
 
-\begin{table}[!ht]
+\begin{table}[!tbp]
 \centering
 \caption{Scorers needed to interpret the main comparison. Sup.: KQ = released
 KonIQ-10k opinion-trained checkpoint; LV = LIVE opinion training; OU = opinion-

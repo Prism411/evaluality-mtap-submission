@@ -158,12 +158,11 @@ output only from 47.4\% to 50.6\% and induces an inverse duration association
 \subsection{Performance of literature-derived composites and source-specified
 rules}\label{sec:combinations}
 
-Nineteen attribute combinations were collected from the summarization literature. Their
-members were first evaluated under two common aggregations chosen here, and the rules the
-sources themselves specify were reproduced separately where available. Nineteen distinct combinations were collected, twelve of them with more than one
-term, and each was put through the screening rule of Section~\ref{sec:screen} with the
-members aggregated by $z$-score mean and, as a stronger variant, by a ridge model fitted on
-the whole of KADID-10k.
+Nineteen attribute combinations were collected from the summarization literature, twelve
+of them with more than one term. Each went through the screening rule of
+Section~\ref{sec:screen} under two aggregations chosen here, a $z$-score mean and, as a
+stronger variant, a ridge model fitted on the whole of KADID-10k; the rules the sources
+themselves specify are reproduced separately, later in this section.
 
 \textbf{One of the nineteen clears the sensitivity gate.} The composite of colourfulness, Laplacian variance and local binary pattern (LBP)
 uniformity
@@ -311,7 +310,7 @@ cluster and LIQE 1.9~s (Table~S14).
 
 The preceding sections measure each operation against material with a known answer or
 against human opinion. This one asks a different question, and it needs no reference at
-all: if the pipeline keeps every stage fixed and only the visual-quality module is exchanged,
+all: if the pipeline keeps every stage fixed and only the visual-selection module is exchanged,
 \textbf{do the operations pick the same segments?}
 
 They do not. Fourteen operations for which a downstream choice is defined produce eleven
@@ -413,9 +412,8 @@ ratings, not each of its four features alone, and \citet{hasler2003colorfulness}
 \emph{colourfulness index} to a psychophysical scaling experiment. The remaining sources report summary-level evaluation rather than isolated validation of
 the visual component, and \citet{korolkov2025keyframe} fixes its weights without testing
 them; Table~S26 of the supplement gives, source by source, the excerpt that fixes each
-reading. \textbf{A component that improves a summary has not thereby been shown to measure
-quality}, and that gap, not our bench, is what leaves the reading untested in its own
-sources.
+reading. \textbf{Summary-level evaluation does not isolate the visual component's validity as a
+technical-quality measure.}
 
 Two of the four operations taken from the diversity-and-coverage work serve coverage and
 diversity there, not quality: the \emph{here:} clause on each band is what separates the

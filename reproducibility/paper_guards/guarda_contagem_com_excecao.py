@@ -65,7 +65,8 @@ def confere(fontes=None):
         # information, classified from the purpose ...» ha UM item, nao dois. Corta no
         # participio ou pronome relativo que inicia a aposicao.
         lista = re.split(r',\s*(?:which|classified|measured|reported|taken|derived|'
-                         r'defined|read|used|computed|whose|since|because)\b',
+                         r'defined|read|used|computed|whose|since|because|one of|the only|'
+                         r'a source|an? \w+ of)\b',
                          lista, maxsplit=1)[0]
         nomeadas = len([x for x in re.split(r',| and ', lista) if x.strip()])
         if nomeadas != mm - n:
