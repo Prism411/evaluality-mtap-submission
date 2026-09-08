@@ -136,7 +136,9 @@ TRABALHOS = [
 # ⛔ estes rotulos DESCREVEM a evidencia encontrada; nao a julgam. «never tests the rule»
 # lia como acusacao; «no isolated test of the rule reported» diz o que a leitura achou.
 VALIDACAO = {
-    'julgamento humano da propriedade': r'\textbf{human ratings of the stated property}',
+    # ⚠️ o objeto que o Ke avalia e o CLASSIFICADOR inteiro, nao cada atributo isolado; as
+    # linhas abaixo da banda sao os atributos, e o rotulo generico convidava a leitura errada.
+    'julgamento humano da propriedade': r'\textbf{human ratings, at the level of the whole}',
     'so o resumo': r'summary-level evaluation',
     'so o resumo, com ablacao de modulo': r'summary-level evaluation, with ablation',
     'nem a regra nem os pesos': r'\textbf{no isolated test of the rule}',
