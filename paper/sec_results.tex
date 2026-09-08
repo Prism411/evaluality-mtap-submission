@@ -155,10 +155,12 @@ key-frame selector makes descriptor count nearly independent of duration. On the
 output only from 47.4\% to 50.6\% and induces an inverse duration association
 ($\rho=-.52$). Full normalization and pooling results are in Tables~S6 and S9.
 
-\subsection{Performance of the published combinations}\label{sec:combinations}
+\subsection{Performance of literature-derived composites and source-specified
+rules}\label{sec:combinations}
 
-The summarization literature publishes these operations in composites rather than one at a
-time. Nineteen distinct combinations were collected, twelve of them with more than one
+Nineteen attribute combinations were collected from the summarization literature. Their
+members were first evaluated under two common aggregations chosen here, and the rules the
+sources themselves specify were reproduced separately where available. Nineteen distinct combinations were collected, twelve of them with more than one
 term, and each was put through the screening rule of Section~\ref{sec:screen} with the
 members aggregated by $z$-score mean and, as a stronger variant, by a ridge model fitted on
 the whole of KADID-10k.
@@ -413,8 +415,7 @@ the visual component, and \citet{korolkov2025keyframe} fixes its weights without
 them; Table~S26 of the supplement gives, source by source, the excerpt that fixes each
 reading. \textbf{A component that improves a summary has not thereby been shown to measure
 quality}, and that gap, not our bench, is what leaves the reading untested in its own
-sources. The two we could not read are marked as such rather than counted as absent
-validation.
+sources.
 
 Two of the four operations taken from the diversity-and-coverage work serve coverage and
 diversity there, not quality: the \emph{here:} clause on each band is what separates the

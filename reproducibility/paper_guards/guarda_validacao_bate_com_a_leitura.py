@@ -24,8 +24,8 @@ QB = Path('/dados/Projetos/quality-benchmark')
 # tipo no JSON -> trecho que a banda do corpo tem de carregar
 BANDA = {
     'julgamento humano da propriedade': 'human ratings of the stated property',
-    'so o resumo': 'summary-level agreement',
-    'so o resumo, com ablacao de modulo': 'summary-level agreement, with ablation',
+    'so o resumo': 'summary-level evaluation',
+    'so o resumo, com ablacao de modulo': 'summary-level evaluation, with ablation',
     'nem a regra nem os pesos': 'no isolated test of the rule',
 }
 SEM_PDF_BANDA = 'full text unavailable'

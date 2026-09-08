@@ -137,8 +137,8 @@ TRABALHOS = [
 # lia como acusacao; «no isolated test of the rule reported» diz o que a leitura achou.
 VALIDACAO = {
     'julgamento humano da propriedade': r'\textbf{human ratings of the stated property}',
-    'so o resumo': r'summary-level agreement',
-    'so o resumo, com ablacao de modulo': r'summary-level agreement, with ablation',
+    'so o resumo': r'summary-level evaluation',
+    'so o resumo, com ablacao de modulo': r'summary-level evaluation, with ablation',
     'nem a regra nem os pesos': r'\textbf{no isolated test of the rule}',
 }
 SEM_PDF = r'full text unavailable'

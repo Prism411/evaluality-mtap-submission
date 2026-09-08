@@ -1,4 +1,4 @@
-\begin{thebibliography}{58}
+\begin{thebibliography}{59}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{{#1}}
 \providecommand{\urlprefix}{URL }
@@ -271,6 +271,10 @@ Wu H, Zhang Z, Zhang W, et~al (2024) {Q-Align}: Teaching {LMMs} for visual
 Wu J, Zhong S, Jiang J, et~al (2019) {MvsGCN}: A novel graph convolutional
   network for multi-video summarization. In: Proc. ACM MM, pp 2254--2262,
   \doi{10.1145/3343031.3350938}
+
+\bibitem[{Xu et~al.(2024)Xu, Zheng, and Tao}]{xu2024property}
+Xu Y, Zheng J, Tao Y (2024) Property constrained video summarization via regret
+  minimization. SN Computer Science 5:254. \doi{10.1007/s42979-023-02588-1}
 
 \bibitem[{Yang et~al.(2024)Yang, He, Su, Li, and Hu}]{yang2024keyframe}
 Yang G, He Z, Su Z, et~al (2024) Keyframe recommendation based on feature
