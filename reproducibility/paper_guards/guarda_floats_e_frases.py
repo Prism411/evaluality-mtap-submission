@@ -153,8 +153,16 @@ def _autoteste():
 
     # ⭐ a faixa guarda-chuva, nas tres versoes. A do meio e o defeito real de 08/09:
     # a `fig_inversao` foi para o suplementar e o corpo continuou no singular.
-    CERTO = 'Supplementary Tables S1--S26, Supplementary Figures S1--S4 and an archive.'
-    SO_UMA_FIGURA = 'Supplementary Tables S1--S26, Supplementary Figure~S1 and an archive.'
+    # ⛔ estas fixtures traziam «S26» DIGITADO e envelheceram junto com o corpo: ao
+    # entrar a S27 o autoteste reprovou o mundo certo. A faixa certa e a que o
+    # `.aux` diz, entao ela se le do proprio suplementar.
+    _aux = (AQUI / 'supplementary.aux').read_text()
+    _maiorT = max(int(x) for x in re.findall(r'\\newlabel\{tab:[^}]*\}\{\{S(\d+)\}', _aux))
+    _maiorF = max(int(x) for x in re.findall(r'\\newlabel\{fig:[^}]*\}\{\{S(\d+)\}', _aux))
+    CERTO = ('Supplementary Tables S1--S%d, Supplementary Figures S1--S%d and an archive.'
+             % (_maiorT, _maiorF))
+    SO_UMA_FIGURA = ('Supplementary Tables S1--S%d, Supplementary Figure~S1 and an archive.'
+                     % _maiorT)
     TABELAS_VELHAS = 'Supplementary Tables S1--S16, Supplementary Figures S1--S4 and it.'
     assert faixa_prometida(corpo=CERTO)[0], '⛔ reprovou o mundo certo'
     assert not faixa_prometida(corpo=SO_UMA_FIGURA)[0], \
