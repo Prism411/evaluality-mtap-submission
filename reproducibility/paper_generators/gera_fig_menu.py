@@ -11,9 +11,12 @@ QB = Path('/dados/Projetos/quality-benchmark')
 SAIDA = Path(__file__).parent / 'fig_menu.tex'
 NOME = {'brilho': 'Brightness', 'huang_exposicao': 'Exposure', 'ke_brightness': 'Brightness (K.)',
         'hasler_colorfulness': 'Colourfulness (H.)', 'ke_colorfulness': 'Colourfulness (K.)',
-        'contraste_variancia': 'Contrast variance', 'huang_matiz': 'Hue', 'huang_saturacao': 'Saturation',
+        # ⚠️ «Hue» e «Hue count» sem fonte pareciam a mesma operacao; a figura ja usa
+        # «(H.)» e «(K.)» nas outras duplicatas, entao estas seguem o mesmo estilo.
+        'contraste_variancia': 'Contrast variance', 'huang_matiz': 'Hue (H.)',
+        'huang_saturacao': 'Saturation (H.)',
         'ke_contraste': 'Contrast', 'ke_edge_distribution': 'Edge distribution',
-        'ke_hue_count': 'Hue count', 'laplacian_var': 'Laplacian variance',
+        'ke_hue_count': 'Hue count (K.)', 'laplacian_var': 'Laplacian variance',
         'sobel_cv': 'Sobel CV', 'srinivas_quality': 'Composite of five'}
 
 
