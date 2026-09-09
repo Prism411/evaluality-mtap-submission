@@ -55,6 +55,7 @@ def main():
     eff = json.load(open(QB / 'posto_e_m_eff_das_15.json'))
     ref = json.load(open(QB / 'a_sensibilidade_depende_de_quais_referencias.json'))
     cas3 = json.load(open(QB / 'o_casamento_sozinho_move_doze.json'))
+    pd2 = json.load(open(QB / 'o_piso_das_duas_familias_na_mesma_convencao.json'))
     _q = json.load(open(QB / 'as_15_na_regra_do_artigo.json'))
     q15, regra = _q['por_operacao'], _q['regra']
     va = json.load(open(QB / 'o_vascore_do_qaroush_como_a_Eq20_manda.json'))
@@ -222,7 +223,13 @@ def main():
          # mantido o scorer e trocados so o quadro comum e o pooling, 12 decisoes ja mudam.
          f'\\newcommand{{\\casSoCasamento}}{{{cas3["contagens"]["so_o_casamento_scorer_fixo_12"]}}}',
          f'\\newcommand{{\\casCompleta}}{{{cas3["contagens"]["operacao_completa_22"]}}}',
-         f'\\newcommand{{\\casP}}{{{sem_zero("%.3f" % cas3["McNemar_pareado_nos_mesmos_42"]["operacao_completa (22) vs so_o_casamento (12)"]["p_mcnemar_exato"])}}}']
+         f'\\newcommand{{\\casP}}{{{sem_zero("%.3f" % cas3["McNemar_pareado_nos_mesmos_42"]["operacao_completa (22) vs so_o_casamento (12)"]["p_mcnemar_exato"])}}}',
+         # ⭐ o unico eixo em que as operacoes vao bem, com a fragilidade ao lado. As duas
+         # familias entram pela MESMA regra: fora quem nao carrega veredito.
+         f'\\newcommand{{\\pisoModN}}{{{POREXT[pd2["modelos"]["n"]]}}}',
+         f'\\newcommand{{\\pisoKapOp}}{{{sem_zero("%.3f" % pd2["operacoes"]["kappa_mediano_de_todas"])}}}',
+         f'\\newcommand{{\\pisoKapMod}}{{{sem_zero("%.3f" % pd2["modelos"]["kappa_mediano_de_todos"])}}}',
+         f'\\newcommand{{\\pisoFrageis}}{{{POREXT[pd2["fragilidade_ao_tirar_um_topico"]["quantas_das_que_passam_viram"]]}}}']
     assert not ct2['qaroush']['ic_cruza_zero'], '⛔ o IC do Qaroush passou a cruzar zero'
     assert ct2['korolkov']['ic_cruza_zero'], '⛔ o IC do Korolkov deixou de cruzar zero: reescrever'
     assert ko['modulo_menos_melhor_membro'] < 0, '⛔ o modulo do Korolkov superou o membro'
@@ -252,6 +259,13 @@ def main():
     assert not cas3['McNemar_pareado_nos_mesmos_42'][
         'operacao_completa (22) vs controle_casado (16)']['separa_a_005'], \
         '⛔ 22 x 16 passou a separar: a frase antiga poderia voltar'
+    # ⛔ a assercao ERRADA que eu escrevi aqui exigia o mesmo n nas duas familias, e ela
+    # vinha de uma populacao que incluia o `sobel_cv`, fora do inventario. O invariante
+    # certo e outro: a conta do piso tem de bater com o que o CORPO ja imprime.
+    assert pd2['operacoes']['n'] == len(natab), \
+        '⛔ o piso conta %d operacoes e o corpo imprime %d' % (pd2['operacoes']['n'], len(natab))
+    assert pd2['operacoes']['passam'] == sum(1 for v in natab.values() if v['passa']), \
+        '⛔ o piso e o corpo discordam de quantas passam'
     assert au['autonomas'] == 1, '⛔ mudou o numero de autonomas: reescrever a prosa'
     # ⚠️ as duas regras publicadas TEM de ficar abaixo da media, senao a frase da prosa cai
     assert nb < media, '⛔ o naive Bayes do Ke superou a media: reescrever a prosa'

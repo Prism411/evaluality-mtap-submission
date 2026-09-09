@@ -246,11 +246,9 @@ equation before any measurement (Table~S19 of the supplement).
 The constructed pairs fix the better member by construction, but they use eight
 degradations we chose. A public database with human opinion scores asks the same question
 independently, and applies to the individual operations, their composites and the
-no-reference models alike. All sixteen operations go through a rule with two damage
-requirements, responding to distortion severity within a reference image and retaining that
-response on databases the method was never fitted on, plus one in-domain requirement.
-Table~S24 of the supplement reports each family's best value on each axis separately, so a
-family fails an axis only when its best member fails it.
+no-reference models alike. All sixteen operations go through the rule of Section~\ref{sec:screen}: two damage
+requirements and one in-domain requirement. Table~S24 reports each family's best value on
+each axis, so a family fails an axis only when its best member does.
 
 \textbf{No operation clears either damage gate, and the margin is not narrow.} The best
 within-reference mean among the fifteen is $.298$ against a requirement of $.50$, and the
@@ -262,7 +260,10 @@ their own use assumes. \pisoTabPassam{} of the \pisoTabPop{} operations in Table
 that declare a direction and have a downstream choice defined do clear the in-domain
 requirement, and the bracketed lower bounds show how much of each pass survives its
 interval: the weakest is \pisoMenorLo{}. Several operations therefore agree with the reference model on unmodified material while
-failing both external damage requirements.
+failing both external damage requirements. All \pisoModN{} models clear the same
+requirement, at a median agreement of \pisoKapMod{} against \pisoKapOp{} for the
+operations, and \pisoFrageis{} of the passing operations lose the verdict when a single
+topic is removed.
 
 Within-reference KADID sensitivity separates the deployed operation from
 specialized quality methods. Its mean direction-aligned correlation is $-.077$
@@ -288,9 +289,7 @@ LIQE obtains $\rho^{*}=.723$ on KADID and .865 on CLIVE; QualiCLIP obtains .665
 and .757; CLIP-IQA$+$ obtains .654 and .805. TOPIQ and MUSIQ are strong on the
 unseen authentic database (.811 and .789) but fall to .511 and .556 on KADID.
 DBCNN and HyperIQA similarly fall from .756 and .750 on CLIVE to .484 and .462
-on KADID. The three eligible methods pass the floor with overlapping topic-block intervals.
-
-The floor axis shows the same overlap. LIQE agrees with Q-Align
+on KADID. The three eligible methods pass the floor with overlapping topic-block intervals. LIQE agrees with Q-Align
 on 32 of 42 clusters ($\kappa_{\mathrm{uniform}}=.551$, 95\% CI
 $[.284,.786]$); QualiCLIP agrees on 28 ($.371$, $[.143,.597]$); and
 CLIP-IQA$+$ on 25 ($.236$, $[.034,.435]$). The deployed operation agrees on 21,

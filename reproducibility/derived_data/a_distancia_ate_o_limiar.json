@@ -1,0 +1,71 @@
+{
+  "_o_que_e": "⭐ A DISTANCIA DA MELHOR OPERACAO ATE CADA LIMIAR DE TRIAGEM. Existe porque o artigo mostra que nenhuma passa e sustenta isso com uma varredura de limiares, mas nao diz por quanto.",
+  "unidade_de_reamostragem": "nao se aplica (leitura dos valores ja estimados)",
+  "n_operacoes": 16,
+  "limiares": {
+    "sensibilidade_media": 0.5,
+    "tipos_acima_de_050": 15,
+    "generalizacao": 0.65
+  },
+  "melhor_em_sensibilidade": {
+    "operacao": "ke_edge_distribution",
+    "valor": 0.298,
+    "falta": 0.202,
+    "fracao_do_limiar": 0.596
+  },
+  "melhor_em_tipos": {
+    "operacao": "si",
+    "tipos": 13,
+    "de": 25,
+    "falta": 2,
+    "fracao_do_limiar": 0.867
+  },
+  "melhor_em_tipos_sem_o_indice_itu": {
+    "operacao": "qaroush_go",
+    "tipos": 12,
+    "de": 25,
+    "falta": 3,
+    "fracao_do_limiar": 0.8
+  },
+  "melhor_em_generalizacao": {
+    "operacao": "si",
+    "valor": 0.218,
+    "falta": 0.432,
+    "fracao_do_limiar": 0.335
+  },
+  "para_referencia_o_piso_nas_duas_familias": {
+    "operacao": {
+      "n": 11,
+      "passam": 7,
+      "kappa_mediano": 0.2809,
+      "kappa_maximo": 0.5506
+    },
+    "NR-IQA": {
+      "n": 10,
+      "passam": 10,
+      "kappa_mediano": 0.7078,
+      "kappa_maximo": 0.7753
+    }
+  },
+  "⚠️_E_AS_COMBINACOES_PUBLICADAS_NAO_SEGUEM_O_MESMO_PADRAO": {
+    "media_z": {
+      "melhor_media": 0.5236,
+      "fracao_do_limiar_de_magnitude": 1.047,
+      "melhor_cobertura": 17,
+      "fracao_do_limiar_de_cobertura": 1.133
+    },
+    "ridge_ajustado": {
+      "melhor_media": 0.5378,
+      "fracao_do_limiar_de_magnitude": 1.076,
+      "melhor_cobertura": 17,
+      "fracao_do_limiar_de_cobertura": 1.133
+    },
+    "quantas_passam_cada_porta": {
+      "passam_sensibilidade": 1,
+      "passam_generalizacao": 0,
+      "nota": "as duas primeiras medem DANO e a terceira mede CONTEUDO (§130)"
+    }
+  },
+  "⭐⭐_A_FALHA_E_DE_FORCA_E_NAO_DE_ABRANGENCIA": "a familia chega a 80-87 por cento do criterio de COBERTURA (12 a 13 dos 15 tipos exigidos) e a 60 e 34 por cento dos dois criterios de MAGNITUDE. Ela responde a muitos tipos de degradacao, e responde fraco a todos. Isso e o que o mecanismo do artigo preve: sinal de conteudo e amplo e o de dano e o que falta.",
+  "⭐_leitura": "a melhor operacao alcanca uma fracao do limiar em cada eixo; para admitir a primeira operacao o limiar de sensibilidade teria de cair para o valor dela, e a varredura ja mostra que nesse ponto os modelos entram junto"
+}

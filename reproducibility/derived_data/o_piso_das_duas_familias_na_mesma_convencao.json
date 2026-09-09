@@ -1,0 +1,35 @@
+{
+ "_o_que_e": "⭐ O PISO IN-DOMAIN NAS DUAS FAMILIAS, COM A MESMA REGRA DE QUEM ENTRA.",
+ "_regra_de_entrada": "o conjunto do artigo, sem o `si`; nas duas familias",
+ "fora_do_inventario_auditado": [
+  "si",
+  "sobel_cv"
+ ],
+ "operacoes": {
+  "n": 9,
+  "passam": 5,
+  "kappa_mediano_de_todas": 0.2809,
+  "kappa_mediano_das_que_passam": 0.3708,
+  "kappa_maximo": 0.5506
+ },
+ "modelos": {
+  "n": 10,
+  "passam": 10,
+  "kappa_mediano_de_todos": 0.7078,
+  "kappa_maximo": 0.7753
+ },
+ "fragilidade_ao_tirar_um_topico": {
+  "n_rodadas": 19,
+  "quantas_das_que_passam_viram": 2,
+  "quais": {
+   "hasler_colorfulness": "10 de 19",
+   "ke_colorfulness": "11 de 19"
+  }
+ },
+ "previsoes": {
+  "1_nove_operacoes_como_o_corpo_ja_diz": "CONFIRMADA",
+  "2_cinco_passam_como_o_corpo_ja_diz": "CONFIRMADA",
+  "3_ha_fragilidade": "CONFIRMADA"
+ },
+ "leitura": "sob a mesma regra de entrada, 5 das 9 operacoes passam o piso in-domain contra 10 de 10 modelos, e a mediana e 0.2809 contra 0.7078. Das 5 que passam, 2 viram o veredito ao tirar UM topico."
+}
