@@ -32,6 +32,19 @@
   "sobel_cv": 0.3258,
   "srinivas_quality": 0.4157
  },
+ "mesma_fonte_contra_fontes_diferentes": {
+  "_o_que_e": "pares dentro da mesma fonte, tirando as duplicatas exatas, contra pares de fontes diferentes, em TODAS as operacoes com proveniencia",
+  "n_operacoes": 14,
+  "dentro": {
+   "n": 30,
+   "mediana": 0.0337
+  },
+  "fora": {
+   "n": 60,
+   "mediana": 0.0562
+  },
+  "_leitura": "os dois medianos ficam junto de zero; o desenho nao separa os grupos e o estimador interno e ate um pouco MENOR, entao o conjunto de features de um mesmo artigo nao e mais coerente que uma juncao arbitraria"
+ },
  "previsoes": {
   "1_o_piso_reproduz": "CONFIRMADA",
   "2_concordam_menos_entre_si": "CONFIRMADA",

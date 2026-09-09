@@ -22,6 +22,7 @@ POREXT = {11: 'eleven', 12: 'twelve', 13: 'thirteen', 14: 'fourteen',
 
 
 def main():
+    cla = json.load(open(QB / 'a_classe_nao_concorda_consigo.json'))
     d = json.load(open(QB / 'jusante_completo_sem_sift.json'))
     g = d['agrupamento']
     pares = d['concordancia_par_a_par']
@@ -76,8 +77,14 @@ def main():
           f'per cent. Every cluster has at least two operations choosing differently, the '
           f'average cluster draws ${d["escolhas_distintas_por_cluster_media"]:.2f}$ distinct '
           f'choices, and \\textbf{{{d["pares_abaixo_do_piso"]} of the {d["n_pares"]} pairs '
-          f'agree below chance}}. The choice of operation is not a detail of the stage; it '
-          f'is most of what the stage decides.}}',
+          f'agree below chance}}. \\textbf{{Pairs drawn from the same source work agree no '
+          f'more than pairs from different works}}: median $\\kappa$ '
+          f'{cla["mesma_fonte_contra_fontes_diferentes"]["dentro"]["mediana"]:.3f}'.replace("0.", ".") + f' over '
+          f'{cla["mesma_fonte_contra_fontes_diferentes"]["dentro"]["n"]} within-work pairs '
+          f'against ' + f'{cla["mesma_fonte_contra_fontes_diferentes"]["fora"]["mediana"]:.3f}'.replace("0.", ".") + f' over '
+          f'{cla["mesma_fonte_contra_fontes_diferentes"]["fora"]["n"]} across-work pairs, '
+          f'with the two exact duplicates excluded. The choice of operation is not a detail '
+          f'of the stage; it is most of what the stage decides.}}',
           r'\label{fig:menu}', r'\end{figure}']
     SAIDA.write_text('\n'.join(L) + '\n')
     print(f'  {len(grupos)} grupos, {len(vals)} pares -> {SAIDA.name}')

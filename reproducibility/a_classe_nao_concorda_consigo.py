@@ -58,6 +58,32 @@ def main():
     med_par = statistics.median(pares.values())
     med_ref = statistics.median(com_ref.values())
 
+    # ⭐ SEGUNDO EIXO: e DENTRO da mesma fonte elas concordam mais? Se o conjunto de
+    # features de um artigo fosse coerente como medida de qualidade, os pares internos
+    # ficariam acima dos externos.
+    prov = json.loads(_raiz('proveniencia_das_operacoes.json').read_text())['proveniencia']
+
+    def fontes(o):
+        v = prov.get(o)
+        return set([v] if isinstance(v, str) else (v or []))
+
+    # ⚠️ este eixo usa TODAS as operacoes com proveniencia, nao so as que tem piso medido:
+    # e a mesma populacao da comparacao par a par que o corpo publica (91 pares). Herdar o
+    # conjunto restrito daria outra contagem para a mesma frase.
+    todas = sorted({o for c in cl for o in c['escores']})
+    dentro, fora = [], []
+    for a, b in combinations(todas, 2):
+        fa, fb = fontes(a), fontes(b)
+        if not fa or not fb:
+            continue
+        k = kap(a, b)
+        # ⚠️ a duplicata exata e a MESMA computacao com dois nomes: ela infla o grupo
+        # «mesma fonte» sem dizer nada sobre coerencia, e sai da conta interna
+        if fa & fb and k < .999:
+            dentro.append(k)
+        elif not (fa & fb):
+            fora.append(k)
+
     # ⚠️ CONTROLE: as duas implementacoes da mesma expressao de Hasler tem de dar kappa 1.
     # Se nao derem, a conta de concordancia esta errada e o resto nao vale nada.
     dupl = [k for k in pares if 'hasler_colorfulness' in k and 'ke_colorfulness' in k]
@@ -78,6 +104,16 @@ def main():
         'razao_das_medianas': round(med_ref / med_par, 2) if med_par else None,
         'controle_duplicata_exata': {'par': dupl[0] if dupl else None, 'kappa': ctrl},
         'por_operacao_com_a_referencia': com_ref,
+        'mesma_fonte_contra_fontes_diferentes': {
+            '_o_que_e': 'pares dentro da mesma fonte, tirando as duplicatas exatas, contra '
+                        'pares de fontes diferentes, em TODAS as operacoes com proveniencia',
+            'n_operacoes': len(todas),
+            'dentro': {'n': len(dentro), 'mediana': round(statistics.median(dentro), 4)},
+            'fora': {'n': len(fora), 'mediana': round(statistics.median(fora), 4)},
+            '_leitura': 'os dois medianos ficam junto de zero; o desenho nao separa os '
+                        'grupos e o estimador interno e ate um pouco MENOR, entao o '
+                        'conjunto de features de um mesmo artigo nao e mais coerente que '
+                        'uma juncao arbitraria'},
     }
     res['previsoes'] = {
         '1_o_piso_reproduz': 'CONFIRMADA' if abs(acaso - .4702) < 5e-4 else '⛔ FALHOU',
