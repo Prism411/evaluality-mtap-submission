@@ -31,8 +31,9 @@ such as gradient magnitude, edge density, entropy, contrast and descriptor count
 additive noise raises such statistics, so an operation reading more structure as more
 quality prefers the noisier frame. Section~\ref{sec:mechanism} measures one instance of that
 reasoning for the deployed BoVW score, which is not one of the fifteen: there the statistic
-is a descriptor count, and the sign of the score difference follows the sign of the count
-difference in 797 of the 800 pairs. \textbf{Across the fifteen the outcome recurs without that demonstration.}
+is a descriptor count, and the sign of the score difference follows the sign of the count difference in 797 of the 800
+pairs, and the three exceptions differ by at most \excDelta{} descriptors against a median
+count of \excMediana{}. \textbf{Across the fifteen the outcome recurs without that demonstration.}
 
 On material where the better member is known, the reading tested here inverts: carrying
 these operations into a selection stage and treating a higher value as better technical
@@ -40,9 +41,8 @@ quality is not supported by their response to controlled damage.
 
 \textbf{The same 800 pairs place the deployed operation and the no-reference models}
 (Table~\ref{tab:constructed}), with the reference model out of the decision: each pair
-contains the same content before and after a known degradation. The
-deployed operation is correct on 65.1\% of 800 pairs. LIQE reaches 99.5\%; the
-paired difference is $+34.4$ percentage points, segment-block 95\% CI
+contains the same content before and after a known degradation. The deployed operation is correct on \mchImplantada{}\% of 800 pairs. LIQE reaches
+\mchLiqe{}\%; the paired difference is $+\mchDif{}$ percentage points, segment-block 95\% CI
 $[+29.8,+38.9]$. Every evaluated NR-IQA candidate exceeds the deployed score.
 
 \begin{table}[!ht]
@@ -328,8 +328,9 @@ implementations are the same Hasler expression reached through different source 
 Every one of the 42 clusters contains at least two operations that disagree, and the
 average cluster draws $2.21$ distinct choices from the fourteen.
 
-Pairwise, the median agreement between two operations is \dupMediana{} per cent against a chance
-floor of $47.0$, and \textbf{37 of the 91 pairs agree below chance}; Figure~S3 of the
+Pairwise, the median agreement between two operations is \dupComMediana{} per cent against
+a chance floor of $\dupPiso{}$, and \textbf{\dupComAbaixo{} of the \dupComPares{} pairs
+agree below chance}; Figure~S3 of the
 supplement shows both distributions. Collapsing those duplicate computations leaves \dupDistintas{} distinct ones and
 \dupPares{} pairs, the same median of \dupMediana{} and \dupAbaixo{} below chance.
 \textbf{What this establishes is that the choice of operation changes which representatives

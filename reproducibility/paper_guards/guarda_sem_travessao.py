@@ -22,16 +22,20 @@ RAIZ = os.path.dirname(os.path.abspath(__file__))
 CELULA = re.compile(r'(?<=[&{])\s*(?:\\[a-zA-Z]+(?:\{[^{}]*\})?\{)?\s*---\s*\}?\s*(?=[&}]|\\\\)')
 
 
+# ⛔ BURACO MEDIDO EM 08/09 por `mutacao_da_suite.py`: a guarda cobria «---» e NAO o
+# travessao UNICODE. Um «—» digitado direto compila igual e sai no PDF do mesmo jeito —
+# e e justamente o que se digita sem perceber. O «–» entra junto: faixa em LaTeX e «--».
+UNICODE = '\u2014\u2013'
+
+
 def sites_de_prosa(texto):
-    """Devolve [(n_linha, trecho)] dos --- que sao prosa."""
+    """Devolve [(n_linha, trecho)] dos travessoes que sao prosa, LaTeX ou Unicode."""
     achados = []
     for i, linha in enumerate(texto.split('\n'), 1):
         if linha.lstrip().startswith('%'):
             continue                                  # caso 1
-        if '---' not in linha:
-            continue
         limpa = CELULA.sub(' CELULA ', linha)         # caso 2
-        for m in re.finditer('---', limpa):
+        for m in re.finditer('---|[' + UNICODE + ']', limpa):
             ini = max(0, m.start() - 45)
             achados.append((i, limpa[ini:m.end() + 45].strip()))
     return achados
@@ -65,7 +69,13 @@ def autoteste():
         print("   autoteste ❌ perna 2: NAO reprovou o travessao de prosa reintroduzido")
         return False
 
-    print("   autoteste ✅ (aprova o limpo; com '---' de prosa reintroduzido REPROVA)")
+    # ⛔ a perna que faltava, e que deixou a mutacao passar: o travessao UNICODE
+    uni = limpo.replace("A energia medida cai,", "A energia medida cai \u2014")
+    if not sites_de_prosa(uni):
+        print("   autoteste ❌ perna 3: NAO reprovou o travessao UNICODE reintroduzido")
+        return False
+
+    print("   autoteste ✅ (aprova o limpo; reprova '---' E o travessao unicode)")
     return True
 
 

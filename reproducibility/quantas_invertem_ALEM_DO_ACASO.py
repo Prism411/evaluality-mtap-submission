@@ -127,8 +127,13 @@ def main():
     # ⚠️ os modelos nao empatam (`as_duas_contas_da_acuracia_por_tipo.json`: 0 empates),
     # entao o denominador deles e 100 e a acuracia impressa da a contagem direto.
     linhas = json.loads((QB / 'TABELA_FINAL.json').read_text())['linhas']
-    modelos = {l['nome']: l['acc'] for l in linhas
-               if 'NR-IQA' in l['familia'] and l['nome'] != 'SIFT+BoVW'}
+    # ⛔ o conjunto e o que o METODO declara: dez candidatos NR-IQA. A tabela dos pares
+    # construidos tem uma linha a mais (`arniqa`), que nao entra na comparacao completa,
+    # e contar as onze faria a prosa dizer «onze» onde o resto do artigo diz «dez».
+    DEZ = ['brisque', 'niqe', 'dbcnn', 'hyperiqa', 'musiq', 'topiq_nr',
+           'clipiqa', 'clipiqa_plus', 'liqe', 'qualiclip']
+    modelos = {l['nome']: l['acc'] for l in linhas if l['nome'] in DEZ}
+    assert len(modelos) == 10, ('⛔ os dez do metodo nao fecham', sorted(modelos))
     pm = {'%s|%s' % (m, t2): binom_cauda_baixa(round(a2), 100)
           for m, ac in modelos.items() for t2, a2 in ac.items()}
     ajm = holm(pm)
@@ -139,6 +144,35 @@ def main():
         por_modelo[m] = {'tipos_abaixo_de_50': ab, 'tipos_significativos': sg}
     modelos_com_abaixo = sum(1 for v in por_modelo.values() if v['tipos_abaixo_de_50'])
     modelos_com_sig = sum(1 for v in por_modelo.values() if v['tipos_significativos'])
+
+    # ⭐ ANALISE DE SENSIBILIDADE: a outra convencao de empate. A Tabela 1 do corpo MANTEM
+    # empate no denominador e a Tabela 3 TIRA; a conclusao nao pode depender de qual se le.
+    acc2, cont2 = {}, {}
+    for o in com_direcao:
+        mb = OPS.DIRECAO[o]
+        acc2[o], cont2[o] = {}, {}
+        for t2 in TIPOS:
+            certos = n2 = 0
+            for s in segs:
+                v2 = d[s].get(o)
+                if not v2 or 'orig' not in v2:
+                    continue
+                for lv in NIVEIS:
+                    deg = v2.get('%s_%d' % (t2, lv))
+                    if deg is None:
+                        continue
+                    n2 += 1                       # empate entra, e conta como erro
+                    certos += int(v2['orig'] > deg if mb else v2['orig'] < deg)
+            acc2[o][t2] = 100 * certos / n2 if n2 else None
+            cont2[o][t2] = (certos, n2)
+    b2 = {'%s|%s' % (o, t2): binom_cauda_baixa(*cont2[o][t2])
+          for o in com_direcao for t2 in TIPOS if cont2[o][t2][1]}
+    a2 = holm(b2)
+    cels2 = sum(1 for o in com_direcao for t2 in TIPOS if acc2[o][t2] is not None and acc2[o][t2] < 50)
+    sig2 = sum(1 for o in com_direcao for t2 in TIPOS
+               if acc2[o][t2] is not None and acc2[o][t2] < 50 and a2['%s|%s' % (o, t2)] < .05)
+    ops2 = sum(1 for o in com_direcao
+               if any(a2['%s|%s' % (o, t2)] < .05 for t2 in TIPOS if cont2[o][t2][1]))
 
     n_com_sig = sum(1 for v in por_op.values() if v['n_significativos'])
     n_com_abaixo = sum(1 for v in por_op.values() if v['tipos_abaixo_de_50'])
@@ -155,6 +189,10 @@ def main():
         'controle_da_moeda': {'operacoes_simuladas': len(com_direcao),
                               'quantas_acumulam_significancia': moedas_com_sig},
         'por_operacao': por_op,
+        'sensibilidade_a_convencao_de_empate': {
+            '_o_que_e': 'com o empate DENTRO do denominador, como a Tabela 1 conta',
+            'celulas_abaixo_de_50': cels2, 'celulas_significativas': sig2,
+            'operacoes_com_tipo_significativo': ops2},
         'a_outra_familia': {'n_modelos': len(modelos),
                             'com_ao_menos_um_tipo_abaixo_de_50': modelos_com_abaixo,
                             'com_ao_menos_um_tipo_SIGNIFICATIVO': modelos_com_sig,
@@ -166,6 +204,8 @@ def main():
         '2_a_maioria_tem_tipo_significativo':
             'CONFIRMADA' if n_com_sig > len(com_direcao) / 2 else '⛔ FALHOU',
         '3_a_moeda_nao_acumula': 'CONFIRMADA' if moedas_com_sig == 0 else '⛔ FALHOU',
+        '5_a_conclusao_sobrevive_a_outra_convencao_de_empate':
+            'CONFIRMADA' if ops2 == n_com_sig and sig2 == cels2 else '⚠️ MUDA',
         '4_a_outra_familia_inverte_MENOS':
             'CONFIRMADA' if modelos_com_sig < n_com_sig else '⛔ FALHOU',
     }

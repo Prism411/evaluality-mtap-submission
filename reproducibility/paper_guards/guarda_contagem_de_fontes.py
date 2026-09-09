@@ -58,10 +58,28 @@ def confere(textos=None):
     ruins = []
     # 1. o numero por extenso que o corpo imprime
     palavra = POREXT.get(n)
-    if palavra and not re.search(r'from %s source works' % palavra, t):
+    if palavra and not re.search(r'(?:from|\\fontesTrabalhos\{\}) %s source works|'
+                                 r'\\fontesTrabalhos\{\} source works' % palavra, t):
         achado = re.search(r'from (\w+) source works', t)
         ruins.append('a proveniencia tem %d trabalhos e o corpo diz %r'
                      % (n, achado.group(1) if achado else '(nada)'))
+    # ⛔ BURACO MEDIDO EM 08/09 por `mutacao_da_suite.py`: exigir que a frase CERTA apareca
+    # nao impede a ERRADA de aparecer ao lado. Trocar «\fontesTrabalhos{} source works» por
+    # «nine source works» num dos tres lugares passava, porque os outros dois seguravam a
+    # checagem. Agora TODA ocorrencia tem de trazer o numero certo ou a macro.
+    # ⚠️ so a forma do INVENTARIO, «from N source works». «the ten source works read in
+    # full» e outra contagem, legitima, e acusar ela seria acusar em massa — sinal de
+    # verificador errado, nao de defeito.
+    for m in re.finditer(r'from\s+(\S+)\s+source works', t):
+        tok = m.group(1)
+        if tok.startswith('\\fontesTrabalhos'):
+            continue
+        digitos = re.findall(r'\d+', tok)          # «from \textbf{11} source works»
+        if digitos and int(digitos[0]) == n:
+            continue
+        if palavra and tok.lower() != palavra:
+            ruins.append('«from %s source works» no corpo, e a proveniencia tem %d'
+                         % (tok, n))
     # 2. cada um deles citado no corpo
     cit = citadas(t)
     fora = sorted(usados - cit)

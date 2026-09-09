@@ -1,0 +1,39 @@
+{
+ "_o_que_e": "⭐ AS TRES EXCECOES DO MECANISMO SAO INVERSAO OU SAO EMPATE?",
+ "_fontes": [
+  "a_contagem_reproduz_a_escolha_par_a_par.json",
+  "/dados/Projetos/evaluality-mtap-submission/reproducibility/derived_data/synth_sift.json"
+ ],
+ "pares": 800,
+ "concordam": "797 de 800",
+ "discordam": 3,
+ "n_desc_medida": {
+  "n": 1600,
+  "mediana": 1092.0,
+  "minimo": 3
+ },
+ "maior_delta_de_contagem_entre_as_discordancias": 4,
+ "como_fracao_da_mediana": 0.003663,
+ "as_tres": [
+  {
+   "celula": "rescale_2",
+   "delta_conta": 4,
+   "delta_score": -1.531
+  },
+  {
+   "celula": "jpeg_5",
+   "delta_conta": -1,
+   "delta_score": 0.533
+  },
+  {
+   "celula": "rescale_2",
+   "delta_conta": -2,
+   "delta_score": 4.98
+  }
+ ],
+ "previsoes": {
+  "1_sao_de_margem": "CONFIRMADA",
+  "2_abaixo_de_1_por_cento_da_mediana": "CONFIRMADA"
+ },
+ "leitura": "as 3 discordancias diferem por no maximo 4 descritores, contra uma contagem mediana de 1092 por frame (0.366 % dela): sao empates de margem, nao inversoes."
+}

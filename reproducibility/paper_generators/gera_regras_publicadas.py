@@ -43,6 +43,8 @@ def main():
     prov = json.load(open(QB / 'a_proveniencia_fecha_com_a_bib.json'))
     sub = json.load(open(QB / 'a_substituicao_concorda_acima_do_acaso.json'))
     inv = json.load(open(QB / 'quantas_invertem_ALEM_DO_ACASO.json'))
+    mch = json.load(open(QB / 'o_bloco_de_segmento_reproduz_um_intervalo_publicado.json'))['manchete']
+    exc = json.load(open(QB / 'as_tres_excecoes_do_mecanismo.json'))
     _q = json.load(open(QB / 'as_15_na_regra_do_artigo.json'))
     q15, regra = _q['por_operacao'], _q['regra']
     va = json.load(open(QB / 'o_vascore_do_qaroush_como_a_Eq20_manda.json'))
@@ -99,9 +101,14 @@ def main():
          f'\\newcommand{{\\koContraste}}{{{abs(ct2["korolkov"]["ponto"]):.1f}}}',
          f'\\newcommand{{\\koIC}}{{[{sem_zero_negativo(ct2["korolkov"]["ic95"][1]):.1f},\\,{sem_zero_negativo(ct2["korolkov"]["ic95"][0]):.1f}]}}',
          f'\\newcommand{{\\dupPares}}{{{du["sem_duplicatas"]["n_pares"]}}}',
-         f'\\newcommand{{\\dupDistintas}}{{eleven}}',
          f'\\newcommand{{\\dupMediana}}{{{du["sem_duplicatas"]["mediana"]:.1f}}}',
          f'\\newcommand{{\\dupAbaixo}}{{{du["sem_duplicatas"]["abaixo_do_acaso"]}}}',
+         # ⛔ BURACO MEDIDO EM 08/09: o piso de acaso 47,0 estava DIGITADO na prosa, e
+         # trocar por 41,0 passava por todas as 23 guardas. Agora vem do arquivo.
+         f'\\newcommand{{\\dupPiso}}{{{du["piso_do_acaso_pct"]:.1f}}}',
+         f'\\newcommand{{\\dupComPares}}{{{du["com_duplicatas"]["n_pares"]}}}',
+         f'\\newcommand{{\\dupComAbaixo}}{{{du["com_duplicatas"]["abaixo_do_acaso"]}}}',
+         f'\\newcommand{{\\dupComMediana}}{{{du["com_duplicatas"]["mediana"]:.1f}}}',
          f'\\newcommand{{\\koModulo}}{{{ko["modulo_media"]:.1f}}}',
          f'\\newcommand{{\\koMelhorMembro}}{{{max(m["media"] for m in ko["membros"].values()):.1f}}}',
          f'\\newcommand{{\\koQueda}}{{{abs(ko["modulo_menos_melhor_membro"]):.1f}}}',
@@ -146,7 +153,20 @@ def main():
          f'\\newcommand{{\\invMoeda}}{{{"none" if inv["controle_da_moeda"]["quantas_acumulam_significancia"] == 0 else POREXT[inv["controle_da_moeda"]["quantas_acumulam_significancia"]]}}}',
          # ⭐ o mesmo teste na outra familia: sem ele a leitura e de um lado so
          f'\\newcommand{{\\invModelosLimpos}}{{{POREXT[inv["a_outra_familia"]["sem_nenhum_tipo_abaixo"]]}}}',
-         f'\\newcommand{{\\invModelos}}{{{POREXT[inv["a_outra_familia"]["n_modelos"]]}}}']
+         f'\\newcommand{{\\invModelos}}{{{POREXT[inv["a_outra_familia"]["n_modelos"]]}}}',
+         # ⛔ BURACO MEDIDO EM 08/09: os tres numeros da manchete estavam DIGITADOS, e
+         # trocar o +34,4 por +31,4 passava por todas as guardas. Agora vem do arquivo,
+         # e o IC ao lado ja vem do mesmo lugar pela guarda de unidade.
+         f'\\newcommand{{\\mchImplantada}}{{{mch["implantada"]:.1f}}}',
+         f'\\newcommand{{\\mchLiqe}}{{{mch["liqe"]:.1f}}}',
+         f'\\newcommand{{\\mchDif}}{{{mch["dif"]:.1f}}}',
+         # e o numero de computacoes distintas sai dos pares, e nao digitado:
+         # n(n-1)/2 = 55 pares implica onze operacoes distintas
+         f'\\newcommand{{\\dupDistintas}}{{{POREXT[int((1 + (1 + 8 * du["sem_duplicatas"]["n_pares"]) ** .5) / 2)]}}}',
+         # ⭐ as tres excecoes do mecanismo: um revisor pergunta o que sao, e a resposta
+         # muda o estatuto da fatoracao. Sao empates de margem, e isso esta medido.
+         f'\\newcommand{{\\excDelta}}{{{POREXT[exc["maior_delta_de_contagem_entre_as_discordancias"]]}}}',
+         f'\\newcommand{{\\excMediana}}{{{exc["n_desc_medida"]["mediana"]:,.0f}}}'.replace(',', '{,}')]
     assert not ct2['qaroush']['ic_cruza_zero'], '⛔ o IC do Qaroush passou a cruzar zero'
     assert ct2['korolkov']['ic_cruza_zero'], '⛔ o IC do Korolkov deixou de cruzar zero: reescrever'
     assert ko['modulo_menos_melhor_membro'] < 0, '⛔ o modulo do Korolkov superou o membro'
@@ -162,6 +182,8 @@ def main():
     assert all(len(v['tipos_abaixo_de_50']) == v['n_significativos']
                for v in inv['por_operacao'].values()), \
         '⛔ ha celula abaixo do acaso que NAO e significativa: a frase da 4.1 cai'
+    assert abs(mch['dif'] - (mch['liqe'] - mch['implantada'])) < 1e-9, \
+        '⛔ a diferenca da manchete nao fecha com os dois pontos'
     assert au['autonomas'] == 1, '⛔ mudou o numero de autonomas: reescrever a prosa'
     # ⚠️ as duas regras publicadas TEM de ficar abaixo da media, senao a frase da prosa cai
     assert nb < media, '⛔ o naive Bayes do Ke superou a media: reescrever a prosa'
