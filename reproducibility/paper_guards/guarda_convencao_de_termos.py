@@ -27,9 +27,10 @@ AQUI = Path(__file__).parent
 # ⛔ o resumo grafico ficou de fora na primeira versao e era JUSTAMENTE onde o termo
 # sobrevivia, na primeira linha que o leitor ve. Guarda que nao le o arquivo aprova por
 # nao olhar.
-CORPO = ['sec_intro.tex', 'sec_related.tex', 'sec_method.tex', 'sec_results.tex',
-         'sec_discussion.tex', 'sec_conclusion.tex', 'main.tex',
-         'graphical_abstract.tex', 'supplementary.tex']
+# ⛔ e a segunda ampliacao, no mesmo dia: os `\input` de tabela tambem ficavam de fora,
+# e la o termo aparecia em legenda. A guarda le TODOS os .tex da pasta; linha de comentario
+# e trecho literal de fonte continuam fora, por direito.
+CORPO = sorted(p.name for p in Path(__file__).parent.glob('*.tex'))
 PROIBIDO = re.compile(r'visual[- ]quality', re.I)
 # trecho literal de fonte: `\emph{``...''}` ou `\textit{``...''}`
 CITACAO = re.compile(r'\\(?:emph|textit)\{\s*``.*?\'\'\s*\}', re.S)

@@ -43,15 +43,19 @@ def main():
     L = [r'\begin{table}[!ht]', r'\centering',
          r'\caption{The sixteen operations audited, each linked to the objective its '
          r'source states and the role it has there. \emph{Tested reading} is the one this '
-         r'article evaluates: higher score means better technical visual quality, applied '
+         r'article evaluates: higher score means better technical quality, applied '
          r'to a single frame without a model. No source is claimed to be wrong about its '
          r'own objective; what is tested is the reuse. \emph{Inverts} counts degradation '
          r'types on which the operation ranks the degraded copy higher '
          # ⚠️ esta tabela vive no SUPLEMENTAR; `\ref` nao alcanca a figura do corpo
          r'(Fig.~2 of the main article). Where two works adopt the same operation the use can '
          r'differ: Laplacian variance rejects low-light frames alongside grey-scale intensity '
-         r'and a Canny detector in \\citet{cakmak2025tripss}, and enters '
-         r'$0.7\\,z(\\mathrm{sharp})+0.3\\,z(\\mathrm{bright})$ in \\citet{korolkov2025keyframe}.}',
+         # ⛔ AQUI havia `\\citet` DENTRO de raw string, o que emite `\\citet` no .tex:
+         # o LaTeX leu `\\` como quebra de linha e `citet{...}` como TEXTO. A legenda saiu
+         # com «citetcakmak2025tripss» e com o math vazando, e compilou sem erro nenhum.
+         # Em raw string a barra e UMA so.
+         r'and a Canny detector in \citet{cakmak2025tripss}, and enters '
+         r'$0.7\,z(\mathrm{sharp})+0.3\,z(\mathrm{bright})$ in \citet{korolkov2025keyframe}.}',
          r'\label{tab:inventory}', r'\footnotesize', r'\setlength{\tabcolsep}{4pt}',
          r'\renewcommand{\arraystretch}{1.15}',
          r'\begin{tabular}{@{}>{\raggedright\arraybackslash}p{2.45cm}'

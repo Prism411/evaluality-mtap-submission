@@ -40,7 +40,7 @@ LINHAS = [
      r'the isolated statistic, read in the increasing direction'),
     (r'Gradient magnitude, saliency, entropy, gradient orientation',
      r'\citet{qaroush2025diversity}: terms of four numbered objectives',
-     r'the same work; two of the four objectives are not about visual quality',
+     r'the same work; two of the four objectives are not about technical quality',
      r'each term alone, and the visual-attention module of Eq.~20'),
 ]
 
