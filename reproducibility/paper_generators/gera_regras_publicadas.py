@@ -53,6 +53,7 @@ def main():
     cas = r3['regimes']['uniform_1fps_capped10_mean']['liqe_minus_sift']
     esc = json.load(open(QB / 'quantas_escolhas_distintas_por_cluster.json'))
     eff = json.load(open(QB / 'posto_e_m_eff_das_15.json'))
+    ref = json.load(open(QB / 'a_sensibilidade_depende_de_quais_referencias.json'))
     _q = json.load(open(QB / 'as_15_na_regra_do_artigo.json'))
     q15, regra = _q['por_operacao'], _q['regra']
     va = json.load(open(QB / 'o_vascore_do_qaroush_como_a_Eq20_manda.json'))
@@ -206,7 +207,12 @@ def main():
          # ⭐ as quinze nao sao quinze medidas distintas, e isso e um fato sobre a
          # LITERATURA: ela reusa as mesmas estatisticas com nomes diferentes.
          f'\\newcommand{{\\effPosto}}{{{POREXT[eff["posto_dos_escores_crus"]]}}}',
-         f'\\newcommand{{\\effMeff}}{{{eff["M_eff_li_ji_spearman"]:.0f}}}']
+         f'\\newcommand{{\\effMeff}}{{{eff["M_eff_li_ji_spearman"]:.0f}}}',
+         # ⭐ o veredito da porta e fragil? Medido: nenhuma das quinze vira em 10^4
+         # reamostragens das referencias, e nenhum intervalo encosta na barra.
+         f'\\newcommand{{\\refViram}}{{{"none" if ref["⭐_VIRAM_EM_ALGUMA_REAMOSTRA"]["n"] == 0 else POREXT[ref["⭐_VIRAM_EM_ALGUMA_REAMOSTRA"]["n"]]}}}',
+         f'\\newcommand{{\\refTocam}}{{{"none" if ref["⭐_IC_TOCA_A_BARRA"]["n"] == 0 else POREXT[ref["⭐_IC_TOCA_A_BARRA"]["n"]]}}}',
+         f'\\newcommand{{\\refB}}{{{ref["B"]:,}}}'.replace(',', '{,}')]
     assert not ct2['qaroush']['ic_cruza_zero'], '⛔ o IC do Qaroush passou a cruzar zero'
     assert ct2['korolkov']['ic_cruza_zero'], '⛔ o IC do Korolkov deixou de cruzar zero: reescrever'
     assert ko['modulo_menos_melhor_membro'] < 0, '⛔ o modulo do Korolkov superou o membro'

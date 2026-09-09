@@ -1,0 +1,172 @@
+{
+  "_o_que_e": "⭐⭐ A PORTA DE SENSIBILIDADE DEPENDE DE QUAIS IMAGENS DE REFERENCIA DO KADID?\n\nPOR QUE EXISTE (05/09). O `a_sensibilidade_depende_de_quais_tipos.json` mostrou que a porta\nque decide para as operacoes nao depende de qual TIPO de degradacao se tira. Falta o outro\neixo do mesmo desenho: o rho e calculado DENTRO de cada referencia e depois agregado sobre\nas **81 referencias** do KADID. ⚠️ Se o veredito depender de quais imagens sao, a\ngeneralidade dele e menor do que \"25 tipos\" sugere.\n\n⭐ Duas perguntas, e a segunda e a que importa:\n  (a) reamostrando as referencias com reposicao, o veredito de alguma operacao vira?\n  (b) qual e o INTERVALO do rho medio de cada operacao sobre referencias, e ele chega perto\n      da barra de 0,5?\n\n⚠️ Isto NAO e o mesmo que o bootstrap do artigo: la a unidade e o segmento ou o topico; aqui\ne a REFERENCIA do KADID, que e a unidade natural do desenho \"within-reference\".",
+  "unidade_de_reamostragem": "referencia do KADID-10k",
+  "B": 10000,
+  "semente": 42,
+  "n_referencias": 81,
+  "regra": {
+    "rho_medio_min": 0.5,
+    "fracao_de_tipos_min": 0.6
+  },
+  "por_operacao": {
+    "contraste_variancia": {
+      "rho_medio": 0.1492,
+      "PASSA": false,
+      "ic95_do_rho_medio": [
+        0.1161,
+        0.1825
+      ],
+      "fracao_de_reamostras_que_viram": 0.0,
+      "o_ic_toca_a_barra": false
+    },
+    "glcm_contraste": {
+      "rho_medio": 0.0192,
+      "PASSA": false,
+      "ic95_do_rho_medio": [
+        -0.0027,
+        0.0402
+      ],
+      "fracao_de_reamostras_que_viram": 0.0,
+      "o_ic_toca_a_barra": false
+    },
+    "gygli_media_crua": {
+      "rho_medio": 0.0318,
+      "PASSA": false,
+      "ic95_do_rho_medio": [
+        0.0008,
+        0.0631
+      ],
+      "fracao_de_reamostras_que_viram": 0.0,
+      "o_ic_toca_a_barra": false
+    },
+    "hasler_colorfulness": {
+      "rho_medio": -0.182,
+      "PASSA": false,
+      "ic95_do_rho_medio": [
+        -0.2172,
+        -0.1472
+      ],
+      "fracao_de_reamostras_que_viram": 0.0,
+      "o_ic_toca_a_barra": false
+    },
+    "huang_saturacao": {
+      "rho_medio": -0.0925,
+      "PASSA": false,
+      "ic95_do_rho_medio": [
+        -0.1282,
+        -0.057
+      ],
+      "fracao_de_reamostras_que_viram": 0.0,
+      "o_ic_toca_a_barra": false
+    },
+    "ke_colorfulness": {
+      "rho_medio": -0.182,
+      "PASSA": false,
+      "ic95_do_rho_medio": [
+        -0.2172,
+        -0.1476
+      ],
+      "fracao_de_reamostras_que_viram": 0.0,
+      "o_ic_toca_a_barra": false
+    },
+    "ke_contraste": {
+      "rho_medio": 0.1845,
+      "PASSA": false,
+      "ic95_do_rho_medio": [
+        0.1505,
+        0.2172
+      ],
+      "fracao_de_reamostras_que_viram": 0.0,
+      "o_ic_toca_a_barra": false
+    },
+    "ke_edge_distribution": {
+      "rho_medio": 0.2984,
+      "PASSA": false,
+      "ic95_do_rho_medio": [
+        0.2478,
+        0.3464
+      ],
+      "fracao_de_reamostras_que_viram": 0.0,
+      "o_ic_toca_a_barra": false
+    },
+    "ke_hue_count": {
+      "rho_medio": 0.147,
+      "PASSA": false,
+      "ic95_do_rho_medio": [
+        0.0895,
+        0.2097
+      ],
+      "fracao_de_reamostras_que_viram": 0.0,
+      "o_ic_toca_a_barra": false
+    },
+    "laplacian_var": {
+      "rho_medio": -0.0472,
+      "PASSA": false,
+      "ic95_do_rho_medio": [
+        -0.0708,
+        -0.0241
+      ],
+      "fracao_de_reamostras_que_viram": 0.0,
+      "o_ic_toca_a_barra": false
+    },
+    "qaroush_entropia": {
+      "rho_medio": 0.1173,
+      "PASSA": false,
+      "ic95_do_rho_medio": [
+        0.0805,
+        0.1527
+      ],
+      "fracao_de_reamostras_que_viram": 0.0,
+      "o_ic_toca_a_barra": false
+    },
+    "qaroush_gm": {
+      "rho_medio": 0.1042,
+      "PASSA": false,
+      "ic95_do_rho_medio": [
+        0.0904,
+        0.1176
+      ],
+      "fracao_de_reamostras_que_viram": 0.0,
+      "o_ic_toca_a_barra": false
+    },
+    "qaroush_go": {
+      "rho_medio": 0.2915,
+      "PASSA": false,
+      "ic95_do_rho_medio": [
+        0.2355,
+        0.348
+      ],
+      "fracao_de_reamostras_que_viram": 0.0,
+      "o_ic_toca_a_barra": false
+    },
+    "qaroush_saliencia": {
+      "rho_medio": 0.0748,
+      "PASSA": false,
+      "ic95_do_rho_medio": [
+        0.0241,
+        0.1228
+      ],
+      "fracao_de_reamostras_que_viram": 0.0,
+      "o_ic_toca_a_barra": false
+    },
+    "srinivas_quality": {
+      "rho_medio": 0.0285,
+      "PASSA": false,
+      "ic95_do_rho_medio": [
+        -0.001,
+        0.0581
+      ],
+      "fracao_de_reamostras_que_viram": 0.0,
+      "o_ic_toca_a_barra": false
+    }
+  },
+  "⭐_VIRAM_EM_ALGUMA_REAMOSTRA": {
+    "n": 0,
+    "quais": []
+  },
+  "⭐_IC_TOCA_A_BARRA": {
+    "n": 0,
+    "quais": []
+  },
+  "⚠️_ler_com": "a unidade aqui e a REFERENCIA do KADID, que e a unidade natural do desenho within-reference. O bootstrap do artigo usa segmento ou topico, que sao de outro desenho, e os dois numeros nao se comparam."
+}

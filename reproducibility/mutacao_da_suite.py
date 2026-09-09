@@ -108,7 +108,8 @@ MUTACOES = [
      sub_um('sec_results.tex', '(Section~\\ref{sec:menu})', '(Section~\\ref{sec:naoexiste})')),
     # ⭐ as duas ultimas fecham buracos que ESTA lista mediu em 08/09
     ('o travessao unicode, que a guarda so pegava em LaTeX',
-     sub_um('sec_related.tex', 'the field', 'the \u2014 field')),
+     sub_um('sec_related.tex', 'The modular design enables',
+            'The modular \u2014 design enables')),
     ('a contagem de fontes errada em UM dos tres lugares',
      sub_um('sec_intro.tex', 'from eleven source works', 'from nine source works')),
 ]
@@ -125,13 +126,27 @@ def roda(raiz):
 def main():
     if TMP.exists():
         shutil.rmtree(TMP)
+    # ⛔ INSTANTANEO UNICO, tirado antes da primeira mutacao. Copiar a pasta viva a cada
+    # iteracao contamina o placar: editando o artigo durante a rodada, «teto de paginas»
+    # disparou em mutacoes que nao mexem em pagina nenhuma, porque a copia pegou um estado
+    # intermediario. O instantaneo tambem torna a rodada reprodutivel.
+    PRISTINO = TMP.parent / (TMP.name + '-pristino')
+    if PRISTINO.exists():
+        shutil.rmtree(PRISTINO)
+    shutil.copytree(AQUI, PRISTINO, ignore=shutil.ignore_patterns(
+        '__pycache__', '*.bak', 'mut*', '.cache_crossref.json'))
+    c = AQUI / '.cache_crossref.json'          # senao a guarda de DOI sai por falta de rede
+    if c.exists():
+        shutil.copy(c, PRISTINO / c.name)
+    base_reprova, base_quem = roda(PRISTINO)
+    if base_reprova:
+        print('  ⛔ o instantaneo SEM mutacao ja reprova (%s): o placar nao valeria nada'
+              % base_quem)
+        shutil.rmtree(PRISTINO)
+        return 1
     pegas, reparadas, soltas = [], [], []
     for nome, (aplicar, ainda_esta_la) in MUTACOES:
-        shutil.copytree(AQUI, TMP, ignore=shutil.ignore_patterns(
-            '__pycache__', '*.bak', 'mut', '.cache_crossref.json'))
-        c = AQUI / '.cache_crossref.json'      # senao a guarda de DOI sai por falta de rede
-        if c.exists():
-            shutil.copy(c, TMP / c.name)
+        shutil.copytree(PRISTINO, TMP)
         try:
             aplicar(TMP)
             reprovou, quem = roda(TMP)
@@ -155,6 +170,7 @@ def main():
           % (len(pegas), len(reparadas), len(soltas), len(MUTACOES)))
     for nome in soltas:
         print('    ⛔ buraco medido: %s' % nome)
+    shutil.rmtree(PRISTINO, ignore_errors=True)
     return 0 if not soltas else 1
 
 
