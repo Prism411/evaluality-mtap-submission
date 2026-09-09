@@ -1,0 +1,148 @@
+{
+ "_o_que_e": "⭐⭐ A elegibilidade casa com FAMILIA, nao com regime de supervisao. Refuta a objecao «voce so separou aprendido de artesanal».",
+ "⚠️_post_hoc": "a taxonomia ja estava publicada, mas a pergunta foi feita depois de ver quem passou. Os DOIS atributos que a Tabela 1 oferece sao testados, e Holm corrige por dois.",
+ "n_candidatos_com_veredito": 11,
+ "elegiveis": [
+  "CLIP-IQA+",
+  "LIQE",
+  "QualiCLIP"
+ ],
+ "por_candidato": {
+  "BRISQUE": {
+   "supervisao": "L",
+   "elegivel": false,
+   "familia": "natural-scene statistics"
+  },
+  "CLIP-IQA": {
+   "supervisao": "OU",
+   "elegivel": false,
+   "familia": "vision--language"
+  },
+  "CLIP-IQA+": {
+   "supervisao": "K",
+   "elegivel": true,
+   "familia": "vision--language"
+  },
+  "DBCNN": {
+   "supervisao": "K",
+   "elegivel": false,
+   "familia": "CNN regression"
+  },
+  "HyperIQA": {
+   "supervisao": "K",
+   "elegivel": false,
+   "familia": "CNN regression"
+  },
+  "LIQE": {
+   "supervisao": "K",
+   "elegivel": true,
+   "familia": "vision--language"
+  },
+  "MUSIQ": {
+   "supervisao": "K",
+   "elegivel": false,
+   "familia": "transformer"
+  },
+  "NIQE": {
+   "supervisao": "OU",
+   "elegivel": false,
+   "familia": "natural-scene statistics"
+  },
+  "QualiCLIP": {
+   "supervisao": "OU",
+   "elegivel": true,
+   "familia": "vision--language"
+  },
+  "SIFT+BoVW (deployed)": {
+   "supervisao": "--",
+   "elegivel": false,
+   "familia": "handcrafted retrieval"
+  },
+  "TOPIQ": {
+   "supervisao": "K",
+   "elegivel": false,
+   "familia": "transformer"
+  }
+ },
+ "por_familia": {
+  "CNN regression": {
+   "n": 2,
+   "passam": 0
+  },
+  "handcrafted retrieval": {
+   "n": 1,
+   "passam": 0
+  },
+  "natural-scene statistics": {
+   "n": 2,
+   "passam": 0
+  },
+  "transformer": {
+   "n": 2,
+   "passam": 0
+  },
+  "vision--language": {
+   "n": 4,
+   "passam": 3
+  }
+ },
+ "por_supervisao": {
+  "--": {
+   "n": 1,
+   "passam": 0
+  },
+  "K": {
+   "n": 6,
+   "passam": 2
+  },
+  "L": {
+   "n": 1,
+   "passam": 0
+  },
+  "OU": {
+   "n": 3,
+   "passam": 1
+  }
+ },
+ "Fisher_exato_com_Holm_sobre_2_atributos": {
+  "familia = vision--language": {
+   "no_grupo_passam": 3,
+   "no_grupo_reprovam": 1,
+   "fora_passam": 0,
+   "fora_reprovam": 7,
+   "p_fisher_bilateral": 0.0242,
+   "p_fisher_como_impresso": 0.024,
+   "p_holm": 0.0484,
+   "sobrevive_a_holm": true,
+   "p_holm_como_impresso": 0.048
+  },
+  "supervisao = K (KonIQ)": {
+   "no_grupo_passam": 2,
+   "no_grupo_reprovam": 4,
+   "fora_passam": 1,
+   "fora_reprovam": 4,
+   "p_fisher_bilateral": 1.0,
+   "p_fisher_como_impresso": 1.0,
+   "p_holm": 1.0,
+   "sobrevive_a_holm": false,
+   "p_holm_como_impresso": 1.0
+  }
+ },
+ "⭐_a_refutacao_da_objecao": {
+  "modelos_profundos_treinados_em_KonIQ_na_tabela": 6,
+  "quantos_deles_reprovam": 4,
+  "quais_reprovam": [
+   "DBCNN",
+   "HyperIQA",
+   "MUSIQ",
+   "TOPIQ"
+  ],
+  "_leitura": "reprovar nao e propriedade de ser artesanal: a maioria dos modelos profundos com treino de opiniao na tabela tambem reprova."
+ },
+ "previsoes": {
+  "previsao_1_tres_de_quatro_vision_language": "CONFIRMADA",
+  "previsao_2_familia_separa": "CONFIRMADA",
+  "previsao_3_supervisao_nao_separa": "CONFIRMADA",
+  "previsao_4_nenhum_sem_treino_passa": "CONFIRMADA"
+ }
+}

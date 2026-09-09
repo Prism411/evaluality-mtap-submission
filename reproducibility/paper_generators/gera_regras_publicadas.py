@@ -61,6 +61,8 @@ def main():
     par = json.load(open(QB / 'a_contagem_reproduz_a_escolha_par_a_par.json'))
     cla = json.load(open(QB / 'a_classe_nao_concorda_consigo.json'))
     tip = json.load(open(QB / 'a_implantada_e_tipica_da_classe.json'))
+    ele = json.load(open(QB / 'a_elegibilidade_e_familia_nao_supervisao.json'))
+    comb = json.load(open(QB / 'as_combinacoes_COMO_A_LITERATURA_PUBLICA.json'))
     _q = json.load(open(QB / 'as_15_na_regra_do_artigo.json'))
     q15, regra = _q['por_operacao'], _q['regra']
     va = json.load(open(QB / 'o_vascore_do_qaroush_como_a_Eq20_manda.json'))
@@ -252,7 +254,12 @@ def main():
          # ⭐ a ponte entre o caso implantado e a classe: ele e o meio dela
          f'\\newcommand{{\\tipAbaixo}}{{{POREXT[tip["classe_de_sumarizacao"]["quantas_ficam_abaixo_da_implantada"]]}}}',
          f'\\newcommand{{\\tipDe}}{{{POREXT[tip["classe_de_sumarizacao"]["n"]]}}}',
-         f'\\newcommand{{\\tipMediana}}{{{tip["classe_de_sumarizacao"]["mediana"]:.1f}}}']
+         f'\\newcommand{{\\tipMediana}}{{{tip["classe_de_sumarizacao"]["mediana"]:.1f}}}',
+         # ⭐ o resumo agora alcanca macro: os numeros MEDIDOS dele saem daqui tambem
+         f'\\newcommand{{\\resInverteRuido}}{{{100 - [l for l in json.load(open(QB / "TABELA_FINAL.json"))["linhas"] if l["nome"] == "SIFT+BoVW"][0]["acc"]["noise"]:.0f}}}',
+         f'\\newcommand{{\\resZeroRuido}}{{{POREXT[sum(1 for v in inv["por_operacao"].values() if v["acuracia_por_tipo"].get("noise") == 0.0)]}}}',
+         f'\\newcommand{{\\resElegiveis}}{{{POREXT[len(ele["elegiveis"])]}}}',
+         f'\\newcommand{{\\resCombinacoes}}{{{POREXT[len(comb["por_combinacao"])]}}}']
     assert not ct2['qaroush']['ic_cruza_zero'], '⛔ o IC do Qaroush passou a cruzar zero'
     assert ct2['korolkov']['ic_cruza_zero'], '⛔ o IC do Korolkov deixou de cruzar zero: reescrever'
     assert ko['modulo_menos_melhor_membro'] < 0, '⛔ o modulo do Korolkov superou o membro'

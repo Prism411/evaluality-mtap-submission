@@ -70,16 +70,14 @@ stand-alone in its own source}, and it indexes
 colourfulness. We reimplement \fontesOperacoes{} such heuristics from \fontesTrabalhos{} source works
 and screen them on 800 pairs in which the same content
 appears before and after a known degradation, so the better member is fixed by construction.
-\textbf{Thirteen prefer the degraded copy under white noise}, five of them on every pair,
-and the Bag-of-Visual-Words score deployed in a published summarizer inverts on 92\% of
-those pairs. An exact
+\textbf{Thirteen prefer the degraded copy under white noise}, \resZeroRuido{} of them on every pair, and the Bag-of-Visual-Words score deployed in a
+published summarizer inverts on \resInverteRuido{}\% of those pairs. An exact
 factorization explains the failure: the score is a descriptor count times a mean weight, and
-the sign of the score difference follows the count difference in 797 of the 800 pairs,
+the sign of the score difference follows the count difference in \mecConcordam{} of the
+800 pairs,
 which identifies descriptor-count dominance in the evaluated operation. None of the fifteen directionally evaluated heuristics is eligible
-under the screening rule, and neither are the nineteen evaluated combinations; three of ten
-no-reference models are. Substituting an eligible model into an otherwise fixed pipeline changes 22 of 42 selected
-segments, and the segments it leaves unchanged agree at the chance floor. The three eligible
-no-reference models are defensible replacement candidates, and \textbf{the quality operation
+under the screening rule, and neither are the \resCombinacoes{} evaluated combinations; \resElegiveis{} of
+\invModelos{} no-reference models are. Substituting an eligible model into an otherwise fixed pipeline changes \casCompleta{} of 42 selected segments, and the segments it leaves unchanged agree at the chance floor. The \resElegiveis{} eligible no-reference models are defensible replacement candidates, and \textbf{the quality operation
 should be reported as a design choice} to be evaluated against the requirement it is meant
 to serve, rather than an implementation detail.
 }
