@@ -112,6 +112,26 @@ MUTACOES = [
             'The modular \u2014 design enables')),
     ('a contagem de fontes errada em UM dos tres lugares',
      sub_um('sec_intro.tex', 'from eleven source works', 'from nine source works')),
+    # ⭐ as proximas existem para EXERCITAR guardas que a lista nunca tinha tocado: uma
+    # guarda que nunca foi posta a prova por uma mutacao e uma guarda de que so se sabe
+    # que roda, nao que separa.
+    ('uma contradicao entre duas secoes',
+     sub_um('sec_method.tex',
+            'Ten of the eleven source works were read in full for this dimension',
+            'All eleven source works were read in full for this dimension')),
+    ('uma excecao nomeada que nao fecha com a conta',
+     sub_um('sec_method.tex', 'the exception is \\citet{xu2024property}',
+            'the exceptions are \\citet{xu2024property} and one other')),
+    ('um ponteiro para tabela que o suplementar nao tem',
+     sub_um('sec_method.tex', 'Table~S17 states, for each of the sixteen operations',
+            'Table~S91 states, for each of the sixteen operations')),
+    ('o termo fora da convencao, de volta no resumo grafico',
+     sub_um('graphical_abstract.tex',
+            'Do visual-selection operations measure technical quality?',
+            'What does the visual-quality criterion actually measure?')),
+    ('uma frase abrindo com macro em minuscula',
+     sub_um('sec_results.tex', 'The deployed operation is correct on \\mchImplantada{}',
+            '\\mchImplantada{} per cent is the deployed operation on')),
 ]
 
 

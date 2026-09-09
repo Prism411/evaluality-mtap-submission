@@ -65,18 +65,18 @@ individual operations, only one is stand-alone in its own source}, and it indexe
 colourfulness. We reimplement 16
 such heuristics from 11 source works and screen them on 800 pairs in which the same content
 appears before and after a known degradation, so the better member is fixed by construction.
-\textbf{Thirteen prefer the degraded copy under white noise}, and the Bag-of-Visual-Words
-score deployed in a published summarizer inverts on 92\% of those pairs. An exact
+\textbf{Thirteen prefer the degraded copy under white noise}, five of them on every pair,
+and the Bag-of-Visual-Words score deployed in a published summarizer inverts on 92\% of
+those pairs. An exact
 factorization explains the failure: the score is a descriptor count times a mean weight, and
 the sign of the score difference follows the count difference in 797 of the 800 pairs,
 which identifies descriptor-count dominance in the evaluated operation. None of the fifteen directionally evaluated heuristics is eligible
 under the screening rule, and neither are the nineteen evaluated combinations; three of ten
-no-reference models are. Substituting an
-eligible model into an otherwise fixed pipeline changes 22 of 42 selected segments. No human
-judged those segments, so the evidence bears on decision sensitivity rather than perceived
-preference. Within that scope, the three eligible no-reference models are defensible replacement
-candidates, and \textbf{the quality operation should be reported as a design choice} rather
-than an implementation detail.
+no-reference models are. Substituting an eligible model into an otherwise fixed pipeline changes 22 of 42 selected
+segments, and the segments it leaves unchanged agree at the chance floor. The three eligible
+no-reference models are defensible replacement candidates, and \textbf{the quality operation
+should be reported as a design choice} to be evaluated against the requirement it is meant
+to serve, rather than an implementation detail.
 }
 
 \keywords{Multi-video summarization, No-reference image quality assessment,
@@ -99,7 +99,7 @@ Content selection criteria, Benchmark evaluation, Broadcast news video}
 The authors declare no competing financial or non-financial interests.
 
 \paragraph{Data availability}
-KADID-10k, KonIQ-10k and LIVE In the Wild are public. Supplementary Tables S1--S27, Supplementary Figures S1--S4 and a reproducibility archive accompany the
+KADID-10k, KonIQ-10k and LIVE In the Wild are public. Supplementary Tables S1--S28, Supplementary Figures S1--S4 and a reproducibility archive accompany the
 submission; scripts, derived scores, clusters, annotations, seeds and latency
 results are released at a tagged version of the repository named under Code
 availability, together with a Git bundle that makes the registered-prediction

@@ -1,0 +1,156 @@
+{
+ "_o_que_e": "⭐⭐ O TIPO DE EVIDENCIA QUE A FONTE APRESENTA PREVE COMO A OPERACAO FALHA?",
+ "_desenho": "observacional, n pequeno; descricao com teste declarado",
+ "n_operacoes_classificadas": 12,
+ "nao_classificadas": [
+  "contraste_variancia",
+  "laplacian_var",
+  "srinivas_quality"
+ ],
+ "por_operacao": [
+  {
+   "operacao": "hasler_colorfulness",
+   "fontes": [
+    "hasler2003colorfulness"
+   ],
+   "evidencia": "julgamento humano da propriedade",
+   "tipos_abaixo": 1,
+   "pior": 3.0
+  },
+  {
+   "operacao": "ke_colorfulness",
+   "fontes": [
+    "ke2006highlevel"
+   ],
+   "evidencia": "julgamento humano da propriedade",
+   "tipos_abaixo": 1,
+   "pior": 3.0
+  },
+  {
+   "operacao": "ke_contraste",
+   "fontes": [
+    "ke2006highlevel"
+   ],
+   "evidencia": "julgamento humano da propriedade",
+   "tipos_abaixo": 2,
+   "pior": 10.3
+  },
+  {
+   "operacao": "ke_edge_distribution",
+   "fontes": [
+    "ke2006highlevel"
+   ],
+   "evidencia": "julgamento humano da propriedade",
+   "tipos_abaixo": 2,
+   "pior": 11.0
+  },
+  {
+   "operacao": "ke_hue_count",
+   "fontes": [
+    "ke2006highlevel"
+   ],
+   "evidencia": "julgamento humano da propriedade",
+   "tipos_abaixo": 5,
+   "pior": 4.2
+  },
+  {
+   "operacao": "qaroush_entropia",
+   "fontes": [
+    "qaroush2025diversity"
+   ],
+   "evidencia": "so o resumo",
+   "tipos_abaixo": 2,
+   "pior": 0.0
+  },
+  {
+   "operacao": "huang_saturacao",
+   "fontes": [
+    "huang2024aesthetic"
+   ],
+   "evidencia": "so o resumo",
+   "tipos_abaixo": 3,
+   "pior": 1.0
+  },
+  {
+   "operacao": "qaroush_gm",
+   "fontes": [
+    "qaroush2025diversity"
+   ],
+   "evidencia": "so o resumo",
+   "tipos_abaixo": 3,
+   "pior": 0.0
+  },
+  {
+   "operacao": "qaroush_go",
+   "fontes": [
+    "qaroush2025diversity"
+   ],
+   "evidencia": "so o resumo",
+   "tipos_abaixo": 4,
+   "pior": 0.0
+  },
+  {
+   "operacao": "qaroush_saliencia",
+   "fontes": [
+    "qaroush2025diversity"
+   ],
+   "evidencia": "so o resumo",
+   "tipos_abaixo": 6,
+   "pior": 10.0
+  },
+  {
+   "operacao": "glcm_contraste",
+   "fontes": [
+    "yang2024keyframe"
+   ],
+   "evidencia": "so o resumo, com ablacao de modulo",
+   "tipos_abaixo": 1,
+   "pior": 0.0
+  },
+  {
+   "operacao": "gygli_media_crua",
+   "fontes": [
+    "gygli2014summe"
+   ],
+   "evidencia": "so o resumo, com ablacao de modulo",
+   "tipos_abaixo": 1,
+   "pior": 3.0
+  }
+ ],
+ "grupos": {
+  "valida_a_propriedade": {
+   "n": 5,
+   "tipos_abaixo": [
+    1,
+    1,
+    2,
+    2,
+    5
+   ],
+   "mediana": 2
+  },
+  "nao_valida_a_propriedade": {
+   "n": 7,
+   "tipos_abaixo": [
+    1,
+    1,
+    2,
+    3,
+    3,
+    4,
+    6
+   ],
+   "mediana": 3
+  }
+ },
+ "mannwhitney": {
+  "U": 13.0,
+  "p_exato_bilateral": 0.4937,
+  "separa_a_005": false
+ },
+ "previsoes": {
+  "1_n_suficiente": "CONFIRMADA",
+  "2_a_propriedade_inverte_menos": "⛔ NAO SEPARA"
+ },
+ "⛔_NAO_ENTRA_NO_ARTIGO": "o teste NAO separa (p 0.4937) e o desenho tem 5 contra 7 operacoes: isto e um nulo SEM PODER, e reportar «nao ha diferenca» seria a troca de ausencia de evidencia por evidencia de ausencia que o proprio artigo evita em outros lugares. Fica arquivado: serve para impedir que alguem AFIRME a associacao sem medir, nao para negar ela."
+}
