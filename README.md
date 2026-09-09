@@ -26,6 +26,32 @@ for the MTAP submission. It is private while the manuscript is under review.
   - `paper_guards/`: the checks run before every build, each with a two-legged
     self-test that must approve the correct state and reject the reintroduced
     defect. `verifica_tudo.py` runs generators, build and guards in order.
+### What runs from a clone, measured
+
+Cloning this repository and running every script in `reproducibility/` with the
+author's local paths made unreachable, **26 of the 40 scripts complete**. The
+fourteen that do not are accounted for:
+
+- **six** need database images or the source media that is not redistributed
+  (KADID-10k and KonIQ-10k score tables, CLIVE, extracted frames);
+- **five** need a vendor tree or a package that is not vendored here (`DOVER`,
+  `moviepy`, a `transformers` version);
+- **one**, `indomain_bovw.py`, reads an intermediate cluster file that no longer
+  exists in any working copy, and is kept for provenance rather than for reuse;
+- **one** is `verifica_tudo.py`, which belongs to the manuscript tree and needs
+  `paper/` and `supplement/` beside it;
+- **one** is a scoring stub that requires model weights.
+
+⚠️ Scripts in the first two groups can still exit successfully while writing a
+**partial** result when their inputs are missing: running the whole directory in
+one pass let a two-cluster control file overwrite the shipped forty-two-cluster
+one and break a downstream script. Run a script that needs media only in a tree
+where that media is present.
+
+`paper_guards/guarda_scripts_rodam_do_clone.py` keeps the first claim honest: it
+clones the repository, blanks the author's paths, and runs the analysis scripts
+that are supposed to be self-contained.
+
 - `release-assets/`: local-only staging area for the complete submission and
   reproducibility archives. These files are attached to a private GitHub
   release rather than committed to Git.
