@@ -1,0 +1,52 @@
+{
+ "_o_que_e": "⭐ OS DOIS EIXOS DO ARTIGO SE PREVEEM? (E A RESPOSTA NAO ENTRA NO CORPO)",
+ "n_operacoes": 9,
+ "spearman": -0.3109,
+ "p_permutacional": 0.4112,
+ "B": 20000,
+ "por_operacao": {
+  "ke_edge_distribution": {
+   "sensibilidade": 0.298,
+   "piso_kappa": -0.2584
+  },
+  "ke_contraste": {
+   "sensibilidade": 0.185,
+   "piso_kappa": 0.3708
+  },
+  "contraste_variancia": {
+   "sensibilidade": 0.149,
+   "piso_kappa": 0.1011
+  },
+  "ke_hue_count": {
+   "sensibilidade": 0.147,
+   "piso_kappa": -0.2135
+  },
+  "srinivas_quality": {
+   "sensibilidade": 0.029,
+   "piso_kappa": 0.4157
+  },
+  "laplacian_var": {
+   "sensibilidade": -0.047,
+   "piso_kappa": 0.5506
+  },
+  "huang_saturacao": {
+   "sensibilidade": -0.092,
+   "piso_kappa": -0.0337
+  },
+  "hasler_colorfulness": {
+   "sensibilidade": -0.182,
+   "piso_kappa": 0.2809
+  },
+  "ke_colorfulness": {
+   "sensibilidade": -0.182,
+   "piso_kappa": 0.2809
+  }
+ },
+ "⭐_o_par_que_dispensa_teste": {
+  "maior_sensibilidade": "ke_edge_distribution",
+  "sensibilidade": 0.298,
+  "piso_kappa_dessa_mesma": -0.2584,
+  "e_a_menor_de_todas": true
+ },
+ "⛔_NAO_ENTRA_NO_CORPO": "n = 9 e p = 0.41: nulo SEM PODER. Reportar «os eixos sao independentes» seria trocar ausencia de evidencia por evidencia de ausencia. Fica arquivado para impedir que alguem AFIRME a associacao sem medir."
+}
