@@ -46,6 +46,12 @@ def main():
     mch = json.load(open(QB / 'o_bloco_de_segmento_reproduz_um_intervalo_publicado.json'))['manchete']
     exc = json.load(open(QB / 'as_tres_excecoes_do_mecanismo.json'))
     tab4 = json.load(open(QB / 'a_tabela_4_reproduz.json'))['por_metodo']
+    AQ = Path(__file__).parent
+    r2 = json.load(open(AQ / 'second_revision_reanalysis.json'))['application']['branches']
+    r3 = json.load(open(AQ / 'third_revision_reanalysis.json'))['same_frame_same_pooling']
+    tec = r2['technical']['liqe_minus_sift']
+    cas = r3['regimes']['uniform_1fps_capped10_mean']['liqe_minus_sift']
+    esc = json.load(open(QB / 'quantas_escolhas_distintas_por_cluster.json'))
     _q = json.load(open(QB / 'as_15_na_regra_do_artigo.json'))
     q15, regra = _q['por_operacao'], _q['regra']
     va = json.load(open(QB / 'o_vascore_do_qaroush_como_a_Eq20_manda.json'))
@@ -175,7 +181,27 @@ def main():
          f'\\newcommand{{\\dovDif}}{{{tab4["LIQE"]["fonte_DOVER_T"] - tab4["SIFT+BoVW"]["fonte_DOVER_T"]:.1f}}}',
          # e a anticorrelacao por construcao do CT, que e uma afirmacao forte sobre a
          # equacao de outra pessoa: sai do arquivo, nao da minha mao.
-         f'\\newcommand{{\\ctRho}}{{{ct["spearman_com_o_contraste_real"]["a_Eq8_com_modulo"]:.4f}}}']
+         f'\\newcommand{{\\ctRho}}{{{ct["spearman_com_o_contraste_real"]["a_Eq8_com_modulo"]:.4f}}}',
+         # ⛔ o resto do bloco DOVER, que a mutacao mediu como solto. Todos vem dos dois
+         # arquivos de reanalise, e nao mais da minha mao.
+         f'\\newcommand{{\\dovICTopico}}{{[{tec["global_achievable_range_percent"]["topic_block_ci95"][0]:+.1f},{tec["global_achievable_range_percent"]["topic_block_ci95"][1]:+.1f}]}}',
+         f'\\newcommand{{\\dovICHier}}{{[{tec["global_achievable_range_percent"]["hierarchical_ci95"][0]:+.1f},{tec["global_achievable_range_percent"]["hierarchical_ci95"][1]:+.1f}]}}',
+         f'\\newcommand{{\\dovCru}}{{{sem_zero("%+.4f" % tec["raw_mean"]["estimate"])}}}',
+         f'\\newcommand{{\\dovCruTopico}}{{[{sem_zero("%+.4f" % tec["raw_mean"]["topic_block_ci95"][0])},{sem_zero("%+.4f" % tec["raw_mean"]["topic_block_ci95"][1])}]}}',
+         f'\\newcommand{{\\dovCruHier}}{{[{sem_zero("%+.4f" % tec["raw_mean"]["hierarchical_ci95"][0])},{sem_zero("%+.4f" % tec["raw_mean"]["hierarchical_ci95"][1])}]}}',
+         f'\\newcommand{{\\dovPosicao}}{{{tec["mean_cluster_position_percent"]["estimate"]:.1f}}}',
+         f'\\newcommand{{\\dovCortaDez}}{{{r2["technical"]["range_sensitivity"]["exclude_bottom_10pct"]["global_achievable_range_difference"]:+.1f}}}',
+         f'\\newcommand{{\\dovCortaVinteCinco}}{{{r2["technical"]["range_sensitivity"]["exclude_bottom_25pct"]["global_achievable_range_difference"]:+.1f}}}',
+         f'\\newcommand{{\\dovSoma}}{{{r2["overall"]["liqe_minus_sift"]["global_achievable_range_percent"]["estimate"]:+.1f}}}',
+         f'\\newcommand{{\\dovCasado}}{{{cas["global_achievable_range_percent"]["estimate"]:+.1f}}}',
+         f'\\newcommand{{\\dovCasadoTopico}}{{[{cas["global_achievable_range_percent"]["topic_block_ci95"][0]:.1f},{cas["global_achievable_range_percent"]["topic_block_ci95"][1]:.1f}]}}',
+         f'\\newcommand{{\\dovCasadoHier}}{{[{cas["global_achievable_range_percent"]["hierarchical_ci95"][0]:.1f},{cas["global_achievable_range_percent"]["hierarchical_ci95"][1]:.1f}]}}',
+         f'\\newcommand{{\\dovCasadoCru}}{{{sem_zero("%+.4f" % cas["raw_mean"]["estimate"])}}}',
+         f'\\newcommand{{\\dovMaximo}}{{{tec["selected_maximum_percent"]["estimate"]:.1f}}}',
+         # ⭐ e o ultimo decimal digitado da prosa. Ancorar mostrou que ele e o TETO:
+         # nos 42 clusters as quatorze escolhem todos os membros.
+         f'\\newcommand{{\\escMedia}}{{{esc["como_impressa"]:.2f}}}',
+         f'\\newcommand{{\\escGrandes}}{{{POREXT[esc["clusters_com_mais_de_dois_membros"]]}}}']
     assert not ct2['qaroush']['ic_cruza_zero'], '⛔ o IC do Qaroush passou a cruzar zero'
     assert ct2['korolkov']['ic_cruza_zero'], '⛔ o IC do Korolkov deixou de cruzar zero: reescrever'
     assert ko['modulo_menos_melhor_membro'] < 0, '⛔ o modulo do Korolkov superou o membro'
@@ -195,6 +221,8 @@ def main():
         '⛔ a diferenca da manchete nao fecha com os dois pontos'
     assert tab4['LIQE']['DOVER_bate'] and tab4['SIFT+BoVW']['DOVER_bate'], \
         '⛔ a tabela 4 deixou de reproduzir a fonte do DOVER-T'
+    assert esc['clusters_que_SATURAM_o_proprio_tamanho'] == esc['n_clusters'], \
+        '⛔ deixou de valer que as quatorze escolhem todos os membros: reescrever a 4.5'
     assert au['autonomas'] == 1, '⛔ mudou o numero de autonomas: reescrever a prosa'
     # ⚠️ as duas regras publicadas TEM de ficar abaixo da media, senao a frase da prosa cai
     assert nb < media, '⛔ o naive Bayes do Ke superou a media: reescrever a prosa'

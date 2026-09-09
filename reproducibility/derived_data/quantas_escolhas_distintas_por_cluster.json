@@ -1,0 +1,27 @@
+{
+ "_o_que_e": "⭐ QUANTAS ESCOLHAS DISTINTAS AS QUATORZE OPERACOES PRODUZEM EM CADA CLUSTER?",
+ "_fonte": "efeito_a_jusante.json",
+ "n_clusters": 42,
+ "n_operacoes": 14,
+ "media_de_escolhas_distintas": 2.2143,
+ "como_impressa": 2.21,
+ "publicado": 2.21,
+ "reproduz_o_publicado": true,
+ "teto_medio_o_tamanho_do_cluster": 2.2143,
+ "distribuicao": {
+  "2": 36,
+  "3": 3,
+  "4": 3
+ },
+ "clusters_que_excedem_o_proprio_tamanho": 0,
+ "clusters_que_SATURAM_o_proprio_tamanho": 42,
+ "clusters_com_mais_de_dois_membros": 6,
+ "desses_quantos_saturam": 6,
+ "previsoes": {
+  "1_42_clusters_e_14_operacoes": "CONFIRMADA",
+  "2_reproduz_o_publicado": "CONFIRMADA",
+  "3_nenhum_excede_o_tamanho": "CONFIRMADA",
+  "4_todos_saturam": "CONFIRMADA"
+ },
+ "leitura": "em 42 dos 42 clusters as 14 operacoes escolhem TODOS os membros, e nos 6 clusters com mais de dois segmentos isso vale nos 6: a media de 2.21 escolhas distintas e o teto que os tamanhos permitem, nao um valor intermediario."
+}
