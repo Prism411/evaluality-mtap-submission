@@ -13,6 +13,7 @@ desatualizada. A suite roda em COPIA e tem de REPROVAR em todas.
 ⚠️ Uma mutacao que a suite NAO pega nao e falha do teste: e um buraco medido, e o valor
 deste arquivo esta justamente em nomear os buracos.
 """
+import os
 import re
 import shutil
 import subprocess
@@ -20,8 +21,10 @@ import sys
 from pathlib import Path
 
 AQUI = Path(__file__).parent
+# ⚠️ o diretorio de trabalho leva o PID: duas rodadas simultaneas usavam o MESMO caminho,
+# e uma apagava a copia da outra no meio — o placar saiu com guarda trocada e um traceback.
 TMP = Path('/tmp/claude-1000/-home-jader-Desktop-estudos-osirihs-vault-5-sumarizador/'
-           '51d375ec-33aa-4092-b28f-309cfe691890/scratchpad/mut')
+           '51d375ec-33aa-4092-b28f-309cfe691890/scratchpad/mut-%d' % os.getpid())
 PY_ = '/dados/Projetos/jl-summ-graph/.venv/bin/python'
 
 
@@ -85,13 +88,14 @@ MUTACOES = [
     # ⚠️ O ALVO MIGRA a cada vez que um decimal digitado vira macro. Fecharam em 08/09:
     # os tres da manchete (65,1 / 99,5 / +34,4), os tres do DOVER-T (50,5 / 76,0 / +25,5),
     # o piso de acaso 47,0 e a anticorrelacao -1,0000 do CT.
-    # ⛔ SEGUEM DIGITADOS, e portanto sem guarda: $2.21$ (escolhas distintas por cluster),
-    # $+27.1$ (contraste do controle de entrada casada) e $+25.9$, $+28.1$, $+30.3$ (as
-    # sensibilidades do bloco DOVER). Esta linha ataca um deles e continua reprovando
-    # enquanto a classe estiver aberta.
-    ('um decimal digitado na prosa trocado',
-     sub_um('sec_results.tex', 'gives global-range differences of $+25.9$ and $+28.1$ points',
-            'gives global-range differences of $+22.9$ and $+28.1$ points')),
+    # ⭐ A CLASSE FECHOU em 08/09: nao ha mais decimal digitado na prosa dos resultados.
+    # Esta linha ataca um numero que agora vem de macro, entao ela deixa de encontrar o
+    # alvo — e isso e o sinal certo. Passa a atacar o SUPLEMENTAR, onde ainda ha.
+    ('um digito da tabela dos pares construidos',
+     sub_um('sec_results.tex', 'TOPIQ & 93 & 100', 'TOPIQ & 39 & 100')),
+    ('a media de uma linha da tabela dos pares',
+     sub_um('sec_results.tex', 'BRISQUE & 100 & 100 & 100 & 99 & 100',
+            'BRISQUE & 100 & 100 & 100 & 89 & 100')),
     ('uma frase repetida palavra por palavra',
      sub_um('sec_conclusion.tex', 'A blind pairwise judgment',
             'White noise concentrates the failures. These operations are statistics of '
@@ -137,7 +141,7 @@ def main():
             # a ser julgada. Chamar isso de «escapou» seria acusar errado.
             reparada = not reprovou and not ainda_esta_la(TMP)
         finally:
-            shutil.rmtree(TMP)
+            shutil.rmtree(TMP, ignore_errors=True)
         if reprovou:
             pegas.append(nome)
             print('  ✅ PEGA      %-44s %s' % (nome, quem))

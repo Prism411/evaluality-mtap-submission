@@ -1,0 +1,53 @@
+{
+ "_o_que_e": "O POSTO da matriz das 15 operacoes e o M_eff de Li & Ji, recalculados.\n\nPOR QUE EXISTE (04/09). O artefato V13 do catalogo afirma posto 13 e M_eff 8,00, e\no `numeros_da_prosa.py` acusou que os dois nao estao em JSON nenhum: estavam so na\nnota. A prosa do artigo cita ambos.\n\nM_eff de Li & Ji (2005), na forma usada em correcao de multiplos testes:\n  M_eff = soma_i [ 1(|lambda_i| >= 1) + (|lambda_i| - floor(|lambda_i|)) ]\ncom lambda os autovalores da matriz de CORRELACAO.\n\n⚠️ A matriz e a de Spearman entre as operacoes, com a DIRECAO aplicada, sobre as\n10.125 imagens da KADID-10k, que e a mesma base do `distribuicao_dos_105_pares`.\n",
+ "n_operacoes": 15,
+ "n_imagens": 10125,
+ "base": "KADID-10k",
+ "direcao_aplicada": true,
+ "posto_dos_escores_crus": 13,
+ "posto_da_matriz_de_pearson": 13,
+ "posto_da_matriz_de_spearman": 14,
+ "M_eff_li_ji_spearman": 8.0,
+ "M_eff_li_ji_pearson": 9.0,
+ "as_duas_dependencias_exatas": {
+  "ke_colorfulness = hasler_colorfulness": "erro maximo 0,00e+00",
+  "gygli_media_crua = media de hasler, ke_contraste e ke_edge_distribution": "erro maximo 0,00e+00"
+ },
+ "posto_com_tolerancia_0_01": 14,
+ "M_eff_li_ji": 8.0,
+ "autovalores": [
+  5.123,
+  3.5594,
+  2.0942,
+  1.0088,
+  0.7791,
+  0.7177,
+  0.5992,
+  0.4264,
+  0.2363,
+  0.2241,
+  0.0961,
+  0.0751,
+  0.0503,
+  0.0102,
+  0.0
+ ],
+ "operacoes": [
+  "contraste_variancia",
+  "glcm_contraste",
+  "gygli_media_crua",
+  "hasler_colorfulness",
+  "huang_saturacao",
+  "ke_colorfulness",
+  "ke_contraste",
+  "ke_edge_distribution",
+  "ke_hue_count",
+  "laplacian_var",
+  "qaroush_entropia",
+  "qaroush_gm",
+  "qaroush_go",
+  "qaroush_saliencia",
+  "srinivas_quality"
+ ],
+ "leitura": "15 nomes, posto 13 nos escores crus e 14 no Spearman, M_eff 8.00 no Spearman e 9.00 no Pearson. Toda conta que trate as operacoes como observacoes independentes fica otimista por esse fator, e isso inclui correcao de multiplos testes."
+}
