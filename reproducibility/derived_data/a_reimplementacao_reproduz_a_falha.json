@@ -1,0 +1,44 @@
+{
+ "_o_que_e": "⭐⭐ UMA REIMPLEMENTACAO INDEPENDENTE DA OPERACAO IMPLANTADA REPRODUZ A FALHA?",
+ "n_pares": 800,
+ "reportada": {
+  "por_tipo": {
+   "dark": 100.0,
+   "motion": 100.0,
+   "blur": 90.0,
+   "h264": 90.0,
+   "rescale": 88.0,
+   "satur": 39.0,
+   "noise": 8.0,
+   "jpeg": 6.0
+  },
+  "media": 65.1
+ },
+ "reimplementacao": {
+  "por_tipo": {
+   "dark": 100.0,
+   "motion": 100.0,
+   "blur": 92.0,
+   "h264": 94.0,
+   "rescale": 93.0,
+   "satur": 56.0,
+   "noise": 10.0,
+   "jpeg": 6.0
+  },
+  "media": 68.88
+ },
+ "colapsam_nas_duas": [
+  "noise",
+  "jpeg"
+ ],
+ "⚠️_colapsam_so_na_reportada": [
+  "satur"
+ ],
+ "pior_modelo_publicado": 80.8,
+ "previsoes": {
+  "1_mesmos_800_pares": "CONFIRMADA",
+  "2_colapsam_em_ruido_e_jpeg": "CONFIRMADA",
+  "3_abaixo_do_pior_modelo": "CONFIRMADA"
+ },
+ "leitura": "a reimplementacao independente marca 68.9 % contra 65.1 % da rodada reportada, e colapsa nos mesmos noise e jpeg. ⚠️ Diverge em satur, onde a reportada inverte (39.0 %) e a reimplementacao fica em 56.0 %. As duas ficam abaixo do pior modelo publicado, 80.8."
+}
