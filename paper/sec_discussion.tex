@@ -45,9 +45,10 @@ publishes a combination inherits the transfer question its members never answere
 \textbf{For the technical-quality requirement evaluated here, the eligible no-reference
 models are better-supported replacement candidates} than normalizing the deployed operation
 by segment length or inserting a newer retrieval descriptor. LIQE, QualiCLIP and
-CLIP-IQA$+$ meet the common rule and run substantially faster than the deployed path. The
-complete operation changes 22 decisions and the matched control changes 16, so scorer
-identity carries the effect and the internal choices of an operation contribute as well.
+CLIP-IQA$+$ meet the common rule and run substantially faster than the deployed path. The complete operation changes \casCompleta{} decisions, and holding the scorer fixed
+while changing only the sampled frames and pooling already changes \casSoCasamento{}; an
+exact paired test separates the two ($p=\casP{}$), so both scorer identity and an
+operation's own input choices carry part of the effect.
 
 \subsection{Limitations}\label{sec:limits}
 

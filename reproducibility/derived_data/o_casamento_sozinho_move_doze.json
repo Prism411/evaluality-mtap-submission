@@ -1,0 +1,60 @@
+{
+ "_o_que_e": "⭐⭐ Os tres contrastes da substituicao, e se os dois que a discussao cita sao distinguiveis nos mesmos 42 clusters.",
+ "n_clusters": 42,
+ "⛔_a_colisao_dos_dois_22": {
+  "operacao_completa": 22,
+  "braco_casado_do_liqe_contra_o_deployed": 22,
+  "sao_o_mesmo_conjunto": false,
+  "so_no_da_operacao_completa": [
+   "bolsonaro_trump#2",
+   "google_huawei#2"
+  ],
+  "so_no_do_braco_casado": [
+   "fraude_inss#2",
+   "isencao_imposto#2"
+  ],
+  "_leitura": "dois «22 de 42» que medem coisas diferentes e coincidem no valor. O artigo cita o da operacao completa; qualquer prosa que cite 22 precisa dizer qual dos dois."
+ },
+ "contagens": {
+  "operacao_completa_22": 22,
+  "controle_casado_so_o_scorer_16": 16,
+  "so_o_casamento_scorer_fixo_12": 12
+ },
+ "o_16_do_regime_bate_com_o_recomputo": true,
+ "McNemar_pareado_nos_mesmos_42": {
+  "operacao_completa (22) vs controle_casado (16)": {
+   "so_no_primeiro": 9,
+   "so_no_segundo": 3,
+   "p_mcnemar_exato": 0.146,
+   "separa_a_005": false
+  },
+  "operacao_completa (22) vs so_o_casamento (12)": {
+   "so_no_primeiro": 11,
+   "so_no_segundo": 1,
+   "p_mcnemar_exato": 0.0063,
+   "separa_a_005": true
+  },
+  "controle_casado (16) vs so_o_casamento (12)": {
+   "so_no_primeiro": 12,
+   "so_no_segundo": 8,
+   "p_mcnemar_exato": 0.5034,
+   "separa_a_005": false
+  }
+ },
+ "o_1_6_da_SM22_verificado": {
+  "diferenca_dos_pontos": 1.5718,
+  "diferenca_como_impressa": 1.6,
+  "razao_de_largura_topic_block": 1.5875,
+  "razao_como_impressa": 1.6,
+  "razao_de_largura_hierarquica": 1.5334,
+  "⚠️_leitura": "o «1,6 times wider» e a leitura TOPIC-BLOCK; a hierarquica daria 1,5. A frase nao esta errada, mas so vale na leitura primaria."
+ },
+ "sobreposicao_dos_dois_22": 20,
+ "⭐_o_que_isto_acrescenta": "a segunda metade da conclusao da discussao apoia-se na diferenca entre 22 e 16, que um teste pareado nos mesmos 42 clusters NAO resolve (p 0.146). A evidencia direta e o terceiro contraste, que o artigo nao reporta: mantido o SIFT e trocados apenas o quadro comum e o pooling, 12 das 42 decisoes ja mudam.",
+ "previsoes": {
+  "previsao_1_os_dois_22_diferem": "CONFIRMADA",
+  "previsao_2_o_16_bate": "CONFIRMADA",
+  "previsao_3_22_contra_16_nao_separa": "CONFIRMADA",
+  "previsao_4_22_contra_12_separa": "CONFIRMADA"
+ }
+}

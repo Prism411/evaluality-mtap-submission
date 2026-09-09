@@ -54,6 +54,7 @@ def main():
     esc = json.load(open(QB / 'quantas_escolhas_distintas_por_cluster.json'))
     eff = json.load(open(QB / 'posto_e_m_eff_das_15.json'))
     ref = json.load(open(QB / 'a_sensibilidade_depende_de_quais_referencias.json'))
+    cas3 = json.load(open(QB / 'o_casamento_sozinho_move_doze.json'))
     _q = json.load(open(QB / 'as_15_na_regra_do_artigo.json'))
     q15, regra = _q['por_operacao'], _q['regra']
     va = json.load(open(QB / 'o_vascore_do_qaroush_como_a_Eq20_manda.json'))
@@ -212,7 +213,14 @@ def main():
          # reamostragens das referencias, e nenhum intervalo encosta na barra.
          f'\\newcommand{{\\refViram}}{{{"none" if ref["⭐_VIRAM_EM_ALGUMA_REAMOSTRA"]["n"] == 0 else POREXT[ref["⭐_VIRAM_EM_ALGUMA_REAMOSTRA"]["n"]]}}}',
          f'\\newcommand{{\\refTocam}}{{{"none" if ref["⭐_IC_TOCA_A_BARRA"]["n"] == 0 else POREXT[ref["⭐_IC_TOCA_A_BARRA"]["n"]]}}}',
-         f'\\newcommand{{\\refB}}{{{ref["B"]:,}}}'.replace(',', '{,}')]
+         f'\\newcommand{{\\refB}}{{{ref["B"]:,}}}'.replace(',', '{,}'),
+         # ⛔ a discussao inferia «as escolhas internas contribuem» da diferenca entre 22 e
+         # 16, e o McNemar pareado nos mesmos 42 clusters NAO resolve essa diferenca
+         # (p 0,146). A evidencia direta e o terceiro contraste, que o artigo nao reportava:
+         # mantido o scorer e trocados so o quadro comum e o pooling, 12 decisoes ja mudam.
+         f'\\newcommand{{\\casSoCasamento}}{{{cas3["contagens"]["so_o_casamento_scorer_fixo_12"]}}}',
+         f'\\newcommand{{\\casCompleta}}{{{cas3["contagens"]["operacao_completa_22"]}}}',
+         f'\\newcommand{{\\casP}}{{{sem_zero("%.3f" % cas3["McNemar_pareado_nos_mesmos_42"]["operacao_completa (22) vs so_o_casamento (12)"]["p_mcnemar_exato"])}}}']
     assert not ct2['qaroush']['ic_cruza_zero'], '⛔ o IC do Qaroush passou a cruzar zero'
     assert ct2['korolkov']['ic_cruza_zero'], '⛔ o IC do Korolkov deixou de cruzar zero: reescrever'
     assert ko['modulo_menos_melhor_membro'] < 0, '⛔ o modulo do Korolkov superou o membro'
@@ -236,6 +244,12 @@ def main():
         '⛔ deixou de valer que as quatorze escolhem todos os membros: reescrever a 4.5'
     assert eff['n_operacoes'] == 15 and eff['posto_dos_escores_crus'] < 15, \
         '⛔ o posto das quinze mudou: reescrever a frase da dependencia'
+    assert cas3['McNemar_pareado_nos_mesmos_42'][
+        'operacao_completa (22) vs so_o_casamento (12)']['separa_a_005'], \
+        '⛔ o contraste 22 x 12 deixou de separar: a frase da discussao cai'
+    assert not cas3['McNemar_pareado_nos_mesmos_42'][
+        'operacao_completa (22) vs controle_casado (16)']['separa_a_005'], \
+        '⛔ 22 x 16 passou a separar: a frase antiga poderia voltar'
     assert au['autonomas'] == 1, '⛔ mudou o numero de autonomas: reescrever a prosa'
     # ⚠️ as duas regras publicadas TEM de ficar abaixo da media, senao a frase da prosa cai
     assert nb < media, '⛔ o naive Bayes do Ke superou a media: reescrever a prosa'
