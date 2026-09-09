@@ -59,7 +59,7 @@ reported alongside them, which is why the tables show seventeen rows where both 
     text width=11.55cm,align=center,font=\sffamily\scriptsize,
     draw=catbovw,fill=catbovw!6,line width=.9pt,inner ysep=4pt},
   audit/.style={rectangle,rounded corners=2.5pt,minimum height=1.05cm,
-    text width=5.25cm,align=left,font=\sffamily\scriptsize,
+    text width=5.62cm,align=left,font=\sffamily\scriptsize,
     draw=rulegray!90,fill=gray!3,line width=.65pt,inner xsep=7pt,inner ysep=5pt},
   evidencehead/.style={rectangle,rounded corners=5pt,minimum height=.38cm,
     font=\sffamily\bfseries\tiny,text=white,fill=headerblue,draw=headerblue,
@@ -94,17 +94,19 @@ reported alongside them, which is why the tables show seventeen rows where both 
 \node[evidencehead] (eh) at (0,2.18) {FOUR COMPLEMENTARY TESTS};
 \draw[focusflow] (op.south)--(eh.north);
 
-\node[audit] (m) at (-3.0,1.26)
+\node[audit] (m) at (-2.98,1.26)
   {\textcolor{headerblue}{\textbf{01\enspace Constructed truth}}\\[2pt]
    20 segments, 800 paired decisions;\\the better member fixed by construction.};
-\node[audit] (x) at (3.0,1.26)
+\node[audit] (x) at (2.98,1.26)
   {\textcolor{headerblue}{\textbf{02\enspace External validation}}\\[2pt]
-   KADID-10k, KonIQ-10k, LIVE In the Wild;\\human opinion scores and controlled
-degradation levels.};
-\node[audit] (g) at (-3.0,-.10)
+   % ⛔ esta linha quebrava em DUAS no box de 5,25cm e o no crescia para quatro linhas:
+   % como o `audit` cresce em torno do centro, ele cobria a tarja acima e o box 04 abaixo.
+   % So apareceu ao RENDERIZAR a pagina; o LaTeX nao reclama de no sobreposto.
+   KADID-10k, KonIQ-10k, CLIVE;\\human scores and degradation levels.};
+\node[audit] (g) at (-2.98,-.10)
   {\textcolor{headerblue}{\textbf{03\enspace Mechanism}}\\[2pt]
    Count $\times$ mean IDF weight;\\19 extractor substitutions.};
-\node[audit] (p) at (3.0,-.10)
+\node[audit] (p) at (2.98,-.10)
   {\textcolor{headerblue}{\textbf{04\enspace Decision sensitivity}}\\[2pt]
    42 clusters; how far the choice\\of operation moves selections.};
 \end{tikzpicture}}
