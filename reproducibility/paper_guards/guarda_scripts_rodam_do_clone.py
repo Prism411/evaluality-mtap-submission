@@ -28,10 +28,18 @@ PY_ = '/dados/Projetos/jl-summ-graph/.venv/bin/python'
 LOCAIS = ['/dados/Projetos/quality-benchmark',
           '/home/jader/memoria-agentes/07-Artigos/evaluality-literatura',
           '/dados/Projetos/evaluality-mtap-submission/reproducibility/derived_data']
+# as analises escritas para este artigo, que devem ser auto-contidas no pacote
 SCRIPTS = ['a_substituicao_concorda_acima_do_acaso.py',
            'quantas_invertem_ALEM_DO_ACASO.py',
            'as_tres_excecoes_do_mecanismo.py',
-           'a_evidencia_da_fonte_preve_a_falha.py']
+           'a_evidencia_da_fonte_preve_a_falha.py',
+           'quantas_escolhas_distintas_por_cluster.py',
+           'o_piso_das_duas_familias_na_mesma_convencao.py',
+           'a_manchete_depende_de_quais_tipos.py',
+           'a_reimplementacao_reproduz_a_falha.py',
+           'a_classe_nao_concorda_consigo.py',
+           'a_implantada_e_tipica_da_classe.py',
+           'os_dois_eixos_se_preveem.py']
 
 
 def confere(scripts=None, cegar=True):
