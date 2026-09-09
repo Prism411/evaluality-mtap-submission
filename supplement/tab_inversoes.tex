@@ -1,0 +1,29 @@
+%% GERADO por gera_tab_inversoes.py -- nao editar a mao
+\begin{table}[!ht]
+\centering
+\caption{Every operation--type cell below the 50 per cent chance floor, with the accuracy of each. All 35 cells are significant by an exact one-sided binomial test under Holm correction across the 120 operation--type tests; a cell short of significance would carry $^{\dagger}$ and none does. Counting ties inside the denominator instead of outside leaves the same 35 cells and the same 15 operations. Dk = darkening, Mo = motion blur, Bl = Gaussian blur, H2 = H.264, Rs = rescaling, St = desaturation, Ns = white noise, Jp = JPEG.}
+\label{tab:inversoes}
+\footnotesize
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.4cm}cc>{\raggedright\arraybackslash}p{5.6cm}@{}}
+\toprule
+\rowcolor{headerblue}
+\hd{Operation} & \hd{Types} & \hd{Worst} & \hd{Cells below chance (\%)} \\
+\midrule
+Saliency area & 6 & 10.0 & Mo~29.0, Bl~20.0, Rs~21.0, St~18.0, Ns~13.1, Jp~10.0 \\
+Hue count (Ke) & 5 & 4.2 & Dk~21.7, Mo~15.7, Bl~12.3, Rs~14.1, St~4.2 \\
+Gradient orientation & 4 & 0.0 & Bl~26.0, Rs~9.0, St~21.0, Ns~0.0 \\
+Gradient magnitude & 3 & 0.0 & St~23.0, Ns~0.0, Jp~5.0 \\
+Saturation & 3 & 1.0 & Dk~13.0, H2~15.0, Ns~1.0 \\
+Entropy & 2 & 0.0 & H2~10.0, Ns~0.0 \\
+Contrast (Ke) & 2 & 10.3 & St~31.6, Ns~10.3 \\
+Edge distribution & 2 & 11.0 & H2~11.0, Jp~31.0 \\
+Contrast variance & 2 & 22.0 & St~22.0, Ns~25.0 \\
+GLCM contrast & 1 & 0.0 & Ns~0.0 \\
+Laplacian variance & 1 & 0.0 & Ns~0.0 \\
+Gygli mean of three & 1 & 3.0 & Ns~3.0 \\
+Colourfulness (Hasler) & 1 & 3.0 & Ns~3.0 \\
+Colourfulness (Ke) & 1 & 3.0 & Ns~3.0 \\
+Srinivas composite & 1 & 29.0 & Ns~29.0 \\
+\bottomrule
+\end{tabular}
+\end{table}
