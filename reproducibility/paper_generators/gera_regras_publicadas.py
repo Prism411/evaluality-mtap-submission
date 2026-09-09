@@ -259,7 +259,10 @@ def main():
          f'\\newcommand{{\\resInverteRuido}}{{{100 - [l for l in json.load(open(QB / "TABELA_FINAL.json"))["linhas"] if l["nome"] == "SIFT+BoVW"][0]["acc"]["noise"]:.0f}}}',
          f'\\newcommand{{\\resZeroRuido}}{{{POREXT[sum(1 for v in inv["por_operacao"].values() if v["acuracia_por_tipo"].get("noise") == 0.0)]}}}',
          f'\\newcommand{{\\resElegiveis}}{{{POREXT[len(ele["elegiveis"])]}}}',
-         f'\\newcommand{{\\resCombinacoes}}{{{POREXT[len(comb["por_combinacao"])]}}}']
+         f'\\newcommand{{\\resCombinacoes}}{{{POREXT[len(comb["por_combinacao"])]}}}',
+         # o «treze das quinze sob ruido», que aparece no resumo, no intro e na 4.1
+         # ⚠️ `is not None`, nunca `or`: acuracia 0,0 e falsy e sumiria da conta
+         f'\\newcommand{{\\resRuido}}{{{POREXT[sum(1 for v in inv["por_operacao"].values() if (lambda a: a is not None and a < 50)(v["acuracia_por_tipo"].get("noise")))]}}}']
     assert not ct2['qaroush']['ic_cruza_zero'], '⛔ o IC do Qaroush passou a cruzar zero'
     assert ct2['korolkov']['ic_cruza_zero'], '⛔ o IC do Korolkov deixou de cruzar zero: reescrever'
     assert ko['modulo_menos_melhor_membro'] < 0, '⛔ o modulo do Korolkov superou o membro'
