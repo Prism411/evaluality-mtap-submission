@@ -21,6 +21,22 @@ from itertools import combinations
 from pathlib import Path
 
 QB = Path('/dados/Projetos/quality-benchmark')
+
+# ⚠️ RODANDO DO PACOTE DE REPLICACAO: os arquivos que este script le sao os mesmos, mas
+# ficam em `reproducibility/derived_data/`. Sem esta resolucao o pacote traz um script que
+# so roda na maquina do autor, e a promessa de replicacao fica sem lastro.
+def _raiz(nome):
+    for base in (QB, Path(__file__).resolve().parent / 'derived_data',
+                 Path(__file__).resolve().parent,
+                 # ⚠️ na maquina do autor os dois arquivos de reanalise moram na pasta do
+                 # artigo e o `synth_sift.json` no pacote; no clone todos estao em
+                 # `derived_data`, que ja e a segunda opcao acima.
+                 Path('/home/jader/memoria-agentes/07-Artigos/evaluality-literatura'),
+                 Path('/dados/Projetos/evaluality-mtap-submission/reproducibility/derived_data')):
+        if (base / nome).exists():
+            return base / nome
+    raise FileNotFoundError(nome)
+
 SAIDA = QB / 'a_evidencia_da_fonte_preve_a_falha.json'
 
 VALIDA_A_PROPRIEDADE = 'julgamento humano da propriedade'
@@ -46,9 +62,9 @@ def mannwhitney_exato(a, b):
 
 
 def main():
-    prov = json.loads((QB / 'proveniencia_das_operacoes.json').read_text())['proveniencia']
-    val = json.loads((QB / 'o_que_cada_fonte_valida.json').read_text())['por_fonte']
-    inv = json.loads((QB / 'quantas_invertem_ALEM_DO_ACASO.json').read_text())['por_operacao']
+    prov = json.loads(_raiz('proveniencia_das_operacoes.json').read_text())['proveniencia']
+    val = json.loads(_raiz('o_que_cada_fonte_valida.json').read_text())['por_fonte']
+    inv = json.loads(_raiz('quantas_invertem_ALEM_DO_ACASO.json').read_text())['por_operacao']
 
     linhas, sem_leitura = [], []
     for op, v in inv.items():

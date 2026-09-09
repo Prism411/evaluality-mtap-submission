@@ -1,0 +1,649 @@
+{
+ "_o_que_e": "A TABELA FINAL DO ARTIGO: tudo no mesmo desenho, na mesma amostra, com IC.\n\nO que entra:\n  (a) os 12 metodos JA PUBLICADOS no artigo (iqa/medicoes/dados/synth_designA.json),\n      medidos nos mesmos 20 segmentos, 8 degradacoes, 5 niveis;\n  (b) as 15 operacoes da literatura de SUMARIZACAO com direcao declarada, desta rodada;\n  (c) os dois compostos montados na analise: SSC do Qaroush (min-max) nas duas\n      populacoes plausiveis do min-max, que o artigo dele nao declara.\n\n⚠️ Corrige o `ic_bootstrap_ops.py`, que contava EMPATE COMO ERRO. Aqui empate sai\ndo denominador, o que muda o `ke_hue_count` (10,1 % de empates) e tira o\n`qaroush_ses` (100 %: contagem de frames, identica em orig e degradado).\n\n⚠️ A coluna media* exclui os tipos ALINHADOS POR CONSTRUCAO de cada operacao. Para\nos 12 publicados nao ha alinhamento declarado, entao a media deles e sobre os oito.",
+ "ordem": [
+  "dark",
+  "motion",
+  "blur",
+  "h264",
+  "rescale",
+  "satur",
+  "noise",
+  "jpeg"
+ ],
+ "B": 10000,
+ "semente": 42,
+ "por_familia": {
+  "NR-IQA publicados": {
+   "n": 12,
+   "mediana_media": 88.2,
+   "ruido_abaixo_de_50": [
+    "SIFT+BoVW"
+   ],
+   "mediana_em_ruido": 90.5,
+   "excecoes_em_ruido": [
+    "liqe",
+    "topiq_nr",
+    "musiq",
+    "qualiclip",
+    "arniqa",
+    "dbcnn",
+    "niqe",
+    "clipiqa_plus",
+    "hyperiqa",
+    "clipiqa",
+    "brisque"
+   ]
+  },
+  "sumarizacao + compostos": {
+   "n": 17,
+   "mediana_media": 66.0,
+   "ruido_abaixo_de_50": [
+    "hasler_colorfulness",
+    "ke_colorfulness",
+    "glcm_contraste",
+    "contraste_variancia",
+    "srinivas_quality",
+    "ke_contraste",
+    "laplacian_var",
+    "gygli_media_crua",
+    "qaroush_gm",
+    "qaroush_entropia",
+    "qaroush_movimento",
+    "huang_saturacao",
+    "sobel_cv",
+    "qaroush_go",
+    "qaroush_saliencia"
+   ],
+   "mediana_em_ruido": 3.0,
+   "excecoes_em_ruido": [
+    "ke_edge_distribution",
+    "ke_hue_count"
+   ]
+  }
+ },
+ "diferenca_de_medianas": 22.2,
+ "mannwhitney_maior": {
+  "U": 191.0,
+  "p": 4.43979960882696e-05
+ },
+ "_RETRATADO_03_09_LINHAS_SSC": "as duas linhas ssc_qaroush_* foram REMOVIDAS: o artigo do Qaroush nao define esse composto. Antes 29 linhas e diferenca +23,95; agora 27 linhas e +20,75.",
+ "linhas": [
+  {
+   "nome": "liqe",
+   "familia": "NR-IQA / descritor (já publicado)",
+   "acc": {
+    "dark": 97.0,
+    "motion": 100.0,
+    "blur": 100.0,
+    "h264": 100.0,
+    "rescale": 100.0,
+    "satur": 100.0,
+    "noise": 99.0,
+    "jpeg": 100.0
+   },
+   "media": 99.5,
+   "ic95": null,
+   "alinhados": []
+  },
+  {
+   "nome": "topiq_nr",
+   "familia": "NR-IQA / descritor (já publicado)",
+   "acc": {
+    "dark": 93.0,
+    "motion": 100.0,
+    "blur": 100.0,
+    "h264": 100.0,
+    "rescale": 100.0,
+    "satur": 93.0,
+    "noise": 100.0,
+    "jpeg": 100.0
+   },
+   "media": 98.2,
+   "ic95": null,
+   "alinhados": []
+  },
+  {
+   "nome": "musiq",
+   "familia": "NR-IQA / descritor (já publicado)",
+   "acc": {
+    "dark": 93.0,
+    "motion": 100.0,
+    "blur": 100.0,
+    "h264": 100.0,
+    "rescale": 100.0,
+    "satur": 86.0,
+    "noise": 100.0,
+    "jpeg": 100.0
+   },
+   "media": 97.4,
+   "ic95": null,
+   "alinhados": []
+  },
+  {
+   "nome": "qualiclip",
+   "familia": "NR-IQA / descritor (já publicado)",
+   "acc": {
+    "dark": 99.0,
+    "motion": 100.0,
+    "blur": 95.0,
+    "h264": 100.0,
+    "rescale": 96.0,
+    "satur": 76.0,
+    "noise": 96.0,
+    "jpeg": 71.0
+   },
+   "media": 91.6,
+   "ic95": null,
+   "alinhados": []
+  },
+  {
+   "nome": "arniqa",
+   "familia": "NR-IQA / descritor (já publicado)",
+   "acc": {
+    "dark": 91.0,
+    "motion": 100.0,
+    "blur": 99.0,
+    "h264": 98.0,
+    "rescale": 100.0,
+    "satur": 61.0,
+    "noise": 82.0,
+    "jpeg": 98.0
+   },
+   "media": 91.1,
+   "ic95": null,
+   "alinhados": []
+  },
+  {
+   "nome": "dbcnn",
+   "familia": "NR-IQA / descritor (já publicado)",
+   "acc": {
+    "dark": 84.0,
+    "motion": 97.0,
+    "blur": 92.0,
+    "h264": 97.0,
+    "rescale": 95.0,
+    "satur": 92.0,
+    "noise": 85.0,
+    "jpeg": 81.0
+   },
+   "media": 90.4,
+   "ic95": null,
+   "alinhados": []
+  },
+  {
+   "nome": "niqe",
+   "familia": "NR-IQA / descritor (já publicado)",
+   "acc": {
+    "dark": 100.0,
+    "motion": 100.0,
+    "blur": 98.0,
+    "h264": 97.0,
+    "rescale": 98.0,
+    "satur": 0.0,
+    "noise": 100.0,
+    "jpeg": 96.0
+   },
+   "media": 86.1,
+   "ic95": null,
+   "alinhados": []
+  },
+  {
+   "nome": "clipiqa_plus",
+   "familia": "NR-IQA / descritor (já publicado)",
+   "acc": {
+    "dark": 76.0,
+    "motion": 99.0,
+    "blur": 79.0,
+    "h264": 100.0,
+    "rescale": 91.0,
+    "satur": 87.0,
+    "noise": 84.0,
+    "jpeg": 64.0
+   },
+   "media": 85.0,
+   "ic95": null,
+   "alinhados": []
+  },
+  {
+   "nome": "hyperiqa",
+   "familia": "NR-IQA / descritor (já publicado)",
+   "acc": {
+    "dark": 47.0,
+    "motion": 100.0,
+    "blur": 100.0,
+    "h264": 100.0,
+    "rescale": 100.0,
+    "satur": 30.0,
+    "noise": 100.0,
+    "jpeg": 100.0
+   },
+   "media": 84.6,
+   "ic95": null,
+   "alinhados": []
+  },
+  {
+   "nome": "hasler_colorfulness",
+   "familia": "operação de sumarização (esta rodada)",
+   "acc": {
+    "dark": 100.0,
+    "motion": 100.0,
+    "blur": 100.0,
+    "h264": 100.0,
+    "rescale": 100.0,
+    "satur": 100.0,
+    "noise": 3.0,
+    "jpeg": 79.0
+   },
+   "media": 83.1,
+   "ic95": [
+    81.6,
+    84.7
+   ],
+   "alinhados": [
+    "satur"
+   ]
+  },
+  {
+   "nome": "ke_colorfulness",
+   "familia": "operação de sumarização (esta rodada)",
+   "acc": {
+    "dark": 100.0,
+    "motion": 100.0,
+    "blur": 100.0,
+    "h264": 100.0,
+    "rescale": 100.0,
+    "satur": 100.0,
+    "noise": 3.0,
+    "jpeg": 79.0
+   },
+   "media": 83.1,
+   "ic95": [
+    81.6,
+    84.6
+   ],
+   "alinhados": [
+    "satur"
+   ]
+  },
+  {
+   "nome": "clipiqa",
+   "familia": "NR-IQA / descritor (já publicado)",
+   "acc": {
+    "dark": 57.99999999999999,
+    "motion": 100.0,
+    "blur": 83.0,
+    "h264": 100.0,
+    "rescale": 92.0,
+    "satur": 91.0,
+    "noise": 55.00000000000001,
+    "jpeg": 76.0
+   },
+   "media": 81.9,
+   "ic95": null,
+   "alinhados": []
+  },
+  {
+   "nome": "brisque",
+   "familia": "NR-IQA / descritor (já publicado)",
+   "acc": {
+    "dark": 100.0,
+    "motion": 100.0,
+    "blur": 100.0,
+    "h264": 99.0,
+    "rescale": 100.0,
+    "satur": 0.0,
+    "noise": 67.0,
+    "jpeg": 80.0
+   },
+   "media": 80.8,
+   "ic95": null,
+   "alinhados": []
+  },
+  {
+   "nome": "glcm_contraste",
+   "familia": "operação de sumarização (esta rodada)",
+   "acc": {
+    "dark": 100.0,
+    "motion": 100.0,
+    "blur": 100.0,
+    "h264": 100.0,
+    "rescale": 100.0,
+    "satur": 67.0,
+    "noise": 0.0,
+    "jpeg": 72.0
+   },
+   "media": 77.0,
+   "ic95": [
+    71.7,
+    81.7
+   ],
+   "alinhados": [
+    "dark"
+   ]
+  },
+  {
+   "nome": "contraste_variancia",
+   "familia": "operação de sumarização (esta rodada)",
+   "acc": {
+    "dark": 100.0,
+    "motion": 100.0,
+    "blur": 100.0,
+    "h264": 100.0,
+    "rescale": 100.0,
+    "satur": 22.0,
+    "noise": 25.0,
+    "jpeg": 90.0
+   },
+   "media": 76.7,
+   "ic95": [
+    72.9,
+    81.0
+   ],
+   "alinhados": [
+    "dark"
+   ]
+  },
+  {
+   "nome": "srinivas_quality",
+   "familia": "operação de sumarização (esta rodada)",
+   "acc": {
+    "dark": 100.0,
+    "motion": 100.0,
+    "blur": 100.0,
+    "h264": 100.0,
+    "rescale": 100.0,
+    "satur": 98.0,
+    "noise": 29.0,
+    "jpeg": 69.0
+   },
+   "media": 74.5,
+   "ic95": [
+    69.0,
+    79.8
+   ],
+   "alinhados": [
+    "blur",
+    "dark",
+    "motion",
+    "satur"
+   ]
+  },
+  {
+   "nome": "ke_contraste",
+   "familia": "operação de sumarização (esta rodada)",
+   "acc": {
+    "dark": 100.0,
+    "motion": 100.0,
+    "blur": 100.0,
+    "h264": 100.0,
+    "rescale": 100.0,
+    "satur": 31.6,
+    "noise": 10.3,
+    "jpeg": 63.8
+   },
+   "media": 72.2,
+   "ic95": [
+    68.0,
+    76.6
+   ],
+   "alinhados": [
+    "dark"
+   ]
+  },
+  {
+   "nome": "laplacian_var",
+   "familia": "operação de sumarização (esta rodada)",
+   "acc": {
+    "dark": 100.0,
+    "motion": 100.0,
+    "blur": 100.0,
+    "h264": 95.0,
+    "rescale": 100.0,
+    "satur": 50.0,
+    "noise": 0.0,
+    "jpeg": 66.0
+   },
+   "media": 68.5,
+   "ic95": [
+    61.5,
+    74.8
+   ],
+   "alinhados": [
+    "blur",
+    "motion"
+   ]
+  },
+  {
+   "nome": "gygli_media_crua",
+   "familia": "operação de sumarização (esta rodada)",
+   "acc": {
+    "dark": 100.0,
+    "motion": 100.0,
+    "blur": 100.0,
+    "h264": 100.0,
+    "rescale": 100.0,
+    "satur": 100.0,
+    "noise": 3.0,
+    "jpeg": 67.0
+   },
+   "media": 67.5,
+   "ic95": [
+    62.8,
+    72.0
+   ],
+   "alinhados": [
+    "blur",
+    "dark",
+    "motion",
+    "satur"
+   ]
+  },
+  {
+   "nome": "qaroush_gm",
+   "familia": "operação de sumarização (esta rodada)",
+   "acc": {
+    "dark": 100.0,
+    "motion": 100.0,
+    "blur": 100.0,
+    "h264": 100.0,
+    "rescale": 100.0,
+    "satur": 23.0,
+    "noise": 0.0,
+    "jpeg": 5.0
+   },
+   "media": 66.0,
+   "ic95": [
+    64.1,
+    68.2
+   ],
+   "alinhados": []
+  },
+  {
+   "nome": "SIFT+BoVW",
+   "familia": "NR-IQA / descritor (já publicado)",
+   "acc": {
+    "dark": 100.0,
+    "motion": 100.0,
+    "blur": 90.0,
+    "h264": 90.0,
+    "rescale": 88.0,
+    "satur": 39.0,
+    "noise": 8.0,
+    "jpeg": 6.0
+   },
+   "media": 65.1,
+   "ic95": null,
+   "alinhados": []
+  },
+  {
+   "nome": "ke_edge_distribution",
+   "familia": "operação de sumarização (esta rodada)",
+   "acc": {
+    "dark": 72.9,
+    "motion": 62.0,
+    "blur": 62.0,
+    "h264": 11.0,
+    "rescale": 74.0,
+    "satur": 97.0,
+    "noise": 100.0,
+    "jpeg": 31.0
+   },
+   "media": 64.3,
+   "ic95": [
+    58.5,
+    70.0
+   ],
+   "alinhados": [
+    "blur",
+    "motion"
+   ]
+  },
+  {
+   "nome": "qaroush_entropia",
+   "familia": "operação de sumarização (esta rodada)",
+   "acc": {
+    "dark": 100.0,
+    "motion": 77.0,
+    "blur": 83.0,
+    "h264": 10.0,
+    "rescale": 77.0,
+    "satur": 97.0,
+    "noise": 0.0,
+    "jpeg": 66.0
+   },
+   "media": 63.8,
+   "ic95": [
+    57.5,
+    69.4
+   ],
+   "alinhados": []
+  },
+  {
+   "nome": "qaroush_movimento",
+   "familia": "operação de sumarização (esta rodada)",
+   "acc": {
+    "dark": 100.0,
+    "motion": 76.0,
+    "blur": 99.0,
+    "h264": 94.0,
+    "rescale": 99.0,
+    "satur": 20.0,
+    "noise": 3.0,
+    "jpeg": 17.0
+   },
+   "media": 61.7,
+   "ic95": [
+    58.9,
+    64.9
+   ],
+   "alinhados": [
+    "motion"
+   ]
+  },
+  {
+   "nome": "huang_saturacao",
+   "familia": "operação de sumarização (esta rodada)",
+   "acc": {
+    "dark": 13.0,
+    "motion": 100.0,
+    "blur": 100.0,
+    "h264": 15.0,
+    "rescale": 100.0,
+    "satur": 100.0,
+    "noise": 1.0,
+    "jpeg": 90.0
+   },
+   "media": 59.9,
+   "ic95": [
+    56.7,
+    63.7
+   ],
+   "alinhados": [
+    "satur"
+   ]
+  },
+  {
+   "nome": "sobel_cv",
+   "familia": "operação de sumarização (esta rodada)",
+   "acc": {
+    "dark": 80.0,
+    "motion": 72.0,
+    "blur": 67.0,
+    "h264": 63.0,
+    "rescale": 67.0,
+    "satur": 49.0,
+    "noise": 14.0,
+    "jpeg": 65.0
+   },
+   "media": 56.3,
+   "ic95": [
+    53.0,
+    59.8
+   ],
+   "alinhados": [
+    "blur",
+    "motion"
+   ]
+  },
+  {
+   "nome": "qaroush_go",
+   "familia": "operação de sumarização (esta rodada)",
+   "acc": {
+    "dark": 100.0,
+    "motion": 80.0,
+    "blur": 26.0,
+    "h264": 95.0,
+    "rescale": 9.0,
+    "satur": 21.0,
+    "noise": 0.0,
+    "jpeg": 100.0
+   },
+   "media": 53.9,
+   "ic95": [
+    50.1,
+    57.9
+   ],
+   "alinhados": []
+  },
+  {
+   "nome": "ke_hue_count",
+   "familia": "operação de sumarização (esta rodada)",
+   "acc": {
+    "dark": 21.7,
+    "motion": 15.7,
+    "blur": 12.3,
+    "h264": 83.7,
+    "rescale": 14.1,
+    "satur": 4.2,
+    "noise": 100.0,
+    "jpeg": 60.2
+   },
+   "media": 39.0,
+   "ic95": [
+    32.7,
+    46.0
+   ],
+   "alinhados": []
+  },
+  {
+   "nome": "qaroush_saliencia",
+   "familia": "operação de sumarização (esta rodada)",
+   "acc": {
+    "dark": 63.3,
+    "motion": 29.0,
+    "blur": 20.0,
+    "h264": 94.0,
+    "rescale": 21.0,
+    "satur": 18.0,
+    "noise": 13.1,
+    "jpeg": 10.0
+   },
+   "media": 33.5,
+   "ic95": [
+    28.3,
+    39.5
+   ],
+   "alinhados": []
+  }
+ ]
+}

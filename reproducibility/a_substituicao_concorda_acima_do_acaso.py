@@ -24,9 +24,24 @@ import random
 from pathlib import Path
 
 QB = Path('/dados/Projetos/quality-benchmark')
-CTRL = QB / 'same_frame_same_pooling_control.json'
-TERC = Path('/home/jader/memoria-agentes/07-Artigos/evaluality-literatura/'
-            'third_revision_reanalysis.json')
+
+# ⚠️ RODANDO DO PACOTE DE REPLICACAO: os arquivos que este script le sao os mesmos, mas
+# ficam em `reproducibility/derived_data/`. Sem esta resolucao o pacote traz um script que
+# so roda na maquina do autor, e a promessa de replicacao fica sem lastro.
+def _raiz(nome):
+    for base in (QB, Path(__file__).resolve().parent / 'derived_data',
+                 Path(__file__).resolve().parent,
+                 # ⚠️ na maquina do autor os dois arquivos de reanalise moram na pasta do
+                 # artigo e o `synth_sift.json` no pacote; no clone todos estao em
+                 # `derived_data`, que ja e a segunda opcao acima.
+                 Path('/home/jader/memoria-agentes/07-Artigos/evaluality-literatura'),
+                 Path('/dados/Projetos/evaluality-mtap-submission/reproducibility/derived_data')):
+        if (base / nome).exists():
+            return base / nome
+    raise FileNotFoundError(nome)
+
+CTRL = None
+TERC = None
 SAIDA = QB / 'a_substituicao_concorda_acima_do_acaso.json'
 B, SEMENTE = 10000, 42
 
@@ -53,8 +68,8 @@ def ic_bloco_de_topico(por_cluster, b=B, semente=SEMENTE):
 
 
 def main():
-    c = json.loads(CTRL.read_text())['clusters']
-    t = json.loads(TERC.read_text())['same_frame_same_pooling']
+    c = json.loads(_raiz('same_frame_same_pooling_control.json').read_text())['clusters']
+    t = json.loads(_raiz('third_revision_reanalysis.json').read_text())['same_frame_same_pooling']
     assert len(c) == 42 and t['n_clusters'] == 42
 
     tam = {k: len(v['segments']) for k, v in c.items()}

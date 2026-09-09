@@ -18,8 +18,24 @@ import statistics
 from pathlib import Path
 
 QB = Path('/dados/Projetos/quality-benchmark')
-PAR = QB / 'a_contagem_reproduz_a_escolha_par_a_par.json'
-SIFT = Path('/dados/Projetos/evaluality-mtap-submission/reproducibility/derived_data/synth_sift.json')
+
+# ⚠️ RODANDO DO PACOTE DE REPLICACAO: os arquivos que este script le sao os mesmos, mas
+# ficam em `reproducibility/derived_data/`. Sem esta resolucao o pacote traz um script que
+# so roda na maquina do autor, e a promessa de replicacao fica sem lastro.
+def _raiz(nome):
+    for base in (QB, Path(__file__).resolve().parent / 'derived_data',
+                 Path(__file__).resolve().parent,
+                 # ⚠️ na maquina do autor os dois arquivos de reanalise moram na pasta do
+                 # artigo e o `synth_sift.json` no pacote; no clone todos estao em
+                 # `derived_data`, que ja e a segunda opcao acima.
+                 Path('/home/jader/memoria-agentes/07-Artigos/evaluality-literatura'),
+                 Path('/dados/Projetos/evaluality-mtap-submission/reproducibility/derived_data')):
+        if (base / nome).exists():
+            return base / nome
+    raise FileNotFoundError(nome)
+
+PAR = None
+SIFT = None
 SAIDA = QB / 'as_tres_excecoes_do_mecanismo.json'
 
 
@@ -36,15 +52,15 @@ def contagens(o, acc):
 
 
 def main():
-    d = json.loads(PAR.read_text(encoding='utf-8'))
+    d = json.loads(_raiz('a_contagem_reproduz_a_escolha_par_a_par.json').read_text(encoding='utf-8'))
     acc = []
-    contagens(json.loads(SIFT.read_text(encoding='utf-8')), acc)
+    contagens(json.loads(_raiz('synth_sift.json').read_text(encoding='utf-8')), acc)
     mediana = statistics.median(acc)
     disc = d['onde_discordam']
     maior = max(abs(x['delta_conta']) for x in disc)
     res = {
         '_o_que_e': __doc__.strip().split('\n\n')[0],
-        '_fontes': [PAR.name, str(SIFT)],
+        '_fontes': ['a_contagem_reproduz_a_escolha_par_a_par.json', 'synth_sift.json'],
         'pares': d['pares'], 'concordam': d['pares_em_que_score_e_contagem_concordam'],
         'discordam': len(disc),
         'n_desc_medida': {'n': len(acc), 'mediana': mediana, 'minimo': min(acc)},

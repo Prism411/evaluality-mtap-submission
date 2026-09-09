@@ -1,0 +1,75 @@
+{
+  "_o_que_e": "⭐⭐ A decisao da operacao e a contagem, PAR A PAR nos 800 construidos. Substitui uma comparacao entre duas curvas de oito pontos por uma identidade nas decisoes.",
+  "⛔_a_limitacao_que_nao_era": "o `a_reducao_nos_pares_construidos.json` declara que «o pacote nao traz contagem por par». Traz: `derived_data/synth_sift.json`, campo `n_desc` em orig e deg.",
+  "⚠️_qual_rodada": "a REPORTADA. O `bovw_sum` daqui esta noutra escala que o `sift_designA.json` do benchmark, que e a reimplementacao; a validacao por tipo abaixo confirma qual e qual.",
+  "_fonte": "derived_data/synth_sift.json (pacote de replicacao)",
+  "pares": 800,
+  "acuracia_por_tipo_pelo_score": {
+    "dark": 100.0,
+    "motion": 100.0,
+    "blur": 90.0,
+    "h264": 90.0,
+    "rescale": 88.0,
+    "satur": 39.0,
+    "noise": 8.0,
+    "jpeg": 6.0
+  },
+  "acuracia_publicada": {
+    "dark": 100.0,
+    "motion": 100.0,
+    "blur": 90.0,
+    "h264": 90.0,
+    "rescale": 88.0,
+    "satur": 39.0,
+    "noise": 8.0,
+    "jpeg": 6.0
+  },
+  "reproduz_a_publicada_por_tipo": {
+    "dark": true,
+    "motion": true,
+    "blur": true,
+    "h264": true,
+    "rescale": true,
+    "satur": true,
+    "noise": true,
+    "jpeg": true
+  },
+  "quantos_tipos_batem": "8 de 8",
+  "acuracia_por_tipo_pela_contagem": {
+    "dark": 100.0,
+    "motion": 100.0,
+    "blur": 90.0,
+    "h264": 90.0,
+    "rescale": 88.0,
+    "satur": 39.0,
+    "noise": 8.0,
+    "jpeg": 5.0
+  },
+  "pares_em_que_score_e_contagem_concordam": "797 de 800",
+  "fracao_de_concordancia": 0.9962,
+  "onde_discordam": [
+    {
+      "segmento": "fone_cancelamento_ruido__fone-cancelamento_ruido_olhardigital__92.04_121.72",
+      "celula": "rescale_2",
+      "delta_score": -1.531,
+      "delta_conta": 4
+    },
+    {
+      "segmento": "fone_cancelamento_ruido__fone_cancelamento_ruido_band__46.98_76.18",
+      "celula": "jpeg_5",
+      "delta_score": 0.533,
+      "delta_conta": -1
+    },
+    {
+      "segmento": "julgamento_bolsonaro__g1__70.32_83.92",
+      "celula": "rescale_2",
+      "delta_score": 4.98,
+      "delta_conta": -2
+    }
+  ],
+  "previsoes": {
+    "1_reproduz_a_publicada": true,
+    "2_concordam_em_mais_de_95_por_cento": true,
+    "3_discordancias_sao_de_margem": true
+  }
+}

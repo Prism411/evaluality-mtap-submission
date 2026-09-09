@@ -26,6 +26,22 @@ from math import comb
 from pathlib import Path
 
 QB = Path('/dados/Projetos/quality-benchmark')
+
+# ⚠️ RODANDO DO PACOTE DE REPLICACAO: os arquivos que este script le sao os mesmos, mas
+# ficam em `reproducibility/derived_data/`. Sem esta resolucao o pacote traz um script que
+# so roda na maquina do autor, e a promessa de replicacao fica sem lastro.
+def _raiz(nome):
+    for base in (QB, Path(__file__).resolve().parent / 'derived_data',
+                 Path(__file__).resolve().parent,
+                 # ⚠️ na maquina do autor os dois arquivos de reanalise moram na pasta do
+                 # artigo e o `synth_sift.json` no pacote; no clone todos estao em
+                 # `derived_data`, que ja e a segunda opcao acima.
+                 Path('/home/jader/memoria-agentes/07-Artigos/evaluality-literatura'),
+                 Path('/dados/Projetos/evaluality-mtap-submission/reproducibility/derived_data')):
+        if (base / nome).exists():
+            return base / nome
+    raise FileNotFoundError(nome)
+
 sys.path.insert(0, str(QB))
 import ops_da_literatura as OPS                                     # noqa: E402
 
@@ -50,12 +66,12 @@ def holm(pvals):
 
 
 def main():
-    d = json.loads((QB / 'ops_da_literatura_designA.json').read_text())['por_segmento']
+    d = json.loads(_raiz('ops_da_literatura_designA.json').read_text())['por_segmento']
     segs = sorted(d)
     # ⛔ o conjunto e o do ARTIGO, nao «tudo que tem direcao»: o designA carrega tambem
     # operacoes fora do inventario auditado (`sobel_cv`, `qaroush_ct`, `qaroush_ses`,
     # `qaroush_movimento`), e `sobel_cv` nem tem `orig` neste arquivo.
-    do_artigo = sorted(json.loads((QB / 'as_15_na_regra_do_artigo.json').read_text())['por_operacao'])
+    do_artigo = sorted(json.loads(_raiz('as_15_na_regra_do_artigo.json').read_text())['por_operacao'])
     com_direcao = [o for o in do_artigo if OPS.DIRECAO.get(o) is not None
                    and any(d[s].get(o, {}).get('orig') is not None for s in segs)]
     assert len(com_direcao) == 15, ('⛔ mudou o conjunto das quinze', len(com_direcao), com_direcao)
@@ -87,7 +103,7 @@ def main():
             emp[o][t] = empates
 
     # ⛔ ANCORA: as acuracias tem de bater com as publicadas na TABELA_FINAL
-    tab = {l['nome']: l['acc'] for l in json.loads((QB / 'TABELA_FINAL.json').read_text())['linhas']}
+    tab = {l['nome']: l['acc'] for l in json.loads(_raiz('TABELA_FINAL.json').read_text())['linhas']}
     conferidas = divergentes = 0
     for o in com_direcao:
         if o not in tab:
@@ -126,7 +142,7 @@ def main():
     # ⭐ o mesmo instrumento na OUTRA familia: sem isso a leitura e de um lado so.
     # ⚠️ os modelos nao empatam (`as_duas_contas_da_acuracia_por_tipo.json`: 0 empates),
     # entao o denominador deles e 100 e a acuracia impressa da a contagem direto.
-    linhas = json.loads((QB / 'TABELA_FINAL.json').read_text())['linhas']
+    linhas = json.loads(_raiz('TABELA_FINAL.json').read_text())['linhas']
     # ⛔ o conjunto e o que o METODO declara: dez candidatos NR-IQA. A tabela dos pares
     # construidos tem uma linha a mais (`arniqa`), que nao entra na comparacao completa,
     # e contar as onze faria a prosa dizer «onze» onde o resto do artigo diz «dez».

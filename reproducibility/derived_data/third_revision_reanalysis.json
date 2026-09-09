@@ -1,0 +1,232 @@
+{
+  "dover_technical_configuration": {
+    "checkpoint": "DOVER.pth",
+    "checkpoint_sha256": "f4a42c0bbc94c94dd7409e7f40887d44c5c30314d1d09e7edf03cc35813b4838",
+    "conditions_per_segment": 41,
+    "config": "dover.yml val-l1080p technical sample type",
+    "device": "cuda",
+    "model": "official DOVER technical branch",
+    "n_segments": 20,
+    "paired_fragment_seed": 42,
+    "sequence_wrapper": "MP4V, 5 fps, identical for original and degraded"
+  },
+  "dover_technical_constructed_pairs": {
+    "accuracy_percent": 97.625,
+    "by_type": {
+      "blur": {
+        "accuracy_percent": 100.0,
+        "mean_direction_aligned_severity_srcc": 0.9999999999999998,
+        "n_pairs": 100,
+        "segment_block_ci95": [
+          100.0,
+          100.0
+        ],
+        "ties": 0
+      },
+      "dark": {
+        "accuracy_percent": 93.0,
+        "mean_direction_aligned_severity_srcc": 0.985,
+        "n_pairs": 100,
+        "segment_block_ci95": [
+          86.0,
+          98.0
+        ],
+        "ties": 0
+      },
+      "h264": {
+        "accuracy_percent": 100.0,
+        "mean_direction_aligned_severity_srcc": 0.9999999999999998,
+        "n_pairs": 100,
+        "segment_block_ci95": [
+          100.0,
+          100.0
+        ],
+        "ties": 0
+      },
+      "jpeg": {
+        "accuracy_percent": 100.0,
+        "mean_direction_aligned_severity_srcc": 0.9999999999999998,
+        "n_pairs": 100,
+        "segment_block_ci95": [
+          100.0,
+          100.0
+        ],
+        "ties": 0
+      },
+      "motion": {
+        "accuracy_percent": 100.0,
+        "mean_direction_aligned_severity_srcc": 0.8999999999999998,
+        "n_pairs": 100,
+        "segment_block_ci95": [
+          100.0,
+          100.0
+        ],
+        "ties": 0
+      },
+      "noise": {
+        "accuracy_percent": 99.0,
+        "mean_direction_aligned_severity_srcc": 0.9949999999999999,
+        "n_pairs": 100,
+        "segment_block_ci95": [
+          97.0,
+          100.0
+        ],
+        "ties": 0
+      },
+      "rescale": {
+        "accuracy_percent": 100.0,
+        "mean_direction_aligned_severity_srcc": 0.9999999999999998,
+        "n_pairs": 100,
+        "segment_block_ci95": [
+          100.0,
+          100.0
+        ],
+        "ties": 0
+      },
+      "satur": {
+        "accuracy_percent": 89.0,
+        "mean_direction_aligned_severity_srcc": 0.715,
+        "n_pairs": 100,
+        "segment_block_ci95": [
+          81.0,
+          96.0
+        ],
+        "ties": 0
+      }
+    },
+    "excluding_darkening_and_desaturation": {
+      "accuracy_percent": 99.83333333333333,
+      "n_pairs": 600,
+      "segment_block_ci95": [
+        99.5,
+        100.0
+      ],
+      "ties": 0
+    },
+    "n_pairs": 800,
+    "segment_block_ci95": [
+      96.125,
+      99.0
+    ],
+    "ties": 0
+  },
+  "metadata": {
+    "bootstrap_resamples": 10000,
+    "input_sha256": {
+      "dover42_scores.json": "0df7079ed54ae59ad8c25646123c7eb7961d5d025f84361f90c53b9249f341ee",
+      "dover_constructed_pairs.json": "327678c21545318fac3fe863cbc2c11bfc00de57c71c1a091a10ae12a6fc3a2b",
+      "same_frame_same_pooling_control.json": "db9ed242bb602606ce380113718fdee35e09ffcc1d7b8abb57f328427eb3bf3b"
+    },
+    "model_inference_performed_by_this_script": false,
+    "seed": 42
+  },
+  "same_frame_same_pooling": {
+    "n_clusters": 42,
+    "n_topics": 19,
+    "published_change_clusters": [
+      "acordo_mariana#0",
+      "bebe_real#1",
+      "bolsonaro_trump#2",
+      "brasil_omc#0",
+      "brumadinho#2",
+      "catedral_notre_dame#0",
+      "catedral_notre_dame#1",
+      "cessar_fogo_ucrania#1",
+      "esquema_pcc#0",
+      "fraude_inss#0",
+      "fraude_inss#1",
+      "google_huawei#0",
+      "google_huawei#1",
+      "google_huawei#2",
+      "isencao_imposto#0",
+      "julgamento_bolsonaro#0",
+      "mounjaro#0",
+      "recorde_calor_2024#0",
+      "recorde_calor_2024#1",
+      "ucrania#0",
+      "ucrania#1",
+      "ultraprocessados#0"
+    ],
+    "published_liqe_vs_deployed_changes": 22,
+    "regimes": {
+      "uniform_1fps_capped10_mean": {
+        "disagreement_clusters": [
+          "bolsonaro_trump#2",
+          "brasil_omc#0",
+          "brumadinho#2",
+          "catedral_notre_dame#0",
+          "cessar_fogo_ucrania#1",
+          "fraude_inss#0",
+          "fraude_inss#2",
+          "google_huawei#1",
+          "isencao_imposto#0",
+          "isencao_imposto#1",
+          "isencao_imposto#2",
+          "julgamento_bolsonaro#0",
+          "mounjaro#0",
+          "recorde_calor_2024#0",
+          "recorde_calor_2024#1",
+          "ucrania#1"
+        ],
+        "liqe_dover_technical": {
+          "global_achievable_range_percent": 79.05987122645182,
+          "raw_mean": -0.06924020804997001,
+          "selected_maximum_percent": 64.28571428571429
+        },
+        "liqe_field": "liqe_matched_mean",
+        "liqe_minus_sift": {
+          "global_achievable_range_percent": {
+            "estimate": 27.105742282827286,
+            "hierarchical_ci95": [
+              2.3876177226515414,
+              52.456713789415886
+            ],
+            "topic_block_ci95": [
+              5.568675802577572,
+              47.7510674019982
+            ]
+          },
+          "raw_mean": {
+            "estimate": 0.007361632328303086,
+            "hierarchical_ci95": [
+              0.0005684984950112206,
+              0.016829721866347947
+            ],
+            "topic_block_ci95": [
+              0.001352287197235289,
+              0.014058667528783535
+            ]
+          },
+          "selected_maximum_percent": {
+            "estimate": 7.142857142857153,
+            "hierarchical_ci95": [
+              -18.918918918918912,
+              32.01081081081065
+            ],
+            "topic_block_ci95": [
+              -15.916769041769038,
+              30.43478260869565
+            ]
+          }
+        },
+        "overlap_with_original_22": 13,
+        "sift_dover_technical": {
+          "global_achievable_range_percent": 51.95412894362453,
+          "raw_mean": -0.0766018403782731,
+          "selected_maximum_percent": 57.14285714285714
+        },
+        "sift_field": "sift_matched_mean",
+        "sift_liqe_disagreements": 16
+      }
+    },
+    "sampling_summary": {
+      "liqe_matched_changes_from_published_deployed": 22,
+      "mean_common_frames": 9.978494623655914,
+      "n_clusters": 42,
+      "segment_slots": 93,
+      "segments_at_frame_cap": 92,
+      "sift_liqe_matched_disagreements": 16,
+      "sift_matched_changes_from_published_deployed": 12
+    }
+  }
+}
