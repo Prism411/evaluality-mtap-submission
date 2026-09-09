@@ -60,6 +60,7 @@ def main():
     rei = json.load(open(QB / 'a_reimplementacao_reproduz_a_falha.json'))
     par = json.load(open(QB / 'a_contagem_reproduz_a_escolha_par_a_par.json'))
     cla = json.load(open(QB / 'a_classe_nao_concorda_consigo.json'))
+    tip = json.load(open(QB / 'a_implantada_e_tipica_da_classe.json'))
     _q = json.load(open(QB / 'as_15_na_regra_do_artigo.json'))
     q15, regra = _q['por_operacao'], _q['regra']
     va = json.load(open(QB / 'o_vascore_do_qaroush_como_a_Eq20_manda.json'))
@@ -247,7 +248,11 @@ def main():
          f'\\newcommand{{\\mecConcordam}}{{{int(str(par["pares_em_que_score_e_contagem_concordam"]).split()[0])}}}',
          # ⭐ a classe concorda mais com algo de FORA do que consigo mesma
          f'\\newcommand{{\\claPar}}{{{sem_zero("%.3f" % cla["kappa_par_a_par_entre_operacoes"]["mediana"])}}}',
-         f'\\newcommand{{\\claRazao}}{{{cla["razao_das_medianas"]:.0f}}}']
+         f'\\newcommand{{\\claRazao}}{{{cla["razao_das_medianas"]:.0f}}}',
+         # ⭐ a ponte entre o caso implantado e a classe: ele e o meio dela
+         f'\\newcommand{{\\tipAbaixo}}{{{POREXT[tip["classe_de_sumarizacao"]["quantas_ficam_abaixo_da_implantada"]]}}}',
+         f'\\newcommand{{\\tipDe}}{{{POREXT[tip["classe_de_sumarizacao"]["n"]]}}}',
+         f'\\newcommand{{\\tipMediana}}{{{tip["classe_de_sumarizacao"]["mediana"]:.1f}}}']
     assert not ct2['qaroush']['ic_cruza_zero'], '⛔ o IC do Qaroush passou a cruzar zero'
     assert ct2['korolkov']['ic_cruza_zero'], '⛔ o IC do Korolkov deixou de cruzar zero: reescrever'
     assert ko['modulo_menos_melhor_membro'] < 0, '⛔ o modulo do Korolkov superou o membro'
@@ -291,6 +296,8 @@ def main():
     assert par['pares'] == 800, '⛔ mudou o numero de pares do mecanismo'
     assert abs(cla['controle_duplicata_exata']['kappa'] - 1.0) < 1e-9, \
         '⛔ o controle da duplicata saiu do teto: a conta de concordancia esta errada'
+    assert tip['classe_de_sumarizacao']['quantas_ficam_abaixo_da_implantada'] > 0, \
+        '⛔ a implantada virou o pior da classe: a frase da ponte cai'
     assert au['autonomas'] == 1, '⛔ mudou o numero de autonomas: reescrever a prosa'
     # ⚠️ as duas regras publicadas TEM de ficar abaixo da media, senao a frase da prosa cai
     assert nb < media, '⛔ o naive Bayes do Ke superou a media: reescrever a prosa'

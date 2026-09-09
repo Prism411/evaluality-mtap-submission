@@ -1,0 +1,26 @@
+{
+ "_o_que_e": "⭐⭐ A OPERACAO IMPLANTADA E UM CASO ATIPICO OU E TIPICA DA CLASSE?",
+ "_mesma_coluna": "media sobre os oito tipos dos 800 pares construidos, para todos",
+ "implantada": {
+  "nome": "SIFT+BoVW",
+  "media": 65.1
+ },
+ "classe_de_sumarizacao": {
+  "n": 17,
+  "mediana": 66.0,
+  "minimo": 33.5,
+  "maximo": 83.1,
+  "quantas_ficam_abaixo_da_implantada": 8
+ },
+ "modelos_publicados": {
+  "n": 11,
+  "mediana": 90.4
+ },
+ "distancia_da_implantada_a_mediana_da_classe": 0.9,
+ "previsoes": {
+  "1_nao_e_o_pior": "CONFIRMADA",
+  "2_perto_da_mediana": "CONFIRMADA",
+  "3_modelos_muito_acima": "CONFIRMADA"
+ },
+ "leitura": "a operacao implantada marca 65.1 % e 8 das 17 operacoes e compostos da classe ficam ABAIXO dela; a mediana da classe e 66.0, a 0.9 ponto dela, e a dos modelos publicados e 90.4. O caso implantado nao e fora da curva: ele e o meio da classe de onde vem."
+}
