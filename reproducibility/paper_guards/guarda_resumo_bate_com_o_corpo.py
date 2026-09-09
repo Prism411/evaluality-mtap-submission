@@ -32,7 +32,9 @@ AFIRMACOES = [
     ('nenhuma passa os dois portoes', r'No operation clears either damage gate'),
     ('nenhum composto passa',         r'No combination evaluated here satisfies|none satisfies both'),
     ('tres de dez modelos passam',    r'three of ten no-reference models'),
-    ('a troca muda 22 de 42',         r'22 of (?:the )?42'),
+    # ⚠️ o numero virou MACRO medida em 08/09 e o padrao literal parou de casar. A
+    # afirmacao importa, nao a grafia: aceita o digito ou a macro que o produz.
+    ('a troca muda 22 de 42',         r'(?:22|\\casCompleta\{\}) of (?:the )?42'),
     ('nenhum humano julgou',          r'No human judged'),
     # ⚠️ a AFIRMACAO importa, nao a frase: em 08/09 ela foi condicionada ao requisito
     # medido e virou «better-supported replacement candidates».
