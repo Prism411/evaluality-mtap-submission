@@ -17,8 +17,10 @@ NOME = {'sobel_cv': 'Sobel variation coeff.', 'contraste_variancia': 'Contrast v
         'brilho': 'Brightness', 'ke_brightness': 'Brightness (Ke)',
         'ke_contraste': 'Contrast (Ke)', 'hasler_colorfulness': 'Colourfulness (Hasler)',
         'ke_colorfulness': 'Colourfulness (Ke)', 'srinivas_quality': 'Composite of five',
-        'huang_saturacao': 'Saturation', 'huang_matiz': 'Hue',
-        'ke_edge_distribution': 'Edge distribution', 'ke_hue_count': 'Hue count'}
+        # ⚠️ «Hue count» e «Hue» em linhas vizinhas pareciam a mesma operacao duas vezes.
+        # A figura ja usa o padrao «(Ke)»/«(Hasler)» nas outras duas duplicatas.
+        'huang_saturacao': 'Saturation (Huang)', 'huang_matiz': 'Hue (Huang)',
+        'ke_edge_distribution': 'Edge distribution (Ke)', 'ke_hue_count': 'Hue count (Ke)'}
 
 
 def main():
