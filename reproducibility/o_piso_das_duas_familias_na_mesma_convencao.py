@@ -53,6 +53,7 @@ def main():
     res = {
         '_o_que_e': __doc__.strip().split('\n\n')[0],
         '_regra_de_entrada': 'o conjunto do artigo, sem o `si`; nas duas familias',
+        '_referencia': 'LIQE nas DUAS familias. A coluna Floor da tabela mistura Q-Align nos modelos com LIQE nas operacoes; a comparacao ENTRE familias so vale na MESMA referencia, e por isso esta conta usa LIQE dos dois lados.',
         'fora_do_inventario_auditado': ['si', 'sobel_cv'],
         'operacoes': {
             'n': len(ops), 'passam': len(passam),
