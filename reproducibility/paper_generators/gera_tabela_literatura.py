@@ -36,6 +36,8 @@ CITE = {
     'hasler_colorfulness': 'hasler2003colorfulness', 'ke_colorfulness': 'ke2006highlevel',
 }
 SENS, TIPOS, GEN = 0.50, 15, 0.65
+PALAVRA = {11: 'eleven', 12: 'twelve', 13: 'thirteen', 14: 'fourteen', 15: 'fifteen'}
+POSTO = json.load(open(QB / 'posto_e_m_eff_das_15.json'))['posto_dos_escores_crus']
 
 
 def main():
@@ -66,7 +68,14 @@ def main():
          r'\textbf{No operation clears either damage gate}: the best sensitivity is '
          r'$.298$ and the best generalization among the fifteen evaluated is $.139$. '
          r'Spatial information declares no direction, carries no verdict and is excluded '
-         r'from every count. The \emph{Floor} column reports the in-domain agreement '
+         # ⚠️ o posto mora aqui e nao no corpo: a pergunta «as quinze sao quinze medidas?»
+         # se faz olhando ESTA tabela, e a base do numero e a matriz de escores do KADID,
+         # nao as decisoes nos 42 clusters, onde vivem as tres variantes de brightness.
+         rf'from every count. \textbf{{The fifteen are not fifteen independent '
+         rf'measurements}}: on KADID-10k their score matrix has rank {PALAVRA[POSTO]}, '
+         rf'because one colourfulness implementation duplicates another exactly and one '
+         rf'operation is the mean of three others. '
+         r'The \emph{Floor} column reports the in-domain agreement '
          r'against the reference model with the lower end of its 95\% interval in '
          r'brackets, so a pass can be read for how much of it survives the interval: the '
          # ⚠️ esta tabela vive no SUPLEMENTAR; macro do corpo nao alcanca. Valor inline.

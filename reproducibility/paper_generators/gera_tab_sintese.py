@@ -238,7 +238,7 @@ def main():
     A(r'\centering')
     A(r'\scriptsize')
     A(r'\setlength{\tabcolsep}{2.0pt}')
-    A(r'\renewcommand{\arraystretch}{1.05}')
+    A(r'\renewcommand{\arraystretch}{0.98}')
     A(r'\begin{tabular}{@{}l' + 'c' * 8 + r'@{\hskip 5pt}r@{\hskip 5pt}r@{\hskip 4pt}r@{}}')
     A(r'\toprule')
     A(r'& \multicolumn{8}{c}{\textbf{\footnotesize degradation type}} & & &\\')

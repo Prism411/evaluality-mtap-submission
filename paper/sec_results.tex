@@ -20,10 +20,11 @@ copy above the original} on at least one degradation type, and thirteen do so un
 variance, gradient orientation and gradient
 magnitude. The two exceptions
 to the noise pattern, hue count and edge distribution, fail elsewhere: hue count on five of
-the eight types and edge distribution on H.264 and JPEG. All \invCelulas{} operation--type cells below chance are significant under Holm
-across the \invTestes{} tests, where a coin-flip control yields \invMoeda{}; the same test
-leaves \invModelosLimpos{} of the \invModelos{} published models with no type below
-chance. Table~S28 lists the \invCelulas{} cells, and removing the two degradation types aligned
+the eight types and edge distribution on H.264 and JPEG. Each operation--type cell gives an exact one-sided binomial test against the .50 chance
+null, and Holm correction runs over the complete \invTestes{}-test family: all
+\invCelulas{} cells below chance survive it, where a coin-flip control yields \invMoeda{},
+and the same test leaves \invModelosLimpos{} of the \invModelos{} published models with no
+type below chance.  Table~S28 lists the \invCelulas{} cells, and removing the two degradation types aligned
 with an operation's own attribute leaves all \tipoSemAlinhados{} still inverting.
 
 White noise concentrates the failures. These operations are statistics of local structure
@@ -42,9 +43,8 @@ On material where the better member is known, the reading tested here inverts.
 contains the same content before and after a known degradation. The deployed operation is correct on \mchImplantada{}\% of 800 pairs. LIQE reaches
 \mchLiqe{}\%; the paired difference is $+\mchDif{}$ percentage points, segment-block 95\% CI
 $[+29.8,+38.9]$. Every evaluated NR-IQA candidate exceeds the deployed score. \textbf{The deployed
-operation is not an outlier in the class it comes from}: \tipAbaixo{} of the \tipDe{}
-summarization operations and composites score below it, and the class median is
-\tipMediana{}.
+operation is not an outlier in the class it comes from}: \tipAbaixo{} of the \tipDe{} literature-derived scorers and composites with complete
+paired coverage score below it, and their median is \tipMediana{}.
 
 \begin{table}[!ht]
 \centering
@@ -179,10 +179,8 @@ reaches a within-reference mean of $.524$ on 17 of the 25 distortion types, abov
 and 15-type requirement that no individual operation met. Its transfer then collapses: on
 KonIQ-10k the same composite reaches $\rho^{*}=.061$, and fitting the ridge on the entirety
 of KADID before applying it to KonIQ moves that to $.067$, against a requirement of $.65$.
-The first figure is a within-reference severity response on KADID and the second an
-association with opinion scores on KonIQ, defined in Section~\ref{sec:screen}; the drop is
-what the second gate exists to detect in a combination calibrated on one severity ladder.
-The remaining 18 combinations do not reach even the first gate. \textbf{No combination
+The drop is what the second gate exists to detect in a combination calibrated on one
+severity ladder. The remaining 18 do not reach even the first gate. \textbf{No combination
 evaluated here satisfies the protocol's two damage requirements at once.}
 
 The two aggregations above are our choices. Several sources do specify how their terms
@@ -317,9 +315,8 @@ visual-selection operation exchanged, \textbf{do the operations pick the same se
 
 They do not. Fourteen operations for which a downstream choice is defined produce eleven
 distinct summaries over the same 42 redundancy clusters. Only two groups coincide, and neither by agreement: the three brightness variants compute
-the same quantity under different names, the two colourfulness implementations are the same
-Hasler expression, and one operation is the mean of three others, so \textbf{the fifteen
-have rank \effPosto{} and an effective \effMeff{} tests}.
+the same quantity under different names, and the two colourfulness implementations are the
+same Hasler expression.
 \textbf{In every one of the 42 clusters the fourteen select all of its members},
 including the \escGrandes{} clusters that hold three or four, so the mean of
 $\escMedia{}$ distinct choices per cluster is the ceiling the cluster sizes allow.
@@ -360,8 +357,10 @@ $\dovCasadoTopico{}$; hierarchical $\dovCasadoHier{}$) and $\dovCasadoCru{}$ raw
 intervals positive. Table~S20 reports the complete-operation comparison and all eligible methods.
 
 Replacing the deployed visual-selection operation with the LIQE-based one changes
-\casCompleta{} of 42 representatives. \textbf{The \subResta{} unchanged clusters are not agreement}: \subPct{} per cent against a
-\subAcaso{} per cent chance floor, kappa \subKappa{}, topic-block interval \subIC{}. On the primary DOVER technical branch, the global-achievable-range point estimate rises from \dovImplantada{}\% to
+\casCompleta{} of 42 representatives. \textbf{The \subResta{} unchanged clusters do not exceed chance agreement}: observed
+agreement is \subPct{} per cent against a \subAcaso{} per cent uniform-choice expectation,
+giving $\kappa_{\mathrm{uniform}}=\subKappa{}$; the topic-block 95\% interval for raw
+agreement is \subIC{}. On the primary DOVER technical branch, the global-achievable-range point estimate rises from \dovImplantada{}\% to
 \dovLiqe{}\%, a paired increase of $+\dovDif{}$ points. Its topic-block interval is $\dovICTopico{}$ and its hierarchical interval is
 $\dovICHier{}$; neither confirms a population-level effect. The raw branch-score difference is $\dovCru{}$ (topic-block $\dovCruTopico{}$;
 hierarchical $\dovCruHier{}$), while mean per-cluster position and selected-maximum rate
@@ -387,10 +386,10 @@ the implementations evaluated here, organized by work and component.
 \input{tab_sintese}
 
 
-\textbf{Three patterns emerge: attribute borrowing, role inflation, and validation at the
+\textbf{Three patterns emerge: attribute borrowing, role reassignment, and validation at the
 summary rather than the component level.}
 
-\emph{Role inflation} is the one the table makes hardest to miss: \emph{the same
+\emph{Role reassignment} is the one the table makes hardest to miss: \emph{the same
 computation carries different claims}. Laplacian variance appears twice because two works use it, and the roles
 are not interchangeable: one applies it as a threshold that discards blurred frames, the
 other as the dominant weighted term of a keyframe score. The same statistic appears in both bands, each row on the

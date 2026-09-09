@@ -85,8 +85,8 @@ reported alongside them, which is why the tables show seventeen rows where both 
 \node[operation] (op) at (0,3.32)
   {\textcolor{catbovw}{\textbf{WHAT IS AUDITED}}\enspace the operations the field puts in
    this slot \emph{as a quality filter}\\[1pt]
-   \textbf{16} from \textbf{11} source works, plus the \textbf{19} composites the
-   literature publishes\\[1pt]
+   \textbf{15} from \textbf{11} source works, \textbf{+1} from ITU-T, plus the \textbf{19}
+   composites the literature publishes\\[1pt]
    \textcolor{black!55}{\itshape alongside them, the deployed
    SIFT\,$\rightarrow$\,BoVW\,$\rightarrow$\,TF-IDF supplies the closed-form mechanism}};
 \draw[focusflow] (d.south)--(d.south |- op.north);
@@ -112,9 +112,9 @@ reported alongside them, which is why the tables show seventeen rows where both 
 \end{tikzpicture}}
 \caption{Scope and evidence flow. Top: a deployed multi-video pipeline whose visual-content stage is
 explicit, which is what makes the slot testable. Middle: what is
-audited is the set of operations the summarization literature puts in that slot as a quality filter, sixteen
-from eleven source works, plus the nineteen composites the literature publishes, and not
-the pipeline itself. Bottom: the four tests, applied to the operations, to ten no-reference models and to the
+audited is the set of operations the summarization literature puts in that slot as a quality filter, fifteen from eleven
+source works plus ITU-T spatial information as a diagnostic sixteenth, and the nineteen
+composites the literature publishes, not the pipeline itself. Bottom: the four tests, applied to the operations, to ten no-reference models and to the
 deployed case, with per-test coverage recorded in Table~S17 because it is not uniform. The
 provenance audit that produces the middle inventory is the fifth evidence block. All
 other pipeline stages remain fixed.}
@@ -293,6 +293,11 @@ inventory was frozen, is architecturally distinct from the candidates, and is
 13.7 times slower than LIQE under the measured setup; it is therefore reserved
 as a reference model rather than screened as an on-line candidate.
 
+% ⛔ a Tabela 1 flutuava para DENTRO do paragrafo seguinte e cortava uma oracao ao
+% meio, com a tabela inteira entre as duas metades. A barreira obriga o float a sair
+% ANTES deste paragrafo comecar.
+\FloatBarrier
+
 The substitution study measures changes of selection and model-reference scores of the
 output; \textbf{it does not measure human preference} for the resulting summaries. DOVER is used only as an output-sensitivity reference and does not participate
 in screening~\citep{wu2023dover}. The official \texttt{DOVER.pth} checkpoint and
@@ -336,10 +341,10 @@ simple random draw (seed 42); they represent 13 of the 19 operational topics
 $20\times8\times5=800$ binary decisions. The unmodified member is the construction-defined higher-fidelity signal.
 Accuracy and paired differences are block-bootstrapped by segment
 ($10^4$ resamples, seed 42), because the 40 pairs inside a segment share content and are
-not independent observations. \textbf{Every interval was recomputed under its declared unit and
-under a rival unit}, and the declared unit is reported only where the rival fails to
-reproduce the published bounds. Table~S27 gives the four analyses, their units and the
-outcome. A second design correlates score with degradation
+not independent observations. \textbf{Primary inference uses the dependence-aware unit each design implies}: the
+reference image on KADID-10k, the broadcast segment on the constructed pairs, and the news
+topic on the application. Table~S27 reports the alternative-unit analyses as sensitivity
+checks. A second design correlates score with degradation
 level within each segment--type pair. Overlay strata, the complete registered
 prediction audit and parameters are reported in Tables~S2 and S12 and the
 reproducibility archive. Ties count as neither correct nor incorrect and remain
