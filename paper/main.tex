@@ -45,6 +45,11 @@
 \setcounter{topnumber}{3}
 \setcounter{totalnumber}{4}
 
+% ⛔ ANTES do \begin{document}: enquanto este input ficava depois do \maketitle, o
+% resumo nao alcancava macro nenhuma, e tentar usar uma la dava «Undefined control
+% sequence» com o numero saindo VAZIO no PDF. Sao so \newcommand, entao carregar cedo
+% e seguro e libera o resumo, que e o texto mais lido, para usar valor medido.
+\input{regras_publicadas}
 \begin{document}
 
 \title[Do visual-selection heuristics measure technical quality?]{Do Visual-Selection Heuristics Measure Technical Quality? A Controlled Audit of Sixteen Operations Used in Video Summarization}
@@ -60,10 +65,10 @@
 Video summarization systems select segments using visual heuristics such as colourfulness,
 contrast and sharpness in heterogeneous roles: some originate in photograph classification,
 retrieval or broadcast characterization, others are terms inside summarization objectives.
-We audit their reuse as autonomous technical-quality scores. \textbf{Of the sixteen
-individual operations, only one is stand-alone in its own source}, and it indexes
-colourfulness. We reimplement sixteen such heuristics from eleven source works and screen them on 800
-pairs in which the same content
+We audit their reuse as autonomous technical-quality scores. \textbf{Of the \fontesOperacoes{} individual operations, only \autAutonomas{} is
+stand-alone in its own source}, and it indexes
+colourfulness. We reimplement \fontesOperacoes{} such heuristics from \fontesTrabalhos{} source works
+and screen them on 800 pairs in which the same content
 appears before and after a known degradation, so the better member is fixed by construction.
 \textbf{Thirteen prefer the degraded copy under white noise}, five of them on every pair,
 and the Bag-of-Visual-Words score deployed in a published summarizer inverts on 92\% of
@@ -85,7 +90,6 @@ Content selection criteria, Benchmark evaluation, Broadcast news video}
 \maketitle
 
 %% macros medidas: carregam antes das secoes, a 2.3 ja as usa
-\input{regras_publicadas}
 \input{sec_intro}
 \input{sec_related}
 \input{sec_method}

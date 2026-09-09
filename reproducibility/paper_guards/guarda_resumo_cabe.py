@@ -33,6 +33,9 @@ def palavras(texto):
 
 def resumo(fonte=None):
     t = fonte if fonte is not None else (AQUI / 'main.tex').read_text(encoding='utf-8')
+    # ⛔ em 08/09 um COMENTARIO que citava «\abstract{}» fez o casamento comecar nele e o
+    # resumo saltar de 250 para 365 palavras. Linha de comentario sai antes.
+    t = re.sub(r'(?m)^\s*%.*$', '', t)
     m = re.search(r'\\abstract\{(.*?)\n\}', t, re.S)
     return None if m is None else m.group(1)
 
