@@ -36,7 +36,8 @@ def _raiz(nome):
 
 PAR = None
 SIFT = None
-SAIDA = QB / 'as_tres_excecoes_do_mecanismo.json'
+# ⚠️ rodando do pacote, QB nao existe: a saida vai para o lado do script
+SAIDA = (QB if QB.exists() else Path(__file__).resolve().parent) / 'as_tres_excecoes_do_mecanismo.json'
 
 
 def contagens(o, acc):

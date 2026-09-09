@@ -42,7 +42,8 @@ def _raiz(nome):
 
 CTRL = None
 TERC = None
-SAIDA = QB / 'a_substituicao_concorda_acima_do_acaso.json'
+# ⚠️ rodando do pacote, QB nao existe: a saida vai para o lado do script
+SAIDA = (QB if QB.exists() else Path(__file__).resolve().parent) / 'a_substituicao_concorda_acima_do_acaso.json'
 B, SEMENTE = 10000, 42
 
 

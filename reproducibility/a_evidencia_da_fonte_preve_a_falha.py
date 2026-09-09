@@ -37,7 +37,8 @@ def _raiz(nome):
             return base / nome
     raise FileNotFoundError(nome)
 
-SAIDA = QB / 'a_evidencia_da_fonte_preve_a_falha.json'
+# ⚠️ rodando do pacote, QB nao existe: a saida vai para o lado do script
+SAIDA = (QB if QB.exists() else Path(__file__).resolve().parent) / 'a_evidencia_da_fonte_preve_a_falha.json'
 
 VALIDA_A_PROPRIEDADE = 'julgamento humano da propriedade'
 

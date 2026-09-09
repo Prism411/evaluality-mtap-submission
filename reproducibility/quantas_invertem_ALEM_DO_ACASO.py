@@ -45,7 +45,8 @@ def _raiz(nome):
 sys.path.insert(0, str(QB))
 import ops_da_literatura as OPS                                     # noqa: E402
 
-SAIDA = QB / 'quantas_invertem_ALEM_DO_ACASO.json'
+# ⚠️ rodando do pacote, QB nao existe: a saida vai para o lado do script
+SAIDA = (QB if QB.exists() else Path(__file__).resolve().parent) / 'quantas_invertem_ALEM_DO_ACASO.json'
 TIPOS = ['dark', 'motion', 'blur', 'h264', 'rescale', 'satur', 'noise', 'jpeg']
 NIVEIS = [1, 2, 3, 4, 5]
 
