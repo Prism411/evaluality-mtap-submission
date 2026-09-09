@@ -19,7 +19,9 @@ import sys
 from pathlib import Path
 
 AQUI = Path(__file__).parent
-CORPO = ['sec_intro.tex', 'sec_related.tex', 'sec_method.tex',
+# ⛔ BURACO MEDIDO EM 09/09: o `main.tex` NAO estava na lista, e e onde mora o RESUMO.
+# Uma macro minuscula abriu frase la e a guarda nao viu, porque nao abria o arquivo.
+CORPO = ['main.tex', 'sec_intro.tex', 'sec_related.tex', 'sec_method.tex',
          'sec_results.tex', 'sec_discussion.tex', 'sec_conclusion.tex']
 
 
