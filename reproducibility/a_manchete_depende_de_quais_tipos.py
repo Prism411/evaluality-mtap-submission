@@ -98,8 +98,34 @@ def main():
                     'invertem': len(inv), 'de': len(ops),
                     'nao_invertem': sorted(set(ops) - set(inv))}
 
+    # ⭐ o SEGUNDO eixo: e de quais SEGMENTOS ela depende? Deixa um de fora por vez.
+    def inverte(o, fora):
+        maior = OPS.DIRECAO[o]
+        for t in TIPOS:
+            certos = n = 0
+            for s in segs:
+                if s == fora:
+                    continue
+                v = d[s].get(o)
+                if not v or 'orig' not in v:
+                    continue
+                for lv in range(1, 6):
+                    deg = v.get('%s_%d' % (t, lv))
+                    if deg is None or v['orig'] == deg:
+                        continue
+                    n += 1
+                    certos += int(v['orig'] > deg if maior else v['orig'] < deg)
+            if n and 100 * certos / n < 50:
+                return True
+        return False
+
+    por_rodada = [sum(1 for o in ops if inverte(o, s)) for s in segs]
+    seg = {'n_rodadas': len(segs), 'minimo': min(por_rodada), 'maximo': max(por_rodada),
+           'rodadas_abaixo_da_base': sum(1 for x in por_rodada if x < len(ops))}
+
     res = {
         '_o_que_e': __doc__.strip().split('\n\n')[0],
+        'tirando_um_segmento': seg,
         '_ancora': '%d celulas conferidas contra a tabela publicada' % conf,
         'n_operacoes': len(ops), 'por_cenario': out,
     }
@@ -109,12 +135,16 @@ def main():
             'CONFIRMADA' if out['os oito tipos']['invertem'] == len(ops) else '⛔ FALHOU',
         '3_tirar_os_alinhados_nao_derruba':
             'CONFIRMADA' if out['sem os dois tipos alinhados']['invertem'] == len(ops) else '⛔ FALHOU',
+        '4_tirar_um_segmento_nao_derruba_em_rodada_nenhuma':
+            'CONFIRMADA' if seg['rodadas_abaixo_da_base'] == 0 else '⛔ FALHOU',
     }
     res['leitura'] = (
         'a manchete nao depende dos dois tipos alinhados: sem eles as %d continuam '
         'invertendo. Depende do ruido branco: sem ele sao %d de %d, e sem os tres, %d.'
         % (len(ops), out['sem o ruido branco']['invertem'], len(ops),
-           out['sem os tres']['invertem']))
+           out['sem os tres']['invertem'])
+        + ' No eixo dos segmentos ela nao depende de nenhum: nas %d rodadas deixando um de '
+          'fora, as %d continuam invertendo em todas.' % (seg['n_rodadas'], len(ops)))
     SAIDA.write_text(json.dumps(res, ensure_ascii=False, indent=1))
     print(' ', res['previsoes'])
     print(' ', res['leitura'])

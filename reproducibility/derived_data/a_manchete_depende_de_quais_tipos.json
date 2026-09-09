@@ -1,5 +1,11 @@
 {
  "_o_que_e": "⭐⭐ A MANCHETE DEPENDE DE QUAIS OITO DEGRADACOES ENTRARAM?",
+ "tirando_um_segmento": {
+  "n_rodadas": 20,
+  "minimo": 15,
+  "maximo": 15,
+  "rodadas_abaixo_da_base": 0
+ },
  "_ancora": "120 celulas conferidas contra a tabela publicada",
  "n_operacoes": 15,
  "por_cenario": {
@@ -60,7 +66,8 @@
  "previsoes": {
   "1_a_ancora_bate": "CONFIRMADA",
   "2_com_os_oito_todas_invertem": "CONFIRMADA",
-  "3_tirar_os_alinhados_nao_derruba": "CONFIRMADA"
+  "3_tirar_os_alinhados_nao_derruba": "CONFIRMADA",
+  "4_tirar_um_segmento_nao_derruba_em_rodada_nenhuma": "CONFIRMADA"
  },
- "leitura": "a manchete nao depende dos dois tipos alinhados: sem eles as 15 continuam invertendo. Depende do ruido branco: sem ele sao 9 de 15, e sem os tres, 7."
+ "leitura": "a manchete nao depende dos dois tipos alinhados: sem eles as 15 continuam invertendo. Depende do ruido branco: sem ele sao 9 de 15, e sem os tres, 7. No eixo dos segmentos ela nao depende de nenhum: nas 20 rodadas deixando um de fora, as 15 continuam invertendo em todas."
 }
