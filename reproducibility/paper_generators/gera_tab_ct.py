@@ -24,7 +24,7 @@ ROTULO = {
                      'without the absolute value'),
     'razao_que_a_fonte_NAO_escreve': (r'$\frac{1}{K}\sum_k \sigma_p(f_k)/'
                                       r'\sigma_p(\mathrm{HE}(f_k))$',
-                                      'ratio, which the source does not write'),
+                                      'ratio, unwritten in the source'),
 }
 
 
