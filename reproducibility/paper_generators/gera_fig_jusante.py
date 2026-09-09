@@ -34,7 +34,7 @@ def main():
     W, bh, gap = 5.3, 0.222, 0.044
     COLNUM = W + 0.32                       # ⭐ os numeros saem da area do grafico: dentro
     base = -(len(L0)) * (bh + gap) - 0.10   # dela colidiam com a grade e com as verticais
-    L = [r'\begin{figure}[!ht]', r'\centering',
+    L = [r'\begin{figure}[!t]', r'\centering',
          r'\begin{tikzpicture}[x=1cm,y=1cm,font=\scriptsize]']
     for x in (0, 25, 50, 75, 100):
         px = x / 100 * W

@@ -20,11 +20,11 @@ copy above the original} on at least one degradation type, and thirteen do so un
 variance, gradient orientation and gradient
 magnitude. The two exceptions
 to the noise pattern, hue count and edge distribution, fail elsewhere: hue count on five of
-the eight types and edge distribution on H.264 and JPEG. Each operation--type cell gives an exact one-sided binomial test against the .50 chance
-null, and Holm correction runs over the complete \invTestes{}-test family: all
-\invCelulas{} cells below chance survive it, where a coin-flip control yields \invMoeda{},
-and the same test leaves \invModelosLimpos{} of the \invModelos{} published models with no
-type below chance.  Table~S28 lists the \invCelulas{} cells, and removing the two degradation types aligned
+the eight types and edge distribution on H.264 and JPEG. Each operation--type cell is tested on the segment, the unit the design implies, by an
+exact sign-flip randomization over the 20 segments, with Holm over the
+\invTestes{}-test family: \invSig{} of the \invCelulas{} cells below chance survive it, in
+\invOpsSig{} of the \fontesDaLiteratura{} operations. The same test leaves
+\invModelosLimpos{} of the \invModelos{} published models with no type below chance.  Table~S28 lists the \invCelulas{} cells, and removing the two degradation types aligned
 with an operation's own attribute leaves all \tipoSemAlinhados{} still inverting.
 
 White noise concentrates the failures. These operations are statistics of local structure
@@ -283,11 +283,9 @@ threshold varies from .60 to .65 or the sensitivity coverage cut varies from 12 
 types (Table~S10); at .55 MUSIQ is added, and at .70 only LIQE remains.
 
 The database-level values show why the universal unseen-database clause matters.
-LIQE obtains $\rho^{*}=.723$ on KADID and .865 on CLIVE; QualiCLIP obtains .665
-and .757; CLIP-IQA$+$ obtains .654 and .805. TOPIQ and MUSIQ are strong on the
-unseen authentic database (.811 and .789) but fall to .511 and .556 on KADID.
-DBCNN and HyperIQA similarly fall from .756 and .750 on CLIVE to .484 and .462
-on KADID. The three eligible methods pass the floor with overlapping topic-block intervals. LIQE agrees with Q-Align
+The three eligible methods hold above $\rho^{*}=.65$ on both databases, while TOPIQ,
+MUSIQ, DBCNN and HyperIQA are strong on the unseen authentic database and fall to between
+.462 and .556 on KADID; Table~S21 gives every value. The three eligible methods pass the floor with overlapping topic-block intervals. LIQE agrees with Q-Align
 on 32 of 42 clusters ($\kappa_{\mathrm{uniform}}=.551$, 95\% CI
 $[.284,.786]$); QualiCLIP agrees on 28 ($.371$, $[.143,.597]$); and
 CLIP-IQA$+$ on 25 ($.236$, $[.034,.435]$). The deployed operation agrees on 21,
@@ -337,6 +335,8 @@ choosing among them, not among no-reference models. Figure~\ref{fig:jusante} ans
 replacing the deployed operation with each of the fourteen in turn, holding every other
 stage and the decoded frames fixed.
 
+% ⚠️ este arquivo DEFINE as macros que o paragrafo abaixo usa, entao o input tem de vir
+% antes dele. O que controla o corte de oracao e a colocacao `[t]` da figura.
 \input{fig_jusante}
 
 \jusAbaixo{} of the fourteen (\jusAbaixoNomes{}) retain less than chance, so adopting one

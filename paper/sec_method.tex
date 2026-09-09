@@ -1,8 +1,8 @@
 \section{Audit design}\label{sec:method}
 
-The object of the audit is a class of operations, not a system. Sixteen visual operations
-that the summarization literature applies at the selection stage are reimplemented from
-the equations their source works publish, fifteen of them closed-form and one requiring
+The object of the audit is a class of operations, not a system. Fifteen visual operations that the summarization literature applies at the selection stage,
+plus ITU-T spatial information as a diagnostic control, are reimplemented from the
+equations their source works publish, fifteen of them closed-form and one requiring
 a learned saliency map, and every one of them is put through a common protocol
 (Fig.~\ref{fig:overview}). Ten no-reference quality models and one deployed pipeline
 component are carried through that protocol, with the tests available for each
@@ -339,9 +339,13 @@ Twenty of the 83 broadcast segments are sampled without replacement by a seeded
 simple random draw (seed 42); they represent 13 of the 19 operational topics
 (Table~S2). Pairing each unmodified segment with every degradation and level gives
 $20\times8\times5=800$ binary decisions. The unmodified member is the construction-defined higher-fidelity signal.
-Accuracy and paired differences are block-bootstrapped by segment
-($10^4$ resamples, seed 42), because the 40 pairs inside a segment share content and are
-not independent observations. \textbf{Primary inference uses the dependence-aware unit each design implies}: the
+Accuracy and paired differences are block-bootstrapped by segment ($10^4$ resamples, seed
+42), because the 40 pairs inside a segment share content and are not independent
+observations. \textbf{Per-cell significance uses the same unit}: an exact sign-flip
+randomization over the 20 segments, whose null enumerates all $2^{20}$ block sign
+assignments, with Holm over the 120 operation--type tests. \textbf{Disagreement counts
+between the complete-operation and matched-input regimes are compared by an exact McNemar
+test} over the 42 paired clusters. \textbf{Primary inference uses the dependence-aware unit each design implies}: the
 reference image on KADID-10k, the broadcast segment on the constructed pairs, and the news
 topic on the application. Table~S27 reports the alternative-unit analyses as sensitivity
 checks. A second design correlates score with degradation

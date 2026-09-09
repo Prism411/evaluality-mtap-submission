@@ -22,28 +22,20 @@ degradations by what they do to local high-frequency energy, measured on the sam
 as the median ratio to the original. The seven that reduce that energy are answered
 correctly, from darkening at $84.3$ down to desaturation at $61.8$. \textbf{White noise is the only one that raises it}, by a factor of $6.9$, and it is the
 one the class answers at $19.1$ per cent, with a median of $3.0$ and thirteen of the fifteen operations below
-chance.
-
-
-Two operations, hue count and edge distribution, answer white noise correctly at $100$ per
-cent and fail elsewhere instead. JPEG, which one might expect to add structure through
+chance. JPEG, which one might expect to add structure through
 block edges, in fact reduces the measured energy at a ratio of $0.95$, and is answered at
 $62.9$. \emph{Structure}, \emph{descriptor count} and \emph{high-frequency energy} are
 three different quantities, and only the first two were tied together by measurement.
 \textbf{These differences indicate recurring degradation-specific failures} rather than a
 single mechanism shared by all the evaluated operations.
 
-\textbf{Read across the works, the audit says three things about published practice.} The
-same computation carries different requirements: \citet{cakmak2025tripss} uses Laplacian
-variance as a threshold that discards blurred frames, \citet{korolkov2025keyframe} as the
-dominant weighted term of a ranking score. This bench measured the statistic as a scorer, so it
-speaks to the second use directly and to the first only through the statistic the filter
-reads. \textbf{An aggregate can also hide where a quality score would be used}: the
-visual-attention module of \citet{qaroush2025diversity} averages \vaModuloOito{} per cent
-over the full battery and sits at \vaRuido{} under noise and \vaJpeg{} under JPEG, the two
-degradations on which such a score would reject material. And \textbf{combining terms is not by itself evidence of
-robustness}: the one composite that clears sensitivity fails transfer, so a work that
-publishes a combination inherits the transfer question its members never answered.
+\textbf{Validity does not travel automatically when a visual statistic changes task, decision role
+or aggregation.} Attribute borrowing changes
+the task in which a measure is interpreted; role reassignment changes how it enters the
+selection; and summary-level evaluation never isolates whether the component measures
+technical quality. Section~\ref{sec:synthesis} and Table~\ref{tab:synthesis} carry the
+cases; the controlled and cross-database results are what show that each of those
+transitions needs its own validation.
 
 \textbf{For the technical-quality requirement evaluated here, the eligible no-reference
 models are better-supported replacement candidates} than normalizing the deployed operation

@@ -43,6 +43,7 @@ def main():
     prov = json.load(open(QB / 'a_proveniencia_fecha_com_a_bib.json'))
     sub = json.load(open(QB / 'a_substituicao_concorda_acima_do_acaso.json'))
     inv = json.load(open(QB / 'quantas_invertem_ALEM_DO_ACASO.json'))
+    blo = json.load(open(QB / 'o_binomial_respeita_o_bloco.json'))
     mch = json.load(open(QB / 'o_bloco_de_segmento_reproduz_um_intervalo_publicado.json'))['manchete']
     exc = json.load(open(QB / 'as_tres_excecoes_do_mecanismo.json'))
     tab4 = json.load(open(QB / 'a_tabela_4_reproduz.json'))['por_metodo']
@@ -170,6 +171,11 @@ def main():
          # TODA celula abaixo do acaso e significativa, e a moeda de controle nao acumula.
          f'\\newcommand{{\\invCelulas}}{{{sum(len(v["tipos_abaixo_de_50"]) for v in inv["por_operacao"].values())}}}',
          f'\\newcommand{{\\invTestes}}{{{inv["n_testes"]}}}',
+         # ⛔ CORRIGIDO em 09/09: o binomial tratava os 100 pares como independentes, e eles
+         # sao 20 SEGMENTOS x 5 niveis. Na unidade declarada (troca de sinal por segmento,
+         # nula exata) sobrevivem 22 das 35, em 14 das 15 operacoes, e nao 35 em 15.
+         f'\\newcommand{{\\invSig}}{{{blo["significativas_sob_o_bloco_de_segmento"]}}}',
+         f'\\newcommand{{\\invOpsSig}}{{{POREXT[blo["operacoes_com_ao_menos_uma_significativa_no_bloco"]]}}}',
          f'\\newcommand{{\\invMoeda}}{{{"none" if inv["controle_da_moeda"]["quantas_acumulam_significancia"] == 0 else POREXT[inv["controle_da_moeda"]["quantas_acumulam_significancia"]]}}}',
          # ⭐ o mesmo teste na outra familia: sem ele a leitura e de um lado so
          f'\\newcommand{{\\invModelosLimpos}}{{{POREXT[inv["a_outra_familia"]["sem_nenhum_tipo_abaixo"]]}}}',
@@ -311,6 +317,9 @@ def main():
         '⛔ o controle da duplicata saiu do teto: a conta de concordancia esta errada'
     assert tip['classe_de_sumarizacao']['quantas_ficam_abaixo_da_implantada'] > 0, \
         '⛔ a implantada virou o pior da classe: a frase da ponte cai'
+    assert blo['celulas_abaixo_do_acaso'] == 35 and \
+        blo['significativas_sob_o_bloco_de_segmento'] < blo['celulas_abaixo_do_acaso'], \
+        '⛔ mudou a conta do bloco: reescrever a frase da 4.1'
     assert au['autonomas'] == 1, '⛔ mudou o numero de autonomas: reescrever a prosa'
     # ⚠️ as duas regras publicadas TEM de ficar abaixo da media, senao a frase da prosa cai
     assert nb < media, '⛔ o naive Bayes do Ke superou a media: reescrever a prosa'

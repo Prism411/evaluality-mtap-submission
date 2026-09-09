@@ -30,6 +30,8 @@ TIPO = {'dark': 'Dk', 'motion': 'Mo', 'blur': 'Bl', 'h264': 'H2', 'rescale': 'Rs
 
 def main():
     d = json.loads((QB / 'quantas_invertem_ALEM_DO_ACASO.json').read_text(encoding='utf-8'))
+    blo = json.loads((QB / 'o_binomial_respeita_o_bloco.json').read_text(encoding='utf-8'))
+    perdem = set(blo['perdem_a_significancia_no_bloco'])
     _m = json.loads((QB / 'a_manchete_depende_de_quais_tipos.json').read_text(encoding='utf-8'))
     mtip, mseg = _m['por_cenario'], _m['tirando_um_segmento']
     ops = d['por_operacao']
@@ -40,8 +42,10 @@ def main():
         sig = set(v['tipos_significativos'])
         # ⚠️ se alguma celula abaixo do acaso NAO for significativa, ela sai marcada, e a
         # frase do corpo cai junto: a tabela nao pode esconder a excecao.
+        # ⚠️ a daga agora marca a celula que NAO sobrevive ao teste na unidade declarada
         celulas = ', '.join(
-            '%s~%.1f%s' % (TIPO[t], v['acuracia_por_tipo'][t], '' if t in sig else r'$^{\dagger}$')
+            '%s~%.1f%s' % (TIPO[t], v['acuracia_por_tipo'][t],
+                           r'$^{\dagger}$' if '%s|%s' % (o, t) in perdem else '')
             for t in abaixo)
         linhas.append(r'%s & %d & %.1f & %s \\' % (NOME.get(o, o), len(abaixo),
                                                    v['menor_acuracia'], celulas))
@@ -50,10 +54,10 @@ def main():
         '%%%% GERADO por %s -- nao editar a mao\n' % Path(__file__).name +
         '\\begin{table}[!ht]\n\\centering\n'
         '\\caption{Every operation--type cell below the 50 per cent chance floor, with the '
-        'accuracy of each. All %d cells are significant by an exact one-sided binomial test '
-        'under Holm correction across the %d operation--type tests; a cell short of '
-        'significance would carry $^{\\dagger}$ and none does. Counting ties inside the '
-        'denominator instead of outside '
+        'accuracy of each. Significance is an exact sign-flip randomization over the 20 '
+        'broadcast segments, the unit the design implies, with Holm across the %d '
+        'operation--type tests: %d of the %d cells survive it and $^{\\dagger}$ marks the '
+        '%d that do not. Counting ties inside the denominator instead of outside '
         'leaves the same %d cells and the same %d operations. Removing the two types aligned '
         'with an operation\'s own attribute, darkening and desaturation, leaves all %d '
         'operations still inverting; removing white noise instead leaves %d. Dropping one '
@@ -61,7 +65,8 @@ def main():
         'Dk = darkening, Mo = motion '
         'blur, Bl = Gaussian blur, H2 = H.264, Rs = rescaling, St = desaturation, '
         'Ns = white noise, Jp = JPEG.}\n'
-        % (sum(len(v['tipos_abaixo_de_50']) for v in ops.values()), d['n_testes'],
+        % (d['n_testes'], blo['significativas_sob_o_bloco_de_segmento'],
+           sum(len(v['tipos_abaixo_de_50']) for v in ops.values()), len(perdem),
            sens['celulas_abaixo_de_50'], sens['operacoes_com_tipo_significativo'],
            mtip['sem os dois tipos alinhados']['invertem'], mtip['sem o ruido branco']['invertem'],
            len(ops), mseg['n_rodadas']) +
