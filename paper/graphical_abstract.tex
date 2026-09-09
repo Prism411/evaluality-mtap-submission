@@ -22,6 +22,7 @@
 \definecolor{phase2color}{HTML}{1E8449}
 \definecolor{phase3color}{HTML}{7D3C98}
 \definecolor{phase4color}{HTML}{E67E22}
+\definecolor{phase5color}{HTML}{B03A2E}
 
 \begin{document}
 \begin{tikzpicture}[
@@ -132,19 +133,21 @@
 %% ---------- Bottom strip: the four phases ----------------------------------
 \draw[headerblue!25, line width=0.8pt] (0,-0.85) -- (24,-0.85);
 \node[font=\sffamily\bfseries\scriptsize, text=headerblue, anchor=west]
-  at (0,-1.35) {Four-phase protocol};
+  at (0,-1.35) {Five evidence blocks};
 \node[chip, draw=phase1color, fill=phase1color!10, anchor=west]
-  (c1) at (3.3,-1.35) {\textbf{1} Sensitivity to\\controlled degradation};
+  (c1) at (3.3,-1.35) {\textbf{1} What the\\sources state};
 \node[chip, draw=phase2color, fill=phase2color!10, right=0.5cm of c1]
-  (c2) {\textbf{2} Agreement on\\redundancy clusters};
+  (c2) {\textbf{2} Constructed\\truth, 800 pairs};
 \node[chip, draw=phase3color, fill=phase3color!10, right=0.5cm of c2]
-  (c3) {\textbf{3} Human scores on\\3 databases, P.1401};
+  (c3) {\textbf{3} Mechanism of the\\deployed case};
 \node[chip, draw=phase4color, fill=phase4color!10, right=0.5cm of c3]
-  (c4) {\textbf{4} Ablation over\\19 CNN extractors};
+  (c4) {\textbf{4} Human scores on\\3 databases};
 \draw[ar] (c1) -- (c2); \draw[ar] (c2) -- (c3); \draw[ar] (c3) -- (c4);
-\node[font=\sffamily\scriptsize, text=black!60, anchor=west, right=0.55cm of c4,
-      text width=4.4cm]
-  {four evidence streams, one protocol,\\one decision per redundancy cluster};
+% ⚠️ o quinto bloco ficava como NOTA em cinza, e nao como etapa: quem olha a tira conta
+% quatro. Agora ele tem a mesma ficha e a mesma seta que os outros.
+\node[chip, draw=phase5color, fill=phase5color!10, right=0.5cm of c4]
+  (c5) {\textbf{5} Effect on the\\selections made};
+\draw[ar] (c4) -- (c5);
 
 \end{tikzpicture}
 \end{document}
