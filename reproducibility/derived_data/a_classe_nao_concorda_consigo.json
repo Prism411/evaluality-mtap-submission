@@ -1,0 +1,41 @@
+{
+ "_o_que_e": "⭐⭐ AS OPERACOES CONCORDAM MAIS ENTRE SI OU COM UM MODELO VALIDADO?",
+ "_mesma_convencao": "mesmos 42 clusters, mesmo piso de acaso, mesmas 10 operacoes",
+ "n_clusters": 42,
+ "n_operacoes": 10,
+ "n_pares": 45,
+ "piso_do_acaso": 0.4702,
+ "kappa_par_a_par_entre_operacoes": {
+  "mediana": 0.0562,
+  "minimo": -0.3483,
+  "maximo": 1.0
+ },
+ "kappa_de_cada_operacao_com_a_referencia": {
+  "mediana": 0.2809,
+  "minimo": -0.2584,
+  "maximo": 0.5506
+ },
+ "razao_das_medianas": 5.0,
+ "controle_duplicata_exata": {
+  "par": "hasler_colorfulness|ke_colorfulness",
+  "kappa": 1.0
+ },
+ "por_operacao_com_a_referencia": {
+  "contraste_variancia": 0.1011,
+  "hasler_colorfulness": 0.2809,
+  "huang_saturacao": -0.0337,
+  "ke_colorfulness": 0.2809,
+  "ke_contraste": 0.3708,
+  "ke_edge_distribution": -0.2584,
+  "ke_hue_count": -0.2135,
+  "laplacian_var": 0.5506,
+  "sobel_cv": 0.3258,
+  "srinivas_quality": 0.4157
+ },
+ "previsoes": {
+  "1_o_piso_reproduz": "CONFIRMADA",
+  "2_concordam_menos_entre_si": "CONFIRMADA",
+  "3_o_controle_da_duplicata_esta_no_teto": "CONFIRMADA"
+ },
+ "leitura": "nos mesmos 42 clusters e com o mesmo piso, a concordancia MEDIANA entre duas operacoes e kappa 0.0562, e a de cada operacao com o modelo de referencia e 0.2809: 5.0 vezes maior. A classe concorda mais com algo de fora do que consigo mesma, o que quer dizer que as dezesseis nao medem a mesma coisa."
+}

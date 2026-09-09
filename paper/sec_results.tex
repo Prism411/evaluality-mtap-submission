@@ -309,10 +309,8 @@ cluster and LIQE 1.9~s (Table~S14).
 
 \subsection{What the choice of operation does to the pipeline}\label{sec:menu}
 
-The preceding sections measure each operation against material with a known answer or
-against human opinion. This one asks a different question, and it needs no reference at
-all: if the pipeline keeps every stage fixed and only the visual-selection module is exchanged,
-\textbf{do the operations pick the same segments?}
+This section needs no reference at all: with every pipeline stage fixed and only the
+visual-selection operation exchanged, \textbf{do the operations pick the same segments?}
 
 They do not. Fourteen operations for which a downstream choice is defined produce eleven
 distinct summaries over the same 42 redundancy clusters. Only two groups coincide, and neither by agreement: the three brightness variants compute
@@ -325,8 +323,9 @@ $\escMedia{}$ distinct choices per cluster is the ceiling the cluster sizes allo
 
 Pairwise, the median agreement between two operations is \dupComMediana{} per cent against
 a chance floor of $\dupPiso{}$, and \textbf{\dupComAbaixo{} of the \dupComPares{} pairs
-agree below chance}; Figure~S3 of the
-supplement shows both distributions. Collapsing those duplicate computations leaves \dupDistintas{} distinct ones and
+agree below chance}; Figure~S3 of the supplement shows both distributions. \textbf{In the same clusters, an
+operation agrees with the reference model about \claRazao{} times more strongly than with
+another operation} (median $\kappa$ \pisoKapOp{} against \claPar{}). Collapsing those duplicate computations leaves \dupDistintas{} distinct ones and
 \dupPares{} pairs, the same median of \dupMediana{} and \dupAbaixo{} below chance.
 \textbf{What this establishes is that the choice of operation changes which representatives
 the pipeline selects, with every other stage fixed.} No source work evaluates its operation
