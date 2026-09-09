@@ -15,15 +15,15 @@
 \fill[rowlight] (0,-1.82) rectangle (5.55,-1.53);
 \node[anchor=west,font=\scriptsize] at (0.10,-1.67) {Contrast variance};
 \fill[rowlight] (0,-2.19) rectangle (5.55,-1.91);
-\node[anchor=west,font=\scriptsize] at (0.10,-2.05) {Hue};
+\node[anchor=west,font=\scriptsize] at (0.10,-2.05) {Hue (H.)};
 \fill[rowlight] (0,-2.57) rectangle (5.55,-2.28);
-\node[anchor=west,font=\scriptsize] at (0.10,-2.43) {Saturation};
+\node[anchor=west,font=\scriptsize] at (0.10,-2.43) {Saturation (H.)};
 \fill[rowlight] (0,-2.94) rectangle (5.55,-2.65);
 \node[anchor=west,font=\scriptsize] at (0.10,-2.80) {Contrast};
 \fill[rowlight] (0,-3.32) rectangle (5.55,-3.03);
 \node[anchor=west,font=\scriptsize] at (0.10,-3.18) {Edge distribution};
 \fill[rowlight] (0,-3.69) rectangle (5.55,-3.40);
-\node[anchor=west,font=\scriptsize] at (0.10,-3.55) {Hue count};
+\node[anchor=west,font=\scriptsize] at (0.10,-3.55) {Hue count (K.)};
 \fill[rowlight] (0,-4.07) rectangle (5.55,-3.78);
 \node[anchor=west,font=\scriptsize] at (0.10,-3.93) {Laplacian variance};
 \node[anchor=west,font=\scriptsize\bfseries,text=headerblue] at (6.35,0.52) {agreement of the 91 pairs};
@@ -126,6 +126,6 @@
 \draw[accentred,line width=.8pt,dash pattern=on 2pt off 1.6pt] (8.23,0.30) -- (8.23,-4.18);
 \node[anchor=north,font=\scriptsize,text=accentred!80!black] at (8.23,-4.46) {chance 47};
 \end{tikzpicture}
-\caption{The same 42 redundancy clusters, the same pipeline, only the visual-selection operation swapped; no reference model is involved. \textbf{Left}: fourteen operations produce eleven distinct summaries, and only two groups agree completely: the three brightness variants and the two colourfulness implementations. \textbf{Right}: agreement for each of the 91 operation pairs, sorted, against the chance floor of $47$ per cent. Every cluster has at least two operations choosing differently, the average cluster draws $2.21$ distinct choices, and \textbf{37 of the 91 pairs agree below chance}. The choice of operation is not a detail of the stage; it is most of what the stage decides.}
+\caption{The same 42 redundancy clusters, the same pipeline, only the visual-selection operation swapped; no reference model is involved. \textbf{Left}: fourteen operations produce eleven distinct summaries, and only two groups agree completely: the three brightness variants and the two colourfulness implementations. \textbf{Right}: agreement for each of the 91 operation pairs, sorted, against the chance floor of $47$ per cent. Every cluster has at least two operations choosing differently, the average cluster draws $2.21$ distinct choices, and \textbf{37 of the 91 pairs agree below chance}. \textbf{Pairs drawn from the same source work agree no more than pairs from different works}: median $\kappa$ .034 over 30 within-work pairs against .056 over 60 across-work pairs, with the two exact duplicates excluded. The choice of operation is not a detail of the stage; it is most of what the stage decides.}
 \label{fig:menu}
 \end{figure}
