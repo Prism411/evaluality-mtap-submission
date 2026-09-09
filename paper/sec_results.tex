@@ -18,13 +18,13 @@ Section~\ref{sec:synthesis} regroups the same accuracies by the work that uses e
 \textbf{Every one of the fifteen operations with a declared direction ranks the degraded
 copy above the original} on at least one degradation type, and thirteen do so under white noise, where five of them are wrong on all one hundred pairs: gray-level co-occurrence matrix (GLCM) contrast, entropy, Laplacian
 variance, gradient orientation and gradient
-magnitude. Two operations, hue count and saliency area, are wrong on more than half
-the eight types, and a third is wrong on exactly half. The two exceptions to the noise pattern, hue count and edge distribution, fail elsewhere
-instead: hue count inverts on five of the eight types and edge distribution on H.264 and
-JPEG. All \invCelulas{} operation--type cells below chance are significant under Holm
+magnitude. Hue count and saliency area are wrong on more than half the eight types. The two exceptions
+to the noise pattern, hue count and edge distribution, fail elsewhere: hue count on five of
+the eight types and edge distribution on H.264 and JPEG. All \invCelulas{} operation--type cells below chance are significant under Holm
 across the \invTestes{} tests, where a coin-flip control yields \invMoeda{}; the same test
 leaves \invModelosLimpos{} of the \invModelos{} published models with no type below
-chance. Table~S28 lists the \invCelulas{} cells.
+chance. Table~S28 lists the \invCelulas{} cells, and removing the two degradation types aligned
+with an operation's own attribute leaves all \tipoSemAlinhados{} still inverting.
 
 White noise concentrates the failures. These operations are statistics of local structure
 such as gradient magnitude, edge density, entropy, contrast and descriptor counts, and
@@ -35,9 +35,7 @@ is a descriptor count, and the sign of the score difference follows the sign of 
 pairs, and the three exceptions differ by at most \excDelta{} descriptors against a median
 count of \excMediana{}. \textbf{Across the fifteen the outcome recurs without that demonstration.}
 
-On material where the better member is known, the reading tested here inverts: carrying
-these operations into a selection stage and treating a higher value as better technical
-quality is not supported by their response to controlled damage.
+On material where the better member is known, the reading tested here inverts.
 
 \textbf{The same 800 pairs place the deployed operation and the no-reference models}
 (Table~\ref{tab:constructed}), with the reference model out of the decision: each pair

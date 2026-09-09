@@ -56,6 +56,7 @@ def main():
     ref = json.load(open(QB / 'a_sensibilidade_depende_de_quais_referencias.json'))
     cas3 = json.load(open(QB / 'o_casamento_sozinho_move_doze.json'))
     pd2 = json.load(open(QB / 'o_piso_das_duas_familias_na_mesma_convencao.json'))
+    mtip = json.load(open(QB / 'a_manchete_depende_de_quais_tipos.json'))['por_cenario']
     _q = json.load(open(QB / 'as_15_na_regra_do_artigo.json'))
     q15, regra = _q['por_operacao'], _q['regra']
     va = json.load(open(QB / 'o_vascore_do_qaroush_como_a_Eq20_manda.json'))
@@ -229,7 +230,10 @@ def main():
          f'\\newcommand{{\\pisoModN}}{{{POREXT[pd2["modelos"]["n"]]}}}',
          f'\\newcommand{{\\pisoKapOp}}{{{sem_zero("%.3f" % pd2["operacoes"]["kappa_mediano_de_todas"])}}}',
          f'\\newcommand{{\\pisoKapMod}}{{{sem_zero("%.3f" % pd2["modelos"]["kappa_mediano_de_todos"])}}}',
-         f'\\newcommand{{\\pisoFrageis}}{{{POREXT[pd2["fragilidade_ao_tirar_um_topico"]["quantas_das_que_passam_viram"]]}}}']
+         f'\\newcommand{{\\pisoFrageis}}{{{POREXT[pd2["fragilidade_ao_tirar_um_topico"]["quantas_das_que_passam_viram"]]}}}',
+         # ⭐ a manchete depende de quais tipos entraram? Os dois numeros, sem escolher um.
+         f'\\newcommand{{\\tipoSemAlinhados}}{{{POREXT[mtip["sem os dois tipos alinhados"]["invertem"]]}}}',
+         f'\\newcommand{{\\tipoSemRuido}}{{{POREXT[mtip["sem o ruido branco"]["invertem"]]}}}']
     assert not ct2['qaroush']['ic_cruza_zero'], '⛔ o IC do Qaroush passou a cruzar zero'
     assert ct2['korolkov']['ic_cruza_zero'], '⛔ o IC do Korolkov deixou de cruzar zero: reescrever'
     assert ko['modulo_menos_melhor_membro'] < 0, '⛔ o modulo do Korolkov superou o membro'
@@ -266,6 +270,8 @@ def main():
         '⛔ o piso conta %d operacoes e o corpo imprime %d' % (pd2['operacoes']['n'], len(natab))
     assert pd2['operacoes']['passam'] == sum(1 for v in natab.values() if v['passa']), \
         '⛔ o piso e o corpo discordam de quantas passam'
+    assert mtip['os oito tipos']['invertem'] == 15, \
+        '⛔ deixou de valer que as quinze invertem com os oito tipos'
     assert au['autonomas'] == 1, '⛔ mudou o numero de autonomas: reescrever a prosa'
     # ⚠️ as duas regras publicadas TEM de ficar abaixo da media, senao a frase da prosa cai
     assert nb < media, '⛔ o naive Bayes do Ke superou a media: reescrever a prosa'

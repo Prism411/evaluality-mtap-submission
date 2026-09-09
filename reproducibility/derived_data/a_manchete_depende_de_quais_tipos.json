@@ -1,0 +1,66 @@
+{
+ "_o_que_e": "⭐⭐ A MANCHETE DEPENDE DE QUAIS OITO DEGRADACOES ENTRARAM?",
+ "_ancora": "120 celulas conferidas contra a tabela publicada",
+ "n_operacoes": 15,
+ "por_cenario": {
+  "os oito tipos": {
+   "tipos_removidos": [],
+   "tipos_usados": 8,
+   "invertem": 15,
+   "de": 15,
+   "nao_invertem": []
+  },
+  "sem os dois tipos alinhados": {
+   "tipos_removidos": [
+    "dark",
+    "satur"
+   ],
+   "tipos_usados": 6,
+   "invertem": 15,
+   "de": 15,
+   "nao_invertem": []
+  },
+  "sem o ruido branco": {
+   "tipos_removidos": [
+    "noise"
+   ],
+   "tipos_usados": 7,
+   "invertem": 9,
+   "de": 15,
+   "nao_invertem": [
+    "glcm_contraste",
+    "gygli_media_crua",
+    "hasler_colorfulness",
+    "ke_colorfulness",
+    "laplacian_var",
+    "srinivas_quality"
+   ]
+  },
+  "sem os tres": {
+   "tipos_removidos": [
+    "dark",
+    "satur",
+    "noise"
+   ],
+   "tipos_usados": 5,
+   "invertem": 7,
+   "de": 15,
+   "nao_invertem": [
+    "contraste_variancia",
+    "glcm_contraste",
+    "gygli_media_crua",
+    "hasler_colorfulness",
+    "ke_colorfulness",
+    "ke_contraste",
+    "laplacian_var",
+    "srinivas_quality"
+   ]
+  }
+ },
+ "previsoes": {
+  "1_a_ancora_bate": "CONFIRMADA",
+  "2_com_os_oito_todas_invertem": "CONFIRMADA",
+  "3_tirar_os_alinhados_nao_derruba": "CONFIRMADA"
+ },
+ "leitura": "a manchete nao depende dos dois tipos alinhados: sem eles as 15 continuam invertendo. Depende do ruido branco: sem ele sao 9 de 15, e sem os tres, 7."
+}

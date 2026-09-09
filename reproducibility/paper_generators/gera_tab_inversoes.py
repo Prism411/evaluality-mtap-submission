@@ -30,6 +30,7 @@ TIPO = {'dark': 'Dk', 'motion': 'Mo', 'blur': 'Bl', 'h264': 'H2', 'rescale': 'Rs
 
 def main():
     d = json.loads((QB / 'quantas_invertem_ALEM_DO_ACASO.json').read_text(encoding='utf-8'))
+    mtip = json.loads((QB / 'a_manchete_depende_de_quais_tipos.json').read_text(encoding='utf-8'))['por_cenario']
     ops = d['por_operacao']
     linhas = []
     for o, v in sorted(ops.items(), key=lambda x: (-len(x[1]['tipos_abaixo_de_50']),
@@ -52,11 +53,14 @@ def main():
         'under Holm correction across the %d operation--type tests; a cell short of '
         'significance would carry $^{\\dagger}$ and none does. Counting ties inside the '
         'denominator instead of outside '
-        'leaves the same %d cells and the same %d operations. Dk = darkening, Mo = motion '
+        'leaves the same %d cells and the same %d operations. Removing the two types aligned '
+        'with an operation\'s own attribute, darkening and desaturation, leaves all %d '
+        'operations still inverting; removing white noise instead leaves %d. Dk = darkening, Mo = motion '
         'blur, Bl = Gaussian blur, H2 = H.264, Rs = rescaling, St = desaturation, '
         'Ns = white noise, Jp = JPEG.}\n'
         % (sum(len(v['tipos_abaixo_de_50']) for v in ops.values()), d['n_testes'],
-           sens['celulas_abaixo_de_50'], sens['operacoes_com_tipo_significativo']) +
+           sens['celulas_abaixo_de_50'], sens['operacoes_com_tipo_significativo'],
+           mtip['sem os dois tipos alinhados']['invertem'], mtip['sem o ruido branco']['invertem']) +
         '\\label{tab:inversoes}\n\\footnotesize\n'
         '\\begin{tabular}{@{}>{\\raggedright\\arraybackslash}p{3.4cm}cc'
         '>{\\raggedright\\arraybackslash}p{5.6cm}@{}}\n'
