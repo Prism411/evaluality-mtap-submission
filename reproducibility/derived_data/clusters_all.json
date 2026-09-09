@@ -1,0 +1,591 @@
+{
+ "acordo_mariana": [
+  [
+   {
+    "stem": "cnn",
+    "a": 60.14,
+    "b": 86.6
+   },
+   {
+    "stem": "jornal_nacional",
+    "a": 191.51,
+    "b": 220.8
+   }
+  ]
+ ],
+ "aumento_cafe": [
+  [
+   {
+    "stem": "cafe_band",
+    "a": 0.27,
+    "b": 45.43
+   },
+   {
+    "stem": "cafe_cnn",
+    "a": 0.0,
+    "b": 45.02
+   },
+   {
+    "stem": "cafe_cnn",
+    "a": 124.64,
+    "b": 169.96
+   },
+   {
+    "stem": "cafe_record",
+    "a": 0.21,
+    "b": 45.41
+   }
+  ]
+ ],
+ "bebe_real": [
+  [
+   {
+    "stem": "jornal_da_band",
+    "a": 6.28,
+    "b": 24.72
+   },
+   {
+    "stem": "jornal_da_record",
+    "a": 0.62,
+    "b": 37.86
+   },
+   {
+    "stem": "jornal_nacional",
+    "a": 0.72,
+    "b": 41.48
+   }
+  ],
+  [
+   {
+    "stem": "jornal_da_band",
+    "a": 37.86,
+    "b": 47.52
+   },
+   {
+    "stem": "jornal_da_record",
+    "a": 46.12,
+    "b": 56.9
+   }
+  ]
+ ],
+ "bolsonaro_trump": [
+  [
+   {
+    "stem": "jornal_da_band",
+    "a": 20.64,
+    "b": 74.48
+   },
+   {
+    "stem": "jornal_nacional",
+    "a": 56.66,
+    "b": 79.6
+   }
+  ],
+  [
+   {
+    "stem": "jornal_da_record",
+    "a": 1.22,
+    "b": 38.04
+   },
+   {
+    "stem": "jornal_nacional",
+    "a": 0.18,
+    "b": 56.46
+   }
+  ],
+  [
+   {
+    "stem": "jornal_da_band",
+    "a": 273.72,
+    "b": 337.2
+   },
+   {
+    "stem": "jornal_da_record",
+    "a": 144.22,
+    "b": 162.42
+   }
+  ]
+ ],
+ "brasil_omc": [
+  [
+   {
+    "stem": "record_news",
+    "a": 126.96,
+    "b": 156.04
+   },
+   {
+    "stem": "uol",
+    "a": 27.68,
+    "b": 54.92
+   }
+  ]
+ ],
+ "brumadinho": [
+  [
+   {
+    "stem": "jornal_da_band",
+    "a": 69.7,
+    "b": 177.96
+   },
+   {
+    "stem": "jornal_nacional",
+    "a": 78.0,
+    "b": 97.32
+   }
+  ],
+  [
+   {
+    "stem": "jornal_da_record",
+    "a": 264.5,
+    "b": 452.12
+   },
+   {
+    "stem": "jornal_nacional",
+    "a": 206.32,
+    "b": 226.44
+   }
+  ],
+  [
+   {
+    "stem": "jornal_da_band",
+    "a": 0.0,
+    "b": 12.86
+   },
+   {
+    "stem": "jornal_da_record",
+    "a": 264.5,
+    "b": 452.12
+   }
+  ]
+ ],
+ "catedral_notre_dame": [
+  [
+   {
+    "stem": "jornal_da_band",
+    "a": 0.06,
+    "b": 94.12
+   },
+   {
+    "stem": "jornal_da_record",
+    "a": 31.88,
+    "b": 49.78
+   },
+   {
+    "stem": "jornal_nacional",
+    "a": 0.4,
+    "b": 51.22
+   }
+  ],
+  [
+   {
+    "stem": "jornal_da_band",
+    "a": 0.06,
+    "b": 94.12
+   },
+   {
+    "stem": "jornal_da_record",
+    "a": 51.04,
+    "b": 72.1
+   }
+  ]
+ ],
+ "cessar_fogo_ucrania": [
+  [
+   {
+    "stem": "ucrania_band",
+    "a": 0.24,
+    "b": 39.88
+   },
+   {
+    "stem": "ucrania_cnn",
+    "a": 21.56,
+    "b": 67.12
+   }
+  ],
+  [
+   {
+    "stem": "ucrania_band",
+    "a": 41.44,
+    "b": 86.54
+   },
+   {
+    "stem": "ucrania_sbt",
+    "a": 0.05,
+    "b": 45.37
+   }
+  ],
+  [
+   {
+    "stem": "ucrania_cnn",
+    "a": 21.56,
+    "b": 67.12
+   },
+   {
+    "stem": "ucrania_sbt",
+    "a": 0.05,
+    "b": 45.37
+   }
+  ]
+ ],
+ "cigarro_eletronico": [],
+ "cpi_inss": [],
+ "esquema_pcc": [
+  [
+   {
+    "stem": "band",
+    "a": 168.62,
+    "b": 197.54
+   },
+   {
+    "stem": "g1",
+    "a": 236.22,
+    "b": 265.82
+   }
+  ],
+  [
+   {
+    "stem": "g1",
+    "a": 65.68,
+    "b": 94.12
+   },
+   {
+    "stem": "gazeta",
+    "a": 141.04,
+    "b": 170.56
+   }
+  ],
+  [
+   {
+    "stem": "band",
+    "a": 27.56,
+    "b": 54.24
+   },
+   {
+    "stem": "gazeta",
+    "a": 256.58,
+    "b": 286.36
+   }
+  ]
+ ],
+ "fone_cancelamento_ruido": [
+  [
+   {
+    "stem": "fone-cancelamento_ruido_bbc",
+    "a": 59.56,
+    "b": 75.98
+   },
+   {
+    "stem": "fone-cancelamento_ruido_olhardigital",
+    "a": 92.04,
+    "b": 121.72
+   }
+  ],
+  [
+   {
+    "stem": "fone-cancelamento_ruido_bbc",
+    "a": 29.6,
+    "b": 59.42
+   },
+   {
+    "stem": "fone_cancelamento_ruido_band",
+    "a": 18.56,
+    "b": 46.48
+   }
+  ],
+  [
+   {
+    "stem": "fone-cancelamento_ruido_olhardigital",
+    "a": 149.61,
+    "b": 174.96
+   },
+   {
+    "stem": "fone_cancelamento_ruido_band",
+    "a": 46.98,
+    "b": 76.18
+   }
+  ]
+ ],
+ "fraude_inss": [
+  [
+   {
+    "stem": "fraude_inss_SBT",
+    "a": 0.0,
+    "b": 45.04
+   },
+   {
+    "stem": "fraude_inss_fraude",
+    "a": 0.4,
+    "b": 45.46
+   }
+  ],
+  [
+   {
+    "stem": "fraude_inss_SBT",
+    "a": 135.92,
+    "b": 181.14
+   },
+   {
+    "stem": "fraude_inss_cnn",
+    "a": 0.0,
+    "b": 45.06
+   }
+  ],
+  [
+   {
+    "stem": "fraude_inss_cnn",
+    "a": 0.0,
+    "b": 45.06
+   },
+   {
+    "stem": "fraude_inss_fraude",
+    "a": 0.4,
+    "b": 45.46
+   }
+  ]
+ ],
+ "google_huawei": [
+  [
+   {
+    "stem": "jornal_nacional",
+    "a": 22.62,
+    "b": 93.9
+   },
+   {
+    "stem": "sbt_brasil",
+    "a": 0.44,
+    "b": 45.08
+   }
+  ],
+  [
+   {
+    "stem": "jornal_da_band",
+    "a": 0.08,
+    "b": 43.64
+   },
+   {
+    "stem": "sbt_brasil",
+    "a": 56.68,
+    "b": 73.32
+   }
+  ],
+  [
+   {
+    "stem": "jornal_da_band",
+    "a": 0.08,
+    "b": 43.64
+   },
+   {
+    "stem": "jornal_nacional",
+    "a": 22.62,
+    "b": 93.9
+   }
+  ]
+ ],
+ "isencao_imposto": [
+  [
+   {
+    "stem": "isencao_band",
+    "a": 166.52,
+    "b": 196.46
+   },
+   {
+    "stem": "isencao_cnn",
+    "a": 72.12,
+    "b": 97.32
+   }
+  ],
+  [
+   {
+    "stem": "isencao_band",
+    "a": 0.04,
+    "b": 26.92
+   },
+   {
+    "stem": "isencao_sbt",
+    "a": 78.0,
+    "b": 103.62
+   }
+  ],
+  [
+   {
+    "stem": "isencao_cnn",
+    "a": 147.68,
+    "b": 175.87
+   },
+   {
+    "stem": "isencao_sbt",
+    "a": 78.0,
+    "b": 103.62
+   }
+  ]
+ ],
+ "julgamento_bolsonaro": [
+  [
+   {
+    "stem": "g1",
+    "a": 29.56,
+    "b": 40.7
+   },
+   {
+    "stem": "jornal_record",
+    "a": 119.28,
+    "b": 148.6
+   }
+  ],
+  [
+   {
+    "stem": "g1",
+    "a": 70.32,
+    "b": 83.92
+   },
+   {
+    "stem": "sbt",
+    "a": 48.66,
+    "b": 77.32
+   }
+  ],
+  [
+   {
+    "stem": "jornal_record",
+    "a": 119.28,
+    "b": 148.6
+   },
+   {
+    "stem": "sbt",
+    "a": 135.28,
+    "b": 161.48
+   }
+  ]
+ ],
+ "mounjaro": [
+  [
+   {
+    "stem": "mounjaro_band",
+    "a": 0.74,
+    "b": 8.84
+   },
+   {
+    "stem": "mounjaro_domingo_esptacular",
+    "a": 126.1,
+    "b": 142.14
+   },
+   {
+    "stem": "mounjaro_domingo_esptacular",
+    "a": 187.42,
+    "b": 212.76
+   },
+   {
+    "stem": "mounjaro_record",
+    "a": 0.1,
+    "b": 14.12
+   }
+  ]
+ ],
+ "recorde_calor_2024": [
+  [
+   {
+    "stem": "recorde_calor_band",
+    "a": 0.0,
+    "b": 26.3
+   },
+   {
+    "stem": "recorde_calor_cultura",
+    "a": 53.4,
+    "b": 81.42
+   },
+   {
+    "stem": "recorde_calor_record",
+    "a": 0.6,
+    "b": 24.66
+   }
+  ],
+  [
+   {
+    "stem": "recorde_calor_cultura",
+    "a": 0.48,
+    "b": 27.84
+   },
+   {
+    "stem": "recorde_calor_record",
+    "a": 25.0,
+    "b": 48.28
+   }
+  ]
+ ],
+ "rio_celular": [
+  [
+   {
+    "stem": "rio_celular_cnn",
+    "a": 0.12,
+    "b": 28.16
+   },
+   {
+    "stem": "rio_celular_jornal_nacional",
+    "a": 1.32,
+    "b": 25.58
+   }
+  ]
+ ],
+ "ucrania": [
+  [
+   {
+    "stem": "ucrania_band",
+    "a": 69.56,
+    "b": 98.5
+   },
+   {
+    "stem": "ucrania_cnn",
+    "a": 115.9,
+    "b": 145.3
+   }
+  ],
+  [
+   {
+    "stem": "ucrania_band",
+    "a": 42.1,
+    "b": 69.18
+   },
+   {
+    "stem": "ucrania_sbt",
+    "a": 0.4,
+    "b": 27.36
+   }
+  ],
+  [
+   {
+    "stem": "ucrania_cnn",
+    "a": 29.2,
+    "b": 57.28
+   },
+   {
+    "stem": "ucrania_sbt",
+    "a": 27.76,
+    "b": 52.88
+   }
+  ]
+ ],
+ "ultraprocessados": [
+  [
+   {
+    "stem": "ultraprocessados_record",
+    "a": 0.34,
+    "b": 45.54
+   },
+   {
+    "stem": "ultraprocessados_sbt",
+    "a": 0.0,
+    "b": 45.18
+   },
+   {
+    "stem": "ultraprocessados_sbt",
+    "a": 45.18,
+    "b": 90.8
+   },
+   {
+    "stem": "ultraprocessados_sc",
+    "a": 71.49,
+    "b": 116.57
+   }
+  ]
+ ]
+}

@@ -18,12 +18,25 @@ import numpy as np
 
 
 HERE = Path(__file__).resolve().parent
+
+# ⛔ MEDIDO EM 08/09 rodando o pacote de um clone: este script lia `HERE_arq("x.json")` e os
+# insumos derivados moram em `derived_data/`. Sem esta resolucao o pacote traz um script
+# que nao acha o proprio dado. A pasta do script continua tendo prioridade.
+_HERE0 = HERE
+
+
+def HERE_arq(nome):
+    for base in (_HERE0, _HERE0 / 'derived_data'):
+        if (base / nome).exists():
+            return base / nome
+    return _HERE0 / nome
+
 MANUSCRIPT = Path(
     "/dados/Projetos/memoria-agentes/07-Artigos/"
     "evaluality-webmedia-2026/mtap"
 )
-MATCHED = HERE / "same_frame_same_pooling_control.json"
-DOVER_PAIRS = HERE / "dover_constructed_pairs.json"
+MATCHED = HERE_arq("same_frame_same_pooling_control.json")
+DOVER_PAIRS = HERE_arq("dover_constructed_pairs.json")
 OUTPUT = MANUSCRIPT / "third_revision_reanalysis.json"
 SEED = 42
 N_BOOT = 10_000

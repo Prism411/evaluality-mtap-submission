@@ -23,9 +23,22 @@ from open_video_summary.utils.processing.video import VideoProcessor
 from open_video_summary.utils.processing.image import ImageProcessor
 
 HERE = Path(__file__).resolve().parent
-CL = json.load(open(HERE / "indomain_clusters.json"))["clusters"]
+
+# ⛔ MEDIDO EM 08/09 rodando o pacote de um clone: este script lia `HERE_arq("x.json")` e os
+# insumos derivados moram em `derived_data/`. Sem esta resolucao o pacote traz um script
+# que nao acha o proprio dado. A pasta do script continua tendo prioridade.
+_HERE0 = HERE
+
+
+def HERE_arq(nome):
+    for base in (_HERE0, _HERE0 / 'derived_data'):
+        if (base / nome).exists():
+            return base / nome
+    return _HERE0 / nome
+
+CL = json.load(open(HERE_arq("indomain_clusters.json")))["clusters"]
 DICT_SIZE = 300
-OUT = HERE / "indomain_bovw.json"
+OUT = HERE_arq("indomain_bovw.json")
 
 print(f"{len(CL)} clusters, {sum(len(c['segs']) for c in CL)} segments", flush=True)
 

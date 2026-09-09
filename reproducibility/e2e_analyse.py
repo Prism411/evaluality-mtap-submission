@@ -19,9 +19,22 @@ from pathlib import Path
 import numpy as np
 
 HERE = Path(__file__).resolve().parent
+
+# ⛔ MEDIDO EM 08/09 rodando o pacote de um clone: este script lia `HERE_arq("x.json")` e os
+# insumos derivados moram em `derived_data/`. Sem esta resolucao o pacote traz um script
+# que nao acha o proprio dado. A pasta do script continua tendo prioridade.
+_HERE0 = HERE
+
+
+def HERE_arq(nome):
+    for base in (_HERE0, _HERE0 / 'derived_data'):
+        if (base / nome).exists():
+            return base / nome
+    return _HERE0 / nome
+
 DS = Path("/dados/Projetos/sumarizador/data/dataset")
-CL = json.load(open(HERE / "clusters_all.json"))
-SC = json.load(open(HERE / "e2e_scores.json"))
+CL = json.load(open(HERE_arq("clusters_all.json")))
+SC = json.load(open(HERE_arq("e2e_scores.json")))
 
 LOWER = {"niqe", "brisque"}          # lower is better
 REF = "qalign"
@@ -104,4 +117,4 @@ print(f"{'(worst-case)':<16}{worst:>16.4f}{worst-oracle:>12.4f}{0.0:>12.4f}")
 
 json.dump({"chance": pe, "n_clusters": len(usable), "rows": rows,
            "oracle": float(oracle), "worst": float(worst)},
-          open(HERE / "e2e_analysis.json", "w"), indent=1)
+          open(HERE_arq("e2e_analysis.json"), "w"), indent=1)

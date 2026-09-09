@@ -1,0 +1,3645 @@
+{
+ "_o_que_e": "EFEITO A JUSANTE: trocar o modulo de qualidade muda o RESUMO?\n\nDESENHO, e por que ele isola o efeito perfeitamente:\n  No HSMVideoSumm o modulo de qualidade so decide QUEM VENCE DENTRO de cada\n  cluster de redundancia (QualityPick le read_from=\"pick\" do\n  ContentBasedRedundancy). Tudo antes dele \u2014 introducao e redundancia \u2014 e\n  IDENTICO entre estrategias. Entao roda-se o pipeline UMA VEZ ate a redundancia,\n  e so o modulo varia. Nao e atalho: e o que \"trocar o modulo\" significa.\n\n  E os frames sao decodificados UMA VEZ por segmento e servidos a TODAS as\n  estrategias, pelo mesmo motivo que o e2e_score.py original fazia: nenhuma\n  diferenca entre metodos pode vir dos frames que cada um viu.\n\nDE BRINDE: reconstroi o `clusters_all.json`, que nunca foi versionado e cuja\nausencia bloqueou a reconstrucao dos 83 segmentos.\n\nGrava INCREMENTAL por topico.",
+ "topicos": {
+  "acordo_mariana": {
+   "n_clusters": 1,
+   "clusters": [
+    {
+     "segmentos": [
+      "acordo_mariana|cnn|60.14|86.6",
+      "acordo_mariana|jornal_nacional|191.51|220.8"
+     ],
+     "n": 2,
+     "escores": {
+      "hasler_colorfulness": {
+       "acordo_mariana|cnn|60.14|86.6": 63.76544868483076,
+       "acordo_mariana|jornal_nacional|191.51|220.8": 82.65650463724559
+      },
+      "laplacian_var": {
+       "acordo_mariana|cnn|60.14|86.6": 3922.09559203947,
+       "acordo_mariana|jornal_nacional|191.51|220.8": 452.1801215318357
+      },
+      "huang_saturacao": {
+       "acordo_mariana|cnn|60.14|86.6": 85.48871594551284,
+       "acordo_mariana|jornal_nacional|191.51|220.8": 93.01909542624522
+      },
+      "huang_matiz": {
+       "acordo_mariana|cnn|60.14|86.6": 65.97173076923076,
+       "acordo_mariana|jornal_nacional|191.51|220.8": 89.61410724976052
+      },
+      "huang_exposicao": {
+       "acordo_mariana|cnn|60.14|86.6": 124.11978331997865,
+       "acordo_mariana|jornal_nacional|191.51|220.8": 99.90491558908046
+      },
+      "contraste_variancia": {
+       "acordo_mariana|cnn|60.14|86.6": 64.79300438430863,
+       "acordo_mariana|jornal_nacional|191.51|220.8": 29.081961282664892
+      },
+      "brilho": {
+       "acordo_mariana|cnn|60.14|86.6": 124.11978331997865,
+       "acordo_mariana|jornal_nacional|191.51|220.8": 99.90491558908046
+      },
+      "ke_colorfulness": {
+       "acordo_mariana|cnn|60.14|86.6": 63.76544868483076,
+       "acordo_mariana|jornal_nacional|191.51|220.8": 82.65650463724559
+      },
+      "ke_brightness": {
+       "acordo_mariana|cnn|60.14|86.6": 124.11978331997865,
+       "acordo_mariana|jornal_nacional|191.51|220.8": 99.90491558908046
+      },
+      "ke_edge_distribution": {
+       "acordo_mariana|cnn|60.14|86.6": 0.12141877003205132,
+       "acordo_mariana|jornal_nacional|191.51|220.8": 0.07770399305555555
+      },
+      "ke_hue_count": {
+       "acordo_mariana|cnn|60.14|86.6": 15.115384615384615,
+       "acordo_mariana|jornal_nacional|191.51|220.8": 13.206896551724139
+      },
+      "ke_contraste": {
+       "acordo_mariana|cnn|60.14|86.6": 255.0,
+       "acordo_mariana|jornal_nacional|191.51|220.8": 117.41379310344827
+      },
+      "srinivas_quality": {
+       "acordo_mariana|cnn|60.14|86.6": 91.6244070780452,
+       "acordo_mariana|jornal_nacional|191.51|220.8": 62.6519627749108
+      },
+      "sobel_cv": {
+       "acordo_mariana|cnn|60.14|86.6": 7.471410556435239,
+       "acordo_mariana|jornal_nacional|191.51|220.8": -2.0014107481845933
+      }
+     },
+     "vencedor": {
+      "hasler_colorfulness": "acordo_mariana|jornal_nacional|191.51|220.8",
+      "laplacian_var": "acordo_mariana|cnn|60.14|86.6",
+      "huang_saturacao": "acordo_mariana|jornal_nacional|191.51|220.8",
+      "huang_matiz": "acordo_mariana|jornal_nacional|191.51|220.8",
+      "huang_exposicao": "acordo_mariana|cnn|60.14|86.6",
+      "contraste_variancia": "acordo_mariana|cnn|60.14|86.6",
+      "brilho": "acordo_mariana|cnn|60.14|86.6",
+      "ke_colorfulness": "acordo_mariana|jornal_nacional|191.51|220.8",
+      "ke_brightness": "acordo_mariana|cnn|60.14|86.6",
+      "ke_edge_distribution": "acordo_mariana|cnn|60.14|86.6",
+      "ke_hue_count": "acordo_mariana|cnn|60.14|86.6",
+      "ke_contraste": "acordo_mariana|cnn|60.14|86.6",
+      "srinivas_quality": "acordo_mariana|cnn|60.14|86.6",
+      "sobel_cv": "acordo_mariana|cnn|60.14|86.6"
+     }
+    }
+   ]
+  },
+  "aumento_cafe": {
+   "n_clusters": 1,
+   "clusters": [
+    {
+     "segmentos": [
+      "aumento_cafe|cafe_band|0.27|45.43",
+      "aumento_cafe|cafe_cnn|0.0|45.02",
+      "aumento_cafe|cafe_cnn|124.64|169.96",
+      "aumento_cafe|cafe_record|0.21|45.41"
+     ],
+     "n": 4,
+     "escores": {
+      "hasler_colorfulness": {
+       "aumento_cafe|cafe_band|0.27|45.43": 67.465022037039,
+       "aumento_cafe|cafe_cnn|0.0|45.02": 104.54211534993232,
+       "aumento_cafe|cafe_cnn|124.64|169.96": 54.46013146772461,
+       "aumento_cafe|cafe_record|0.21|45.41": 71.99658106820245
+      },
+      "laplacian_var": {
+       "aumento_cafe|cafe_band|0.27|45.43": 1415.187994163339,
+       "aumento_cafe|cafe_cnn|0.0|45.02": 2828.4974109000495,
+       "aumento_cafe|cafe_cnn|124.64|169.96": 3395.7342730647365,
+       "aumento_cafe|cafe_record|0.21|45.41": 1520.879390809188
+      },
+      "huang_saturacao": {
+       "aumento_cafe|cafe_band|0.27|45.43": 103.3877382330247,
+       "aumento_cafe|cafe_cnn|0.0|45.02": 116.13385501585144,
+       "aumento_cafe|cafe_cnn|124.64|169.96": 86.12081548996913,
+       "aumento_cafe|cafe_record|0.21|45.41": 127.57931153549386
+      },
+      "huang_matiz": {
+       "aumento_cafe|cafe_band|0.27|45.43": 93.64281365740742,
+       "aumento_cafe|cafe_cnn|0.0|45.02": 80.12977647569444,
+       "aumento_cafe|cafe_cnn|124.64|169.96": 53.14152237654322,
+       "aumento_cafe|cafe_record|0.21|45.41": 67.57422868441357
+      },
+      "huang_exposicao": {
+       "aumento_cafe|cafe_band|0.27|45.43": 113.00109307484568,
+       "aumento_cafe|cafe_cnn|0.0|45.02": 95.06071369263286,
+       "aumento_cafe|cafe_cnn|124.64|169.96": 122.95543373842591,
+       "aumento_cafe|cafe_record|0.21|45.41": 102.92140837191359
+      },
+      "contraste_variancia": {
+       "aumento_cafe|cafe_band|0.27|45.43": 59.68497935152755,
+       "aumento_cafe|cafe_cnn|0.0|45.02": 68.3938731319424,
+       "aumento_cafe|cafe_cnn|124.64|169.96": 69.60872790575995,
+       "aumento_cafe|cafe_record|0.21|45.41": 67.83351612412785
+      },
+      "brilho": {
+       "aumento_cafe|cafe_band|0.27|45.43": 113.00109307484568,
+       "aumento_cafe|cafe_cnn|0.0|45.02": 95.06071369263286,
+       "aumento_cafe|cafe_cnn|124.64|169.96": 122.95543373842591,
+       "aumento_cafe|cafe_record|0.21|45.41": 102.92140837191359
+      },
+      "ke_colorfulness": {
+       "aumento_cafe|cafe_band|0.27|45.43": 67.465022037039,
+       "aumento_cafe|cafe_cnn|0.0|45.02": 104.54211534993232,
+       "aumento_cafe|cafe_cnn|124.64|169.96": 54.46013146772461,
+       "aumento_cafe|cafe_record|0.21|45.41": 71.99658106820245
+      },
+      "ke_brightness": {
+       "aumento_cafe|cafe_band|0.27|45.43": 113.00109307484568,
+       "aumento_cafe|cafe_cnn|0.0|45.02": 95.06071369263286,
+       "aumento_cafe|cafe_cnn|124.64|169.96": 122.95543373842591,
+       "aumento_cafe|cafe_record|0.21|45.41": 102.92140837191359
+      },
+      "ke_edge_distribution": {
+       "aumento_cafe|cafe_band|0.27|45.43": 0.09236371527777777,
+       "aumento_cafe|cafe_cnn|0.0|45.02": 0.1180356468900966,
+       "aumento_cafe|cafe_cnn|124.64|169.96": 0.07472521219135803,
+       "aumento_cafe|cafe_record|0.21|45.41": 0.10109211033950619
+      },
+      "ke_hue_count": {
+       "aumento_cafe|cafe_band|0.27|45.43": 13.044444444444444,
+       "aumento_cafe|cafe_cnn|0.0|45.02": 13.521739130434783,
+       "aumento_cafe|cafe_cnn|124.64|169.96": 13.666666666666666,
+       "aumento_cafe|cafe_record|0.21|45.41": 15.88888888888889
+      },
+      "ke_contraste": {
+       "aumento_cafe|cafe_band|0.27|45.43": 209.44444444444446,
+       "aumento_cafe|cafe_cnn|0.0|45.02": 253.58695652173913,
+       "aumento_cafe|cafe_cnn|124.64|169.96": 255.0,
+       "aumento_cafe|cafe_record|0.21|45.41": 239.53333333333333
+      },
+      "srinivas_quality": {
+       "aumento_cafe|cafe_band|0.27|45.43": 80.60947354321027,
+       "aumento_cafe|cafe_cnn|0.0|45.02": 93.36591206832584,
+       "aumento_cafe|cafe_cnn|124.64|169.96": 89.2313914170017,
+       "aumento_cafe|cafe_record|0.21|45.41": 86.08826075453554
+      },
+      "sobel_cv": {
+       "aumento_cafe|cafe_band|0.27|45.43": 1.7970437373700259,
+       "aumento_cafe|cafe_cnn|0.0|45.02": -47.408474544921276,
+       "aumento_cafe|cafe_cnn|124.64|169.96": -34.85469022079758,
+       "aumento_cafe|cafe_record|0.21|45.41": -182.8666263154009
+      }
+     },
+     "vencedor": {
+      "hasler_colorfulness": "aumento_cafe|cafe_cnn|0.0|45.02",
+      "laplacian_var": "aumento_cafe|cafe_cnn|124.64|169.96",
+      "huang_saturacao": "aumento_cafe|cafe_record|0.21|45.41",
+      "huang_matiz": "aumento_cafe|cafe_band|0.27|45.43",
+      "huang_exposicao": "aumento_cafe|cafe_cnn|124.64|169.96",
+      "contraste_variancia": "aumento_cafe|cafe_cnn|124.64|169.96",
+      "brilho": "aumento_cafe|cafe_cnn|124.64|169.96",
+      "ke_colorfulness": "aumento_cafe|cafe_cnn|0.0|45.02",
+      "ke_brightness": "aumento_cafe|cafe_cnn|124.64|169.96",
+      "ke_edge_distribution": "aumento_cafe|cafe_cnn|0.0|45.02",
+      "ke_hue_count": "aumento_cafe|cafe_record|0.21|45.41",
+      "ke_contraste": "aumento_cafe|cafe_cnn|124.64|169.96",
+      "srinivas_quality": "aumento_cafe|cafe_cnn|0.0|45.02",
+      "sobel_cv": "aumento_cafe|cafe_band|0.27|45.43"
+     }
+    }
+   ]
+  },
+  "bebe_real": {
+   "n_clusters": 2,
+   "clusters": [
+    {
+     "segmentos": [
+      "bebe_real|jornal_da_band|6.28|24.72",
+      "bebe_real|jornal_da_record|0.62|37.86",
+      "bebe_real|jornal_nacional|0.72|41.48"
+     ],
+     "n": 3,
+     "escores": {
+      "hasler_colorfulness": {
+       "bebe_real|jornal_da_band|6.28|24.72": 44.08730980283115,
+       "bebe_real|jornal_da_record|0.62|37.86": 40.45467869863939,
+       "bebe_real|jornal_nacional|0.72|41.48": 44.02587330270065
+      },
+      "laplacian_var": {
+       "bebe_real|jornal_da_band|6.28|24.72": 104.35880617613105,
+       "bebe_real|jornal_da_record|0.62|37.86": 141.0661377181236,
+       "bebe_real|jornal_nacional|0.72|41.48": 92.40494917836254
+      },
+      "huang_saturacao": {
+       "bebe_real|jornal_da_band|6.28|24.72": 102.77289357880016,
+       "bebe_real|jornal_da_record|0.62|37.86": 114.03373208169106,
+       "bebe_real|jornal_nacional|0.72|41.48": 107.3676713351118
+      },
+      "huang_matiz": {
+       "bebe_real|jornal_da_band|6.28|24.72": 52.74243821132331,
+       "bebe_real|jornal_da_record|0.62|37.86": 53.81473735454204,
+       "bebe_real|jornal_nacional|0.72|41.48": 46.70004030636009
+      },
+      "huang_exposicao": {
+       "bebe_real|jornal_da_band|6.28|24.72": 99.49546887056326,
+       "bebe_real|jornal_da_record|0.62|37.86": 81.65796716638513,
+       "bebe_real|jornal_nacional|0.72|41.48": 86.92700716675135
+      },
+      "contraste_variancia": {
+       "bebe_real|jornal_da_band|6.28|24.72": 48.87915117301447,
+       "bebe_real|jornal_da_record|0.62|37.86": 43.87445336408121,
+       "bebe_real|jornal_nacional|0.72|41.48": 50.16774294987475
+      },
+      "brilho": {
+       "bebe_real|jornal_da_band|6.28|24.72": 99.49546887056326,
+       "bebe_real|jornal_da_record|0.62|37.86": 81.65796716638513,
+       "bebe_real|jornal_nacional|0.72|41.48": 86.92700716675135
+      },
+      "ke_colorfulness": {
+       "bebe_real|jornal_da_band|6.28|24.72": 44.08730980283115,
+       "bebe_real|jornal_da_record|0.62|37.86": 40.45467869863939,
+       "bebe_real|jornal_nacional|0.72|41.48": 44.02587330270065
+      },
+      "ke_brightness": {
+       "bebe_real|jornal_da_band|6.28|24.72": 99.49546887056326,
+       "bebe_real|jornal_da_record|0.62|37.86": 81.65796716638513,
+       "bebe_real|jornal_nacional|0.72|41.48": 86.92700716675135
+      },
+      "ke_edge_distribution": {
+       "bebe_real|jornal_da_band|6.28|24.72": 0.054084141107253104,
+       "bebe_real|jornal_da_record|0.62|37.86": 0.03108213682432431,
+       "bebe_real|jornal_nacional|0.72|41.48": 0.07589769647696477
+      },
+      "ke_hue_count": {
+       "bebe_real|jornal_da_band|6.28|24.72": 15.555555555555555,
+       "bebe_real|jornal_da_record|0.62|37.86": 15.45945945945946,
+       "bebe_real|jornal_nacional|0.72|41.48": 16.146341463414632
+      },
+      "ke_contraste": {
+       "bebe_real|jornal_da_band|6.28|24.72": 222.88888888888889,
+       "bebe_real|jornal_da_record|0.62|37.86": 182.8108108108108,
+       "bebe_real|jornal_nacional|0.72|41.48": 199.609756097561
+      },
+      "srinivas_quality": {
+       "bebe_real|jornal_da_band|6.28|24.72": 76.41626145178923,
+       "bebe_real|jornal_da_record|0.62|37.86": 64.08279965442381,
+       "bebe_real|jornal_nacional|0.72|41.48": 69.35697514538091
+      },
+      "sobel_cv": {
+       "bebe_real|jornal_da_band|6.28|24.72": -2.763608113296063,
+       "bebe_real|jornal_da_record|0.62|37.86": 0.7423907840789756,
+       "bebe_real|jornal_nacional|0.72|41.48": -24.994428054533323
+      }
+     },
+     "vencedor": {
+      "hasler_colorfulness": "bebe_real|jornal_da_band|6.28|24.72",
+      "laplacian_var": "bebe_real|jornal_da_record|0.62|37.86",
+      "huang_saturacao": "bebe_real|jornal_da_record|0.62|37.86",
+      "huang_matiz": "bebe_real|jornal_da_record|0.62|37.86",
+      "huang_exposicao": "bebe_real|jornal_da_band|6.28|24.72",
+      "contraste_variancia": "bebe_real|jornal_nacional|0.72|41.48",
+      "brilho": "bebe_real|jornal_da_band|6.28|24.72",
+      "ke_colorfulness": "bebe_real|jornal_da_band|6.28|24.72",
+      "ke_brightness": "bebe_real|jornal_da_band|6.28|24.72",
+      "ke_edge_distribution": "bebe_real|jornal_nacional|0.72|41.48",
+      "ke_hue_count": "bebe_real|jornal_nacional|0.72|41.48",
+      "ke_contraste": "bebe_real|jornal_da_band|6.28|24.72",
+      "srinivas_quality": "bebe_real|jornal_da_band|6.28|24.72",
+      "sobel_cv": "bebe_real|jornal_da_record|0.62|37.86"
+     }
+    },
+    {
+     "segmentos": [
+      "bebe_real|jornal_da_band|37.86|47.52",
+      "bebe_real|jornal_da_record|46.12|56.9"
+     ],
+     "n": 2,
+     "escores": {
+      "hasler_colorfulness": {
+       "bebe_real|jornal_da_band|37.86|47.52": 34.58466763417295,
+       "bebe_real|jornal_da_record|46.12|56.9": 35.57419222517749
+      },
+      "laplacian_var": {
+       "bebe_real|jornal_da_band|37.86|47.52": 56.38457387665794,
+       "bebe_real|jornal_da_record|46.12|56.9": 139.21530841749967
+      },
+      "huang_saturacao": {
+       "bebe_real|jornal_da_band|37.86|47.52": 110.73244943576387,
+       "bebe_real|jornal_da_record|46.12|56.9": 116.92399424913194
+      },
+      "huang_matiz": {
+       "bebe_real|jornal_da_band|37.86|47.52": 41.261904296874995,
+       "bebe_real|jornal_da_record|46.12|56.9": 66.5480552300347
+      },
+      "huang_exposicao": {
+       "bebe_real|jornal_da_band|37.86|47.52": 89.46518695746528,
+       "bebe_real|jornal_da_record|46.12|56.9": 69.92568446180556
+      },
+      "contraste_variancia": {
+       "bebe_real|jornal_da_band|37.86|47.52": 59.00239877842639,
+       "bebe_real|jornal_da_record|46.12|56.9": 37.677402905108224
+      },
+      "brilho": {
+       "bebe_real|jornal_da_band|37.86|47.52": 89.46518695746528,
+       "bebe_real|jornal_da_record|46.12|56.9": 69.92568446180556
+      },
+      "ke_colorfulness": {
+       "bebe_real|jornal_da_band|37.86|47.52": 34.58466763417295,
+       "bebe_real|jornal_da_record|46.12|56.9": 35.57419222517749
+      },
+      "ke_brightness": {
+       "bebe_real|jornal_da_band|37.86|47.52": 89.46518695746528,
+       "bebe_real|jornal_da_record|46.12|56.9": 69.92568446180556
+      },
+      "ke_edge_distribution": {
+       "bebe_real|jornal_da_band|37.86|47.52": 0.05490549045138893,
+       "bebe_real|jornal_da_record|46.12|56.9": 0.03266091579861111
+      },
+      "ke_hue_count": {
+       "bebe_real|jornal_da_band|37.86|47.52": 16.6,
+       "bebe_real|jornal_da_record|46.12|56.9": 15.0
+      },
+      "ke_contraste": {
+       "bebe_real|jornal_da_band|37.86|47.52": 197.1,
+       "bebe_real|jornal_da_record|46.12|56.9": 169.2
+      },
+      "srinivas_quality": {
+       "bebe_real|jornal_da_band|37.86|47.52": 67.56095201641793,
+       "bebe_real|jornal_da_record|46.12|56.9": 57.946507520556324
+      },
+      "sobel_cv": {
+       "bebe_real|jornal_da_band|37.86|47.52": 3.1523954752774594,
+       "bebe_real|jornal_da_record|46.12|56.9": -1.1070524712796979
+      }
+     },
+     "vencedor": {
+      "hasler_colorfulness": "bebe_real|jornal_da_record|46.12|56.9",
+      "laplacian_var": "bebe_real|jornal_da_record|46.12|56.9",
+      "huang_saturacao": "bebe_real|jornal_da_record|46.12|56.9",
+      "huang_matiz": "bebe_real|jornal_da_record|46.12|56.9",
+      "huang_exposicao": "bebe_real|jornal_da_band|37.86|47.52",
+      "contraste_variancia": "bebe_real|jornal_da_band|37.86|47.52",
+      "brilho": "bebe_real|jornal_da_band|37.86|47.52",
+      "ke_colorfulness": "bebe_real|jornal_da_record|46.12|56.9",
+      "ke_brightness": "bebe_real|jornal_da_band|37.86|47.52",
+      "ke_edge_distribution": "bebe_real|jornal_da_band|37.86|47.52",
+      "ke_hue_count": "bebe_real|jornal_da_band|37.86|47.52",
+      "ke_contraste": "bebe_real|jornal_da_band|37.86|47.52",
+      "srinivas_quality": "bebe_real|jornal_da_band|37.86|47.52",
+      "sobel_cv": "bebe_real|jornal_da_band|37.86|47.52"
+     }
+    }
+   ]
+  },
+  "bolsonaro_trump": {
+   "n_clusters": 3,
+   "clusters": [
+    {
+     "segmentos": [
+      "bolsonaro_trump|jornal_da_band|20.64|74.48",
+      "bolsonaro_trump|jornal_nacional|56.66|79.6"
+     ],
+     "n": 2,
+     "escores": {
+      "hasler_colorfulness": {
+       "bolsonaro_trump|jornal_da_band|20.64|74.48": 44.672083848338964,
+       "bolsonaro_trump|jornal_nacional|56.66|79.6": 43.80261902355089
+      },
+      "laplacian_var": {
+       "bolsonaro_trump|jornal_da_band|20.64|74.48": 219.02717372407054,
+       "bolsonaro_trump|jornal_nacional|56.66|79.6": 240.08321537327393
+      },
+      "huang_saturacao": {
+       "bolsonaro_trump|jornal_da_band|20.64|74.48": 75.63935796039094,
+       "bolsonaro_trump|jornal_nacional|56.66|79.6": 87.41849562198068
+      },
+      "huang_matiz": {
+       "bolsonaro_trump|jornal_da_band|20.64|74.48": 62.096838569798095,
+       "bolsonaro_trump|jornal_nacional|56.66|79.6": 78.13757520003018
+      },
+      "huang_exposicao": {
+       "bolsonaro_trump|jornal_da_band|20.64|74.48": 97.24031778469006,
+       "bolsonaro_trump|jornal_nacional|56.66|79.6": 106.84029377075784
+      },
+      "contraste_variancia": {
+       "bolsonaro_trump|jornal_da_band|20.64|74.48": 64.20026822874961,
+       "bolsonaro_trump|jornal_nacional|56.66|79.6": 71.37742252652819
+      },
+      "brilho": {
+       "bolsonaro_trump|jornal_da_band|20.64|74.48": 97.24031778469006,
+       "bolsonaro_trump|jornal_nacional|56.66|79.6": 106.84029377075784
+      },
+      "ke_colorfulness": {
+       "bolsonaro_trump|jornal_da_band|20.64|74.48": 44.672083848338964,
+       "bolsonaro_trump|jornal_nacional|56.66|79.6": 43.80261902355089
+      },
+      "ke_brightness": {
+       "bolsonaro_trump|jornal_da_band|20.64|74.48": 97.24031778469006,
+       "bolsonaro_trump|jornal_nacional|56.66|79.6": 106.84029377075784
+      },
+      "ke_edge_distribution": {
+       "bolsonaro_trump|jornal_da_band|20.64|74.48": 0.04617277922453703,
+       "bolsonaro_trump|jornal_nacional|56.66|79.6": 0.03946430593297104
+      },
+      "ke_hue_count": {
+       "bolsonaro_trump|jornal_da_band|20.64|74.48": 12.537037037037036,
+       "bolsonaro_trump|jornal_nacional|56.66|79.6": 8.956521739130435
+      },
+      "ke_contraste": {
+       "bolsonaro_trump|jornal_da_band|20.64|74.48": 235.59259259259258,
+       "bolsonaro_trump|jornal_nacional|56.66|79.6": 238.17391304347825
+      },
+      "srinivas_quality": {
+       "bolsonaro_trump|jornal_da_band|20.64|74.48": 78.01764080837663,
+       "bolsonaro_trump|jornal_nacional|56.66|79.6": 79.56256237657009
+      },
+      "sobel_cv": {
+       "bolsonaro_trump|jornal_da_band|20.64|74.48": 7.201884456985288,
+       "bolsonaro_trump|jornal_nacional|56.66|79.6": 5.62222202584861
+      }
+     },
+     "vencedor": {
+      "hasler_colorfulness": "bolsonaro_trump|jornal_da_band|20.64|74.48",
+      "laplacian_var": "bolsonaro_trump|jornal_nacional|56.66|79.6",
+      "huang_saturacao": "bolsonaro_trump|jornal_nacional|56.66|79.6",
+      "huang_matiz": "bolsonaro_trump|jornal_nacional|56.66|79.6",
+      "huang_exposicao": "bolsonaro_trump|jornal_nacional|56.66|79.6",
+      "contraste_variancia": "bolsonaro_trump|jornal_nacional|56.66|79.6",
+      "brilho": "bolsonaro_trump|jornal_nacional|56.66|79.6",
+      "ke_colorfulness": "bolsonaro_trump|jornal_da_band|20.64|74.48",
+      "ke_brightness": "bolsonaro_trump|jornal_nacional|56.66|79.6",
+      "ke_edge_distribution": "bolsonaro_trump|jornal_da_band|20.64|74.48",
+      "ke_hue_count": "bolsonaro_trump|jornal_da_band|20.64|74.48",
+      "ke_contraste": "bolsonaro_trump|jornal_nacional|56.66|79.6",
+      "srinivas_quality": "bolsonaro_trump|jornal_nacional|56.66|79.6",
+      "sobel_cv": "bolsonaro_trump|jornal_da_band|20.64|74.48"
+     }
+    },
+    {
+     "segmentos": [
+      "bolsonaro_trump|jornal_da_record|1.22|38.04",
+      "bolsonaro_trump|jornal_nacional|0.18|56.46"
+     ],
+     "n": 2,
+     "escores": {
+      "hasler_colorfulness": {
+       "bolsonaro_trump|jornal_da_record|1.22|38.04": 37.468041072834794,
+       "bolsonaro_trump|jornal_nacional|0.18|56.46": 60.66296298843559
+      },
+      "laplacian_var": {
+       "bolsonaro_trump|jornal_da_record|1.22|38.04": 45.792749110027906,
+       "bolsonaro_trump|jornal_nacional|0.18|56.46": 162.67973017830576
+      },
+      "huang_saturacao": {
+       "bolsonaro_trump|jornal_da_record|1.22|38.04": 61.16127102688627,
+       "bolsonaro_trump|jornal_nacional|0.18|56.46": 137.4092882719494
+      },
+      "huang_matiz": {
+       "bolsonaro_trump|jornal_da_record|1.22|38.04": 76.41070655616554,
+       "bolsonaro_trump|jornal_nacional|0.18|56.46": 96.46060480995784
+      },
+      "huang_exposicao": {
+       "bolsonaro_trump|jornal_da_record|1.22|38.04": 123.30522912560998,
+       "bolsonaro_trump|jornal_nacional|0.18|56.46": 78.90042697482639
+      },
+      "contraste_variancia": {
+       "bolsonaro_trump|jornal_da_record|1.22|38.04": 67.70530346522487,
+       "bolsonaro_trump|jornal_nacional|0.18|56.46": 56.48925294511897
+      },
+      "brilho": {
+       "bolsonaro_trump|jornal_da_record|1.22|38.04": 123.30522912560998,
+       "bolsonaro_trump|jornal_nacional|0.18|56.46": 78.90042697482639
+      },
+      "ke_colorfulness": {
+       "bolsonaro_trump|jornal_da_record|1.22|38.04": 37.468041072834794,
+       "bolsonaro_trump|jornal_nacional|0.18|56.46": 60.66296298843559
+      },
+      "ke_brightness": {
+       "bolsonaro_trump|jornal_da_record|1.22|38.04": 123.30522912560998,
+       "bolsonaro_trump|jornal_nacional|0.18|56.46": 78.90042697482639
+      },
+      "ke_edge_distribution": {
+       "bolsonaro_trump|jornal_da_record|1.22|38.04": 0.0372632495777027,
+       "bolsonaro_trump|jornal_nacional|0.18|56.46": 0.04555545867435513
+      },
+      "ke_hue_count": {
+       "bolsonaro_trump|jornal_da_record|1.22|38.04": 11.783783783783784,
+       "bolsonaro_trump|jornal_nacional|0.18|56.46": 11.357142857142858
+      },
+      "ke_contraste": {
+       "bolsonaro_trump|jornal_da_record|1.22|38.04": 217.35135135135135,
+       "bolsonaro_trump|jornal_nacional|0.18|56.46": 215.73214285714286
+      },
+      "srinivas_quality": {
+       "bolsonaro_trump|jornal_da_record|1.22|38.04": 77.98913371663153,
+       "bolsonaro_trump|jornal_nacional|0.18|56.46": 73.3396462272444
+      },
+      "sobel_cv": {
+       "bolsonaro_trump|jornal_da_record|1.22|38.04": -68.24813706171467,
+       "bolsonaro_trump|jornal_nacional|0.18|56.46": -4.475920716921544
+      }
+     },
+     "vencedor": {
+      "hasler_colorfulness": "bolsonaro_trump|jornal_nacional|0.18|56.46",
+      "laplacian_var": "bolsonaro_trump|jornal_nacional|0.18|56.46",
+      "huang_saturacao": "bolsonaro_trump|jornal_nacional|0.18|56.46",
+      "huang_matiz": "bolsonaro_trump|jornal_nacional|0.18|56.46",
+      "huang_exposicao": "bolsonaro_trump|jornal_da_record|1.22|38.04",
+      "contraste_variancia": "bolsonaro_trump|jornal_da_record|1.22|38.04",
+      "brilho": "bolsonaro_trump|jornal_da_record|1.22|38.04",
+      "ke_colorfulness": "bolsonaro_trump|jornal_nacional|0.18|56.46",
+      "ke_brightness": "bolsonaro_trump|jornal_da_record|1.22|38.04",
+      "ke_edge_distribution": "bolsonaro_trump|jornal_nacional|0.18|56.46",
+      "ke_hue_count": "bolsonaro_trump|jornal_da_record|1.22|38.04",
+      "ke_contraste": "bolsonaro_trump|jornal_da_record|1.22|38.04",
+      "srinivas_quality": "bolsonaro_trump|jornal_da_record|1.22|38.04",
+      "sobel_cv": "bolsonaro_trump|jornal_nacional|0.18|56.46"
+     }
+    },
+    {
+     "segmentos": [
+      "bolsonaro_trump|jornal_da_band|273.72|337.2",
+      "bolsonaro_trump|jornal_da_record|144.22|162.42"
+     ],
+     "n": 2,
+     "escores": {
+      "hasler_colorfulness": {
+       "bolsonaro_trump|jornal_da_band|273.72|337.2": 37.231327611172304,
+       "bolsonaro_trump|jornal_da_record|144.22|162.42": 34.20749674420177
+      },
+      "laplacian_var": {
+       "bolsonaro_trump|jornal_da_band|273.72|337.2": 162.62072559442498,
+       "bolsonaro_trump|jornal_da_record|144.22|162.42": 72.07550595877252
+      },
+      "huang_saturacao": {
+       "bolsonaro_trump|jornal_da_band|273.72|337.2": 93.08988523695203,
+       "bolsonaro_trump|jornal_da_record|144.22|162.42": 71.52413104021991
+      },
+      "huang_matiz": {
+       "bolsonaro_trump|jornal_da_band|273.72|337.2": 45.15560750325521,
+       "bolsonaro_trump|jornal_da_record|144.22|162.42": 48.42753954475309
+      },
+      "huang_exposicao": {
+       "bolsonaro_trump|jornal_da_band|273.72|337.2": 80.92028366088867,
+       "bolsonaro_trump|jornal_da_record|144.22|162.42": 111.15863208912037
+      },
+      "contraste_variancia": {
+       "bolsonaro_trump|jornal_da_band|273.72|337.2": 59.785762570189604,
+       "bolsonaro_trump|jornal_da_record|144.22|162.42": 64.83549981055847
+      },
+      "brilho": {
+       "bolsonaro_trump|jornal_da_band|273.72|337.2": 80.92028366088867,
+       "bolsonaro_trump|jornal_da_record|144.22|162.42": 111.15863208912037
+      },
+      "ke_colorfulness": {
+       "bolsonaro_trump|jornal_da_band|273.72|337.2": 37.231327611172304,
+       "bolsonaro_trump|jornal_da_record|144.22|162.42": 34.20749674420177
+      },
+      "ke_brightness": {
+       "bolsonaro_trump|jornal_da_band|273.72|337.2": 80.92028366088867,
+       "bolsonaro_trump|jornal_da_record|144.22|162.42": 111.15863208912037
+      },
+      "ke_edge_distribution": {
+       "bolsonaro_trump|jornal_da_band|273.72|337.2": 0.05279295179578993,
+       "bolsonaro_trump|jornal_da_record|144.22|162.42": 0.041989293981481456
+      },
+      "ke_hue_count": {
+       "bolsonaro_trump|jornal_da_band|273.72|337.2": 12.6875,
+       "bolsonaro_trump|jornal_da_record|144.22|162.42": 11.944444444444445
+      },
+      "ke_contraste": {
+       "bolsonaro_trump|jornal_da_band|273.72|337.2": 247.703125,
+       "bolsonaro_trump|jornal_da_record|144.22|162.42": 248.77777777777777
+      },
+      "srinivas_quality": {
+       "bolsonaro_trump|jornal_da_band|273.72|337.2": 75.71900584477136,
+       "bolsonaro_trump|jornal_da_record|144.22|162.42": 81.22606806990517
+      },
+      "sobel_cv": {
+       "bolsonaro_trump|jornal_da_band|273.72|337.2": 29.05218802091302,
+       "bolsonaro_trump|jornal_da_record|144.22|162.42": 26.374604266907955
+      }
+     },
+     "vencedor": {
+      "hasler_colorfulness": "bolsonaro_trump|jornal_da_band|273.72|337.2",
+      "laplacian_var": "bolsonaro_trump|jornal_da_band|273.72|337.2",
+      "huang_saturacao": "bolsonaro_trump|jornal_da_band|273.72|337.2",
+      "huang_matiz": "bolsonaro_trump|jornal_da_record|144.22|162.42",
+      "huang_exposicao": "bolsonaro_trump|jornal_da_record|144.22|162.42",
+      "contraste_variancia": "bolsonaro_trump|jornal_da_record|144.22|162.42",
+      "brilho": "bolsonaro_trump|jornal_da_record|144.22|162.42",
+      "ke_colorfulness": "bolsonaro_trump|jornal_da_band|273.72|337.2",
+      "ke_brightness": "bolsonaro_trump|jornal_da_record|144.22|162.42",
+      "ke_edge_distribution": "bolsonaro_trump|jornal_da_band|273.72|337.2",
+      "ke_hue_count": "bolsonaro_trump|jornal_da_band|273.72|337.2",
+      "ke_contraste": "bolsonaro_trump|jornal_da_record|144.22|162.42",
+      "srinivas_quality": "bolsonaro_trump|jornal_da_record|144.22|162.42",
+      "sobel_cv": "bolsonaro_trump|jornal_da_band|273.72|337.2"
+     }
+    }
+   ]
+  },
+  "brasil_omc": {
+   "n_clusters": 1,
+   "clusters": [
+    {
+     "segmentos": [
+      "brasil_omc|record_news|126.96|156.04",
+      "brasil_omc|uol|27.68|54.92"
+     ],
+     "n": 2,
+     "escores": {
+      "hasler_colorfulness": {
+       "brasil_omc|record_news|126.96|156.04": 34.29611243283714,
+       "brasil_omc|uol|27.68|54.92": 37.835171456633965
+      },
+      "laplacian_var": {
+       "brasil_omc|record_news|126.96|156.04": 1951.6310065620567,
+       "brasil_omc|uol|27.68|54.92": 1053.2861810399793
+      },
+      "huang_saturacao": {
+       "brasil_omc|record_news|126.96|156.04": 64.71443431712963,
+       "brasil_omc|uol|27.68|54.92": 47.17779144161523
+      },
+      "huang_matiz": {
+       "brasil_omc|record_news|126.96|156.04": 89.95185937500001,
+       "brasil_omc|uol|27.68|54.92": 74.79687773276748
+      },
+      "huang_exposicao": {
+       "brasil_omc|record_news|126.96|156.04": 132.91870775462965,
+       "brasil_omc|uol|27.68|54.92": 128.71860853909462
+      },
+      "contraste_variancia": {
+       "brasil_omc|record_news|126.96|156.04": 72.19220705939271,
+       "brasil_omc|uol|27.68|54.92": 58.32183318186415
+      },
+      "brilho": {
+       "brasil_omc|record_news|126.96|156.04": 132.91870775462965,
+       "brasil_omc|uol|27.68|54.92": 128.71860853909462
+      },
+      "ke_colorfulness": {
+       "brasil_omc|record_news|126.96|156.04": 34.29611243283714,
+       "brasil_omc|uol|27.68|54.92": 37.835171456633965
+      },
+      "ke_brightness": {
+       "brasil_omc|record_news|126.96|156.04": 132.91870775462965,
+       "brasil_omc|uol|27.68|54.92": 128.71860853909462
+      },
+      "ke_edge_distribution": {
+       "brasil_omc|record_news|126.96|156.04": 0.08506264467592593,
+       "brasil_omc|uol|27.68|54.92": 0.10890367798353909
+      },
+      "ke_hue_count": {
+       "brasil_omc|record_news|126.96|156.04": 13.866666666666667,
+       "brasil_omc|uol|27.68|54.92": 12.703703703703704
+      },
+      "ke_contraste": {
+       "brasil_omc|record_news|126.96|156.04": 238.73333333333332,
+       "brasil_omc|uol|27.68|54.92": 221.0
+      },
+      "srinivas_quality": {
+       "brasil_omc|record_news|126.96|156.04": 83.97997656642855,
+       "brasil_omc|uol|27.68|54.92": 80.07327747548317
+      },
+      "sobel_cv": {
+       "brasil_omc|record_news|126.96|156.04": 2.739101014406862,
+       "brasil_omc|uol|27.68|54.92": -2.9207717234275425
+      }
+     },
+     "vencedor": {
+      "hasler_colorfulness": "brasil_omc|uol|27.68|54.92",
+      "laplacian_var": "brasil_omc|record_news|126.96|156.04",
+      "huang_saturacao": "brasil_omc|record_news|126.96|156.04",
+      "huang_matiz": "brasil_omc|record_news|126.96|156.04",
+      "huang_exposicao": "brasil_omc|record_news|126.96|156.04",
+      "contraste_variancia": "brasil_omc|record_news|126.96|156.04",
+      "brilho": "brasil_omc|record_news|126.96|156.04",
+      "ke_colorfulness": "brasil_omc|uol|27.68|54.92",
+      "ke_brightness": "brasil_omc|record_news|126.96|156.04",
+      "ke_edge_distribution": "brasil_omc|uol|27.68|54.92",
+      "ke_hue_count": "brasil_omc|record_news|126.96|156.04",
+      "ke_contraste": "brasil_omc|record_news|126.96|156.04",
+      "srinivas_quality": "brasil_omc|record_news|126.96|156.04",
+      "sobel_cv": "brasil_omc|record_news|126.96|156.04"
+     }
+    }
+   ]
+  },
+  "brumadinho": {
+   "n_clusters": 3,
+   "clusters": [
+    {
+     "segmentos": [
+      "brumadinho|jornal_da_band|69.7|177.96",
+      "brumadinho|jornal_nacional|78.0|97.32"
+     ],
+     "n": 2,
+     "escores": {
+      "hasler_colorfulness": {
+       "brumadinho|jornal_da_band|69.7|177.96": 36.93559780520698,
+       "brumadinho|jornal_nacional|78.0|97.32": 43.72652270811285
+      },
+      "laplacian_var": {
+       "brumadinho|jornal_da_band|69.7|177.96": 271.39408589180806,
+       "brumadinho|jornal_nacional|78.0|97.32": 116.10595750756181
+      },
+      "huang_saturacao": {
+       "brumadinho|jornal_da_band|69.7|177.96": 104.23703382201649,
+       "brumadinho|jornal_nacional|78.0|97.32": 128.54119818793404
+      },
+      "huang_matiz": {
+       "brumadinho|jornal_da_band|69.7|177.96": 47.90341323664159,
+       "brumadinho|jornal_nacional|78.0|97.32": 82.05221294487848
+      },
+      "huang_exposicao": {
+       "brumadinho|jornal_da_band|69.7|177.96": 96.97647451895256,
+       "brumadinho|jornal_nacional|78.0|97.32": 67.09230533854166
+      },
+      "contraste_variancia": {
+       "brumadinho|jornal_da_band|69.7|177.96": 53.464877794855326,
+       "brumadinho|jornal_nacional|78.0|97.32": 46.028818365846085
+      },
+      "brilho": {
+       "brumadinho|jornal_da_band|69.7|177.96": 96.97647451895256,
+       "brumadinho|jornal_nacional|78.0|97.32": 67.09230533854166
+      },
+      "ke_colorfulness": {
+       "brumadinho|jornal_da_band|69.7|177.96": 36.93559780520698,
+       "brumadinho|jornal_nacional|78.0|97.32": 43.72652270811285
+      },
+      "ke_brightness": {
+       "brumadinho|jornal_da_band|69.7|177.96": 96.97647451895256,
+       "brumadinho|jornal_nacional|78.0|97.32": 67.09230533854166
+      },
+      "ke_edge_distribution": {
+       "brumadinho|jornal_da_band|69.7|177.96": 0.07257844650205764,
+       "brumadinho|jornal_nacional|78.0|97.32": 0.08390299479166669
+      },
+      "ke_hue_count": {
+       "brumadinho|jornal_da_band|69.7|177.96": 13.027777777777779,
+       "brumadinho|jornal_nacional|78.0|97.32": 14.25
+      },
+      "ke_contraste": {
+       "brumadinho|jornal_da_band|69.7|177.96": 226.72222222222223,
+       "brumadinho|jornal_nacional|78.0|97.32": 184.05
+      },
+      "srinivas_quality": {
+       "brumadinho|jornal_da_band|69.7|177.96": 74.74693015413233,
+       "brumadinho|jornal_nacional|78.0|97.32": 61.84054620828922
+      },
+      "sobel_cv": {
+       "brumadinho|jornal_da_band|69.7|177.96": -4.7126115627404825,
+       "brumadinho|jornal_nacional|78.0|97.32": -2.511133224420573
+      }
+     },
+     "vencedor": {
+      "hasler_colorfulness": "brumadinho|jornal_nacional|78.0|97.32",
+      "laplacian_var": "brumadinho|jornal_da_band|69.7|177.96",
+      "huang_saturacao": "brumadinho|jornal_nacional|78.0|97.32",
+      "huang_matiz": "brumadinho|jornal_nacional|78.0|97.32",
+      "huang_exposicao": "brumadinho|jornal_da_band|69.7|177.96",
+      "contraste_variancia": "brumadinho|jornal_da_band|69.7|177.96",
+      "brilho": "brumadinho|jornal_da_band|69.7|177.96",
+      "ke_colorfulness": "brumadinho|jornal_nacional|78.0|97.32",
+      "ke_brightness": "brumadinho|jornal_da_band|69.7|177.96",
+      "ke_edge_distribution": "brumadinho|jornal_nacional|78.0|97.32",
+      "ke_hue_count": "brumadinho|jornal_nacional|78.0|97.32",
+      "ke_contraste": "brumadinho|jornal_da_band|69.7|177.96",
+      "srinivas_quality": "brumadinho|jornal_da_band|69.7|177.96",
+      "sobel_cv": "brumadinho|jornal_nacional|78.0|97.32"
+     }
+    },
+    {
+     "segmentos": [
+      "brumadinho|jornal_da_record|264.5|452.12",
+      "brumadinho|jornal_nacional|206.32|226.44"
+     ],
+     "n": 2,
+     "escores": {
+      "hasler_colorfulness": {
+       "brumadinho|jornal_da_record|264.5|452.12": 40.02227033545088,
+       "brumadinho|jornal_nacional|206.32|226.44": 21.46156272514002
+      },
+      "laplacian_var": {
+       "brumadinho|jornal_da_record|264.5|452.12": 54.54881415382816,
+       "brumadinho|jornal_nacional|206.32|226.44": 368.89248114500526
+      },
+      "huang_saturacao": {
+       "brumadinho|jornal_da_record|264.5|452.12": 90.82346680841827,
+       "brumadinho|jornal_nacional|206.32|226.44": 60.20009044053819
+      },
+      "huang_matiz": {
+       "brumadinho|jornal_da_record|264.5|452.12": 69.36169812790891,
+       "brumadinho|jornal_nacional|206.32|226.44": 80.6007260199653
+      },
+      "huang_exposicao": {
+       "brumadinho|jornal_da_record|264.5|452.12": 88.23325119703938,
+       "brumadinho|jornal_nacional|206.32|226.44": 80.21928634982638
+      },
+      "contraste_variancia": {
+       "brumadinho|jornal_da_record|264.5|452.12": 56.97250445310205,
+       "brumadinho|jornal_nacional|206.32|226.44": 33.21858611646885
+      },
+      "brilho": {
+       "brumadinho|jornal_da_record|264.5|452.12": 88.23325119703938,
+       "brumadinho|jornal_nacional|206.32|226.44": 80.21928634982638
+      },
+      "ke_colorfulness": {
+       "brumadinho|jornal_da_record|264.5|452.12": 40.02227033545088,
+       "brumadinho|jornal_nacional|206.32|226.44": 21.46156272514002
+      },
+      "ke_brightness": {
+       "brumadinho|jornal_da_record|264.5|452.12": 88.23325119703938,
+       "brumadinho|jornal_nacional|206.32|226.44": 80.21928634982638
+      },
+      "ke_edge_distribution": {
+       "brumadinho|jornal_da_record|264.5|452.12": 0.10259270417774821,
+       "brumadinho|jornal_nacional|206.32|226.44": 0.05057009548611109
+      },
+      "ke_hue_count": {
+       "brumadinho|jornal_da_record|264.5|452.12": 14.127659574468085,
+       "brumadinho|jornal_nacional|206.32|226.44": 13.85
+      },
+      "ke_contraste": {
+       "brumadinho|jornal_da_record|264.5|452.12": 214.4468085106383,
+       "brumadinho|jornal_nacional|206.32|226.44": 137.25
+      },
+      "srinivas_quality": {
+       "brumadinho|jornal_da_record|264.5|452.12": 71.38651646435487,
+       "brumadinho|jornal_nacional|206.32|226.44": 50.5662838340905
+      },
+      "sobel_cv": {
+       "brumadinho|jornal_da_record|264.5|452.12": -686.9785461935517,
+       "brumadinho|jornal_nacional|206.32|226.44": 2.8421220708482693
+      }
+     },
+     "vencedor": {
+      "hasler_colorfulness": "brumadinho|jornal_da_record|264.5|452.12",
+      "laplacian_var": "brumadinho|jornal_nacional|206.32|226.44",
+      "huang_saturacao": "brumadinho|jornal_da_record|264.5|452.12",
+      "huang_matiz": "brumadinho|jornal_nacional|206.32|226.44",
+      "huang_exposicao": "brumadinho|jornal_da_record|264.5|452.12",
+      "contraste_variancia": "brumadinho|jornal_da_record|264.5|452.12",
+      "brilho": "brumadinho|jornal_da_record|264.5|452.12",
+      "ke_colorfulness": "brumadinho|jornal_da_record|264.5|452.12",
+      "ke_brightness": "brumadinho|jornal_da_record|264.5|452.12",
+      "ke_edge_distribution": "brumadinho|jornal_da_record|264.5|452.12",
+      "ke_hue_count": "brumadinho|jornal_da_record|264.5|452.12",
+      "ke_contraste": "brumadinho|jornal_da_record|264.5|452.12",
+      "srinivas_quality": "brumadinho|jornal_da_record|264.5|452.12",
+      "sobel_cv": "brumadinho|jornal_nacional|206.32|226.44"
+     }
+    },
+    {
+     "segmentos": [
+      "brumadinho|jornal_da_band|0.0|12.86",
+      "brumadinho|jornal_da_record|264.5|452.12"
+     ],
+     "n": 2,
+     "escores": {
+      "hasler_colorfulness": {
+       "brumadinho|jornal_da_band|0.0|12.86": 61.04102136617408,
+       "brumadinho|jornal_da_record|264.5|452.12": 40.02227033545088
+      },
+      "laplacian_var": {
+       "brumadinho|jornal_da_band|0.0|12.86": 95.70991600306792,
+       "brumadinho|jornal_da_record|264.5|452.12": 54.54881415382816
+      },
+      "huang_saturacao": {
+       "brumadinho|jornal_da_band|0.0|12.86": 129.07648078592413,
+       "brumadinho|jornal_da_record|264.5|452.12": 90.82346680841827
+      },
+      "huang_matiz": {
+       "brumadinho|jornal_da_band|0.0|12.86": 108.7664121761485,
+       "brumadinho|jornal_da_record|264.5|452.12": 69.36169812790891
+      },
+      "huang_exposicao": {
+       "brumadinho|jornal_da_band|0.0|12.86": 62.692199602697656,
+       "brumadinho|jornal_da_record|264.5|452.12": 88.23325119703938
+      },
+      "contraste_variancia": {
+       "brumadinho|jornal_da_band|0.0|12.86": 58.21599542865053,
+       "brumadinho|jornal_da_record|264.5|452.12": 56.97250445310205
+      },
+      "brilho": {
+       "brumadinho|jornal_da_band|0.0|12.86": 62.692199602697656,
+       "brumadinho|jornal_da_record|264.5|452.12": 88.23325119703938
+      },
+      "ke_colorfulness": {
+       "brumadinho|jornal_da_band|0.0|12.86": 61.04102136617408,
+       "brumadinho|jornal_da_record|264.5|452.12": 40.02227033545088
+      },
+      "ke_brightness": {
+       "brumadinho|jornal_da_band|0.0|12.86": 62.692199602697656,
+       "brumadinho|jornal_da_record|264.5|452.12": 88.23325119703938
+      },
+      "ke_edge_distribution": {
+       "brumadinho|jornal_da_band|0.0|12.86": 0.06615685096153842,
+       "brumadinho|jornal_da_record|264.5|452.12": 0.10259270417774821
+      },
+      "ke_hue_count": {
+       "brumadinho|jornal_da_band|0.0|12.86": 15.461538461538462,
+       "brumadinho|jornal_da_record|264.5|452.12": 14.127659574468085
+      },
+      "ke_contraste": {
+       "brumadinho|jornal_da_band|0.0|12.86": 230.69230769230768,
+       "brumadinho|jornal_da_record|264.5|452.12": 214.4468085106383
+      },
+      "srinivas_quality": {
+       "brumadinho|jornal_da_band|0.0|12.86": 73.99064479473589,
+       "brumadinho|jornal_da_record|264.5|452.12": 71.38651646435487
+      },
+      "sobel_cv": {
+       "brumadinho|jornal_da_band|0.0|12.86": 12.287682937472677,
+       "brumadinho|jornal_da_record|264.5|452.12": 18.264915983642037
+      }
+     },
+     "vencedor": {
+      "hasler_colorfulness": "brumadinho|jornal_da_band|0.0|12.86",
+      "laplacian_var": "brumadinho|jornal_da_band|0.0|12.86",
+      "huang_saturacao": "brumadinho|jornal_da_band|0.0|12.86",
+      "huang_matiz": "brumadinho|jornal_da_band|0.0|12.86",
+      "huang_exposicao": "brumadinho|jornal_da_record|264.5|452.12",
+      "contraste_variancia": "brumadinho|jornal_da_band|0.0|12.86",
+      "brilho": "brumadinho|jornal_da_record|264.5|452.12",
+      "ke_colorfulness": "brumadinho|jornal_da_band|0.0|12.86",
+      "ke_brightness": "brumadinho|jornal_da_record|264.5|452.12",
+      "ke_edge_distribution": "brumadinho|jornal_da_record|264.5|452.12",
+      "ke_hue_count": "brumadinho|jornal_da_band|0.0|12.86",
+      "ke_contraste": "brumadinho|jornal_da_band|0.0|12.86",
+      "srinivas_quality": "brumadinho|jornal_da_band|0.0|12.86",
+      "sobel_cv": "brumadinho|jornal_da_record|264.5|452.12"
+     }
+    }
+   ]
+  },
+  "catedral_notre_dame": {
+   "n_clusters": 2,
+   "clusters": [
+    {
+     "segmentos": [
+      "catedral_notre_dame|jornal_da_band|0.06|94.12",
+      "catedral_notre_dame|jornal_da_record|31.88|49.78",
+      "catedral_notre_dame|jornal_nacional|0.4|51.22"
+     ],
+     "n": 3,
+     "escores": {
+      "hasler_colorfulness": {
+       "catedral_notre_dame|jornal_da_band|0.06|94.12": 43.615376407489116,
+       "catedral_notre_dame|jornal_da_record|31.88|49.78": 29.312334215639087,
+       "catedral_notre_dame|jornal_nacional|0.4|51.22": 40.798616423786235
+      },
+      "laplacian_var": {
+       "catedral_notre_dame|jornal_da_band|0.06|94.12": 140.5796756550478,
+       "catedral_notre_dame|jornal_da_record|31.88|49.78": 30.05439123271614,
+       "catedral_notre_dame|jornal_nacional|0.4|51.22": 144.90863716012674
+      },
+      "huang_saturacao": {
+       "catedral_notre_dame|jornal_da_band|0.06|94.12": 80.45725200391549,
+       "catedral_notre_dame|jornal_da_record|31.88|49.78": 42.91740831163194,
+       "catedral_notre_dame|jornal_nacional|0.4|51.22": 75.56361285573256
+      },
+      "huang_matiz": {
+       "catedral_notre_dame|jornal_da_band|0.06|94.12": 61.30098440039522,
+       "catedral_notre_dame|jornal_da_record|31.88|49.78": 53.16346745997299,
+       "catedral_notre_dame|jornal_nacional|0.4|51.22": 60.34088399118329
+      },
+      "huang_exposicao": {
+       "catedral_notre_dame|jornal_da_band|0.06|94.12": 109.27201429290407,
+       "catedral_notre_dame|jornal_da_record|31.88|49.78": 118.47694944782022,
+       "catedral_notre_dame|jornal_nacional|0.4|51.22": 111.93272971558412
+      },
+      "contraste_variancia": {
+       "catedral_notre_dame|jornal_da_band|0.06|94.12": 57.905235145249684,
+       "catedral_notre_dame|jornal_da_record|31.88|49.78": 50.431070357476344,
+       "catedral_notre_dame|jornal_nacional|0.4|51.22": 53.131693280500826
+      },
+      "brilho": {
+       "catedral_notre_dame|jornal_da_band|0.06|94.12": 109.27201429290407,
+       "catedral_notre_dame|jornal_da_record|31.88|49.78": 118.47694944782022,
+       "catedral_notre_dame|jornal_nacional|0.4|51.22": 111.93272971558412
+      },
+      "ke_colorfulness": {
+       "catedral_notre_dame|jornal_da_band|0.06|94.12": 43.615376407489116,
+       "catedral_notre_dame|jornal_da_record|31.88|49.78": 29.312334215639087,
+       "catedral_notre_dame|jornal_nacional|0.4|51.22": 40.798616423786235
+      },
+      "ke_brightness": {
+       "catedral_notre_dame|jornal_da_band|0.06|94.12": 109.27201429290407,
+       "catedral_notre_dame|jornal_da_record|31.88|49.78": 118.47694944782022,
+       "catedral_notre_dame|jornal_nacional|0.4|51.22": 111.93272971558412
+      },
+      "ke_edge_distribution": {
+       "catedral_notre_dame|jornal_da_band|0.06|94.12": 0.07937046348625888,
+       "catedral_notre_dame|jornal_da_record|31.88|49.78": 0.03485960407021607,
+       "catedral_notre_dame|jornal_nacional|0.4|51.22": 0.05590686274509802
+      },
+      "ke_hue_count": {
+       "catedral_notre_dame|jornal_da_band|0.06|94.12": 14.436170212765957,
+       "catedral_notre_dame|jornal_da_record|31.88|49.78": 14.61111111111111,
+       "catedral_notre_dame|jornal_nacional|0.4|51.22": 13.941176470588236
+      },
+      "ke_contraste": {
+       "catedral_notre_dame|jornal_da_band|0.06|94.12": 219.60638297872342,
+       "catedral_notre_dame|jornal_da_record|31.88|49.78": 195.11111111111111,
+       "catedral_notre_dame|jornal_nacional|0.4|51.22": 191.80392156862746
+      },
+      "srinivas_quality": {
+       "catedral_notre_dame|jornal_da_band|0.06|94.12": 77.40186287107377,
+       "catedral_notre_dame|jornal_da_record|31.88|49.78": 71.50927309795034,
+       "catedral_notre_dame|jornal_nacional|0.4|51.22": 71.70647020826623
+      },
+      "sobel_cv": {
+       "catedral_notre_dame|jornal_da_band|0.06|94.12": -68.26529912608189,
+       "catedral_notre_dame|jornal_da_record|31.88|49.78": -6.450222828300962,
+       "catedral_notre_dame|jornal_nacional|0.4|51.22": 5.88850700564054
+      }
+     },
+     "vencedor": {
+      "hasler_colorfulness": "catedral_notre_dame|jornal_da_band|0.06|94.12",
+      "laplacian_var": "catedral_notre_dame|jornal_nacional|0.4|51.22",
+      "huang_saturacao": "catedral_notre_dame|jornal_da_band|0.06|94.12",
+      "huang_matiz": "catedral_notre_dame|jornal_da_band|0.06|94.12",
+      "huang_exposicao": "catedral_notre_dame|jornal_da_record|31.88|49.78",
+      "contraste_variancia": "catedral_notre_dame|jornal_da_band|0.06|94.12",
+      "brilho": "catedral_notre_dame|jornal_da_record|31.88|49.78",
+      "ke_colorfulness": "catedral_notre_dame|jornal_da_band|0.06|94.12",
+      "ke_brightness": "catedral_notre_dame|jornal_da_record|31.88|49.78",
+      "ke_edge_distribution": "catedral_notre_dame|jornal_da_band|0.06|94.12",
+      "ke_hue_count": "catedral_notre_dame|jornal_da_record|31.88|49.78",
+      "ke_contraste": "catedral_notre_dame|jornal_da_band|0.06|94.12",
+      "srinivas_quality": "catedral_notre_dame|jornal_da_band|0.06|94.12",
+      "sobel_cv": "catedral_notre_dame|jornal_nacional|0.4|51.22"
+     }
+    },
+    {
+     "segmentos": [
+      "catedral_notre_dame|jornal_da_band|0.06|94.12",
+      "catedral_notre_dame|jornal_da_record|51.04|72.1"
+     ],
+     "n": 2,
+     "escores": {
+      "hasler_colorfulness": {
+       "catedral_notre_dame|jornal_da_band|0.06|94.12": 43.615376407489116,
+       "catedral_notre_dame|jornal_da_record|51.04|72.1": 31.65165865044879
+      },
+      "laplacian_var": {
+       "catedral_notre_dame|jornal_da_band|0.06|94.12": 140.5796756550478,
+       "catedral_notre_dame|jornal_da_record|51.04|72.1": 56.79958175388703
+      },
+      "huang_saturacao": {
+       "catedral_notre_dame|jornal_da_band|0.06|94.12": 80.45725200391549,
+       "catedral_notre_dame|jornal_da_record|51.04|72.1": 53.12190181671626
+      },
+      "huang_matiz": {
+       "catedral_notre_dame|jornal_da_band|0.06|94.12": 61.30098440039522,
+       "catedral_notre_dame|jornal_da_record|51.04|72.1": 59.41928767774472
+      },
+      "huang_exposicao": {
+       "catedral_notre_dame|jornal_da_band|0.06|94.12": 109.27201429290407,
+       "catedral_notre_dame|jornal_da_record|51.04|72.1": 142.88959087714946
+      },
+      "contraste_variancia": {
+       "catedral_notre_dame|jornal_da_band|0.06|94.12": 57.905235145249684,
+       "catedral_notre_dame|jornal_da_record|51.04|72.1": 48.45749006112223
+      },
+      "brilho": {
+       "catedral_notre_dame|jornal_da_band|0.06|94.12": 109.27201429290407,
+       "catedral_notre_dame|jornal_da_record|51.04|72.1": 142.88959087714946
+      },
+      "ke_colorfulness": {
+       "catedral_notre_dame|jornal_da_band|0.06|94.12": 43.615376407489116,
+       "catedral_notre_dame|jornal_da_record|51.04|72.1": 31.65165865044879
+      },
+      "ke_brightness": {
+       "catedral_notre_dame|jornal_da_band|0.06|94.12": 109.27201429290407,
+       "catedral_notre_dame|jornal_da_record|51.04|72.1": 142.88959087714946
+      },
+      "ke_edge_distribution": {
+       "catedral_notre_dame|jornal_da_band|0.06|94.12": 0.07937046348625888,
+       "catedral_notre_dame|jornal_da_record|51.04|72.1": 0.05311678447420637
+      },
+      "ke_hue_count": {
+       "catedral_notre_dame|jornal_da_band|0.06|94.12": 14.436170212765957,
+       "catedral_notre_dame|jornal_da_record|51.04|72.1": 16.714285714285715
+      },
+      "ke_contraste": {
+       "catedral_notre_dame|jornal_da_band|0.06|94.12": 219.60638297872342,
+       "catedral_notre_dame|jornal_da_record|51.04|72.1": 183.9047619047619
+      },
+      "srinivas_quality": {
+       "catedral_notre_dame|jornal_da_band|0.06|94.12": 77.40186287107377,
+       "catedral_notre_dame|jornal_da_record|51.04|72.1": 75.042682786224
+      },
+      "sobel_cv": {
+       "catedral_notre_dame|jornal_da_band|0.06|94.12": -11.47249057827816,
+       "catedral_notre_dame|jornal_da_record|51.04|72.1": 1.482291660097692
+      }
+     },
+     "vencedor": {
+      "hasler_colorfulness": "catedral_notre_dame|jornal_da_band|0.06|94.12",
+      "laplacian_var": "catedral_notre_dame|jornal_da_band|0.06|94.12",
+      "huang_saturacao": "catedral_notre_dame|jornal_da_band|0.06|94.12",
+      "huang_matiz": "catedral_notre_dame|jornal_da_band|0.06|94.12",
+      "huang_exposicao": "catedral_notre_dame|jornal_da_record|51.04|72.1",
+      "contraste_variancia": "catedral_notre_dame|jornal_da_band|0.06|94.12",
+      "brilho": "catedral_notre_dame|jornal_da_record|51.04|72.1",
+      "ke_colorfulness": "catedral_notre_dame|jornal_da_band|0.06|94.12",
+      "ke_brightness": "catedral_notre_dame|jornal_da_record|51.04|72.1",
+      "ke_edge_distribution": "catedral_notre_dame|jornal_da_band|0.06|94.12",
+      "ke_hue_count": "catedral_notre_dame|jornal_da_record|51.04|72.1",
+      "ke_contraste": "catedral_notre_dame|jornal_da_band|0.06|94.12",
+      "srinivas_quality": "catedral_notre_dame|jornal_da_band|0.06|94.12",
+      "sobel_cv": "catedral_notre_dame|jornal_da_record|51.04|72.1"
+     }
+    }
+   ]
+  },
+  "cessar_fogo_ucrania": {
+   "n_clusters": 3,
+   "clusters": [
+    {
+     "segmentos": [
+      "cessar_fogo_ucrania|ucrania_band|0.24|39.88",
+      "cessar_fogo_ucrania|ucrania_cnn|21.56|67.12"
+     ],
+     "n": 2,
+     "escores": {
+      "hasler_colorfulness": {
+       "cessar_fogo_ucrania|ucrania_band|0.24|39.88": 50.60724809437224,
+       "cessar_fogo_ucrania|ucrania_cnn|21.56|67.12": 70.57313359174485
+      },
+      "laplacian_var": {
+       "cessar_fogo_ucrania|ucrania_band|0.24|39.88": 461.5507340593942,
+       "cessar_fogo_ucrania|ucrania_cnn|21.56|67.12": 3586.044337307184
+      },
+      "huang_saturacao": {
+       "cessar_fogo_ucrania|ucrania_band|0.24|39.88": 109.45570078792734,
+       "cessar_fogo_ucrania|ucrania_cnn|21.56|67.12": 79.09597750603865
+      },
+      "huang_matiz": {
+       "cessar_fogo_ucrania|ucrania_band|0.24|39.88": 76.16328069355411,
+       "cessar_fogo_ucrania|ucrania_cnn|21.56|67.12": 62.780690387228255
+      },
+      "huang_exposicao": {
+       "cessar_fogo_ucrania|ucrania_band|0.24|39.88": 89.1985110621439,
+       "cessar_fogo_ucrania|ucrania_cnn|21.56|67.12": 130.37728723203506
+      },
+      "contraste_variancia": {
+       "cessar_fogo_ucrania|ucrania_band|0.24|39.88": 44.1612204678057,
+       "cessar_fogo_ucrania|ucrania_cnn|21.56|67.12": 75.12109672716494
+      },
+      "brilho": {
+       "cessar_fogo_ucrania|ucrania_band|0.24|39.88": 89.1985110621439,
+       "cessar_fogo_ucrania|ucrania_cnn|21.56|67.12": 130.37728723203506
+      },
+      "ke_colorfulness": {
+       "cessar_fogo_ucrania|ucrania_band|0.24|39.88": 50.60724809437224,
+       "cessar_fogo_ucrania|ucrania_cnn|21.56|67.12": 70.57313359174485
+      },
+      "ke_brightness": {
+       "cessar_fogo_ucrania|ucrania_band|0.24|39.88": 89.1985110621439,
+       "cessar_fogo_ucrania|ucrania_cnn|21.56|67.12": 130.37728723203506
+      },
+      "ke_edge_distribution": {
+       "cessar_fogo_ucrania|ucrania_band|0.24|39.88": 0.11510149572649571,
+       "cessar_fogo_ucrania|ucrania_cnn|21.56|67.12": 0.0638726600241546
+      },
+      "ke_hue_count": {
+       "cessar_fogo_ucrania|ucrania_band|0.24|39.88": 15.128205128205128,
+       "cessar_fogo_ucrania|ucrania_cnn|21.56|67.12": 13.217391304347826
+      },
+      "ke_contraste": {
+       "cessar_fogo_ucrania|ucrania_band|0.24|39.88": 183.97435897435898,
+       "cessar_fogo_ucrania|ucrania_cnn|21.56|67.12": 255.0
+      },
+      "srinivas_quality": {
+       "cessar_fogo_ucrania|ucrania_band|0.24|39.88": 67.80468495096135,
+       "cessar_fogo_ucrania|ucrania_cnn|21.56|67.12": 93.84633695763037
+      },
+      "sobel_cv": {
+       "cessar_fogo_ucrania|ucrania_band|0.24|39.88": -2.545566314841684,
+       "cessar_fogo_ucrania|ucrania_cnn|21.56|67.12": 5.790801984418933
+      }
+     },
+     "vencedor": {
+      "hasler_colorfulness": "cessar_fogo_ucrania|ucrania_cnn|21.56|67.12",
+      "laplacian_var": "cessar_fogo_ucrania|ucrania_cnn|21.56|67.12",
+      "huang_saturacao": "cessar_fogo_ucrania|ucrania_band|0.24|39.88",
+      "huang_matiz": "cessar_fogo_ucrania|ucrania_band|0.24|39.88",
+      "huang_exposicao": "cessar_fogo_ucrania|ucrania_cnn|21.56|67.12",
+      "contraste_variancia": "cessar_fogo_ucrania|ucrania_cnn|21.56|67.12",
+      "brilho": "cessar_fogo_ucrania|ucrania_cnn|21.56|67.12",
+      "ke_colorfulness": "cessar_fogo_ucrania|ucrania_cnn|21.56|67.12",
+      "ke_brightness": "cessar_fogo_ucrania|ucrania_cnn|21.56|67.12",
+      "ke_edge_distribution": "cessar_fogo_ucrania|ucrania_band|0.24|39.88",
+      "ke_hue_count": "cessar_fogo_ucrania|ucrania_band|0.24|39.88",
+      "ke_contraste": "cessar_fogo_ucrania|ucrania_cnn|21.56|67.12",
+      "srinivas_quality": "cessar_fogo_ucrania|ucrania_cnn|21.56|67.12",
+      "sobel_cv": "cessar_fogo_ucrania|ucrania_cnn|21.56|67.12"
+     }
+    },
+    {
+     "segmentos": [
+      "cessar_fogo_ucrania|ucrania_band|41.44|86.54",
+      "cessar_fogo_ucrania|ucrania_sbt|0.05|45.37"
+     ],
+     "n": 2,
+     "escores": {
+      "hasler_colorfulness": {
+       "cessar_fogo_ucrania|ucrania_band|41.44|86.54": 38.572211911793715,
+       "cessar_fogo_ucrania|ucrania_sbt|0.05|45.37": 45.18869650849636
+      },
+      "laplacian_var": {
+       "cessar_fogo_ucrania|ucrania_band|41.44|86.54": 717.8117038898422,
+       "cessar_fogo_ucrania|ucrania_sbt|0.05|45.37": 714.3780892852255
+      },
+      "huang_saturacao": {
+       "cessar_fogo_ucrania|ucrania_band|41.44|86.54": 94.08533410493827,
+       "cessar_fogo_ucrania|ucrania_sbt|0.05|45.37": 91.78243875385803
+      },
+      "huang_matiz": {
+       "cessar_fogo_ucrania|ucrania_band|41.44|86.54": 69.41225289351851,
+       "cessar_fogo_ucrania|ucrania_sbt|0.05|45.37": 102.80122550154321
+      },
+      "huang_exposicao": {
+       "cessar_fogo_ucrania|ucrania_band|41.44|86.54": 89.74713069058642,
+       "cessar_fogo_ucrania|ucrania_sbt|0.05|45.37": 116.44138560956786
+      },
+      "contraste_variancia": {
+       "cessar_fogo_ucrania|ucrania_band|41.44|86.54": 47.98796336705124,
+       "cessar_fogo_ucrania|ucrania_sbt|0.05|45.37": 50.198979614209556
+      },
+      "brilho": {
+       "cessar_fogo_ucrania|ucrania_band|41.44|86.54": 89.74713069058642,
+       "cessar_fogo_ucrania|ucrania_sbt|0.05|45.37": 116.44138560956786
+      },
+      "ke_colorfulness": {
+       "cessar_fogo_ucrania|ucrania_band|41.44|86.54": 38.572211911793715,
+       "cessar_fogo_ucrania|ucrania_sbt|0.05|45.37": 45.18869650849636
+      },
+      "ke_brightness": {
+       "cessar_fogo_ucrania|ucrania_band|41.44|86.54": 89.74713069058642,
+       "cessar_fogo_ucrania|ucrania_sbt|0.05|45.37": 116.44138560956786
+      },
+      "ke_edge_distribution": {
+       "cessar_fogo_ucrania|ucrania_band|41.44|86.54": 0.12127739197530865,
+       "cessar_fogo_ucrania|ucrania_sbt|0.05|45.37": 0.16267814429012348
+      },
+      "ke_hue_count": {
+       "cessar_fogo_ucrania|ucrania_band|41.44|86.54": 15.777777777777779,
+       "cessar_fogo_ucrania|ucrania_sbt|0.05|45.37": 13.4
+      },
+      "ke_contraste": {
+       "cessar_fogo_ucrania|ucrania_band|41.44|86.54": 210.17777777777778,
+       "cessar_fogo_ucrania|ucrania_sbt|0.05|45.37": 224.84444444444443
+      },
+      "srinivas_quality": {
+       "cessar_fogo_ucrania|ucrania_band|41.44|86.54": 70.8792351099822,
+       "cessar_fogo_ucrania|ucrania_sbt|0.05|45.37": 80.00744094135976
+      },
+      "sobel_cv": {
+       "cessar_fogo_ucrania|ucrania_band|41.44|86.54": -0.12298278254277875,
+       "cessar_fogo_ucrania|ucrania_sbt|0.05|45.37": 34.265212463221665
+      }
+     },
+     "vencedor": {
+      "hasler_colorfulness": "cessar_fogo_ucrania|ucrania_sbt|0.05|45.37",
+      "laplacian_var": "cessar_fogo_ucrania|ucrania_band|41.44|86.54",
+      "huang_saturacao": "cessar_fogo_ucrania|ucrania_band|41.44|86.54",
+      "huang_matiz": "cessar_fogo_ucrania|ucrania_sbt|0.05|45.37",
+      "huang_exposicao": "cessar_fogo_ucrania|ucrania_sbt|0.05|45.37",
+      "contraste_variancia": "cessar_fogo_ucrania|ucrania_sbt|0.05|45.37",
+      "brilho": "cessar_fogo_ucrania|ucrania_sbt|0.05|45.37",
+      "ke_colorfulness": "cessar_fogo_ucrania|ucrania_sbt|0.05|45.37",
+      "ke_brightness": "cessar_fogo_ucrania|ucrania_sbt|0.05|45.37",
+      "ke_edge_distribution": "cessar_fogo_ucrania|ucrania_sbt|0.05|45.37",
+      "ke_hue_count": "cessar_fogo_ucrania|ucrania_band|41.44|86.54",
+      "ke_contraste": "cessar_fogo_ucrania|ucrania_sbt|0.05|45.37",
+      "srinivas_quality": "cessar_fogo_ucrania|ucrania_sbt|0.05|45.37",
+      "sobel_cv": "cessar_fogo_ucrania|ucrania_sbt|0.05|45.37"
+     }
+    },
+    {
+     "segmentos": [
+      "cessar_fogo_ucrania|ucrania_cnn|21.56|67.12",
+      "cessar_fogo_ucrania|ucrania_sbt|0.05|45.37"
+     ],
+     "n": 2,
+     "escores": {
+      "hasler_colorfulness": {
+       "cessar_fogo_ucrania|ucrania_cnn|21.56|67.12": 70.57313359174485,
+       "cessar_fogo_ucrania|ucrania_sbt|0.05|45.37": 45.18869650849636
+      },
+      "laplacian_var": {
+       "cessar_fogo_ucrania|ucrania_cnn|21.56|67.12": 3586.044337307184,
+       "cessar_fogo_ucrania|ucrania_sbt|0.05|45.37": 714.3780892852255
+      },
+      "huang_saturacao": {
+       "cessar_fogo_ucrania|ucrania_cnn|21.56|67.12": 79.09597750603865,
+       "cessar_fogo_ucrania|ucrania_sbt|0.05|45.37": 91.78243875385803
+      },
+      "huang_matiz": {
+       "cessar_fogo_ucrania|ucrania_cnn|21.56|67.12": 62.780690387228255,
+       "cessar_fogo_ucrania|ucrania_sbt|0.05|45.37": 102.80122550154321
+      },
+      "huang_exposicao": {
+       "cessar_fogo_ucrania|ucrania_cnn|21.56|67.12": 130.37728723203506,
+       "cessar_fogo_ucrania|ucrania_sbt|0.05|45.37": 116.44138560956786
+      },
+      "contraste_variancia": {
+       "cessar_fogo_ucrania|ucrania_cnn|21.56|67.12": 75.12109672716494,
+       "cessar_fogo_ucrania|ucrania_sbt|0.05|45.37": 50.198979614209556
+      },
+      "brilho": {
+       "cessar_fogo_ucrania|ucrania_cnn|21.56|67.12": 130.37728723203506,
+       "cessar_fogo_ucrania|ucrania_sbt|0.05|45.37": 116.44138560956786
+      },
+      "ke_colorfulness": {
+       "cessar_fogo_ucrania|ucrania_cnn|21.56|67.12": 70.57313359174485,
+       "cessar_fogo_ucrania|ucrania_sbt|0.05|45.37": 45.18869650849636
+      },
+      "ke_brightness": {
+       "cessar_fogo_ucrania|ucrania_cnn|21.56|67.12": 130.37728723203506,
+       "cessar_fogo_ucrania|ucrania_sbt|0.05|45.37": 116.44138560956786
+      },
+      "ke_edge_distribution": {
+       "cessar_fogo_ucrania|ucrania_cnn|21.56|67.12": 0.0638726600241546,
+       "cessar_fogo_ucrania|ucrania_sbt|0.05|45.37": 0.16267814429012348
+      },
+      "ke_hue_count": {
+       "cessar_fogo_ucrania|ucrania_cnn|21.56|67.12": 13.217391304347826,
+       "cessar_fogo_ucrania|ucrania_sbt|0.05|45.37": 13.4
+      },
+      "ke_contraste": {
+       "cessar_fogo_ucrania|ucrania_cnn|21.56|67.12": 255.0,
+       "cessar_fogo_ucrania|ucrania_sbt|0.05|45.37": 224.84444444444443
+      },
+      "srinivas_quality": {
+       "cessar_fogo_ucrania|ucrania_cnn|21.56|67.12": 93.84633695763037,
+       "cessar_fogo_ucrania|ucrania_sbt|0.05|45.37": 80.00744094135976
+      },
+      "sobel_cv": {
+       "cessar_fogo_ucrania|ucrania_cnn|21.56|67.12": 6.523768797593682,
+       "cessar_fogo_ucrania|ucrania_sbt|0.05|45.37": -2.620150953451575
+      }
+     },
+     "vencedor": {
+      "hasler_colorfulness": "cessar_fogo_ucrania|ucrania_cnn|21.56|67.12",
+      "laplacian_var": "cessar_fogo_ucrania|ucrania_cnn|21.56|67.12",
+      "huang_saturacao": "cessar_fogo_ucrania|ucrania_sbt|0.05|45.37",
+      "huang_matiz": "cessar_fogo_ucrania|ucrania_sbt|0.05|45.37",
+      "huang_exposicao": "cessar_fogo_ucrania|ucrania_cnn|21.56|67.12",
+      "contraste_variancia": "cessar_fogo_ucrania|ucrania_cnn|21.56|67.12",
+      "brilho": "cessar_fogo_ucrania|ucrania_cnn|21.56|67.12",
+      "ke_colorfulness": "cessar_fogo_ucrania|ucrania_cnn|21.56|67.12",
+      "ke_brightness": "cessar_fogo_ucrania|ucrania_cnn|21.56|67.12",
+      "ke_edge_distribution": "cessar_fogo_ucrania|ucrania_sbt|0.05|45.37",
+      "ke_hue_count": "cessar_fogo_ucrania|ucrania_sbt|0.05|45.37",
+      "ke_contraste": "cessar_fogo_ucrania|ucrania_cnn|21.56|67.12",
+      "srinivas_quality": "cessar_fogo_ucrania|ucrania_cnn|21.56|67.12",
+      "sobel_cv": "cessar_fogo_ucrania|ucrania_cnn|21.56|67.12"
+     }
+    }
+   ]
+  },
+  "cigarro_eletronico": {
+   "n_clusters": 0,
+   "clusters": []
+  },
+  "cpi_inss": {
+   "n_clusters": 0,
+   "clusters": []
+  },
+  "esquema_pcc": {
+   "n_clusters": 3,
+   "clusters": [
+    {
+     "segmentos": [
+      "esquema_pcc|band|168.62|197.54",
+      "esquema_pcc|g1|236.22|265.82"
+     ],
+     "n": 2,
+     "escores": {
+      "hasler_colorfulness": {
+       "esquema_pcc|band|168.62|197.54": 27.39977024356491,
+       "esquema_pcc|g1|236.22|265.82": 25.707729899763564
+      },
+      "laplacian_var": {
+       "esquema_pcc|band|168.62|197.54": 761.2943484379676,
+       "esquema_pcc|g1|236.22|265.82": 1432.9486891264567
+      },
+      "huang_saturacao": {
+       "esquema_pcc|band|168.62|197.54": 64.22622740062262,
+       "esquema_pcc|g1|236.22|265.82": 38.41705175407089
+      },
+      "huang_matiz": {
+       "esquema_pcc|band|168.62|197.54": 61.030584740181986,
+       "esquema_pcc|g1|236.22|265.82": 60.08366648706897
+      },
+      "huang_exposicao": {
+       "esquema_pcc|band|168.62|197.54": 91.81092013888889,
+       "esquema_pcc|g1|236.22|265.82": 132.32852370689653
+      },
+      "contraste_variancia": {
+       "esquema_pcc|band|168.62|197.54": 49.256165181839826,
+       "esquema_pcc|g1|236.22|265.82": 64.27949286395236
+      },
+      "brilho": {
+       "esquema_pcc|band|168.62|197.54": 91.81092013888889,
+       "esquema_pcc|g1|236.22|265.82": 132.32852370689653
+      },
+      "ke_colorfulness": {
+       "esquema_pcc|band|168.62|197.54": 27.39977024356491,
+       "esquema_pcc|g1|236.22|265.82": 25.707729899763564
+      },
+      "ke_brightness": {
+       "esquema_pcc|band|168.62|197.54": 91.81092013888889,
+       "esquema_pcc|g1|236.22|265.82": 132.32852370689653
+      },
+      "ke_edge_distribution": {
+       "esquema_pcc|band|168.62|197.54": 0.10390894396551725,
+       "esquema_pcc|g1|236.22|265.82": 0.06525472940613027
+      },
+      "ke_hue_count": {
+       "esquema_pcc|band|168.62|197.54": 13.758620689655173,
+       "esquema_pcc|g1|236.22|265.82": 14.10344827586207
+      },
+      "ke_contraste": {
+       "esquema_pcc|band|168.62|197.54": 205.93103448275863,
+       "esquema_pcc|g1|236.22|265.82": 226.24137931034483
+      },
+      "srinivas_quality": {
+       "esquema_pcc|band|168.62|197.54": 67.80085089976663,
+       "esquema_pcc|g1|236.22|265.82": 79.68926718445464
+      },
+      "sobel_cv": {
+       "esquema_pcc|band|168.62|197.54": 0.9424284286970157,
+       "esquema_pcc|g1|236.22|265.82": -2.0338102939316376
+      }
+     },
+     "vencedor": {
+      "hasler_colorfulness": "esquema_pcc|band|168.62|197.54",
+      "laplacian_var": "esquema_pcc|g1|236.22|265.82",
+      "huang_saturacao": "esquema_pcc|band|168.62|197.54",
+      "huang_matiz": "esquema_pcc|band|168.62|197.54",
+      "huang_exposicao": "esquema_pcc|g1|236.22|265.82",
+      "contraste_variancia": "esquema_pcc|g1|236.22|265.82",
+      "brilho": "esquema_pcc|g1|236.22|265.82",
+      "ke_colorfulness": "esquema_pcc|band|168.62|197.54",
+      "ke_brightness": "esquema_pcc|g1|236.22|265.82",
+      "ke_edge_distribution": "esquema_pcc|band|168.62|197.54",
+      "ke_hue_count": "esquema_pcc|g1|236.22|265.82",
+      "ke_contraste": "esquema_pcc|g1|236.22|265.82",
+      "srinivas_quality": "esquema_pcc|g1|236.22|265.82",
+      "sobel_cv": "esquema_pcc|band|168.62|197.54"
+     }
+    },
+    {
+     "segmentos": [
+      "esquema_pcc|g1|65.68|94.12",
+      "esquema_pcc|gazeta|141.04|170.56"
+     ],
+     "n": 2,
+     "escores": {
+      "hasler_colorfulness": {
+       "esquema_pcc|g1|65.68|94.12": 44.00745758886503,
+       "esquema_pcc|gazeta|141.04|170.56": 20.666641706433435
+      },
+      "laplacian_var": {
+       "esquema_pcc|g1|65.68|94.12": 1165.591043052675,
+       "esquema_pcc|gazeta|141.04|170.56": 253.320909760416
+      },
+      "huang_saturacao": {
+       "esquema_pcc|g1|65.68|94.12": 64.25166876197318,
+       "esquema_pcc|gazeta|141.04|170.56": 38.67251421815134
+      },
+      "huang_matiz": {
+       "esquema_pcc|g1|65.68|94.12": 88.41738191451151,
+       "esquema_pcc|gazeta|141.04|170.56": 102.58927786757664
+      },
+      "huang_exposicao": {
+       "esquema_pcc|g1|65.68|94.12": 118.82231606202106,
+       "esquema_pcc|gazeta|141.04|170.56": 116.80647644276819
+      },
+      "contraste_variancia": {
+       "esquema_pcc|g1|65.68|94.12": 72.87295298929344,
+       "esquema_pcc|gazeta|141.04|170.56": 67.92938788270673
+      },
+      "brilho": {
+       "esquema_pcc|g1|65.68|94.12": 118.82231606202106,
+       "esquema_pcc|gazeta|141.04|170.56": 116.80647644276819
+      },
+      "ke_colorfulness": {
+       "esquema_pcc|g1|65.68|94.12": 44.00745758886503,
+       "esquema_pcc|gazeta|141.04|170.56": 20.666641706433435
+      },
+      "ke_brightness": {
+       "esquema_pcc|g1|65.68|94.12": 118.82231606202106,
+       "esquema_pcc|gazeta|141.04|170.56": 116.80647644276819
+      },
+      "ke_edge_distribution": {
+       "esquema_pcc|g1|65.68|94.12": 0.06473374640804598,
+       "esquema_pcc|gazeta|141.04|170.56": 0.1341076987547893
+      },
+      "ke_hue_count": {
+       "esquema_pcc|g1|65.68|94.12": 13.206896551724139,
+       "esquema_pcc|gazeta|141.04|170.56": 16.0
+      },
+      "ke_contraste": {
+       "esquema_pcc|g1|65.68|94.12": 236.41379310344828,
+       "esquema_pcc|gazeta|141.04|170.56": 200.72413793103448
+      },
+      "srinivas_quality": {
+       "esquema_pcc|g1|65.68|94.12": 82.50303941049332,
+       "esquema_pcc|gazeta|141.04|170.56": 70.86627275579818
+      },
+      "sobel_cv": {
+       "esquema_pcc|g1|65.68|94.12": -185.3186839137635,
+       "esquema_pcc|gazeta|141.04|170.56": -8.451297783989425
+      }
+     },
+     "vencedor": {
+      "hasler_colorfulness": "esquema_pcc|g1|65.68|94.12",
+      "laplacian_var": "esquema_pcc|g1|65.68|94.12",
+      "huang_saturacao": "esquema_pcc|g1|65.68|94.12",
+      "huang_matiz": "esquema_pcc|gazeta|141.04|170.56",
+      "huang_exposicao": "esquema_pcc|g1|65.68|94.12",
+      "contraste_variancia": "esquema_pcc|g1|65.68|94.12",
+      "brilho": "esquema_pcc|g1|65.68|94.12",
+      "ke_colorfulness": "esquema_pcc|g1|65.68|94.12",
+      "ke_brightness": "esquema_pcc|g1|65.68|94.12",
+      "ke_edge_distribution": "esquema_pcc|gazeta|141.04|170.56",
+      "ke_hue_count": "esquema_pcc|gazeta|141.04|170.56",
+      "ke_contraste": "esquema_pcc|g1|65.68|94.12",
+      "srinivas_quality": "esquema_pcc|g1|65.68|94.12",
+      "sobel_cv": "esquema_pcc|gazeta|141.04|170.56"
+     }
+    },
+    {
+     "segmentos": [
+      "esquema_pcc|band|27.56|54.24",
+      "esquema_pcc|gazeta|256.58|286.36"
+     ],
+     "n": 2,
+     "escores": {
+      "hasler_colorfulness": {
+       "esquema_pcc|band|27.56|54.24": 82.34156315044736,
+       "esquema_pcc|gazeta|256.58|286.36": 31.091302888983076
+      },
+      "laplacian_var": {
+       "esquema_pcc|band|27.56|54.24": 1179.4652739755386,
+       "esquema_pcc|gazeta|256.58|286.36": 243.63921300798836
+      },
+      "huang_saturacao": {
+       "esquema_pcc|band|27.56|54.24": 186.6574464699074,
+       "esquema_pcc|gazeta|256.58|286.36": 52.614071469907415
+      },
+      "huang_matiz": {
+       "esquema_pcc|band|27.56|54.24": 111.426171714249,
+       "esquema_pcc|gazeta|256.58|286.36": 60.98529094328704
+      },
+      "huang_exposicao": {
+       "esquema_pcc|band|27.56|54.24": 65.82899402006173,
+       "esquema_pcc|gazeta|256.58|286.36": 92.25503443287039
+      },
+      "contraste_variancia": {
+       "esquema_pcc|band|27.56|54.24": 34.76555550637042,
+       "esquema_pcc|gazeta|256.58|286.36": 44.31277317651424
+      },
+      "brilho": {
+       "esquema_pcc|band|27.56|54.24": 65.82899402006173,
+       "esquema_pcc|gazeta|256.58|286.36": 92.25503443287039
+      },
+      "ke_colorfulness": {
+       "esquema_pcc|band|27.56|54.24": 82.34156315044736,
+       "esquema_pcc|gazeta|256.58|286.36": 31.091302888983076
+      },
+      "ke_brightness": {
+       "esquema_pcc|band|27.56|54.24": 65.82899402006173,
+       "esquema_pcc|gazeta|256.58|286.36": 92.25503443287039
+      },
+      "ke_edge_distribution": {
+       "esquema_pcc|band|27.56|54.24": 0.1418838413065844,
+       "esquema_pcc|gazeta|256.58|286.36": 0.06227141203703705
+      },
+      "ke_hue_count": {
+       "esquema_pcc|band|27.56|54.24": 17.0,
+       "esquema_pcc|gazeta|256.58|286.36": 11.166666666666666
+      },
+      "ke_contraste": {
+       "esquema_pcc|band|27.56|54.24": 202.07407407407408,
+       "esquema_pcc|gazeta|256.58|286.36": 210.56666666666666
+      },
+      "srinivas_quality": {
+       "esquema_pcc|band|27.56|54.24": 73.47730301717795,
+       "esquema_pcc|gazeta|256.58|286.36": 69.02838841344477
+      },
+      "sobel_cv": {
+       "esquema_pcc|band|27.56|54.24": 21.86155571944082,
+       "esquema_pcc|gazeta|256.58|286.36": -15.282923071645401
+      }
+     },
+     "vencedor": {
+      "hasler_colorfulness": "esquema_pcc|band|27.56|54.24",
+      "laplacian_var": "esquema_pcc|band|27.56|54.24",
+      "huang_saturacao": "esquema_pcc|band|27.56|54.24",
+      "huang_matiz": "esquema_pcc|band|27.56|54.24",
+      "huang_exposicao": "esquema_pcc|gazeta|256.58|286.36",
+      "contraste_variancia": "esquema_pcc|gazeta|256.58|286.36",
+      "brilho": "esquema_pcc|gazeta|256.58|286.36",
+      "ke_colorfulness": "esquema_pcc|band|27.56|54.24",
+      "ke_brightness": "esquema_pcc|gazeta|256.58|286.36",
+      "ke_edge_distribution": "esquema_pcc|band|27.56|54.24",
+      "ke_hue_count": "esquema_pcc|band|27.56|54.24",
+      "ke_contraste": "esquema_pcc|gazeta|256.58|286.36",
+      "srinivas_quality": "esquema_pcc|band|27.56|54.24",
+      "sobel_cv": "esquema_pcc|band|27.56|54.24"
+     }
+    }
+   ]
+  },
+  "fone_cancelamento_ruido": {
+   "n_clusters": 3,
+   "clusters": [
+    {
+     "segmentos": [
+      "fone_cancelamento_ruido|fone-cancelamento_ruido_bbc|59.56|75.98",
+      "fone_cancelamento_ruido|fone-cancelamento_ruido_olhardigital|92.04|121.72"
+     ],
+     "n": 2,
+     "escores": {
+      "hasler_colorfulness": {
+       "fone_cancelamento_ruido|fone-cancelamento_ruido_bbc|59.56|75.98": 56.67368511045956,
+       "fone_cancelamento_ruido|fone-cancelamento_ruido_olhardigital|92.04|121.72": 36.37974365910669
+      },
+      "laplacian_var": {
+       "fone_cancelamento_ruido|fone-cancelamento_ruido_bbc|59.56|75.98": 1158.4080355689332,
+       "fone_cancelamento_ruido|fone-cancelamento_ruido_olhardigital|92.04|121.72": 1383.3340867765912
+      },
+      "huang_saturacao": {
+       "fone_cancelamento_ruido|fone-cancelamento_ruido_bbc|59.56|75.98": 89.99690999348958,
+       "fone_cancelamento_ruido|fone-cancelamento_ruido_olhardigital|92.04|121.72": 55.06400547772988
+      },
+      "huang_matiz": {
+       "fone_cancelamento_ruido|fone-cancelamento_ruido_bbc|59.56|75.98": 65.37203369140626,
+       "fone_cancelamento_ruido|fone-cancelamento_ruido_olhardigital|92.04|121.72": 52.56463736230841
+      },
+      "huang_exposicao": {
+       "fone_cancelamento_ruido|fone-cancelamento_ruido_bbc|59.56|75.98": 79.64351942274305,
+       "fone_cancelamento_ruido|fone-cancelamento_ruido_olhardigital|92.04|121.72": 126.67027613146551
+      },
+      "contraste_variancia": {
+       "fone_cancelamento_ruido|fone-cancelamento_ruido_bbc|59.56|75.98": 48.733726711147284,
+       "fone_cancelamento_ruido|fone-cancelamento_ruido_olhardigital|92.04|121.72": 60.09845766404649
+      },
+      "brilho": {
+       "fone_cancelamento_ruido|fone-cancelamento_ruido_bbc|59.56|75.98": 79.64351942274305,
+       "fone_cancelamento_ruido|fone-cancelamento_ruido_olhardigital|92.04|121.72": 126.67027613146551
+      },
+      "ke_colorfulness": {
+       "fone_cancelamento_ruido|fone-cancelamento_ruido_bbc|59.56|75.98": 56.67368511045956,
+       "fone_cancelamento_ruido|fone-cancelamento_ruido_olhardigital|92.04|121.72": 36.37974365910669
+      },
+      "ke_brightness": {
+       "fone_cancelamento_ruido|fone-cancelamento_ruido_bbc|59.56|75.98": 79.64351942274305,
+       "fone_cancelamento_ruido|fone-cancelamento_ruido_olhardigital|92.04|121.72": 126.67027613146551
+      },
+      "ke_edge_distribution": {
+       "fone_cancelamento_ruido|fone-cancelamento_ruido_bbc|59.56|75.98": 0.13215684678819448,
+       "fone_cancelamento_ruido|fone-cancelamento_ruido_olhardigital|92.04|121.72": 0.12468016642720307
+      },
+      "ke_hue_count": {
+       "fone_cancelamento_ruido|fone-cancelamento_ruido_bbc|59.56|75.98": 14.6875,
+       "fone_cancelamento_ruido|fone-cancelamento_ruido_olhardigital|92.04|121.72": 14.517241379310345
+      },
+      "ke_contraste": {
+       "fone_cancelamento_ruido|fone-cancelamento_ruido_bbc|59.56|75.98": 205.5625,
+       "fone_cancelamento_ruido|fone-cancelamento_ruido_olhardigital|92.04|121.72": 214.0
+      },
+      "srinivas_quality": {
+       "fone_cancelamento_ruido|fone-cancelamento_ruido_bbc|59.56|75.98": 71.33987227599816,
+       "fone_cancelamento_ruido|fone-cancelamento_ruido_olhardigital|92.04|121.72": 78.33838826726195
+      },
+      "sobel_cv": {
+       "fone_cancelamento_ruido|fone-cancelamento_ruido_bbc|59.56|75.98": -4.80323766967745,
+       "fone_cancelamento_ruido|fone-cancelamento_ruido_olhardigital|92.04|121.72": 17.6707162264036
+      }
+     },
+     "vencedor": {
+      "hasler_colorfulness": "fone_cancelamento_ruido|fone-cancelamento_ruido_bbc|59.56|75.98",
+      "laplacian_var": "fone_cancelamento_ruido|fone-cancelamento_ruido_olhardigital|92.04|121.72",
+      "huang_saturacao": "fone_cancelamento_ruido|fone-cancelamento_ruido_bbc|59.56|75.98",
+      "huang_matiz": "fone_cancelamento_ruido|fone-cancelamento_ruido_bbc|59.56|75.98",
+      "huang_exposicao": "fone_cancelamento_ruido|fone-cancelamento_ruido_olhardigital|92.04|121.72",
+      "contraste_variancia": "fone_cancelamento_ruido|fone-cancelamento_ruido_olhardigital|92.04|121.72",
+      "brilho": "fone_cancelamento_ruido|fone-cancelamento_ruido_olhardigital|92.04|121.72",
+      "ke_colorfulness": "fone_cancelamento_ruido|fone-cancelamento_ruido_bbc|59.56|75.98",
+      "ke_brightness": "fone_cancelamento_ruido|fone-cancelamento_ruido_olhardigital|92.04|121.72",
+      "ke_edge_distribution": "fone_cancelamento_ruido|fone-cancelamento_ruido_bbc|59.56|75.98",
+      "ke_hue_count": "fone_cancelamento_ruido|fone-cancelamento_ruido_bbc|59.56|75.98",
+      "ke_contraste": "fone_cancelamento_ruido|fone-cancelamento_ruido_olhardigital|92.04|121.72",
+      "srinivas_quality": "fone_cancelamento_ruido|fone-cancelamento_ruido_olhardigital|92.04|121.72",
+      "sobel_cv": "fone_cancelamento_ruido|fone-cancelamento_ruido_olhardigital|92.04|121.72"
+     }
+    },
+    {
+     "segmentos": [
+      "fone_cancelamento_ruido|fone-cancelamento_ruido_bbc|29.6|59.42",
+      "fone_cancelamento_ruido|fone_cancelamento_ruido_band|18.56|46.48"
+     ],
+     "n": 2,
+     "escores": {
+      "hasler_colorfulness": {
+       "fone_cancelamento_ruido|fone-cancelamento_ruido_bbc|29.6|59.42": 78.35601880477368,
+       "fone_cancelamento_ruido|fone_cancelamento_ruido_band|18.56|46.48": 41.77509423957354
+      },
+      "laplacian_var": {
+       "fone_cancelamento_ruido|fone-cancelamento_ruido_bbc|29.6|59.42": 710.1622981713837,
+       "fone_cancelamento_ruido|fone_cancelamento_ruido_band|18.56|46.48": 912.5152615635483
+      },
+      "huang_saturacao": {
+       "fone_cancelamento_ruido|fone-cancelamento_ruido_bbc|29.6|59.42": 151.76707175925924,
+       "fone_cancelamento_ruido|fone_cancelamento_ruido_band|18.56|46.48": 83.22156591021826
+      },
+      "huang_matiz": {
+       "fone_cancelamento_ruido|fone-cancelamento_ruido_bbc|29.6|59.42": 56.966908709490745,
+       "fone_cancelamento_ruido|fone_cancelamento_ruido_band|18.56|46.48": 46.81795851934525
+      },
+      "huang_exposicao": {
+       "fone_cancelamento_ruido|fone-cancelamento_ruido_bbc|29.6|59.42": 86.27313151041668,
+       "fone_cancelamento_ruido|fone_cancelamento_ruido_band|18.56|46.48": 113.87563755580358
+      },
+      "contraste_variancia": {
+       "fone_cancelamento_ruido|fone-cancelamento_ruido_bbc|29.6|59.42": 55.60379864844493,
+       "fone_cancelamento_ruido|fone_cancelamento_ruido_band|18.56|46.48": 47.993328494478405
+      },
+      "brilho": {
+       "fone_cancelamento_ruido|fone-cancelamento_ruido_bbc|29.6|59.42": 86.27313151041668,
+       "fone_cancelamento_ruido|fone_cancelamento_ruido_band|18.56|46.48": 113.87563755580358
+      },
+      "ke_colorfulness": {
+       "fone_cancelamento_ruido|fone-cancelamento_ruido_bbc|29.6|59.42": 78.35601880477368,
+       "fone_cancelamento_ruido|fone_cancelamento_ruido_band|18.56|46.48": 41.77509423957354
+      },
+      "ke_brightness": {
+       "fone_cancelamento_ruido|fone-cancelamento_ruido_bbc|29.6|59.42": 86.27313151041668,
+       "fone_cancelamento_ruido|fone_cancelamento_ruido_band|18.56|46.48": 113.87563755580358
+      },
+      "ke_edge_distribution": {
+       "fone_cancelamento_ruido|fone-cancelamento_ruido_bbc|29.6|59.42": 0.14092997685185182,
+       "fone_cancelamento_ruido|fone_cancelamento_ruido_band|18.56|46.48": 0.06918588789682538
+      },
+      "ke_hue_count": {
+       "fone_cancelamento_ruido|fone-cancelamento_ruido_bbc|29.6|59.42": 16.166666666666668,
+       "fone_cancelamento_ruido|fone_cancelamento_ruido_band|18.56|46.48": 11.178571428571429
+      },
+      "ke_contraste": {
+       "fone_cancelamento_ruido|fone-cancelamento_ruido_bbc|29.6|59.42": 210.6,
+       "fone_cancelamento_ruido|fone_cancelamento_ruido_band|18.56|46.48": 201.42857142857142
+      },
+      "srinivas_quality": {
+       "fone_cancelamento_ruido|fone-cancelamento_ruido_bbc|29.6|59.42": 78.30734939174178,
+       "fone_cancelamento_ruido|fone_cancelamento_ruido_band|18.56|46.48": 73.66541210808336
+      },
+      "sobel_cv": {
+       "fone_cancelamento_ruido|fone-cancelamento_ruido_bbc|29.6|59.42": -27.889656323691607,
+       "fone_cancelamento_ruido|fone_cancelamento_ruido_band|18.56|46.48": 9.083724332689393
+      }
+     },
+     "vencedor": {
+      "hasler_colorfulness": "fone_cancelamento_ruido|fone-cancelamento_ruido_bbc|29.6|59.42",
+      "laplacian_var": "fone_cancelamento_ruido|fone_cancelamento_ruido_band|18.56|46.48",
+      "huang_saturacao": "fone_cancelamento_ruido|fone-cancelamento_ruido_bbc|29.6|59.42",
+      "huang_matiz": "fone_cancelamento_ruido|fone-cancelamento_ruido_bbc|29.6|59.42",
+      "huang_exposicao": "fone_cancelamento_ruido|fone_cancelamento_ruido_band|18.56|46.48",
+      "contraste_variancia": "fone_cancelamento_ruido|fone-cancelamento_ruido_bbc|29.6|59.42",
+      "brilho": "fone_cancelamento_ruido|fone_cancelamento_ruido_band|18.56|46.48",
+      "ke_colorfulness": "fone_cancelamento_ruido|fone-cancelamento_ruido_bbc|29.6|59.42",
+      "ke_brightness": "fone_cancelamento_ruido|fone_cancelamento_ruido_band|18.56|46.48",
+      "ke_edge_distribution": "fone_cancelamento_ruido|fone-cancelamento_ruido_bbc|29.6|59.42",
+      "ke_hue_count": "fone_cancelamento_ruido|fone-cancelamento_ruido_bbc|29.6|59.42",
+      "ke_contraste": "fone_cancelamento_ruido|fone-cancelamento_ruido_bbc|29.6|59.42",
+      "srinivas_quality": "fone_cancelamento_ruido|fone-cancelamento_ruido_bbc|29.6|59.42",
+      "sobel_cv": "fone_cancelamento_ruido|fone_cancelamento_ruido_band|18.56|46.48"
+     }
+    },
+    {
+     "segmentos": [
+      "fone_cancelamento_ruido|fone-cancelamento_ruido_olhardigital|149.61|174.96",
+      "fone_cancelamento_ruido|fone_cancelamento_ruido_band|46.98|76.18"
+     ],
+     "n": 2,
+     "escores": {
+      "hasler_colorfulness": {
+       "fone_cancelamento_ruido|fone-cancelamento_ruido_olhardigital|149.61|174.96": 30.651757641859586,
+       "fone_cancelamento_ruido|fone_cancelamento_ruido_band|46.98|76.18": 52.2550176211164
+      },
+      "laplacian_var": {
+       "fone_cancelamento_ruido|fone-cancelamento_ruido_olhardigital|149.61|174.96": 1111.0438366136798,
+       "fone_cancelamento_ruido|fone_cancelamento_ruido_band|46.98|76.18": 572.4524829417275
+      },
+      "huang_saturacao": {
+       "fone_cancelamento_ruido|fone-cancelamento_ruido_olhardigital|149.61|174.96": 40.39069079861111,
+       "fone_cancelamento_ruido|fone_cancelamento_ruido_band|46.98|76.18": 153.43963454861114
+      },
+      "huang_matiz": {
+       "fone_cancelamento_ruido|fone-cancelamento_ruido_olhardigital|149.61|174.96": 84.96345069444443,
+       "fone_cancelamento_ruido|fone_cancelamento_ruido_band|46.98|76.18": 72.8953420138889
+      },
+      "huang_exposicao": {
+       "fone_cancelamento_ruido|fone-cancelamento_ruido_olhardigital|149.61|174.96": 127.51395243055555,
+       "fone_cancelamento_ruido|fone_cancelamento_ruido_band|46.98|76.18": 94.06091145833334
+      },
+      "contraste_variancia": {
+       "fone_cancelamento_ruido|fone-cancelamento_ruido_olhardigital|149.61|174.96": 59.81307268952318,
+       "fone_cancelamento_ruido|fone_cancelamento_ruido_band|46.98|76.18": 36.44547347441199
+      },
+      "brilho": {
+       "fone_cancelamento_ruido|fone-cancelamento_ruido_olhardigital|149.61|174.96": 127.51395243055555,
+       "fone_cancelamento_ruido|fone_cancelamento_ruido_band|46.98|76.18": 94.06091145833334
+      },
+      "ke_colorfulness": {
+       "fone_cancelamento_ruido|fone-cancelamento_ruido_olhardigital|149.61|174.96": 30.651757641859586,
+       "fone_cancelamento_ruido|fone_cancelamento_ruido_band|46.98|76.18": 52.2550176211164
+      },
+      "ke_brightness": {
+       "fone_cancelamento_ruido|fone-cancelamento_ruido_olhardigital|149.61|174.96": 127.51395243055555,
+       "fone_cancelamento_ruido|fone_cancelamento_ruido_band|46.98|76.18": 94.06091145833334
+      },
+      "ke_edge_distribution": {
+       "fone_cancelamento_ruido|fone-cancelamento_ruido_olhardigital|149.61|174.96": 0.10861354166666669,
+       "fone_cancelamento_ruido|fone_cancelamento_ruido_band|46.98|76.18": 0.10498292824074075
+      },
+      "ke_hue_count": {
+       "fone_cancelamento_ruido|fone-cancelamento_ruido_olhardigital|149.61|174.96": 14.52,
+       "fone_cancelamento_ruido|fone_cancelamento_ruido_band|46.98|76.18": 15.833333333333334
+      },
+      "ke_contraste": {
+       "fone_cancelamento_ruido|fone-cancelamento_ruido_olhardigital|149.61|174.96": 209.36,
+       "fone_cancelamento_ruido|fone_cancelamento_ruido_band|46.98|76.18": 171.06666666666666
+      },
+      "srinivas_quality": {
+       "fone_cancelamento_ruido|fone-cancelamento_ruido_olhardigital|149.61|174.96": 76.43086472281637,
+       "fone_cancelamento_ruido|fone_cancelamento_ruido_band|46.98|76.18": 66.6641824015381
+      },
+      "sobel_cv": {
+       "fone_cancelamento_ruido|fone-cancelamento_ruido_olhardigital|149.61|174.96": -7.416296744282926,
+       "fone_cancelamento_ruido|fone_cancelamento_ruido_band|46.98|76.18": -1.7451468523317275
+      }
+     },
+     "vencedor": {
+      "hasler_colorfulness": "fone_cancelamento_ruido|fone_cancelamento_ruido_band|46.98|76.18",
+      "laplacian_var": "fone_cancelamento_ruido|fone-cancelamento_ruido_olhardigital|149.61|174.96",
+      "huang_saturacao": "fone_cancelamento_ruido|fone_cancelamento_ruido_band|46.98|76.18",
+      "huang_matiz": "fone_cancelamento_ruido|fone-cancelamento_ruido_olhardigital|149.61|174.96",
+      "huang_exposicao": "fone_cancelamento_ruido|fone-cancelamento_ruido_olhardigital|149.61|174.96",
+      "contraste_variancia": "fone_cancelamento_ruido|fone-cancelamento_ruido_olhardigital|149.61|174.96",
+      "brilho": "fone_cancelamento_ruido|fone-cancelamento_ruido_olhardigital|149.61|174.96",
+      "ke_colorfulness": "fone_cancelamento_ruido|fone_cancelamento_ruido_band|46.98|76.18",
+      "ke_brightness": "fone_cancelamento_ruido|fone-cancelamento_ruido_olhardigital|149.61|174.96",
+      "ke_edge_distribution": "fone_cancelamento_ruido|fone-cancelamento_ruido_olhardigital|149.61|174.96",
+      "ke_hue_count": "fone_cancelamento_ruido|fone_cancelamento_ruido_band|46.98|76.18",
+      "ke_contraste": "fone_cancelamento_ruido|fone-cancelamento_ruido_olhardigital|149.61|174.96",
+      "srinivas_quality": "fone_cancelamento_ruido|fone-cancelamento_ruido_olhardigital|149.61|174.96",
+      "sobel_cv": "fone_cancelamento_ruido|fone_cancelamento_ruido_band|46.98|76.18"
+     }
+    }
+   ]
+  },
+  "fraude_inss": {
+   "n_clusters": 3,
+   "clusters": [
+    {
+     "segmentos": [
+      "fraude_inss|fraude_inss_SBT|0.0|45.04",
+      "fraude_inss|fraude_inss_fraude|0.4|45.46"
+     ],
+     "n": 2,
+     "escores": {
+      "hasler_colorfulness": {
+       "fraude_inss|fraude_inss_SBT|0.0|45.04": 44.48884498515512,
+       "fraude_inss|fraude_inss_fraude|0.4|45.46": 73.6870188615433
+      },
+      "laplacian_var": {
+       "fraude_inss|fraude_inss_SBT|0.0|45.04": 1065.560818477688,
+       "fraude_inss|fraude_inss_fraude|0.4|45.46": 1827.1982587959833
+      },
+      "huang_saturacao": {
+       "fraude_inss|fraude_inss_SBT|0.0|45.04": 72.52846118282005,
+       "fraude_inss|fraude_inss_fraude|0.4|45.46": 105.09451321373457
+      },
+      "huang_matiz": {
+       "fraude_inss|fraude_inss_SBT|0.0|45.04": 99.14396295667271,
+       "fraude_inss|fraude_inss_fraude|0.4|45.46": 77.64277363040122
+      },
+      "huang_exposicao": {
+       "fraude_inss|fraude_inss_SBT|0.0|45.04": 129.0136234714674,
+       "fraude_inss|fraude_inss_fraude|0.4|45.46": 141.98711738040123
+      },
+      "contraste_variancia": {
+       "fraude_inss|fraude_inss_SBT|0.0|45.04": 64.27691919904588,
+       "fraude_inss|fraude_inss_fraude|0.4|45.46": 60.838526819456675
+      },
+      "brilho": {
+       "fraude_inss|fraude_inss_SBT|0.0|45.04": 129.0136234714674,
+       "fraude_inss|fraude_inss_fraude|0.4|45.46": 141.98711738040123
+      },
+      "ke_colorfulness": {
+       "fraude_inss|fraude_inss_SBT|0.0|45.04": 44.48884498515512,
+       "fraude_inss|fraude_inss_fraude|0.4|45.46": 73.6870188615433
+      },
+      "ke_brightness": {
+       "fraude_inss|fraude_inss_SBT|0.0|45.04": 129.0136234714674,
+       "fraude_inss|fraude_inss_fraude|0.4|45.46": 141.98711738040123
+      },
+      "ke_edge_distribution": {
+       "fraude_inss|fraude_inss_SBT|0.0|45.04": 0.06714890926932368,
+       "fraude_inss|fraude_inss_fraude|0.4|45.46": 0.09830516975308644
+      },
+      "ke_hue_count": {
+       "fraude_inss|fraude_inss_SBT|0.0|45.04": 13.847826086956522,
+       "fraude_inss|fraude_inss_fraude|0.4|45.46": 15.8
+      },
+      "ke_contraste": {
+       "fraude_inss|fraude_inss_SBT|0.0|45.04": 237.02173913043478,
+       "fraude_inss|fraude_inss_fraude|0.4|45.46": 231.51111111111112
+      },
+      "srinivas_quality": {
+       "fraude_inss|fraude_inss_SBT|0.0|45.04": 84.88783651665662,
+       "fraude_inss|fraude_inss_fraude|0.4|45.46": 92.61671050456175
+      },
+      "sobel_cv": {
+       "fraude_inss|fraude_inss_SBT|0.0|45.04": -7.401414289112984,
+       "fraude_inss|fraude_inss_fraude|0.4|45.46": 31.764088993722655
+      }
+     },
+     "vencedor": {
+      "hasler_colorfulness": "fraude_inss|fraude_inss_fraude|0.4|45.46",
+      "laplacian_var": "fraude_inss|fraude_inss_fraude|0.4|45.46",
+      "huang_saturacao": "fraude_inss|fraude_inss_fraude|0.4|45.46",
+      "huang_matiz": "fraude_inss|fraude_inss_SBT|0.0|45.04",
+      "huang_exposicao": "fraude_inss|fraude_inss_fraude|0.4|45.46",
+      "contraste_variancia": "fraude_inss|fraude_inss_SBT|0.0|45.04",
+      "brilho": "fraude_inss|fraude_inss_fraude|0.4|45.46",
+      "ke_colorfulness": "fraude_inss|fraude_inss_fraude|0.4|45.46",
+      "ke_brightness": "fraude_inss|fraude_inss_fraude|0.4|45.46",
+      "ke_edge_distribution": "fraude_inss|fraude_inss_fraude|0.4|45.46",
+      "ke_hue_count": "fraude_inss|fraude_inss_fraude|0.4|45.46",
+      "ke_contraste": "fraude_inss|fraude_inss_SBT|0.0|45.04",
+      "srinivas_quality": "fraude_inss|fraude_inss_fraude|0.4|45.46",
+      "sobel_cv": "fraude_inss|fraude_inss_fraude|0.4|45.46"
+     }
+    },
+    {
+     "segmentos": [
+      "fraude_inss|fraude_inss_SBT|135.92|181.14",
+      "fraude_inss|fraude_inss_cnn|0.0|45.06"
+     ],
+     "n": 2,
+     "escores": {
+      "hasler_colorfulness": {
+       "fraude_inss|fraude_inss_SBT|135.92|181.14": 44.61889945617468,
+       "fraude_inss|fraude_inss_cnn|0.0|45.06": 65.79817173400515
+      },
+      "laplacian_var": {
+       "fraude_inss|fraude_inss_SBT|135.92|181.14": 856.6961061439041,
+       "fraude_inss|fraude_inss_cnn|0.0|45.06": 3852.9818930207985
+      },
+      "huang_saturacao": {
+       "fraude_inss|fraude_inss_SBT|135.92|181.14": 113.0003314651268,
+       "fraude_inss|fraude_inss_cnn|0.0|45.06": 67.89938424667875
+      },
+      "huang_matiz": {
+       "fraude_inss|fraude_inss_SBT|135.92|181.14": 70.61988318991546,
+       "fraude_inss|fraude_inss_cnn|0.0|45.06": 65.20357431310386
+      },
+      "huang_exposicao": {
+       "fraude_inss|fraude_inss_SBT|135.92|181.14": 85.17754217617754,
+       "fraude_inss|fraude_inss_cnn|0.0|45.06": 123.72243027249395
+      },
+      "contraste_variancia": {
+       "fraude_inss|fraude_inss_SBT|135.92|181.14": 74.7221994386769,
+       "fraude_inss|fraude_inss_cnn|0.0|45.06": 71.82000590525449
+      },
+      "brilho": {
+       "fraude_inss|fraude_inss_SBT|135.92|181.14": 85.17754217617754,
+       "fraude_inss|fraude_inss_cnn|0.0|45.06": 123.72243027249395
+      },
+      "ke_colorfulness": {
+       "fraude_inss|fraude_inss_SBT|135.92|181.14": 44.61889945617468,
+       "fraude_inss|fraude_inss_cnn|0.0|45.06": 65.79817173400515
+      },
+      "ke_brightness": {
+       "fraude_inss|fraude_inss_SBT|135.92|181.14": 85.17754217617754,
+       "fraude_inss|fraude_inss_cnn|0.0|45.06": 123.72243027249395
+      },
+      "ke_edge_distribution": {
+       "fraude_inss|fraude_inss_SBT|135.92|181.14": 0.11937226373792272,
+       "fraude_inss|fraude_inss_cnn|0.0|45.06": 0.11873141228864728
+      },
+      "ke_hue_count": {
+       "fraude_inss|fraude_inss_SBT|135.92|181.14": 12.521739130434783,
+       "fraude_inss|fraude_inss_cnn|0.0|45.06": 10.956521739130435
+      },
+      "ke_contraste": {
+       "fraude_inss|fraude_inss_SBT|135.92|181.14": 243.52173913043478,
+       "fraude_inss|fraude_inss_cnn|0.0|45.06": 254.82608695652175
+      },
+      "srinivas_quality": {
+       "fraude_inss|fraude_inss_SBT|135.92|181.14": 77.19185843139194,
+       "fraude_inss|fraude_inss_cnn|0.0|45.06": 91.08438842288798
+      },
+      "sobel_cv": {
+       "fraude_inss|fraude_inss_SBT|135.92|181.14": -4.499916993381054,
+       "fraude_inss|fraude_inss_cnn|0.0|45.06": 10.83010009203985
+      }
+     },
+     "vencedor": {
+      "hasler_colorfulness": "fraude_inss|fraude_inss_cnn|0.0|45.06",
+      "laplacian_var": "fraude_inss|fraude_inss_cnn|0.0|45.06",
+      "huang_saturacao": "fraude_inss|fraude_inss_SBT|135.92|181.14",
+      "huang_matiz": "fraude_inss|fraude_inss_SBT|135.92|181.14",
+      "huang_exposicao": "fraude_inss|fraude_inss_cnn|0.0|45.06",
+      "contraste_variancia": "fraude_inss|fraude_inss_SBT|135.92|181.14",
+      "brilho": "fraude_inss|fraude_inss_cnn|0.0|45.06",
+      "ke_colorfulness": "fraude_inss|fraude_inss_cnn|0.0|45.06",
+      "ke_brightness": "fraude_inss|fraude_inss_cnn|0.0|45.06",
+      "ke_edge_distribution": "fraude_inss|fraude_inss_SBT|135.92|181.14",
+      "ke_hue_count": "fraude_inss|fraude_inss_SBT|135.92|181.14",
+      "ke_contraste": "fraude_inss|fraude_inss_cnn|0.0|45.06",
+      "srinivas_quality": "fraude_inss|fraude_inss_cnn|0.0|45.06",
+      "sobel_cv": "fraude_inss|fraude_inss_cnn|0.0|45.06"
+     }
+    },
+    {
+     "segmentos": [
+      "fraude_inss|fraude_inss_cnn|0.0|45.06",
+      "fraude_inss|fraude_inss_fraude|0.4|45.46"
+     ],
+     "n": 2,
+     "escores": {
+      "hasler_colorfulness": {
+       "fraude_inss|fraude_inss_cnn|0.0|45.06": 65.79817173400515,
+       "fraude_inss|fraude_inss_fraude|0.4|45.46": 73.6870188615433
+      },
+      "laplacian_var": {
+       "fraude_inss|fraude_inss_cnn|0.0|45.06": 3852.9818930207985,
+       "fraude_inss|fraude_inss_fraude|0.4|45.46": 1827.1982587959833
+      },
+      "huang_saturacao": {
+       "fraude_inss|fraude_inss_cnn|0.0|45.06": 67.89938424667875,
+       "fraude_inss|fraude_inss_fraude|0.4|45.46": 105.09451321373457
+      },
+      "huang_matiz": {
+       "fraude_inss|fraude_inss_cnn|0.0|45.06": 65.20357431310386,
+       "fraude_inss|fraude_inss_fraude|0.4|45.46": 77.64277363040122
+      },
+      "huang_exposicao": {
+       "fraude_inss|fraude_inss_cnn|0.0|45.06": 123.72243027249395,
+       "fraude_inss|fraude_inss_fraude|0.4|45.46": 141.98711738040123
+      },
+      "contraste_variancia": {
+       "fraude_inss|fraude_inss_cnn|0.0|45.06": 71.82000590525449,
+       "fraude_inss|fraude_inss_fraude|0.4|45.46": 60.838526819456675
+      },
+      "brilho": {
+       "fraude_inss|fraude_inss_cnn|0.0|45.06": 123.72243027249395,
+       "fraude_inss|fraude_inss_fraude|0.4|45.46": 141.98711738040123
+      },
+      "ke_colorfulness": {
+       "fraude_inss|fraude_inss_cnn|0.0|45.06": 65.79817173400515,
+       "fraude_inss|fraude_inss_fraude|0.4|45.46": 73.6870188615433
+      },
+      "ke_brightness": {
+       "fraude_inss|fraude_inss_cnn|0.0|45.06": 123.72243027249395,
+       "fraude_inss|fraude_inss_fraude|0.4|45.46": 141.98711738040123
+      },
+      "ke_edge_distribution": {
+       "fraude_inss|fraude_inss_cnn|0.0|45.06": 0.11873141228864728,
+       "fraude_inss|fraude_inss_fraude|0.4|45.46": 0.09830516975308644
+      },
+      "ke_hue_count": {
+       "fraude_inss|fraude_inss_cnn|0.0|45.06": 10.956521739130435,
+       "fraude_inss|fraude_inss_fraude|0.4|45.46": 15.8
+      },
+      "ke_contraste": {
+       "fraude_inss|fraude_inss_cnn|0.0|45.06": 254.82608695652175,
+       "fraude_inss|fraude_inss_fraude|0.4|45.46": 231.51111111111112
+      },
+      "srinivas_quality": {
+       "fraude_inss|fraude_inss_cnn|0.0|45.06": 91.08438842288798,
+       "fraude_inss|fraude_inss_fraude|0.4|45.46": 92.61671050456175
+      },
+      "sobel_cv": {
+       "fraude_inss|fraude_inss_cnn|0.0|45.06": -24.41156623066636,
+       "fraude_inss|fraude_inss_fraude|0.4|45.46": -6.651618897642347
+      }
+     },
+     "vencedor": {
+      "hasler_colorfulness": "fraude_inss|fraude_inss_fraude|0.4|45.46",
+      "laplacian_var": "fraude_inss|fraude_inss_cnn|0.0|45.06",
+      "huang_saturacao": "fraude_inss|fraude_inss_fraude|0.4|45.46",
+      "huang_matiz": "fraude_inss|fraude_inss_fraude|0.4|45.46",
+      "huang_exposicao": "fraude_inss|fraude_inss_fraude|0.4|45.46",
+      "contraste_variancia": "fraude_inss|fraude_inss_cnn|0.0|45.06",
+      "brilho": "fraude_inss|fraude_inss_fraude|0.4|45.46",
+      "ke_colorfulness": "fraude_inss|fraude_inss_fraude|0.4|45.46",
+      "ke_brightness": "fraude_inss|fraude_inss_fraude|0.4|45.46",
+      "ke_edge_distribution": "fraude_inss|fraude_inss_cnn|0.0|45.06",
+      "ke_hue_count": "fraude_inss|fraude_inss_fraude|0.4|45.46",
+      "ke_contraste": "fraude_inss|fraude_inss_cnn|0.0|45.06",
+      "srinivas_quality": "fraude_inss|fraude_inss_fraude|0.4|45.46",
+      "sobel_cv": "fraude_inss|fraude_inss_fraude|0.4|45.46"
+     }
+    }
+   ]
+  },
+  "google_huawei": {
+   "n_clusters": 3,
+   "clusters": [
+    {
+     "segmentos": [
+      "google_huawei|jornal_nacional|22.62|93.9",
+      "google_huawei|sbt_brasil|0.44|45.08"
+     ],
+     "n": 2,
+     "escores": {
+      "hasler_colorfulness": {
+       "google_huawei|jornal_nacional|22.62|93.9": 36.23238549036332,
+       "google_huawei|sbt_brasil|0.44|45.08": 41.54834161407844
+      },
+      "laplacian_var": {
+       "google_huawei|jornal_nacional|22.62|93.9": 135.11470614316968,
+       "google_huawei|sbt_brasil|0.44|45.08": 443.0795126662547
+      },
+      "huang_saturacao": {
+       "google_huawei|jornal_nacional|22.62|93.9": 63.551720033744104,
+       "google_huawei|sbt_brasil|0.44|45.08": 78.80336793499228
+      },
+      "huang_matiz": {
+       "google_huawei|jornal_nacional|22.62|93.9": 65.11781133851723,
+       "google_huawei|sbt_brasil|0.44|45.08": 80.87381474247684
+      },
+      "huang_exposicao": {
+       "google_huawei|jornal_nacional|22.62|93.9": 110.88788949408256,
+       "google_huawei|sbt_brasil|0.44|45.08": 116.10849320023149
+      },
+      "contraste_variancia": {
+       "google_huawei|jornal_nacional|22.62|93.9": 60.24516225457225,
+       "google_huawei|sbt_brasil|0.44|45.08": 64.59408241205544
+      },
+      "brilho": {
+       "google_huawei|jornal_nacional|22.62|93.9": 110.88788949408256,
+       "google_huawei|sbt_brasil|0.44|45.08": 116.10849320023149
+      },
+      "ke_colorfulness": {
+       "google_huawei|jornal_nacional|22.62|93.9": 36.23238549036332,
+       "google_huawei|sbt_brasil|0.44|45.08": 41.54834161407844
+      },
+      "ke_brightness": {
+       "google_huawei|jornal_nacional|22.62|93.9": 110.88788949408256,
+       "google_huawei|sbt_brasil|0.44|45.08": 116.10849320023149
+      },
+      "ke_edge_distribution": {
+       "google_huawei|jornal_nacional|22.62|93.9": 0.04876010184370109,
+       "google_huawei|sbt_brasil|0.44|45.08": 0.09169989390432097
+      },
+      "ke_hue_count": {
+       "google_huawei|jornal_nacional|22.62|93.9": 13.0,
+       "google_huawei|sbt_brasil|0.44|45.08": 12.488888888888889
+      },
+      "ke_contraste": {
+       "google_huawei|jornal_nacional|22.62|93.9": 215.43661971830986,
+       "google_huawei|sbt_brasil|0.44|45.08": 228.4
+      },
+      "srinivas_quality": {
+       "google_huawei|jornal_nacional|22.62|93.9": 75.12113096091991,
+       "google_huawei|sbt_brasil|0.44|45.08": 79.72748471942063
+      },
+      "sobel_cv": {
+       "google_huawei|jornal_nacional|22.62|93.9": -31.58735272518001,
+       "google_huawei|sbt_brasil|0.44|45.08": 48.17373498408752
+      }
+     },
+     "vencedor": {
+      "hasler_colorfulness": "google_huawei|sbt_brasil|0.44|45.08",
+      "laplacian_var": "google_huawei|sbt_brasil|0.44|45.08",
+      "huang_saturacao": "google_huawei|sbt_brasil|0.44|45.08",
+      "huang_matiz": "google_huawei|sbt_brasil|0.44|45.08",
+      "huang_exposicao": "google_huawei|sbt_brasil|0.44|45.08",
+      "contraste_variancia": "google_huawei|sbt_brasil|0.44|45.08",
+      "brilho": "google_huawei|sbt_brasil|0.44|45.08",
+      "ke_colorfulness": "google_huawei|sbt_brasil|0.44|45.08",
+      "ke_brightness": "google_huawei|sbt_brasil|0.44|45.08",
+      "ke_edge_distribution": "google_huawei|sbt_brasil|0.44|45.08",
+      "ke_hue_count": "google_huawei|jornal_nacional|22.62|93.9",
+      "ke_contraste": "google_huawei|sbt_brasil|0.44|45.08",
+      "srinivas_quality": "google_huawei|sbt_brasil|0.44|45.08",
+      "sobel_cv": "google_huawei|sbt_brasil|0.44|45.08"
+     }
+    },
+    {
+     "segmentos": [
+      "google_huawei|jornal_da_band|0.08|43.64",
+      "google_huawei|sbt_brasil|56.68|73.32"
+     ],
+     "n": 2,
+     "escores": {
+      "hasler_colorfulness": {
+       "google_huawei|jornal_da_band|0.08|43.64": 44.424659186165314,
+       "google_huawei|sbt_brasil|56.68|73.32": 44.24758667230559
+      },
+      "laplacian_var": {
+       "google_huawei|jornal_da_band|0.08|43.64": 107.56553396130239,
+       "google_huawei|sbt_brasil|56.68|73.32": 371.3885775192681
+      },
+      "huang_saturacao": {
+       "google_huawei|jornal_da_band|0.08|43.64": 83.26801750242248,
+       "google_huawei|sbt_brasil|56.68|73.32": 76.14086728962418
+      },
+      "huang_matiz": {
+       "google_huawei|jornal_da_band|0.08|43.64": 77.34640274244994,
+       "google_huawei|sbt_brasil|56.68|73.32": 50.58292451746324
+      },
+      "huang_exposicao": {
+       "google_huawei|jornal_da_band|0.08|43.64": 102.91901399991924,
+       "google_huawei|sbt_brasil|56.68|73.32": 119.58008418862337
+      },
+      "contraste_variancia": {
+       "google_huawei|jornal_da_band|0.08|43.64": 59.55107267806807,
+       "google_huawei|sbt_brasil|56.68|73.32": 60.57712499968431
+      },
+      "brilho": {
+       "google_huawei|jornal_da_band|0.08|43.64": 102.91901399991924,
+       "google_huawei|sbt_brasil|56.68|73.32": 119.58008418862337
+      },
+      "ke_colorfulness": {
+       "google_huawei|jornal_da_band|0.08|43.64": 44.424659186165314,
+       "google_huawei|sbt_brasil|56.68|73.32": 44.24758667230559
+      },
+      "ke_brightness": {
+       "google_huawei|jornal_da_band|0.08|43.64": 102.91901399991924,
+       "google_huawei|sbt_brasil|56.68|73.32": 119.58008418862337
+      },
+      "ke_edge_distribution": {
+       "google_huawei|jornal_da_band|0.08|43.64": 0.06345498728197672,
+       "google_huawei|sbt_brasil|56.68|73.32": 0.11953482434640522
+      },
+      "ke_hue_count": {
+       "google_huawei|jornal_da_band|0.08|43.64": 15.046511627906977,
+       "google_huawei|sbt_brasil|56.68|73.32": 13.176470588235293
+      },
+      "ke_contraste": {
+       "google_huawei|jornal_da_band|0.08|43.64": 225.97674418604652,
+       "google_huawei|sbt_brasil|56.68|73.32": 223.1764705882353
+      },
+      "srinivas_quality": {
+       "google_huawei|jornal_da_band|0.08|43.64": 77.686076797464,
+       "google_huawei|sbt_brasil|56.68|73.32": 80.06002937234918
+      },
+      "sobel_cv": {
+       "google_huawei|jornal_da_band|0.08|43.64": -24.874982448518026,
+       "google_huawei|sbt_brasil|56.68|73.32": 6.455822298524192
+      }
+     },
+     "vencedor": {
+      "hasler_colorfulness": "google_huawei|jornal_da_band|0.08|43.64",
+      "laplacian_var": "google_huawei|sbt_brasil|56.68|73.32",
+      "huang_saturacao": "google_huawei|jornal_da_band|0.08|43.64",
+      "huang_matiz": "google_huawei|jornal_da_band|0.08|43.64",
+      "huang_exposicao": "google_huawei|sbt_brasil|56.68|73.32",
+      "contraste_variancia": "google_huawei|sbt_brasil|56.68|73.32",
+      "brilho": "google_huawei|sbt_brasil|56.68|73.32",
+      "ke_colorfulness": "google_huawei|jornal_da_band|0.08|43.64",
+      "ke_brightness": "google_huawei|sbt_brasil|56.68|73.32",
+      "ke_edge_distribution": "google_huawei|sbt_brasil|56.68|73.32",
+      "ke_hue_count": "google_huawei|jornal_da_band|0.08|43.64",
+      "ke_contraste": "google_huawei|jornal_da_band|0.08|43.64",
+      "srinivas_quality": "google_huawei|sbt_brasil|56.68|73.32",
+      "sobel_cv": "google_huawei|sbt_brasil|56.68|73.32"
+     }
+    },
+    {
+     "segmentos": [
+      "google_huawei|jornal_da_band|0.08|43.64",
+      "google_huawei|jornal_nacional|22.62|93.9"
+     ],
+     "n": 2,
+     "escores": {
+      "hasler_colorfulness": {
+       "google_huawei|jornal_da_band|0.08|43.64": 44.424659186165314,
+       "google_huawei|jornal_nacional|22.62|93.9": 36.23238549036332
+      },
+      "laplacian_var": {
+       "google_huawei|jornal_da_band|0.08|43.64": 107.56553396130239,
+       "google_huawei|jornal_nacional|22.62|93.9": 135.11470614316968
+      },
+      "huang_saturacao": {
+       "google_huawei|jornal_da_band|0.08|43.64": 83.26801750242248,
+       "google_huawei|jornal_nacional|22.62|93.9": 63.551720033744104
+      },
+      "huang_matiz": {
+       "google_huawei|jornal_da_band|0.08|43.64": 77.34640274244994,
+       "google_huawei|jornal_nacional|22.62|93.9": 65.11781133851723
+      },
+      "huang_exposicao": {
+       "google_huawei|jornal_da_band|0.08|43.64": 102.91901399991924,
+       "google_huawei|jornal_nacional|22.62|93.9": 110.88788949408256
+      },
+      "contraste_variancia": {
+       "google_huawei|jornal_da_band|0.08|43.64": 59.55107267806807,
+       "google_huawei|jornal_nacional|22.62|93.9": 60.24516225457225
+      },
+      "brilho": {
+       "google_huawei|jornal_da_band|0.08|43.64": 102.91901399991924,
+       "google_huawei|jornal_nacional|22.62|93.9": 110.88788949408256
+      },
+      "ke_colorfulness": {
+       "google_huawei|jornal_da_band|0.08|43.64": 44.424659186165314,
+       "google_huawei|jornal_nacional|22.62|93.9": 36.23238549036332
+      },
+      "ke_brightness": {
+       "google_huawei|jornal_da_band|0.08|43.64": 102.91901399991924,
+       "google_huawei|jornal_nacional|22.62|93.9": 110.88788949408256
+      },
+      "ke_edge_distribution": {
+       "google_huawei|jornal_da_band|0.08|43.64": 0.06345498728197672,
+       "google_huawei|jornal_nacional|22.62|93.9": 0.04876010184370109
+      },
+      "ke_hue_count": {
+       "google_huawei|jornal_da_band|0.08|43.64": 15.046511627906977,
+       "google_huawei|jornal_nacional|22.62|93.9": 13.0
+      },
+      "ke_contraste": {
+       "google_huawei|jornal_da_band|0.08|43.64": 225.97674418604652,
+       "google_huawei|jornal_nacional|22.62|93.9": 215.43661971830986
+      },
+      "srinivas_quality": {
+       "google_huawei|jornal_da_band|0.08|43.64": 77.686076797464,
+       "google_huawei|jornal_nacional|22.62|93.9": 75.12113096091991
+      },
+      "sobel_cv": {
+       "google_huawei|jornal_da_band|0.08|43.64": -3.167755001705611,
+       "google_huawei|jornal_nacional|22.62|93.9": -3.4568267632535266
+      }
+     },
+     "vencedor": {
+      "hasler_colorfulness": "google_huawei|jornal_da_band|0.08|43.64",
+      "laplacian_var": "google_huawei|jornal_nacional|22.62|93.9",
+      "huang_saturacao": "google_huawei|jornal_da_band|0.08|43.64",
+      "huang_matiz": "google_huawei|jornal_da_band|0.08|43.64",
+      "huang_exposicao": "google_huawei|jornal_nacional|22.62|93.9",
+      "contraste_variancia": "google_huawei|jornal_nacional|22.62|93.9",
+      "brilho": "google_huawei|jornal_nacional|22.62|93.9",
+      "ke_colorfulness": "google_huawei|jornal_da_band|0.08|43.64",
+      "ke_brightness": "google_huawei|jornal_nacional|22.62|93.9",
+      "ke_edge_distribution": "google_huawei|jornal_da_band|0.08|43.64",
+      "ke_hue_count": "google_huawei|jornal_da_band|0.08|43.64",
+      "ke_contraste": "google_huawei|jornal_da_band|0.08|43.64",
+      "srinivas_quality": "google_huawei|jornal_da_band|0.08|43.64",
+      "sobel_cv": "google_huawei|jornal_da_band|0.08|43.64"
+     }
+    }
+   ]
+  },
+  "isencao_imposto": {
+   "n_clusters": 3,
+   "clusters": [
+    {
+     "segmentos": [
+      "isencao_imposto|isencao_band|166.52|196.46",
+      "isencao_imposto|isencao_cnn|72.12|97.32"
+     ],
+     "n": 2,
+     "escores": {
+      "hasler_colorfulness": {
+       "isencao_imposto|isencao_band|166.52|196.46": 48.63437115943136,
+       "isencao_imposto|isencao_cnn|72.12|97.32": 101.56619193301589
+      },
+      "laplacian_var": {
+       "isencao_imposto|isencao_band|166.52|196.46": 1899.0327846753535,
+       "isencao_imposto|isencao_cnn|72.12|97.32": 3085.677643797355
+      },
+      "huang_saturacao": {
+       "isencao_imposto|isencao_band|166.52|196.46": 63.744779803240746,
+       "isencao_imposto|isencao_cnn|72.12|97.32": 127.43019878472222
+      },
+      "huang_matiz": {
+       "isencao_imposto|isencao_band|166.52|196.46": 83.52897612847222,
+       "isencao_imposto|isencao_cnn|72.12|97.32": 89.169515625
+      },
+      "huang_exposicao": {
+       "isencao_imposto|isencao_band|166.52|196.46": 136.18280555555557,
+       "isencao_imposto|isencao_cnn|72.12|97.32": 77.43859739583334
+      },
+      "contraste_variancia": {
+       "isencao_imposto|isencao_band|166.52|196.46": 54.19809766188166,
+       "isencao_imposto|isencao_cnn|72.12|97.32": 75.47787873849168
+      },
+      "brilho": {
+       "isencao_imposto|isencao_band|166.52|196.46": 136.18280555555557,
+       "isencao_imposto|isencao_cnn|72.12|97.32": 77.43859739583334
+      },
+      "ke_colorfulness": {
+       "isencao_imposto|isencao_band|166.52|196.46": 48.63437115943136,
+       "isencao_imposto|isencao_cnn|72.12|97.32": 101.56619193301589
+      },
+      "ke_brightness": {
+       "isencao_imposto|isencao_band|166.52|196.46": 136.18280555555557,
+       "isencao_imposto|isencao_cnn|72.12|97.32": 77.43859739583334
+      },
+      "ke_edge_distribution": {
+       "isencao_imposto|isencao_band|166.52|196.46": 0.07930193865740744,
+       "isencao_imposto|isencao_cnn|72.12|97.32": 0.16357951388888892
+      },
+      "ke_hue_count": {
+       "isencao_imposto|isencao_band|166.52|196.46": 14.233333333333333,
+       "isencao_imposto|isencao_cnn|72.12|97.32": 14.8
+      },
+      "ke_contraste": {
+       "isencao_imposto|isencao_band|166.52|196.46": 228.03333333333333,
+       "isencao_imposto|isencao_cnn|72.12|97.32": 255.0
+      },
+      "srinivas_quality": {
+       "isencao_imposto|isencao_band|166.52|196.46": 85.43262906406221,
+       "isencao_imposto|isencao_cnn|72.12|97.32": 89.79367376854763
+      },
+      "sobel_cv": {
+       "isencao_imposto|isencao_band|166.52|196.46": -0.5288220067993529,
+       "isencao_imposto|isencao_cnn|72.12|97.32": 69.13542547678166
+      }
+     },
+     "vencedor": {
+      "hasler_colorfulness": "isencao_imposto|isencao_cnn|72.12|97.32",
+      "laplacian_var": "isencao_imposto|isencao_cnn|72.12|97.32",
+      "huang_saturacao": "isencao_imposto|isencao_cnn|72.12|97.32",
+      "huang_matiz": "isencao_imposto|isencao_cnn|72.12|97.32",
+      "huang_exposicao": "isencao_imposto|isencao_band|166.52|196.46",
+      "contraste_variancia": "isencao_imposto|isencao_cnn|72.12|97.32",
+      "brilho": "isencao_imposto|isencao_band|166.52|196.46",
+      "ke_colorfulness": "isencao_imposto|isencao_cnn|72.12|97.32",
+      "ke_brightness": "isencao_imposto|isencao_band|166.52|196.46",
+      "ke_edge_distribution": "isencao_imposto|isencao_cnn|72.12|97.32",
+      "ke_hue_count": "isencao_imposto|isencao_cnn|72.12|97.32",
+      "ke_contraste": "isencao_imposto|isencao_cnn|72.12|97.32",
+      "srinivas_quality": "isencao_imposto|isencao_cnn|72.12|97.32",
+      "sobel_cv": "isencao_imposto|isencao_cnn|72.12|97.32"
+     }
+    },
+    {
+     "segmentos": [
+      "isencao_imposto|isencao_band|0.04|26.92",
+      "isencao_imposto|isencao_sbt|78.0|103.62"
+     ],
+     "n": 2,
+     "escores": {
+      "hasler_colorfulness": {
+       "isencao_imposto|isencao_band|0.04|26.92": 29.625944885431952,
+       "isencao_imposto|isencao_sbt|78.0|103.62": 50.541826787880424
+      },
+      "laplacian_var": {
+       "isencao_imposto|isencao_band|0.04|26.92": 1650.3487709622996,
+       "isencao_imposto|isencao_sbt|78.0|103.62": 1060.425019830196
+      },
+      "huang_saturacao": {
+       "isencao_imposto|isencao_band|0.04|26.92": 48.72703191773505,
+       "isencao_imposto|isencao_sbt|78.0|103.62": 84.47514590010684
+      },
+      "huang_matiz": {
+       "isencao_imposto|isencao_band|0.04|26.92": 89.25005742521367,
+       "isencao_imposto|isencao_sbt|78.0|103.62": 62.98257595486112
+      },
+      "huang_exposicao": {
+       "isencao_imposto|isencao_band|0.04|26.92": 116.39995860042737,
+       "isencao_imposto|isencao_sbt|78.0|103.62": 111.10263571714744
+      },
+      "contraste_variancia": {
+       "isencao_imposto|isencao_band|0.04|26.92": 59.07729589937211,
+       "isencao_imposto|isencao_sbt|78.0|103.62": 57.672565198071915
+      },
+      "brilho": {
+       "isencao_imposto|isencao_band|0.04|26.92": 116.39995860042737,
+       "isencao_imposto|isencao_sbt|78.0|103.62": 111.10263571714744
+      },
+      "ke_colorfulness": {
+       "isencao_imposto|isencao_band|0.04|26.92": 29.625944885431952,
+       "isencao_imposto|isencao_sbt|78.0|103.62": 50.541826787880424
+      },
+      "ke_brightness": {
+       "isencao_imposto|isencao_band|0.04|26.92": 116.39995860042737,
+       "isencao_imposto|isencao_sbt|78.0|103.62": 111.10263571714744
+      },
+      "ke_edge_distribution": {
+       "isencao_imposto|isencao_band|0.04|26.92": 0.09335570245726496,
+       "isencao_imposto|isencao_sbt|78.0|103.62": 0.09170522836538463
+      },
+      "ke_hue_count": {
+       "isencao_imposto|isencao_band|0.04|26.92": 13.423076923076923,
+       "isencao_imposto|isencao_sbt|78.0|103.62": 14.538461538461538
+      },
+      "ke_contraste": {
+       "isencao_imposto|isencao_band|0.04|26.92": 231.03846153846155,
+       "isencao_imposto|isencao_sbt|78.0|103.62": 237.19230769230768
+      },
+      "srinivas_quality": {
+       "isencao_imposto|isencao_band|0.04|26.92": 78.116159529971,
+       "isencao_imposto|isencao_sbt|78.0|103.62": 82.69338739283249
+      },
+      "sobel_cv": {
+       "isencao_imposto|isencao_band|0.04|26.92": -12.60196637513826,
+       "isencao_imposto|isencao_sbt|78.0|103.62": -2.453831923278509
+      }
+     },
+     "vencedor": {
+      "hasler_colorfulness": "isencao_imposto|isencao_sbt|78.0|103.62",
+      "laplacian_var": "isencao_imposto|isencao_band|0.04|26.92",
+      "huang_saturacao": "isencao_imposto|isencao_sbt|78.0|103.62",
+      "huang_matiz": "isencao_imposto|isencao_band|0.04|26.92",
+      "huang_exposicao": "isencao_imposto|isencao_band|0.04|26.92",
+      "contraste_variancia": "isencao_imposto|isencao_band|0.04|26.92",
+      "brilho": "isencao_imposto|isencao_band|0.04|26.92",
+      "ke_colorfulness": "isencao_imposto|isencao_sbt|78.0|103.62",
+      "ke_brightness": "isencao_imposto|isencao_band|0.04|26.92",
+      "ke_edge_distribution": "isencao_imposto|isencao_band|0.04|26.92",
+      "ke_hue_count": "isencao_imposto|isencao_sbt|78.0|103.62",
+      "ke_contraste": "isencao_imposto|isencao_sbt|78.0|103.62",
+      "srinivas_quality": "isencao_imposto|isencao_sbt|78.0|103.62",
+      "sobel_cv": "isencao_imposto|isencao_sbt|78.0|103.62"
+     }
+    },
+    {
+     "segmentos": [
+      "isencao_imposto|isencao_cnn|147.68|175.87",
+      "isencao_imposto|isencao_sbt|78.0|103.62"
+     ],
+     "n": 2,
+     "escores": {
+      "hasler_colorfulness": {
+       "isencao_imposto|isencao_cnn|147.68|175.87": 68.09351116036463,
+       "isencao_imposto|isencao_sbt|78.0|103.62": 50.541826787880424
+      },
+      "laplacian_var": {
+       "isencao_imposto|isencao_cnn|147.68|175.87": 3236.2266684505344,
+       "isencao_imposto|isencao_sbt|78.0|103.62": 1060.425019830196
+      },
+      "huang_saturacao": {
+       "isencao_imposto|isencao_cnn|147.68|175.87": 84.1714970858135,
+       "isencao_imposto|isencao_sbt|78.0|103.62": 84.47514590010684
+      },
+      "huang_matiz": {
+       "isencao_imposto|isencao_cnn|147.68|175.87": 72.28787760416667,
+       "isencao_imposto|isencao_sbt|78.0|103.62": 62.98257595486112
+      },
+      "huang_exposicao": {
+       "isencao_imposto|isencao_cnn|147.68|175.87": 109.58082806299603,
+       "isencao_imposto|isencao_sbt|78.0|103.62": 111.10263571714744
+      },
+      "contraste_variancia": {
+       "isencao_imposto|isencao_cnn|147.68|175.87": 71.27728043196133,
+       "isencao_imposto|isencao_sbt|78.0|103.62": 57.672565198071915
+      },
+      "brilho": {
+       "isencao_imposto|isencao_cnn|147.68|175.87": 109.58082806299603,
+       "isencao_imposto|isencao_sbt|78.0|103.62": 111.10263571714744
+      },
+      "ke_colorfulness": {
+       "isencao_imposto|isencao_cnn|147.68|175.87": 68.09351116036463,
+       "isencao_imposto|isencao_sbt|78.0|103.62": 50.541826787880424
+      },
+      "ke_brightness": {
+       "isencao_imposto|isencao_cnn|147.68|175.87": 109.58082806299603,
+       "isencao_imposto|isencao_sbt|78.0|103.62": 111.10263571714744
+      },
+      "ke_edge_distribution": {
+       "isencao_imposto|isencao_cnn|147.68|175.87": 0.08985382564484126,
+       "isencao_imposto|isencao_sbt|78.0|103.62": 0.09170522836538463
+      },
+      "ke_hue_count": {
+       "isencao_imposto|isencao_cnn|147.68|175.87": 13.178571428571429,
+       "isencao_imposto|isencao_sbt|78.0|103.62": 14.538461538461538
+      },
+      "ke_contraste": {
+       "isencao_imposto|isencao_cnn|147.68|175.87": 255.0,
+       "isencao_imposto|isencao_sbt|78.0|103.62": 237.19230769230768
+      },
+      "srinivas_quality": {
+       "isencao_imposto|isencao_cnn|147.68|175.87": 89.18855289551537,
+       "isencao_imposto|isencao_sbt|78.0|103.62": 82.69338739283249
+      },
+      "sobel_cv": {
+       "isencao_imposto|isencao_cnn|147.68|175.87": 8.878668882460666,
+       "isencao_imposto|isencao_sbt|78.0|103.62": -5.679915442321922
+      }
+     },
+     "vencedor": {
+      "hasler_colorfulness": "isencao_imposto|isencao_cnn|147.68|175.87",
+      "laplacian_var": "isencao_imposto|isencao_cnn|147.68|175.87",
+      "huang_saturacao": "isencao_imposto|isencao_sbt|78.0|103.62",
+      "huang_matiz": "isencao_imposto|isencao_cnn|147.68|175.87",
+      "huang_exposicao": "isencao_imposto|isencao_sbt|78.0|103.62",
+      "contraste_variancia": "isencao_imposto|isencao_cnn|147.68|175.87",
+      "brilho": "isencao_imposto|isencao_sbt|78.0|103.62",
+      "ke_colorfulness": "isencao_imposto|isencao_cnn|147.68|175.87",
+      "ke_brightness": "isencao_imposto|isencao_sbt|78.0|103.62",
+      "ke_edge_distribution": "isencao_imposto|isencao_sbt|78.0|103.62",
+      "ke_hue_count": "isencao_imposto|isencao_sbt|78.0|103.62",
+      "ke_contraste": "isencao_imposto|isencao_cnn|147.68|175.87",
+      "srinivas_quality": "isencao_imposto|isencao_cnn|147.68|175.87",
+      "sobel_cv": "isencao_imposto|isencao_cnn|147.68|175.87"
+     }
+    }
+   ]
+  },
+  "julgamento_bolsonaro": {
+   "n_clusters": 3,
+   "clusters": [
+    {
+     "segmentos": [
+      "julgamento_bolsonaro|g1|29.56|40.7",
+      "julgamento_bolsonaro|jornal_record|119.28|148.6"
+     ],
+     "n": 2,
+     "escores": {
+      "hasler_colorfulness": {
+       "julgamento_bolsonaro|g1|29.56|40.7": 19.691961870108813,
+       "julgamento_bolsonaro|jornal_record|119.28|148.6": 24.321434045826074
+      },
+      "laplacian_var": {
+       "julgamento_bolsonaro|g1|29.56|40.7": 1486.0288995974472,
+       "julgamento_bolsonaro|jornal_record|119.28|148.6": 1867.0839643003055
+      },
+      "huang_saturacao": {
+       "julgamento_bolsonaro|g1|29.56|40.7": 44.02552517361111,
+       "julgamento_bolsonaro|jornal_record|119.28|148.6": 49.206278585967446
+      },
+      "huang_matiz": {
+       "julgamento_bolsonaro|g1|29.56|40.7": 60.24918639520203,
+       "julgamento_bolsonaro|jornal_record|119.28|148.6": 98.6918191750479
+      },
+      "huang_exposicao": {
+       "julgamento_bolsonaro|g1|29.56|40.7": 75.4541627209596,
+       "julgamento_bolsonaro|jornal_record|119.28|148.6": 79.04333662595782
+      },
+      "contraste_variancia": {
+       "julgamento_bolsonaro|g1|29.56|40.7": 51.95216701489522,
+       "julgamento_bolsonaro|jornal_record|119.28|148.6": 54.511791085241796
+      },
+      "brilho": {
+       "julgamento_bolsonaro|g1|29.56|40.7": 75.4541627209596,
+       "julgamento_bolsonaro|jornal_record|119.28|148.6": 79.04333662595782
+      },
+      "ke_colorfulness": {
+       "julgamento_bolsonaro|g1|29.56|40.7": 19.691961870108813,
+       "julgamento_bolsonaro|jornal_record|119.28|148.6": 24.321434045826074
+      },
+      "ke_brightness": {
+       "julgamento_bolsonaro|g1|29.56|40.7": 75.4541627209596,
+       "julgamento_bolsonaro|jornal_record|119.28|148.6": 79.04333662595782
+      },
+      "ke_edge_distribution": {
+       "julgamento_bolsonaro|g1|29.56|40.7": 0.07107559974747478,
+       "julgamento_bolsonaro|jornal_record|119.28|148.6": 0.08929627634099617
+      },
+      "ke_hue_count": {
+       "julgamento_bolsonaro|g1|29.56|40.7": 12.727272727272727,
+       "julgamento_bolsonaro|jornal_record|119.28|148.6": 12.551724137931034
+      },
+      "ke_contraste": {
+       "julgamento_bolsonaro|g1|29.56|40.7": 243.0909090909091,
+       "julgamento_bolsonaro|jornal_record|119.28|148.6": 242.0344827586207
+      },
+      "srinivas_quality": {
+       "julgamento_bolsonaro|g1|29.56|40.7": 70.20707640179954,
+       "julgamento_bolsonaro|jornal_record|119.28|148.6": 71.60805476893532
+      },
+      "sobel_cv": {
+       "julgamento_bolsonaro|g1|29.56|40.7": -15.543794239094314,
+       "julgamento_bolsonaro|jornal_record|119.28|148.6": 35.10636764918323
+      }
+     },
+     "vencedor": {
+      "hasler_colorfulness": "julgamento_bolsonaro|jornal_record|119.28|148.6",
+      "laplacian_var": "julgamento_bolsonaro|jornal_record|119.28|148.6",
+      "huang_saturacao": "julgamento_bolsonaro|jornal_record|119.28|148.6",
+      "huang_matiz": "julgamento_bolsonaro|jornal_record|119.28|148.6",
+      "huang_exposicao": "julgamento_bolsonaro|jornal_record|119.28|148.6",
+      "contraste_variancia": "julgamento_bolsonaro|jornal_record|119.28|148.6",
+      "brilho": "julgamento_bolsonaro|jornal_record|119.28|148.6",
+      "ke_colorfulness": "julgamento_bolsonaro|jornal_record|119.28|148.6",
+      "ke_brightness": "julgamento_bolsonaro|jornal_record|119.28|148.6",
+      "ke_edge_distribution": "julgamento_bolsonaro|jornal_record|119.28|148.6",
+      "ke_hue_count": "julgamento_bolsonaro|g1|29.56|40.7",
+      "ke_contraste": "julgamento_bolsonaro|g1|29.56|40.7",
+      "srinivas_quality": "julgamento_bolsonaro|jornal_record|119.28|148.6",
+      "sobel_cv": "julgamento_bolsonaro|jornal_record|119.28|148.6"
+     }
+    },
+    {
+     "segmentos": [
+      "julgamento_bolsonaro|g1|70.32|83.92",
+      "julgamento_bolsonaro|sbt|48.66|77.32"
+     ],
+     "n": 2,
+     "escores": {
+      "hasler_colorfulness": {
+       "julgamento_bolsonaro|g1|70.32|83.92": 18.312721814993203,
+       "julgamento_bolsonaro|sbt|48.66|77.32": 21.54647722595315
+      },
+      "laplacian_var": {
+       "julgamento_bolsonaro|g1|70.32|83.92": 808.4504657981054,
+       "julgamento_bolsonaro|sbt|48.66|77.32": 1172.207741171677
+      },
+      "huang_saturacao": {
+       "julgamento_bolsonaro|g1|70.32|83.92": 44.82281049679488,
+       "julgamento_bolsonaro|sbt|48.66|77.32": 53.84060778855365
+      },
+      "huang_matiz": {
+       "julgamento_bolsonaro|g1|70.32|83.92": 66.7376031650641,
+       "julgamento_bolsonaro|sbt|48.66|77.32": 72.96944055316091
+      },
+      "huang_exposicao": {
+       "julgamento_bolsonaro|g1|70.32|83.92": 75.46924779647436,
+       "julgamento_bolsonaro|sbt|48.66|77.32": 85.52093705100576
+      },
+      "contraste_variancia": {
+       "julgamento_bolsonaro|g1|70.32|83.92": 53.7951068235706,
+       "julgamento_bolsonaro|sbt|48.66|77.32": 59.41539749899614
+      },
+      "brilho": {
+       "julgamento_bolsonaro|g1|70.32|83.92": 75.46924779647436,
+       "julgamento_bolsonaro|sbt|48.66|77.32": 85.52093705100576
+      },
+      "ke_colorfulness": {
+       "julgamento_bolsonaro|g1|70.32|83.92": 18.312721814993203,
+       "julgamento_bolsonaro|sbt|48.66|77.32": 21.54647722595315
+      },
+      "ke_brightness": {
+       "julgamento_bolsonaro|g1|70.32|83.92": 75.46924779647436,
+       "julgamento_bolsonaro|sbt|48.66|77.32": 85.52093705100576
+      },
+      "ke_edge_distribution": {
+       "julgamento_bolsonaro|g1|70.32|83.92": 0.04178485576923085,
+       "julgamento_bolsonaro|sbt|48.66|77.32": 0.10777014487547897
+      },
+      "ke_hue_count": {
+       "julgamento_bolsonaro|g1|70.32|83.92": 13.153846153846153,
+       "julgamento_bolsonaro|sbt|48.66|77.32": 12.862068965517242
+      },
+      "ke_contraste": {
+       "julgamento_bolsonaro|g1|70.32|83.92": 243.69230769230768,
+       "julgamento_bolsonaro|sbt|48.66|77.32": 240.82758620689654
+      },
+      "srinivas_quality": {
+       "julgamento_bolsonaro|g1|70.32|83.92": 70.13398166267812,
+       "julgamento_bolsonaro|sbt|48.66|77.32": 72.17296791884964
+      },
+      "sobel_cv": {
+       "julgamento_bolsonaro|g1|70.32|83.92": -8.788477428335153,
+       "julgamento_bolsonaro|sbt|48.66|77.32": 29.43513926042054
+      }
+     },
+     "vencedor": {
+      "hasler_colorfulness": "julgamento_bolsonaro|sbt|48.66|77.32",
+      "laplacian_var": "julgamento_bolsonaro|sbt|48.66|77.32",
+      "huang_saturacao": "julgamento_bolsonaro|sbt|48.66|77.32",
+      "huang_matiz": "julgamento_bolsonaro|sbt|48.66|77.32",
+      "huang_exposicao": "julgamento_bolsonaro|sbt|48.66|77.32",
+      "contraste_variancia": "julgamento_bolsonaro|sbt|48.66|77.32",
+      "brilho": "julgamento_bolsonaro|sbt|48.66|77.32",
+      "ke_colorfulness": "julgamento_bolsonaro|sbt|48.66|77.32",
+      "ke_brightness": "julgamento_bolsonaro|sbt|48.66|77.32",
+      "ke_edge_distribution": "julgamento_bolsonaro|sbt|48.66|77.32",
+      "ke_hue_count": "julgamento_bolsonaro|g1|70.32|83.92",
+      "ke_contraste": "julgamento_bolsonaro|g1|70.32|83.92",
+      "srinivas_quality": "julgamento_bolsonaro|sbt|48.66|77.32",
+      "sobel_cv": "julgamento_bolsonaro|sbt|48.66|77.32"
+     }
+    },
+    {
+     "segmentos": [
+      "julgamento_bolsonaro|jornal_record|119.28|148.6",
+      "julgamento_bolsonaro|sbt|135.28|161.48"
+     ],
+     "n": 2,
+     "escores": {
+      "hasler_colorfulness": {
+       "julgamento_bolsonaro|jornal_record|119.28|148.6": 24.321434045826074,
+       "julgamento_bolsonaro|sbt|135.28|161.48": 26.30004231174628
+      },
+      "laplacian_var": {
+       "julgamento_bolsonaro|jornal_record|119.28|148.6": 1867.0839643003055,
+       "julgamento_bolsonaro|sbt|135.28|161.48": 1593.7658782656135
+      },
+      "huang_saturacao": {
+       "julgamento_bolsonaro|jornal_record|119.28|148.6": 49.206278585967446,
+       "julgamento_bolsonaro|sbt|135.28|161.48": 57.81856136485043
+      },
+      "huang_matiz": {
+       "julgamento_bolsonaro|jornal_record|119.28|148.6": 98.6918191750479,
+       "julgamento_bolsonaro|sbt|135.28|161.48": 76.33226378872862
+      },
+      "huang_exposicao": {
+       "julgamento_bolsonaro|jornal_record|119.28|148.6": 79.04333662595782,
+       "julgamento_bolsonaro|sbt|135.28|161.48": 77.04889155982906
+      },
+      "contraste_variancia": {
+       "julgamento_bolsonaro|jornal_record|119.28|148.6": 54.511791085241796,
+       "julgamento_bolsonaro|sbt|135.28|161.48": 58.60469044823362
+      },
+      "brilho": {
+       "julgamento_bolsonaro|jornal_record|119.28|148.6": 79.04333662595782,
+       "julgamento_bolsonaro|sbt|135.28|161.48": 77.04889155982906
+      },
+      "ke_colorfulness": {
+       "julgamento_bolsonaro|jornal_record|119.28|148.6": 24.321434045826074,
+       "julgamento_bolsonaro|sbt|135.28|161.48": 26.30004231174628
+      },
+      "ke_brightness": {
+       "julgamento_bolsonaro|jornal_record|119.28|148.6": 79.04333662595782,
+       "julgamento_bolsonaro|sbt|135.28|161.48": 77.04889155982906
+      },
+      "ke_edge_distribution": {
+       "julgamento_bolsonaro|jornal_record|119.28|148.6": 0.08929627634099617,
+       "julgamento_bolsonaro|sbt|135.28|161.48": 0.11426432291666665
+      },
+      "ke_hue_count": {
+       "julgamento_bolsonaro|jornal_record|119.28|148.6": 12.551724137931034,
+       "julgamento_bolsonaro|sbt|135.28|161.48": 11.384615384615385
+      },
+      "ke_contraste": {
+       "julgamento_bolsonaro|jornal_record|119.28|148.6": 242.0344827586207,
+       "julgamento_bolsonaro|sbt|135.28|161.48": 240.65384615384616
+      },
+      "srinivas_quality": {
+       "julgamento_bolsonaro|jornal_record|119.28|148.6": 71.60805476893532,
+       "julgamento_bolsonaro|sbt|135.28|161.48": 71.10033194659071
+      },
+      "sobel_cv": {
+       "julgamento_bolsonaro|jornal_record|119.28|148.6": 50.27621493120261,
+       "julgamento_bolsonaro|sbt|135.28|161.48": 83.79955973607922
+      }
+     },
+     "vencedor": {
+      "hasler_colorfulness": "julgamento_bolsonaro|sbt|135.28|161.48",
+      "laplacian_var": "julgamento_bolsonaro|jornal_record|119.28|148.6",
+      "huang_saturacao": "julgamento_bolsonaro|sbt|135.28|161.48",
+      "huang_matiz": "julgamento_bolsonaro|jornal_record|119.28|148.6",
+      "huang_exposicao": "julgamento_bolsonaro|jornal_record|119.28|148.6",
+      "contraste_variancia": "julgamento_bolsonaro|sbt|135.28|161.48",
+      "brilho": "julgamento_bolsonaro|jornal_record|119.28|148.6",
+      "ke_colorfulness": "julgamento_bolsonaro|sbt|135.28|161.48",
+      "ke_brightness": "julgamento_bolsonaro|jornal_record|119.28|148.6",
+      "ke_edge_distribution": "julgamento_bolsonaro|sbt|135.28|161.48",
+      "ke_hue_count": "julgamento_bolsonaro|jornal_record|119.28|148.6",
+      "ke_contraste": "julgamento_bolsonaro|jornal_record|119.28|148.6",
+      "srinivas_quality": "julgamento_bolsonaro|jornal_record|119.28|148.6",
+      "sobel_cv": "julgamento_bolsonaro|sbt|135.28|161.48"
+     }
+    }
+   ]
+  },
+  "mounjaro": {
+   "n_clusters": 1,
+   "clusters": [
+    {
+     "segmentos": [
+      "mounjaro|mounjaro_band|0.74|8.84",
+      "mounjaro|mounjaro_domingo_esptacular|126.1|142.14",
+      "mounjaro|mounjaro_domingo_esptacular|187.42|212.76",
+      "mounjaro|mounjaro_record|0.1|14.12"
+     ],
+     "n": 4,
+     "escores": {
+      "hasler_colorfulness": {
+       "mounjaro|mounjaro_band|0.74|8.84": 93.83415870515351,
+       "mounjaro|mounjaro_domingo_esptacular|126.1|142.14": 44.535811281992466,
+       "mounjaro|mounjaro_domingo_esptacular|187.42|212.76": 30.176232226245205,
+       "mounjaro|mounjaro_record|0.1|14.12": 101.05509014178561
+      },
+      "laplacian_var": {
+       "mounjaro|mounjaro_band|0.74|8.84": 260.71387232231325,
+       "mounjaro|mounjaro_domingo_esptacular|126.1|142.14": 929.3033721952308,
+       "mounjaro|mounjaro_domingo_esptacular|187.42|212.76": 907.880222478347,
+       "mounjaro|mounjaro_record|0.1|14.12": 764.9177724263309
+      },
+      "huang_saturacao": {
+       "mounjaro|mounjaro_band|0.74|8.84": 214.60760850694444,
+       "mounjaro|mounjaro_domingo_esptacular|126.1|142.14": 79.18082302517361,
+       "mounjaro|mounjaro_domingo_esptacular|187.42|212.76": 49.25357743055555,
+       "mounjaro|mounjaro_record|0.1|14.12": 139.42909288194446
+      },
+      "huang_matiz": {
+       "mounjaro|mounjaro_band|0.74|8.84": 113.26281575520832,
+       "mounjaro|mounjaro_domingo_esptacular|126.1|142.14": 37.311314019097225,
+       "mounjaro|mounjaro_domingo_esptacular|187.42|212.76": 83.48474722222223,
+       "mounjaro|mounjaro_record|0.1|14.12": 106.30597656250002
+      },
+      "huang_exposicao": {
+       "mounjaro|mounjaro_band|0.74|8.84": 45.53504123263889,
+       "mounjaro|mounjaro_domingo_esptacular|126.1|142.14": 113.87584147135416,
+       "mounjaro|mounjaro_domingo_esptacular|187.42|212.76": 152.53100381944444,
+       "mounjaro|mounjaro_record|0.1|14.12": 99.35681423611109
+      },
+      "contraste_variancia": {
+       "mounjaro|mounjaro_band|0.74|8.84": 34.6616764638602,
+       "mounjaro|mounjaro_domingo_esptacular|126.1|142.14": 56.77695862083833,
+       "mounjaro|mounjaro_domingo_esptacular|187.42|212.76": 68.74850229623613,
+       "mounjaro|mounjaro_record|0.1|14.12": 54.02406176168213
+      },
+      "brilho": {
+       "mounjaro|mounjaro_band|0.74|8.84": 45.53504123263889,
+       "mounjaro|mounjaro_domingo_esptacular|126.1|142.14": 113.87584147135416,
+       "mounjaro|mounjaro_domingo_esptacular|187.42|212.76": 152.53100381944444,
+       "mounjaro|mounjaro_record|0.1|14.12": 99.35681423611109
+      },
+      "ke_colorfulness": {
+       "mounjaro|mounjaro_band|0.74|8.84": 93.83415870515351,
+       "mounjaro|mounjaro_domingo_esptacular|126.1|142.14": 44.535811281992466,
+       "mounjaro|mounjaro_domingo_esptacular|187.42|212.76": 30.176232226245205,
+       "mounjaro|mounjaro_record|0.1|14.12": 101.05509014178561
+      },
+      "ke_brightness": {
+       "mounjaro|mounjaro_band|0.74|8.84": 45.53504123263889,
+       "mounjaro|mounjaro_domingo_esptacular|126.1|142.14": 113.87584147135416,
+       "mounjaro|mounjaro_domingo_esptacular|187.42|212.76": 152.53100381944444,
+       "mounjaro|mounjaro_record|0.1|14.12": 99.35681423611109
+      },
+      "ke_edge_distribution": {
+       "mounjaro|mounjaro_band|0.74|8.84": 0.1484532335069445,
+       "mounjaro|mounjaro_domingo_esptacular|126.1|142.14": 0.045361599392361084,
+       "mounjaro|mounjaro_domingo_esptacular|187.42|212.76": 0.056743229166666624,
+       "mounjaro|mounjaro_record|0.1|14.12": 0.054082341269841336
+      },
+      "ke_hue_count": {
+       "mounjaro|mounjaro_band|0.74|8.84": 19.0,
+       "mounjaro|mounjaro_domingo_esptacular|126.1|142.14": 14.875,
+       "mounjaro|mounjaro_domingo_esptacular|187.42|212.76": 12.04,
+       "mounjaro|mounjaro_record|0.1|14.12": 18.0
+      },
+      "ke_contraste": {
+       "mounjaro|mounjaro_band|0.74|8.84": 194.75,
+       "mounjaro|mounjaro_domingo_esptacular|126.1|142.14": 236.5625,
+       "mounjaro|mounjaro_domingo_esptacular|187.42|212.76": 226.84,
+       "mounjaro|mounjaro_record|0.1|14.12": 211.85714285714286
+      },
+      "srinivas_quality": {
+       "mounjaro|mounjaro_band|0.74|8.84": 70.65353063425987,
+       "mounjaro|mounjaro_domingo_esptacular|126.1|142.14": 81.9789028705478,
+       "mounjaro|mounjaro_domingo_esptacular|187.42|212.76": 84.32879585497126,
+       "mounjaro|mounjaro_record|0.1|14.12": 86.06462591526189
+      },
+      "sobel_cv": {
+       "mounjaro|mounjaro_band|0.74|8.84": -2.1205509932782096,
+       "mounjaro|mounjaro_domingo_esptacular|126.1|142.14": 27.43627888265523,
+       "mounjaro|mounjaro_domingo_esptacular|187.42|212.76": 7.62550806353841,
+       "mounjaro|mounjaro_record|0.1|14.12": 58.81882616011562
+      }
+     },
+     "vencedor": {
+      "hasler_colorfulness": "mounjaro|mounjaro_record|0.1|14.12",
+      "laplacian_var": "mounjaro|mounjaro_domingo_esptacular|126.1|142.14",
+      "huang_saturacao": "mounjaro|mounjaro_band|0.74|8.84",
+      "huang_matiz": "mounjaro|mounjaro_band|0.74|8.84",
+      "huang_exposicao": "mounjaro|mounjaro_domingo_esptacular|187.42|212.76",
+      "contraste_variancia": "mounjaro|mounjaro_domingo_esptacular|187.42|212.76",
+      "brilho": "mounjaro|mounjaro_domingo_esptacular|187.42|212.76",
+      "ke_colorfulness": "mounjaro|mounjaro_record|0.1|14.12",
+      "ke_brightness": "mounjaro|mounjaro_domingo_esptacular|187.42|212.76",
+      "ke_edge_distribution": "mounjaro|mounjaro_band|0.74|8.84",
+      "ke_hue_count": "mounjaro|mounjaro_band|0.74|8.84",
+      "ke_contraste": "mounjaro|mounjaro_domingo_esptacular|126.1|142.14",
+      "srinivas_quality": "mounjaro|mounjaro_record|0.1|14.12",
+      "sobel_cv": "mounjaro|mounjaro_record|0.1|14.12"
+     }
+    }
+   ]
+  },
+  "recorde_calor_2024": {
+   "n_clusters": 2,
+   "clusters": [
+    {
+     "segmentos": [
+      "recorde_calor_2024|recorde_calor_band|0.0|26.3",
+      "recorde_calor_2024|recorde_calor_cultura|53.4|81.42",
+      "recorde_calor_2024|recorde_calor_record|0.6|24.66"
+     ],
+     "n": 3,
+     "escores": {
+      "hasler_colorfulness": {
+       "recorde_calor_2024|recorde_calor_band|0.0|26.3": 57.292869957558814,
+       "recorde_calor_2024|recorde_calor_cultura|53.4|81.42": 33.66494469093795,
+       "recorde_calor_2024|recorde_calor_record|0.6|24.66": 93.3515675115156
+      },
+      "laplacian_var": {
+       "recorde_calor_2024|recorde_calor_band|0.0|26.3": 445.69042817877624,
+       "recorde_calor_2024|recorde_calor_cultura|53.4|81.42": 594.4336015326653,
+       "recorde_calor_2024|recorde_calor_record|0.6|24.66": 1673.3118503607877
+      },
+      "huang_saturacao": {
+       "recorde_calor_2024|recorde_calor_band|0.0|26.3": 132.26241142618315,
+       "recorde_calor_2024|recorde_calor_cultura|53.4|81.42": 56.0842029389881,
+       "recorde_calor_2024|recorde_calor_record|0.6|24.66": 127.02396321614583
+      },
+      "huang_matiz": {
+       "recorde_calor_2024|recorde_calor_band|0.0|26.3": 82.96727639531893,
+       "recorde_calor_2024|recorde_calor_cultura|53.4|81.42": 79.52149553571428,
+       "recorde_calor_2024|recorde_calor_record|0.6|24.66": 85.74638617621527
+      },
+      "huang_exposicao": {
+       "recorde_calor_2024|recorde_calor_band|0.0|26.3": 72.97090197402264,
+       "recorde_calor_2024|recorde_calor_cultura|53.4|81.42": 122.9584171937004,
+       "recorde_calor_2024|recorde_calor_record|0.6|24.66": 103.5537060546875
+      },
+      "contraste_variancia": {
+       "recorde_calor_2024|recorde_calor_band|0.0|26.3": 48.8073833445436,
+       "recorde_calor_2024|recorde_calor_cultura|53.4|81.42": 58.28010956208471,
+       "recorde_calor_2024|recorde_calor_record|0.6|24.66": 58.20344184991597
+      },
+      "brilho": {
+       "recorde_calor_2024|recorde_calor_band|0.0|26.3": 72.97090197402264,
+       "recorde_calor_2024|recorde_calor_cultura|53.4|81.42": 122.9584171937004,
+       "recorde_calor_2024|recorde_calor_record|0.6|24.66": 103.5537060546875
+      },
+      "ke_colorfulness": {
+       "recorde_calor_2024|recorde_calor_band|0.0|26.3": 57.292869957558814,
+       "recorde_calor_2024|recorde_calor_cultura|53.4|81.42": 33.66494469093795,
+       "recorde_calor_2024|recorde_calor_record|0.6|24.66": 93.3515675115156
+      },
+      "ke_brightness": {
+       "recorde_calor_2024|recorde_calor_band|0.0|26.3": 72.97090197402264,
+       "recorde_calor_2024|recorde_calor_cultura|53.4|81.42": 122.9584171937004,
+       "recorde_calor_2024|recorde_calor_record|0.6|24.66": 103.5537060546875
+      },
+      "ke_edge_distribution": {
+       "recorde_calor_2024|recorde_calor_band|0.0|26.3": 0.09674736368312756,
+       "recorde_calor_2024|recorde_calor_cultura|53.4|81.42": 0.09770538814484124,
+       "recorde_calor_2024|recorde_calor_record|0.6|24.66": 0.09324471932870372
+      },
+      "ke_hue_count": {
+       "recorde_calor_2024|recorde_calor_band|0.0|26.3": 14.925925925925926,
+       "recorde_calor_2024|recorde_calor_cultura|53.4|81.42": 13.214285714285714,
+       "recorde_calor_2024|recorde_calor_record|0.6|24.66": 13.333333333333334
+      },
+      "ke_contraste": {
+       "recorde_calor_2024|recorde_calor_band|0.0|26.3": 215.88888888888889,
+       "recorde_calor_2024|recorde_calor_cultura|53.4|81.42": 216.60714285714286,
+       "recorde_calor_2024|recorde_calor_record|0.6|24.66": 232.25
+      },
+      "srinivas_quality": {
+       "recorde_calor_2024|recorde_calor_band|0.0|26.3": 72.23506682201588,
+       "recorde_calor_2024|recorde_calor_cultura|53.4|81.42": 77.30849916884236,
+       "recorde_calor_2024|recorde_calor_record|0.6|24.66": 88.51637032377302
+      },
+      "sobel_cv": {
+       "recorde_calor_2024|recorde_calor_band|0.0|26.3": -0.2887159456883894,
+       "recorde_calor_2024|recorde_calor_cultura|53.4|81.42": 5.21633057577951,
+       "recorde_calor_2024|recorde_calor_record|0.6|24.66": 5.024941348737929
+      }
+     },
+     "vencedor": {
+      "hasler_colorfulness": "recorde_calor_2024|recorde_calor_record|0.6|24.66",
+      "laplacian_var": "recorde_calor_2024|recorde_calor_record|0.6|24.66",
+      "huang_saturacao": "recorde_calor_2024|recorde_calor_band|0.0|26.3",
+      "huang_matiz": "recorde_calor_2024|recorde_calor_record|0.6|24.66",
+      "huang_exposicao": "recorde_calor_2024|recorde_calor_cultura|53.4|81.42",
+      "contraste_variancia": "recorde_calor_2024|recorde_calor_cultura|53.4|81.42",
+      "brilho": "recorde_calor_2024|recorde_calor_cultura|53.4|81.42",
+      "ke_colorfulness": "recorde_calor_2024|recorde_calor_record|0.6|24.66",
+      "ke_brightness": "recorde_calor_2024|recorde_calor_cultura|53.4|81.42",
+      "ke_edge_distribution": "recorde_calor_2024|recorde_calor_cultura|53.4|81.42",
+      "ke_hue_count": "recorde_calor_2024|recorde_calor_band|0.0|26.3",
+      "ke_contraste": "recorde_calor_2024|recorde_calor_record|0.6|24.66",
+      "srinivas_quality": "recorde_calor_2024|recorde_calor_record|0.6|24.66",
+      "sobel_cv": "recorde_calor_2024|recorde_calor_cultura|53.4|81.42"
+     }
+    },
+    {
+     "segmentos": [
+      "recorde_calor_2024|recorde_calor_cultura|0.48|27.84",
+      "recorde_calor_2024|recorde_calor_record|25.0|48.28"
+     ],
+     "n": 2,
+     "escores": {
+      "hasler_colorfulness": {
+       "recorde_calor_2024|recorde_calor_cultura|0.48|27.84": 32.08375138601012,
+       "recorde_calor_2024|recorde_calor_record|25.0|48.28": 33.50460494476264
+      },
+      "laplacian_var": {
+       "recorde_calor_2024|recorde_calor_cultura|0.48|27.84": 560.5472557875576,
+       "recorde_calor_2024|recorde_calor_record|25.0|48.28": 1805.9792077692218
+      },
+      "huang_saturacao": {
+       "recorde_calor_2024|recorde_calor_cultura|0.48|27.84": 43.4959219071502,
+       "recorde_calor_2024|recorde_calor_record|25.0|48.28": 68.46194408275463
+      },
+      "huang_matiz": {
+       "recorde_calor_2024|recorde_calor_cultura|0.48|27.84": 88.67098122427981,
+       "recorde_calor_2024|recorde_calor_record|25.0|48.28": 83.17856047453704
+      },
+      "huang_exposicao": {
+       "recorde_calor_2024|recorde_calor_cultura|0.48|27.84": 143.32891348379627,
+       "recorde_calor_2024|recorde_calor_record|25.0|48.28": 133.45496419270833
+      },
+      "contraste_variancia": {
+       "recorde_calor_2024|recorde_calor_cultura|0.48|27.84": 52.93835247236988,
+       "recorde_calor_2024|recorde_calor_record|25.0|48.28": 68.71878716170316
+      },
+      "brilho": {
+       "recorde_calor_2024|recorde_calor_cultura|0.48|27.84": 143.32891348379627,
+       "recorde_calor_2024|recorde_calor_record|25.0|48.28": 133.45496419270833
+      },
+      "ke_colorfulness": {
+       "recorde_calor_2024|recorde_calor_cultura|0.48|27.84": 32.08375138601012,
+       "recorde_calor_2024|recorde_calor_record|25.0|48.28": 33.50460494476264
+      },
+      "ke_brightness": {
+       "recorde_calor_2024|recorde_calor_cultura|0.48|27.84": 143.32891348379627,
+       "recorde_calor_2024|recorde_calor_record|25.0|48.28": 133.45496419270833
+      },
+      "ke_edge_distribution": {
+       "recorde_calor_2024|recorde_calor_cultura|0.48|27.84": 0.1393188978909465,
+       "recorde_calor_2024|recorde_calor_record|25.0|48.28": 0.06953902633101854
+      },
+      "ke_hue_count": {
+       "recorde_calor_2024|recorde_calor_cultura|0.48|27.84": 12.222222222222221,
+       "recorde_calor_2024|recorde_calor_record|25.0|48.28": 16.0
+      },
+      "ke_contraste": {
+       "recorde_calor_2024|recorde_calor_cultura|0.48|27.84": 224.14814814814815,
+       "recorde_calor_2024|recorde_calor_record|25.0|48.28": 238.91666666666666
+      },
+      "srinivas_quality": {
+       "recorde_calor_2024|recorde_calor_cultura|0.48|27.84": 82.38447082761357,
+       "recorde_calor_2024|recorde_calor_record|25.0|48.28": 84.38915496609373
+      },
+      "sobel_cv": {
+       "recorde_calor_2024|recorde_calor_cultura|0.48|27.84": -4.242169882327492,
+       "recorde_calor_2024|recorde_calor_record|25.0|48.28": 60.29971057988476
+      }
+     },
+     "vencedor": {
+      "hasler_colorfulness": "recorde_calor_2024|recorde_calor_record|25.0|48.28",
+      "laplacian_var": "recorde_calor_2024|recorde_calor_record|25.0|48.28",
+      "huang_saturacao": "recorde_calor_2024|recorde_calor_record|25.0|48.28",
+      "huang_matiz": "recorde_calor_2024|recorde_calor_cultura|0.48|27.84",
+      "huang_exposicao": "recorde_calor_2024|recorde_calor_cultura|0.48|27.84",
+      "contraste_variancia": "recorde_calor_2024|recorde_calor_record|25.0|48.28",
+      "brilho": "recorde_calor_2024|recorde_calor_cultura|0.48|27.84",
+      "ke_colorfulness": "recorde_calor_2024|recorde_calor_record|25.0|48.28",
+      "ke_brightness": "recorde_calor_2024|recorde_calor_cultura|0.48|27.84",
+      "ke_edge_distribution": "recorde_calor_2024|recorde_calor_cultura|0.48|27.84",
+      "ke_hue_count": "recorde_calor_2024|recorde_calor_record|25.0|48.28",
+      "ke_contraste": "recorde_calor_2024|recorde_calor_record|25.0|48.28",
+      "srinivas_quality": "recorde_calor_2024|recorde_calor_record|25.0|48.28",
+      "sobel_cv": "recorde_calor_2024|recorde_calor_record|25.0|48.28"
+     }
+    }
+   ]
+  },
+  "rio_celular": {
+   "n_clusters": 1,
+   "clusters": [
+    {
+     "segmentos": [
+      "rio_celular|rio_celular_cnn|0.12|28.16",
+      "rio_celular|rio_celular_jornal_nacional|1.32|25.58"
+     ],
+     "n": 2,
+     "escores": {
+      "hasler_colorfulness": {
+       "rio_celular|rio_celular_cnn|0.12|28.16": 55.762658808275354,
+       "rio_celular|rio_celular_jornal_nacional|1.32|25.58": 48.64634251728319
+      },
+      "laplacian_var": {
+       "rio_celular|rio_celular_cnn|0.12|28.16": 3216.5686461955556,
+       "rio_celular|rio_celular_jornal_nacional|1.32|25.58": 706.5171166172773
+      },
+      "huang_saturacao": {
+       "rio_celular|rio_celular_cnn|0.12|28.16": 75.55677889384921,
+       "rio_celular|rio_celular_jornal_nacional|1.32|25.58": 109.26726182725695
+      },
+      "huang_matiz": {
+       "rio_celular|rio_celular_cnn|0.12|28.16": 99.67457000248017,
+       "rio_celular|rio_celular_jornal_nacional|1.32|25.58": 80.50358796296297
+      },
+      "huang_exposicao": {
+       "rio_celular|rio_celular_cnn|0.12|28.16": 123.63616319444444,
+       "rio_celular|rio_celular_jornal_nacional|1.32|25.58": 79.76485134548612
+      },
+      "contraste_variancia": {
+       "rio_celular|rio_celular_cnn|0.12|28.16": 75.15170725892096,
+       "rio_celular|rio_celular_jornal_nacional|1.32|25.58": 51.87435385755108
+      },
+      "brilho": {
+       "rio_celular|rio_celular_cnn|0.12|28.16": 123.63616319444444,
+       "rio_celular|rio_celular_jornal_nacional|1.32|25.58": 79.76485134548612
+      },
+      "ke_colorfulness": {
+       "rio_celular|rio_celular_cnn|0.12|28.16": 55.762658808275354,
+       "rio_celular|rio_celular_jornal_nacional|1.32|25.58": 48.64634251728319
+      },
+      "ke_brightness": {
+       "rio_celular|rio_celular_cnn|0.12|28.16": 123.63616319444444,
+       "rio_celular|rio_celular_jornal_nacional|1.32|25.58": 79.76485134548612
+      },
+      "ke_edge_distribution": {
+       "rio_celular|rio_celular_cnn|0.12|28.16": 0.08848741319444439,
+       "rio_celular|rio_celular_jornal_nacional|1.32|25.58": 0.09141511140046298
+      },
+      "ke_hue_count": {
+       "rio_celular|rio_celular_cnn|0.12|28.16": 14.0,
+       "rio_celular|rio_celular_jornal_nacional|1.32|25.58": 15.208333333333334
+      },
+      "ke_contraste": {
+       "rio_celular|rio_celular_cnn|0.12|28.16": 255.0,
+       "rio_celular|rio_celular_jornal_nacional|1.32|25.58": 211.91666666666666
+      },
+      "srinivas_quality": {
+       "rio_celular|rio_celular_cnn|0.12|28.16": 89.69746188318285,
+       "rio_celular|rio_celular_jornal_nacional|1.32|25.58": 71.12552179483396
+      },
+      "sobel_cv": {
+       "rio_celular|rio_celular_cnn|0.12|28.16": 7.8026654909586055,
+       "rio_celular|rio_celular_jornal_nacional|1.32|25.58": -3.1307309994150345
+      }
+     },
+     "vencedor": {
+      "hasler_colorfulness": "rio_celular|rio_celular_cnn|0.12|28.16",
+      "laplacian_var": "rio_celular|rio_celular_cnn|0.12|28.16",
+      "huang_saturacao": "rio_celular|rio_celular_jornal_nacional|1.32|25.58",
+      "huang_matiz": "rio_celular|rio_celular_cnn|0.12|28.16",
+      "huang_exposicao": "rio_celular|rio_celular_cnn|0.12|28.16",
+      "contraste_variancia": "rio_celular|rio_celular_cnn|0.12|28.16",
+      "brilho": "rio_celular|rio_celular_cnn|0.12|28.16",
+      "ke_colorfulness": "rio_celular|rio_celular_cnn|0.12|28.16",
+      "ke_brightness": "rio_celular|rio_celular_cnn|0.12|28.16",
+      "ke_edge_distribution": "rio_celular|rio_celular_jornal_nacional|1.32|25.58",
+      "ke_hue_count": "rio_celular|rio_celular_jornal_nacional|1.32|25.58",
+      "ke_contraste": "rio_celular|rio_celular_cnn|0.12|28.16",
+      "srinivas_quality": "rio_celular|rio_celular_cnn|0.12|28.16",
+      "sobel_cv": "rio_celular|rio_celular_cnn|0.12|28.16"
+     }
+    }
+   ]
+  },
+  "ucrania": {
+   "n_clusters": 3,
+   "clusters": [
+    {
+     "segmentos": [
+      "ucrania|ucrania_band|69.56|98.5",
+      "ucrania|ucrania_cnn|115.9|145.3"
+     ],
+     "n": 2,
+     "escores": {
+      "hasler_colorfulness": {
+       "ucrania|ucrania_band|69.56|98.5": 59.15656665683149,
+       "ucrania|ucrania_cnn|115.9|145.3": 74.61194875030984
+      },
+      "laplacian_var": {
+       "ucrania|ucrania_band|69.56|98.5": 712.3987325870266,
+       "ucrania|ucrania_cnn|115.9|145.3": 3416.8174424249696
+      },
+      "huang_saturacao": {
+       "ucrania|ucrania_band|69.56|98.5": 133.39643453663794,
+       "ucrania|ucrania_cnn|115.9|145.3": 87.02305280671298
+      },
+      "huang_matiz": {
+       "ucrania|ucrania_band|69.56|98.5": 76.70662431154214,
+       "ucrania|ucrania_cnn|115.9|145.3": 66.1912449363426
+      },
+      "huang_exposicao": {
+       "ucrania|ucrania_band|69.56|98.5": 86.71524739583334,
+       "ucrania|ucrania_cnn|115.9|145.3": 124.12990234374999
+      },
+      "contraste_variancia": {
+       "ucrania|ucrania_band|69.56|98.5": 47.91268704933357,
+       "ucrania|ucrania_cnn|115.9|145.3": 75.87554587869364
+      },
+      "brilho": {
+       "ucrania|ucrania_band|69.56|98.5": 86.71524739583334,
+       "ucrania|ucrania_cnn|115.9|145.3": 124.12990234374999
+      },
+      "ke_colorfulness": {
+       "ucrania|ucrania_band|69.56|98.5": 59.15656665683149,
+       "ucrania|ucrania_cnn|115.9|145.3": 74.61194875030984
+      },
+      "ke_brightness": {
+       "ucrania|ucrania_band|69.56|98.5": 86.71524739583334,
+       "ucrania|ucrania_cnn|115.9|145.3": 124.12990234374999
+      },
+      "ke_edge_distribution": {
+       "ucrania|ucrania_band|69.56|98.5": 0.1773585668103449,
+       "ucrania|ucrania_cnn|115.9|145.3": 0.06436313657407405
+      },
+      "ke_hue_count": {
+       "ucrania|ucrania_band|69.56|98.5": 14.758620689655173,
+       "ucrania|ucrania_cnn|115.9|145.3": 11.6
+      },
+      "ke_contraste": {
+       "ucrania|ucrania_band|69.56|98.5": 196.3793103448276,
+       "ucrania|ucrania_cnn|115.9|145.3": 255.0
+      },
+      "srinivas_quality": {
+       "ucrania|ucrania_band|69.56|98.5": 71.4374207307916,
+       "ucrania|ucrania_cnn|115.9|145.3": 93.08124284612676
+      },
+      "sobel_cv": {
+       "ucrania|ucrania_band|69.56|98.5": -1.9741951319401942,
+       "ucrania|ucrania_cnn|115.9|145.3": 6.712694681599938
+      }
+     },
+     "vencedor": {
+      "hasler_colorfulness": "ucrania|ucrania_cnn|115.9|145.3",
+      "laplacian_var": "ucrania|ucrania_cnn|115.9|145.3",
+      "huang_saturacao": "ucrania|ucrania_band|69.56|98.5",
+      "huang_matiz": "ucrania|ucrania_band|69.56|98.5",
+      "huang_exposicao": "ucrania|ucrania_cnn|115.9|145.3",
+      "contraste_variancia": "ucrania|ucrania_cnn|115.9|145.3",
+      "brilho": "ucrania|ucrania_cnn|115.9|145.3",
+      "ke_colorfulness": "ucrania|ucrania_cnn|115.9|145.3",
+      "ke_brightness": "ucrania|ucrania_cnn|115.9|145.3",
+      "ke_edge_distribution": "ucrania|ucrania_band|69.56|98.5",
+      "ke_hue_count": "ucrania|ucrania_band|69.56|98.5",
+      "ke_contraste": "ucrania|ucrania_cnn|115.9|145.3",
+      "srinivas_quality": "ucrania|ucrania_cnn|115.9|145.3",
+      "sobel_cv": "ucrania|ucrania_cnn|115.9|145.3"
+     }
+    },
+    {
+     "segmentos": [
+      "ucrania|ucrania_band|42.1|69.18",
+      "ucrania|ucrania_sbt|0.4|27.36"
+     ],
+     "n": 2,
+     "escores": {
+      "hasler_colorfulness": {
+       "ucrania|ucrania_band|42.1|69.18": 28.18674957682759,
+       "ucrania|ucrania_sbt|0.4|27.36": 53.67600958606325
+      },
+      "laplacian_var": {
+       "ucrania|ucrania_band|42.1|69.18": 784.0570052197248,
+       "ucrania|ucrania_sbt|0.4|27.36": 742.3871390279894
+      },
+      "huang_saturacao": {
+       "ucrania|ucrania_band|42.1|69.18": 71.55336307227365,
+       "ucrania|ucrania_sbt|0.4|27.36": 91.9168939686214
+      },
+      "huang_matiz": {
+       "ucrania|ucrania_band|42.1|69.18": 60.47823366769547,
+       "ucrania|ucrania_sbt|0.4|27.36": 114.54372588734567
+      },
+      "huang_exposicao": {
+       "ucrania|ucrania_band|42.1|69.18": 92.78317274305554,
+       "ucrania|ucrania_sbt|0.4|27.36": 114.45143325617282
+      },
+      "contraste_variancia": {
+       "ucrania|ucrania_band|42.1|69.18": 48.043103079682204,
+       "ucrania|ucrania_sbt|0.4|27.36": 55.193158059423496
+      },
+      "brilho": {
+       "ucrania|ucrania_band|42.1|69.18": 92.78317274305554,
+       "ucrania|ucrania_sbt|0.4|27.36": 114.45143325617282
+      },
+      "ke_colorfulness": {
+       "ucrania|ucrania_band|42.1|69.18": 28.18674957682759,
+       "ucrania|ucrania_sbt|0.4|27.36": 53.67600958606325
+      },
+      "ke_brightness": {
+       "ucrania|ucrania_band|42.1|69.18": 92.78317274305554,
+       "ucrania|ucrania_sbt|0.4|27.36": 114.45143325617282
+      },
+      "ke_edge_distribution": {
+       "ucrania|ucrania_band|42.1|69.18": 0.10140978652263373,
+       "ucrania|ucrania_sbt|0.4|27.36": 0.10500064300411524
+      },
+      "ke_hue_count": {
+       "ucrania|ucrania_band|42.1|69.18": 15.777777777777779,
+       "ucrania|ucrania_sbt|0.4|27.36": 10.25925925925926
+      },
+      "ke_contraste": {
+       "ucrania|ucrania_band|42.1|69.18": 216.88888888888889,
+       "ucrania|ucrania_sbt|0.4|27.36": 227.22222222222223
+      },
+      "srinivas_quality": {
+       "ucrania|ucrania_band|42.1|69.18": 70.74759975461448,
+       "ucrania|ucrania_sbt|0.4|27.36": 81.14278499334434
+      },
+      "sobel_cv": {
+       "ucrania|ucrania_band|42.1|69.18": 11.655940307010402,
+       "ucrania|ucrania_sbt|0.4|27.36": 77.94223444227407
+      }
+     },
+     "vencedor": {
+      "hasler_colorfulness": "ucrania|ucrania_sbt|0.4|27.36",
+      "laplacian_var": "ucrania|ucrania_band|42.1|69.18",
+      "huang_saturacao": "ucrania|ucrania_sbt|0.4|27.36",
+      "huang_matiz": "ucrania|ucrania_sbt|0.4|27.36",
+      "huang_exposicao": "ucrania|ucrania_sbt|0.4|27.36",
+      "contraste_variancia": "ucrania|ucrania_sbt|0.4|27.36",
+      "brilho": "ucrania|ucrania_sbt|0.4|27.36",
+      "ke_colorfulness": "ucrania|ucrania_sbt|0.4|27.36",
+      "ke_brightness": "ucrania|ucrania_sbt|0.4|27.36",
+      "ke_edge_distribution": "ucrania|ucrania_sbt|0.4|27.36",
+      "ke_hue_count": "ucrania|ucrania_band|42.1|69.18",
+      "ke_contraste": "ucrania|ucrania_sbt|0.4|27.36",
+      "srinivas_quality": "ucrania|ucrania_sbt|0.4|27.36",
+      "sobel_cv": "ucrania|ucrania_sbt|0.4|27.36"
+     }
+    },
+    {
+     "segmentos": [
+      "ucrania|ucrania_cnn|29.2|57.28",
+      "ucrania|ucrania_sbt|27.76|52.88"
+     ],
+     "n": 2,
+     "escores": {
+      "hasler_colorfulness": {
+       "ucrania|ucrania_cnn|29.2|57.28": 67.59531974000654,
+       "ucrania|ucrania_sbt|27.76|52.88": 38.901723464301355
+      },
+      "laplacian_var": {
+       "ucrania|ucrania_cnn|29.2|57.28": 3645.689088518328,
+       "ucrania|ucrania_sbt|27.76|52.88": 656.7418910357334
+      },
+      "huang_saturacao": {
+       "ucrania|ucrania_cnn|29.2|57.28": 79.10934415302577,
+       "ucrania|ucrania_sbt|27.76|52.88": 89.71488819444444
+      },
+      "huang_matiz": {
+       "ucrania|ucrania_cnn|29.2|57.28": 63.78203776041668,
+       "ucrania|ucrania_sbt|27.76|52.88": 86.50092395833333
+      },
+      "huang_exposicao": {
+       "ucrania|ucrania_cnn|29.2|57.28": 125.7447800409226,
+       "ucrania|ucrania_sbt|27.76|52.88": 125.91880104166667
+      },
+      "contraste_variancia": {
+       "ucrania|ucrania_cnn|29.2|57.28": 77.3640930064751,
+       "ucrania|ucrania_sbt|27.76|52.88": 42.814071610385575
+      },
+      "brilho": {
+       "ucrania|ucrania_cnn|29.2|57.28": 125.7447800409226,
+       "ucrania|ucrania_sbt|27.76|52.88": 125.91880104166667
+      },
+      "ke_colorfulness": {
+       "ucrania|ucrania_cnn|29.2|57.28": 67.59531974000654,
+       "ucrania|ucrania_sbt|27.76|52.88": 38.901723464301355
+      },
+      "ke_brightness": {
+       "ucrania|ucrania_cnn|29.2|57.28": 125.7447800409226,
+       "ucrania|ucrania_sbt|27.76|52.88": 125.91880104166667
+      },
+      "ke_edge_distribution": {
+       "ucrania|ucrania_cnn|29.2|57.28": 0.05846555679563491,
+       "ucrania|ucrania_sbt|27.76|52.88": 0.23614496527777779
+      },
+      "ke_hue_count": {
+       "ucrania|ucrania_cnn|29.2|57.28": 13.285714285714286,
+       "ucrania|ucrania_sbt|27.76|52.88": 17.4
+      },
+      "ke_contraste": {
+       "ucrania|ucrania_cnn|29.2|57.28": 255.0,
+       "ucrania|ucrania_sbt|27.76|52.88": 215.56
+      },
+      "srinivas_quality": {
+       "ucrania|ucrania_cnn|29.2|57.28": 92.33685592468782,
+       "ucrania|ucrania_sbt|27.76|52.88": 79.60333389424916
+      },
+      "sobel_cv": {
+       "ucrania|ucrania_cnn|29.2|57.28": 5.822911005191325,
+       "ucrania|ucrania_sbt|27.76|52.88": -2.820572274128415
+      }
+     },
+     "vencedor": {
+      "hasler_colorfulness": "ucrania|ucrania_cnn|29.2|57.28",
+      "laplacian_var": "ucrania|ucrania_cnn|29.2|57.28",
+      "huang_saturacao": "ucrania|ucrania_sbt|27.76|52.88",
+      "huang_matiz": "ucrania|ucrania_sbt|27.76|52.88",
+      "huang_exposicao": "ucrania|ucrania_sbt|27.76|52.88",
+      "contraste_variancia": "ucrania|ucrania_cnn|29.2|57.28",
+      "brilho": "ucrania|ucrania_sbt|27.76|52.88",
+      "ke_colorfulness": "ucrania|ucrania_cnn|29.2|57.28",
+      "ke_brightness": "ucrania|ucrania_sbt|27.76|52.88",
+      "ke_edge_distribution": "ucrania|ucrania_sbt|27.76|52.88",
+      "ke_hue_count": "ucrania|ucrania_sbt|27.76|52.88",
+      "ke_contraste": "ucrania|ucrania_cnn|29.2|57.28",
+      "srinivas_quality": "ucrania|ucrania_cnn|29.2|57.28",
+      "sobel_cv": "ucrania|ucrania_cnn|29.2|57.28"
+     }
+    }
+   ]
+  },
+  "ultraprocessados": {
+   "n_clusters": 1,
+   "clusters": [
+    {
+     "segmentos": [
+      "ultraprocessados|ultraprocessados_record|0.34|45.54",
+      "ultraprocessados|ultraprocessados_sbt|0.0|45.18",
+      "ultraprocessados|ultraprocessados_sbt|45.18|90.8",
+      "ultraprocessados|ultraprocessados_sc|71.49|116.57"
+     ],
+     "n": 4,
+     "escores": {
+      "hasler_colorfulness": {
+       "ultraprocessados|ultraprocessados_record|0.34|45.54": 64.75405359468837,
+       "ultraprocessados|ultraprocessados_sbt|0.0|45.18": 52.784879890338615,
+       "ultraprocessados|ultraprocessados_sbt|45.18|90.8": 44.57609383660131,
+       "ultraprocessados|ultraprocessados_sc|71.49|116.57": 59.50754944593012
+      },
+      "laplacian_var": {
+       "ultraprocessados|ultraprocessados_record|0.34|45.54": 742.0492703239978,
+       "ultraprocessados|ultraprocessados_sbt|0.0|45.18": 905.0243875153986,
+       "ultraprocessados|ultraprocessados_sbt|45.18|90.8": 1118.8485727003183,
+       "ultraprocessados|ultraprocessados_sc|71.49|116.57": 604.6744498764026
+      },
+      "huang_saturacao": {
+       "ultraprocessados|ultraprocessados_record|0.34|45.54": 133.85939236111108,
+       "ultraprocessados|ultraprocessados_sbt|0.0|45.18": 88.22549460295895,
+       "ultraprocessados|ultraprocessados_sbt|45.18|90.8": 81.76767322530864,
+       "ultraprocessados|ultraprocessados_sc|71.49|116.57": 111.18680102237653
+      },
+      "huang_matiz": {
+       "ultraprocessados|ultraprocessados_record|0.34|45.54": 59.65028829089506,
+       "ultraprocessados|ultraprocessados_sbt|0.0|45.18": 78.89747688330313,
+       "ultraprocessados|ultraprocessados_sbt|45.18|90.8": 43.57804301697531,
+       "ultraprocessados|ultraprocessados_sc|71.49|116.57": 29.932667341820984
+      },
+      "huang_exposicao": {
+       "ultraprocessados|ultraprocessados_record|0.34|45.54": 90.70659625771604,
+       "ultraprocessados|ultraprocessados_sbt|0.0|45.18": 119.82824869791666,
+       "ultraprocessados|ultraprocessados_sbt|45.18|90.8": 138.71004243827159,
+       "ultraprocessados|ultraprocessados_sc|71.49|116.57": 148.56110551697532
+      },
+      "contraste_variancia": {
+       "ultraprocessados|ultraprocessados_record|0.34|45.54": 56.96980409357734,
+       "ultraprocessados|ultraprocessados_sbt|0.0|45.18": 60.81753850326007,
+       "ultraprocessados|ultraprocessados_sbt|45.18|90.8": 69.03957028916791,
+       "ultraprocessados|ultraprocessados_sc|71.49|116.57": 49.92829034129376
+      },
+      "brilho": {
+       "ultraprocessados|ultraprocessados_record|0.34|45.54": 90.70659625771604,
+       "ultraprocessados|ultraprocessados_sbt|0.0|45.18": 119.82824869791666,
+       "ultraprocessados|ultraprocessados_sbt|45.18|90.8": 138.71004243827159,
+       "ultraprocessados|ultraprocessados_sc|71.49|116.57": 148.56110551697532
+      },
+      "ke_colorfulness": {
+       "ultraprocessados|ultraprocessados_record|0.34|45.54": 64.75405359468837,
+       "ultraprocessados|ultraprocessados_sbt|0.0|45.18": 52.784879890338615,
+       "ultraprocessados|ultraprocessados_sbt|45.18|90.8": 44.57609383660131,
+       "ultraprocessados|ultraprocessados_sc|71.49|116.57": 59.50754944593012
+      },
+      "ke_brightness": {
+       "ultraprocessados|ultraprocessados_record|0.34|45.54": 90.70659625771604,
+       "ultraprocessados|ultraprocessados_sbt|0.0|45.18": 119.82824869791666,
+       "ultraprocessados|ultraprocessados_sbt|45.18|90.8": 138.71004243827159,
+       "ultraprocessados|ultraprocessados_sc|71.49|116.57": 148.56110551697532
+      },
+      "ke_edge_distribution": {
+       "ultraprocessados|ultraprocessados_record|0.34|45.54": 0.0487019675925926,
+       "ultraprocessados|ultraprocessados_sbt|0.0|45.18": 0.09064500301932367,
+       "ultraprocessados|ultraprocessados_sbt|45.18|90.8": 0.10810927854938271,
+       "ultraprocessados|ultraprocessados_sc|71.49|116.57": 0.05380825617283947
+      },
+      "ke_hue_count": {
+       "ultraprocessados|ultraprocessados_record|0.34|45.54": 13.844444444444445,
+       "ultraprocessados|ultraprocessados_sbt|0.0|45.18": 10.673913043478262,
+       "ultraprocessados|ultraprocessados_sbt|45.18|90.8": 13.8,
+       "ultraprocessados|ultraprocessados_sc|71.49|116.57": 16.0
+      },
+      "ke_contraste": {
+       "ultraprocessados|ultraprocessados_record|0.34|45.54": 228.77777777777777,
+       "ultraprocessados|ultraprocessados_sbt|0.0|45.18": 234.69565217391303,
+       "ultraprocessados|ultraprocessados_sbt|45.18|90.8": 231.22222222222223,
+       "ultraprocessados|ultraprocessados_sc|71.49|116.57": 208.44444444444446
+      },
+      "srinivas_quality": {
+       "ultraprocessados|ultraprocessados_record|0.34|45.54": 79.62631480844384,
+       "ultraprocessados|ultraprocessados_sbt|0.0|45.18": 83.61466776173317,
+       "ultraprocessados|ultraprocessados_sbt|45.18|90.8": 85.68329355512891,
+       "ultraprocessados|ultraprocessados_sc|71.49|116.57": 86.51338153270454
+      },
+      "sobel_cv": {
+       "ultraprocessados|ultraprocessados_record|0.34|45.54": -23.026223211465762,
+       "ultraprocessados|ultraprocessados_sbt|0.0|45.18": 29.279804170881086,
+       "ultraprocessados|ultraprocessados_sbt|45.18|90.8": -11.94110397114043,
+       "ultraprocessados|ultraprocessados_sc|71.49|116.57": 10.315342170302623
+      }
+     },
+     "vencedor": {
+      "hasler_colorfulness": "ultraprocessados|ultraprocessados_record|0.34|45.54",
+      "laplacian_var": "ultraprocessados|ultraprocessados_sbt|45.18|90.8",
+      "huang_saturacao": "ultraprocessados|ultraprocessados_record|0.34|45.54",
+      "huang_matiz": "ultraprocessados|ultraprocessados_sbt|0.0|45.18",
+      "huang_exposicao": "ultraprocessados|ultraprocessados_sc|71.49|116.57",
+      "contraste_variancia": "ultraprocessados|ultraprocessados_sbt|45.18|90.8",
+      "brilho": "ultraprocessados|ultraprocessados_sc|71.49|116.57",
+      "ke_colorfulness": "ultraprocessados|ultraprocessados_record|0.34|45.54",
+      "ke_brightness": "ultraprocessados|ultraprocessados_sc|71.49|116.57",
+      "ke_edge_distribution": "ultraprocessados|ultraprocessados_sbt|45.18|90.8",
+      "ke_hue_count": "ultraprocessados|ultraprocessados_sc|71.49|116.57",
+      "ke_contraste": "ultraprocessados|ultraprocessados_sbt|0.0|45.18",
+      "srinivas_quality": "ultraprocessados|ultraprocessados_sc|71.49|116.57",
+      "sobel_cv": "ultraprocessados|ultraprocessados_sbt|0.0|45.18"
+     }
+    }
+   ]
+  }
+ }
+}

@@ -29,7 +29,11 @@ os.chdir(ROOT)
 import cnn_bovw_scorer as cbs
 from open_video_summary.utils.processing.image import ImageProcessor
 
-HERE = Path("/tmp/claude-1000/-home-jader/bd1f8d8b-bc15-4c1a-9546-0d382ddb166c/scratchpad/newruns")
+# ⛔ este caminho era um SCRATCHPAD de sessao antiga, que nao existe mais para ninguem,
+# nem para o autor: o script publicado nao rodava em lugar nenhum.
+HERE = Path(__file__).resolve().parent
+if not (HERE / "synth_sift.json").exists() and (HERE / "derived_data").exists():
+    HERE = HERE / "derived_data"
 SYN = HERE / "synth_frames"
 OUT = HERE / "synth_cnnbovw.json"
 K = 300

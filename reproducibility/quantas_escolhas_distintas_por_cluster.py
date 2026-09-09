@@ -24,12 +24,21 @@ import json
 from pathlib import Path
 
 QB = Path('/dados/Projetos/quality-benchmark')
-SAIDA = QB / 'quantas_escolhas_distintas_por_cluster.json'
+
+# ⚠️ mesma resolucao dos outros: rodando do pacote, os insumos estao em `derived_data/`.
+def _raiz(nome):
+    for base in (QB, Path(__file__).resolve().parent / 'derived_data',
+                 Path(__file__).resolve().parent):
+        if (base / nome).exists():
+            return base / nome
+    raise FileNotFoundError(nome)
+
+SAIDA = (QB if QB.exists() else Path(__file__).resolve().parent) / 'quantas_escolhas_distintas_por_cluster.json'
 PUBLICADO = 2.21
 
 
 def main():
-    d = json.loads((QB / 'efeito_a_jusante.json').read_text(encoding='utf-8'))['topicos']
+    d = json.loads(_raiz('efeito_a_jusante.json').read_text(encoding='utf-8'))['topicos']
     clusters = [c for t in d.values() for c in t['clusters']]
     ops = sorted({o for c in clusters for o in c['escores']})
     distintas, tamanhos = [], []

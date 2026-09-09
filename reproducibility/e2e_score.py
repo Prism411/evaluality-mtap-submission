@@ -17,9 +17,22 @@ import cv2
 import torch
 
 HERE = Path(__file__).resolve().parent
+
+# ⛔ MEDIDO EM 08/09 rodando o pacote de um clone: este script lia `HERE_arq("x.json")` e os
+# insumos derivados moram em `derived_data/`. Sem esta resolucao o pacote traz um script
+# que nao acha o proprio dado. A pasta do script continua tendo prioridade.
+_HERE0 = HERE
+
+
+def HERE_arq(nome):
+    for base in (_HERE0, _HERE0 / 'derived_data'):
+        if (base / nome).exists():
+            return base / nome
+    return _HERE0 / nome
+
 DS = Path("/dados/Projetos/sumarizador/data/dataset")
-CL = json.load(open(HERE / "clusters_all.json"))
-OUT = HERE / "e2e_scores.json"
+CL = json.load(open(HERE_arq("clusters_all.json")))
+OUT = HERE_arq("e2e_scores.json")
 
 # canonical segment key
 def key(topic, s):

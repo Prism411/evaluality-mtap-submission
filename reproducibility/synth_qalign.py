@@ -16,14 +16,27 @@ import numpy as np
 import cv2
 
 HERE = Path(__file__).resolve().parent
+
+# ⛔ MEDIDO EM 08/09 rodando o pacote de um clone: este script lia `HERE_arq("x.json")` e os
+# insumos derivados moram em `derived_data/`. Sem esta resolucao o pacote traz um script
+# que nao acha o proprio dado. A pasta do script continua tendo prioridade.
+_HERE0 = HERE
+
+
+def HERE_arq(nome):
+    for base in (_HERE0, _HERE0 / 'derived_data'):
+        if (base / nome).exists():
+            return base / nome
+    return _HERE0 / nome
+
 SYN = HERE / "synth_frames"
-OUT = HERE / "synth_qalign.json"
+OUT = HERE_arq("synth_qalign.json")
 
 sys.path.insert(0, "/dados/Projetos/quality-benchmark")
 os.chdir("/dados/Projetos/quality-benchmark")
 import qalign_scorer
 
-sift = json.load(open(HERE / "synth_sift.json"))
+sift = json.load(open(HERE_arq("synth_sift.json")))
 subset = set(sift["_subset"])
 
 conds = {}
