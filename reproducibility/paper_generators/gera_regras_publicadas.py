@@ -116,6 +116,8 @@ def main():
          # ⛔ BURACO MEDIDO EM 08/09: o piso de acaso 47,0 estava DIGITADO na prosa, e
          # trocar por 41,0 passava por todas as 23 guardas. Agora vem do arquivo.
          f'\\newcommand{{\\dupPiso}}{{{du["piso_do_acaso_pct"]:.1f}}}',
+         # o mesmo piso na forma decimal que o metodo usa, para os dois nao poderem divergir
+         f'\\newcommand{{\\dupPisoDec}}{{{sem_zero("%.3f" % (du["piso_do_acaso_pct"] / 100))}}}',
          f'\\newcommand{{\\dupComPares}}{{{du["com_duplicatas"]["n_pares"]}}}',
          f'\\newcommand{{\\dupComAbaixo}}{{{du["com_duplicatas"]["abaixo_do_acaso"]}}}',
          f'\\newcommand{{\\dupComMediana}}{{{du["com_duplicatas"]["mediana"]:.1f}}}',
