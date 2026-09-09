@@ -56,10 +56,10 @@ def main():
          r'formulas and results files, is in Tables~S17 and~S23.}',
          r'\label{tab:reuse}', r'\footnotesize', r'\setlength{\tabcolsep}{4pt}',
          r'\renewcommand{\arraystretch}{1.12}',
-         r'\begin{tabular}{@{}>{\raggedright\arraybackslash}p{2.5cm}'
-         r'>{\raggedright\arraybackslash}p{3.5cm}'
-         r'>{\raggedright\arraybackslash}p{3.4cm}'
-         r'>{\raggedright\arraybackslash}p{3.3cm}@{}}', r'\toprule',
+         r'\begin{tabular}{@{}>{\raggedright\arraybackslash}p{2.35cm}'
+         r'>{\raggedright\arraybackslash}p{3.1cm}'
+         r'>{\raggedright\arraybackslash}p{3.2cm}'
+         r'>{\raggedright\arraybackslash}p{3.1cm}@{}}', r'\toprule',
          r'\rowcolor{headerblue}',
          r'\hd{Operation} & \hd{Origin and role there} & \hd{Documented use in selection} & '
          r'\hd{Evaluated here} \\', r'\midrule']

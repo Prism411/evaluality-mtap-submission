@@ -52,9 +52,11 @@ def main():
          rf'and enters the module with weight ${br["peso_do_brilho_no_modulo"]:+.1f}$, so a '
          r'brighter frame always scores higher. \textbf{No corpus is involved: both '
          r'inversions are properties of the expressions.}}',
-         r'\label{tab:ct}', r'\small', r'\setlength{\tabcolsep}{6pt}',
+         # ⚠️ a primeira coluna era `l` e nao quebrava: o rotulo mais longo somado a
+         # expressao em math passava 6,7 mm da margem. Agora ela quebra.
+         r'\label{tab:ct}', r'\footnotesize', r'\setlength{\tabcolsep}{3.5pt}',
          r'\renewcommand{\arraystretch}{1.35}',
-         r'\begin{tabular}{@{}l l r@{}}', r'\toprule', r'\rowcolor{headerblue}',
+         r'\begin{tabular}{@{}>{\raggedright\arraybackslash}p{4.0cm} l r@{}}', r'\toprule', r'\rowcolor{headerblue}',
          r'\hd{Reading} & \hd{Expression} & \hd{$\rho$ with the property} \\',
          r'\midrule',
          r'\multicolumn{3}{@{}l}{\textit{Qaroush contrast, against contrast '

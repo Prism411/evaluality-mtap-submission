@@ -58,9 +58,9 @@ def main():
          r'run, which is a property of our sequence of work and not of the method; extending '
          r'that pass to them is a stated next step. Sensitivity and generalization cover all '
          rf'{len(linhas)}. Counts per axis are in the last row.' + '}',
-         r'\label{tab:coverage}', r'\small', r'\setlength{\tabcolsep}{5pt}',
+         r'\label{tab:coverage}', r'\small', r'\setlength{\tabcolsep}{3pt}',
          r'\renewcommand{\arraystretch}{1.06}',
-         r'\begin{tabular}{@{}l ccccc >{\raggedright\arraybackslash}p{3.5cm}@{}}', r'\toprule',
+         r'\begin{tabular}{@{}l ccccc >{\raggedright\arraybackslash}p{3.2cm}@{}}', r'\toprule',
          r'\rowcolor{headerblue}',
          r'\hd{Operation} & \hd{Paired} & \hd{Sens.} & \hd{Gen.} & \hd{Floor} & '
          r'\hd{Down.} & \hd{Absent because} \\', r'\midrule']

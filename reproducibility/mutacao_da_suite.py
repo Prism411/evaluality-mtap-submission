@@ -129,9 +129,13 @@ MUTACOES = [
      sub_um('graphical_abstract.tex',
             'Do visual-selection operations measure technical quality?',
             'What does the visual-quality criterion actually measure?')),
+    # ⚠️ a versao anterior desta linha usava `\mchImplantada`, que renderiza um NUMERO:
+    # a guarda so olha macro que renderiza palavra em minuscula, entao a mutacao nao
+    # exercitava a classe dela. Aqui a macro rende «eleven».
     ('uma frase abrindo com macro em minuscula',
-     sub_um('sec_results.tex', 'The deployed operation is correct on \\mchImplantada{}',
-            '\\mchImplantada{} per cent is the deployed operation on')),
+     sub_um('sec_method.tex', 'The audited set is \\fontesOperacoes{} operations',
+            '\\fontesTrabalhos{} source works define the audited set of'
+            ' \\fontesOperacoes{} operations')),
 ]
 
 

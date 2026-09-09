@@ -45,6 +45,15 @@ PARES = [
     ('houve ou nao julgamento humano dos segmentos',
      r'[Nn]o human judged',
      r'human (?:raters|judges|participants) (?:rated|judged|assessed) these segments'),
+    # ⛔ LACUNA MEDIDA em 08/09 pelo `mutacao_da_suite.py`: trocar «Ten of the eleven
+    # source works were read in full» por «All eleven...» passava, porque a contagem das
+    # lidas nao era um par declarado. O corpo diz DEZ das ONZE em dois lugares, e o Xu e
+    # a excecao nomeada: afirmar «todas» contradiz a excecao que o proprio corpo declara.
+    ('quantas fontes foram lidas na integra',
+     r'[Tt]en of the eleven source works were read in full|'
+     r'\\valComPdf\{\} of the eleven source works were read in full',
+     r'[Aa]ll eleven source works were read in full|'
+     r'all of the eleven source works were read'),
 ]
 
 
@@ -86,7 +95,14 @@ def _autoteste():
         ('a implantada', ' The deployed score is one of the sixteen audited here.'),
         ('o mecanismo', ' The factorization establishes the mechanism for the class.'),
         ('julgamento humano', ' Human raters judged these segments in a controlled study.'),
+        ('quantas lidas', ' All eleven source works were read in full for this dimension.'),
     ]
+    # ⚠️ e a lista de plantas tem de cobrir TODOS os pares: uma regra sem planta e uma
+    # regra de que so se sabe que existe. Isto quebra alto se alguem acrescentar um par
+    # e esquecer a perna.
+    assert len(PLANTAS) == len(PARES), (
+        '⛔ ha %d pares e %d plantas: um par ficou sem perna de autoteste'
+        % (len(PARES), len(PLANTAS)))
     for nome, frase in PLANTAS:
         assert not confere(base + frase)[0], \
             '⛔ a regra de %r nao pega o proprio defeito: e regra morta' % nome
