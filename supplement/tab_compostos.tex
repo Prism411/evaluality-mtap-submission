@@ -1,0 +1,34 @@
+%% GERADO por gera_tab_compostos.py -- nao editar a mao
+\begin{table}[!ht]
+\centering
+\caption{The 19 attribute combinations the summarization literature publishes, with the number of archive papers that use each. These are not ensembles assembled here: each row is a set of terms some published work combines. \emph{Sens.} is the within-reference mean on KADID-10k under the $z$-score aggregation and \emph{Types} the count above $.50$ of 25; \emph{Gen.} is the direction-aligned correlation on KonIQ-10k. \textbf{1 of the 19 clears the sensitivity gate} (green) and none is eligible, because that one does not transfer.}
+\label{tab:compostos}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{6.0cm}ccccc@{}}
+\toprule
+\rowcolor{headerblue}
+\hd{Combination} & \hd{Papers} & \hd{Sens.} & \hd{Types} & \hd{Gen.} & \hd{Eligible} \\
+\midrule
+colourfulness + Laplacian variance + LBP uniformity & 1 & \textcolor{accentgreen}{\textbf{.524}} & 17 & .067 & no \\
+Laplacian variance + LBP uniformity & 1 & .439 & 15 & .082 & no \\
+edge distribution & 2 & .298 & 9 & .099 & no \\
+spatial information & 5 & .251 & 13 & .513 & no \\
+LBP uniformity + gradient magnitude & 1 & .189 & 8 & .007 & no \\
+colourfulness & 2 & .182 & 9 & .007 & no \\
+LBP uniformity & 4 & .175 & 12 & .205 & no \\
+colourfulness + exposure & 1 & .173 & 10 & .003 & no \\
+edge distribution + hue count + Laplacian variance & 1 & .156 & 7 & .347 & no \\
+colourfulness + edge distribution + hue count + saliency & 2 & .148 & 7 & .117 & no \\
+exposure + Laplacian variance & 1 & .108 & 9 & .357 & no \\
+colourfulness + gradient magnitude & 1 & .108 & 11 & .066 & no \\
+exposure & 1 & .102 & 4 & .343 & no \\
+GLCM contrast + entropy & 1 & .092 & 11 & .084 & no \\
+LBP uniformity + saliency & 3 & .089 & 9 & .277 & no \\
+saliency & 6 & .075 & 3 & .333 & no \\
+Laplacian variance & 3 & .047 & 9 & .601 & no \\
+colourfulness + edge distribution & 1 & .017 & 4 & .051 & no \\
+LBP uniformity + entropy & 1 & .009 & 8 & .285 & no \\
+\bottomrule
+\end{tabular}
+\end{table}

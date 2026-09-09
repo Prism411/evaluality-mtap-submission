@@ -138,7 +138,10 @@ MUTACOES = [
             'citetcakmak2025tripss Table~S17 states, for each')),
     ('uma linha passando da margem do suplementar',
      sub_um('supplementary.tex', '\\bibliography{references}',
-            '\\noindent\\makebox[17cm][l]{estouro deliberado da margem}\n\n\\bibliography{references}')),
+            # ⚠️ a versao anterior usava `[l]`, que alinha o texto A ESQUERDA dentro da caixa
+     # larga: a caixa e invisivel, entao nao havia TINTA alem da margem e a guarda,
+     # que mede tinta, nao tinha o que ver. A mutacao e que estava errada.
+     '\\noindent\\makebox[17cm][r]{estouro deliberado da margem}\n\n\\bibliography{references}')),
     # ⚠️ a guarda 28 (scripts rodam do clone) NAO da para atacar daqui: ela le o
     # REPOSITORIO num caminho absoluto, e a mutacao so mexe na copia da pasta do artigo.
     ('uma frase abrindo com macro em minuscula',
