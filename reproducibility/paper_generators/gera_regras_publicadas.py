@@ -58,6 +58,7 @@ def main():
     pd2 = json.load(open(QB / 'o_piso_das_duas_familias_na_mesma_convencao.json'))
     mtip = json.load(open(QB / 'a_manchete_depende_de_quais_tipos.json'))['por_cenario']
     rei = json.load(open(QB / 'a_reimplementacao_reproduz_a_falha.json'))
+    par = json.load(open(QB / 'a_contagem_reproduz_a_escolha_par_a_par.json'))
     _q = json.load(open(QB / 'as_15_na_regra_do_artigo.json'))
     q15, regra = _q['por_operacao'], _q['regra']
     va = json.load(open(QB / 'o_vascore_do_qaroush_como_a_Eq20_manda.json'))
@@ -240,7 +241,9 @@ def main():
          f'\\newcommand{{\\reiRuido}}{{{rei["reimplementacao"]["por_tipo"]["noise"]:.0f}}}',
          f'\\newcommand{{\\reiJpeg}}{{{rei["reimplementacao"]["por_tipo"]["jpeg"]:.0f}}}',
          f'\\newcommand{{\\reiSatur}}{{{rei["reimplementacao"]["por_tipo"]["satur"]:.0f}}}',
-         f'\\newcommand{{\\reiPiorModelo}}{{{rei["pior_modelo_publicado"]:.1f}}}']
+         f'\\newcommand{{\\reiPiorModelo}}{{{rei["pior_modelo_publicado"]:.1f}}}',
+         # ⛔ o 797 aparecia DIGITADO nas quatro secoes. Uma macro, um arquivo.
+         f'\\newcommand{{\\mecConcordam}}{{{int(str(par["pares_em_que_score_e_contagem_concordam"]).split()[0])}}}']
     assert not ct2['qaroush']['ic_cruza_zero'], '⛔ o IC do Qaroush passou a cruzar zero'
     assert ct2['korolkov']['ic_cruza_zero'], '⛔ o IC do Korolkov deixou de cruzar zero: reescrever'
     assert ko['modulo_menos_melhor_membro'] < 0, '⛔ o modulo do Korolkov superou o membro'
@@ -281,6 +284,7 @@ def main():
         '⛔ deixou de valer que as quinze invertem com os oito tipos'
     assert rei['reimplementacao']['media'] < rei['pior_modelo_publicado'], \
         '⛔ a reimplementacao passou o pior modelo: a frase da 4.2 cai'
+    assert par['pares'] == 800, '⛔ mudou o numero de pares do mecanismo'
     assert au['autonomas'] == 1, '⛔ mudou o numero de autonomas: reescrever a prosa'
     # ⚠️ as duas regras publicadas TEM de ficar abaixo da media, senao a frase da prosa cai
     assert nb < media, '⛔ o naive Bayes do Ke superou a media: reescrever a prosa'

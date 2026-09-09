@@ -27,7 +27,9 @@ AFIRMACOES = [
     ('os 800 pares',                  r'800 pairs'),
     ('treze sob ruido branco',        r'thirteen do so under white noise|thirteen under white noise'),
     ('o BoVW inverte em 92 %',        r'92\\%'),
-    ('797 dos 800',                   r'\b797\b'),
+    # ⚠️ o numero virou macro: aceitar o digito OU o nome da macro, sem tentar casar
+    # a barra invertida, que so multiplica escape.
+    ('797 dos 800',                   r'\b797\b|mecConcordam'),
     ('conta vezes peso medio',        r'count times a mean'),
     ('nenhuma passa os dois portoes', r'No operation clears either damage gate'),
     ('nenhum composto passa',         r'No combination evaluated here satisfies|none satisfies both'),
