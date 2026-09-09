@@ -132,6 +132,15 @@ MUTACOES = [
     # ⚠️ a versao anterior desta linha usava `\mchImplantada`, que renderiza um NUMERO:
     # a guarda so olha macro que renderiza palavra em minuscula, entao a mutacao nao
     # exercitava a classe dela. Aqui a macro rende «eleven».
+    # ⭐ as duas guardas de 08/09 que nenhuma mutacao atacava ainda
+    ('um comando LaTeX vazando como texto no PDF',
+     sub_um('sec_method.tex', 'Table~S17 states, for each',
+            'citetcakmak2025tripss Table~S17 states, for each')),
+    ('uma linha passando da margem do suplementar',
+     sub_um('supplementary.tex', '\\bibliography{references}',
+            '\\noindent\\makebox[17cm][l]{estouro deliberado da margem}\n\n\\bibliography{references}')),
+    # ⚠️ a guarda 28 (scripts rodam do clone) NAO da para atacar daqui: ela le o
+    # REPOSITORIO num caminho absoluto, e a mutacao so mexe na copia da pasta do artigo.
     ('uma frase abrindo com macro em minuscula',
      sub_um('sec_method.tex', 'The audited set is \\fontesOperacoes{} operations',
             '\\fontesTrabalhos{} source works define the audited set of'
