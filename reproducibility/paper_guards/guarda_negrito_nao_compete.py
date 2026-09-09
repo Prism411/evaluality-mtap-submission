@@ -17,7 +17,9 @@ from pathlib import Path
 
 AQUI = Path(__file__).parent
 LIMITE = 20
-ARQS = ['sec_intro.tex', 'sec_related.tex', 'sec_method.tex', 'sec_results.tex',
+# ⛔ o `main.tex` entra pela lacuna medida em 09/09: e onde mora o RESUMO, que tem
+# negrito e pode repetir frase do corpo, e nenhuma das duas guardas o abria.
+ARQS = ['main.tex', 'sec_intro.tex', 'sec_related.tex', 'sec_method.tex', 'sec_results.tex',
         'sec_discussion.tex', 'sec_conclusion.tex']
 ARQS += [p.name for p in sorted(AQUI.glob('tab_*.tex')) + sorted(AQUI.glob('fig_*.tex'))]
 

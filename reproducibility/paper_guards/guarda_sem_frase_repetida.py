@@ -25,7 +25,9 @@ import sys
 from pathlib import Path
 
 AQUI = Path(__file__).parent
-ORD = ['sec_intro.tex', 'sec_related.tex', 'sec_method.tex',
+# ⛔ o `main.tex` entra pela lacuna medida em 09/09: e onde mora o RESUMO, que tem
+# negrito e pode repetir frase do corpo, e nenhuma das duas guardas o abria.
+ORD = ['main.tex', 'sec_intro.tex', 'sec_related.tex', 'sec_method.tex',
        'sec_results.tex', 'sec_discussion.tex', 'sec_conclusion.tex']
 LIMIAR = 0.55
 STOP = set('the a an of to in and or is are was were that this those these for on with as '
