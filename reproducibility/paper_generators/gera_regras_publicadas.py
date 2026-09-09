@@ -45,6 +45,7 @@ def main():
     inv = json.load(open(QB / 'quantas_invertem_ALEM_DO_ACASO.json'))
     mch = json.load(open(QB / 'o_bloco_de_segmento_reproduz_um_intervalo_publicado.json'))['manchete']
     exc = json.load(open(QB / 'as_tres_excecoes_do_mecanismo.json'))
+    tab4 = json.load(open(QB / 'a_tabela_4_reproduz.json'))['por_metodo']
     _q = json.load(open(QB / 'as_15_na_regra_do_artigo.json'))
     q15, regra = _q['por_operacao'], _q['regra']
     va = json.load(open(QB / 'o_vascore_do_qaroush_como_a_Eq20_manda.json'))
@@ -166,7 +167,15 @@ def main():
          # ⭐ as tres excecoes do mecanismo: um revisor pergunta o que sao, e a resposta
          # muda o estatuto da fatoracao. Sao empates de margem, e isso esta medido.
          f'\\newcommand{{\\excDelta}}{{{POREXT[exc["maior_delta_de_contagem_entre_as_discordancias"]]}}}',
-         f'\\newcommand{{\\excMediana}}{{{exc["n_desc_medida"]["mediana"]:,.0f}}}'.replace(',', '{,}')]
+         f'\\newcommand{{\\excMediana}}{{{exc["n_desc_medida"]["mediana"]:,.0f}}}'.replace(',', '{,}'),
+         # ⛔ o bloco DOVER seguia com decimal digitado, e a mutacao mostrou que trocar
+         # +25,5 por +22,5 passava. Os tres vem da tabela 4, que ja reproduz da fonte.
+         f'\\newcommand{{\\dovImplantada}}{{{tab4["SIFT+BoVW"]["fonte_DOVER_T"]:.1f}}}',
+         f'\\newcommand{{\\dovLiqe}}{{{tab4["LIQE"]["fonte_DOVER_T"]:.1f}}}',
+         f'\\newcommand{{\\dovDif}}{{{tab4["LIQE"]["fonte_DOVER_T"] - tab4["SIFT+BoVW"]["fonte_DOVER_T"]:.1f}}}',
+         # e a anticorrelacao por construcao do CT, que e uma afirmacao forte sobre a
+         # equacao de outra pessoa: sai do arquivo, nao da minha mao.
+         f'\\newcommand{{\\ctRho}}{{{ct["spearman_com_o_contraste_real"]["a_Eq8_com_modulo"]:.4f}}}']
     assert not ct2['qaroush']['ic_cruza_zero'], '⛔ o IC do Qaroush passou a cruzar zero'
     assert ct2['korolkov']['ic_cruza_zero'], '⛔ o IC do Korolkov deixou de cruzar zero: reescrever'
     assert ko['modulo_menos_melhor_membro'] < 0, '⛔ o modulo do Korolkov superou o membro'
@@ -184,6 +193,8 @@ def main():
         '⛔ ha celula abaixo do acaso que NAO e significativa: a frase da 4.1 cai'
     assert abs(mch['dif'] - (mch['liqe'] - mch['implantada'])) < 1e-9, \
         '⛔ a diferenca da manchete nao fecha com os dois pontos'
+    assert tab4['LIQE']['DOVER_bate'] and tab4['SIFT+BoVW']['DOVER_bate'], \
+        '⛔ a tabela 4 deixou de reproduzir a fonte do DOVER-T'
     assert au['autonomas'] == 1, '⛔ mudou o numero de autonomas: reescrever a prosa'
     # ⚠️ as duas regras publicadas TEM de ficar abaixo da media, senao a frase da prosa cai
     assert nb < media, '⛔ o naive Bayes do Ke superou a media: reescrever a prosa'

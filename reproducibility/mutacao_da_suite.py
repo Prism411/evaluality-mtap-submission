@@ -82,11 +82,16 @@ MUTACOES = [
     # ⚠️ o alvo antigo desta linha era «chance floor of $47.0$», que ESTA lista mediu
     # como buraco em 08/09 e que virou macro `\dupPiso`. A classe fechou por construcao,
     # entao a mutacao passa a atacar outro decimal ainda digitado na prosa.
-    # ⚠️ o alvo migra a cada vez que um decimal digitado vira macro. Os tres da manchete
-    # fecharam em 08/09; sobram os do bloco DOVER, que seguem digitados e seguem soltos.
+    # ⚠️ O ALVO MIGRA a cada vez que um decimal digitado vira macro. Fecharam em 08/09:
+    # os tres da manchete (65,1 / 99,5 / +34,4), os tres do DOVER-T (50,5 / 76,0 / +25,5),
+    # o piso de acaso 47,0 e a anticorrelacao -1,0000 do CT.
+    # ⛔ SEGUEM DIGITADOS, e portanto sem guarda: $2.21$ (escolhas distintas por cluster),
+    # $+27.1$ (contraste do controle de entrada casada) e $+25.9$, $+28.1$, $+30.3$ (as
+    # sensibilidades do bloco DOVER). Esta linha ataca um deles e continua reprovando
+    # enquanto a classe estiver aberta.
     ('um decimal digitado na prosa trocado',
-     sub_um('sec_results.tex', 'a paired increase of $+25.5$ points',
-            'a paired increase of $+22.5$ points')),
+     sub_um('sec_results.tex', 'gives global-range differences of $+25.9$ and $+28.1$ points',
+            'gives global-range differences of $+22.9$ and $+28.1$ points')),
     ('uma frase repetida palavra por palavra',
      sub_um('sec_conclusion.tex', 'A blind pairwise judgment',
             'White noise concentrates the failures. These operations are statistics of '
