@@ -17,6 +17,9 @@ for the MTAP submission. It is private while the manuscript is under review.
 - `reproducibility/`: scripts, cached derived results, provenance manifest, and
   checksums. Restricted source media, database images, model weights, and
   vendor trees are not redistributed.
+  - `ops_da_literatura.py`: the reference implementation of the sixteen audited
+    operations, with the direction each source declares for its own statistic.
+    This is the module the constructed-pair and screening analyses call.
   - `derived_data/`: every measurement file a number in the manuscript depends on.
   - `paper_generators/`: the scripts that emit each table and figure from those
     files, so that no number in the body is typed by hand.
