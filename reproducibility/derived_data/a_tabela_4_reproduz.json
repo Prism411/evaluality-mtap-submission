@@ -1,0 +1,98 @@
+{
+ "_o_que_e": "⭐⭐ A Tabela 4 conferida contra as duas fontes que a produzem.",
+ "linhas_lidas": [
+  "95\\% CI",
+  "CLIP-IQA+",
+  "LIQE",
+  "LIQE $-$ deployed",
+  "QualiCLIP",
+  "SIFT+BoVW"
+ ],
+ "por_metodo": {
+  "SIFT+BoVW": {
+   "impresso": {
+    "DOVER-T": 50.5,
+    "Max": 54.8,
+    "Q-Align": 48.6,
+    "Changed": "---"
+   },
+   "fonte_DOVER_T": 50.4683,
+   "fonte_Max": 54.7619,
+   "fonte_QAlign": 48.6471,
+   "DOVER_bate": true,
+   "Max_bate": true,
+   "QAlign_bate": true
+  },
+  "LIQE": {
+   "impresso": {
+    "DOVER-T": 76.0,
+    "Max": 59.5,
+    "Q-Align": 90.2,
+    "Changed": "22/42"
+   },
+   "fonte_DOVER_T": 76.0022,
+   "fonte_Max": 59.5238,
+   "fonte_QAlign": 90.1692,
+   "DOVER_bate": true,
+   "Max_bate": true,
+   "QAlign_bate": true
+  },
+  "QualiCLIP": {
+   "impresso": {
+    "DOVER-T": 71.9,
+    "Max": 59.5,
+    "Q-Align": 80.6,
+    "Changed": "19/42"
+   },
+   "fonte_DOVER_T": 71.9077,
+   "fonte_Max": 59.5238,
+   "fonte_QAlign": 80.6276,
+   "DOVER_bate": true,
+   "Max_bate": true,
+   "QAlign_bate": true
+  },
+  "CLIP-IQA+": {
+   "impresso": {
+    "DOVER-T": 70.7,
+    "Max": 50.0,
+    "Q-Align": 74.3,
+    "Changed": "22/42"
+   },
+   "fonte_DOVER_T": 70.7056,
+   "fonte_Max": 50.0,
+   "fonte_QAlign": 74.314,
+   "DOVER_bate": true,
+   "Max_bate": true,
+   "QAlign_bate": true
+  }
+ },
+ "⛔_divergencias": [],
+ "as_duas_linhas_de_diferenca": {
+  "linha_lida": [
+   "---",
+   "$+25.5$",
+   "$+4.8$",
+   "$+41.6$"
+  ],
+  "ic_lido": [
+   "---",
+   "$[-12.1,54.9]$",
+   "---",
+   "$[20.3,62.1]$"
+  ],
+  "DOVER_T_pela_subtracao": 25.534,
+  "Max_pela_subtracao": 4.762,
+  "QAlign_pela_subtracao": 41.522,
+  "ic_topic_block_da_fonte": [
+   -12.092,
+   54.874
+  ]
+ },
+ "changed_liqe_na_fonte": 22,
+ "previsoes": {
+  "previsao_1_dover": "CONFIRMADA",
+  "previsao_2_max": "CONFIRMADA",
+  "previsao_3_qalign": "CONFIRMADA",
+  "previsao_4_diferencas": "CONFIRMADA"
+ }
+}
