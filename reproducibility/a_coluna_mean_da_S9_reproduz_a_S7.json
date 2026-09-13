@@ -1,0 +1,53 @@
+{
+  "_o_que_e": "⭐⭐ A coluna `Mean` da Tabela S9 conferida contra a fonte que sustenta a S7, para separar «suspeita localizada» de «tabela sem verificabilidade».",
+  "unidade_de_reamostragem": "metodo (linha da S9)",
+  "fonte_da_S7": "indep13.json, all15.rows (produtor declarado no reproducibility_manifest)",
+  "a_S9_tem_produtor": false,
+  "_por_que": "o unico JSON dos quatro agrupamentos temporais declara ser a versao aplicada as OPERACOES nos 42 clusters, e diz que a S9 faz isso para quatro MODELOS em 15 clusters. Nao e a fonte dela.",
+  "1_MECANISMO_nao_depende_de_nulo": {
+    "_leitura": "as tres linhas nao batem «em alguma coisa»: batem nos valores ESPECIFICOS da fonte. Se for a mesma grandeza computada da mesma fonte nos mesmos clusters, elas TEM de bater, e nao ha probabilidade envolvida. Este e o argumento mais dificil de contestar.",
+    "reproduzem_o_valor_exato": {
+      "LIQE": 11,
+      "NIQE": 10,
+      "BRISQUE": 10
+    },
+    "DIVERGE": {
+      "QualiCLIP": {
+        "S9_mean": 9,
+        "fonte_da_S7": 10
+      }
+    },
+    "quantas_de_quantas": "3 de 4"
+  },
+  "2_p_como_confirmacao_de_que_nao_e_acaso": {
+    "NULO_EMPIRICO_principal": {
+      "como": "cada linha sorteada da distribuicao que a propria fonte tem. A chance e de COINCIDIR COM O VALOR DA FONTE, nao com o que a S9 imprime: para o QualiCLIP e freq(10) e nao freq(9), e freq(9)=1/15 nao entra.",
+      "a_conta": "Poisson-binomial (caso geral, p por linha). Aqui os quatro p saem iguais a 0,20 porque a fonte vale 11,10,10,10 e freq(11)=freq(10)=3 de 15, entao ela DEGENERA na binomial C(4,3)p^3(1-p)+p^4. O codigo faz o caso geral para continuar certo se a fonte mudar.",
+      "frequencias_na_fonte": {
+        "5": 1,
+        "8": 2,
+        "9": 1,
+        "10": 3,
+        "11": 3,
+        "12": 3,
+        "13": 1,
+        "14": 1
+      },
+      "p_de_bater_por_linha": {
+        "LIQE": 0.2,
+        "NIQE": 0.2,
+        "QualiCLIP": 0.2,
+        "BRISQUE": 0.2
+      },
+      "p_de_bater_em_3_ou_mais": 0.0272
+    },
+    "NULO_UNIFORME_otimista": {
+      "como": "valores uniformes no suporte [5, 8, 9, 10, 11, 12, 13, 14]. ⛔ Aperta um lado (so o suporte da fonte) e AFROUXA o outro (uniformidade dentro dele)",
+      "p_de_bater_em_3_ou_mais": 0.00708,
+      "_por_que_nao_e_o_principal": "reportado na primeira versao deste arquivo como se fosse conservador, e nao era. Achado pelo @agente-iqa-cli-3, na direcao de enfraquecer."
+    },
+    "razao_entre_os_dois": 3.84
+  },
+  "VEREDITO": "suspeita localizada",
+  "leitura": "A coluna reproduz os valores EXATOS da fonte em 3 das 4 linhas, o que e identidade e nao coincidencia; sob o nulo empirico isso tem p = 0.0272 (o nulo uniforme daria 0.00708, e era otimista). A coluna E verificavel contra a fonte da S7; o que nao se verifica e UMA celula. ⛔ Isto NAO decide o valor dela: decidir exigiria o produtor da S9."
+}

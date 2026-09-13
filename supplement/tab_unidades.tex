@@ -1,7 +1,7 @@
 %% GERADO por gera_tab_unidades.py -- nao editar a mao
 \begin{table}[!ht]
 \centering
-\caption{Resampling unit per analysis, and the rival unit tested against it. Observations are nested, so the unit decides the width of every interval: the italic line under each row states the nesting. Each interval was recomputed under the declared unit and under the rival, and the declared unit is accepted only when the rival fails to reproduce the published bounds. One of the four did not pass and was corrected.}
+\caption{Resampling unit per analysis, and the rival unit tested against it. Observations are nested, so the unit decides the width of every interval: the italic line under each row states the nesting, and \textbf{the declared unit follows from that nesting}, observations sharing content or a source entering the same block. Each interval was then recomputed under the rival unit; \textbf{that check identifies which implementation produced a published bound}, and is reported as a verification rather than as the reason for the choice. One of the five did not pass and was corrected; the last row is the contrast that previously declared no unit at all.}
 \label{tab:unidades}
 \footnotesize
 \setlength{\tabcolsep}{4pt}
@@ -18,6 +18,8 @@
 \rowcolor{perf5!25} & \multicolumn{4}{@{}l@{}}{\footnotesize\emph{the 42 clusters come from 19 topics}} \\
 \rowcolor{perf5!25}Block 04 & Output contrast, 42 clusters & topic block & the cluster & reproduces under the declared unit and not under the rival \\
 \rowcolor{perf5!25} & \multicolumn{4}{@{}l@{}}{\footnotesize\emph{the 42 clusters come from 19 topics}} \\
+\rowcolor{perf5!25}Block 04 & Regime contrast, 42 clusters & topic block & the cluster (exact McNemar) & the verdict holds under the declared unit ($p=.008$ against $p=.006$) \\
+\rowcolor{perf5!25} & \multicolumn{4}{@{}l@{}}{\footnotesize\emph{the 12 discordant pairs fall in 9 topics; the null enumerates all $2^{9}$ block sign assignments}} \\
 \bottomrule
 \end{tabular}
 \end{table}

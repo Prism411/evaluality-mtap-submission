@@ -1,6 +1,6 @@
 \begin{table}[!ht]
 \centering
-\caption{Traceability of every audited operation: the source work, the formula as the source states it, the function that computes it, and the reference model used on the in-domain column. Every operation name and count printed elsewhere in this article is derived from this table. \textbf{Dir.} is the direction the source declares; spatial information declares none, which is why it is measured but carries no verdict.}
+\caption{$^{\ddagger}$\,\citet{gygli2014summe} lists the three attributes but does not state how they combine; \textbf{the unweighted mean is a choice made here} and adopted so that the row is the direct counterpart of the five-attribute composite, which sums unnormalised terms in the same way. $^{\P}$\,Ke projects a Laplacian edge map built per RGB channel and rescaled to $100\times100$; this audit projects Sobel magnitude on the grey frame, so \textbf{the formula is reproduced and the edge map is adapted}. Recomputing KADID-10k with the source map moves sensitivity from 0.298 to 0.272 and the type count from 9 to 7, the two versions correlating 0.876, and changes no screening verdict. $^{\S}$\,\citet{jeong2016static} states \emph{variance of pixels} and \citet{xu2024property} \emph{standard deviation of the grey values}; the standard deviation is implemented as the reading common to both. \textbf{Within a single frame the two order identically, but a mean over frames does not}, so the choice is recorded here rather than left to the name; recomputing the 800 pairs under the mean of variances moves 7 of them and no per-type verdict. Traceability of every audited operation: the source work, the formula as the source states it, the function that computes it, and the reference model used on the in-domain column. Every operation name and count printed elsewhere in this article is derived from this table. \textbf{Dir.} is the direction the source declares; spatial information declares none, which is why it is measured but carries no verdict.}
 \label{tab:trace}
 \scriptsize
 \setlength{\tabcolsep}{3.4pt}
@@ -10,13 +10,13 @@
 \rowcolor{headerblue}
 \hd{Operation} & \hd{Source} & \hd{Formula, as the source states it} & \hd{Function} & \hd{Dir.} & \hd{Ref.} \\
 \midrule
-Averaged aesthetics (3) & \citep{gygli2014summe} & unweighted mean of colourfulness, contrast, edge distribution & \texttt{gygli\_\allowbreak{}media\_\allowbreak{}crua} & $\uparrow$ & LIQE \\
+Averaged aesthetics (3) & \citep{gygli2014summe} & three aesthetic attributes; unweighted mean$^{\ddagger}$ & \texttt{gygli\_\allowbreak{}media\_\allowbreak{}crua} & $\uparrow$ & LIQE \\
 \rowcolor{rowlight}Colourfulness (Hasler) & \citep{hasler2003colorfulness} & $M^{(3)}=\sigma_{rgyb}+.3\mu_{rgyb}$ & \texttt{hasler\_\allowbreak{}colorfulness} & $\uparrow$ & LIQE \\
 Colourfulness (Ke) & \citep{ke2006highlevel} & Hasler $M^{(3)}$; Ke gives no formula & \texttt{hasler\_\allowbreak{}colorfulness} & $\uparrow$ & LIQE \\
 \rowcolor{rowlight}Composite of five & \citep{srinivas2016rank}, \citep{ke2006highlevel} & unweighted mean of the five Ke terms & \texttt{srinivas\_\allowbreak{}quality} & $\uparrow$ & LIQE \\
 Contrast & \citep{ke2006highlevel} & width of central 98\% of the grey histogram (Ke \S4.5) & \texttt{ke\_\allowbreak{}contraste} & $\uparrow$ & LIQE \\
-\rowcolor{rowlight}Contrast variance & \citep{jeong2016static}, \citep{xu2024property} & pixel variance & \texttt{contraste\_\allowbreak{}variancia} & $\uparrow$ & LIQE \\
-Edge distribution & \citep{ke2006highlevel} & $q_a=1-w_xw_y$ (Ke \S4.1) & \texttt{ke\_\allowbreak{}edge\_\allowbreak{}distribution} & $\uparrow$ & LIQE \\
+\rowcolor{rowlight}Contrast variance & \citep{jeong2016static}, \citep{xu2024property} & grey-level standard deviation$^{\S}$ & \texttt{contraste\_\allowbreak{}variancia} & $\uparrow$ & LIQE \\
+Edge distribution & \citep{ke2006highlevel} & $q_a=1-w_xw_y$ (Ke \S4.1)$^{\P}$ & \texttt{ke\_\allowbreak{}edge\_\allowbreak{}distribution} & $\uparrow$ & LIQE \\
 \rowcolor{rowlight}Entropy & \citep{qaroush2025diversity} & Shannon entropy over HSV histogram bins (Eq.~5) & \texttt{qaroush\_\allowbreak{}entropia} & $\uparrow$ & LIQE \\
 GLCM contrast & \citep{yang2024keyframe} & GLCM contrast descriptor & \texttt{glcm\_\allowbreak{}contraste} & $\uparrow$ & LIQE \\
 \rowcolor{rowlight}Gradient magnitude & \citep{qaroush2025diversity} & mean Sobel gradient magnitude (Eq.~10) & \texttt{qaroush\_\allowbreak{}gm} & $\uparrow$ & LIQE \\

@@ -42,11 +42,26 @@ fourteen that do not are accounted for:
   `paper/` and `supplement/` beside it;
 - **one** is a scoring stub that requires model weights.
 
-⚠️ Scripts in the first two groups can still exit successfully while writing a
-**partial** result when their inputs are missing: running the whole directory in
-one pass let a two-cluster control file overwrite the shipped forty-two-cluster
-one and break a downstream script. Run a script that needs media only in a tree
-where that media is present.
+Scripts in the first two groups used to exit successfully while writing a
+**partial** result when their inputs were missing: running the whole directory in
+one pass once let a two-cluster control file overwrite the shipped
+forty-two-cluster one and break a downstream script. **Two changes close that
+hole:**
+
+- `exige.py` provides `entrada()`, which raises `SystemExit` on a missing or
+  empty input instead of returning nothing, and `grava()`, which **refuses to
+  overwrite an existing result with fewer records** and writes through a
+  temporary file so no half-written JSON is ever left in place. Shrinking a
+  published result is possible only with an explicit `permitir_encolher=True`,
+  which shows up in the code and in the diff.
+- `paper_guards/guarda_cardinalidade_dos_artefatos.py` checks the counts the
+  manuscript relies on (42 clusters, 20 sampled segments, 820 scored conditions
+  per model) and fails naming the file and both numbers. Its self-test rebuilds
+  the exact defect, a 42-cluster control reduced to 2, and requires the guard to
+  reject it.
+
+Still run a script that needs media only in a tree where that media is present:
+the guards make a silent partial write impossible, not the media appear.
 
 `paper_guards/guarda_scripts_rodam_do_clone.py` keeps the first claim honest: it
 clones the repository, blanks the author's paths, and runs the analysis scripts
@@ -69,7 +84,7 @@ cd ../supplement
 latexmk -pdf supplementary.tex
 ```
 
-The frozen PDFs contain 30 pages for the manuscript and 31 pages for the
+The frozen PDFs contain 33 pages for the manuscript and 35 pages for the
 supplement. The manuscript source of truth is `paper/main.tex`; no compact or
 alternate manuscript route is used.
 

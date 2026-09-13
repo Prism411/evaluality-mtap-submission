@@ -1,0 +1,47 @@
+{
+  "_o_que_e": "⭐⭐ O contraste «operacao completa (22) contra so o casamento (12)» refeito com o TOPICO como unidade, por troca de sinal em bloco enumerada exatamente. O McNemar publicado trata os 42 clusters como independentes, e eles vem de 19 topicos.",
+  "unidade_de_reamostragem": "topico de telejornal (bloco de troca de sinal)",
+  "pre_condicao_reproduz_o_publicado": {
+    "reproduz": true,
+    "operacao_completa": 22,
+    "controle_casado_so_o_scorer": 16,
+    "so_o_casamento": 12,
+    "n10": 11,
+    "n01": 1,
+    "p_mcnemar_exato": 0.0063,
+    "_leitura": "confere com o publicado antes de calcular o que e novo"
+  },
+  "n_clusters": 42,
+  "n_topicos": 19,
+  "COM_O_TOPICO_COMO_UNIDADE": {
+    "desbalanco_observado": 10,
+    "topicos_que_carregam_discordante": 9,
+    "atribuicoes_enumeradas": 512,
+    "p_troca_de_sinal_em_bloco": 0.00781,
+    "separa_a_005": true,
+    "razao_p_bloco_sobre_p_mcnemar": 1.23
+  },
+  "DEPENDE_DE_UM_TOPICO_SO": {
+    "topico_de_maior_peso": "google_huawei",
+    "peso_dele": 2,
+    "p_sem_esse_topico": 0.01562,
+    "ainda_separa_sem_ele": true,
+    "discordantes_por_topico": {
+      "google_huawei": 2,
+      "recorde_calor_2024": 2,
+      "brasil_omc": 1,
+      "brumadinho": 1,
+      "cessar_fogo_ucrania": 1,
+      "fraude_inss": 1,
+      "julgamento_bolsonaro": 1,
+      "ucrania": 1,
+      "isencao_imposto": 0
+    }
+  },
+  "PREVISOES": {
+    "1_o_p_sobe": true,
+    "2_continua_separando": true,
+    "3_nao_esta_num_topico_so": true
+  },
+  "leitura": "O desbalanco de 10 vem de 9 topicos distintos, e a troca de sinal em bloco devolve p = 0.00781 contra 0.0063 do McNemar. A conclusao do corpo sobrevive com a unidade que o desenho implica."
+}

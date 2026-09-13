@@ -11,7 +11,12 @@ diversity across topic-related videos~\citep{panda2017diversity,
 panda2017collaborative}; graph models subsequently represented inter-video
 relations directly~\citep{wu2020mvsgcn}. These methods address
 representativeness, coverage and redundancy, but they do not validate a technical-quality proxy used to choose between redundant
-candidates.
+candidates. Selecting among concurrent recordings of one event is an established setting in
+this journal: ViComp composes user-generated videos of the same
+event~\citep{bano2016vicomp}, and \citet{cricri2014multimodal} extract events and
+recording-activity information from that same material. \textbf{This article adds no
+selection rule to that line}; it tests whether the operation such a rule calls tracks the
+construct it is read as measuring, and what changes downstream when it is replaced.
 
 HSMVideoSumm instead derived selection criteria from human summarization
 practice and implemented each criterion as an explicit pipeline stage
@@ -26,7 +31,10 @@ control, can be compared under conditions none of their source papers shares. Th
 object of comparison is therefore neither a new summarizer nor an overall benchmark
 against SumMe~\citep{gygli2014summe} or TVSum~\citep{song2015tvsum}. It is a decision that recurs across this literature, namely which of two
 redundant segments is visually better, together with the operations the literature
-offers for making it.
+offers for making it. \citet{otani2019rethinking} make the companion point on the
+evaluation side, showing that segmentation and protocol choices can dominate reported
+summarization scores; \textbf{the selection side carries the same exposure}, which is what
+an operation-level audit measures.
 
 The works audited here place that decision in three different structures, and the structure
 is what the later reading flattens. \textbf{Two combine several terms into a stand-alone frame-level score}:
@@ -64,10 +72,14 @@ instead estimates quality from the test image alone. BRISQUE and NIQE model
 departures from natural-scene statistics~\citep{mittal2012brisque,
 mittal2013niqe}; DBCNN and HyperIQA learn opinion-supervised convolutional
 representations~\citep{zhang2020dbcnn,su2020hyperiqa}; MUSIQ and TOPIQ use
-multi-scale or top-down attention~\citep{ke2021musiq,chen2024topiq}.
+multi-scale or top-down attention~\citep{ke2021musiq,chen2024topiq}; saliency has
+also been used to condition a convolutional predictor~\citep{jia2018saliency}, and
+self-supervised representations have been applied to tone-mapped
+images~\citep{pinto2026tonemapped}.
 
 Vision--language formulations based on Contrastive Language--Image Pre-training
-(CLIP) provide a different inductive bias. CLIP-IQA uses
+(CLIP)~\citep{radford2021clip} provide a different inductive bias, and three of the
+candidates below share that backbone. CLIP-IQA uses
 antonym prompts~\citep{wang2023clipiqa}; LIQE jointly predicts quality,
 distortion and scene~\citep{zhang2023liqe}; QualiCLIP learns from rankings of
 synthetically degraded pairs without opinion scores~\citep{agnolucci2024qualiclip}.
@@ -77,7 +89,13 @@ their exposure to opinion databases. A result on training data measures fit,
 whereas use in a new broadcast domain requires transfer. Cross-database
 evaluation is therefore essential, and published work has shown that
 in-database NR-IQA performance can overstate generalization
-~\citep{pinson2023nrbroadcast,cao2024datacentric}.
+~\citep{pinson2023nrbroadcast,cao2024datacentric}. Improving the precision of objective
+quality meters, rather than only applying them, is a stated concern in this
+journal~\citep{behzadpour2023precision}, as is assessing a measure through paired
+comparisons instead of an absolute scale, whether by learning to rank degraded
+variants~\citep{isogawa2019inpainted} or by regressing on pairwise score
+differences~\citep{oszust2017lasso}. \textbf{The constructed pairs used here are that
+design applied to the operations a summarizer runs.}
 
 KADID-10k supplies controlled synthetic distortions
 ~\citep{lin2019kadid}; KonIQ-10k and LIVE In the Wild (CLIVE) contain authentic
@@ -108,7 +126,13 @@ salton1988tfidf}. Spatial Information similarly quantifies scene complexity
 rather than perceptual quality~\citep{itu_p910,robitza2021siti}. Such features
 may correlate with opinion scores in a particular collection, but correlation
 does not show that they measure quality or remain valid under controlled
-degradation.
+degradation. What counts as quality is in any case defined against the task the measure
+serves, and task-based optimisation makes that dependence
+explicit~\citep{leszczuk2014taskbased}. \textbf{The requirement audited here is therefore
+not the one the source states}: the source states relevance, and what this article tests is
+the technical-quality reading that later work applies when it carries these operations into
+that stage. Whether an operation serves the relevance criterion its source defines is a
+different question, and not one these measurements answer.
 
 The gap addressed here is narrower than the general problem of quality-aware
 summarization. Existing work establishes multi-video selection criteria, specialized

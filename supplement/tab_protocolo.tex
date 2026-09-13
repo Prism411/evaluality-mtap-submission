@@ -1,0 +1,23 @@
+%% GERADO por gera_tab_protocolo.py -- nao editar a mao
+\begin{table}[!ht]
+\centering
+\caption{How the audited operations were identified, and what the protocol does and does not reach. The operations were not assembled from a database query, so the population of inference is the archive named in the first row and every count in the article is a count within it; no claim of exhaustive coverage is made. \textbf{The search instrument is itself measured against a manual reading, with the direction of the residual bias stated}, because a search whose accuracy is unknown cannot bound what it missed.}
+\label{tab:protocolo}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.15}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{2.2cm}>{\raggedright\arraybackslash}p{6.6cm}>{\raggedright\arraybackslash}p{2.9cm}@{}}
+\toprule
+\rowcolor{headerblue}
+\hd{Step} & \hd{What was done} & \hd{What it yielded} \\
+\midrule
+\textbf{Corpus} & Curated full-text archive on video and multi-document summarization and on image-quality assessment, searched on 5 September 2026. \textbf{Not a database query, so the population of inference is this archive.} & 186 PDFs \\
+\rowcolor{rowlight}\textbf{Patterns} & One specific expression per operation family, never a bare word, so that \emph{contrast} alone does not match. Reference lists are cut before matching; a cut leaving under 40\,\% of the PDF is refused and the work enters whole. Spatial information counts only when its context window carries ITU, the SI/TI pair, \emph{index} or Sobel. & 13 patterns \\
+\textbf{Instrument accuracy} & Measured against a manual reading of the sources. \textbf{The bias runs in favour of the instrument}: the same author did the reading and the inventory, so recall is an upper estimate. Cutting reference lists raised precision from .47 without moving recall. & recall .81, precision .63, on 21 articles \\
+\rowcolor{rowlight}\textbf{Screening criterion} & An operation enters only if its source declares a direction for its own statistic and scores a single frame. \textbf{No operation without a declared direction was screened in.} The 3 that declare a direction and stay out are sequence-level: \texttt{qaroush\_movimento}, \texttt{qaroush\_ses}, \texttt{sobel\_cv}. & 15 of 24 mapped operations \\
+\textbf{Coverage achieved} & Share of the operation mentions in the archive that the screened set covers. A mention is not an article: one PDF may name several. & 41 of 71 mentions (57.7\,\%) \\
+\rowcolor{rowlight}\textbf{What is left out, and why} & \textbf{Of the 30 mentions outside, 25 are not screenable by any rule}, because the source declares no direction (14) or gives no combination rule (11). That residue is under-specification in the sources, and it is the same property that would stop an independent reader from reimplementing them. & 25 of 30 not screenable \\
+\textbf{What the archive does instead} & Works citing no dedicated no-reference quality model, and how many of those compute one of the audited operations in its place. \textbf{A floor}: a work that computes an operation without naming it is not counted. & 173 of 186 cite none; 33 of those use an operation \\
+\bottomrule
+\end{tabular}
+\end{table}

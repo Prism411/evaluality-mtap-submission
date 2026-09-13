@@ -41,8 +41,10 @@ transitions needs its own validation.
 models are better-supported replacement candidates} than normalizing the deployed operation
 by segment length or inserting a newer retrieval descriptor. LIQE, QualiCLIP and
 CLIP-IQA$+$ meet the common rule and run substantially faster than the deployed path. The complete operation changes \casCompleta{} decisions, and holding the scorer fixed
-while changing only the sampled frames and pooling already changes \casSoCasamento{}; an exact McNemar test separates the two ($p=\casP{}$), so both scorer identity and an
-operation's own input choices carry part of the effect.
+while changing only the sampled frames and pooling already changes \casSoCasamento{}; an exact McNemar test separates the two ($p=\casP{}$), and so does the block sign-flip
+that treats the \mcnBlocos{} topics rather than the 42 clusters as the unit
+($p=\mcnBloco{}$, and $p=\mcnSemMaior{}$ after dropping the topic that contributes most),
+so both scorer identity and an operation's own input choices carry part of the effect.
 
 \subsection{Limitations}\label{sec:limits}
 

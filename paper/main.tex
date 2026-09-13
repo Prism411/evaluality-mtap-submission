@@ -63,24 +63,22 @@
 
 \abstract{
 Video summarization systems select segments using visual heuristics such as colourfulness,
-contrast and sharpness in heterogeneous roles: some originate in photograph classification,
-retrieval or broadcast characterization, others are terms inside summarization objectives.
-We audit their reuse as autonomous technical-quality scores. \textbf{Of the \fontesOperacoes{} individual operations, only \autAutonomas{} is
+contrast and sharpness in heterogeneous roles, from features of a photograph classifier to
+terms inside summarization objectives. We audit their reuse as autonomous
+technical-quality scores. \textbf{Of the \fontesOperacoes{} individual operations, only \autAutonomas{} is
 stand-alone in its own source}, and it indexes
 colourfulness. We reimplement \fontesDaLiteratura{} literature-derived heuristics from
 \fontesTrabalhos{} source works, plus ITU-T spatial information as a diagnostic
 \fontesOperacoes{}th operation, and screen them on 800 pairs in which the same content
 appears before and after a known degradation, so the better member is fixed by construction.
-\textbf{\resRuidoC{} prefer the degraded copy under white noise}, \resZeroRuido{} of them on every pair, and the Bag-of-Visual-Words score deployed in a
-published summarizer inverts on \resInverteRuido{}\% of those pairs. An exact
-factorization explains the failure: the score is a descriptor count times a mean weight, and
-the sign of the score difference follows the count difference in \mecConcordam{} of the
-800 pairs,
-which identifies descriptor-count dominance in the evaluated operation. None of the fifteen directionally evaluated heuristics is eligible
+\textbf{\resRuidoC{} prefer the degraded copy under white noise}, and the
+Bag-of-Visual-Words score deployed in a published summarizer inverts on
+\resInverteRuido{}\% of those pairs. An exact
+factorization explains the failure, and it is the count channel rather than the rarity
+weight that dominates: count alone predicts the sign in \mecConcordam{} of the 800 pairs. None of the fifteen directionally evaluated heuristics is eligible
 under the screening rule, and neither are the \resCombinacoes{} evaluated combinations; \resElegiveis{} of
-\invModelos{} no-reference models are. Substituting an eligible model into an otherwise fixed pipeline changes \casCompleta{} of 42 selected segments, and the segments it leaves unchanged agree at the chance floor. The \resElegiveis{} eligible no-reference models are defensible replacement candidates, and \textbf{the quality operation
-should be reported as a design choice} to be evaluated against the requirement it is meant
-to serve, rather than an implementation detail.
+\invModelos{} no-reference models are. Substituting an eligible model into an otherwise fixed pipeline changes \casCompleta{} of 42 selected segments. For the technical-quality requirement evaluated here the \resElegiveis{} eligible models are better-supported replacement candidates, and \textbf{the quality operation
+should be reported as a design choice} evaluated against the requirement it serves, rather than an implementation detail.
 }
 
 \keywords{Multi-video summarization, No-reference image quality assessment,
@@ -102,7 +100,7 @@ Content selection criteria, Benchmark evaluation, Broadcast news video}
 The authors declare no competing financial or non-financial interests.
 
 \paragraph{Data availability}
-KADID-10k, KonIQ-10k and LIVE In the Wild are public. Supplementary Tables S1--S30, Supplementary Figures S1--S4 and a reproducibility archive accompany the
+KADID-10k, KonIQ-10k and LIVE In the Wild are public. Supplementary Tables S1--S31, Supplementary Figures S1--S4 and a reproducibility archive accompany the
 submission; scripts, derived scores, clusters, annotations, seeds and latency
 results are released at a tagged version of the repository named under Code
 availability, together with a Git bundle that makes the registered-prediction

@@ -99,8 +99,7 @@
 
 
 \title[Supplementary material]{Electronic Supplementary Material for
-``A Component-Level Audit of No-Reference Quality Scoring in a Multi-Video
-Summarization Pipeline''}
+``Do Visual-Selection Heuristics Measure Technical Quality? A Controlled Audit of Sixteen Operations Used in Video Summarization''}
 
 \author*[1]{\fnm{Jader L.} \sur{de Souza Gon\c{c}alves}}\email{jaderlouis@proton.me}
 \author[1]{\fnm{Rudinei} \sur{Goularte}}\email{rudinei@icmc.usp.br}
@@ -109,6 +108,9 @@ Summarization Pipeline''}
   \orgaddress{\city{S\~{a}o Carlos}, \state{SP}, \country{Brazil}}}
 
 \maketitle
+
+\noindent\small\emph{Submitted to Multimedia Tools and Applications (Springer Nature).}
+\normalsize
 
 \renewcommand{\thetable}{S\arabic{table}}
 \renewcommand{\theHtable}{S\arabic{table}}
@@ -338,8 +340,8 @@ on training data.}
 & \hd{PLCC} & \hd{RMSE} & \hd{RMSE$^{*}$} & \hd{OR}
 & \hd{PLCC} & \hd{RMSE} & \hd{RMSE$^{*}$} & \hd{OR} \\
 \midrule
-\rowcolor{rowlight} Q-Align   & .940 & 5.251 & 5.166 & .983 & .952 & .330 & .155 & .292 \\
-\rowcolor{rowwhite} LIQE      & .915 & 6.234 & 6.149 & .983 & .720 & .751 & .526 & .703 \\
+\rowcolor{rowlight} Q-Align$^{\dagger}$ & .940 & 5.251 & 5.166 & .983 & .952 & .330 & .155 & .292 \\
+\rowcolor{rowwhite} LIQE$^{\dagger}$ & .915 & 6.234 & 6.149 & .983 & .720 & .751 & .526 & .703 \\
 \rowcolor{rowlight} QualiCLIP & .771 & 9.837 & 9.752 & .990 & .673 & .800 & .572 & .725 \\
 \rowcolor{rowwhite} TOPIQ$^{\dagger}$    & .978 & 3.198 & 3.124 & .959 & .546 & .907 & .671 & .769 \\
 \rowcolor{rowlight} HyperIQA$^{\dagger}$ & .956 & 4.507 & 4.428 & .977 & .503 & .936 & .700 & .776 \\
@@ -520,7 +522,12 @@ Record \ 0:00 (14\,s)    & 815.2  & \pR{4.93} & \pR{4.76} & 4.26 & \pR{0.63} & \
 \caption{Top-1 agreement with the reference model over the 15 clusters under
 four temporal poolings. The worst-frame, tenth-percentile and
 $\mathrm{mean}-\mathrm{sd}$ rules all penalise within-segment dispersion; the
-mean ignores it.}
+mean ignores it. \textbf{One cell is unresolved.} The \emph{Mean} column reproduces the
+measurement file behind Table~S7 for BRISQUE, LIQE, NIQE, and for QualiCLIP it reads 9/15 where that file
+gives 10/15. No generator for this table survives in the archive, so the discrepancy is
+reported rather than reconciled; matching three of four rows has $p=0.0272$ under a null drawn
+from the distribution of values in that file, which places the disagreement in one cell
+rather than in the column.}
 \label{tab:pooling}
 \small
 \setlength{\tabcolsep}{7pt}
@@ -683,7 +690,7 @@ P3 & SIFT$+$BoVW & Near chance on JPEG and H.264 & $6\%$ and $90\%$ & refuted \\
 P4 & CNN$+$BoVW ($19$) & Chance on every type & $44.9\%$, CI $[41.0,48.9]$; range $30$--$64$ & refuted \\
 P5 & NIQE, BRISQUE & Accuracy falls under heavy overlay & $+2.0$, $+2.2$ points & refuted \\
 P6 & Learned methods & No interaction with overlay & $-18.1$ to $-8.1$ for three & refuted \\
-P7 & SIFT$+$BoVW & Design~B mean below $0.15$ & $-0.425$ & refuted \\
+P7 & SIFT$+$BoVW & Design~B $|$mean Spearman$|$ below $0.15$ (insensitivity) & $-0.425$ & refuted \\
 P8 & Q-Align & Design~A accuracy above $0.90$ & $98.2\%$, CI $[97.2,99.1]$ & holds \\
 \bottomrule
 \end{tabular}
@@ -1067,6 +1074,10 @@ zero and the result is numerically unstable.} \\
 
 \clearpage
 \input{tab_compostos}
+
+%% --- S31: o protocolo de identificacao das operacoes ---
+\clearpage
+\input{tab_protocolo}
 
 % ⚠️ o suplementar cita 19 fontes na tabela de rastreio e nao tinha bibliografia
 \bibliography{references}

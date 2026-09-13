@@ -1,0 +1,73 @@
+{
+  "_o_que_e": "⛔ A operacao `contraste_variancia` sob as DUAS agregacoes: media dos desvios (o que o codigo roda) e media das variancias (o que a Tabela S23 anunciava). Mesma tabela de 800 pares, frames reconstruidos em memoria pelo synth_rebuild; nada re-extraido para disco.",
+  "unidade_de_reamostragem": "par original-degradado",
+  "n_segmentos": 20,
+  "n_pares": 800,
+  "ordem_dos_tipos": [
+    "dark",
+    "motion",
+    "blur",
+    "h264",
+    "rescale",
+    "satur",
+    "noise",
+    "jpeg"
+  ],
+  "PRE_CONDICAO": {
+    "acuracia_publicada_por_tipo": [
+      100.0,
+      100.0,
+      100.0,
+      100.0,
+      100.0,
+      22.0,
+      25.0,
+      90.0
+    ],
+    "recomputada_com_desvio": [
+      100.0,
+      100.0,
+      100.0,
+      100.0,
+      100.0,
+      22.0,
+      25.0,
+      90.0
+    ],
+    "reproduz": true
+  },
+  "COM_A_MEDIA_DOS_DESVIOS": {
+    "por_tipo": {
+      "dark": 100.0,
+      "motion": 100.0,
+      "blur": 100.0,
+      "h264": 100.0,
+      "rescale": 100.0,
+      "satur": 22.0,
+      "noise": 25.0,
+      "jpeg": 90.0
+    },
+    "media": 79.6
+  },
+  "COM_A_MEDIA_DAS_VARIANCIAS": {
+    "por_tipo": {
+      "dark": 100.0,
+      "motion": 100.0,
+      "blur": 100.0,
+      "h264": 100.0,
+      "rescale": 100.0,
+      "satur": 21.0,
+      "noise": 29.0,
+      "jpeg": 90.0
+    },
+    "media": 80.0
+  },
+  "pares_que_mudam_de_lado": 7,
+  "delta_na_media_em_pontos": 0.4,
+  "PREVISOES": {
+    "1_muda": true,
+    "2_muda_pouco": true,
+    "3_veredito_por_tipo_nao_muda": true
+  },
+  "leitura": "Trocar a media dos desvios pela media das variancias move 7 dos 800 pares de lado e a media por tipo em +0.4 ponto(s); o veredito por tipo (acima ou abaixo de 50) NAO muda em nenhum tipo. ⛔ A equivalencia entre desvio e variancia so vale DENTRO de um frame: a operacao agrega sobre frames, e por isso o nome impresso tem de ser o da quantidade que de fato roda."
+}

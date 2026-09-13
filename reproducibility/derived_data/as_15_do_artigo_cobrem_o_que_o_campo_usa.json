@@ -1,0 +1,174 @@
+{
+  "_o_que_e": "🔴 AUDITORIA DO ESCOPO DO PROPRIO ARTIGO: as 15 operacoes triadas cobrem o que a literatura de sumarizacao de fato nomeia? Ponderado por mencao em PDF do acervo.",
+  "unidade_de_reamostragem": "mencao de termo em PDF do acervo (186)",
+  "⚠️_leitura": "a mencao NAO e artigo: um PDF pode nomear varios termos, entao a soma das mencoes excede o numero de PDFs. E o denominador certo aqui, porque a pergunta e sobre COBERTURA DE OPERACOES e nao sobre contagem de artigos.",
+  "n_triadas_no_artigo": 15,
+  "as_15": [
+    "contraste_variancia",
+    "glcm_contraste",
+    "gygli_media_crua",
+    "hasler_colorfulness",
+    "huang_saturacao",
+    "ke_colorfulness",
+    "ke_contraste",
+    "ke_edge_distribution",
+    "ke_hue_count",
+    "laplacian_var",
+    "qaroush_entropia",
+    "qaroush_gm",
+    "qaroush_go",
+    "qaroush_saliencia",
+    "srinivas_quality"
+  ],
+  "mencoes_totais": 71,
+  "COBERTURA_DAS_15": {
+    "mencoes_cobertas": 41,
+    "fracao": 0.5775,
+    "porcentagem": 57.7,
+    "mencoes_fora": 30,
+    "nao_triaveis_por_fonte_subespecificada": 25,
+    "porcentagem_nao_triavel": 35,
+    "⭐_leitura": "25 das 71 mencoes (35 %) nao sao triaveis por REGRA NENHUMA, porque a fonte nao declara direcao (14) ou nao da a regra de combinacao (11). Nao e escolha nossa: e subespecificacao delas."
+  },
+  "⭐_A_TRIAGEM_TEM_CRITERIO": {
+    "no_mapa": 24,
+    "com_direcao_declarada": 18,
+    "sem_direcao_declarada": 6,
+    "triadas": 15,
+    "triadas_SEM_direcao_declarada": [],
+    "com_direcao_mas_fora_da_triagem": [
+      "qaroush_movimento",
+      "qaroush_ses",
+      "sobel_cv"
+    ],
+    "leitura": "TODAS as 15 triadas declaram direcao, e nenhuma operacao sem direcao foi triada. As 3 que declaram direcao e ficam fora sao de SEQUENCIA (qaroush_movimento, qaroush_ses, sobel_cv), nao de quadro. A triagem e principiada; o que ela NAO cobre, nao cobre por motivo declaravel."
+  },
+  "fora_da_triagem": {
+    "por_direcao_nao_declarada": 14,
+    "por_regra_de_combinacao_ausente": 11,
+    "por_outra_familia": 5,
+    "quais": [
+      {
+        "termo": "lbp",
+        "n_pdfs": 11,
+        "campo": "lbp_uniformidade",
+        "estado": "fora: fonte NAO declara direcao",
+        "por_que": "triar exige direcao; a fonte nao a da, e assumi-la inventaria o dado"
+      },
+      {
+        "termo": "estetica",
+        "n_pdfs": 11,
+        "campo": null,
+        "estado": "fora: fonte nao da regra de combinacao",
+        "por_que": "o composto estetico e \"weighted sum\" com pesos que a fonte nao publica"
+      },
+      {
+        "termo": "spatial_info",
+        "n_pdfs": 5,
+        "campo": "spatial_information",
+        "estado": "fora: outra familia do menu",
+        "por_que": "o SI entra por familia propria, nao pela familia de sumarizacao"
+      },
+      {
+        "termo": "exposicao",
+        "n_pdfs": 3,
+        "campo": "huang_exposicao",
+        "estado": "fora: fonte NAO declara direcao",
+        "por_que": "triar exige direcao; a fonte nao a da, e assumi-la inventaria o dado"
+      }
+    ]
+  },
+  "por_termo": [
+    {
+      "termo": "lbp",
+      "n_pdfs": 11,
+      "campo": "lbp_uniformidade",
+      "estado": "fora: fonte NAO declara direcao",
+      "por_que": "triar exige direcao; a fonte nao a da, e assumi-la inventaria o dado"
+    },
+    {
+      "termo": "estetica",
+      "n_pdfs": 11,
+      "campo": null,
+      "estado": "fora: fonte nao da regra de combinacao",
+      "por_que": "o composto estetico e \"weighted sum\" com pesos que a fonte nao publica"
+    },
+    {
+      "termo": "saliencia",
+      "n_pdfs": 11,
+      "campo": "qaroush_saliencia",
+      "estado": "TRIADA",
+      "por_que": ""
+    },
+    {
+      "termo": "colorfulness",
+      "n_pdfs": 8,
+      "campo": "hasler_colorfulness",
+      "estado": "TRIADA",
+      "por_que": ""
+    },
+    {
+      "termo": "ke_edge_distr",
+      "n_pdfs": 6,
+      "campo": "ke_edge_distribution",
+      "estado": "TRIADA",
+      "por_que": ""
+    },
+    {
+      "termo": "nitidez/blur",
+      "n_pdfs": 5,
+      "campo": "laplacian_var",
+      "estado": "TRIADA",
+      "por_que": ""
+    },
+    {
+      "termo": "spatial_info",
+      "n_pdfs": 5,
+      "campo": "spatial_information",
+      "estado": "fora: outra familia do menu",
+      "por_que": "o SI entra por familia propria, nao pela familia de sumarizacao"
+    },
+    {
+      "termo": "laplacian_var",
+      "n_pdfs": 3,
+      "campo": "laplacian_var",
+      "estado": "TRIADA",
+      "por_que": ""
+    },
+    {
+      "termo": "exposicao",
+      "n_pdfs": 3,
+      "campo": "huang_exposicao",
+      "estado": "fora: fonte NAO declara direcao",
+      "por_que": "triar exige direcao; a fonte nao a da, e assumi-la inventaria o dado"
+    },
+    {
+      "termo": "hue_count",
+      "n_pdfs": 3,
+      "campo": "ke_hue_count",
+      "estado": "TRIADA",
+      "por_que": ""
+    },
+    {
+      "termo": "entropia",
+      "n_pdfs": 2,
+      "campo": "qaroush_entropia",
+      "estado": "TRIADA",
+      "por_que": ""
+    },
+    {
+      "termo": "sobel/gradiente",
+      "n_pdfs": 2,
+      "campo": "qaroush_gm",
+      "estado": "TRIADA",
+      "por_que": ""
+    },
+    {
+      "termo": "glcm",
+      "n_pdfs": 1,
+      "campo": "glcm_contraste",
+      "estado": "TRIADA",
+      "por_que": ""
+    }
+  ]
+}

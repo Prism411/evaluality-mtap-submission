@@ -1,0 +1,423 @@
+{
+  "_o_que_e": "⭐⭐ CORTAR A BIBLIOGRAFIA MELHORA A VARREDURA? Um defeito sistemático, e o conserto.\n\nPOR QUE EXISTE (05/09). Ao verificar 21 artigos achei falsos positivos que vinham de\nTITULO DE REFERENCIA: o `taylor2017superresolution` casa `spatial_info` em *\"Extracting\nSpatial Information from Networks\"*, e o `singh2026subevent` casa `lbp` em *\"Shot based\nkeyframe extraction using edge-LBP approach\"*. ⭐ Isso nao e ruido: e a varredura lendo a\nLISTA DE REFERENCIAS como se fosse o metodo do artigo.\n\nO conserto e obvio e barato: cortar tudo a partir do cabecalho de referencias. Aqui ele e\nMEDIDO contra a mesma verdade-terreno de 21 artigos, antes e depois.\n\n⚠️ O corte tem risco proprio: artigo cujo cabecalho nao case perde texto de metodo. Meço\nquanto texto cada corte remove e recuso cortes absurdos (mais de 60 % do PDF).",
+  "unidade_de_reamostragem": "par (artigo, termo), nos 21 com verdade-terreno",
+  "como_corta": "ultima ocorrencia do cabecalho de referencias; corte que deixaria menos de 40 % do PDF e RECUSADO e o artigo entra inteiro",
+  "segundo_conserto": "o termo `spatial_info` so conta se a janela de 260 caracteres em volta trouxer ITU, o par SI/TI, \"index\" ou Sobel. Criterio definido por PRINCIPIO (o indice e uma medida nomeada) e nao por ajuste aos rotulos, entao vale para artigo que eu nao li.",
+  "n_artigos": 21,
+  "n_consertos": 2,
+  "n_cortes_recusados": 0,
+  "fracao_mantida_mediana": 0.879,
+  "ANTES": {
+    "precisao": 0.4722,
+    "cobertura": 0.8095,
+    "acertos": 17,
+    "falsos_positivos": 19,
+    "perdidos": 4
+  },
+  "DEPOIS": {
+    "precisao": 0.6296,
+    "cobertura": 0.8095,
+    "acertos": 17,
+    "falsos_positivos": 10,
+    "perdidos": 4
+  },
+  "⚠️_a_amostra_continua_enviesada": "os 10 do segundo grupo foram escolhidos por estarem atras das combinacoes MAIS PROXIMAS de passar, ou seja, por eu suspeitar deles. Isso INFLA o falso positivo por construcao. A precisao do primeiro grupo e a menos enviesada das duas, e nem ela e aleatoria: aqueles 11 sao as FONTES das operacoes.",
+  "por_fonte": [
+    {
+      "fonte": "ke2006highlevel",
+      "achou_sem_bib": [
+        "hue_count",
+        "ke_edge_distr"
+      ],
+      "verdade": [
+        "colorfulness",
+        "hue_count",
+        "ke_edge_distr"
+      ],
+      "falsos_positivos": [],
+      "perdidos": [
+        "colorfulness"
+      ],
+      "fracao_mantida": 0.923,
+      "corte_recusado": false
+    },
+    {
+      "fonte": "srinivas2016rank",
+      "achou_sem_bib": [
+        "colorfulness",
+        "hue_count",
+        "ke_edge_distr",
+        "saliencia"
+      ],
+      "verdade": [
+        "colorfulness",
+        "hue_count",
+        "ke_edge_distr"
+      ],
+      "falsos_positivos": [
+        "saliencia"
+      ],
+      "perdidos": [],
+      "fracao_mantida": 0.82,
+      "corte_recusado": false
+    },
+    {
+      "fonte": "korolkov2025keyframe",
+      "achou_sem_bib": [
+        "exposicao",
+        "laplacian_var",
+        "nitidez/blur"
+      ],
+      "verdade": [
+        "laplacian_var",
+        "nitidez/blur"
+      ],
+      "falsos_positivos": [
+        "exposicao"
+      ],
+      "perdidos": [],
+      "fracao_mantida": 0.918,
+      "corte_recusado": false
+    },
+    {
+      "fonte": "qaroush2025diversity",
+      "achou_sem_bib": [
+        "colorfulness",
+        "sobel/gradiente"
+      ],
+      "verdade": [
+        "colorfulness",
+        "entropia",
+        "saliencia",
+        "sobel/gradiente"
+      ],
+      "falsos_positivos": [],
+      "perdidos": [
+        "entropia",
+        "saliencia"
+      ],
+      "fracao_mantida": 0.923,
+      "corte_recusado": false
+    },
+    {
+      "fonte": "huang2024aesthetic",
+      "achou_sem_bib": [
+        "estetica",
+        "exposicao"
+      ],
+      "verdade": [
+        "exposicao"
+      ],
+      "falsos_positivos": [
+        "estetica"
+      ],
+      "perdidos": [],
+      "fracao_mantida": 0.81,
+      "corte_recusado": false
+    },
+    {
+      "fonte": "hasler2003colorfulness",
+      "achou_sem_bib": [
+        "colorfulness"
+      ],
+      "verdade": [
+        "colorfulness"
+      ],
+      "falsos_positivos": [],
+      "perdidos": [],
+      "fracao_mantida": 0.923,
+      "corte_recusado": false
+    },
+    {
+      "fonte": "gygli2014creating",
+      "achou_sem_bib": [
+        "colorfulness",
+        "estetica"
+      ],
+      "verdade": [
+        "colorfulness",
+        "estetica",
+        "ke_edge_distr"
+      ],
+      "falsos_positivos": [],
+      "perdidos": [
+        "ke_edge_distr"
+      ],
+      "fracao_mantida": 0.912,
+      "corte_recusado": false
+    },
+    {
+      "fonte": "yang2024keyframe",
+      "achou_sem_bib": [
+        "entropia",
+        "glcm"
+      ],
+      "verdade": [
+        "glcm"
+      ],
+      "falsos_positivos": [
+        "entropia"
+      ],
+      "perdidos": [],
+      "fracao_mantida": 0.852,
+      "corte_recusado": false
+    },
+    {
+      "fonte": "cakmak2025tripss",
+      "achou_sem_bib": [
+        "colorfulness",
+        "laplacian_var"
+      ],
+      "verdade": [],
+      "falsos_positivos": [
+        "colorfulness",
+        "laplacian_var"
+      ],
+      "perdidos": [],
+      "fracao_mantida": 0.619,
+      "corte_recusado": false
+    },
+    {
+      "fonte": "xu2024property",
+      "achou_sem_bib": [
+        "colorfulness",
+        "ke_edge_distr"
+      ],
+      "verdade": [
+        "colorfulness"
+      ],
+      "falsos_positivos": [
+        "ke_edge_distr"
+      ],
+      "perdidos": [],
+      "fracao_mantida": 0.857,
+      "corte_recusado": false
+    },
+    {
+      "fonte": "jeong2017static",
+      "achou_sem_bib": [],
+      "verdade": [],
+      "falsos_positivos": [],
+      "perdidos": [],
+      "fracao_mantida": 0.879,
+      "corte_recusado": false
+    },
+    {
+      "fonte": "mittal2012brisque",
+      "achou_sem_bib": [
+        "nitidez/blur"
+      ],
+      "verdade": [],
+      "falsos_positivos": [
+        "nitidez/blur"
+      ],
+      "perdidos": [],
+      "fracao_mantida": 1.0,
+      "corte_recusado": false
+    },
+    {
+      "fonte": "mittal2013niqe",
+      "achou_sem_bib": [
+        "nitidez/blur"
+      ],
+      "verdade": [],
+      "falsos_positivos": [
+        "nitidez/blur"
+      ],
+      "perdidos": [],
+      "fracao_mantida": 1.0,
+      "corte_recusado": false
+    },
+    {
+      "fonte": "swain1991colorindexing",
+      "achou_sem_bib": [],
+      "verdade": [],
+      "falsos_positivos": [],
+      "perdidos": [],
+      "fracao_mantida": 0.9,
+      "corte_recusado": false
+    },
+    {
+      "fonte": "kishi2019correlation",
+      "achou_sem_bib": [],
+      "verdade": [],
+      "falsos_positivos": [],
+      "perdidos": [],
+      "fracao_mantida": 0.846,
+      "corte_recusado": false
+    },
+    {
+      "fonte": "taylor2017superresolution",
+      "achou_sem_bib": [],
+      "verdade": [],
+      "falsos_positivos": [],
+      "perdidos": [],
+      "fracao_mantida": 1.0,
+      "corte_recusado": false
+    },
+    {
+      "fonte": "wu2026multimodal_gcl",
+      "achou_sem_bib": [],
+      "verdade": [],
+      "falsos_positivos": [],
+      "perdidos": [],
+      "fracao_mantida": 0.943,
+      "corte_recusado": false
+    },
+    {
+      "fonte": "zhu2014keyobservation",
+      "achou_sem_bib": [],
+      "verdade": [],
+      "falsos_positivos": [],
+      "perdidos": [],
+      "fracao_mantida": 0.849,
+      "corte_recusado": false
+    },
+    {
+      "fonte": "singh2026subevent",
+      "achou_sem_bib": [
+        "laplacian_var"
+      ],
+      "verdade": [
+        "laplacian_var"
+      ],
+      "falsos_positivos": [],
+      "perdidos": [],
+      "fracao_mantida": 0.772,
+      "corte_recusado": false
+    },
+    {
+      "fonte": "kannao2020semantic",
+      "achou_sem_bib": [
+        "ke_edge_distr"
+      ],
+      "verdade": [
+        "ke_edge_distr"
+      ],
+      "falsos_positivos": [],
+      "perdidos": [],
+      "fracao_mantida": 0.876,
+      "corte_recusado": false
+    },
+    {
+      "fonte": "wang2012tag_localization",
+      "achou_sem_bib": [
+        "ke_edge_distr"
+      ],
+      "verdade": [],
+      "falsos_positivos": [
+        "ke_edge_distr"
+      ],
+      "perdidos": [],
+      "fracao_mantida": 0.728,
+      "corte_recusado": false
+    }
+  ],
+  "cortes": [
+    {
+      "fonte": "ke2006highlevel",
+      "fracao_mantida": 0.923,
+      "recusado": false
+    },
+    {
+      "fonte": "srinivas2016rank",
+      "fracao_mantida": 0.82,
+      "recusado": false
+    },
+    {
+      "fonte": "korolkov2025keyframe",
+      "fracao_mantida": 0.918,
+      "recusado": false
+    },
+    {
+      "fonte": "qaroush2025diversity",
+      "fracao_mantida": 0.923,
+      "recusado": false
+    },
+    {
+      "fonte": "huang2024aesthetic",
+      "fracao_mantida": 0.81,
+      "recusado": false
+    },
+    {
+      "fonte": "hasler2003colorfulness",
+      "fracao_mantida": 0.923,
+      "recusado": false
+    },
+    {
+      "fonte": "gygli2014creating",
+      "fracao_mantida": 0.912,
+      "recusado": false
+    },
+    {
+      "fonte": "yang2024keyframe",
+      "fracao_mantida": 0.852,
+      "recusado": false
+    },
+    {
+      "fonte": "cakmak2025tripss",
+      "fracao_mantida": 0.619,
+      "recusado": false
+    },
+    {
+      "fonte": "xu2024property",
+      "fracao_mantida": 0.857,
+      "recusado": false
+    },
+    {
+      "fonte": "jeong2017static",
+      "fracao_mantida": 0.879,
+      "recusado": false
+    },
+    {
+      "fonte": "mittal2012brisque",
+      "fracao_mantida": 1.0,
+      "recusado": false
+    },
+    {
+      "fonte": "mittal2013niqe",
+      "fracao_mantida": 1.0,
+      "recusado": false
+    },
+    {
+      "fonte": "swain1991colorindexing",
+      "fracao_mantida": 0.9,
+      "recusado": false
+    },
+    {
+      "fonte": "kishi2019correlation",
+      "fracao_mantida": 0.846,
+      "recusado": false
+    },
+    {
+      "fonte": "taylor2017superresolution",
+      "fracao_mantida": 1.0,
+      "recusado": false
+    },
+    {
+      "fonte": "wu2026multimodal_gcl",
+      "fracao_mantida": 0.943,
+      "recusado": false
+    },
+    {
+      "fonte": "zhu2014keyobservation",
+      "fracao_mantida": 0.849,
+      "recusado": false
+    },
+    {
+      "fonte": "singh2026subevent",
+      "fracao_mantida": 0.772,
+      "recusado": false
+    },
+    {
+      "fonte": "kannao2020semantic",
+      "fracao_mantida": 0.876,
+      "recusado": false
+    },
+    {
+      "fonte": "wang2012tag_localization",
+      "fracao_mantida": 0.728,
+      "recusado": false
+    }
+  ]
+}

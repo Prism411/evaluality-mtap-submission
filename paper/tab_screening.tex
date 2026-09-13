@@ -5,7 +5,7 @@ mean and number of KADID types above .50. Generalization is the lowest signed
 $\rho^{*}$ over all unseen databases. Floor is normalized agreement with Q-Align
 on the common 42 clusters and its topic-block lower bound (L). Sup.: K =
 KonIQ-10k opinion training; L = LIVE; OU = opinion-unaware; -- = no opinion
-training; M = multi-database mixture. Q-Align is a reference, not a candidate.}
+training; M = multi-database mixture. A dagger marks a value measured on a database the method trained on: Q-Align's mixture includes KADID-10k. Q-Align is a reference, not a candidate.}
 \label{tab:screening}
 \scriptsize
 \setlength{\tabcolsep}{1.7pt}
@@ -29,7 +29,7 @@ NIQE & OU & \poldown & .607; 19 & .368 & .281; .012 & no \\
 CLIP-IQA & OU & \polup & .645; 20 & .501 & .371; .045 & no \\
 \rowcolor{catbovw!12}SIFT+BoVW (deployed) & -- & \polup & $-.077$; 5 & $-.445$ & .056; $-.308$ & no \\
 \midrule
-\rowcolor{rowlight}Q-Align & M & \polup & .880; 23 & -- & -- & reference \\
+\rowcolor{rowlight}Q-Align & M & \polup & .880$^{\dagger}$; 23$^{\dagger}$ & -- & -- & reference \\
 \bottomrule
 \end{tabular}
 \end{table}

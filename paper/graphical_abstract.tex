@@ -24,6 +24,8 @@
 \definecolor{phase4color}{HTML}{E67E22}
 \definecolor{phase5color}{HTML}{B03A2E}
 
+%% ⭐ as macros medidas, para nenhum numero desta peca ser digitado a mao
+\input{regras_publicadas}
 \begin{document}
 \begin{tikzpicture}[
   font=\sffamily,
@@ -51,12 +53,12 @@
 
 %% ---------- Stage 1: the input --------------------------------------------
 \node[ttl, anchor=west] at (0,3.75) {Redundancy cluster};
-\node[seg]    (sg1) at (1.45,3.05) {Band \ \ 0:00--0:12};
-\node[seg, below=0.16cm of sg1] (sg2) {Record \ 4:24--7:32};
-\node[seg, below=0.16cm of sg2] (sg3) {CNN \ \ \ 1:12--1:37};
-\node[font=\sffamily\scriptsize, text=black!60, text width=3.1cm, align=center,
+\node[seg]    (sg1) at (1.45,3.05) {Band \ \ \ \ 0:00--1:34};
+\node[seg, below=0.16cm of sg1] (sg2) {J.\,Nacional \ 0:00--0:51};
+\node[seg, below=0.16cm of sg2] (sg3) {Record \ \ 0:31--0:49};
+\node[font=\sffamily\scriptsize, text=black!60, text width=3.3cm, align=center,
       below=0.24cm of sg3]
-  {candidates the pipeline treats\\as redundant, and exactly one\\enters the summary};
+  {one real cluster, \texttt{catedral\_notre\_dame};\\the deployed operation keeps the\\Record segment and an eligible\\model keeps the J.\,Nacional one};
 
 %% ---------- Stage 2: the two operations ------------------------------------
 \node[ttl, anchor=west] at (4.35,3.75) {Scoring operation};
@@ -120,15 +122,16 @@
       text width=5.6cm, align=left, font=\sffamily\scriptsize, anchor=north west,
       inner sep=7pt] (take) at (18.4,3.35) {%
   \textcolor{perf5}{\textbf{Take-away}}\\[3pt]
-  The score factors as
-  $\mathrm{score} = D \cdot \overline{\mathrm{idf}}$: a descriptor
-  \textbf{count} times a \textbf{mean IDF weight}. Which channel governs depends
-  on the extractor and distribution; neither predicts quality reliably in the
-  \textbf{evaluated configurations}.\\[4pt]
-  Replacing the descriptor with 19 CNN extractors does not repair the
-  \textbf{aggregation}.\\[4pt]
-  Three still-image methods clear the operational screen, stable over
-  generalization cuts from $0.60$ to $0.65$.};
+  \textbf{The class, not one operation.} \resRuidoC{} of the \fontesDaLiteratura{}
+  literature-derived heuristics prefer the degraded copy under white noise, and none is
+  eligible under the screening rule.\\[4pt]
+  \textbf{The mechanism.} The deployed score factors as
+  $\mathrm{score} = D \cdot \overline{\mathrm{idf}}$, a descriptor \textbf{count} times a
+  \textbf{mean IDF weight}; count carries the sign in \mecConcordam{} of the 800 pairs, and
+  19 CNN extractors do not repair the aggregation.\\[4pt]
+  \textbf{The consequence.} Swapping in an eligible model changes \casCompleta{} of the 42
+  selected segments. The \resElegiveis{} models that clear the screen are eligible
+  \emph{under the stated rule}, which is a verdict and not a ranking.};
 
 %% ---------- Bottom strip: the four phases ----------------------------------
 \draw[headerblue!25, line width=0.8pt] (0,-0.85) -- (24,-0.85);

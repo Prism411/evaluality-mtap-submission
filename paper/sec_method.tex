@@ -3,7 +3,10 @@
 The object of the audit is a class of operations, not a system. Fifteen visual operations that the summarization literature applies at the selection stage,
 plus ITU-T spatial information as a diagnostic control, are reimplemented from the
 equations their source works publish, fifteen of them closed-form and one requiring
-a learned saliency map, and every one of them is put through a common protocol
+a saliency map, for which the source prescribes a learned backbone and this audit
+substitutes the spectral-residual map~\citep{hou2007spectral} while keeping the operation
+the source defines, the salient fraction of frame area; \textbf{that row is an adaptation
+and not a reproduction}. Every one of them is put through a common protocol
 (Fig.~\ref{fig:overview}). Ten no-reference quality models and one deployed pipeline
 component are carried through that protocol, with the tests available for each
 implementation recorded in the coverage matrix, so that the audited operations have a contemporary quality-assessment reference.
@@ -83,7 +86,7 @@ reported alongside them, which is why the tables show seventeen rows where both 
 \draw[flow] (d.east)--(e.west);
 
 \node[operation] (op) at (0,3.32)
-  {\textcolor{catbovw}{\textbf{WHAT IS AUDITED}}\enspace the operations the field puts in
+  {\textcolor{catbovw}{\textbf{WHAT IS AUDITED}}\enspace the operations the audited works put in
    this slot \emph{as a quality filter}\\[1pt]
    \textbf{15} from \textbf{11} source works, \textbf{+1} from ITU-T, plus the \textbf{19}
    composites the literature publishes\\[1pt]
@@ -115,13 +118,45 @@ explicit, which is what makes the slot testable. Middle: what is
 audited is the set of operations the summarization literature puts in that slot as a quality filter, fifteen from eleven
 source works plus ITU-T spatial information as a diagnostic sixteenth, and the nineteen
 composites the literature publishes, not the pipeline itself. Bottom: the four tests, applied to the operations, to ten no-reference models and to the
-deployed case, with per-test coverage recorded in Table~S17 because it is not uniform. The
+deployed case, with per-test coverage recorded in Table~S19 because it is not uniform. The
 provenance audit that produces the middle inventory is the fifth evidence block. All
 other pipeline stages remain fixed.}
 \label{fig:overview}
 \end{figure}
 
-\subsection{Provenance audit and reproduction of the published rules}\label{sec:prov}
+\subsection{Identifying the operations, and reproducing the published rules}\label{sec:prov}
+
+\textbf{The operations audited here were not assembled from a
+database query}, and the population of inference is stated accordingly. They come from a curated archive of
+\acvPdfs{} full-text PDFs on video and multi-document summarization and on image-quality
+assessment, searched on 5 September 2026 with \acvTermos{} patterns, one per operation
+family. Each pattern is a specific expression rather than a bare word, so that
+\emph{contrast} on its own never matches; reference lists are cut before matching, and one
+term is admitted only when its context window carries the standard that defines it.
+\textbf{The search instrument was itself measured against a manual reading of \varrN{}
+articles}: it recovers \varrCob{} of the operations present, and \varrPrec{} of what it
+returns is correct. The residual bias runs in favour of the instrument, because the same
+author performed both the reading and the inventory, so the recall figure is an upper
+estimate. Screening then applied one stated criterion, fixed before the measurements of
+Section~\ref{sec:controlled}: an operation enters only if its source declares a direction
+for its own statistic and scores a single frame. \textbf{\triTriadas{} of the \triMapa{}
+mapped operations meet it}, and the \triForaComDirecao{} that declare a direction and stay
+out are sequence-level rather than frame-level.
+
+Two consequences follow, and both are reported rather than argued away. \textbf{Every count
+in this article is a count within that archive}, not within the summarization literature as
+a whole; no claim of exhaustive coverage is made, and Table~S31 of the supplement states
+the protocol and its measured accuracy in full. And the operations screened in cover
+\cobMencoes{} of the \cobTotal{} operation mentions the archive contains: of the
+\cobFora{} outside, \cobNaoTriavel{} are not screenable by any rule at all, because the
+source declares no direction (\cobSemDirecao{}) or gives no combination rule
+(\cobSemRegra{}). \textbf{That residue is under-specification in the sources}, and it
+is the same property that would stop an independent reader from reimplementing those
+operations. Within the same archive, \acvSemDedicado{} of the \acvPdfs{} works cite no
+dedicated no-reference quality model, and \acvUsamOperacao{} of those use one of the
+audited operations in its place, which is a floor because a work that computes an
+operation without naming it is not counted. \textbf{This literature does measure technical quality}, with terms
+whose behaviour under degradation had not been tested.
 
 Each operation was traced to the work the literature cites for it, and three things were
 recorded from that work rather than inferred: the objective it states, the role the
@@ -129,7 +164,12 @@ operation has inside that objective, and a verbatim excerpt fixing both. One cri
 applied to all sixteen. \textbf{An operation is a stand-alone index in its source when it
 alone produces the number that orders the candidates there}; it is not when it enters as a
 term of a sum, a feature of a classifier, one block of a spliced representation vector, or
-one signal in a filter that discards frames. Where a source
+one signal in a filter that discards frames.
+\textbf{The criterion applies to composites exactly as to single attributes}: the
+five-attribute composite of \citet{srinivas2016rank} is a per-frame quality score in its
+source, the average of its five terms, yet the number that orders candidates there is a
+weighted sum in which that score is one term, so the composite is not stand-alone either.
+Where a source
 names a numbered objective, the equation is cited so that each term's membership is
 checkable. \textbf{By that criterion \autAutonomas{} of the \autVerificadas{} is a
 stand-alone index in its source}, the Hasler colourfulness expression, and it indexes
@@ -329,7 +369,7 @@ reference images with seed 42.
 The broadcast experiment supplies a second controlled test. Eight degradations
 are applied at five levels: Gaussian blur, white noise, darkening, JPEG
 compression, low-bitrate H.264 transcoding, a
-$720\mathrm{p}\rightarrow480\mathrm{p}\rightarrow720\mathrm{p}$ round trip,
+downscale-and-restore round trip at five factors (Table~S2),
 horizontal motion blur and progressive desaturation. The last uses
 $S'_{\ell}=\operatorname{clip}(\alpha_{\ell}S,0,255)$ with
 $\alpha_{\ell}\in\{0.75,0.55,0.35,0.18,0.05\}$. H.264 is applied to the frame
@@ -339,16 +379,24 @@ Twenty of the 83 broadcast segments are sampled without replacement by a seeded
 simple random draw (seed 42); they represent 13 of the 19 operational topics
 (Table~S2). Pairing each unmodified segment with every degradation and level gives
 $20\times8\times5=800$ binary decisions. The unmodified member is the construction-defined higher-fidelity signal.
-Accuracy and paired differences are block-bootstrapped by segment ($10^4$ resamples, seed
-42), because the 40 pairs inside a segment share content and are not independent
-observations. \textbf{Per-cell significance uses the same unit}: an exact sign-flip
-randomization over the 20 segments, whose null enumerates all $2^{20}$ block sign
-assignments, with Holm over the 120 operation--type tests. \textbf{Disagreement counts
-between the complete-operation and matched-input regimes are compared by an exact McNemar
-test} over the 42 paired clusters. \textbf{Primary inference uses the dependence-aware unit each design implies}: the
-reference image on KADID-10k, the broadcast segment on the constructed pairs, and the news
-topic on the application. Table~S27 reports the alternative-unit analyses as sensitivity
-checks. A second design correlates score with degradation
+Observations are nested, and the unit is therefore reported per analysis rather than once
+for the design: strict accuracy is block-bootstrapped by topic and the paired score
+difference by segment ($10^4$ resamples, seed 42), because the 40 pairs inside a segment
+share content and the 20 segments come from 13 topics. \textbf{Per-cell significance uses
+an exact sign-flip randomization over the 20 segments}, whose null enumerates all $2^{20}$
+block sign assignments, with Holm over the 120 operation--type tests. \textbf{Disagreement
+counts between the complete-operation and matched-input regimes are compared by an exact
+McNemar test} over the 42 paired clusters and, because those clusters come from 19 topics
+and McNemar treats them as independent, by the same block sign-flip over topics, which
+enumerates all $\mcnAtrib{}$ assignments the discordant pairs admit across
+\mcnBlocos{} topics. \textbf{Primary inference uses the dependence-aware unit each design
+implies}: the reference image on KADID-10k, the topic on constructed-pair accuracy, the
+segment on the paired difference, and the news topic on the application. \textbf{Each unit follows from the
+design rather than from agreement with a published bound}: observations that share content
+or a source enter the same block, which is the segment for pairs cut from one segment and
+the topic for clusters drawn from one news topic. Table~S27 additionally recomputes every
+interval under the rival unit; \textbf{that comparison is a verification, not a reason for
+the choice}, and it identifies which implementation produced a published bound. A second design correlates score with degradation
 level within each segment--type pair. Overlay strata, the complete registered
 prediction audit and parameters are reported in Tables~S2 and S12 and the
 reproducibility archive. Ties count as neither correct nor incorrect and remain
@@ -422,5 +470,9 @@ environment after ten warm-up and sixty timed iterations. The archive includes
 the scoring scripts, derived results, cluster definitions, annotations, seeds
 and environment information; redistribution of source news video remains
 subject to the broadcasters' terms. The final method inventory and analysis
-archive were frozen on 23 August 2026. The archive reconstructs the reported statistics from
+archive were frozen on 23 August 2026. \textbf{Two dates bound different stages}: the operation
+inventory, the scoring runs and the analysis archive were frozen on that date, and the
+archive search of Section~\ref{sec:prov} was performed afterwards, on 5 September 2026, to
+document how the already-frozen inventory relates to what the archive contains. \textbf{It
+added no operation and changed no measurement}; its counts describe coverage. The archive reconstructs the reported statistics from
 hashed score caches and exposes the inference settings.

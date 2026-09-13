@@ -1,0 +1,34 @@
+{
+  "_o_que_e": "⛔⛔ A `ke_edge_distribution` refeita com o MAPA LAPLACIANO que a fonte especifica, contra a versao com Sobel que produziu os numeros do artigo.",
+  "unidade_de_reamostragem": "imagem do KADID-10k",
+  "n_imagens": 10125,
+  "o_que_a_fonte_especifica": "Laplaciano 3x3 alpha=0.2, abs, por canal RGB com media entre canais, resize 100x100, soma normalizada a 1 (ke2006highlevel, sec. 4.1)",
+  "o_que_o_artigo_rodou": "magnitude de Sobel sobre o cinza, tamanho nativo, sem normalizar",
+  "a_formula_e_a_mesma": "1 - wx*wy, com massa de 98 %",
+  "PRE_CONDICAO": {
+    "sensibilidade_da_versao_sobel": 0.2984,
+    "tipos_acima_de_0_50": 9,
+    "publicado": {
+      "media": 0.298,
+      "tipos": 9
+    },
+    "reproduz_o_publicado": true
+  },
+  "COM_O_MAPA_DA_FONTE": {
+    "sensibilidade": 0.2715,
+    "tipos_acima_de_0_50": 7,
+    "delta_na_sensibilidade": -0.0269,
+    "delta_nos_tipos": -2
+  },
+  "concordancia_entre_as_duas": {
+    "spearman_escore_a_escore": 0.8759,
+    "n_pares": 10125
+  },
+  "O_VEREDITO_DA_PORTA": {
+    "limiar": "media >= 0,50 E >= 15 de 25 tipos",
+    "sobel_passa": false,
+    "fonte_passa": false,
+    "o_veredito_muda": false
+  },
+  "leitura": "Com o mapa da fonte a sensibilidade vai de 0.298 para 0.271 (-0.027) e os tipos de 9 para 7. O veredito da porta NAO muda. As duas versoes correlacionam 0.876 entre si. ⛔ Seja qual for o delta, a linha nao pode continuar a ser descrita como reproducao do mapa da fonte: ou se adota este, ou se declara a adaptacao."
+}

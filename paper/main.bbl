@@ -1,4 +1,4 @@
-\begin{thebibliography}{59}
+\begin{thebibliography}{70}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{{#1}}
 \providecommand{\urlprefix}{URL }
@@ -26,6 +26,11 @@ Apostolidis E, Adamantidou E, Metsai AI, et~al (2021) Video summarization using
   deep neural networks: A survey. Proceedings of the IEEE 109(11):1838--1863.
   \doi{10.1109/JPROC.2021.3117472}
 
+\bibitem[{Bano and Cavallaro(2016)}]{bano2016vicomp}
+Bano S, Cavallaro A (2016) Vicomp: composition of user-generated videos.
+  Multimedia Tools and Applications 75(12):7187--7210.
+  \doi{10.1007/s11042-015-2641-2}
+
 \bibitem[{Barbieri(2021)}]{barbieri2021tese}
 Barbieri TTdS (2021) Sumariza\c{c}\~{a}o autom\'{a}tica multiv\'{i}deo baseada
   em estrat\'{e}gias humanas. PhD thesis, Instituto de Ci\^{e}ncias
@@ -37,6 +42,11 @@ Barbieri TTS, Goularte R (2021) Content selection criteria for news multi-video
   summarization based on human strategies. International Journal on Digital
   Libraries 22:1--14. \doi{10.1007/s00799-020-00281-9}
 
+\bibitem[{Behzadpour and Ghanbari(2023)}]{behzadpour2023precision}
+Behzadpour M, Ghanbari M (2023) Improving precision of objective image/video
+  quality meters. Multimedia Tools and Applications 82(3):4465--4478.
+  \doi{10.1007/s11042-022-13416-8}
+
 \bibitem[{Cakmak et~al.(2025)Cakmak, Agarwal, and Poudel}]{cakmak2025tripss}
 Cakmak MC, Agarwal N, Poudel D (2025) {TriPSS}: A tri-modal keyframe extraction
   framework using perceptual, structural and semantic representations.
@@ -46,6 +56,14 @@ Cakmak MC, Agarwal N, Poudel D (2025) {TriPSS}: A tri-modal keyframe extraction
 Cao P, Li D, Ma K (2024) Image quality assessment: Integrating model-centric
   and data-centric approaches. In: Proc. Conference on Parsimony and Learning
   (CPAL), pp 529--541, arXiv:2207.14769
+
+\bibitem[{de~Carvalho Cayres~Pinto et~al.(2026)de~Carvalho Cayres~Pinto,
+  Martins~da Silva~Nunes, Duarte Vilela Reis~de Oliveira, and Rodríguez
+  Carneiro~Gomes}]{pinto2026tonemapped}
+de~Carvalho Cayres~Pinto P, Martins~da Silva~Nunes G, Duarte Vilela Reis~de
+  Oliveira F, et~al (2026) Deep self-supervised learning algorithm applied to
+  tone-mapped image quality assessment. Multimedia Tools and Applications
+  85(6). \doi{10.1007/s11042-026-21697-6}
 
 \bibitem[{Chen and Mo(2022)}]{chen2022pyiqa}
 Chen C, Mo J (2022) {IQA-PyTorch}: {PyTorch} toolbox for image quality
@@ -62,6 +80,13 @@ Cirne MVM, Pedrini H (2014) Summarization of videos by image quality
   assessment. In: Progress in Pattern Recognition, Image Analysis, Computer
   Vision, and Applications, Lecture Notes in Computer Science, vol 8827.
   Springer, pp 901--908, \doi{10.1007/978-3-319-12568-8_109}
+
+\bibitem[{Cricri et~al.(2014)Cricri, Dabov, Curcio, Mate, and
+  Gabbouj}]{cricri2014multimodal}
+Cricri F, Dabov K, Curcio IDD, et~al (2014) Multimodal extraction of events and
+  of information about the recording activity in user generated videos.
+  Multimedia Tools and Applications 70(1):119--158.
+  \doi{10.1007/s11042-012-1085-1}
 
 \bibitem[{Cronbach and Meehl(1955)}]{cronbach1955construct}
 Cronbach LJ, Meehl PE (1955) Construct validity in psychological tests.
@@ -105,6 +130,11 @@ Hosu V, Lin H, Sziranyi T, et~al (2020) {KonIQ-10k}: An ecologically valid
   Transactions on Image Processing 29:4041--4056.
   \doi{10.1109/TIP.2020.2967829}
 
+\bibitem[{Hou and Zhang(2007)}]{hou2007spectral}
+Hou X, Zhang L (2007) Saliency detection: A spectral residual approach. In:
+  2007 IEEE Conference on Computer Vision and Pattern Recognition, pp 1--8,
+  \doi{10.1109/CVPR.2007.383267}
+
 \bibitem[{Huang et~al.(2024)Huang, Wu, Pang, and Xie}]{huang2024aesthetic}
 Huang H, Wu Z, Pang G, et~al (2024) An aesthetic-driven approach to
   unsupervised video summarization. IEEE Access 12.
@@ -125,11 +155,22 @@ Huang X, Li C, Bentaleb A, et~al (2023) {XGC-VQA}: A unified video quality
   for statistical evaluation of objective quality prediction models. ITU-T
   Recommendation P.1401
 
+\bibitem[{Isogawa et~al.(2019)Isogawa, Mikami, Takahashi, and
+  Kimata}]{isogawa2019inpainted}
+Isogawa M, Mikami D, Takahashi K, et~al (2019) Image quality assessment for
+  inpainted images via learning to rank. Multimedia Tools and Applications
+  78(2):1399--1418. \doi{10.1007/s11042-018-6186-z}
+
 \bibitem[{Jeong et~al.(2017)Jeong, Yoo, and Cho}]{jeong2016static}
 Jeong Dj, Yoo HJ, Cho NI (2017) A static video summarization method based on
   the sparse coding of features and representativeness of frames. EURASIP
   Journal on Image and Video Processing 2017(1):1.
   \doi{10.1186/s13640-016-0122-9}
+
+\bibitem[{Jia and Zhang(2018)}]{jia2018saliency}
+Jia S, Zhang Y (2018) Saliency-based deep convolutional neural network for
+  no-reference image quality assessment. Multimedia Tools and Applications
+  77(12):14859--14872. \doi{10.1007/s11042-017-5070-6}
 
 \bibitem[{Ke et~al.(2021)Ke, Wang, Wang, Milanfar, and Yang}]{ke2021musiq}
 Ke J, Wang Q, Wang Y, et~al (2021) {MUSIQ}: Multi-scale image quality
@@ -151,6 +192,12 @@ Krasula L, Fliegel K, Le~Callet P, et~al (2016) On the accuracy of objective
   image and video quality models: New methodology for performance evaluation.
   In: Proc. 8th International Conference on Quality of Multimedia Experience
   (QoMEX), \doi{10.1109/QoMEX.2016.7498936}
+
+\bibitem[{Leszczuk(2014)}]{leszczuk2014taskbased}
+Leszczuk M (2014) Optimising task-based video quality: A journey from
+  subjective psychophysical experiments to objective quality optimisation.
+  Multimedia Tools and Applications 68(1):41--58.
+  \doi{10.1007/s11042-012-1161-6}
 
 \bibitem[{Li and Merialdo(2010)}]{li2010videommr}
 Li Y, Merialdo B (2010) Multi-video summarization based on {Video-MMR}. In:
@@ -180,6 +227,17 @@ Oquab M, Darcet T, Moutakanni T, et~al (2024) {DINOv2}: Learning robust visual
   features without supervision. Transactions on Machine Learning Research
   (TMLR) ArXiv:2304.07193
 
+\bibitem[{Oszust(2017)}]{oszust2017lasso}
+Oszust M (2017) Image quality assessment with lasso regression and pairwise
+  score differences. Multimedia Tools and Applications 76(11):13255--13270.
+  \doi{10.1007/s11042-016-3755-x}
+
+\bibitem[{Otani et~al.(2019)Otani, Nakashima, Rahtu, and
+  Heikkilä}]{otani2019rethinking}
+Otani M, Nakashima Y, Rahtu E, et~al (2019) Rethinking the evaluation of video
+  summaries. In: 2019 IEEE/CVF Conference on Computer Vision and Pattern
+  Recognition (CVPR), pp 7588--7596, \doi{10.1109/CVPR.2019.00778}
+
 \bibitem[{Panda and Roy-Chowdhury(2017)}]{panda2017collaborative}
 Panda R, Roy-Chowdhury AK (2017) Collaborative summarization of topic-related
   videos. In: Proc. CVPR, pp 4274--4283, \doi{10.1109/CVPR.2017.455}
@@ -201,6 +259,10 @@ Qaroush A, Daoud A, Alsafadi E, et~al (2025) Maximum relevant diversity aware,
   multi-video summarization using clustering and evolutionally multi-objective
   optimization. Expert Systems with Applications 292:128631.
   \doi{10.1016/j.eswa.2025.128631}
+
+\bibitem[{Radford et~al.(2021)Radford, Kim, Hallacy et~al.}]{radford2021clip}
+Radford A, Kim JW, Hallacy C, et~al (2021) Learning transferable visual models
+  from natural language supervision. In: Proc. ICML, pp 8748--8763, pMLR 139
 
 \bibitem[{Robitza et~al.(2021)Robitza, Rao, G{\"o}ring, and
   Raake}]{robitza2021siti}

@@ -49,7 +49,7 @@ paired coverage score below it, and their median is \tipMediana{}.
 \begin{table}[!ht]
 \centering
 \caption{Strict accuracy (\%) on 800 unmodified--degraded broadcast pairs: 20
-segments, eight types and five levels. Values below the 50\% chance floor are systematic inversions. Ties remain in the denominator.}
+segments, eight types and five levels. Values below the 50\% chance floor are systematic inversions, and are set in bold as well as in colour, so no reading of this table depends on colour alone. Ties remain in the denominator.}
 \label{tab:constructed}
 \scriptsize
 \setlength{\tabcolsep}{1.9pt}
@@ -70,7 +70,7 @@ ARNIQA & 91 & 100 & 99 & 98 & 100 & 61 & 82 & 98 & 91.1 \\
 DBCNN & 84 & 97 & 92 & 97 & 95 & 92 & 85 & 81 & 90.4 \\
 NIQE & 100 & 100 & 98 & 97 & 98 & \textcolor{accentred}{\textbf{0}} & 100 & 96 & 86.1 \\
 CLIP-IQA$+$ & 76 & 99 & 79 & 100 & 91 & 87 & 84 & 64 & 85.0 \\
-HyperIQA & 47 & 100 & 100 & 100 & 100 & \textcolor{accentred}{\textbf{30}} & 100 & 100 & 84.6 \\
+HyperIQA & \textcolor{accentred}{\textbf{47}} & 100 & 100 & 100 & 100 & \textcolor{accentred}{\textbf{30}} & 100 & 100 & 84.6 \\
 CLIP-IQA & 58 & 100 & 83 & 100 & 92 & 91 & 55 & 76 & 81.9 \\
 BRISQUE & 100 & 100 & 100 & 99 & 100 & \textcolor{accentred}{\textbf{0}} & 67 & 80 & 80.8 \\
 \bottomrule
@@ -238,7 +238,7 @@ Korolkov module is stated to penalize over-exposed frames, but the mean luminanc
 specifies rises monotonically with exposure and enters the module with a positive weight,
 so brighter always scores higher. \textbf{In both cases the expression contradicts the
 property the same paragraph claims for it}, and in both the contradiction is visible in the
-equation before any measurement (Table~S19 of the supplement).
+equation before any measurement (Table~S22 of the supplement).
 
 \subsection{External validation and screening}\label{sec:screen_results}
 
@@ -314,7 +314,13 @@ visual-selection operation exchanged, \textbf{do the operations pick the same se
 They do not. Fourteen operations for which a downstream choice is defined produce eleven
 distinct summaries over the same 42 redundancy clusters. Only two groups coincide, and neither by agreement: the three brightness variants compute
 the same quantity under different names, and the two colourfulness implementations are the
-same Hasler expression.
+same Hasler expression. That second identity is exact, and so is one more inside the
+audited inventory, where a further operation is the mean of three others: counted over the
+fifteen audited operations rather than over the fourteen exchanged here, \textbf{the raw
+score matrix has rank \effPosto{}, with an effective \effMeff{} independent directions
+among the operations}. \textbf{That is a statement about dependence and not about the
+tested family}: the Holm correction of Section~\ref{sec:controlled} is applied to the 120
+operation--type comparisons actually made, and is not relaxed to \effMeff{}.
 \textbf{In every one of the 42 clusters the fourteen select all of its members},
 including the \escGrandes{} clusters that hold three or four, so the mean of
 $\escMedia{}$ distinct choices per cluster is the ceiling the cluster sizes allow.
@@ -408,10 +414,13 @@ all-eight means in the table.
 \emph{Attribute borrowing} and the level of validation are what the clause closing each
 band records, read from the source itself. Of the
 \valComPdf{} works whose full text is in our archive, \valPropriedade{} test a measure against human
-judgment of the property it names, and in both the object tested is a whole:
-\citet{ke2006highlevel} evaluates the \emph{photo-quality classifier} against community
-ratings, not each of its four features alone, and \citet{hasler2003colorfulness} fits its
-\emph{colourfulness index} to a psychophysical scaling experiment. The remaining \valSoResumo{} report summary-level evaluation rather than isolated
+judgment of the property it names.
+\citet{ke2006highlevel} takes community ratings of 60{,}000 photographs as ground truth
+and reports per-feature precision--recall alongside the combined classifier, and
+\citet{hasler2003colorfulness} fits its \emph{colourfulness index} to a psychophysical
+scaling experiment. \textbf{Neither validates a single attribute as a stand-alone score of
+technical fidelity}: the per-feature curves separate professional photographs from
+snapshots, which is not the label a selection stage needs. The remaining \valSoResumo{} report summary-level evaluation rather than isolated
 validation of the visual component, and \citet{korolkov2025keyframe} fixes its weights without testing
 them; Table~S26 of the supplement gives, source by source, the excerpt that fixes each
 reading. \textbf{Summary-level evaluation does not isolate the visual component's validity as a
