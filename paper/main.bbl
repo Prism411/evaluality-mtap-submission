@@ -63,7 +63,7 @@ Cao P, Li D, Ma K (2024) Image quality assessment: Integrating model-centric
 de~Carvalho Cayres~Pinto P, Martins~da Silva~Nunes G, Duarte Vilela Reis~de
   Oliveira F, et~al (2026) Deep self-supervised learning algorithm applied to
   tone-mapped image quality assessment. Multimedia Tools and Applications
-  85(6). \doi{10.1007/s11042-026-21697-6}
+  85(6):537. \doi{10.1007/s11042-026-21697-6}
 
 \bibitem[{Chen and Mo(2022)}]{chen2022pyiqa}
 Chen C, Mo J (2022) {IQA-PyTorch}: {PyTorch} toolbox for image quality

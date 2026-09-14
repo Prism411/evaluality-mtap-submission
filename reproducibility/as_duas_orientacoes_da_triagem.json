@@ -1,0 +1,54 @@
+{
+  "_o_que_e": "⛔⛔ As duas familias da triagem usam ORIENTACOES diferentes: a S18 alinha pela direcao que a fonte declara e a S30 pelo sinal da media dos proprios dados. Isso explica por que algumas operacoes unitarias invertem de sinal entre as duas tabelas e outras nao.",
+  "unidade_de_reamostragem": "operacao unitaria presente nas duas tabelas",
+  "a_linha_do_gerador": "al = -por_tipo if np.nanmean(por_tipo) < 0 else por_tipo",
+  "por_que_a_S30_nao_usa_a_regra_da_S18": "uma combinacao de atributos nao tem direcao declarada por fonte nenhuma: a fonte declara direcao para o atributo, nao para o z-score de varios somados.",
+  "n_pares_diretos": 4,
+  "a_magnitude_e_a_mesma_em_todos": true,
+  "invertem_de_sinal": [
+    "laplacian_var",
+    "hasler_colorfulness"
+  ],
+  "ficam_iguais": [
+    "qaroush_saliencia",
+    "ke_edge_distribution"
+  ],
+  "_leitura_do_padrao": "invertem exatamente as operacoes cuja direcao declarada contraria o que os dados mostram; onde as duas concordam, o valor e o mesmo.",
+  "por_operacao": [
+    {
+      "operacao": "qaroush_saliencia",
+      "S18_alinhada_pela_fonte": 0.075,
+      "S30_orientada_pelos_dados": 0.0748,
+      "mesma_magnitude": true,
+      "sinal_inverte": false
+    },
+    {
+      "operacao": "laplacian_var",
+      "S18_alinhada_pela_fonte": -0.047,
+      "S30_orientada_pelos_dados": 0.0472,
+      "mesma_magnitude": true,
+      "sinal_inverte": true
+    },
+    {
+      "operacao": "hasler_colorfulness",
+      "S18_alinhada_pela_fonte": -0.182,
+      "S30_orientada_pelos_dados": 0.182,
+      "mesma_magnitude": true,
+      "sinal_inverte": true
+    },
+    {
+      "operacao": "ke_edge_distribution",
+      "S18_alinhada_pela_fonte": 0.298,
+      "S30_orientada_pelos_dados": 0.2984,
+      "mesma_magnitude": true,
+      "sinal_inverte": false
+    }
+  ],
+  "⭐_A_CONSEQUENCIA": {
+    "desigualdade": "|rho| >= rho_alinhado, sempre",
+    "logo": "a porta dos compostos e MAIS PERMISSIVA que a das operacoes",
+    "e_mesmo_assim": "0 de 19 compostos sao elegiveis",
+    "portanto": "a conclusao «nenhum composto elegivel» e CONSERVADORA: sob a orientacao estrita da fonte, nenhum passaria tambem."
+  },
+  "leitura": "Das 4 operacoes que aparecem nas duas tabelas, 2 invertem de sinal e 2 ficam iguais, e a MAGNITUDE e a mesma em todas: confirmado. O que muda e a orientacao, e a da S30 e a mais permissiva das duas. ⛔ A legenda anterior dizia «reportada sem alinhamento», o que nao produz esse padrao e foi retratado."
+}

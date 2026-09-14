@@ -219,8 +219,9 @@ and in neither is it the score that orders candidates.
 Jeong et al.~\citep{jeong2016static} show the same distance in another form: contrast there
 is pixel variance, but it enters a \emph{badness} beside blur and skew inside
 $a_i=d_i\sqrt{c_i+b_i+g(c_i+b_i+s_i)}$, whose leading factor is the Mahalanobis distance of
-the frame from its cluster center. \textbf{The component audited here is pixel variance on
-its own}, read in the increasing direction.
+the frame from its cluster center. \textbf{The component audited here is that grey-level
+dispersion on its own}, read in the increasing direction and computed as the standard
+deviation, which is the reading common to the two sources that state it (Table~S23).
 
 
 \subsection{Data and units of analysis}\label{sec:data}

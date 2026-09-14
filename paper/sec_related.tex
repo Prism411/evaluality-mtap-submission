@@ -37,8 +37,9 @@ summarization scores; \textbf{the selection side carries the same exposure}, whi
 an operation-level audit measures.
 
 The works audited here place that decision in three different structures, and the structure
-is what the later reading flattens. \textbf{Two combine several terms into a stand-alone frame-level score}:
-\citet{srinivas2016rank} averages five attributes into a per-frame quality score, and
+is what the later reading flattens. \textbf{Two combine several terms into a single frame-level quality score}:
+\citet{srinivas2016rank} averages five attributes into a per-frame quality score, which is
+itself one term of the weighted sum that orders frames there, and
 \citet{korolkov2025keyframe} weights sharpness and brightness as
 $0.7\,z(\mathrm{sharp})+0.3\,z(\mathrm{bright})$. \textbf{Five carry a visual term inside a
 larger objective}: \citet{qaroush2025diversity} distributes four terms across visual
