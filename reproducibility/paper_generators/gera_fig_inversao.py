@@ -1,14 +1,17 @@
 #!/usr/bin/env python3
 """Figura 1: matriz de inversao. 15 operacoes da literatura x 8 degradacoes.
 Cor = acuracia pareada. Vermelho = prefere a copia DEGRADADA."""
+import os
 import json
 from pathlib import Path
 
-QB = Path('/dados/Projetos/quality-benchmark')
+import sys as _sys
+_sys.path.insert(0, str(Path(__file__).resolve().parent))
+from caminho_dos_dados import DADOS as QB   # noqa: E402
 SAIDA = Path(__file__).parent / 'fig_inversao.tex'
 TIPOS = ['Darken', 'Motion', 'Blur', 'H.264', 'Rescale', 'Satur.', 'Noise', 'JPEG']
 NOME = {'ke_edge_distribution': 'Edge distribution', 'qaroush_go': 'Gradient orientation',
-        'ke_contraste': 'Contrast', 'contraste_variancia': 'Contrast variance',
+        'ke_contraste': 'Contrast', 'contraste_variancia': 'Grey-level dispersion',
         'ke_hue_count': 'Hue count', 'qaroush_entropia': 'Entropy',
         'qaroush_gm': 'Gradient magnitude', 'qaroush_saliencia': 'Saliency area',
         'gygli_media_crua': 'Averaged aesthetics (3)', 'srinivas_quality': 'Composite of five',

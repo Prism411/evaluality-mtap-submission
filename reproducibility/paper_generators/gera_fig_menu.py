@@ -4,16 +4,19 @@
 ⭐ Esta e a comparacao que o desenho de bancada permite e que nenhum dos artigos de
 origem pode fazer: as mesmas 42 decisoes, o mesmo pipeline, so o modulo trocado.
 Nao ha referencia envolvida — a pergunta e apenas se as escolhas coincidem."""
+import os
 import json
 from pathlib import Path
 
-QB = Path('/dados/Projetos/quality-benchmark')
+import sys as _sys
+_sys.path.insert(0, str(Path(__file__).resolve().parent))
+from caminho_dos_dados import DADOS as QB   # noqa: E402
 SAIDA = Path(__file__).parent / 'fig_menu.tex'
 NOME = {'brilho': 'Brightness', 'huang_exposicao': 'Exposure', 'ke_brightness': 'Brightness (K.)',
         'hasler_colorfulness': 'Colourfulness (H.)', 'ke_colorfulness': 'Colourfulness (K.)',
         # ⚠️ «Hue» e «Hue count» sem fonte pareciam a mesma operacao; a figura ja usa
         # «(H.)» e «(K.)» nas outras duplicatas, entao estas seguem o mesmo estilo.
-        'contraste_variancia': 'Contrast variance', 'huang_matiz': 'Hue (H.)',
+        'contraste_variancia': 'Grey-level dispersion', 'huang_matiz': 'Hue (H.)',
         'huang_saturacao': 'Saturation (H.)',
         'ke_contraste': 'Contrast', 'ke_edge_distribution': 'Edge distribution',
         'ke_hue_count': 'Hue count (K.)', 'laplacian_var': 'Laplacian variance',
@@ -46,7 +49,7 @@ def main():
                  f'{{{rot[:56]}}};')
         if len(membros) > 1:
             L.append(f'\\node[anchor=east,font=\\scriptsize\\bfseries,text=accentorange!80!black]'
-                     f' at (5.50,{y-h/2-0.015:.2f}) {{$\\times${len(membros)}}};')
+                     f' at (6.15,{y-h/2-0.015:.2f}) {{$\\times${len(membros)}}};')
         y -= h + 0.055
     # ── direita: a distribuicao das concordancias par a par
     vals = sorted(float(v if not isinstance(v, dict) else v.get('pct', 0))

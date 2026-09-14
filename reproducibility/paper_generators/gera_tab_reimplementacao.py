@@ -6,10 +6,13 @@ POR QUE EXISTE (08/09/2026). A objecao mais forte contra auditar o sistema de ou
 desenho — e ela precisa aparecer TIPO A TIPO, porque a media esconde o unico lugar em que as
 duas divergem.
 """
+import os
 import json
 from pathlib import Path
 
-QB = Path('/dados/Projetos/quality-benchmark')
+import sys as _sys
+_sys.path.insert(0, str(Path(__file__).resolve().parent))
+from caminho_dos_dados import DADOS as QB   # noqa: E402
 SAIDA = Path(__file__).parent / 'tab_reimplementacao.tex'
 TIPOS = [('dark', 'Darken'), ('motion', 'Motion'), ('blur', 'Blur'), ('h264', 'H.264'),
          ('rescale', 'Rescale'), ('satur', 'Satur.'), ('noise', 'Noise'), ('jpeg', 'JPEG')]

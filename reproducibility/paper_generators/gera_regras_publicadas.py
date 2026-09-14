@@ -4,6 +4,7 @@
 Cada fonte que ESPECIFICA uma regra de combinacao teve essa regra implementada e medida na
 mesma bancada pareada. Nada aqui e escolha nossa de agregacao: e o que o PDF manda fazer.
 """
+import os
 import json
 import re
 from pathlib import Path
@@ -15,7 +16,9 @@ def sem_zero(t):
     return re.sub(r'(?<![0-9])0\.', '.', t)
 
 
-QB = Path('/dados/Projetos/quality-benchmark')
+import sys as _sys
+_sys.path.insert(0, str(Path(__file__).resolve().parent))
+from caminho_dos_dados import DADOS as QB   # noqa: E402
 SAIDA = Path(__file__).parent / 'regras_publicadas.tex'
 
 
@@ -56,6 +59,13 @@ def main():
     eff = json.load(open(QB / 'posto_e_m_eff_das_15.json'))
     ref = json.load(open(QB / 'a_sensibilidade_depende_de_quais_referencias.json'))
     cas3 = json.load(open(QB / 'o_casamento_sozinho_move_doze.json'))
+    mcb = json.load(open(QB / 'o_mcnemar_dos_42_com_topico_como_unidade.json'))
+    # ⭐ 12/09: o protocolo de identificacao das operacoes existia em disco desde 05/09 e
+    # nunca entrou no artigo. Um revisor cobrou justamente isso.
+    acv = json.load(open(QB / 'o_que_os_173_usam_no_lugar.json'))
+    vrr = json.load(open(QB / 'a_varredura_sem_a_bibliografia.json'))
+    cob = json.load(open(QB / 'as_15_do_artigo_cobrem_o_que_o_campo_usa.json'))
+    acc = json.load(open(QB / 'o_acervo_com_o_varredor_consertado.json'))
     pd2 = json.load(open(QB / 'o_piso_das_duas_familias_na_mesma_convencao.json'))
     mtip = json.load(open(QB / 'a_manchete_depende_de_quais_tipos.json'))['por_cenario']
     rei = json.load(open(QB / 'a_reimplementacao_reproduz_a_falha.json'))
@@ -237,6 +247,32 @@ def main():
          f'\\newcommand{{\\casSoCasamento}}{{{cas3["contagens"]["so_o_casamento_scorer_fixo_12"]}}}',
          f'\\newcommand{{\\casCompleta}}{{{cas3["contagens"]["operacao_completa_22"]}}}',
          f'\\newcommand{{\\casP}}{{{sem_zero("%.3f" % cas3["McNemar_pareado_nos_mesmos_42"]["operacao_completa (22) vs so_o_casamento (12)"]["p_mcnemar_exato"])}}}',
+         # ⭐ 12/09: o McNemar trata os 42 clusters como independentes e eles vem de 19
+         # topicos. O mesmo contraste pela troca de sinal EM BLOCO, que e o mecanismo que
+         # o artigo ja usa nos 800 pares, enumerada exatamente sobre os topicos que
+         # carregam discordante.
+         f'\\newcommand{{\\mcnBloco}}{{{sem_zero("%.3f" % mcb["COM_O_TOPICO_COMO_UNIDADE"]["p_troca_de_sinal_em_bloco"])}}}',
+         f'\\newcommand{{\\mcnBlocos}}{{{mcb["COM_O_TOPICO_COMO_UNIDADE"]["topicos_que_carregam_discordante"]}}}',
+         f'\\newcommand{{\\mcnAtrib}}{{{mcb["COM_O_TOPICO_COMO_UNIDADE"]["atribuicoes_enumeradas"]}}}',
+         f'\\newcommand{{\\mcnSemMaior}}{{{sem_zero("%.3f" % mcb["DEPENDE_DE_UM_TOPICO_SO"]["p_sem_esse_topico"])}}}',
+         # ⭐ o protocolo de identificacao: acervo, instrumento de busca MEDIDO, criterio
+         # de triagem e cobertura declarada. Tudo do disco; nada digitado.
+         f'\\newcommand{{\\acvPdfs}}{{{acv["n_pdfs"]}}}',
+         f'\\newcommand{{\\acvSemDedicado}}{{{acv["n_sem_nriqa_dedicado"]}}}',
+         f'\\newcommand{{\\acvUsamOperacao}}{{{acv["dos_sem_dedicado_quantos_usam_operacao"]}}}',
+         f'\\newcommand{{\\acvTermos}}{{{POREXT[len(acc["ANTES"]["por_termo"])]}}}',
+         f'\\newcommand{{\\varrN}}{{{vrr["n_artigos"]}}}',
+         f'\\newcommand{{\\varrPrec}}{{{sem_zero("%.2f" % vrr["DEPOIS"]["precisao"])}}}',
+         f'\\newcommand{{\\varrCob}}{{{sem_zero("%.2f" % vrr["DEPOIS"]["cobertura"])}}}',
+         f'\\newcommand{{\\triMapa}}{{{cob["⭐_A_TRIAGEM_TEM_CRITERIO"]["no_mapa"]}}}',
+         f'\\newcommand{{\\triTriadas}}{{{cob["⭐_A_TRIAGEM_TEM_CRITERIO"]["triadas"]}}}',
+         f'\\newcommand{{\\triForaComDirecao}}{{{POREXT[len(cob["⭐_A_TRIAGEM_TEM_CRITERIO"]["com_direcao_mas_fora_da_triagem"])]}}}',
+         f'\\newcommand{{\\cobMencoes}}{{{cob["COBERTURA_DAS_15"]["mencoes_cobertas"]}}}',
+         f'\\newcommand{{\\cobTotal}}{{{cob["mencoes_totais"]}}}',
+         f'\\newcommand{{\\cobFora}}{{{cob["COBERTURA_DAS_15"]["mencoes_fora"]}}}',
+         f'\\newcommand{{\\cobNaoTriavel}}{{{cob["COBERTURA_DAS_15"]["nao_triaveis_por_fonte_subespecificada"]}}}',
+         f'\\newcommand{{\\cobSemDirecao}}{{{cob["fora_da_triagem"]["por_direcao_nao_declarada"]}}}',
+         f'\\newcommand{{\\cobSemRegra}}{{{cob["fora_da_triagem"]["por_regra_de_combinacao_ausente"]}}}',
          # ⭐ o unico eixo em que as operacoes vao bem, com a fragilidade ao lado. As duas
          # familias entram pela MESMA regra: fora quem nao carrega veredito.
          f'\\newcommand{{\\pisoModN}}{{{POREXT[pd2["modelos"]["n"]]}}}',

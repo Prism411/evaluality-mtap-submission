@@ -23,7 +23,7 @@ QB = Path('/dados/Projetos/quality-benchmark')
 
 # tipo no JSON -> trecho que a banda do corpo tem de carregar
 BANDA = {
-    'julgamento humano da propriedade': 'human ratings, at the level of the whole',
+    'julgamento humano da propriedade': 'human ratings of the named property',
     'so o resumo': 'summary-level evaluation',
     'so o resumo, com ablacao de modulo': 'summary-level evaluation, with ablation',
     'nem a regra nem os pesos': 'no isolated test of the rule',
@@ -38,7 +38,12 @@ def confere(corpo=None, supl=None):
     faltas = []
 
     for k, v in d['por_fonte'].items():
-        esperado = BANDA[v['tipo']]
+        tipo = v['tipo']
+        # ⭐ o Ke avalia por atributo E combinado; a banda dele diz isso e nao o generico
+        if k == 'ke2006highlevel' and tipo == 'julgamento humano da propriedade':
+            esperado = 'human ratings; per feature and combined'
+        else:
+            esperado = BANDA[tipo]
         banda = [l for l in corpo.split('\n') if ('citet{%s}' % k) in l and 'multicolumn' in l]
         if not banda:
             faltas.append('%s: sem banda no corpo' % k)

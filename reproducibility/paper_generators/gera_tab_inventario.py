@@ -2,10 +2,13 @@
 """Tabela 1: o inventario. Cada operacao ligada ao objetivo do trabalho de origem, ao
 papel que ela tem la, e a leitura que este artigo testa. Existe para separar
 «falha no objetivo declarado» de «nao se reusa como medida de qualidade sem validacao»."""
+import os
 import json
 from pathlib import Path
 
-QB = Path('/dados/Projetos/quality-benchmark')
+import sys as _sys
+_sys.path.insert(0, str(Path(__file__).resolve().parent))
+from caminho_dos_dados import DADOS as QB   # noqa: E402
 SAIDA = Path(__file__).parent / 'tab_inventario.tex'
 
 # objetivo declarado NA FONTE, e papel que a operacao tem la. Conferido nos PDFs.
@@ -16,7 +19,7 @@ FONTE = {
  'ke_colorfulness':       ('ke2006highlevel', 'Professional vs.\\ snapshot photograph', 'feature of a naive Bayes classifier'),
  'hasler_colorfulness':   ('hasler2003colorfulness', 'Perceived colourfulness of a scene', 'stand-alone perceptual index'),
  'srinivas_quality':      ('srinivas2016rank', 'Keyframe ranking', 'unweighted mean of five features'),
- 'gygli_media_crua':      ('gygli2014summe', 'Keyframe interestingness', 'unweighted mean of three aesthetic terms; the source gives no weights'),
+ 'gygli_media_crua':      ('gygli2014summe', 'Keyframe interestingness', 'three aesthetic terms; the source gives no combination, and the mean is built here'),
  'qaroush_go':              ('qaroush2025diversity', 'Keyframe diversity and coverage', 'GO in segment diversity (Eq.~22)'),
  'qaroush_gm':              ('qaroush2025diversity', 'Keyframe diversity and coverage', 'GM in visual attention (Eq.~20)'),
  'qaroush_entropia':        ('qaroush2025diversity', 'Keyframe diversity and coverage', 'SE in segment coverage (Eq.~21)'),
@@ -29,7 +32,7 @@ FONTE = {
  'si':                    ('itu_p910', 'Spatial detail of a test sequence', 'characterization, not quality'),
 }
 NOME = {'ke_edge_distribution':'Edge distribution','qaroush_go':'Gradient orientation',
- 'si':'Spatial information','ke_contraste':'Contrast','contraste_variancia':'Contrast variance',
+ 'si':'Spatial information','ke_contraste':'Contrast','contraste_variancia':'Grey-level dispersion',
  'ke_hue_count':'Hue count','qaroush_entropia':'Entropy','qaroush_gm':'Gradient magnitude',
  'qaroush_saliencia':'Saliency area','gygli_media_crua':'Averaged aesthetics (3)',
  'srinivas_quality':'Composite of five','glcm_contraste':'GLCM contrast',
@@ -48,7 +51,7 @@ def main():
          r'own objective; what is tested is the reuse. \emph{Inverts} counts degradation '
          r'types on which the operation ranks the degraded copy higher '
          # ⚠️ esta tabela vive no SUPLEMENTAR; `\ref` nao alcanca a figura do corpo
-         r'(Fig.~2 of the main article). Where two works adopt the same operation the use can '
+         r'(Table~2 of the main article). Where two works adopt the same operation the use can '
          r'differ: Laplacian variance rejects low-light frames alongside grey-scale intensity '
          # ⛔ AQUI havia `\\citet` DENTRO de raw string, o que emite `\\citet` no .tex:
          # o LaTeX leu `\\` como quebra de linha e `citet{...}` como TEXTO. A legenda saiu

@@ -12,10 +12,13 @@ precisa separar, e que estavam coladas no texto:
 IDENTIFICAVEL, e toda adaptacao nossa esta rotulada como adaptacao. As linhas abaixo so
 entram com trecho conferido no PDF da fonte; o que nao foi conferido nao vira linha.
 """
+import os
 import json
 from pathlib import Path
 
-QB = Path('/dados/Projetos/quality-benchmark')
+import sys as _sys
+_sys.path.insert(0, str(Path(__file__).resolve().parent))
+from caminho_dos_dados import DADOS as QB   # noqa: E402
 SAIDA = Path(__file__).parent / 'tab_reuso.tex'
 
 # (rotulo, origem+papel, uso documentado em selecao, objeto avaliado, verificado em)
@@ -33,7 +36,7 @@ LINHAS = [
      r'\citet{korolkov2025keyframe}: two terms of a keyframe score',
      r'the same work, $0.7\,z(\mathrm{sharp})+0.3\,z(\mathrm{bright})$',
      r'the published rule, with our normalization population stated'),
-    (r'Contrast variance',
+    (r'Grey-level dispersion',
      r'\citet{jeong2016static}: a badness term inside a cost multiplicative in cluster '
      r'distance',
      r'the same work, within that objective',

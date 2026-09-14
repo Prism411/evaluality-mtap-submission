@@ -10,10 +10,13 @@ acertem as duas nao dizem qual foi usada.
 
 Fonte: `as_quatro_unidades_declaradas.json`, do quality-benchmark.
 """
+import os
 import json
 from pathlib import Path
 
-QB = Path('/dados/Projetos/quality-benchmark')
+import sys as _sys
+_sys.path.insert(0, str(Path(__file__).resolve().parent))
+from caminho_dos_dados import DADOS as QB   # noqa: E402
 SAIDA = Path(__file__).parent / 'tab_unidades.tex'
 
 # a leitura em ingles de cada eixo, e o bloco de evidencia a que ele pertence
@@ -33,6 +36,12 @@ EIXO = {
 }
 ORDEM = ['diferenca pareada, 800 pares', 'acuracia estrita, 800 pares (S19)',
          'piso in-domain, 42 clusters', 'contraste de saida, 42 clusters']
+
+# ⭐ 12/09: o quinto eixo nao estava na varredura de 08/09 porque ele nao declarava unidade
+# nenhuma — usava McNemar, que supoe independencia entre os 42 clusters. Entra aqui com o
+# mesmo tratamento dos outros quatro: recomputado sob a unidade que o desenho implica, com
+# o esquema anterior como rival.
+MCNEMAR = 'o_mcnemar_dos_42_com_topico_como_unidade.json'
 
 
 def main():
@@ -60,15 +69,38 @@ def main():
             (cor, bloco, nome, decl, rival, veredito))
         linhas.append(r'\rowcolor{%s} & \multicolumn{4}{@{}l@{}}{\footnotesize\emph{%s}} \\'
                       % (cor, nest))
+
+    # ⭐ o quinto eixo: o contraste que usava McNemar, refeito em bloco de topico
+    m = json.loads((QB / MCNEMAR).read_text(encoding='utf-8'))
+    assert m['pre_condicao_reproduz_o_publicado']['reproduz'], \
+        '⛔ o McNemar em bloco nao reproduziu o publicado: nao entra na tabela'
+    b = m['COM_O_TOPICO_COMO_UNIDADE']
+    cor = 'perf5!25' if b['separa_a_005'] else 'perf3!45'
+    linhas.append(
+        r'\rowcolor{%s}Block 04 & Regime contrast, 42 clusters & topic block & '
+        r'the cluster (exact McNemar) & the verdict holds under the declared unit '
+        r'($p=%s$ against $p=%s$) \\' %
+        (cor, ('%.3f' % b['p_troca_de_sinal_em_bloco']).lstrip('0'),
+         ('%.3f' % m['pre_condicao_reproduz_o_publicado']['p_mcnemar_exato']).lstrip('0')))
+    linhas.append(
+        r'\rowcolor{%s} & \multicolumn{4}{@{}l@{}}{\footnotesize\emph{the %d discordant '
+        r'pairs fall in %d topics; the null enumerates all $2^{%d}$ block sign '
+        r'assignments}} \\' %
+        (cor, m['pre_condicao_reproduz_o_publicado']['n10']
+         + m['pre_condicao_reproduz_o_publicado']['n01'],
+         b['topicos_que_carregam_discordante'], b['topicos_que_carregam_discordante']))
     SAIDA.write_text(
         '%%%% GERADO por %s -- nao editar a mao\n' % Path(__file__).name +
         '\\begin{table}[!ht]\n\\centering\n'
         '\\caption{Resampling unit per analysis, and the rival unit tested against it. '
         'Observations are nested, so the unit decides the width of every interval: the '
-        'italic line under each row states the nesting. Each interval was recomputed under '
-        'the declared unit and under the rival, and the declared unit is accepted only when '
-        'the rival fails to reproduce the published bounds. One of the four did not pass '
-        'and was corrected.}\n'
+        'italic line under each row states the nesting, and \\textbf{the declared unit '
+        'follows from that nesting}, observations sharing content or a source entering the '
+        'same block. Each interval was then recomputed under the rival unit; \\textbf{that '
+        'check identifies which implementation produced a published bound}, and is reported '
+        'as a verification rather than as the reason for the choice. One of the five did not pass '
+        'and was corrected; the last row is the contrast that previously declared no unit '
+        'at all.}\n'
         '\\label{tab:unidades}\n\\footnotesize\n\\setlength{\\tabcolsep}{4pt}\n'
         '\\begin{tabular}{@{}>{\\raggedright\\arraybackslash}p{1.0cm}'
         '>{\\raggedright\\arraybackslash}p{2.35cm}'
@@ -80,7 +112,7 @@ def main():
         '\\hd{Outcome} \\\\\n\\midrule\n' +
         '\n'.join(linhas) +
         '\n\\bottomrule\n\\end{tabular}\n\\end{table}\n')
-    print('  %d eixos -> %s' % (len(ORDEM), SAIDA.name))
+    print('  %d eixos -> %s' % (len(ORDEM) + 1, SAIDA.name))
 
 
 if __name__ == '__main__':

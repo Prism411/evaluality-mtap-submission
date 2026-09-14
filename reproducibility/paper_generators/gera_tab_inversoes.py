@@ -8,17 +8,20 @@ conferivel sem rodar nada: aqui estao as celulas, uma a uma, com a acuracia e o 
 ⚠️ A convencao de empate e a da Tabela 3 do corpo, que TIRA empate do denominador. A analise
 de sensibilidade com o empate DENTRO devolve os mesmos vereditos, e isso vai na legenda.
 """
+import os
 import json
 from pathlib import Path
 
-QB = Path('/dados/Projetos/quality-benchmark')
+import sys as _sys
+_sys.path.insert(0, str(Path(__file__).resolve().parent))
+from caminho_dos_dados import DADOS as QB   # noqa: E402
 SAIDA = Path(__file__).parent / 'tab_inversoes.tex'
 
 NOME = {
     'ke_edge_distribution': 'Edge distribution', 'ke_hue_count': "Hue count (Ke)",
     'ke_contraste': 'Contrast (Ke)', 'ke_colorfulness': 'Colourfulness (Ke)',
     'hasler_colorfulness': 'Colourfulness (Hasler)', 'laplacian_var': 'Laplacian variance',
-    'contraste_variancia': 'Contrast variance', 'glcm_contraste': 'GLCM contrast',
+    'contraste_variancia': 'Grey-level dispersion', 'glcm_contraste': 'GLCM contrast',
     'huang_saturacao': 'Saturation', 'qaroush_entropia': 'Entropy',
     'qaroush_gm': 'Gradient magnitude', 'qaroush_go': 'Gradient orientation',
     'qaroush_saliencia': 'Saliency area', 'srinivas_quality': 'Srinivas composite',
@@ -30,6 +33,12 @@ TIPO = {'dark': 'Dk', 'motion': 'Mo', 'blur': 'Bl', 'h264': 'H2', 'rescale': 'Rs
 
 def main():
     d = json.loads((QB / 'quantas_invertem_ALEM_DO_ACASO.json').read_text(encoding='utf-8'))
+    # ⭐ 13/09: os empates existem e sao desiguais entre operacoes; com o empate no
+    # denominador, «abaixo de 50» nao implica por si preferencia pelo degradado.
+    _emp = d['empates_por_operacao']
+    EMP_N = sum(1 for v in _emp.values() if v)
+    EMP_MAX = max(_emp.values())
+    EMP_QUEM = max(_emp, key=_emp.get).replace('_', r'\_')
     blo = json.loads((QB / 'o_binomial_respeita_o_bloco.json').read_text(encoding='utf-8'))
     perdem = set(blo['perdem_a_significancia_no_bloco'])
     _m = json.loads((QB / 'a_manchete_depende_de_quais_tipos.json').read_text(encoding='utf-8'))
@@ -62,6 +71,10 @@ def main():
         'with an operation\'s own attribute, darkening and desaturation, leaves all %d '
         'operations still inverting; removing white noise instead leaves %d. Dropping one '
         'segment at a time, all %d keep inverting in every one of the %d rounds. '
+        '\\textbf{Ties are unevenly spread}: %d operations tie on at least one pair and the '
+        'largest count is %d. Where ties are many, accuracy below 50 per cent does not by '
+        'itself mean the degraded copy is preferred; the reading that does is correct '
+        'against incorrect, which is what the sign-flip test compares. '
         'Dk = darkening, Mo = motion '
         'blur, Bl = Gaussian blur, H2 = H.264, Rs = rescaling, St = desaturation, '
         'Ns = white noise, Jp = JPEG.}\n'
@@ -69,7 +82,7 @@ def main():
            sum(len(v['tipos_abaixo_de_50']) for v in ops.values()), len(perdem),
            sens['celulas_abaixo_de_50'], sens['operacoes_com_tipo_significativo'],
            mtip['sem os dois tipos alinhados']['invertem'], mtip['sem o ruido branco']['invertem'],
-           len(ops), mseg['n_rodadas']) +
+           len(ops), mseg['n_rodadas'], EMP_N, EMP_MAX) +
         '\\label{tab:inversoes}\n\\footnotesize\n'
         '\\begin{tabular}{@{}>{\\raggedright\\arraybackslash}p{3.4cm}cc'
         '>{\\raggedright\\arraybackslash}p{5.6cm}@{}}\n'

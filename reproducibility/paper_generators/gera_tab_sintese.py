@@ -17,10 +17,13 @@ sao as degradacoes, e a cor entrega o padrao antes da leitura.
 
 Nenhum numero e digitado: todos saem do JSON medido.
 """
+import os
 import json, re, sys
 from pathlib import Path
 
-QB = Path('/dados/Projetos/quality-benchmark')
+import sys as _sys
+_sys.path.insert(0, str(Path(__file__).resolve().parent))
+from caminho_dos_dados import DADOS as QB   # noqa: E402
 SAIDA = Path(__file__).parent / 'tab_sintese.tex'
 
 TIPOS = ['dark', 'motion', 'blur', 'h264', 'rescale', 'satur', 'noise', 'jpeg']
@@ -86,7 +89,7 @@ TRABALHOS = [
               ('qaroush_ct',        r'\quad Contrast term'),
               ('qaroush_entropia',  'Entropy'),
               ('qaroush_go',        'Gradient orientation')],
-         objeto=r'the module as published, then each term'),
+         objeto=r'the published rule over the vector implemented here, then each term'),
 
     dict(chave='korolkov2025keyframe',
          titulo=r'\citet{korolkov2025keyframe}',
@@ -104,7 +107,7 @@ TRABALHOS = [
     dict(chave='jeong2016static',
          titulo=r'\citet{jeong2016static}',
          papel=r'a badness term in a cost multiplicative in cluster distance',
-         ops=[('contraste_variancia', 'Contrast variance')],
+         ops=[('contraste_variancia', 'Grey-level dispersion')],
          objeto=r'the term, read increasing'),
 
     dict(chave='yang2024keyframe',
@@ -138,7 +141,12 @@ TRABALHOS = [
 VALIDACAO = {
     # ⚠️ o objeto que o Ke avalia e o CLASSIFICADOR inteiro, nao cada atributo isolado; as
     # linhas abaixo da banda sao os atributos, e o rotulo generico convidava a leitura errada.
-    'julgamento humano da propriedade': r'\textbf{human ratings, at the level of the whole}',
+    # ⚠️ 13/09: dizia «at the level of the whole» e para o Ke isso e FALSO. A Fig. 8 dele
+    # traz «Individual and combined results for each of our quality metrics». O rotulo
+    # generico servia ao Hasler e mentia sobre o Ke, entao agora ha um para cada.
+    'julgamento humano da propriedade': r'\textbf{human ratings of the named property}',
+    'julgamento humano, por atributo e combinado':
+        r'\textbf{human ratings; per feature and combined}',
     'so o resumo': r'summary-level evaluation',
     'so o resumo, com ablacao de modulo': r'summary-level evaluation, with ablation',
     'nem a regra nem os pesos': r'\textbf{no isolated test of the rule}',
@@ -224,6 +232,8 @@ def main():
       r'\emph{St} = desaturation, \emph{Ns} = white noise, \emph{Jp} = JPEG: accuracy (per '
       r'cent) on the 800 constructed pairs, green where the operation prefers the '
       r'original and red where it prefers the degraded copy; \textbf{50 is the chance level}. '
+      r'\textbf{The colour is a background and the value is printed in the cell}, so the '
+      r'table is readable without distinguishing red from green. '
       r'\textbf{\emph{Mean} is over all eight types for every row}, so the column compares '
       r'like with like; $^{*}$ marks a degradation acting directly on the quantity the '
       r'operation measures. \emph{Agr}: chance-corrected agreement with LIQE on the '
@@ -252,7 +262,10 @@ def main():
     for t_ in TRABALHOS:
         k = t_['chave']
         if k in val['por_fonte']:
-            ev = VALIDACAO[val['por_fonte'][k]['tipo']]
+            _tipo = val['por_fonte'][k]['tipo']
+            if k == 'ke2006highlevel' and _tipo == 'julgamento humano da propriedade':
+                _tipo = 'julgamento humano, por atributo e combinado'
+            ev = VALIDACAO[_tipo]
         else:
             ev = SEM_PDF
         A(r'\rowcolor{headerblue!10}\multicolumn{12}{@{}p{\linewidth}@{}}{%s\ '

@@ -8,11 +8,14 @@ fica o trecho literal do PDF que a sustenta, fonte por fonte.
 ⛔ A regra que governa esta tabela: «nao consta no acervo» NAO e «nao validou». As duas fontes
 sem PDF entram numa linha propria, sem veredito.
 """
+import os
 import json
 import re
 from pathlib import Path
 
-QB = Path('/dados/Projetos/quality-benchmark')
+import sys as _sys
+_sys.path.insert(0, str(Path(__file__).resolve().parent))
+from caminho_dos_dados import DADOS as QB   # noqa: E402
 SAIDA = Path(__file__).parent / 'tab_validacao.tex'
 
 CITE = {
@@ -71,16 +74,16 @@ def escapa(s):
 def main():
     d = json.load(open(QB / 'o_que_cada_fonte_valida.json'))
     L = [r'%% GERADO por gera_tab_validacao.py. Nao editar a mao.',
-         r'\begin{table}[!ht]', r'\centering',
+         r'\begin{table}[p]', r'\centering',
          r'\caption{\textbf{What each source work reports as evidence for its own visual '
          r'criterion.} Read from the full text of each paper; the excerpt is verbatim. '
          r'\emph{Tests} names what the source puts to a test, which is not always the '
-         r'operation the later literature borrows. Two sources are not in our archive and '
-         r'therefore carry no verdict: \textbf{absence of a reading is not absence of '
-         r'validation}. It documents the clause carried on each band of the audit table '
+         r'operation the later literature borrows. One of the eleven source works is not in '
+         r'our archive and carries no verdict here: \textbf{absence of a reading is not '
+         r'absence of validation}. It documents the clause carried on each band of the audit table '
          r'in the main text.}',
          r'\label{tab:validation}', r'\scriptsize',
-         r'\setlength{\tabcolsep}{3pt}', r'\renewcommand{\arraystretch}{1.02}',
+         r'\setlength{\tabcolsep}{2.6pt}', r'\renewcommand{\arraystretch}{0.96}',
          r'\begin{tabular}{@{}>{\raggedright\arraybackslash}p{2.1cm}'
          r'>{\raggedright\arraybackslash}p{2.4cm}'
          r'>{\raggedright\arraybackslash}p{3.5cm}'
@@ -107,7 +110,26 @@ def main():
         n += 1
 
     L += [r'\bottomrule', r'\end{tabular}', r'\end{table}']
-    SAIDA.write_text('\n'.join(L) + '\n', encoding='utf-8')
+
+    # ⭐ corta em duas: acha o cabecalho e repete-o na segunda parte
+    i_mid = L.index(r'\midrule')
+    corpo = [x for x in L[i_mid + 1:] if x.startswith(r'\rowcolor') or x == r'\midrule']
+    metade = len(corpo) // 2
+    cabeca = L[:i_mid + 1]
+    rabo = [r'\bottomrule', r'\end{tabular}', r'\end{table}']
+    parte1 = cabeca + corpo[:metade] + rabo
+    # a segunda parte repete o cabecalho com legenda curta e sem repetir a nota longa
+    cab2 = []
+    for x in cabeca:
+        if x.startswith(r"\caption{"):
+            cab2.append(r'\caption{\textbf{Evidence reported by each source work, continued.} '
+                        r'Columns as in the preceding table.}')
+        elif x.startswith(r'\label{'):
+            cab2.append(r'\label{tab:validation_b}')
+        else:
+            cab2.append(x)
+    parte2 = cab2 + corpo[metade:] + rabo
+    SAIDA.write_text('\n'.join(parte1) + '\n\n' + '\n'.join(parte2) + '\n', encoding='utf-8')
     print('  escrito %s  (%d fontes: %d lidas, %d sem PDF)'
           % (SAIDA.name, n, d['n_com_pdf'], d['n_sem_pdf']))
 

@@ -10,14 +10,17 @@ pontos. Repetir «protocolo identico» e mais fraco do que mostrar a matriz.
   - sete operacoes nao entram no jusante porque a passada do jusante e ANTERIOR a entrada
     delas no codigo: motivo de historia de implementacao, nao de metodo. Fica dito assim.
 """
+import os
 import json
 from pathlib import Path
 
-QB = Path('/dados/Projetos/quality-benchmark')
+import sys as _sys
+_sys.path.insert(0, str(Path(__file__).resolve().parent))
+from caminho_dos_dados import DADOS as QB   # noqa: E402
 SAIDA = Path(__file__).parent / 'tab_cobertura.tex'
 NOME = {'ke_edge_distribution': 'Edge distribution', 'qaroush_go': 'Gradient orientation',
         'si': 'Spatial information', 'ke_contraste': 'Contrast',
-        'contraste_variancia': 'Contrast variance', 'ke_hue_count': 'Hue count',
+        'contraste_variancia': 'Grey-level dispersion', 'ke_hue_count': 'Hue count',
         'qaroush_entropia': 'Entropy', 'qaroush_gm': 'Gradient magnitude',
         'qaroush_saliencia': 'Saliency area', 'gygli_media_crua': 'Averaged aesthetics (3)',
         'srinivas_quality': 'Composite of five', 'glcm_contraste': 'GLCM contrast',
@@ -53,9 +56,10 @@ def main():
          r'\caption{Which operation entered which test. A filled marker means the operation '
          r'has a result on that axis. \textbf{Coverage is not uniform, and the two reasons '
          r'differ.} Spatial information carries no paired verdict because its source declares '
-         r'no direction, which is a property of the source. The seven operations without a '
-         r'downstream result were added to the implementation after the downstream pass was '
-         r'run, which is a property of our sequence of work and not of the method; extending '
+         r'no direction, which is a property of the source, and for the same reason it has '
+         r'no downstream result either. The other six operations without a downstream result '
+         r'were added to the implementation after the downstream pass was run, which is a '
+         r'property of our sequence of work and not of the method; extending '
          r'that pass to them is a stated next step. Sensitivity and generalization cover all '
          rf'{len(linhas)}. Counts per axis are in the last row.' + '}',
          r'\label{tab:coverage}', r'\small', r'\setlength{\tabcolsep}{3pt}',

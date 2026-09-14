@@ -31,10 +31,10 @@ this basis and both are stated wherever they appear: the International Telecommu
 (ITU-T) spatial information index
 declares no quality direction and is therefore excluded from every accuracy count, leaving
 fifteen; and saliency area is the one operation whose source requires a learned map rather
-than a closed-form expression, the other fifteen being closed-form. Table~S23
+than a closed-form expression, the other fifteen being closed-form. Table~S22
 carries the per-operation detail. Reproduced and adapted forms are counted separately and never summed.
 
-Table~S23 of the supplement carries the correspondence: for each operation, the source
+Table~S22 of the supplement carries the correspondence: for each operation, the source
 work, the formula as that source states it, the function that computes it, the direction
 it declares and the reference model used on the in-domain column, with the results file
 named in its footnote. \textbf{Every operation name comes from that mapping}, and every value in this article's
@@ -118,7 +118,7 @@ explicit, which is what makes the slot testable. Middle: what is
 audited is the set of operations the summarization literature puts in that slot as a quality filter, fifteen from eleven
 source works plus ITU-T spatial information as a diagnostic sixteenth, and the nineteen
 composites the literature publishes, not the pipeline itself. Bottom: the four tests, applied to the operations, to ten no-reference models and to the
-deployed case, with per-test coverage recorded in Table~S19 because it is not uniform. The
+deployed case, with per-test coverage recorded in Table~S18 because it is not uniform. The
 provenance audit that produces the middle inventory is the fifth evidence block. All
 other pipeline stages remain fixed.}
 \label{fig:overview}
@@ -145,7 +145,7 @@ out are sequence-level rather than frame-level.
 
 Two consequences follow, and both are reported rather than argued away. \textbf{Every count
 in this article is a count within that archive}, not within the summarization literature as
-a whole; no claim of exhaustive coverage is made, and Table~S31 of the supplement states
+a whole; no claim of exhaustive coverage is made, and Table~S30 of the supplement states
 the protocol and its measured accuracy in full. And the operations screened in cover
 \cobMencoes{} of the \cobTotal{} operation mentions the archive contains: of the
 \cobFora{} outside, \cobNaoTriavel{} are not screenable by any rule at all, because the
@@ -182,9 +182,9 @@ object the source evaluates}, whether an individual attribute, a combined module
 final summary; \textbf{the reference it evaluates against}, whether human ratings of the
 named property, summary-level evaluation, or an internal ablation; and a verbatim
 excerpt fixing both. \textbf{Ten of the eleven source works were read in full for this dimension}; the
-exception is \citet{xu2024property}, one of three sources for contrast variance, whose full
+exception is \citet{xu2024property}, one of three sources for the grey-level dispersion, whose full
 text is not in our archive and which is therefore \textbf{marked as not assessed rather than
-as reporting no validation}, since the two are different claims. Table~S26 of the supplement
+as reporting no validation}, since the two are different claims. Table~S25 of the supplement
 carries the classification with its excerpts.
 
 Where a source also states \emph{how} its terms combine, that specification was implemented
@@ -194,12 +194,12 @@ reproduced only when every quantity they require is available on the paired benc
 otherwise the relationship is reported structurally rather than evaluated experimentally,
 as with a term needing a frame's distance from its cluster center.
 
-Table~S17 states, for each of the sixteen operations, the objective its
+Table~S16 states, for each of the sixteen operations, the objective its
 source declares and the role it has there. The reading tested here is the one the summarization literature applies when it carries
 these operations into a selection stage: one frame, no model, higher is better technical
 quality.
 
-Table~S25 of the supplement links each source-defined role to the implementation
+Table~S24 of the supplement links each source-defined role to the implementation
 evaluated here, including changes of input, aggregation and score direction, with the
 verbatim excerpt that fixes each role. Every one of the \autVerificadas{} operations carries such an excerpt, spatial
 information included: ITU-T~P.910 defines it as \emph{``a measure that generally indicates
@@ -221,7 +221,7 @@ is pixel variance, but it enters a \emph{badness} beside blur and skew inside
 $a_i=d_i\sqrt{c_i+b_i+g(c_i+b_i+s_i)}$, whose leading factor is the Mahalanobis distance of
 the frame from its cluster center. \textbf{The component audited here is that grey-level
 dispersion on its own}, read in the increasing direction and computed as the standard
-deviation, which is the reading common to the two sources that state it (Table~S23).
+deviation, which is the reading common to the two sources that state it (Table~S22).
 
 
 \subsection{Data and units of analysis}\label{sec:data}
@@ -263,7 +263,7 @@ Sampling, scoring and pooling jointly define the operation occupying the
 visual-selection stage, so the primary comparison evaluates complete operations
 while holding every other stage fixed. A matched-input control additionally gives
 SIFT+BoVW and LIQE the same fixed set of at most ten uniformly spaced 1-fps
-frames and uses arithmetic-mean pooling for both. Full scores and alternative normalizations are in Tables~S6, S9 and S11.
+frames and uses arithmetic-mean pooling for both. Full scores and alternative normalizations are in Tables~S6 and S11.
 
 \subsection{Scorers, references and polarity}\label{sec:methods}
 
@@ -273,9 +273,9 @@ CLIP-IQA$+$, LIQE and QualiCLIP. Keypoint density, Spatial Information, deep
 feature norms and the second IDF formulation are diagnostic controls. A separate ablation replaces SIFT with 19 convolutional neural network (CNN) extractors while holding
 the vocabulary, weighting and aggregation fixed. ARNIQA and TReS extend
 coverage on completed axes but are excluded from complete-case screening;
-MANIQA was not completed before the experimental freeze (Table~S13).
+MANIQA was not completed before the experimental freeze (Table~S12).
 Released-weight supervision, checkpoint role, polarity and graphics processing unit (GPU) requirements are summarized in Table~\ref{tab:methods} and
-listed in full in Table~S13~\citep{agnolucci2024arniqa,golestaneh2022tres,
+listed in full in Table~S12~\citep{agnolucci2024arniqa,golestaneh2022tres,
 yang2022maniqa}.
 
 \begin{table}[!tbp]
@@ -317,7 +317,7 @@ LIQE & vision--language & quality, distortion and scene & KQ & \polup & yes & C 
 ResNet-18/50/101, VGG-16/19, EfficientNet-B0/B4, MobileNet-V3-Large/V2,
 ConvNeXt-Tiny/Small, DenseNet-121/201, ResNeXt-50/101,
 Wide-ResNet-50/101, Inception-V3 and SqueezeNet-1.1. Released weights,
-endpoints and preprocessing are in Table~S13.} \\
+endpoints and preprocessing are in Table~S12.} \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -342,7 +342,7 @@ as a reference model rather than screened as an on-line candidate.
 The substitution study measures changes of selection and model-reference scores of the
 output; \textbf{it does not measure human preference} for the resulting summaries. DOVER is used only as an output-sensitivity reference and does not participate
 in screening~\citep{wu2023dover}. The official \texttt{DOVER.pth} checkpoint and
-\texttt{dover.yml} \texttt{val-l1080p} views are used (Table~S13). Its raw
+\texttt{dover.yml} \texttt{val-l1080p} views are used (Table~S12). Its raw
 technical branch is primary; the uncalibrated technical--aesthetic sum is only a
 sensitivity analysis, and neither the official standardized fusion nor DOVER++
 is computed. The same technical output is tested on the 800 constructed pairs,
@@ -395,7 +395,7 @@ implies}: the reference image on KADID-10k, the topic on constructed-pair accura
 segment on the paired difference, and the news topic on the application. \textbf{Each unit follows from the
 design rather than from agreement with a published bound}: observations that share content
 or a source enter the same block, which is the segment for pairs cut from one segment and
-the topic for clusters drawn from one news topic. Table~S27 additionally recomputes every
+the topic for clusters drawn from one news topic. Table~S26 additionally recomputes every
 interval under the rival unit; \textbf{that comparison is a verification, not a reason for
 the choice}, and it identifies which implementation produced a published bound. A second design correlates score with degradation
 level within each segment--type pair. Overlay strata, the complete registered
@@ -417,7 +417,7 @@ opinion training. The in-domain floor is confirmed when normalized agreement
 with the reference designated for that family above, Q-Align for the no-reference models
 and LIQE for the operations, is above chance and the lower bound of its 95\% topic-block
 bootstrap interval exceeds zero on the common 42 clusters. Cost is reported but
-not thresholded. Table~S10 varies the numerical thresholds and the quantifier
+not thresholded. Table~S9 varies the numerical thresholds and the quantifier
 over unseen databases.
 
 For cluster $c$ with $k_c$ candidates, independent uniform choices agree with
@@ -452,7 +452,7 @@ $\bar l$ and $\bar h$. The reported global-achievable-range estimand is
 It is a ratio of means, not an average of independently rescaled clusters.
 Raw branch-score differences, mean per-cluster position, selected-maximum rate,
 range distributions and exclusions of the smallest 10\% and 25\% of ranges are
-reported in Table~S11. Zero-range clusters are undefined for per-cluster
+reported in Table~S10. Zero-range clusters are undefined for per-cluster
 position and are counted explicitly. The primary interval resamples the 19
 topics and retains their clusters. A hierarchical sensitivity analysis
 additionally resamples clusters within each sampled topic. Both use $10^4$

@@ -63,6 +63,12 @@ ESPERADO = {
     'carries the correspondence': 'tab:trace',
     'visible in the equation before any measurement': 'tab:ct',
     'shows both distributions': 'fig:menu',
+    # ⭐ 12/09/2026: tres ancoras novas. As duas tabelas abaixo sao vizinhas de numero e
+    # falam de coisas diferentes — inventario e cobertura — e o corpo ja tinha trocado uma
+    # pela outra na legenda da Figura 1.
+    'per-test coverage recorded in': 'tab:coverage',
+    'records the complete coverage': 'tab:coverage',
+    'the objective its': 'tab:inventory',
 }
 
 
@@ -73,22 +79,58 @@ def numeros_reais(aux=None):
             re.finditer(r'\\newlabel\{([^}]*)\}\{\{(S\d+)\}', txt)}
 
 
+def _padrao(trecho):
+    """O trecho como regex tolerante a quebra de linha.
+
+    ⛔ POR QUE (12/09/2026). A versao anterior casava `trecho in linha`, LINHA A LINHA. O
+    ponteiro do `tab:ct` estava escrito ao longo de duas linhas do `sec_results.tex`
+    («...is visible in the\nequation before any measurement (Table~S19...»), entao o
+    trecho nao existia em linha isolada nenhuma e a checagem de identidade NUNCA rodou
+    ali. A guarda dizia ✅ enquanto o corpo apontava para a tabela errada.
+    """
+    return re.compile(r'\s+'.join(re.escape(p) for p in trecho.split()))
+
+
+def _frase_ao_redor(texto, i, j):
+    """A frase que contem o trecho. O ponteiro mora na FRASE, nao na linha.
+
+    ⚠️ Procurar na linha perde o ponteiro que caiu na linha seguinte; procurar no arquivo
+    inteiro acha qualquer «Table~Sx» e aprova por acidente. A frase e a janela certa.
+    """
+    ini = max(texto.rfind('. ', 0, i), texto.rfind('.\n', 0, i))
+    fim = texto.find('.', j)
+    return texto[(ini + 1) if ini > 0 else 0: (fim + 1) if fim > 0 else len(texto)]
+
+
 def identidade(arquivos=None):
     """Cada ponteiro do corpo cita o S-numero do rotulo CERTO?"""
-    reais, ruins = numeros_reais(), []
+    reais, ruins, por_ancora = numeros_reais(), [], {k: 0 for k in ESPERADO}
     for nome in (arquivos or CORPO):
         q = Path(nome) if Path(nome).is_absolute() else AQUI / nome
         if not q.exists():
             continue
-        for i, linha in enumerate(q.read_text().split('\n'), 1):
-            for trecho, rot in ESPERADO.items():
-                if trecho not in linha:
-                    continue
-                cit = re.findall(r'(?:Table|Fig\.|Figure)~?(S\d+)', linha)
+        texto = q.read_text()
+        for trecho, rot in ESPERADO.items():
+            for m in _padrao(trecho).finditer(texto):
+                por_ancora[trecho] += 1
+                frase = _frase_ao_redor(texto, m.start(), m.end())
+                cit = re.findall(r'(?:Tables?|Figs?\.|Figures?)~?(S\d+)', frase)
                 alvo = reais.get(rot)
+                linha = texto[:m.start()].count('\n') + 1
                 if alvo and cit and alvo not in cit:
-                    ruins.append((nome, i, rot, alvo, cit))
-    return not ruins, ruins
+                    ruins.append((nome, linha, rot, alvo, cit))
+    return not ruins, ruins, por_ancora
+
+
+def ancoras_mortas(arquivos=None):
+    """⛔ Ancora que nao acha nada e BUG, nao passe.
+
+    Foi exatamente assim que o furo anterior ficou invisivel: o trecho do `tab:ct` nao
+    casava em lugar nenhum, a guarda nao checava nada e devolvia ✅. Zero ocorrencia
+    agora REPROVA, do mesmo jeito que um agregado vazio.
+    """
+    _, _, por_ancora = identidade(arquivos)
+    return sorted(k for k, n in por_ancora.items() if n == 0)
 
 
 def confere(arquivos=None):
@@ -135,11 +177,38 @@ def _autoteste_especie():
     return True
 
 
+def _autoteste_quebra_de_linha():
+    """⭐ O DEFEITO REAL, reintroduzido: o mesmo ponteiro escrito em uma linha e em duas.
+
+    As duas pernas sao o ponto. A guarda antiga aprovava a segunda por nao enxerga-la.
+    """
+    import tempfile
+    reais = numeros_reais()
+    certo, errado = reais.get('tab:ct'), 'S99'
+    assert certo, '⛔ nao li tab:ct do .aux'
+    uma = 'the contradiction is visible in the equation before any measurement (Table~%s).'
+    duas = 'the contradiction is visible in the\nequation before any measurement (Table~%s).'
+    with tempfile.TemporaryDirectory() as td:
+        for molde, rotulo in ((uma, 'uma linha'), (duas, 'duas linhas')):
+            bom = Path(td) / 'bom.tex'
+            bom.write_text(molde % certo)
+            assert identidade([str(bom)])[0], '⛔ reprova o ponteiro certo em %s' % rotulo
+            ruim = Path(td) / 'ruim.tex'
+            ruim.write_text(molde % errado)
+            ok, quais, _ = identidade([str(ruim)])
+            assert not ok, '⛔ NAO PEGA o ponteiro trocado quando ele cai em %s' % rotulo
+            assert quais[0][3] == certo
+    print('  autoteste ✅ (o ponteiro trocado REPROVA tambem quebrado entre duas linhas)')
+    return True
+
+
 if __name__ == '__main__':
     assert _autoteste()
     assert _autoteste_especie()
+    assert _autoteste_quebra_de_linha()
     ok, ruins, tem = confere()
-    ok2, trocados = identidade()
+    ok2, trocados, por_ancora = identidade()
+    mortas = [k for k, n in por_ancora.items() if n == 0]
     ok3, erradas = especie_confere()
     print(f'  autoteste ✅   {len(tem)} rotulos S no suplementar')
     print(f'  {"✅" if ok2 else "⛔"} identidade: cada ponteiro cita o rotulo certo')
@@ -148,7 +217,11 @@ if __name__ == '__main__':
         print(f'    {x}')
     for f, i, rot, alvo, cit in trocados:
         print(f'    {f}:{i} devia citar {alvo} ({rot}) e cita {cit}')
-    ok = ok and ok2 and ok3
+    print('  %s ancoras: %d/%d acham o trecho no corpo'
+          % ('✅' if not mortas else '⛔', len(por_ancora) - len(mortas), len(por_ancora)))
+    for k in mortas:
+        print('    ancora morta, nao casa em lugar nenhum: %r' % k)
+    ok = ok and ok2 and ok3 and not mortas
     print(f'  {len(citados())} ponteiros no corpo')
     print(f'  {"✅ APROVA" if ok else "⛔ REPROVA"}')
     for f, i, n in ruins:

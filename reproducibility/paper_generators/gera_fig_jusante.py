@@ -6,13 +6,16 @@
 (sec_results: "LIQE agrees with Q-Align on 32 of 42"), e alem disso o artigo amostra dez
 quadros uniformes enquanto esta passada amostra a 1 fps. Duas bases e duas amostragens: nao
 se lê de um lado para o outro. Aqui tudo vem de UMA passada, contra UMA base."""
+import os
 import json
 import statistics as st
 from pathlib import Path
 
-QB = Path('/dados/Projetos/quality-benchmark')
+import sys as _sys
+_sys.path.insert(0, str(Path(__file__).resolve().parent))
+from caminho_dos_dados import DADOS as QB   # noqa: E402
 SAIDA = Path(__file__).parent / 'fig_jusante.tex'
-NOME = {'sobel_cv': 'Sobel variation coeff.', 'contraste_variancia': 'Contrast variance',
+NOME = {'sobel_cv': 'Sobel variation coeff.', 'contraste_variancia': 'Grey-level dispersion',
         'laplacian_var': 'Laplacian variance', 'huang_exposicao': 'Exposure',
         'brilho': 'Brightness', 'ke_brightness': 'Brightness (Ke)',
         'ke_contraste': 'Contrast (Ke)', 'hasler_colorfulness': 'Colourfulness (Hasler)',

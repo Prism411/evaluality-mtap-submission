@@ -11,6 +11,7 @@ medidos na bancada pareada e nao nas duas portas de dano, entao entram com a col
 possuem e um travessao nas que nao possuem. Inventar um valor para preencher a linha seria
 o defeito que este artigo audita.
 """
+import os
 import json
 import re
 from pathlib import Path
@@ -22,7 +23,9 @@ def sem_zero(t):
     return re.sub(r'(?<![0-9])0\.', '.', t)
 
 
-QB = Path('/dados/Projetos/quality-benchmark')
+import sys as _sys
+_sys.path.insert(0, str(Path(__file__).resolve().parent))
+from caminho_dos_dados import DADOS as QB   # noqa: E402
 SAIDA = Path(__file__).parent / 'tab_familias.tex'
 SENS, TIPOS, GEN = 0.50, 15, 0.65
 SENS_COMP = 0.524   # o composto que passa a porta de sensibilidade
@@ -52,16 +55,29 @@ def main():
                 if ops[k].get('menor_rho_em_base_nao_vista') is not None)
     h_eleg = sum(1 for k in ops if ops[k].get('elegivel'))
 
+    COMP = json.loads((QB / 'as_combinacoes_COMO_A_LITERATURA_PUBLICA.json')
+                      .read_text(encoding='utf-8'))['por_combinacao']
+    _g = [(c['generalizacao_koniq']['rho_alinhado'], ' + '.join(c['campos'])) for c in COMP]
+    GEN_COMP, GEN_QUEM = max(_g)
+    _p = [(c['generalizacao_koniq']['rho_alinhado'], ' + '.join(c['campos']))
+          for c in COMP if c['media_z']['passa']]
+    assert len(_p) == 1, '⛔ esperava exatamente um composto passando a sensibilidade'
+    GEN_PASSA, GEN_PASSA_QUEM = _p[0]
+    assert GEN_COMP > GEN_PASSA, ('⛔ o maximo deixou de ser maior que o do que passa: '
+                                  'a nota da legenda precisa ser reescrita')
+
     # familia, n, melhor sensibilidade, melhor generalizacao, elegiveis, cor
     F = [(r'Summarization heuristics', len(ops), h_sens, h_gen,
           f'{h_eleg} of {len(com)} evaluated',
           'catbovw!12'),
-         (r'Published composites', 19, SENS_COMP, 0.067,
-          r'0 of 19 \ \tiny(1 clears sens.)', 'catbovw!7'),
+         (r'Published composites', len(COMP), SENS_COMP, GEN_COMP,
+          r'0 of %d \ \tiny(1 clears sens.)' % len(COMP), 'catbovw!7'),
          (r'Reproduced modules', 2, None, None, r'\textcolor{black!45}{not screened}',
           'catbovw!7'),
          (r'No-reference models', 10, 0.849, 0.723, r'\textbf{3 of 10}', 'accentgreen!14'),
          (r'Deployed SIFT+BoVW', 1, -0.077, -0.445, '0 of 1', 'rowlight')]
+
+    GEN_PASSA_TXT = ('%.3f' % GEN_PASSA).lstrip('0')
 
     L = [r'\begin{table}[!ht]', r'\centering',
          # ⛔ `\ref` NAO atravessa documentos: esta tabela vive no suplementar e o rotulo
@@ -70,7 +86,15 @@ def main():
          r'text, whose three conditions are stated there. '
          r'\textbf{Each cell is the maximum over its family on that axis alone}, and the '
          r'two maxima need not belong to the same member: among the no-reference models '
-         r'the best sensitivity is QualiCLIP and the best generalization LIQE. Spatial '
+         r'the best sensitivity is QualiCLIP and the best generalization LIQE. '
+         r'\textbf{The composite row is screened under a different orientation}: a '
+         r'combination has no direction declared by any source, so its sensitivity is '
+         r'oriented by the sign of the data rather than by a stated direction '
+         r'(Table~S30). That gate is the more permissive of the two, which makes the '
+         r'zero in its eligibility column conservative. \textbf{Among '
+         r'the composites the same split is decisive}: the best generalization belongs to a '
+         r'combination that fails the sensitivity condition, while the single composite that '
+         r'clears sensitivity generalizes at only ' + GEN_PASSA_TXT + r'. Spatial '
          r'information declares no direction and the reproduced modules were measured on '
          r'the constructed pairs rather than on these axes, so neither carries a verdict '
          r'here; the heuristics row counts 16 computed and 15 evaluated. Per-operation '

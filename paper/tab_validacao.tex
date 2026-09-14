@@ -1,11 +1,11 @@
 %% GERADO por gera_tab_validacao.py. Nao editar a mao.
-\begin{table}[!ht]
+\begin{table}[p]
 \centering
-\caption{\textbf{What each source work reports as evidence for its own visual criterion.} Read from the full text of each paper; the excerpt is verbatim. \emph{Tests} names what the source puts to a test, which is not always the operation the later literature borrows. One of the eleven source works is not in our archive and therefore carries no verdict here: \textbf{absence of a reading is not absence of validation}. It documents the clause carried on each band of the audit table in the main text.}
+\caption{\textbf{What each source work reports as evidence for its own visual criterion.} Read from the full text of each paper; the excerpt is verbatim. \emph{Tests} names what the source puts to a test, which is not always the operation the later literature borrows. One of the eleven source works is not in our archive and carries no verdict here: \textbf{absence of a reading is not absence of validation}. It documents the clause carried on each band of the audit table in the main text.}
 \label{tab:validation}
 \scriptsize
-\setlength{\tabcolsep}{3pt}
-\renewcommand{\arraystretch}{1.02}
+\setlength{\tabcolsep}{2.6pt}
+\renewcommand{\arraystretch}{0.96}
 \begin{tabular}{@{}>{\raggedright\arraybackslash}p{2.1cm}>{\raggedright\arraybackslash}p{2.4cm}>{\raggedright\arraybackslash}p{3.5cm}>{\raggedright\arraybackslash}p{3.6cm}@{}}
 \toprule
 \rowcolor{headerblue}
@@ -16,6 +16,23 @@
 \rowcolor{perf2!45}\citet{srinivas2016rank} & the summary only & precision, recall and F of the selected keyframes against the ground-truth keyframes of seven open-video.org videos & \emph{``results are compared with the ground truth keyframes provided by open-video.org''} \\
 \rowcolor{perf2!45}\citet{qaroush2025diversity} & the summary only & precision, recall and F1 of the extracted segments against reference summaries & \emph{``The evaluation focuses on comparing segments extracted by our system with those identified in ground truth summaries''} \\
 \rowcolor{perf1!45}\citet{korolkov2025keyframe} & \textbf{neither the rule nor its weights} & weights set, not fitted; ablations vary segmentation parameters, and keyframes are judged by coverage and a qualitative review & \emph{``We set wsharp = 0.7, wbright = 0.3 to favor focused frames''} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+%% GERADO por gera_tab_validacao.py. Nao editar a mao.
+\begin{table}[p]
+\centering
+\caption{\textbf{Evidence reported by each source work, continued.} Columns as in the preceding table.}
+\label{tab:validation_b}
+\scriptsize
+\setlength{\tabcolsep}{2.6pt}
+\renewcommand{\arraystretch}{0.96}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{2.1cm}>{\raggedright\arraybackslash}p{2.4cm}>{\raggedright\arraybackslash}p{3.5cm}>{\raggedright\arraybackslash}p{3.6cm}@{}}
+\toprule
+\rowcolor{headerblue}
+\hd{Source} & \hd{Tests} & \hd{What it reports} & \hd{Verbatim excerpt} \\
+\midrule
 \rowcolor{perf3!55}\citet{cakmak2025tripss} & the summary, with an ablation & TVSum20 and SumMe against human importance scores, with an ablation removing each modality & \emph{``Removing any single component''} \\
 \rowcolor{perf3!55}\citet{yang2024keyframe} & the summary, with an ablation & structural and feature ablations scored by F on SumMe over 15 annotations & \emph{``we conducted experiments on the SumMe dataset for structural ablation of the model and for feature ablation''} \\
 \rowcolor{perf3!55}\citet{gygli2014summe} & the summary, with an ablation & f-measure against multiple human-created summaries per video, collected in a study with perception psychologists, plus an ablation measuring the gain of adding each feature to the set & \emph{``We evaluate our method using multiple `ground truth' summaries per video, which we acquired in a study in collaboration with perception psychologists''} \\

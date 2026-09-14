@@ -1,11 +1,14 @@
 #!/usr/bin/env python3
 """Figura 2: a acuracia media da classe por degradacao, ordenada, com as que ADICIONAM
 estrutura separadas das que REMOVEM. E o argumento fisico do artigo, num grafico."""
+import os
 import json
 import statistics as st
 from pathlib import Path
 
-QB = Path('/dados/Projetos/quality-benchmark')
+import sys as _sys
+_sys.path.insert(0, str(Path(__file__).resolve().parent))
+from caminho_dos_dados import DADOS as QB   # noqa: E402
 SAIDA = Path(__file__).parent / 'fig_direcao.tex'
 # ⛔ A ORDEM E A DOS DADOS, nao uma escolha de apresentacao. Eu tinha trocado
 #    satur/noise/jpeg aqui e a figura saiu com rotulo colado no valor errado:
@@ -73,7 +76,7 @@ def main():
     L += [f'\\node[anchor=west,font=\\scriptsize\\bfseries,text=black!55] at '
           f'({W+0.55:.2f},{0.48:.2f}) {{below 50}};',
           f'\\node[anchor=west,font=\\scriptsize\\bfseries,text=black!55] at '
-          f'({W+1.55:.2f},{0.48:.2f}) {{HF energy}};',
+          f'({W+1.85:.2f},{0.48:.2f}) {{HF en.}};',
           f'\\fill[accentgreen!30] (0,{yb:.2f}) rectangle (0.26,{yb+0.20:.2f});',
           f'\\node[anchor=west,font=\\scriptsize] at (0.32,{yb+0.10:.2f}) '
           f'{{removes it}};',

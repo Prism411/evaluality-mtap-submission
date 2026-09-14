@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Gera a Tabela 1: as 16 operacoes de qualidade da literatura de sumarizacao,
 com o trabalho de origem e as tres portas. Le dos JSON medidos, nao digita numero."""
+import os
 import json
 import re
 from pathlib import Path
@@ -12,13 +13,15 @@ def sem_zero(t):
     return re.sub(r'(?<![0-9])0\.', '.', t)
 
 
-QB = Path('/dados/Projetos/quality-benchmark')
+import sys as _sys
+_sys.path.insert(0, str(Path(__file__).resolve().parent))
+from caminho_dos_dados import DADOS as QB   # noqa: E402
 SAIDA = Path(__file__).parent / 'tab_literatura.tex'
 
 NOME = {
     'ke_edge_distribution': 'Edge distribution', 'qaroush_go': 'Gradient orientation',
     'si': 'Spatial information', 'ke_contraste': 'Contrast',
-    'contraste_variancia': 'Contrast variance', 'ke_hue_count': 'Hue count',
+    'contraste_variancia': 'Grey-level dispersion', 'ke_hue_count': 'Hue count',
     'qaroush_entropia': 'Entropy', 'qaroush_gm': 'Gradient magnitude',
     'qaroush_saliencia': 'Saliency area', 'gygli_media_crua': 'Averaged aesthetics (3)',
     'srinivas_quality': 'Composite of five', 'glcm_contraste': 'GLCM contrast',
@@ -56,7 +59,8 @@ def main():
          r'\caption{The sixteen visual-selection operations the video-summarization '
          r'literature uses at the selection stage, reimplemented from the published '
          r'equations and measured under one protocol. \emph{Sensitivity} is the '
-         r'direction-aligned SRCC within each KADID-10k reference, averaged over the 25 '
+         r'SRCC against the degradation level within each KADID-10k reference, aligned to '
+         r'the direction the source declares for its own statistic, averaged over the 25 '
          r'distortion types, with the count of types above $.50$; \emph{Generalization} '
          r'is the lowest such correlation on any database the method was not fitted on; '
          r'\emph{Floor} is chance-corrected agreement on the operational clusters. '

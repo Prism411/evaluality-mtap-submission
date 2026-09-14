@@ -24,7 +24,7 @@ the eight types and edge distribution on H.264 and JPEG. Each operation--type ce
 exact sign-flip randomization over the 20 segments, with Holm over the
 \invTestes{}-test family: \invSig{} of the \invCelulas{} cells below chance survive it, in
 \invOpsSig{} of the \fontesDaLiteratura{} operations. The same test leaves
-\invModelosLimpos{} of the \invModelos{} published models with no type below chance.  Table~S28 lists the \invCelulas{} cells, and removing the two degradation types aligned
+\invModelosLimpos{} of the \invModelos{} published models with no type below chance.  Table~S27 lists the \invCelulas{} cells, and removing the two degradation types aligned
 with an operation's own attribute leaves all \tipoSemAlinhados{} still inverting.
 
 White noise concentrates the failures. These operations are statistics of local structure
@@ -79,7 +79,7 @@ BRISQUE & 100 & 100 & 100 & 99 & 100 & \textcolor{accentred}{\textbf{0}} & 67 & 
 
 No method ties on these pairs. Excluding darkening and desaturation leaves 600
 comparisons and does not repair the deployed operation: its accuracy is 63.7\%,
-whereas LIQE reaches 99.8\% and Q-Align 100\% (Table~S12). 
+whereas LIQE reaches 99.8\% and Q-Align 100\% (Table~S11). 
 
 The average conceals the diagnostic result. SIFT+BoVW is at or above 88\% on
 five types but selects the degraded copy in 92\% of white-noise pairs and 94\%
@@ -92,7 +92,7 @@ count increasing at every severity level. These measurements are consistent
 with noise and blocking creating detectable extrema that increase the count
 channel in Eq.~\ref{eq:factor}; structure-removing distortions instead happen
 to move count in the direction of fidelity. The score is therefore responsive,
-but not consistently to quality (Table~S12).
+but not consistently to quality (Table~S11).
 
 Q-Align is correct on 98.2\% of these pairs (95\% CI $[97.2,99.1]$), which
 supports its technical-degradation competence on this broadcast content. The exact downstream DOVER technical branch (DOVER-T) output
@@ -101,7 +101,7 @@ desaturation. The 19
 extractor substitutions average 44.9\% (CI $[41.0,48.9]$) and remain dominated
 by their descriptor count, corroborating the mechanism while refuting the
 registered prediction that fixed feature maps would force chance performance.
-The full prediction and overlay audits are in Tables~S12 and~S29.
+The full prediction and overlay audits are in Tables~S11 and~S29.
 \subsection{Mechanistic diagnosis}\label{sec:mechanism}
 
 The deployed inverse document frequency uses the vocabulary size,
@@ -162,13 +162,13 @@ by frame count is also mismatched to the deployed operation because its internal
 key-frame selector makes descriptor count nearly independent of duration. On the
 42 clusters, frame normalization changes the uncalibrated DOVER two-branch-sum
 output only from 47.4\% to 50.6\% and induces an inverse duration association
-($\rho=-.52$). Full normalization and pooling results are in Tables~S6 and S9.
+($\rho=-.52$). Full normalization results are in Table~S6.
 
 \subsection{Performance of literature-derived composites and source-specified
 rules}\label{sec:combinations}
 
 Nineteen attribute combinations were collected from the summarization literature
-(Table~S30), twelve of them with more than one term. Each went through the screening rule of
+(Table~S29), twelve of them with more than one term. Each went through the screening rule of
 Section~\ref{sec:screen} under two aggregations chosen here, a $z$-score mean and, as a
 stronger variant, a ridge model fitted on the whole of KADID-10k; the rules the sources
 themselves specify are reproduced separately, later in this section.
@@ -186,7 +186,7 @@ evaluated here satisfies the protocol's two damage requirements at once.}
 The two aggregations above are our choices. Several sources do specify how their terms
 combine, and those specifications were implemented and put through the same bench; two of
 them prescribe a rule over the same attribute vector as implemented here, whose adaptations
-are identified in Table~S25 of the supplement, so the comparison isolates the rule. Ke~\citep{ke2006highlevel} rejects the linear option in the text, writing
+are identified in Table~S24 of the supplement, so the comparison isolates the rule. Ke~\citep{ke2006highlevel} rejects the linear option in the text, writing
 that ``a naive method might
 use a weighted linear combination of the quality metrics'' but that ``the quality metrics we
 defined are not linear'', and uses a naive Bayes classifier instead. What is reproduced
@@ -228,7 +228,7 @@ scores \koModulo{} per cent where its own sharpness term alone scores
 \koContraste{} points with a segment-block interval of \koIC{} that touches zero, so at this
 sample size the shortfall is not established. \textbf{For the Qaroush module the same
 contrast is \vaContraste{} points with an interval of \vaIC{} that excludes zero: there the
-published module is measurably worse than its own best component.} The subset departs from the 20-segment result by \koPortao{} points on one
+implemented rule is measurably worse than its own best component.} The subset departs from the 20-segment result by \koPortao{} points on one
 degradation type, so it replicates the direction rather than estimating the size again.
 
 In two sources the published expression carries the opposite sign to the property the
@@ -238,7 +238,7 @@ Korolkov module is stated to penalize over-exposed frames, but the mean luminanc
 specifies rises monotonically with exposure and enters the module with a positive weight,
 so brighter always scores higher. \textbf{In both cases the expression contradicts the
 property the same paragraph claims for it}, and in both the contradiction is visible in the
-equation before any measurement (Table~S22 of the supplement).
+equation before any measurement (Table~S21 of the supplement).
 
 \subsection{External validation and screening}\label{sec:screen_results}
 
@@ -246,7 +246,7 @@ The constructed pairs fix the better member by construction, but they use eight
 degradations we chose. A public database with human opinion scores asks the same question
 independently, and applies to the individual operations, their composites and the
 no-reference models alike. All sixteen operations go through the rule of Section~\ref{sec:screen}: two damage
-requirements and one in-domain requirement. Table~S24 reports each family's best value on
+requirements and one in-domain requirement. Table~S23 reports each family's best value on
 each axis, so a family fails an axis only when its best member does.
 
 \textbf{No operation clears either damage gate, and the margin is not narrow.} The best
@@ -255,7 +255,7 @@ best lowest-unseen correlation is $.139$ against $.65$; the higher $.218$ in tha
 Across \refB{} resamples of the reference images, \refViram{} of the fifteen changes
 verdict and \refTocam{} of the intervals reaches the threshold. Four operations are
 negative on the first requirement, which means their response runs against the direction
-their own use assumes. \pisoTabPassam{} of the \pisoTabPop{} operations in Table~S17
+their own use assumes. \pisoTabPassam{} of the \pisoTabPop{} operations in Table~S16
 that declare a direction and have a downstream choice defined do clear the in-domain
 requirement, and the bracketed lower bounds show how much of each pass survives its
 interval: the weakest is \pisoMenorLo{}. Several operations therefore agree with the reference model on unmodified material while
@@ -270,7 +270,7 @@ QualiCLIP and CLIP-IQA$+$ reach .807, .849 and .808, respectively, each with 22
 types above .50. Most remaining NR-IQA candidates also respond broadly, with
 means from .607 to .733.
 
-Table~S21 applies the same complete-case rule to every method.
+Table~S20 applies the same complete-case rule to every method.
 Released-weight exposure is visible because an in-database correlation is not a
 generalization result. The generalization column reports the lowest signed
 $\rho^{*}$ over every unseen database, rather than using an absolute value that
@@ -280,12 +280,12 @@ Three methods are eligible: LIQE, QualiCLIP and CLIP-IQA$+$. QualiCLIP has the l
 sensitivity mean and LIQE the largest generalization margin, so the three form an
 eligibility set rather than a ranking. The set is unchanged when the generalization
 threshold varies from .60 to .65 or the sensitivity coverage cut varies from 12 to 22
-types (Table~S10); at .55 MUSIQ is added, and at .70 only LIQE remains.
+types (Table~S9); at .55 MUSIQ is added, and at .70 only LIQE remains.
 
 The database-level values show why the universal unseen-database clause matters.
 The three eligible methods hold above $\rho^{*}=.65$ on both databases, while TOPIQ,
 MUSIQ, DBCNN and HyperIQA are strong on the unseen authentic database and fall to between
-.462 and .556 on KADID; Table~S21 gives every value. The three eligible methods pass the floor with overlapping topic-block intervals. LIQE agrees with Q-Align
+.462 and .556 on KADID; Table~S20 gives every value. The three eligible methods pass the floor with overlapping topic-block intervals. LIQE agrees with Q-Align
 on 32 of 42 clusters ($\kappa_{\mathrm{uniform}}=.551$, 95\% CI
 $[.284,.786]$); QualiCLIP agrees on 28 ($.371$, $[.143,.597]$); and
 CLIP-IQA$+$ on 25 ($.236$, $[.034,.435]$). The deployed operation agrees on 21,
@@ -302,9 +302,9 @@ synthetic types on still photographs against eight types in the deployment domai
 rule was applied at the same fraction of types on each.
 
 The full P.1401 triad and database-level correlations are in Tables~S4 and S15.
-The latter reports training-database contrasts, and conditioning on detectable keypoint density strongly attenuates the BoVW score (Table~S16). Cost is also secondary to
+The latter reports training-database contrasts, and conditioning on detectable keypoint density strongly attenuates the BoVW score (Table~S15). Cost is also secondary to
 eligibility: in the common environment the deployed operation takes 182~s per
-cluster and LIQE 1.9~s (Table~S14).
+cluster and LIQE 1.9~s (Table~S13).
 
 \subsection{What the choice of operation does to the pipeline}\label{sec:menu}
 
@@ -350,17 +350,17 @@ published operation in place of another can rewrite most of what the stage outpu
 the screening of Section~\ref{sec:screen_results}; the remaining \jusSoJusante{} are
 evaluated only in this substitution and carry no screening verdict. The last two columns of
 Table~\ref{tab:synthesis} link those \jusAuditadas{} to their other measurements, and
-Table~S19 records the complete coverage. Whichever of these operations a system adopts, it
+Table~S18 records the complete coverage. Whichever of these operations a system adopts, it
 inherits a different summary, and the published record offers no measurement that would let
 an implementer prefer one. Because these percentages use one frame per second while
-Table~S20 scores each complete operation under its own sampling, the two must not be read
+Table~S19 scores each complete operation under its own sampling, the two must not be read
 across.
 
 LIQE fills the same slot for the direct substitution: among the three eligible methods it
 has the largest generalization margin and near-ceiling accuracy on the constructed pairs. With the same ten uniformly spaced frames and mean
 pooling, SIFT+BoVW and LIQE still differ in 16 of 42 clusters. The LIQE--SIFT DOVER-T contrast is $\dovCasado{}$ range points (topic CI
 $\dovCasadoTopico{}$; hierarchical $\dovCasadoHier{}$) and $\dovCasadoCru{}$ raw, with both
-intervals positive. Table~S20 reports the complete-operation comparison and all eligible methods.
+intervals positive. Table~S19 reports the complete-operation comparison and all eligible methods.
 
 Replacing the deployed visual-selection operation with the LIQE-based one changes
 \casCompleta{} of 42 representatives. \textbf{The \subResta{} unchanged clusters do not exceed chance agreement}: observed
@@ -378,7 +378,7 @@ point estimate is not generated solely by near-zero ranges. As a construct
 sensitivity analysis, the uncalibrated sum of DOVER's technical and aesthetic
 branches reproduces the earlier $\dovSoma{}$-point contrast, but that sum is neither
 the official standardized fused score nor a purely technical measure
-(Table~S11).
+(Table~S10).
 
 The reference-model columns give positive point estimates for the substitution, with
 overlapping intervals across the eligible set. \textbf{The supported end-to-end conclusion
@@ -422,7 +422,7 @@ scaling experiment. \textbf{Neither validates a single attribute as a stand-alon
 technical fidelity}: the per-feature curves separate professional photographs from
 snapshots, which is not the label a selection stage needs. The remaining \valSoResumo{} report summary-level evaluation rather than isolated
 validation of the visual component, and \citet{korolkov2025keyframe} fixes its weights without testing
-them; Table~S26 of the supplement gives, source by source, the excerpt that fixes each
+them; Table~S25 of the supplement gives, source by source, the excerpt that fixes each
 reading. \textbf{Summary-level evaluation does not isolate the visual component's validity as a
 technical-quality measure.}
 

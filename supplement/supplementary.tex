@@ -517,36 +517,15 @@ Record \ 0:00 (14\,s)    & 815.2  & \pR{4.93} & \pR{4.76} & 4.26 & \pR{0.63} & \
 
 
 %% --- S9: tab:pooling ---
-\begin{table}[!ht]
-\centering
-\caption{Top-1 agreement with the reference model over the 15 clusters under
-four temporal poolings. The worst-frame, tenth-percentile and
-$\mathrm{mean}-\mathrm{sd}$ rules all penalise within-segment dispersion; the
-mean ignores it. \textbf{One cell is unresolved.} The \emph{Mean} column reproduces the
-measurement file behind Table~S7 for BRISQUE, LIQE, NIQE, and for QualiCLIP it reads 9/15 where that file
-gives 10/15. No generator for this table survives in the archive.
-\textbf{The discrepancy is therefore reported and not reconciled}: we cannot say which run
-produced the 9/15, nor whether the other three columns came from the same procedure. The
-row is kept because the pooling comparison it supports is secondary and its direction is
-unaffected, and it should be read as provenance-incomplete rather than as a measurement of
-the same standing as the rest of this supplement.}
-\label{tab:pooling}
-\small
-\setlength{\tabcolsep}{7pt}
-\renewcommand{\arraystretch}{1.14}
-\begin{tabular}{@{}l c c c c@{}}
-\toprule
-\rowcolor{headerblue}
-\hd{Method} & \hd{Mean} & \hd{Worst frame} & \hd{10th pct.} &
-\hd{$\mathrm{mean}-\mathrm{sd}$} \\
-\midrule
-\rowcolor{rowlight} \textbf{LIQE} & \pfB{11/15} & \pfB{11/15} & \pfB{11/15} & \pfB{11/15} \\
-\rowcolor{rowwhite} NIQE          & \pfC{10/15} & \pfC{10/15} & \pfC{10/15} & \pfC{10/15} \\
-\rowcolor{rowlight} QualiCLIP     & \pfD{\ 9/15} & \pfD{\ 9/15} & \pfB{11/15} & \pfC{10/15} \\
-\rowcolor{rowwhite} BRISQUE       & \pfC{10/15} & \pfD{\ 9/15} & \pfD{\ 9/15} & \pfC{10/15} \\
-\bottomrule
-\end{tabular}
-\end{table}
+%% ⛔ A tabela dos quatro agrupamentos temporais (antiga S9) foi RETIRADA em
+%% 14/09/2026. Motivo: proveniencia nao recuperavel. Nenhum gerador dela sobreviveu no
+%% acervo, e refazer exigiria escores POR FRAME dos modelos nos 15 clusters, que nao
+%% existem: `e2e_scores.json` guarda um valor por segmento, ja agregado, e os frames
+%% foram descartados. A celula do QualiCLIP divergia da fonte da S7 (9/15 contra 10/15) e
+%% nao havia como dizer qual execucao a produziu.
+%% ⚠️ O criterio da retirada e a proveniencia, nao o valor: a divergencia era DESFAVORAVEL
+%% a nos, e mante-la seria mais confortavel que retira-la. O artefato historico continua no
+%% repositorio, identificado como tal.
 
 
 %% --- S10: tab:threshold_sens ---

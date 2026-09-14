@@ -4,6 +4,7 @@
 Duas fontes que especificam um MODULO completo tambem especificam, no mesmo paragrafo, uma
 propriedade que a expressao dada nao tem. Nos dois casos a varredura e por construcao e nao
 envolve corpus: e uma propriedade da formula."""
+import os
 import json
 import re
 from pathlib import Path
@@ -15,7 +16,9 @@ def sem_zero(t):
     return re.sub(r'(?<![0-9])0\.', '.', t)
 
 
-QB = Path('/dados/Projetos/quality-benchmark')
+import sys as _sys
+_sys.path.insert(0, str(Path(__file__).resolve().parent))
+from caminho_dos_dados import DADOS as QB   # noqa: E402
 SAIDA = Path(__file__).parent / 'tab_ct.tex'
 ROTULO = {
     'a_Eq8_com_modulo': (r'$\frac{1}{K}\sum_k\bigl|\sigma_p(\mathrm{HE}(f_k))-'
