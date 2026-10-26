@@ -4,7 +4,7 @@ Review package for **Do Visual-Selection Operations Track Technical Quality? A C
 
 This repository freezes the package prepared for *Multimedia Tools and Applications* on 25 October 2026. It is a submission candidate, not an accepted article. The manuscript's funding declaration is awaiting the authors' current confirmation. Journal policy is [single-blind review](https://link.springer.com/journal/11042/submission-guidelines): author identification is intentional.
 
-**The current submission package is on `main`.** Older releases contain earlier snapshots and are not the matching version. The repository is currently private; a URL alone does not grant reviewers access.
+**The current submission package is on `main`.** Older releases contain earlier snapshots and are not the matching version. The repository is public and can be accessed by reviewers without a GitHub account.
 
 ## Read the article
 

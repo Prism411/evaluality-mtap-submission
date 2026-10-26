@@ -14,6 +14,6 @@ Repository-specific commands:
   python3 tools/verify_snapshot.py
   python3 tools/build_pdfs.py
 
-The package is prepared, not submitted or accepted. No new full scientific audit or neural-model inference was performed. Portal uploads and public reviewer access have not been tested. The existing GitHub repository remains private until the owner decides otherwise.
+The package is prepared, not submitted or accepted. No new full scientific audit or neural-model inference was performed. Portal uploads have not been tested. The repository was made public on 25 October 2026 at the owner's explicit request.
 
 Repository commands executed successfully on 25 October 2026: all 361 hashes verified; all four PDF rebuilds matched page counts and extracted text. Main 27 pages, supplement 54, title page 1, cover letter 1. No new scientific experiment was executed.
