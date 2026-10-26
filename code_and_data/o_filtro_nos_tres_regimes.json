@@ -1,0 +1,69 @@
+{
+ "_o_que_e": "⭐⭐ O FILTRO DE QUADRO-CHAVE NOS TRES REGIMES DE DESCRITOR.\n\nPOR QUE EXISTE (21/09/2026). Ao tentar pôr o ORB na ablacao de descritores, o filtro de\nquadro-chave do sistema implantado degenerou: 1 de 28 quadros com SIFT contra 28 de 28 com\nORB. ⛔ Ficou declarado que aquilo NAO dizia nada sobre as 19 CNNs, que passam pelo mesmo\nfiltro. **Esta rodada responde essa pergunta, em vez de fechar por analogia.**\n\n⭐ E LENDO O CODIGO APARECEU A RAZAO DE HAVER TRES REGIMES, nao dois. O\n`cnn_bovw_scorer.extract_features` faz `torch.nn.functional.normalize(descs, p=2, dim=2)`:\nos descritores da CNN sao UNITARIOS, entao o produto escalar e COSSENO em [-1, 1] e o\nlimiar 0,95 do `num_matches` e um limiar de cosseno, que e o que ele parece ser. ⛔ O SIFT\n(`float32` cru) e o ORB (`uint8`) NAO sao normalizados: os produtos ficam na casa de 10^5 e\no `>= 0,95` e sempre verdadeiro, ou seja o limiar nao filtra nada nesses dois.\n\nA PERGUNTA: com o limiar funcionando como cosseno, quantos quadros a CNN seleciona?\n\n⛔ CRITERIO DECLARADO ANTES DE RODAR. Tres desfechos possiveis, e os tres sao publicaveis:\n  A) a CNN seleciona ~todos, como o ORB  -> a degeneracao e PRE-EXISTENTE na ablacao\n     publicada, e a frase do artigo sobre os 19 extratores precisa de ressalva;\n  B) a CNN seleciona ~1, como o SIFT     -> o ORB e o caso desviante e o achado e dele;\n  C) a CNN fica no meio                  -> o filtro responde a escala, e os tres regimes\n     sao tres pontos de um mesmo eixo, que e a leitura mais forte.",
+ "limiar_do_num_matches": 0.95,
+ "por_regime": [
+  {
+   "regime": "SIFT (float32 cru, 128-D)",
+   "quadros": 28,
+   "viram_keyframe": 1,
+   "descritores_por_quadro": 853,
+   "descritores_totais": 853,
+   "produto_escalar_tipico": 261884.0,
+   "normalizado": false,
+   "num_matches_mediano": 692,
+   "limiar_de_is_keyframe": 85.3,
+   "segundos": 0.4
+  },
+  {
+   "regime": "ORB (uint8, 32-B)",
+   "quadros": 28,
+   "viram_keyframe": 28,
+   "descritores_por_quadro": 3058,
+   "descritores_totais": 92144,
+   "produto_escalar_tipico": 797039.0,
+   "normalizado": false,
+   "num_matches_mediano": 75,
+   "limiar_de_is_keyframe": 318.9,
+   "segundos": 33.5
+  },
+  {
+   "regime": "resnet50 (L2-normalizado, 2048-D)",
+   "quadros": 28,
+   "viram_keyframe": 1,
+   "descritores_por_quadro": 49,
+   "descritores_totais": 49,
+   "produto_escalar_tipico": 0.769,
+   "normalizado": true,
+   "num_matches_mediano": 15,
+   "limiar_de_is_keyframe": 4.9,
+   "segundos": 0.0
+  },
+  {
+   "regime": "vgg16 (L2-normalizado, 512-D)",
+   "quadros": 28,
+   "viram_keyframe": 1,
+   "descritores_por_quadro": 49,
+   "descritores_totais": 49,
+   "produto_escalar_tipico": 0.939,
+   "normalizado": true,
+   "num_matches_mediano": 21,
+   "limiar_de_is_keyframe": 4.9,
+   "segundos": 0.0
+  },
+  {
+   "regime": "mobilenet (L2-normalizado, 960-D)",
+   "quadros": 28,
+   "viram_keyframe": 1,
+   "descritores_por_quadro": 49,
+   "descritores_totais": 49,
+   "produto_escalar_tipico": 0.8858,
+   "normalizado": true,
+   "num_matches_mediano": 22,
+   "limiar_de_is_keyframe": 4.9,
+   "segundos": 0.0
+  }
+ ],
+ "🔴_regimes_com_descritor_NaN": [],
+ "⚠️_por_que_os_NaN_saem_do_veredito": "descritor NaN faz num_matches = 0 e TODO quadro vira keyframe por aritmetica invalida, nao por propriedade do filtro",
+ "⭐_DESFECHO": "B: as CNNs validas NAO degeneram; o caso desviante e o descritor binario, por ESCALA"
+}

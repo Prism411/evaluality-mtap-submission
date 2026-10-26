@@ -1,0 +1,29 @@
+%% GERADO por gera_tab_unidades.py -- nao editar a mao
+\begin{table}[!ht]
+\centering
+\caption{Resampling unit per analysis, and the rival unit tested against it. Observations are nested, so the unit decides the width of every interval: the italic line under each row states the nesting, and \textbf{the declared unit follows from that nesting}, observations sharing content or a source entering the same block. Each interval is also recomputed under the rival unit, and the last column reports the outcome of that recomputation.}
+\label{tab:unidades}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{1.0cm}>{\raggedright\arraybackslash}p{2.35cm}>{\raggedright\arraybackslash}p{1.6cm}>{\raggedright\arraybackslash}p{1.6cm}>{\raggedright\arraybackslash}p{4.1cm}@{}}
+\toprule
+\rowcolor{headerblue}
+\hd{Block} & \hd{Analysis} & \hd{Declared unit} & \hd{Rival tested} & \hd{Outcome} \\
+\midrule
+\rowcolor{perf3!45}Block 01 & Paired difference, 800 pairs & segment block & the pair & \textbf{the two units give different widths; under the declared unit the interval is $[+29.8,+38.9]$}, and $[+30.4, +39.4]$ under the coarser source-aware block (12 blocks) \\
+\rowcolor{perf3!45} & \multicolumn{4}{@{}>{\raggedright\arraybackslash\itshape}p{9.55cm}@{}}{\footnotesize 20 segments, 40 pairs each; pairs within a segment share content} \\
+\cmidrule(lr){1-5}
+\rowcolor{perf5!25}Block 01 & Strict accuracy, 800 pairs & topic block & the segment block & 11 of the 11 interval bounds reproduce under the declared unit, 2 under the rival \\
+\rowcolor{perf5!25} & \multicolumn{4}{@{}>{\raggedright\arraybackslash\itshape}p{9.55cm}@{}}{\footnotesize the 20 segments come from 13 topic labels, 12 source-aware blocks after merging the two that share source videos} \\
+\cmidrule(lr){1-5}
+\rowcolor{perf5!25}Block 04 & In-domain floor, 42 clusters & topic block & the cluster & 3 of the 3 interval bounds reproduce under the declared unit, 1 under the rival \\
+\rowcolor{perf5!25} & \multicolumn{4}{@{}>{\raggedright\arraybackslash\itshape}p{9.55cm}@{}}{\footnotesize the 42 clusters come from 19 topic labels, 18 source-aware blocks} \\
+\cmidrule(lr){1-5}
+\rowcolor{perf5!25}Block 04 & Output contrast, 42 clusters & topic block & the cluster & over eight seeds the bounds span $[-13.3, -11.2]$ and $[54.6, 55.5]$ under the declared unit, against $[-6.9, -5.8]$ and $[52.3, 52.9]$ under the rival \\
+\rowcolor{perf5!25} & \multicolumn{4}{@{}>{\raggedright\arraybackslash\itshape}p{9.55cm}@{}}{\footnotesize the 42 clusters come from 19 topic labels, 18 source-aware blocks} \\
+\cmidrule(lr){1-5}
+\rowcolor{perf5!25}Block 04 & Regime contrast, 42 clusters & topic block & the cluster (exact McNemar) & the verdict holds under the declared unit ($p=.008$ against $p=.006$) \\
+\rowcolor{perf5!25} & \multicolumn{4}{@{}>{\raggedright\arraybackslash\itshape}p{9.55cm}@{}}{\footnotesize the 12 discordant pairs fall in 9 topics; the null enumerates all $2^{9}$ block sign assignments} \\
+\bottomrule
+\end{tabular}
+\end{table}

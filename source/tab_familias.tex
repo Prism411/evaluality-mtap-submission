@@ -1,0 +1,22 @@
+\begin{table}[!ht]
+\centering
+\caption{\textbf{External screening by method class} (Table~\ref{tab:taxonomy}). Each cell is the maximum over its class on that axis alone, so \textbf{the two maxima need not belong to the same member}. \emph{Clears both external} counts the members passing sensitivity and generalization together; \textbf{the in-domain floor is a third condition, reported separately}. Spatial information declares no direction and carries no verdict; the heuristics row counts 16 computed and 15 evaluated, and the bag-of-visual-words row 3 computed and 1 evaluated: the other two, keypoint density and the 19-extractor ablation, are diagnostics rather than published scores. Deep proxies read context and fall outside the isolated-image protocol (Section~\ref{sec:taxonomy_results}). The two source-specified rules are not screened (Section~\ref{sec:combinations}). $^{\star}$Diagnostic, not a published class: generalization is the KonIQ-10k association under a data-derived orientation with normalization re-estimated per database, which makes its zero conservative. Per-operation values are in the supplement.}
+\label{tab:families}
+\small
+\setlength{\tabcolsep}{7pt}
+\renewcommand{\arraystretch}{1.0}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.5cm} c r r c@{}}
+\toprule
+\rowcolor{headerblue}
+\hd{Evaluated group} & \hd{$n$} & \hd{Best sens.} & \hd{Best gen.} & \hd{Clears both external} \\
+\midrule
+\rowcolor{focoauditado!12}Low-level pixel heuristics & 16 & $+.298$ & $+.139$ & 0 of 15 evaluated \\
+\rowcolor{focoauditado!12}Visual-word counting: SIFT+BoVW \citep{barbieri2021tese} & 3 & $-.077$ & $-.445$ & 0 of 1 evaluated \\
+\rowcolor{accentgreen!14}Dedicated NR-IQA models & 10 & $+.849$ & $+.723$ & \textbf{3 of 10} \\
+\rowcolor{focoauditado!7}Deep representativeness proxies & 3 & --- & --- & \textcolor{black!45}{not screened} (Section~\ref{sec:taxonomy_results}) \\
+\midrule
+\rowcolor{rowlight}\emph{Attribute configurations (diagnostic)}$^{\star}$ & 19 & $+.524$ & $+.601$ & 0 of 19 \ \tiny(1 clears sens.) \\
+\midrule
+\bottomrule
+\end{tabular}
+\end{table}

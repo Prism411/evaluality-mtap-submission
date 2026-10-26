@@ -1,0 +1,169 @@
+%% Canonical MTAP manuscript.
+%% Build: pdflatex main && bibtex main && pdflatex main && pdflatex main
+\documentclass[sn-basic,Numbered]{sn-jnl}
+
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{booktabs}
+\usepackage[table,dvipsnames]{xcolor}
+\usepackage{manyfoot}
+\usepackage{hyperref}
+\hypersetup{bookmarksdepth=2}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc}
+\usepackage{enumitem}
+\usepackage{array}
+%% a Tabela 4 nao pode atravessar para dentro da Discussao
+\usepackage{placeins}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+
+\definecolor{headerblue}{HTML}{1B4F72}
+\definecolor{rowlight}{HTML}{EDF3F8}
+\definecolor{rulegray}{HTML}{9AA5B1}
+\definecolor{accentblue}{HTML}{2471A3}
+\definecolor{accentgreen}{HTML}{1E8449}
+\definecolor{accentred}{HTML}{C0392B}
+\definecolor{accentorange}{HTML}{E67E22}
+\definecolor{accentpurple}{HTML}{7D3C98}
+\definecolor{focoauditado}{HTML}{C2185B}
+%% escala de desempenho, a mesma do suplementar (vermelho -> verde)
+\definecolor{perf1}{HTML}{E74C3C}
+\definecolor{perf2}{HTML}{F5B041}
+\definecolor{perf3}{HTML}{F9E79F}
+\definecolor{perf4}{HTML}{7DCEA0}
+\definecolor{perf5}{HTML}{1E8449}
+\newcommand{\hd}[1]{\textcolor{white}{\textbf{#1}}}
+\newcommand{\polup}{\ensuremath{\uparrow}}
+\newcommand{\poldown}{\ensuremath{\downarrow}}
+
+% ⭐ empacotamento de floats: a p.10 terminava com ~10 linhas de folga porque um
+% float nao cabia. Isto deixa o float ocupar mais da pagina e reduz sobra encalhada.
+\renewcommand{\topfraction}{0.92}
+\renewcommand{\bottomfraction}{0.85}
+\renewcommand{\textfraction}{0.06}
+\renewcommand{\floatpagefraction}{0.72}
+\setcounter{topnumber}{3}
+\setcounter{totalnumber}{4}
+
+% ⛔ ANTES do \begin{document}: enquanto este input ficava depois do \maketitle, o
+% resumo nao alcancava macro nenhuma, e tentar usar uma la dava «Undefined control
+% sequence» com o numero saindo VAZIO no PDF. Sao so \newcommand, entao carregar cedo
+% e seguro e libera o resumo, que e o texto mais lido, para usar valor medido.
+\input{regras_publicadas}
+%% as macros da figura de retencao: arquivo proprio para poderem ser usadas no corpo
+%% independentemente de ONDE a figura entra. Ver o cabecalho de gera_fig_jusante.py.
+\input{macros_jusante}
+\begin{document}
+
+%% ⛔ TITULO TROCADO em 21/09/2026, parecer externo dos 48 criterios (T01, criterios 3, 4,
+%% 20, 33, 47), com decisao do Jader. O «Class-Level» prometia inferencia sobre CLASSES que
+%% o desenho nao sustenta de modo uniforme: a norma profunda e construcao nossa, duas
+%% operacoes nao tem todos os eixos e a coerencia tem resultado FAVORAVEL. A unidade de
+%% inferencia do artigo inteiro passa a ser «as implementacoes efetivamente avaliadas», e
+%% as classes ficam como organizacao do inventario.
+\title[Do visual-selection operations track technical quality?]{Do Visual-Selection Operations Track Technical Quality? A Controlled Audit for Multi-Video Summarization}
+
+%% NOTE: confirm author list, ORCIDs and affiliations before submission.
+\author*[1]{\fnm{Jader L.} \sur{de Souza Gon\c{c}alves}}\email{jaderlouis@usp.br}
+\author[1]{\fnm{Rudinei} \sur{Goularte}}\email{rudinei@icmc.usp.br}
+\affil[1]{\orgdiv{Instituto de Ci\^{e}ncias Matem\'{a}ticas e de Computa\c{c}\~{a}o},
+  \orgname{Universidade de S\~{a}o Paulo (USP)},
+  \orgaddress{\city{S\~{a}o Carlos}, \state{SP}, \country{Brazil}}}
+
+%% ⛔ RESUMO REESCRITO em 21/09/2026 (parecer, A01 + criterios 4, 31, 32, 47).
+%% O anterior abria com as frequencias de TRIAGEM (51/40/24 de 86 num acervo de 212), que
+%% nao sao usos adjudicados, e fechava rejeitando tres classes do campo — alegacao que a
+%% propria 4.1 nao sustenta. A ordem agora e a da rubrica: contexto/problema, objetivo,
+%% metodo, achados centrais, implicacao delimitada.
+%% ⚠️ Nenhum numero e digitado: todos entram por macro emitida pelos geradores.
+\abstract{
+Multi-video summarization selects representatives from redundant content, and
+visual-selection operations developed for appearance or representativeness are reused to
+rank those representatives by technical quality without validation for that role. We test
+them in that role. The study combines source-level
+provenance, controlled degradation, external opinion-score evaluation, mechanistic analysis
+and representative substitution in a fixed modular testbed. We evaluate
+\fontesDaLiteraturaN{} literature-derived operations from \fontesTrabalhosN{} source works on
+800 original--transformed comparisons drawn from 20 broadcast segments and on three public image-quality databases, alongside attribute configurations and dedicated no-reference quality models. Each of the \fontesDaLiteraturaN{} literature-derived scalar operations reverses on at least one of eight transformation types, and \resRuidoN{} reverse
+under white noise; \invOpsSigTop{} keep a reversal under the most conservative unit of
+analysis, with one-sided exact tests and Holm correction. None meets both external
+screening conditions, nor do \resCombinacoesN{} attribute configurations, while
+\resElegiveisN{} of \invModelosN{} dedicated models do. A deep representativeness proxy, distance to the cluster centre, prefers the original in \taxCentPar{}\% of pairs, below every dedicated model, and still in \taxCentOutros{}\% when the cluster is drawn from other topics: it mostly reads atypicality in the embedding. Over \disClusters{} redundancy
+clusters, \disOps{} scoring implementations produce \disResumos{} distinct
+representative-selection sets. One audited operation factorizes exactly into a descriptor
+count and a mean rarity weight; replacing the score by the count leaves all \redEscolhas{} choices unchanged, so the operation reads local detail as quality. Implementation choice is
+consequential, and a reused operation should be validated against the requirement it is
+meant to serve.
+}
+
+
+
+\keywords{Multi-video summarization, No-reference image quality assessment,
+Content selection criteria, Benchmark evaluation, Broadcast news video}
+
+\maketitle
+
+%% macros medidas: carregam antes das secoes, a 2.3 ja as usa
+\input{sec_intro}
+\input{sec_related}
+\input{sec_method}
+\input{sec_results}
+\input{sec_discussion}
+\input{sec_conclusion}
+
+\section*{Statements and Declarations}
+
+\paragraph{Data availability}
+KADID-10k, KonIQ-10k and LIVE In the Wild are public. The supplementary material is
+submitted as Online Resource~1, containing Supplementary Tables~S1--S33 and
+Supplementary Figures~S1--S4; a reproducibility archive accompanies it as Online
+Resource~2; scripts, derived scores, clusters, seeds and latency results are in that
+archive, and a Git bundle that makes the registered-prediction commit independently
+verifiable will accompany the permanent public release. \textbf{The broadcast corpus
+itself is not redistributed}: it was assembled by colleagues at our laboratory and
+remains with its authors, and this study uses it under their permission rather than
+publishing it. What the archive contains for that corpus is derived material,
+namely per-segment scores, cluster memberships, seeds and timings, together with a
+two-topic, six-video sample so that the scoring scripts can be run on real input;
+owing to size, the archive submitted for review carries one of the two topics.
+
+\paragraph{Code availability}
+Analysis scripts and machine-readable results are provided with the submission as
+Online Resource~2 (\texttt{ESM\_2.zip}); a permanent public repository, tagged to the
+accepted version, will be released at publication.
+
+\paragraph{Competing interests}
+The authors declare no competing financial interests. Two non-financial relationships are
+disclosed: the modular pipeline used as testbed and the broadcast corpus it runs on were
+developed at the authors' laboratory, as stated in Section~\ref{sec:data}, and R.\,G. is a
+co-author of~\citep{barbieri2021content}, one of the works audited here.
+
+\paragraph{Author contributions}
+J.\,L.\,S.\,G. designed and implemented the evaluation protocol, ran the experiments and
+wrote the manuscript. R.\,G. supervised the research, defined the problem framing and
+revised the manuscript. Both authors approved the final version.
+
+\paragraph{Ethics approval, consent to participate and consent for publication}
+Not applicable. The study involved no recruitment, intervention or new data collection
+from human participants.
+
+\paragraph{Funding}
+The authors received no specific funding for this work.
+
+\paragraph{Use of generative artificial intelligence}
+%% ⛔ 22/09 (parecer v2, V2-099): «No reported value was produced by a language model»
+%% contradizia o proprio artigo, que avalia o Q-Align e o descreve como modelo multimodal
+%% de linguagem. A distincao correta nao e «modelo de linguagem sim ou nao»: e entre os
+%% assistentes de REDACAO e PROGRAMACAO e os modelos usados como INSTRUMENTO DE MEDIDA.
+OpenAI Codex and Anthropic Claude were used as coding and writing assistants: to implement
+the measurement and analysis scripts, to run the experiments, and to draft and revise the
+manuscript text. \textbf{No reported value was supplied by those assistants as a factual
+result.} Every reported measurement was produced by executing the documented scoring and
+analysis procedures on archived inputs, including the vision--language quality models
+evaluated here, and reaches the text through a macro emitted by a versioned script rather
+than by transcription. The authors designed the study, decided what the evidence supports,
+verified the claims against the archived data, and take full responsibility for the
+manuscript.
+
+\bibliography{references}
+\end{document}

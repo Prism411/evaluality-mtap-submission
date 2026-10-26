@@ -1,0 +1,47 @@
+{
+  "_o_que_e": "rho de Spearman entre a formulacao implantada (BoVW canonico) e a contagem (densidade de keypoints), por base",
+  "por_base": {
+    "KonIQ": {
+      "n": 10073,
+      "rho": -0.999848,
+      "imprime": -0.9998,
+      "publicado": -0.9998,
+      "bate": true
+    },
+    "KADID": {
+      "n": 10125,
+      "rho": -0.999789,
+      "imprime": -0.9998,
+      "publicado": -0.9998,
+      "bate": true
+    },
+    "CLIVE": {
+      "estado": "SEM CACHE EM DISCO",
+      "publicado": -0.9947
+    }
+  },
+  "previsoes": {
+    "1_as_bases_com_cache_reproduzem": "CONFIRMADA"
+  },
+  "koniq_por_corte": {
+    "test": {
+      "n": 2015,
+      "rho": -0.999825,
+      "imprime": -0.9998
+    },
+    "training": {
+      "n": 7058,
+      "rho": -0.99985,
+      "imprime": -0.9999
+    },
+    "validation": {
+      "n": 1000,
+      "rho": -0.999824,
+      "imprime": -0.9998
+    }
+  },
+  "⚠️_a_fronteira": "o valor vive em 0,99985, na fronteira do quarto decimal: a base completa imprime .9998 e o corte de treino imprime .9999. Dois milionesimos decidem o digito. A base que vale e a que o artigo DECLARA, a completa de 10.073",
+  "nao_verificadas": [
+    "CLIVE"
+  ]
+}

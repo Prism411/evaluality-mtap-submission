@@ -1,0 +1,41 @@
+{
+  "_o_que_e": "⭐ A CONTABILIDADE DOS 91 PARES DA FIGURA S3 FECHA?",
+  "_por_que_existe": "a legenda publicava «30 dentro contra 60 fora, com as duas duplicatas exatas excluidas». 30+60=90 e os pares sao 91, entao um par sumia sem explicacao. Medido: as duplicatas exatas sao QUATRO pares, e a exclusao foi aplicada so do lado DENTRO (31-1=30), deixando as tres de fora dentro do grupo de fora.",
+  "_unidade": "o par de operacoes (14 operacoes, C(14,2)=91)",
+  "n_operacoes": 14,
+  "n_pares": 91,
+  "piso_do_acaso": 0.4702,
+  "duplicatas_exatas": {
+    "pares": [
+      "brilho|huang_exposicao",
+      "brilho|ke_brightness",
+      "hasler_colorfulness|ke_colorfulness",
+      "huang_exposicao|ke_brightness"
+    ],
+    "n": 4,
+    "n_dentro": 1,
+    "n_fora": 3
+  },
+  "sem_exclusao": {
+    "n_dentro": 31,
+    "mediana_dentro": 0.0562,
+    "n_fora": 60,
+    "mediana_fora": 0.0562,
+    "soma": 91
+  },
+  "exclusao_simetrica": {
+    "n_dentro": 30,
+    "mediana_dentro": 0.0336,
+    "n_fora": 57,
+    "mediana_fora": 0.0562,
+    "soma": 87
+  },
+  "como_estava_publicado": {
+    "n_dentro": 30,
+    "mediana_dentro": 0.0336,
+    "n_fora": 60,
+    "mediana_fora": 0.0562,
+    "soma": 90
+  },
+  "leitura": "a conclusao NAO depende da escolha: sob as tres leituras a mediana dentro da mesma fonte fica igual ou ABAIXO da mediana entre fontes diferentes, entao o conjunto de operacoes de um mesmo artigo nao e mais coerente que uma juncao arbitraria. ⭐ O que muda e so a contabilidade: com exclusao simetrica sao 30+57=87 dos 91, e as 4 duplicatas ficam de fora dos dois grupos."
+}

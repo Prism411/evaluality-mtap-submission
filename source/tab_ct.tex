@@ -1,0 +1,23 @@
+\begin{table}[!ht]
+\centering
+\caption{Two published expressions against the property the same paragraph claims for them. \textbf{Above}: the contrast term of the Qaroush visual-attention objective, over a sweep in which contrast rises by construction (25 levels, seed 42). Histogram equalisation raises the standard deviation of every frame in this sweep. Over it, the published form and the form without the absolute value are both perfectly inversely associated with the measure used to build the inputs; only the ratio, which the equation does not write, is perfectly positively associated. \textbf{Below}: the brightness term of the Korolkov module, over a sweep in which exposure rises by construction (21 levels). The source states that it ``penalizes under- and over-exposed frames'', which requires a non-monotone function; the mean luminance it specifies is monotone and enters the module with weight $+0.3$, so a brighter frame always scores higher. \textbf{No corpus is involved.} The Korolkov inversion follows from the expression; the Qaroush result is the behaviour of the expression over this sweep.}
+\label{tab:ct}
+\footnotesize
+\setlength{\tabcolsep}{3.5pt}
+\renewcommand{\arraystretch}{1.35}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{4.0cm} l r@{}}
+\toprule
+\rowcolor{headerblue}
+\hd{Reading} & \hd{Expression} & \hd{$\rho$ with the property} \\
+\midrule
+\multicolumn{3}{@{}l}{\textit{Qaroush contrast, against contrast (Eq.~8)}} \\
+\quad Eq.~8 as published & $\frac{1}{K}\sum_k\bigl|\sigma_p(\mathrm{HE}(f_k))-\sigma_p(f_k)\bigr|$ & \textcolor{accentred}{\textbf{$-1.0000$}} \\
+\rowcolor{rowlight}\quad without the absolute value & $\frac{1}{K}\sum_k\bigl(\sigma_p(\mathrm{HE}(f_k))-\sigma_p(f_k)\bigr)$ & \textcolor{accentred}{\textbf{$-1.0000$}} \\
+\quad ratio, unwritten in the source & $\frac{1}{K}\sum_k \sigma_p(f_k)/\sigma_p(\mathrm{HE}(f_k))$ & $+1.0000$ \\
+\midrule
+\multicolumn{3}{@{}l}{\textit{Korolkov brightness, against exposure}} \\
+\quad as published & $\frac{1}{|I|}\sum_{x,y} L(I)_{x,y}$ (LAB) & $+1.0000$ \\
+\rowcolor{rowlight}\quad illustrative non-monotone penalty & $-\bigl|L-127.5\bigr|$ & \textcolor{accentred}{\textbf{$-.4883$}} \\
+\bottomrule
+\end{tabular}
+\end{table}

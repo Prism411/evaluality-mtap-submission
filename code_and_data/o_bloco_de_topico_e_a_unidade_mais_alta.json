@@ -1,0 +1,895 @@
+{
+ "_o_que_e": "⛔ E SE A UNIDADE FOR O TOPICO, E NAO O SEGMENTO?",
+ "_teste": "troca de sinal por BLOCO DE TOPICO, nula exata por convolucao sobre 2^12 pontos",
+ "_principal": "12 blocos: cessar_fogo_ucrania e ucrania fundidos, mesmo material de fonte",
+ "_fonte_da_fusao": {
+  "motivo": "os dois rotulos trazem os mesmos tres .mp4 e os dois segmentos do ucrania_band.mp4 se sobrepoem",
+  "segmento_a": "cessar_fogo_ucrania__ucrania_band__41.44_86.54",
+  "segmento_b": "ucrania__ucrania_band__42.1_69.18",
+  "b_contido_em_a": true,
+  "sobreposicao_s": 27.08
+ },
+ "n_celulas": 120,
+ "n_operacoes": 15,
+ "n_rotulos_de_topico": 13,
+ "n_blocos_principal": 12,
+ "celulas_abaixo_do_acaso": 35,
+ "significativas_sob_o_bloco_de_segmento": 22,
+ "significativas_sob_o_bloco_de_topico_12": 11,
+ "significativas_sob_o_rotulo_de_topico_13": 15,
+ "perdem_do_segmento_para_o_topico": [
+  "huang_saturacao|dark",
+  "huang_saturacao|h264",
+  "ke_contraste|noise",
+  "ke_edge_distribution|h264",
+  "ke_hue_count|blur",
+  "ke_hue_count|satur",
+  "qaroush_entropia|h264",
+  "qaroush_saliencia|jpeg",
+  "qaroush_saliencia|noise",
+  "qaroush_saliencia|satur",
+  "srinivas_quality|noise"
+ ],
+ "operacoes_com_significativa_no_segmento": 14,
+ "operacoes_com_significativa_no_topico_12": 9,
+ "operacoes_com_significativa_no_topico_13": 11,
+ "celulas_perfeitas_0_de_100": 5,
+ "celulas_perfeitas_que_sobrevivem": 5,
+ "lateralidade": {
+  "teste": "unilateral, cauda inferior (hipotese direcional: abaixo do acaso)",
+  "menor_p_possivel": 0.000244140625,
+  "primeiro_corte_de_holm": 0.0004166666666666667,
+  "o_unilateral_passa_o_primeiro_corte": true,
+  "um_bilateral_simetrico_passaria": false
+ },
+ "por_celula": {
+  "contraste_variancia|blur": {
+   "acuracia": 100.0,
+   "certos": 100,
+   "de": 100,
+   "n_blocos": 12,
+   "p": 1.0
+  },
+  "contraste_variancia|dark": {
+   "acuracia": 100.0,
+   "certos": 100,
+   "de": 100,
+   "n_blocos": 12,
+   "p": 1.0
+  },
+  "contraste_variancia|h264": {
+   "acuracia": 100.0,
+   "certos": 100,
+   "de": 100,
+   "n_blocos": 12,
+   "p": 1.0
+  },
+  "contraste_variancia|jpeg": {
+   "acuracia": 90.0,
+   "certos": 90,
+   "de": 100,
+   "n_blocos": 12,
+   "p": 1.0
+  },
+  "contraste_variancia|motion": {
+   "acuracia": 100.0,
+   "certos": 100,
+   "de": 100,
+   "n_blocos": 12,
+   "p": 1.0
+  },
+  "contraste_variancia|noise": {
+   "acuracia": 25.0,
+   "certos": 25,
+   "de": 100,
+   "n_blocos": 12,
+   "p": 0.01391602
+  },
+  "contraste_variancia|rescale": {
+   "acuracia": 100.0,
+   "certos": 100,
+   "de": 100,
+   "n_blocos": 12,
+   "p": 1.0
+  },
+  "contraste_variancia|satur": {
+   "acuracia": 22.0,
+   "certos": 22,
+   "de": 100,
+   "n_blocos": 12,
+   "p": 0.02197266
+  },
+  "glcm_contraste|blur": {
+   "acuracia": 100.0,
+   "certos": 100,
+   "de": 100,
+   "n_blocos": 12,
+   "p": 1.0
+  },
+  "glcm_contraste|dark": {
+   "acuracia": 100.0,
+   "certos": 100,
+   "de": 100,
+   "n_blocos": 12,
+   "p": 1.0
+  },
+  "glcm_contraste|h264": {
+   "acuracia": 100.0,
+   "certos": 100,
+   "de": 100,
+   "n_blocos": 12,
+   "p": 1.0
+  },
+  "glcm_contraste|jpeg": {
+   "acuracia": 72.0,
+   "certos": 72,
+   "de": 100,
+   "n_blocos": 12,
+   "p": 0.9375
+  },
+  "glcm_contraste|motion": {
+   "acuracia": 100.0,
+   "certos": 100,
+   "de": 100,
+   "n_blocos": 12,
+   "p": 1.0
+  },
+  "glcm_contraste|noise": {
+   "acuracia": 0.0,
+   "certos": 0,
+   "de": 100,
+   "n_blocos": 12,
+   "p": 0.00024414
+  },
+  "glcm_contraste|rescale": {
+   "acuracia": 100.0,
+   "certos": 100,
+   "de": 100,
+   "n_blocos": 12,
+   "p": 1.0
+  },
+  "glcm_contraste|satur": {
+   "acuracia": 67.0,
+   "certos": 67,
+   "de": 100,
+   "n_blocos": 12,
+   "p": 0.89355469
+  },
+  "gygli_media_crua|blur": {
+   "acuracia": 100.0,
+   "certos": 100,
+   "de": 100,
+   "n_blocos": 12,
+   "p": 1.0
+  },
+  "gygli_media_crua|dark": {
+   "acuracia": 100.0,
+   "certos": 100,
+   "de": 100,
+   "n_blocos": 12,
+   "p": 1.0
+  },
+  "gygli_media_crua|h264": {
+   "acuracia": 100.0,
+   "certos": 100,
+   "de": 100,
+   "n_blocos": 12,
+   "p": 1.0
+  },
+  "gygli_media_crua|jpeg": {
+   "acuracia": 67.0,
+   "certos": 67,
+   "de": 100,
+   "n_blocos": 12,
+   "p": 0.89916992
+  },
+  "gygli_media_crua|motion": {
+   "acuracia": 100.0,
+   "certos": 100,
+   "de": 100,
+   "n_blocos": 12,
+   "p": 1.0
+  },
+  "gygli_media_crua|noise": {
+   "acuracia": 3.0,
+   "certos": 3,
+   "de": 100,
+   "n_blocos": 12,
+   "p": 0.00024414
+  },
+  "gygli_media_crua|rescale": {
+   "acuracia": 100.0,
+   "certos": 100,
+   "de": 100,
+   "n_blocos": 12,
+   "p": 1.0
+  },
+  "gygli_media_crua|satur": {
+   "acuracia": 100.0,
+   "certos": 100,
+   "de": 100,
+   "n_blocos": 12,
+   "p": 1.0
+  },
+  "hasler_colorfulness|blur": {
+   "acuracia": 100.0,
+   "certos": 100,
+   "de": 100,
+   "n_blocos": 12,
+   "p": 1.0
+  },
+  "hasler_colorfulness|dark": {
+   "acuracia": 100.0,
+   "certos": 100,
+   "de": 100,
+   "n_blocos": 12,
+   "p": 1.0
+  },
+  "hasler_colorfulness|h264": {
+   "acuracia": 100.0,
+   "certos": 100,
+   "de": 100,
+   "n_blocos": 12,
+   "p": 1.0
+  },
+  "hasler_colorfulness|jpeg": {
+   "acuracia": 79.0,
+   "certos": 79,
+   "de": 100,
+   "n_blocos": 12,
+   "p": 0.99951172
+  },
+  "hasler_colorfulness|motion": {
+   "acuracia": 100.0,
+   "certos": 100,
+   "de": 100,
+   "n_blocos": 12,
+   "p": 1.0
+  },
+  "hasler_colorfulness|noise": {
+   "acuracia": 3.0,
+   "certos": 3,
+   "de": 100,
+   "n_blocos": 12,
+   "p": 0.00024414
+  },
+  "hasler_colorfulness|rescale": {
+   "acuracia": 100.0,
+   "certos": 100,
+   "de": 100,
+   "n_blocos": 12,
+   "p": 1.0
+  },
+  "hasler_colorfulness|satur": {
+   "acuracia": 100.0,
+   "certos": 100,
+   "de": 100,
+   "n_blocos": 12,
+   "p": 1.0
+  },
+  "huang_saturacao|blur": {
+   "acuracia": 100.0,
+   "certos": 100,
+   "de": 100,
+   "n_blocos": 12,
+   "p": 1.0
+  },
+  "huang_saturacao|dark": {
+   "acuracia": 13.0,
+   "certos": 13,
+   "de": 100,
+   "n_blocos": 12,
+   "p": 0.00195312
+  },
+  "huang_saturacao|h264": {
+   "acuracia": 15.0,
+   "certos": 15,
+   "de": 100,
+   "n_blocos": 12,
+   "p": 0.00341797
+  },
+  "huang_saturacao|jpeg": {
+   "acuracia": 90.0,
+   "certos": 90,
+   "de": 100,
+   "n_blocos": 12,
+   "p": 1.0
+  },
+  "huang_saturacao|motion": {
+   "acuracia": 100.0,
+   "certos": 100,
+   "de": 100,
+   "n_blocos": 12,
+   "p": 1.0
+  },
+  "huang_saturacao|noise": {
+   "acuracia": 1.0,
+   "certos": 1,
+   "de": 100,
+   "n_blocos": 12,
+   "p": 0.00024414
+  },
+  "huang_saturacao|rescale": {
+   "acuracia": 100.0,
+   "certos": 100,
+   "de": 100,
+   "n_blocos": 12,
+   "p": 1.0
+  },
+  "huang_saturacao|satur": {
+   "acuracia": 100.0,
+   "certos": 100,
+   "de": 100,
+   "n_blocos": 12,
+   "p": 1.0
+  },
+  "ke_colorfulness|blur": {
+   "acuracia": 100.0,
+   "certos": 100,
+   "de": 100,
+   "n_blocos": 12,
+   "p": 1.0
+  },
+  "ke_colorfulness|dark": {
+   "acuracia": 100.0,
+   "certos": 100,
+   "de": 100,
+   "n_blocos": 12,
+   "p": 1.0
+  },
+  "ke_colorfulness|h264": {
+   "acuracia": 100.0,
+   "certos": 100,
+   "de": 100,
+   "n_blocos": 12,
+   "p": 1.0
+  },
+  "ke_colorfulness|jpeg": {
+   "acuracia": 79.0,
+   "certos": 79,
+   "de": 100,
+   "n_blocos": 12,
+   "p": 0.99951172
+  },
+  "ke_colorfulness|motion": {
+   "acuracia": 100.0,
+   "certos": 100,
+   "de": 100,
+   "n_blocos": 12,
+   "p": 1.0
+  },
+  "ke_colorfulness|noise": {
+   "acuracia": 3.0,
+   "certos": 3,
+   "de": 100,
+   "n_blocos": 12,
+   "p": 0.00024414
+  },
+  "ke_colorfulness|rescale": {
+   "acuracia": 100.0,
+   "certos": 100,
+   "de": 100,
+   "n_blocos": 12,
+   "p": 1.0
+  },
+  "ke_colorfulness|satur": {
+   "acuracia": 100.0,
+   "certos": 100,
+   "de": 100,
+   "n_blocos": 12,
+   "p": 1.0
+  },
+  "ke_contraste|blur": {
+   "acuracia": 100.0,
+   "certos": 100,
+   "de": 100,
+   "n_blocos": 12,
+   "p": 1.0
+  },
+  "ke_contraste|dark": {
+   "acuracia": 100.0,
+   "certos": 100,
+   "de": 100,
+   "n_blocos": 12,
+   "p": 1.0
+  },
+  "ke_contraste|h264": {
+   "acuracia": 100.0,
+   "certos": 98,
+   "de": 98,
+   "n_blocos": 12,
+   "p": 1.0
+  },
+  "ke_contraste|jpeg": {
+   "acuracia": 63.8,
+   "certos": 60,
+   "de": 94,
+   "n_blocos": 12,
+   "p": 0.85742188
+  },
+  "ke_contraste|motion": {
+   "acuracia": 100.0,
+   "certos": 100,
+   "de": 100,
+   "n_blocos": 12,
+   "p": 1.0
+  },
+  "ke_contraste|noise": {
+   "acuracia": 10.3,
+   "certos": 10,
+   "de": 97,
+   "n_blocos": 12,
+   "p": 0.00292969
+  },
+  "ke_contraste|rescale": {
+   "acuracia": 100.0,
+   "certos": 100,
+   "de": 100,
+   "n_blocos": 12,
+   "p": 1.0
+  },
+  "ke_contraste|satur": {
+   "acuracia": 31.6,
+   "certos": 30,
+   "de": 95,
+   "n_blocos": 11,
+   "p": 0.06591797
+  },
+  "ke_edge_distribution|blur": {
+   "acuracia": 62.0,
+   "certos": 62,
+   "de": 100,
+   "n_blocos": 12,
+   "p": 0.85009766
+  },
+  "ke_edge_distribution|dark": {
+   "acuracia": 72.9,
+   "certos": 70,
+   "de": 96,
+   "n_blocos": 12,
+   "p": 0.99853516
+  },
+  "ke_edge_distribution|h264": {
+   "acuracia": 11.0,
+   "certos": 11,
+   "de": 100,
+   "n_blocos": 12,
+   "p": 0.00146484
+  },
+  "ke_edge_distribution|jpeg": {
+   "acuracia": 31.0,
+   "certos": 31,
+   "de": 100,
+   "n_blocos": 12,
+   "p": 0.0246582
+  },
+  "ke_edge_distribution|motion": {
+   "acuracia": 62.0,
+   "certos": 62,
+   "de": 100,
+   "n_blocos": 12,
+   "p": 0.86230469
+  },
+  "ke_edge_distribution|noise": {
+   "acuracia": 100.0,
+   "certos": 100,
+   "de": 100,
+   "n_blocos": 12,
+   "p": 1.0
+  },
+  "ke_edge_distribution|rescale": {
+   "acuracia": 74.0,
+   "certos": 74,
+   "de": 100,
+   "n_blocos": 12,
+   "p": 0.99169922
+  },
+  "ke_edge_distribution|satur": {
+   "acuracia": 97.0,
+   "certos": 97,
+   "de": 100,
+   "n_blocos": 12,
+   "p": 1.0
+  },
+  "ke_hue_count|blur": {
+   "acuracia": 12.3,
+   "certos": 10,
+   "de": 81,
+   "n_blocos": 12,
+   "p": 0.00366211
+  },
+  "ke_hue_count|dark": {
+   "acuracia": 21.7,
+   "certos": 20,
+   "de": 92,
+   "n_blocos": 12,
+   "p": 0.00292969
+  },
+  "ke_hue_count|h264": {
+   "acuracia": 83.7,
+   "certos": 77,
+   "de": 92,
+   "n_blocos": 12,
+   "p": 0.99853516
+  },
+  "ke_hue_count|jpeg": {
+   "acuracia": 60.2,
+   "certos": 59,
+   "de": 98,
+   "n_blocos": 12,
+   "p": 0.87402344
+  },
+  "ke_hue_count|motion": {
+   "acuracia": 15.7,
+   "certos": 13,
+   "de": 83,
+   "n_blocos": 12,
+   "p": 0.00415039
+  },
+  "ke_hue_count|noise": {
+   "acuracia": 100.0,
+   "certos": 100,
+   "de": 100,
+   "n_blocos": 12,
+   "p": 1.0
+  },
+  "ke_hue_count|rescale": {
+   "acuracia": 14.1,
+   "certos": 11,
+   "de": 78,
+   "n_blocos": 12,
+   "p": 0.00976562
+  },
+  "ke_hue_count|satur": {
+   "acuracia": 4.2,
+   "certos": 4,
+   "de": 95,
+   "n_blocos": 11,
+   "p": 0.00048828
+  },
+  "laplacian_var|blur": {
+   "acuracia": 100.0,
+   "certos": 100,
+   "de": 100,
+   "n_blocos": 12,
+   "p": 1.0
+  },
+  "laplacian_var|dark": {
+   "acuracia": 100.0,
+   "certos": 100,
+   "de": 100,
+   "n_blocos": 12,
+   "p": 1.0
+  },
+  "laplacian_var|h264": {
+   "acuracia": 95.0,
+   "certos": 95,
+   "de": 100,
+   "n_blocos": 12,
+   "p": 0.99975586
+  },
+  "laplacian_var|jpeg": {
+   "acuracia": 66.0,
+   "certos": 66,
+   "de": 100,
+   "n_blocos": 12,
+   "p": 0.85888672
+  },
+  "laplacian_var|motion": {
+   "acuracia": 100.0,
+   "certos": 100,
+   "de": 100,
+   "n_blocos": 12,
+   "p": 1.0
+  },
+  "laplacian_var|noise": {
+   "acuracia": 0.0,
+   "certos": 0,
+   "de": 100,
+   "n_blocos": 12,
+   "p": 0.00024414
+  },
+  "laplacian_var|rescale": {
+   "acuracia": 100.0,
+   "certos": 100,
+   "de": 100,
+   "n_blocos": 12,
+   "p": 1.0
+  },
+  "laplacian_var|satur": {
+   "acuracia": 50.0,
+   "certos": 50,
+   "de": 100,
+   "n_blocos": 12,
+   "p": 0.51367188
+  },
+  "qaroush_entropia|blur": {
+   "acuracia": 83.0,
+   "certos": 83,
+   "de": 100,
+   "n_blocos": 12,
+   "p": 0.9921875
+  },
+  "qaroush_entropia|dark": {
+   "acuracia": 100.0,
+   "certos": 100,
+   "de": 100,
+   "n_blocos": 12,
+   "p": 1.0
+  },
+  "qaroush_entropia|h264": {
+   "acuracia": 10.0,
+   "certos": 10,
+   "de": 100,
+   "n_blocos": 12,
+   "p": 0.0012207
+  },
+  "qaroush_entropia|jpeg": {
+   "acuracia": 66.0,
+   "certos": 66,
+   "de": 100,
+   "n_blocos": 12,
+   "p": 0.98632812
+  },
+  "qaroush_entropia|motion": {
+   "acuracia": 77.0,
+   "certos": 77,
+   "de": 100,
+   "n_blocos": 12,
+   "p": 0.97216797
+  },
+  "qaroush_entropia|noise": {
+   "acuracia": 0.0,
+   "certos": 0,
+   "de": 100,
+   "n_blocos": 12,
+   "p": 0.00024414
+  },
+  "qaroush_entropia|rescale": {
+   "acuracia": 77.0,
+   "certos": 77,
+   "de": 100,
+   "n_blocos": 12,
+   "p": 0.97631836
+  },
+  "qaroush_entropia|satur": {
+   "acuracia": 97.0,
+   "certos": 97,
+   "de": 100,
+   "n_blocos": 12,
+   "p": 1.0
+  },
+  "qaroush_gm|blur": {
+   "acuracia": 100.0,
+   "certos": 100,
+   "de": 100,
+   "n_blocos": 12,
+   "p": 1.0
+  },
+  "qaroush_gm|dark": {
+   "acuracia": 100.0,
+   "certos": 100,
+   "de": 100,
+   "n_blocos": 12,
+   "p": 1.0
+  },
+  "qaroush_gm|h264": {
+   "acuracia": 100.0,
+   "certos": 100,
+   "de": 100,
+   "n_blocos": 12,
+   "p": 1.0
+  },
+  "qaroush_gm|jpeg": {
+   "acuracia": 5.0,
+   "certos": 5,
+   "de": 100,
+   "n_blocos": 12,
+   "p": 0.00024414
+  },
+  "qaroush_gm|motion": {
+   "acuracia": 100.0,
+   "certos": 100,
+   "de": 100,
+   "n_blocos": 12,
+   "p": 1.0
+  },
+  "qaroush_gm|noise": {
+   "acuracia": 0.0,
+   "certos": 0,
+   "de": 100,
+   "n_blocos": 12,
+   "p": 0.00024414
+  },
+  "qaroush_gm|rescale": {
+   "acuracia": 100.0,
+   "certos": 100,
+   "de": 100,
+   "n_blocos": 12,
+   "p": 1.0
+  },
+  "qaroush_gm|satur": {
+   "acuracia": 23.0,
+   "certos": 23,
+   "de": 100,
+   "n_blocos": 12,
+   "p": 0.00390625
+  },
+  "qaroush_go|blur": {
+   "acuracia": 26.0,
+   "certos": 26,
+   "de": 100,
+   "n_blocos": 12,
+   "p": 0.01464844
+  },
+  "qaroush_go|dark": {
+   "acuracia": 100.0,
+   "certos": 100,
+   "de": 100,
+   "n_blocos": 12,
+   "p": 1.0
+  },
+  "qaroush_go|h264": {
+   "acuracia": 95.0,
+   "certos": 95,
+   "de": 100,
+   "n_blocos": 12,
+   "p": 1.0
+  },
+  "qaroush_go|jpeg": {
+   "acuracia": 100.0,
+   "certos": 100,
+   "de": 100,
+   "n_blocos": 12,
+   "p": 1.0
+  },
+  "qaroush_go|motion": {
+   "acuracia": 80.0,
+   "certos": 80,
+   "de": 100,
+   "n_blocos": 12,
+   "p": 1.0
+  },
+  "qaroush_go|noise": {
+   "acuracia": 0.0,
+   "certos": 0,
+   "de": 100,
+   "n_blocos": 12,
+   "p": 0.00024414
+  },
+  "qaroush_go|rescale": {
+   "acuracia": 9.0,
+   "certos": 9,
+   "de": 100,
+   "n_blocos": 12,
+   "p": 0.00024414
+  },
+  "qaroush_go|satur": {
+   "acuracia": 21.0,
+   "certos": 21,
+   "de": 100,
+   "n_blocos": 12,
+   "p": 0.01416016
+  },
+  "qaroush_saliencia|blur": {
+   "acuracia": 20.0,
+   "certos": 20,
+   "de": 100,
+   "n_blocos": 12,
+   "p": 0.0234375
+  },
+  "qaroush_saliencia|dark": {
+   "acuracia": 63.3,
+   "certos": 62,
+   "de": 98,
+   "n_blocos": 12,
+   "p": 0.98046875
+  },
+  "qaroush_saliencia|h264": {
+   "acuracia": 94.0,
+   "certos": 94,
+   "de": 100,
+   "n_blocos": 12,
+   "p": 1.0
+  },
+  "qaroush_saliencia|jpeg": {
+   "acuracia": 10.0,
+   "certos": 10,
+   "de": 100,
+   "n_blocos": 12,
+   "p": 0.00048828
+  },
+  "qaroush_saliencia|motion": {
+   "acuracia": 29.0,
+   "certos": 29,
+   "de": 100,
+   "n_blocos": 12,
+   "p": 0.05615234
+  },
+  "qaroush_saliencia|noise": {
+   "acuracia": 13.1,
+   "certos": 13,
+   "de": 99,
+   "n_blocos": 12,
+   "p": 0.00048828
+  },
+  "qaroush_saliencia|rescale": {
+   "acuracia": 21.0,
+   "certos": 21,
+   "de": 100,
+   "n_blocos": 12,
+   "p": 0.0246582
+  },
+  "qaroush_saliencia|satur": {
+   "acuracia": 18.0,
+   "certos": 18,
+   "de": 100,
+   "n_blocos": 12,
+   "p": 0.00073242
+  },
+  "srinivas_quality|blur": {
+   "acuracia": 100.0,
+   "certos": 100,
+   "de": 100,
+   "n_blocos": 12,
+   "p": 1.0
+  },
+  "srinivas_quality|dark": {
+   "acuracia": 100.0,
+   "certos": 100,
+   "de": 100,
+   "n_blocos": 12,
+   "p": 1.0
+  },
+  "srinivas_quality|h264": {
+   "acuracia": 100.0,
+   "certos": 100,
+   "de": 100,
+   "n_blocos": 12,
+   "p": 1.0
+  },
+  "srinivas_quality|jpeg": {
+   "acuracia": 69.0,
+   "certos": 69,
+   "de": 100,
+   "n_blocos": 12,
+   "p": 0.93457031
+  },
+  "srinivas_quality|motion": {
+   "acuracia": 100.0,
+   "certos": 100,
+   "de": 100,
+   "n_blocos": 12,
+   "p": 1.0
+  },
+  "srinivas_quality|noise": {
+   "acuracia": 29.0,
+   "certos": 29,
+   "de": 100,
+   "n_blocos": 12,
+   "p": 0.00390625
+  },
+  "srinivas_quality|rescale": {
+   "acuracia": 100.0,
+   "certos": 100,
+   "de": 100,
+   "n_blocos": 12,
+   "p": 1.0
+  },
+  "srinivas_quality|satur": {
+   "acuracia": 98.0,
+   "certos": 98,
+   "de": 100,
+   "n_blocos": 12,
+   "p": 1.0
+  }
+ },
+ "previsoes": {
+  "1_topico_nunca_da_p_menor_que_segmento": "⛔ FALHOU em 20 de 120",
+  "2_cai_em_relacao_as_22": "CONFIRMADA (11 < 22)",
+  "3_as_perfeitas_sobrevivem": "CONFIRMADA",
+  "4_operacoes_caem_abaixo_de_14": "CONFIRMADA",
+  "5_fundir_da_p_maior_ou_igual": "⛔ FALHOU em 21"
+ },
+ "leitura": "sob a troca de sinal por SEGMENTO sobrevivem 22 das 35 celulas abaixo do acaso, em 14 das 15 operacoes; sob a troca por BLOCO DE TOPICO, com os dois rotulos de ucrania fundidos por compartilharem material, sobrevivem 11, em 9 operacoes. Perdem do segmento para o topico: huang_saturacao|dark, huang_saturacao|h264, ke_contraste|noise, ke_edge_distribution|h264, ke_hue_count|blur, ke_hue_count|satur, qaroush_entropia|h264, qaroush_saliencia|jpeg, qaroush_saliencia|noise, qaroush_saliencia|satur, srinivas_quality|noise"
+}

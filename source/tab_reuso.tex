@@ -1,0 +1,20 @@
+\begin{table}[!ht]
+\centering
+\caption{Origins, documented selection roles and evaluated implementations of the audited operations. Where origin and use fall in the same work the middle column says so, and the last column marks our own adaptations as such. The full inventory, with formulas and results files, is in Tables~\ref{tab:inventory} and~\ref{tab:trace}.}
+\label{tab:reuse}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.12}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{2.35cm}>{\raggedright\arraybackslash}p{3.1cm}>{\raggedright\arraybackslash}p{3.2cm}>{\raggedright\arraybackslash}p{3.1cm}@{}}
+\toprule
+\rowcolor{headerblue}
+\hd{Operation} & \hd{Origin and role there} & \hd{Documented use in selection} & \hd{Evaluated here} \\
+\midrule
+Edge distribution, hue count, contrast & \citet{ke2006highlevel}: features of a naive Bayes classifier for photo quality & \citet{srinivas2016rank} cite Ke for all three (\S3.1.3--3.1.5) and average them into a per-frame quality score & each term alone, plus the mean and an adapted classifier \\
+\rowcolor{rowlight}Colourfulness in that same score & Swain and Ballard, by histogram intersection, as \citet{srinivas2016rank} state & \citet{srinivas2016rank}, \S3.1.1 & the Hasler expression instead, a declared substitution \\
+Sharpness and brightness & \citet{korolkov2025keyframe}: two terms of a keyframe score & the same work, $0.7\,z(\mathrm{sharp})+0.3\,z(\mathrm{bright})$ & the published rule, with our normalization population stated \\
+\rowcolor{rowlight}Grey-level dispersion & \citet{jeong2016static}: a badness term inside a cost multiplicative in cluster distance & the same work, within that objective & the isolated statistic, read in the increasing direction \\
+Gradient magnitude, saliency, entropy, gradient orientation & \citet{qaroush2025diversity}: terms of four numbered objectives & the same work; two of the four objectives are not about technical quality & each term alone, and the visual-attention module of Eq.~20 \\
+\bottomrule
+\end{tabular}
+\end{table}

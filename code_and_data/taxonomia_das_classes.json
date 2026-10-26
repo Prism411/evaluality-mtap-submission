@@ -1,0 +1,2190 @@
+{
+ "_o_que_e": "⭐⭐ A TAXONOMIA DE CLASSES: qual sumarizador da literatura usa qual classe de\nmetodo de qualidade visual?\n\nPOR QUE EXISTE (21/09/2026). O [co-author] pediu, por e-mail, uma tabela taxonomica\nmapeando quais sumarizadores usam quais CLASSES de metodo de qualidade visual, e o\nartigo nao tem nenhuma nocao de classe: a busca por «taxonomy» e «class of method» no\nfonte devolve zero. O que existe e um agrupamento em tres familias para efeito de\ntriagem, que e outra coisa.\n\n⛔ A TAXONOMIA E DELE, NAO NOSSA, e isso fica declarado no artigo. As quatro classes sao\nas do e-mail de 21/09/2026, verbatim:\n  1. Heuristicas de baixo nivel (sinais/pixels)\n  2. Metodos do tipo BoVW / contagem de recursos (hand-crafted features)\n  3. Metricas classicas No-Reference (IQA estatistico)\n  4. Proxies de diversidade/representatividade profunda (CNNs / Vision Transformers)\n\nO QUE ESTE SCRIPT FAZ. Varre os PDF do acervo, corta a bibliografia (o conserto de\n05/09, que subiu a precisao de 0,47 para 0,63) e atribui classes por termo, separando\nos que sao SUMARIZADORES DE VIDEO dos demais. A saida e a materia-prima da tabela; a\natribuicao final de cada trabalho e conferida por LEITURA, com trecho verbatim, no mesmo\npadrao de proveniencia do `tab_rastreio`.\n\n⚠️ DUAS RESSALVAS QUE VAO JUNTO COM QUALQUER NUMERO DAQUI:\n\n1. ⛔ O VIES DO ACERVO JA ESTA MEDIDO E VAI CONTRA O ARGUMENTO. Ele foi montado\n   procurando operacoes de qualidade visual, entao a taxa de quem NAO usa nenhuma e\n   PISO, nao teto. O mesmo esta declarado em `desconexao_das_duas_literaturas.json`.\n\n2. ⛔ NA CLASSE 4, PRESENCA DE BACKBONE NAO E USO COMO PROXY DE QUALIDADE. Quase todo\n   sumarizador recente cita ResNet ou CLIP para representar CONTEUDO. A afirmacao do\n   [co-author] e sobre usar essa representacao como criterio de SELECAO (distancia ao\n   centroide, norma do vetor). Por isso a classe 4 sai em DUAS colunas, `backbone` e\n   `proxy`, e so a segunda sustenta a tese. Contar as duas como uma inflaria a tabela.\n\n⚠️ E o varredor por termo e RASTREIO, nao veredito: ele acha candidato, e a precisao\ndele ja foi medida em 0,63. Nenhuma linha entra na tabela do artigo sem leitura.",
+ "acervo": "/home/user/workspace/library/papers",
+ "n_pdfs": 212,
+ "n_lidos": 211,
+ "n_sumarizadores": 85,
+ "n_sumarizadores_com_alguma_classe": 79,
+ "cobertura_por_classe_entre_sumarizadores": {
+  "C1_heuristicas_de_baixo_nivel": 50,
+  "C2_bovw_e_contagem_artesanal": 39,
+  "C3_nriqa_estatistico_classico": 1,
+  "C4_backbone_profundo_presente": 41,
+  "C4_proxy_profundo_de_selecao": 45
+ },
+ "⚠️_vies_declarado": "o acervo foi montado procurando operacoes de qualidade visual, entao a taxa de quem NAO usa nenhuma e PISO, nao teto",
+ "⚠️_classe_4": "backbone presente NAO e uso como proxy de selecao; as duas pernas saem separadas e so a segunda sustenta a tese",
+ "⚠️_isto_e_rastreio": "varredura por termo tem precisao medida de 0,63; nenhuma linha entra na tabela do artigo sem leitura e trecho verbatim",
+ "por_pdf": {
+  "agnolucci2024arniqa.pdf": {
+   "e_sumarizador": false,
+   "classes": {
+    "C2_bovw_e_contagem_artesanal": [
+     "fisher/vlad"
+    ],
+    "C3_nriqa_estatistico_classico": [
+     "brisque",
+     "niqe",
+     "nr_iqa"
+    ],
+    "C4_backbone_profundo_presente": [
+     "resnet"
+    ],
+    "C4_proxy_profundo_de_selecao": [
+     "cosseno"
+    ]
+   }
+  },
+  "agnolucci2024qualiclip.pdf": {
+   "e_sumarizador": false,
+   "classes": {
+    "C1_heuristicas_de_baixo_nivel": [
+     "estetica"
+    ],
+    "C2_bovw_e_contagem_artesanal": [
+     "fisher/vlad"
+    ],
+    "C3_nriqa_estatistico_classico": [
+     "niqe",
+     "nr_iqa",
+     "nss"
+    ],
+    "C4_backbone_profundo_presente": [
+     "clip"
+    ],
+    "C4_proxy_profundo_de_selecao": [
+     "cosseno"
+    ]
+   }
+  },
+  "ahuja2022aspectnews.pdf": {
+   "e_sumarizador": false,
+   "classes": {
+    "C2_bovw_e_contagem_artesanal": [
+     "tfidf"
+    ],
+    "C4_proxy_profundo_de_selecao": [
+     "cosseno"
+    ]
+   }
+  },
+  "aleixo2008cstnews.pdf": {
+   "e_sumarizador": false,
+   "classes": {}
+  },
+  "antici2023subjectivity.pdf": {
+   "e_sumarizador": false,
+   "classes": {
+    "C2_bovw_e_contagem_artesanal": [
+     "tfidf"
+    ]
+   }
+  },
+  "antiqueira2009complexnetwork.pdf": {
+   "e_sumarizador": false,
+   "classes": {
+    "C4_proxy_profundo_de_selecao": [
+     "cosseno"
+    ]
+   }
+  },
+  "apostolidis2021survey.pdf": {
+   "e_sumarizador": true,
+   "classes": {
+    "C4_backbone_profundo_presente": [
+     "inception",
+     "resnet"
+    ]
+   }
+  },
+  "argaw2024scaling.pdf": {
+   "e_sumarizador": true,
+   "classes": {
+    "C4_backbone_profundo_presente": [
+     "clip",
+     "vit/transformer"
+    ],
+    "C4_proxy_profundo_de_selecao": [
+     "cosseno"
+    ]
+   }
+  },
+  "avila2011vsumm.pdf": {
+   "e_sumarizador": true,
+   "classes": {
+    "C1_heuristicas_de_baixo_nivel": [
+     "histograma_cor",
+     "spatial_info"
+    ],
+    "C4_proxy_profundo_de_selecao": [
+     "centroide"
+    ]
+   }
+  },
+  "barbara2025prompts_summaries.pdf": {
+   "e_sumarizador": true,
+   "classes": {
+    "C4_backbone_profundo_presente": [
+     "clip",
+     "dino",
+     "resnet",
+     "vit/transformer"
+    ],
+    "C4_proxy_profundo_de_selecao": [
+     "cosseno",
+     "representativid"
+    ]
+   }
+  },
+  "barbieri2020[venue].pdf": {
+   "e_sumarizador": true,
+   "classes": {
+    "C1_heuristicas_de_baixo_nivel": [
+     "lbp"
+    ],
+    "C2_bovw_e_contagem_artesanal": [
+     "bovw",
+     "sift",
+     "tfidf"
+    ]
+   }
+  },
+  "barbieri2021content.pdf": {
+   "e_sumarizador": true,
+   "classes": {
+    "C1_heuristicas_de_baixo_nivel": [
+     "estetica",
+     "histograma_cor",
+     "lbp"
+    ],
+    "C2_bovw_e_contagem_artesanal": [
+     "bovw",
+     "sift"
+    ]
+   }
+  },
+  "barbieri2021tese.pdf": {
+   "e_sumarizador": true,
+   "classes": {
+    "C1_heuristicas_de_baixo_nivel": [
+     "lbp"
+    ],
+    "C2_bovw_e_contagem_artesanal": [
+     "bovw",
+     "sift",
+     "surf",
+     "tfidf"
+    ]
+   }
+  },
+  "barzilay2008entitygrid.pdf": {
+   "e_sumarizador": false,
+   "classes": {}
+  },
+  "basavarajaiah2019compressed.pdf": {
+   "e_sumarizador": true,
+   "classes": {
+    "C1_heuristicas_de_baixo_nivel": [
+     "histograma_cor",
+     "spatial_info"
+    ],
+    "C2_bovw_e_contagem_artesanal": [
+     "sift"
+    ],
+    "C4_proxy_profundo_de_selecao": [
+     "centroide"
+    ]
+   }
+  },
+  "bergkirkpatrick2012significance.pdf": {
+   "e_sumarizador": false,
+   "classes": {}
+  },
+  "beserra2020evaluating.pdf": {
+   "e_sumarizador": true,
+   "classes": {
+    "C1_heuristicas_de_baixo_nivel": [
+     "histograma_cor"
+    ],
+    "C2_bovw_e_contagem_artesanal": [
+     "sift",
+     "tfidf"
+    ],
+    "C4_proxy_profundo_de_selecao": [
+     "cosseno"
+    ]
+   }
+  },
+  "beserra2023multimodal.pdf": {
+   "e_sumarizador": true,
+   "classes": {
+    "C1_heuristicas_de_baixo_nivel": [
+     "histograma_cor"
+    ],
+    "C2_bovw_e_contagem_artesanal": [
+     "bovw",
+     "sift",
+     "tfidf"
+    ],
+    "C4_backbone_profundo_presente": [
+     "clip"
+    ],
+    "C4_proxy_profundo_de_selecao": [
+     "cosseno"
+    ]
+   }
+  },
+  "cai2010simultaneous.pdf": {
+   "e_sumarizador": false,
+   "classes": {
+    "C4_proxy_profundo_de_selecao": [
+     "centroide",
+     "cosseno"
+    ]
+   }
+  },
+  "cakmak2025tripss.pdf": {
+   "e_sumarizador": true,
+   "classes": {
+    "C1_heuristicas_de_baixo_nivel": [
+     "colorfulness",
+     "laplacian_var",
+     "lbp"
+    ],
+    "C2_bovw_e_contagem_artesanal": [
+     "orb/brief"
+    ],
+    "C4_backbone_profundo_presente": [
+     "clip",
+     "inception",
+     "resnet"
+    ]
+   }
+  },
+  "cao2024_5w1h_llms.pdf": {
+   "e_sumarizador": false,
+   "classes": {}
+  },
+  "cao2024datacentric.pdf": {
+   "e_sumarizador": false,
+   "classes": {
+    "C1_heuristicas_de_baixo_nivel": [
+     "colorfulness",
+     "spatial_info"
+    ],
+    "C3_nriqa_estatistico_classico": [
+     "nss"
+    ],
+    "C4_backbone_profundo_presente": [
+     "resnet",
+     "vgg"
+    ]
+   }
+  },
+  "carbonell1998mmr.pdf": {
+   "e_sumarizador": false,
+   "classes": {
+    "C4_proxy_profundo_de_selecao": [
+     "cosseno"
+    ]
+   }
+  },
+  "card2020littlepower.pdf": {
+   "e_sumarizador": false,
+   "classes": {}
+  },
+  "cardoso2013discourse.pdf": {
+   "e_sumarizador": false,
+   "classes": {}
+  },
+  "castrojorge2010cstsumm.pdf": {
+   "e_sumarizador": false,
+   "classes": {}
+  },
+  "chasanis2008spectral.pdf": {
+   "e_sumarizador": true,
+   "classes": {
+    "C1_heuristicas_de_baixo_nivel": [
+     "histograma_cor"
+    ],
+    "C4_proxy_profundo_de_selecao": [
+     "centroide"
+    ]
+   }
+  },
+  "chen2021reffree.pdf": {
+   "e_sumarizador": false,
+   "classes": {
+    "C2_bovw_e_contagem_artesanal": [
+     "tfidf"
+    ],
+    "C4_proxy_profundo_de_selecao": [
+     "cosseno"
+    ]
+   }
+  },
+  "chen2024topiq.pdf": {
+   "e_sumarizador": false,
+   "classes": {
+    "C1_heuristicas_de_baixo_nivel": [
+     "estetica"
+    ],
+    "C3_nriqa_estatistico_classico": [
+     "brisque",
+     "niqe",
+     "nr_iqa",
+     "nss"
+    ],
+    "C4_backbone_profundo_presente": [
+     "inception",
+     "resnet",
+     "vgg",
+     "vit/transformer"
+    ]
+   }
+  },
+  "chitrakala2025symmetry.pdf": {
+   "e_sumarizador": true,
+   "classes": {
+    "C1_heuristicas_de_baixo_nivel": [
+     "lbp"
+    ],
+    "C2_bovw_e_contagem_artesanal": [
+     "orb/brief",
+     "sift",
+     "surf"
+    ],
+    "C4_backbone_profundo_presente": [
+     "clip",
+     "inception",
+     "resnet",
+     "vgg",
+     "vit/transformer"
+    ],
+    "C4_proxy_profundo_de_selecao": [
+     "centroide",
+     "cosseno"
+    ]
+   }
+  },
+  "choi2000advances.pdf": {
+   "e_sumarizador": false,
+   "classes": {
+    "C4_proxy_profundo_de_selecao": [
+     "cosseno"
+    ]
+   }
+  },
+  "chu2015video_cosummarization.pdf": {
+   "e_sumarizador": true,
+   "classes": {
+    "C2_bovw_e_contagem_artesanal": [
+     "sift"
+    ],
+    "C4_proxy_profundo_de_selecao": [
+     "centroide"
+    ]
+   }
+  },
+  "clarke2008alphandcg.pdf": {
+   "e_sumarizador": false,
+   "classes": {}
+  },
+  "datta2006aesthetics.pdf": {
+   "e_sumarizador": false,
+   "classes": {
+    "C1_heuristicas_de_baixo_nivel": [
+     "colorfulness",
+     "estetica",
+     "exposicao"
+    ],
+    "C4_proxy_profundo_de_selecao": [
+     "centroide"
+    ]
+   }
+  },
+  "dedomenico2015reducibility.pdf": {
+   "e_sumarizador": false,
+   "classes": {}
+  },
+  "dettmers2023qlora.pdf": {
+   "e_sumarizador": false,
+   "classes": {}
+  },
+  "deutsch2021infoquality.pdf": {
+   "e_sumarizador": false,
+   "classes": {}
+  },
+  "deutsch2021qaeval.pdf": {
+   "e_sumarizador": false,
+   "classes": {}
+  },
+  "deutsch2022reffreelimits.pdf": {
+   "e_sumarizador": false,
+   "classes": {}
+  },
+  "dror2018hitchhiker.pdf": {
+   "e_sumarizador": false,
+   "classes": {}
+  },
+  "duygulu2004autodoc.pdf": {
+   "e_sumarizador": true,
+   "classes": {}
+  },
+  "ebu_r128_v5.pdf": {
+   "e_sumarizador": false,
+   "classes": {}
+  },
+  "erkan2004lexrank.pdf": {
+   "e_sumarizador": false,
+   "classes": {
+    "C2_bovw_e_contagem_artesanal": [
+     "bovw",
+     "tfidf"
+    ],
+    "C4_proxy_profundo_de_selecao": [
+     "cosseno"
+    ]
+   }
+  },
+  "ernst2022procluster.pdf": {
+   "e_sumarizador": false,
+   "classes": {}
+  },
+  "eyal2019apes.pdf": {
+   "e_sumarizador": false,
+   "classes": {}
+  },
+  "fabbri2020summeval.pdf": {
+   "e_sumarizador": false,
+   "classes": {
+    "C2_bovw_e_contagem_artesanal": [
+     "bovw"
+    ],
+    "C4_proxy_profundo_de_selecao": [
+     "cosseno"
+    ]
+   }
+  },
+  "fu2010multiview.pdf": {
+   "e_sumarizador": true,
+   "classes": {
+    "C1_heuristicas_de_baixo_nivel": [
+     "histograma_cor"
+    ],
+    "C4_backbone_profundo_presente": [
+     "clip"
+    ]
+   }
+  },
+  "gao2019pyreval.pdf": {
+   "e_sumarizador": false,
+   "classes": {
+    "C4_proxy_profundo_de_selecao": [
+     "cosseno"
+    ]
+   }
+  },
+  "gao2020supert.pdf": {
+   "e_sumarizador": false,
+   "classes": {
+    "C2_bovw_e_contagem_artesanal": [
+     "tfidf"
+    ],
+    "C4_proxy_profundo_de_selecao": [
+     "cosseno"
+    ]
+   }
+  },
+  "ghadiyaram2016clive.pdf": {
+   "e_sumarizador": false,
+   "classes": {
+    "C1_heuristicas_de_baixo_nivel": [
+     "exposicao"
+    ],
+    "C3_nriqa_estatistico_classico": [
+     "brisque",
+     "niqe",
+     "nr_iqa",
+     "nss"
+    ]
+   }
+  },
+  "gharbi2017modularity.pdf": {
+   "e_sumarizador": true,
+   "classes": {
+    "C1_heuristicas_de_baixo_nivel": [
+     "histograma_cor"
+    ],
+    "C2_bovw_e_contagem_artesanal": [
+     "sift",
+     "surf"
+    ]
+   }
+  },
+  "gharbi2019repeatability.pdf": {
+   "e_sumarizador": true,
+   "classes": {
+    "C1_heuristicas_de_baixo_nivel": [
+     "lbp"
+    ],
+    "C2_bovw_e_contagem_artesanal": [
+     "bovw",
+     "sift"
+    ]
+   }
+  },
+  "ghinassi2023encoders.pdf": {
+   "e_sumarizador": false,
+   "classes": {
+    "C2_bovw_e_contagem_artesanal": [
+     "bovw",
+     "tfidf"
+    ],
+    "C4_proxy_profundo_de_selecao": [
+     "cosseno"
+    ]
+   }
+  },
+  "goldstein1998summarization.pdf": {
+   "e_sumarizador": false,
+   "classes": {
+    "C2_bovw_e_contagem_artesanal": [
+     "bovw",
+     "tfidf"
+    ],
+    "C4_proxy_profundo_de_selecao": [
+     "cosseno"
+    ]
+   }
+  },
+  "golestaneh2022tres.pdf": {
+   "e_sumarizador": false,
+   "classes": {
+    "C3_nriqa_estatistico_classico": [
+     "brisque",
+     "nr_iqa",
+     "nss"
+    ],
+    "C4_backbone_profundo_presente": [
+     "resnet"
+    ]
+   }
+  },
+  "golo2023[venue].pdf": {
+   "e_sumarizador": false,
+   "classes": {}
+  },
+  "gygli2014creating.pdf": {
+   "e_sumarizador": true,
+   "classes": {
+    "C1_heuristicas_de_baixo_nivel": [
+     "colorfulness",
+     "estetica",
+     "histograma_cor"
+    ],
+    "C4_proxy_profundo_de_selecao": [
+     "centroide"
+    ]
+   }
+  },
+  "gygli2014summe.pdf": {
+   "e_sumarizador": true,
+   "classes": {
+    "C1_heuristicas_de_baixo_nivel": [
+     "colorfulness",
+     "estetica",
+     "histograma_cor"
+    ],
+    "C4_proxy_profundo_de_selecao": [
+     "centroide"
+    ]
+   }
+  },
+  "hamborg2018giveme5w.pdf": {
+   "e_sumarizador": false,
+   "classes": {
+    "C2_bovw_e_contagem_artesanal": [
+     "tfidf"
+    ],
+    "C4_proxy_profundo_de_selecao": [
+     "cosseno"
+    ]
+   }
+  },
+  "hamborg2019b.pdf": {
+   "e_sumarizador": false,
+   "classes": {
+    "C2_bovw_e_contagem_artesanal": [
+     "tfidf"
+    ],
+    "C4_proxy_profundo_de_selecao": [
+     "cosseno"
+    ]
+   }
+  },
+  "hasler2003colorfulness.pdf": {
+   "e_sumarizador": false,
+   "classes": {
+    "C1_heuristicas_de_baixo_nivel": [
+     "colorfulness"
+    ],
+    "C3_nriqa_estatistico_classico": [
+     "nr_iqa"
+    ]
+   }
+  },
+  "he2023blindspots.pdf": {
+   "e_sumarizador": false,
+   "classes": {}
+  },
+  "hearst1997texttiling.pdf": {
+   "e_sumarizador": false,
+   "classes": {
+    "C2_bovw_e_contagem_artesanal": [
+     "tfidf"
+    ]
+   }
+  },
+  "hendrycks2019imagenetc.pdf": {
+   "e_sumarizador": false,
+   "classes": {
+    "C4_backbone_profundo_presente": [
+     "inception",
+     "resnet",
+     "vgg"
+    ]
+   }
+  },
+  "hong2011beyond_search.pdf": {
+   "e_sumarizador": true,
+   "classes": {
+    "C2_bovw_e_contagem_artesanal": [
+     "sift"
+    ],
+    "C4_backbone_profundo_presente": [
+     "clip"
+    ]
+   }
+  },
+  "hong2014repository.pdf": {
+   "e_sumarizador": false,
+   "classes": {
+    "C2_bovw_e_contagem_artesanal": [
+     "tfidf"
+    ],
+    "C4_proxy_profundo_de_selecao": [
+     "cosseno"
+    ]
+   }
+  },
+  "hosu2020koniq.pdf": {
+   "e_sumarizador": false,
+   "classes": {
+    "C1_heuristicas_de_baixo_nivel": [
+     "colorfulness",
+     "estetica",
+     "exposicao"
+    ],
+    "C2_bovw_e_contagem_artesanal": [
+     "bovw",
+     "fisher/vlad"
+    ],
+    "C3_nriqa_estatistico_classico": [
+     "brisque",
+     "nr_iqa",
+     "nss"
+    ],
+    "C4_backbone_profundo_presente": [
+     "inception",
+     "resnet",
+     "vgg"
+    ]
+   }
+  },
+  "hovy2006basicelements.pdf": {
+   "e_sumarizador": false,
+   "classes": {}
+  },
+  "hua2025v2xum.pdf": {
+   "e_sumarizador": true,
+   "classes": {
+    "C1_heuristicas_de_baixo_nivel": [
+     "estetica"
+    ],
+    "C4_backbone_profundo_presente": [
+     "clip",
+     "vit/transformer"
+    ],
+    "C4_proxy_profundo_de_selecao": [
+     "cosseno"
+    ]
+   }
+  },
+  "huang2024aesthetic.pdf": {
+   "e_sumarizador": true,
+   "classes": {
+    "C1_heuristicas_de_baixo_nivel": [
+     "estetica",
+     "exposicao"
+    ]
+   }
+  },
+  "hussain2021mvs.pdf": {
+   "e_sumarizador": true,
+   "classes": {
+    "C1_heuristicas_de_baixo_nivel": [
+     "histograma_cor"
+    ],
+    "C2_bovw_e_contagem_artesanal": [
+     "bovw",
+     "sift"
+    ]
+   }
+  },
+  "islam2025multimodal.pdf": {
+   "e_sumarizador": true,
+   "classes": {
+    "C2_bovw_e_contagem_artesanal": [
+     "tfidf"
+    ],
+    "C4_backbone_profundo_presente": [
+     "clip"
+    ],
+    "C4_proxy_profundo_de_selecao": [
+     "cosseno"
+    ]
+   }
+  },
+  "itu_p910.pdf": {
+   "e_sumarizador": false,
+   "classes": {
+    "C1_heuristicas_de_baixo_nivel": [
+     "sobel/gradiente",
+     "spatial_info"
+    ]
+   }
+  },
+  "itu_r_bs1770_5.pdf": {
+   "e_sumarizador": false,
+   "classes": {}
+  },
+  "jeong2016static.pdf": {
+   "e_sumarizador": true,
+   "classes": {
+    "C1_heuristicas_de_baixo_nivel": [
+     "histograma_cor",
+     "variancia_cinza"
+    ],
+    "C2_bovw_e_contagem_artesanal": [
+     "sift"
+    ],
+    "C4_proxy_profundo_de_selecao": [
+     "centroide",
+     "representativid"
+    ]
+   }
+  },
+  "ji2018mvs_hds.pdf": {
+   "e_sumarizador": true,
+   "classes": {
+    "C1_heuristicas_de_baixo_nivel": [
+     "histograma_cor"
+    ],
+    "C4_proxy_profundo_de_selecao": [
+     "cosseno"
+    ]
+   }
+  },
+  "ji2019quasc.pdf": {
+   "e_sumarizador": true,
+   "classes": {
+    "C1_heuristicas_de_baixo_nivel": [
+     "histograma_cor"
+    ],
+    "C2_bovw_e_contagem_artesanal": [
+     "tfidf"
+    ],
+    "C4_proxy_profundo_de_selecao": [
+     "centroide",
+     "cosseno"
+    ]
+   }
+  },
+  "kadam2025systematic.pdf": {
+   "e_sumarizador": true,
+   "classes": {
+    "C2_bovw_e_contagem_artesanal": [
+     "orb/brief",
+     "sift",
+     "surf"
+    ]
+   }
+  },
+  "kalkhorani2024beyond_frame.pdf": {
+   "e_sumarizador": true,
+   "classes": {
+    "C2_bovw_e_contagem_artesanal": [
+     "tfidf"
+    ],
+    "C4_backbone_profundo_presente": [
+     "clip"
+    ],
+    "C4_proxy_profundo_de_selecao": [
+     "cosseno"
+    ]
+   }
+  },
+  "kannao2019newssegment.pdf": {
+   "e_sumarizador": false,
+   "classes": {
+    "C1_heuristicas_de_baixo_nivel": [
+     "histograma_cor"
+    ],
+    "C4_backbone_profundo_presente": [
+     "inception"
+    ]
+   }
+  },
+  "kannao2020semantic.pdf": {
+   "e_sumarizador": false,
+   "classes": {
+    "C1_heuristicas_de_baixo_nivel": [
+     "histograma_cor",
+     "ke_edge_distr"
+    ],
+    "C2_bovw_e_contagem_artesanal": [
+     "bovw",
+     "tfidf"
+    ]
+   }
+  },
+  "kaushal2020visiocity.pdf": {
+   "e_sumarizador": true,
+   "classes": {}
+  },
+  "ke2006highlevel.pdf": {
+   "e_sumarizador": false,
+   "classes": {
+    "C1_heuristicas_de_baixo_nivel": [
+     "histograma_cor",
+     "hue_count",
+     "ke_edge_distr"
+    ],
+    "C3_nriqa_estatistico_classico": [
+     "nr_iqa"
+    ]
+   }
+  },
+  "ke2021musiq.pdf": {
+   "e_sumarizador": false,
+   "classes": {
+    "C1_heuristicas_de_baixo_nivel": [
+     "estetica",
+     "spatial_info"
+    ],
+    "C3_nriqa_estatistico_classico": [
+     "brisque",
+     "niqe",
+     "nss"
+    ],
+    "C4_backbone_profundo_presente": [
+     "inception",
+     "resnet",
+     "vgg",
+     "vit/transformer"
+    ],
+    "C4_proxy_profundo_de_selecao": [
+     "cosseno"
+    ]
+   }
+  },
+  "kedzie2018contentselection.pdf": {
+   "e_sumarizador": false,
+   "classes": {}
+  },
+  "kishi2018fused.pdf": {
+   "e_sumarizador": false,
+   "classes": {
+    "C4_proxy_profundo_de_selecao": [
+     "centroide",
+     "cosseno"
+    ]
+   }
+  },
+  "kishi2019correlation.pdf": {
+   "e_sumarizador": true,
+   "classes": {
+    "C1_heuristicas_de_baixo_nivel": [
+     "spatial_info"
+    ],
+    "C2_bovw_e_contagem_artesanal": [
+     "bovw",
+     "sift"
+    ],
+    "C4_proxy_profundo_de_selecao": [
+     "cosseno"
+    ]
+   }
+  },
+  "koehn2004significance.pdf": {
+   "e_sumarizador": false,
+   "classes": {}
+  },
+  "korolkov2025keyframe.pdf": {
+   "e_sumarizador": true,
+   "classes": {
+    "C1_heuristicas_de_baixo_nivel": [
+     "exposicao",
+     "laplacian_var",
+     "nitidez/blur"
+    ],
+    "C4_backbone_profundo_presente": [
+     "clip",
+     "dino",
+     "resnet"
+    ]
+   }
+  },
+  "koshorek2018text.pdf": {
+   "e_sumarizador": false,
+   "classes": {}
+  },
+  "lapata2006kendalltau.pdf": {
+   "e_sumarizador": false,
+   "classes": {}
+  },
+  "lee2025llmvs.pdf": {
+   "e_sumarizador": true,
+   "classes": {
+    "C4_backbone_profundo_presente": [
+     "clip"
+    ]
+   }
+  },
+  "lei2019framerank.pdf": {
+   "e_sumarizador": true,
+   "classes": {
+    "C4_proxy_profundo_de_selecao": [
+     "centroide"
+    ]
+   }
+  },
+  "li2010videommr.pdf": {
+   "e_sumarizador": true,
+   "classes": {
+    "C2_bovw_e_contagem_artesanal": [
+     "sift"
+    ],
+    "C4_proxy_profundo_de_selecao": [
+     "cosseno"
+    ]
+   }
+  },
+  "li2012balanced_avmmr.pdf": {
+   "e_sumarizador": true,
+   "classes": {}
+  },
+  "li2025lgrln.pdf": {
+   "e_sumarizador": true,
+   "classes": {
+    "C4_backbone_profundo_presente": [
+     "clip",
+     "inception"
+    ],
+    "C4_proxy_profundo_de_selecao": [
+     "cosseno"
+    ]
+   }
+  },
+  "li2025spivg.pdf": {
+   "e_sumarizador": true,
+   "classes": {
+    "C4_backbone_profundo_presente": [
+     "clip",
+     "inception",
+     "vit/transformer"
+    ],
+    "C4_proxy_profundo_de_selecao": [
+     "cosseno"
+    ]
+   }
+  },
+  "lin2004rouge.pdf": {
+   "e_sumarizador": false,
+   "classes": {
+    "C4_proxy_profundo_de_selecao": [
+     "cosseno"
+    ]
+   }
+  },
+  "lin2011submodular.pdf": {
+   "e_sumarizador": false,
+   "classes": {
+    "C4_proxy_profundo_de_selecao": [
+     "cosseno"
+    ]
+   }
+  },
+  "lin2024videogenic.pdf": {
+   "e_sumarizador": true,
+   "classes": {
+    "C4_backbone_profundo_presente": [
+     "clip"
+    ]
+   }
+  },
+  "linbilmes2010budgeted.pdf": {
+   "e_sumarizador": false,
+   "classes": {
+    "C2_bovw_e_contagem_artesanal": [
+     "tfidf"
+    ],
+    "C4_proxy_profundo_de_selecao": [
+     "cosseno"
+    ]
+   }
+  },
+  "liu2017rankiqa.pdf": {
+   "e_sumarizador": false,
+   "classes": {
+    "C3_nriqa_estatistico_classico": [
+     "brisque",
+     "nr_iqa",
+     "nss"
+    ],
+    "C4_backbone_profundo_presente": [
+     "resnet",
+     "vgg"
+    ]
+   }
+  },
+  "manzato2011multimedia.pdf": {
+   "e_sumarizador": false,
+   "classes": {
+    "C1_heuristicas_de_baixo_nivel": [
+     "histograma_cor"
+    ],
+    "C4_proxy_profundo_de_selecao": [
+     "cosseno"
+    ]
+   }
+  },
+  "mao2020rlmmr.pdf": {
+   "e_sumarizador": false,
+   "classes": {
+    "C2_bovw_e_contagem_artesanal": [
+     "tfidf"
+    ],
+    "C4_backbone_profundo_presente": [
+     "dino"
+    ],
+    "C4_proxy_profundo_de_selecao": [
+     "cosseno"
+    ]
+   }
+  },
+  "messaoud2021deepqamvs.pdf": {
+   "e_sumarizador": true,
+   "classes": {
+    "C1_heuristicas_de_baixo_nivel": [
+     "histograma_cor"
+    ],
+    "C4_proxy_profundo_de_selecao": [
+     "centroide"
+    ]
+   }
+  },
+  "mihalcea2004graphranking.pdf": {
+   "e_sumarizador": false,
+   "classes": {}
+  },
+  "mihalcea2004textrank.pdf": {
+   "e_sumarizador": false,
+   "classes": {
+    "C4_proxy_profundo_de_selecao": [
+     "cosseno"
+    ]
+   }
+  },
+  "min2023factscore.pdf": {
+   "e_sumarizador": false,
+   "classes": {}
+  },
+  "mittal2012brisque.pdf": {
+   "e_sumarizador": false,
+   "classes": {
+    "C1_heuristicas_de_baixo_nivel": [
+     "nitidez/blur"
+    ],
+    "C3_nriqa_estatistico_classico": [
+     "brisque",
+     "nr_iqa",
+     "nss"
+    ]
+   }
+  },
+  "mittal2013niqe.pdf": {
+   "e_sumarizador": false,
+   "classes": {
+    "C1_heuristicas_de_baixo_nivel": [
+     "nitidez/blur"
+    ],
+    "C3_nriqa_estatistico_classico": [
+     "brisque",
+     "niqe",
+     "nr_iqa",
+     "nss"
+    ]
+   }
+  },
+  "moraes2022subjectivity.pdf": {
+   "e_sumarizador": true,
+   "classes": {}
+  },
+  "muramatsu2014viewpoint.pdf": {
+   "e_sumarizador": false,
+   "classes": {}
+  },
+  "nandini2022edgelbp.pdf": {
+   "e_sumarizador": true,
+   "classes": {
+    "C1_heuristicas_de_baixo_nivel": [
+     "lbp",
+     "sobel/gradiente"
+    ],
+    "C2_bovw_e_contagem_artesanal": [
+     "sift"
+    ]
+   }
+  },
+  "narvala2023threads.pdf": {
+   "e_sumarizador": false,
+   "classes": {
+    "C2_bovw_e_contagem_artesanal": [
+     "bovw",
+     "tfidf"
+    ],
+    "C4_proxy_profundo_de_selecao": [
+     "cosseno"
+    ]
+   }
+  },
+  "nayeem2018paraphrastic.pdf": {
+   "e_sumarizador": false,
+   "classes": {
+    "C4_proxy_profundo_de_selecao": [
+     "cosseno"
+    ]
+   }
+  },
+  "nenkova2004pyramid.pdf": {
+   "e_sumarizador": false,
+   "classes": {}
+  },
+  "nenkova2005sumbasic.pdf": {
+   "e_sumarizador": false,
+   "classes": {
+    "C4_backbone_profundo_presente": [
+     "inception"
+    ]
+   }
+  },
+  "ngo2005graphmodeling.pdf": {
+   "e_sumarizador": true,
+   "classes": {
+    "C1_heuristicas_de_baixo_nivel": [
+     "saliencia"
+    ]
+   }
+  },
+  "nie2016perceptual.pdf": {
+   "e_sumarizador": true,
+   "classes": {
+    "C1_heuristicas_de_baixo_nivel": [
+     "estetica",
+     "saliencia"
+    ],
+    "C4_backbone_profundo_presente": [
+     "clip"
+    ]
+   }
+  },
+  "nonmonotone2022routing.pdf": {
+   "e_sumarizador": false,
+   "classes": {}
+  },
+  "oquab2024dinov2.pdf": {
+   "e_sumarizador": false,
+   "classes": {
+    "C4_backbone_profundo_presente": [
+     "clip",
+     "dino",
+     "vit/transformer"
+    ],
+    "C4_proxy_profundo_de_selecao": [
+     "cosseno"
+    ]
+   }
+  },
+  "otani2019rethinking.pdf": {
+   "e_sumarizador": true,
+   "classes": {
+    "C4_proxy_profundo_de_selecao": [
+     "centroide"
+    ]
+   }
+  },
+  "over2008trecvid.pdf": {
+   "e_sumarizador": true,
+   "classes": {
+    "C1_heuristicas_de_baixo_nivel": [
+     "histograma_cor"
+    ],
+    "C2_bovw_e_contagem_artesanal": [
+     "sift"
+    ],
+    "C4_backbone_profundo_presente": [
+     "clip"
+    ]
+   }
+  },
+  "padmakumar2021pmi.pdf": {
+   "e_sumarizador": false,
+   "classes": {
+    "C2_bovw_e_contagem_artesanal": [
+     "tfidf"
+    ],
+    "C4_backbone_profundo_presente": [
+     "clip"
+    ],
+    "C4_proxy_profundo_de_selecao": [
+     "cosseno"
+    ]
+   }
+  },
+  "panda2016camera_network.pdf": {
+   "e_sumarizador": true,
+   "classes": {}
+  },
+  "panda2016embedded_multiview.pdf": {
+   "e_sumarizador": true,
+   "classes": {
+    "C1_heuristicas_de_baixo_nivel": [
+     "histograma_cor"
+    ]
+   }
+  },
+  "panda2017collaborative.pdf": {
+   "e_sumarizador": true,
+   "classes": {
+    "C2_bovw_e_contagem_artesanal": [
+     "sift"
+    ],
+    "C4_backbone_profundo_presente": [
+     "vgg"
+    ]
+   }
+  },
+  "panda2017diversity.pdf": {
+   "e_sumarizador": true,
+   "classes": {
+    "C1_heuristicas_de_baixo_nivel": [
+     "estetica"
+    ],
+    "C2_bovw_e_contagem_artesanal": [
+     "sift"
+    ],
+    "C4_backbone_profundo_presente": [
+     "clip",
+     "vgg"
+    ],
+    "C4_proxy_profundo_de_selecao": [
+     "cosseno"
+    ]
+   }
+  },
+  "panda2017multiview_surveillance.pdf": {
+   "e_sumarizador": true,
+   "classes": {
+    "C4_backbone_profundo_presente": [
+     "clip",
+     "vgg"
+    ]
+   }
+  },
+  "panda2017sparse_topic.pdf": {
+   "e_sumarizador": true,
+   "classes": {}
+  },
+  "park2020sumgraph.pdf": {
+   "e_sumarizador": true,
+   "classes": {
+    "C4_backbone_profundo_presente": [
+     "inception"
+    ],
+    "C4_proxy_profundo_de_selecao": [
+     "cosseno"
+    ]
+   }
+  },
+  "park2025videograph.pdf": {
+   "e_sumarizador": true,
+   "classes": {
+    "C1_heuristicas_de_baixo_nivel": [
+     "saliencia"
+    ],
+    "C4_backbone_profundo_presente": [
+     "clip",
+     "inception",
+     "resnet",
+     "vit/transformer"
+    ]
+   }
+  },
+  "peyrard2019scoring.pdf": {
+   "e_sumarizador": false,
+   "classes": {
+    "C4_proxy_profundo_de_selecao": [
+     "cosseno"
+    ]
+   }
+  },
+  "pitt2013fabricated.pdf": {
+   "e_sumarizador": false,
+   "classes": {}
+  },
+  "qaroush2025centrality.pdf": {
+   "e_sumarizador": true,
+   "classes": {
+    "C1_heuristicas_de_baixo_nivel": [
+     "histograma_cor",
+     "lbp",
+     "saliencia"
+    ],
+    "C2_bovw_e_contagem_artesanal": [
+     "bovw",
+     "sift"
+    ],
+    "C4_backbone_profundo_presente": [
+     "inception"
+    ],
+    "C4_proxy_profundo_de_selecao": [
+     "centroide",
+     "cosseno"
+    ]
+   }
+  },
+  "qaroush2025diversity.pdf": {
+   "e_sumarizador": true,
+   "classes": {
+    "C1_heuristicas_de_baixo_nivel": [
+     "colorfulness",
+     "sobel/gradiente"
+    ],
+    "C2_bovw_e_contagem_artesanal": [
+     "bovw",
+     "sift"
+    ],
+    "C4_backbone_profundo_presente": [
+     "clip",
+     "inception",
+     "resnet",
+     "vgg"
+    ],
+    "C4_proxy_profundo_de_selecao": [
+     "cosseno"
+    ]
+   }
+  },
+  "radev2000centroid.pdf": {
+   "e_sumarizador": false,
+   "classes": {
+    "C4_proxy_profundo_de_selecao": [
+     "centroide"
+    ]
+   }
+  },
+  "radovanovic2010hubs.pdf": {
+   "e_sumarizador": false,
+   "classes": {
+    "C2_bovw_e_contagem_artesanal": [
+     "bovw",
+     "tfidf"
+    ],
+    "C4_proxy_profundo_de_selecao": [
+     "centroide",
+     "cosseno"
+    ]
+   }
+  },
+  "ribaldo2016rsumm.pdf": {
+   "e_sumarizador": false,
+   "classes": {
+    "C4_proxy_profundo_de_selecao": [
+     "cosseno"
+    ]
+   }
+  },
+  "ribeiro2020checklist.pdf": {
+   "e_sumarizador": false,
+   "classes": {}
+  },
+  "rojaschaves2024videosage.pdf": {
+   "e_sumarizador": true,
+   "classes": {
+    "C4_backbone_profundo_presente": [
+     "clip",
+     "inception"
+    ]
+   }
+  },
+  "sai2021perturbation.pdf": {
+   "e_sumarizador": false,
+   "classes": {}
+  },
+  "saqib2018mme.pdf": {
+   "e_sumarizador": true,
+   "classes": {
+    "C1_heuristicas_de_baixo_nivel": [
+     "histograma_cor"
+    ],
+    "C2_bovw_e_contagem_artesanal": [
+     "sift"
+    ],
+    "C4_backbone_profundo_presente": [
+     "clip",
+     "inception"
+    ]
+   }
+  },
+  "sarmento2024sumarizacaopt.pdf": {
+   "e_sumarizador": false,
+   "classes": {}
+  },
+  "schnitzer2012scaling.pdf": {
+   "e_sumarizador": false,
+   "classes": {
+    "C2_bovw_e_contagem_artesanal": [
+     "bovw",
+     "tfidf"
+    ],
+    "C4_proxy_profundo_de_selecao": [
+     "cosseno"
+    ]
+   }
+  },
+  "scialom2019answersunite.pdf": {
+   "e_sumarizador": false,
+   "classes": {}
+  },
+  "scialom2021questeval.pdf": {
+   "e_sumarizador": false,
+   "classes": {
+    "C4_proxy_profundo_de_selecao": [
+     "cosseno"
+    ]
+   }
+  },
+  "shao2010complex_graph.pdf": {
+   "e_sumarizador": true,
+   "classes": {
+    "C2_bovw_e_contagem_artesanal": [
+     "tfidf"
+    ],
+    "C4_proxy_profundo_de_selecao": [
+     "cosseno"
+    ]
+   }
+  },
+  "shapira2018lengths.pdf": {
+   "e_sumarizador": false,
+   "classes": {}
+  },
+  "shen2007qov.pdf": {
+   "e_sumarizador": false,
+   "classes": {
+    "C1_heuristicas_de_baixo_nivel": [
+     "variancia_cinza"
+    ]
+   }
+  },
+  "sidiropoulos2011temporal.pdf": {
+   "e_sumarizador": true,
+   "classes": {
+    "C1_heuristicas_de_baixo_nivel": [
+     "histograma_cor"
+    ],
+    "C2_bovw_e_contagem_artesanal": [
+     "bovw"
+    ]
+   }
+  },
+  "singh2026subevent.pdf": {
+   "e_sumarizador": true,
+   "classes": {
+    "C1_heuristicas_de_baixo_nivel": [
+     "laplacian_var"
+    ],
+    "C2_bovw_e_contagem_artesanal": [
+     "surf"
+    ],
+    "C4_backbone_profundo_presente": [
+     "clip",
+     "dino",
+     "vit/transformer"
+    ],
+    "C4_proxy_profundo_de_selecao": [
+     "centroide",
+     "cosseno"
+    ]
+   }
+  },
+  "soares2018topicsegment.pdf": {
+   "e_sumarizador": true,
+   "classes": {
+    "C2_bovw_e_contagem_artesanal": [
+     "tfidf"
+    ],
+    "C4_proxy_profundo_de_selecao": [
+     "cosseno"
+    ]
+   }
+  },
+  "solbiati2021segmentation.pdf": {
+   "e_sumarizador": false,
+   "classes": {
+    "C4_proxy_profundo_de_selecao": [
+     "cosseno"
+    ]
+   }
+  },
+  "song2015tvsum.pdf": {
+   "e_sumarizador": true,
+   "classes": {
+    "C2_bovw_e_contagem_artesanal": [
+     "bovw",
+     "sift"
+    ],
+    "C4_proxy_profundo_de_selecao": [
+     "centroide"
+    ]
+   }
+  },
+  "srinivas2016rank.pdf": {
+   "e_sumarizador": true,
+   "classes": {
+    "C1_heuristicas_de_baixo_nivel": [
+     "colorfulness",
+     "histograma_cor",
+     "hue_count",
+     "ke_edge_distr",
+     "saliencia"
+    ],
+    "C4_proxy_profundo_de_selecao": [
+     "representativid"
+    ]
+   }
+  },
+  "stil2015proceedings.pdf": {
+   "e_sumarizador": false,
+   "classes": {
+    "C2_bovw_e_contagem_artesanal": [
+     "bovw",
+     "tfidf"
+    ],
+    "C4_proxy_profundo_de_selecao": [
+     "cosseno"
+    ]
+   }
+  },
+  "sun2019targetlength.pdf": {
+   "e_sumarizador": false,
+   "classes": {
+    "C4_proxy_profundo_de_selecao": [
+     "cosseno"
+    ]
+   }
+  },
+  "swain1991colorindexing.pdf": {
+   "e_sumarizador": false,
+   "classes": {
+    "C1_heuristicas_de_baixo_nivel": [
+     "histograma_cor",
+     "spatial_info"
+    ]
+   }
+  },
+  "tang2013content.pdf": {
+   "e_sumarizador": false,
+   "classes": {
+    "C1_heuristicas_de_baixo_nivel": [
+     "colorfulness",
+     "hue_count",
+     "ke_edge_distr",
+     "saliencia"
+    ]
+   }
+  },
+  "tang2021knapsack.pdf": {
+   "e_sumarizador": false,
+   "classes": {
+    "C2_bovw_e_contagem_artesanal": [
+     "bovw"
+    ]
+   }
+  },
+  "taylor2017superresolution.pdf": {
+   "e_sumarizador": false,
+   "classes": {
+    "C1_heuristicas_de_baixo_nivel": [
+     "spatial_info"
+    ]
+   }
+  },
+  "tohalino2018multilayer.pdf": {
+   "e_sumarizador": false,
+   "classes": {
+    "C2_bovw_e_contagem_artesanal": [
+     "bovw",
+     "tfidf"
+    ],
+    "C4_proxy_profundo_de_selecao": [
+     "cosseno"
+    ]
+   }
+  },
+  "traag2011resolutionfree.pdf": {
+   "e_sumarizador": false,
+   "classes": {}
+  },
+  "traag2019leiden.pdf": {
+   "e_sumarizador": false,
+   "classes": {}
+  },
+  "trojahn2012avsa.pdf": {
+   "e_sumarizador": false,
+   "classes": {}
+  },
+  "trojahn2021temporal.pdf": {
+   "e_sumarizador": true,
+   "classes": {
+    "C1_heuristicas_de_baixo_nivel": [
+     "histograma_cor"
+    ],
+    "C2_bovw_e_contagem_artesanal": [
+     "bovw",
+     "sift"
+    ],
+    "C4_backbone_profundo_presente": [
+     "vgg"
+    ],
+    "C4_proxy_profundo_de_selecao": [
+     "cosseno"
+    ]
+   }
+  },
+  "tur2001topicseg.pdf": {
+   "e_sumarizador": false,
+   "classes": {
+    "C4_proxy_profundo_de_selecao": [
+     "cosseno"
+    ]
+   }
+  },
+  "verhaverbeke2025_french5w1h.pdf": {
+   "e_sumarizador": false,
+   "classes": {}
+  },
+  "walden2024_seamus.pdf": {
+   "e_sumarizador": false,
+   "classes": {}
+  },
+  "wan2006affinitygraph.pdf": {
+   "e_sumarizador": false,
+   "classes": {
+    "C4_proxy_profundo_de_selecao": [
+     "centroide"
+    ]
+   }
+  },
+  "wan2008clusterlink.pdf": {
+   "e_sumarizador": false,
+   "classes": {
+    "C2_bovw_e_contagem_artesanal": [
+     "tfidf"
+    ],
+    "C4_proxy_profundo_de_selecao": [
+     "centroide",
+     "cosseno"
+    ]
+   }
+  },
+  "wan2008documentimpact.pdf": {
+   "e_sumarizador": false,
+   "classes": {
+    "C2_bovw_e_contagem_artesanal": [
+     "tfidf"
+    ],
+    "C4_proxy_profundo_de_selecao": [
+     "centroide",
+     "cosseno"
+    ]
+   }
+  },
+  "wang2009multidoc.pdf": {
+   "e_sumarizador": true,
+   "classes": {
+    "C2_bovw_e_contagem_artesanal": [
+     "sift"
+    ]
+   }
+  },
+  "wang2012tag_localization.pdf": {
+   "e_sumarizador": true,
+   "classes": {
+    "C1_heuristicas_de_baixo_nivel": [
+     "histograma_cor",
+     "ke_edge_distr"
+    ],
+    "C2_bovw_e_contagem_artesanal": [
+     "bovw",
+     "sift"
+    ],
+    "C4_backbone_profundo_presente": [
+     "clip"
+    ],
+    "C4_proxy_profundo_de_selecao": [
+     "cosseno"
+    ]
+   }
+  },
+  "wang2023clipiqa.pdf": {
+   "e_sumarizador": false,
+   "classes": {
+    "C1_heuristicas_de_baixo_nivel": [
+     "colorfulness",
+     "estetica"
+    ],
+    "C3_nriqa_estatistico_classico": [
+     "brisque",
+     "niqe",
+     "nr_iqa",
+     "nss"
+    ],
+    "C4_backbone_profundo_presente": [
+     "clip",
+     "resnet",
+     "vit/transformer"
+    ],
+    "C4_proxy_profundo_de_selecao": [
+     "cosseno"
+    ]
+   }
+  },
+  "wen2022mvs_gcn_asd.pdf": {
+   "e_sumarizador": false,
+   "classes": {}
+  },
+  "wolhandler2022howmulti.pdf": {
+   "e_sumarizador": false,
+   "classes": {}
+  },
+  "wu2006threading.pdf": {
+   "e_sumarizador": false,
+   "classes": {
+    "C1_heuristicas_de_baixo_nivel": [
+     "histograma_cor"
+    ],
+    "C2_bovw_e_contagem_artesanal": [
+     "tfidf"
+    ],
+    "C4_proxy_profundo_de_selecao": [
+     "cosseno"
+    ]
+   }
+  },
+  "wu2019mvsgcn.pdf": {
+   "e_sumarizador": true,
+   "classes": {
+    "C4_proxy_profundo_de_selecao": [
+     "cosseno"
+    ]
+   }
+  },
+  "wu2020dyngcn.pdf": {
+   "e_sumarizador": true,
+   "classes": {
+    "C1_heuristicas_de_baixo_nivel": [
+     "estetica"
+    ],
+    "C4_proxy_profundo_de_selecao": [
+     "centroide",
+     "cosseno"
+    ]
+   }
+  },
+  "wu2024qalign.pdf": {
+   "e_sumarizador": false,
+   "classes": {
+    "C1_heuristicas_de_baixo_nivel": [
+     "estetica"
+    ],
+    "C4_backbone_profundo_presente": [
+     "clip"
+    ]
+   }
+  },
+  "wu2026multimodal_gcl.pdf": {
+   "e_sumarizador": true,
+   "classes": {
+    "C1_heuristicas_de_baixo_nivel": [
+     "spatial_info"
+    ],
+    "C4_backbone_profundo_presente": [
+     "clip",
+     "inception",
+     "vit/transformer"
+    ],
+    "C4_proxy_profundo_de_selecao": [
+     "centroide",
+     "cosseno"
+    ]
+   }
+  },
+  "xiao2020redundancy.pdf": {
+   "e_sumarizador": false,
+   "classes": {
+    "C4_proxy_profundo_de_selecao": [
+     "cosseno"
+    ]
+   }
+  },
+  "xiao2023metriceval.pdf": {
+   "e_sumarizador": false,
+   "classes": {}
+  },
+  "xie2008affinity.pdf": {
+   "e_sumarizador": true,
+   "classes": {
+    "C1_heuristicas_de_baixo_nivel": [
+     "histograma_cor"
+    ],
+    "C2_bovw_e_contagem_artesanal": [
+     "tfidf"
+    ],
+    "C4_backbone_profundo_presente": [
+     "clip"
+    ]
+   }
+  },
+  "xu2024property.pdf": {
+   "e_sumarizador": true,
+   "classes": {
+    "C1_heuristicas_de_baixo_nivel": [
+     "colorfulness",
+     "ke_edge_distr"
+    ],
+    "C3_nriqa_estatistico_classico": [
+     "brisque"
+    ],
+    "C4_proxy_profundo_de_selecao": [
+     "centroide"
+    ]
+   }
+  },
+  "yang2016peak.pdf": {
+   "e_sumarizador": false,
+   "classes": {
+    "C4_proxy_profundo_de_selecao": [
+     "cosseno"
+    ]
+   }
+  },
+  "yang2023chatgptaspect.pdf": {
+   "e_sumarizador": false,
+   "classes": {}
+  },
+  "yang2024keyframe.pdf": {
+   "e_sumarizador": true,
+   "classes": {
+    "C1_heuristicas_de_baixo_nivel": [
+     "entropia",
+     "glcm",
+     "histograma_cor"
+    ],
+    "C2_bovw_e_contagem_artesanal": [
+     "sift"
+    ],
+    "C4_backbone_profundo_presente": [
+     "clip"
+    ],
+    "C4_proxy_profundo_de_selecao": [
+     "centroide"
+    ]
+   }
+  },
+  "ye2023complementary.pdf": {
+   "e_sumarizador": false,
+   "classes": {
+    "C4_proxy_profundo_de_selecao": [
+     "cosseno"
+    ]
+   }
+  },
+  "yeh2025gcn_compressed.pdf": {
+   "e_sumarizador": true,
+   "classes": {
+    "C4_backbone_profundo_presente": [
+     "inception",
+     "resnet",
+     "vit/transformer"
+    ],
+    "C4_proxy_profundo_de_selecao": [
+     "cosseno"
+    ]
+   }
+  },
+  "you2025deqascore.pdf": {
+   "e_sumarizador": false,
+   "classes": {
+    "C1_heuristicas_de_baixo_nivel": [
+     "exposicao"
+    ],
+    "C2_bovw_e_contagem_artesanal": [
+     "fisher/vlad"
+    ],
+    "C3_nriqa_estatistico_classico": [
+     "brisque",
+     "niqe",
+     "nr_iqa"
+    ],
+    "C4_backbone_profundo_presente": [
+     "clip",
+     "vit/transformer"
+    ]
+   }
+  },
+  "yu2026deep.pdf": {
+   "e_sumarizador": true,
+   "classes": {
+    "C4_backbone_profundo_presente": [
+     "inception",
+     "resnet"
+    ]
+   }
+  },
+  "zerocontrol2025length.pdf": {
+   "e_sumarizador": false,
+   "classes": {}
+  },
+  "zhang2013geospace.pdf": {
+   "e_sumarizador": true,
+   "classes": {
+    "C2_bovw_e_contagem_artesanal": [
+     "sift"
+    ],
+    "C4_backbone_profundo_presente": [
+     "clip"
+    ],
+    "C4_proxy_profundo_de_selecao": [
+     "cosseno"
+    ]
+   }
+  },
+  "zhang2015aesthetics.pdf": {
+   "e_sumarizador": true,
+   "classes": {
+    "C1_heuristicas_de_baixo_nivel": [
+     "estetica",
+     "histograma_cor",
+     "lbp",
+     "saliencia"
+    ],
+    "C4_backbone_profundo_presente": [
+     "clip"
+    ],
+    "C4_proxy_profundo_de_selecao": [
+     "centroide",
+     "cosseno"
+    ]
+   }
+  },
+  "zhang2015handheld.pdf": {
+   "e_sumarizador": true,
+   "classes": {
+    "C1_heuristicas_de_baixo_nivel": [
+     "estetica",
+     "saliencia"
+    ],
+    "C2_bovw_e_contagem_artesanal": [
+     "sift",
+     "surf"
+    ],
+    "C4_backbone_profundo_presente": [
+     "clip"
+    ]
+   }
+  },
+  "zhang2015skimlets.pdf": {
+   "e_sumarizador": true,
+   "classes": {
+    "C1_heuristicas_de_baixo_nivel": [
+     "estetica",
+     "saliencia"
+    ],
+    "C4_backbone_profundo_presente": [
+     "clip"
+    ]
+   }
+  },
+  "zhang2016georeferenced.pdf": {
+   "e_sumarizador": true,
+   "classes": {
+    "C1_heuristicas_de_baixo_nivel": [
+     "lbp",
+     "saliencia"
+    ]
+   }
+  },
+  "zhang2020bertscore.pdf": {
+   "e_sumarizador": false,
+   "classes": {
+    "C2_bovw_e_contagem_artesanal": [
+     "fisher/vlad",
+     "tfidf"
+    ],
+    "C4_proxy_profundo_de_selecao": [
+     "cosseno"
+    ]
+   }
+  },
+  "zhang2020dbcnn.pdf": {
+   "e_sumarizador": false,
+   "classes": {
+    "C1_heuristicas_de_baixo_nivel": [
+     "estetica",
+     "spatial_info"
+    ],
+    "C3_nriqa_estatistico_classico": [
+     "brisque",
+     "nr_iqa"
+    ],
+    "C4_backbone_profundo_presente": [
+     "resnet",
+     "vgg"
+    ]
+   }
+  },
+  "zhang2023_iesumm.pdf": {
+   "e_sumarizador": false,
+   "classes": {
+    "C4_proxy_profundo_de_selecao": [
+     "cosseno"
+    ]
+   }
+  },
+  "zhang2023liqe.pdf": {
+   "e_sumarizador": false,
+   "classes": {
+    "C3_nriqa_estatistico_classico": [
+     "niqe",
+     "nr_iqa",
+     "nss"
+    ],
+    "C4_backbone_profundo_presente": [
+     "clip",
+     "inception",
+     "vit/transformer"
+    ],
+    "C4_proxy_profundo_de_selecao": [
+     "cosseno"
+    ]
+   }
+  },
+  "zhang2024qbenchplus.pdf": {
+   "e_sumarizador": false,
+   "classes": {
+    "C1_heuristicas_de_baixo_nivel": [
+     "estetica",
+     "exposicao"
+    ],
+    "C3_nriqa_estatistico_classico": [
+     "niqe",
+     "nr_iqa"
+    ],
+    "C4_backbone_profundo_presente": [
+     "clip",
+     "vit/transformer"
+    ],
+    "C4_proxy_profundo_de_selecao": [
+     "cosseno"
+    ]
+   }
+  },
+  "zhao2019moverscore.pdf": {
+   "e_sumarizador": false,
+   "classes": {
+    "C2_bovw_e_contagem_artesanal": [
+     "tfidf"
+    ]
+   }
+  },
+  "zhao2026graphvsum.pdf": {
+   "e_sumarizador": true,
+   "classes": {
+    "C4_proxy_profundo_de_selecao": [
+     "cosseno"
+    ]
+   }
+  },
+  "zheng2019pacsum.pdf": {
+   "e_sumarizador": false,
+   "classes": {
+    "C2_bovw_e_contagem_artesanal": [
+     "tfidf"
+    ],
+    "C4_proxy_profundo_de_selecao": [
+     "cosseno"
+    ]
+   }
+  },
+  "zhou2018drdsn.pdf": {
+   "e_sumarizador": true,
+   "classes": {
+    "C4_backbone_profundo_presente": [
+     "inception"
+    ],
+    "C4_proxy_profundo_de_selecao": [
+     "centroide"
+    ]
+   }
+  },
+  "zhu2014keyobservation.pdf": {
+   "e_sumarizador": true,
+   "classes": {
+    "C1_heuristicas_de_baixo_nivel": [
+     "histograma_cor",
+     "spatial_info"
+    ]
+   }
+  },
+  "zhu2023topicaware.pdf": {
+   "e_sumarizador": true,
+   "classes": {
+    "C1_heuristicas_de_baixo_nivel": [
+     "histograma_cor"
+    ],
+    "C4_backbone_profundo_presente": [
+     "clip"
+    ]
+   }
+  }
+ },
+ "duplicatas_removidas": {
+  "jeong2017static.pdf": {
+   "md5": "3d677c6164b95e84f0f0d934fae1d031",
+   "igual_a": "jeong2016static.pdf"
+  }
+ }
+}

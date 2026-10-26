@@ -1,0 +1,32 @@
+\section{Related work}\label{sec:related}
+
+%% ⛔ PROSA SUBSTITUIDA em 22/09/2026 pela reescrita do parecer v3 (1118 -> ~710 palavras).
+%% ⚠️ Tres coisas foram REPOSTAS por cima dela, porque a versao em Markdown nao as tinha:
+%% a macro \taxMultiplas (estava digitada como 40), o ponteiro «work by work in Table~S31»
+%% (tem ancora em sincroniza_ponteiros.py e morreria calado) e o \input da Tabela 1.
+
+\subsection{Visual selection in multi-video summarization}
+
+Extractive approaches select existing frames or segments, whereas abstractive approaches produce derived representations~\citep{apostolidis2021survey,truong2007video_abstraction}. Multi-video methods additionally address cross-source redundancy and diversity: Video-MMR formalized this setting~\citep{li2010videommr}, sparse and collaborative formulations select complementary content~\citep{panda2017collaborative,panda2017diversity}, and graph-based methods represent inter-video relations~\citep{wu2020mvsgcn}. Concurrent recordings of the same event provide another established setting for representative selection~\citep{bano2016vicomp,cricri2014multimodal}. 
+
+Human-strategy-based summarization separates content-selection criteria into addressable stages~\citep{barbieri2021tese,barbieri2021content}. This modularity supports controlled substitution, while the evaluation analysis in~\citep{otani2019rethinking} motivates holding segmentation and other protocol choices fixed. Image-quality assessment has already been used for video summarization: VSQUAL employed objective measures in shot-boundary detection and keyframe extraction~\citep{cirne2014vsqual}, and a static-summary method combined representativeness with visual penalties~\citep{jeong2016static}. What has not been examined on the selection side is the component-level comparison, source-role accounting and measurement of selection consequences reported here.
+
+Table~\ref{tab:taxonomy} organizes the implemented measures into four classes; the operations and their attribution to source works rest on the source-checked inventory of Section~\ref{sec:prov}.
+
+\input{tab_taxonomia}
+
+The documented roles are heterogeneous. Two of the source works combine attributes into frame scores~\citep{srinivas2016rank,korolkov2025keyframe}. Other works place visual terms inside objectives that also address attention, representativeness, coverage or diversity~\citep{gygli2014summe,huang2024aesthetic,jeong2016static,qaroush2025diversity,yang2024keyframe,xu2024property}. TriPSS uses visual signals in filtering~\citep{cakmak2025tripss}. One source introduced photographic-classification features~\citep{ke2006highlevel}, whereas another validated a colourfulness index~\citep{hasler2003colorfulness}. 
+
+\subsection{No-reference quality assessment and transfer}
+
+Image quality assessment (IQA) predicts perceived degradation. Full-reference measures compare an image with an undistorted original~\citep{wang2004ssim,zhai2020iqa_survey}; NR-IQA instead uses the test image alone. The latter matches representative selection across broadcasters, where no common original is available. The evaluated candidates include natural-scene-statistics models, BRISQUE and NIQE~\citep{mittal2012brisque,mittal2013niqe}; opinion-supervised convolutional neural network (CNN) and attention models, DBCNN, HyperIQA, MUSIQ and TOPIQ~\citep{chen2024topiq,ke2021musiq,su2020hyperiqa,zhang2020dbcnn}; and vision--language models based on Contrastive Language--Image Pre-training (CLIP)~\citep{radford2021clip}. These include CLIP-IQA and CLIP-IQA+~\citep{wang2023clipiqa}, LIQE~\citep{zhang2023liqe} and QualiCLIP~\citep{agnolucci2024qualiclip}. Q-Align maps multimodal-model outputs to discrete quality levels~\citep{wu2024qalign}.
+
+Architecture and exposure to opinion data both vary across released checkpoints. An association measured on a training database is not evidence of transfer to that database, and strong in-database performance need not persist in a new domain~\citep{cao2024datacentric,pinson2023nrbroadcast}. We therefore record opinion-data exposure and apply the external-transfer condition only to unseen databases. KADID-10k provides known synthetic distortions and levels~\citep{lin2019kadid}, while KonIQ-10k and LIVE In the Wild provide authentic distortions with human opinion scores~\citep{ghadiyaram2016clive,hosu2020koniq}.
+
+Image-wise scoring cannot observe all temporal impairments, motivating a separate video-model assessment of selected outputs~\citep{huang2023xgcvqa,wang2021uvq,wu2023dover}. Correlation also depends on the range and uncertainty of subjective scores~\citep{krasula2016methodology}. Paired-comparison designs~\citep{behzadpour2023precision,isogawa2019inpainted,oszust2017lasso} complement database-wide association by asking whether an operation orders controlled alternatives in the intended direction. 
+
+\subsection{The measurement gap}
+
+Scale-invariant feature transform (SIFT) descriptors, bag-of-visual-words (BoVW) representations and term frequency--inverse document frequency (TF-IDF) weighting encode feature occurrence and rarity for recognition or retrieval~\citep{csurka2004bovw,lowe2004sift,salton1988tfidf,sivic2003videogoogle}. Spatial information describes scene complexity~\citep{itu_p910,robitza2021siti}. One of the works audited here applies exactly this combination to multi-video summarization: the audited proposal scores a segment by the sum of TF-IDF weights over a visual-word vocabulary built from SIFT descriptors~\citep{barbieri2021tese}, and HSMVideoSumm is the released implementation of that pipeline~\citep{moraes2024hsmvideosumm}. That operation is evaluated here on the same footing as the others.
+
+Because the intended task is part of how a quality measure is interpreted~\citep{leszczuk2014taskbased}, our design links the source-assigned role to observed score behaviour and selection consequences, separating three questions: what an operation was designed to measure, what it measures under the present tests, and what changes when a pipeline uses it.

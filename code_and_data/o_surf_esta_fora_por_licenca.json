@@ -1,0 +1,18 @@
+{
+ "_o_que_e": "⛔ POR QUE O SURF NAO ENTRA NA ABLACAO DE DESCRITORES, E ISSO E VERIFICAVEL?\n\nPOR QUE EXISTE (22/09/2026, parecer M12). O artigo dizia que um descritor ficou de fora\n«for lack of a redistributable implementation», sem NOMEAR qual nem dizer sob que condicao.\n⛔ E eu tinha registrado a resposta em 21/09 e mesmo assim marquei o item como pendencia do\nautor. Nao era: e um fato do ambiente, e se confere rodando.\n\n⭐ O QUE ESTE SCRIPT ESTABELECE, na maquina em que as medicoes rodaram:\n  - a versao do OpenCV instalado;\n  - que `cv2.xfeatures2d` NAO existe nela, que e onde o SURF mora;\n  - que os quatro descritores da ablacao (SIFT, ORB, AKAZE, BRISK) existem.\n\n⚠️ A condicao de licenca e a razao de o modulo nao vir no pacote: o SURF e patenteado e\nso e compilado em build nao-livre, com `OPENCV_ENABLE_NONFREE=ON`. **Isso e propriedade da\ndistribuicao de referencia, nao recorte nosso**, e e assim que vai declarado.\n",
+ "opencv": "4.13.0",
+ "xfeatures2d_presente": false,
+ "surf_instanciavel": false,
+ "erro_ao_instanciar": "AttributeError: module 'cv2' has no attribute 'xfeatures2d'",
+ "descritores_da_ablacao_presentes": {
+  "SIFT_create": true,
+  "ORB_create": true,
+  "AKAZE_create": true,
+  "BRISK_create": true
+ },
+ "condicao_declarada": "patenteado; distribuido apenas em build nao-livre compilada da fonte com OPENCV_ENABLE_NONFREE=ON",
+ "previsoes": {
+  "1_o_surf_continua_indisponivel": "CONFIRMADA",
+  "2_os_quatro_da_ablacao_existem": "CONFIRMADA"
+ }
+}

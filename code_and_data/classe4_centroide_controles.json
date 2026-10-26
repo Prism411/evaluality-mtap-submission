@@ -1,0 +1,104 @@
+{
+ "_o_que_e": "CONTROLES do teste do centroide na bancada pareada. EXPLORATORIOS: nao estavam no\npre-registro (`PRE-REGISTRO-centroide-na-bancada.md`), foram desenhados DEPOIS de ver o\nresultado primario (74,1 %), e se declaram assim.\n\nPOR QUE EXISTEM (27/09/2026). Antes de ler «o centroide prefere o original» como\nsensibilidade a representatividade, duas explicacoes que nao precisam do cluster:\n\n 1. ⛔ A SENSIBILIDADE PRE-REGISTRADA NAO E UMA SEGUNDA LEITURA. Com S a soma dos m outros\n    membros, |s-c|^2 - |s'-c|^2 tem o mesmo sinal para c = (S+s+s')/(m+2) e para c = S/m:\n    nos dois casos e o sinal de m(|s|^2-|s'|^2) - 2 S.(s-s'). Os dois centroides decidem\n    igual por identidade algebrica, e aqui isso se CONFERE nos 800 pares.\n 2. DESLOCAMENTO. Qualquer perturbacao afasta s' de s; se ela afasta s' do embedding tipico\n    de video natural, o original ganha com QUALQUER conjunto de referencia. O controle poe\n    no lugar dos outros membros o mesmo numero de segmentos sorteados de OUTROS TOPICOS\n    (50 sorteios por par). Se a acuracia ficar parecida, o que o centroide le e distancia\n    ao tipico, nao representatividade do cluster.\n 3. NORMA. Decisao pela norma do vetor de segmento sozinha (|s| < |s'|), sem cluster.",
+ "⚠️_estatuto": "exploratorio, desenhado depois de ver o resultado primario",
+ "pares_com_meia_decisao": {
+  "n": 15,
+  "o_que_e": "o original esta em dois clusters e eles decidem diferente; o par conta 0,5"
+ },
+ "1_os_dois_centroides_decidem_igual": {
+  "decisoes_em_que_discordam": 0,
+  "prova": "mesmo sinal de m(|s|^2-|s'|^2) - 2 S.(s-s') nos dois denominadores"
+ },
+ "2_centroide_com_membros_reais": {
+  "acuracia_por_tipo": [
+   56.0,
+   86.0,
+   65.0,
+   76.5,
+   70.5,
+   75.5,
+   91.0,
+   72.0
+  ],
+  "ordem": [
+   "dark",
+   "motion",
+   "blur",
+   "h264",
+   "rescale",
+   "satur",
+   "noise",
+   "jpeg"
+  ],
+  "media": 74.1,
+  "ic95_bootstrap_segmentos": [
+   67.7,
+   80.2
+  ]
+ },
+ "2_centroide_com_membros_de_outros_topicos": {
+  "acuracia_por_tipo": [
+   54.0,
+   73.1,
+   60.3,
+   57.9,
+   63.0,
+   59.1,
+   89.5,
+   61.7
+  ],
+  "ordem": [
+   "dark",
+   "motion",
+   "blur",
+   "h264",
+   "rescale",
+   "satur",
+   "noise",
+   "jpeg"
+  ],
+  "media": 64.8,
+  "ic95_bootstrap_segmentos": [
+   59.1,
+   70.5
+  ],
+  "sorteios_por_par": 50
+ },
+ "3_so_a_norma_do_vetor_de_segmento": {
+  "acuracia_por_tipo": [
+   59.0,
+   88.0,
+   67.0,
+   91.0,
+   71.0,
+   33.0,
+   77.0,
+   75.0
+  ],
+  "ordem": [
+   "dark",
+   "motion",
+   "blur",
+   "h264",
+   "rescale",
+   "satur",
+   "noise",
+   "jpeg"
+  ],
+  "media": 70.1,
+  "ic95_bootstrap_segmentos": [
+   62.6,
+   76.9
+  ]
+ },
+ "diferenca_pareada_real_menos_outros_topicos": {
+  "media_pontos": 9.2,
+  "ic95_bootstrap_segmentos": [
+   2.8,
+   16.4
+  ],
+  "segmentos_em_que_o_real_ganha": 15,
+  "n_segmentos": 20
+ },
+ "parte_da_vantagem_sobre_o_acaso_que_sobra_sem_o_cluster_pontos": 14.8
+}

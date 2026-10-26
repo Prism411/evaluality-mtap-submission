@@ -1,0 +1,144 @@
+{
+ "_o_que_e": "\"TROCAR O MODULO MUDA O RESUMO?\" respondido nos 42 clusters, SEM precisar de\num modulo de referencia.\n\nPOR QUE ISTO E COMPLETO E A COMPARACAO COM O SIFT E PARCIAL:\n  A pergunta e se a escolha do modulo muda o resumo que sai. Comparar cada\n  operacao contra o SIFT precisa do SIFT em todos os 42, e ele parou em 8. Mas a\n  pergunta tem uma forma que nao precisa de referencia nenhuma: QUANTOS RESUMOS\n  DISTINTOS as 14 operacoes produzem? Se catorze proxies que dizem medir \"qualidade\n  visual\" produzem N resumos diferentes, N responde a pergunta — e N>1 ja prova\n  que a escolha do modulo decide a saida.\n\n  E a discordancia entre instrumentos que medem o MESMO construto e, ela propria,\n  evidencia de falta de validade de construto. Nao precisa de gabarito: se dois\n  termometros discordam, pelo menos um esta errado, e nao e preciso saber a\n  temperatura verdadeira para dizer isso.\n\nLe so efeito_a_jusante.json. Custo: milissegundos.",
+ "n_clusters": 42,
+ "n_operacoes": 14,
+ "n_pares": 91,
+ "resumos_distintos": 11,
+ "agrupamento": {
+  "resumo_1": [
+   "brilho",
+   "huang_exposicao",
+   "ke_brightness"
+  ],
+  "resumo_2": [
+   "hasler_colorfulness",
+   "ke_colorfulness"
+  ],
+  "resumo_3": [
+   "contraste_variancia"
+  ],
+  "resumo_4": [
+   "huang_matiz"
+  ],
+  "resumo_5": [
+   "huang_saturacao"
+  ],
+  "resumo_6": [
+   "ke_contraste"
+  ],
+  "resumo_7": [
+   "ke_edge_distribution"
+  ],
+  "resumo_8": [
+   "ke_hue_count"
+  ],
+  "resumo_9": [
+   "laplacian_var"
+  ],
+  "resumo_10": [
+   "sobel_cv"
+  ],
+  "resumo_11": [
+   "srinivas_quality"
+  ]
+ },
+ "clusters_com_discordancia": 42,
+ "pct_discordancia": 100.0,
+ "escolhas_distintas_por_cluster_media": 2.21,
+ "piso_do_acaso_pct": 47.0,
+ "concordancia_par_a_par": {
+  "brilho|contraste_variancia": 66.7,
+  "brilho|hasler_colorfulness": 35.7,
+  "brilho|huang_exposicao": 100.0,
+  "brilho|huang_matiz": 35.7,
+  "brilho|huang_saturacao": 28.6,
+  "brilho|ke_brightness": 100.0,
+  "brilho|ke_colorfulness": 35.7,
+  "brilho|ke_contraste": 57.1,
+  "brilho|ke_edge_distribution": 40.5,
+  "brilho|ke_hue_count": 33.3,
+  "brilho|laplacian_var": 54.8,
+  "brilho|sobel_cv": 50.0,
+  "brilho|srinivas_quality": 66.7,
+  "contraste_variancia|hasler_colorfulness": 47.6,
+  "contraste_variancia|huang_exposicao": 66.7,
+  "contraste_variancia|huang_matiz": 45.2,
+  "contraste_variancia|huang_saturacao": 38.1,
+  "contraste_variancia|ke_brightness": 66.7,
+  "contraste_variancia|ke_colorfulness": 47.6,
+  "contraste_variancia|ke_contraste": 73.8,
+  "contraste_variancia|ke_edge_distribution": 50.0,
+  "contraste_variancia|ke_hue_count": 28.6,
+  "contraste_variancia|laplacian_var": 64.3,
+  "contraste_variancia|sobel_cv": 47.6,
+  "contraste_variancia|srinivas_quality": 71.4,
+  "hasler_colorfulness|huang_exposicao": 35.7,
+  "hasler_colorfulness|huang_matiz": 54.8,
+  "hasler_colorfulness|huang_saturacao": 66.7,
+  "hasler_colorfulness|ke_brightness": 35.7,
+  "hasler_colorfulness|ke_colorfulness": 100.0,
+  "hasler_colorfulness|ke_contraste": 54.8,
+  "hasler_colorfulness|ke_edge_distribution": 52.4,
+  "hasler_colorfulness|ke_hue_count": 38.1,
+  "hasler_colorfulness|laplacian_var": 50.0,
+  "hasler_colorfulness|sobel_cv": 64.3,
+  "hasler_colorfulness|srinivas_quality": 69.0,
+  "huang_exposicao|huang_matiz": 35.7,
+  "huang_exposicao|huang_saturacao": 28.6,
+  "huang_exposicao|ke_brightness": 100.0,
+  "huang_exposicao|ke_colorfulness": 35.7,
+  "huang_exposicao|ke_contraste": 57.1,
+  "huang_exposicao|ke_edge_distribution": 40.5,
+  "huang_exposicao|ke_hue_count": 33.3,
+  "huang_exposicao|laplacian_var": 54.8,
+  "huang_exposicao|sobel_cv": 50.0,
+  "huang_exposicao|srinivas_quality": 66.7,
+  "huang_matiz|huang_saturacao": 66.7,
+  "huang_matiz|ke_brightness": 35.7,
+  "huang_matiz|ke_colorfulness": 54.8,
+  "huang_matiz|ke_contraste": 47.6,
+  "huang_matiz|ke_edge_distribution": 59.5,
+  "huang_matiz|ke_hue_count": 42.9,
+  "huang_matiz|laplacian_var": 45.2,
+  "huang_matiz|sobel_cv": 47.6,
+  "huang_matiz|srinivas_quality": 50.0,
+  "huang_saturacao|ke_brightness": 28.6,
+  "huang_saturacao|ke_colorfulness": 66.7,
+  "huang_saturacao|ke_contraste": 35.7,
+  "huang_saturacao|ke_edge_distribution": 61.9,
+  "huang_saturacao|ke_hue_count": 64.3,
+  "huang_saturacao|laplacian_var": 40.5,
+  "huang_saturacao|sobel_cv": 45.2,
+  "huang_saturacao|srinivas_quality": 45.2,
+  "ke_brightness|ke_colorfulness": 35.7,
+  "ke_brightness|ke_contraste": 57.1,
+  "ke_brightness|ke_edge_distribution": 40.5,
+  "ke_brightness|ke_hue_count": 33.3,
+  "ke_brightness|laplacian_var": 54.8,
+  "ke_brightness|sobel_cv": 50.0,
+  "ke_brightness|srinivas_quality": 66.7,
+  "ke_colorfulness|ke_contraste": 54.8,
+  "ke_colorfulness|ke_edge_distribution": 52.4,
+  "ke_colorfulness|ke_hue_count": 38.1,
+  "ke_colorfulness|laplacian_var": 50.0,
+  "ke_colorfulness|sobel_cv": 64.3,
+  "ke_colorfulness|srinivas_quality": 69.0,
+  "ke_contraste|ke_edge_distribution": 31.0,
+  "ke_contraste|ke_hue_count": 38.1,
+  "ke_contraste|laplacian_var": 59.5,
+  "ke_contraste|sobel_cv": 45.2,
+  "ke_contraste|srinivas_quality": 78.6,
+  "ke_edge_distribution|ke_hue_count": 52.4,
+  "ke_edge_distribution|laplacian_var": 35.7,
+  "ke_edge_distribution|sobel_cv": 50.0,
+  "ke_edge_distribution|srinivas_quality": 42.9,
+  "ke_hue_count|laplacian_var": 28.6,
+  "ke_hue_count|sobel_cv": 38.1,
+  "ke_hue_count|srinivas_quality": 40.5,
+  "laplacian_var|sobel_cv": 57.1,
+  "laplacian_var|srinivas_quality": 64.3,
+  "sobel_cv|srinivas_quality": 59.5
+ },
+ "mediana_par_a_par": 50.0,
+ "pares_abaixo_do_piso": 37
+}

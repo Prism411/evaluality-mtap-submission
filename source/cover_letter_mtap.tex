@@ -1,0 +1,88 @@
+%% ===========================================================================
+%%  (copia de cover_letter.tex para a submissao MTAP de 21/10/2026; porta_mtap.py)
+%%  CARTA DE APRESENTACAO -- documento separado, nao faz parte do manuscrito.
+%%  Build: pdflatex cover_letter
+%%
+%%  ⛔ Os numeros saem de `regras_publicadas`, como no resto do repositorio:
+%%  uma carta que repete um numero a mao envelhece igual a qualquer outro texto.
+%%  ⚠️ A declaracao sobre o laboratorio e a MESMA da secao 3.2 e da secao de
+%%  disponibilidade de dados. Se uma mudar, as tres mudam juntas.
+%% ===========================================================================
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{parskip}
+\usepackage{hyperref}
+\pagestyle{empty}
+\input{regras_publicadas}
+
+\begin{document}
+
+\noindent Instituto de Ci\^{e}ncias Matem\'{a}ticas e de Computa\c{c}\~{a}o\\
+Universidade de S\~{a}o Paulo, S\~{a}o Carlos, Brazil
+
+\bigskip
+\noindent To the Editor-in-Chief\\
+\emph{Multimedia Tools and Applications}
+
+\bigskip
+\noindent \textbf{Re: Submission of ``Do Visual-Selection Operations Track Technical
+Quality? A Controlled Audit for Multi-Video Summarization''}
+
+\bigskip
+
+Dear Editor,
+
+We submit the manuscript above for consideration as a regular paper in
+\emph{Multimedia Tools and Applications}.
+
+Video summarization systems routinely score frames with operations borrowed from
+image quality work, and those scores are then read as evidence of technical
+fidelity. The manuscript asks whether they support that reading. We evaluate
+\fontesDaLiteratura{} literature-derived operations from \fontesTrabalhos{} source
+works on \parConstruidos{} original-versus-transformed comparisons and on
+\nBases{} public image-quality databases, alongside attribute configurations and
+dedicated no-reference models, and we trace the consequence through to
+representative selection over \disClusters{} redundancy clusters. Every operation
+with a declared direction reverses on at least one transformation type, none meets
+both external screening conditions, and \resElegiveis{} of \invModelos{} dedicated
+models do. One audited operation is decomposed to show the mechanism behind its
+behaviour rather than only its failure rate.
+
+We believe the work fits the journal because it is an empirical audit of components
+that multimedia systems already deploy, not a proposal for a new scoring method. Its
+product is a screening protocol and a reusable set of controls, with every reported
+number emitted from released scripts.
+
+\textbf{One point of transparency, stated in the manuscript and repeated here.} The
+modular summarization pipeline used as testbed and the broadcast corpus it runs on
+were both developed at our own laboratory, which is why we had access to the
+released code and to the material. Section~3.2 states this where the testbed is
+introduced, together with the reason the pipeline was chosen, namely that its
+quality criterion is a replaceable component. The audited visual-word operation is
+one of the works under study rather than a baseline of our own, and a negative
+result for it is not a failure of its source against its own stated objective, which
+was relevance and not technical fidelity. The full corpus remains with its authors and is not redistributed. The
+reproducibility archive contains scripts and derived data, plus a one-topic,
+three-video sample as described in the manuscript.
+
+The manuscript is original, has not been published elsewhere, and is not under
+consideration by another journal. In the interest of transparency: an earlier
+submission of this work to another journal was returned at initial editorial
+screening, without peer review. Analysis scripts and machine-readable results
+accompany the submission as Online Resource~2, and the supplementary tables and
+figures are submitted as Online Resource~1.
+
+We thank you for your consideration.
+
+\bigskip
+\noindent Sincerely,
+
+\bigskip
+\noindent Jader L. de Souza Gon\c{c}alves\\
+Rudinei Goularte\\
+\href{mailto:jaderlouis@usp.br}{jaderlouis@usp.br}
+
+\end{document}

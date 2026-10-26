@@ -1,122 +1,62 @@
-# Evaluality MTAP submission
+# Visual-selection operations and technical quality
 
-Private submission snapshot for **Do Visual-Selection Heuristics Measure
-Technical Quality? A Controlled Audit of Sixteen Operations Used in Video
-Summarization**.
+Review package for **Do Visual-Selection Operations Track Technical Quality? A Controlled Audit for Multi-Video Summarization**, by Jader L. de Souza Gonçalves and Rudinei Goularte, ICMC, University of São Paulo.
 
-This repository contains the canonical manuscript source, the supplementary
-material, revision responses, and the non-media reproducibility snapshot used
-for the MTAP submission. It is private while the manuscript is under review.
+This branch freezes the package prepared for *Multimedia Tools and Applications* on 25 October 2026. It is a submission candidate, not an accepted article. The manuscript's funding declaration is awaiting the authors' current confirmation. Journal policy is [single-blind review](https://link.springer.com/journal/11042/submission-guidelines): author identification is intentional.
 
-## Repository layout
+**Use this branch, `mtap-review-2026-10-25`.** The repository's older `main` branch and releases contain earlier snapshots and are not the matching version. The repository is currently private; a URL alone does not grant reviewers access.
 
-- `paper/`: canonical `main.tex`, section files, bibliography, Springer class,
-  graphical abstract, and validated PDF.
-- `supplement/`: supplementary source and validated PDF.
-- `responses/`: author responses associated with the revision history.
-- `reproducibility/`: scripts, cached derived results, provenance manifest, and
-  checksums. Restricted source media, database images, model weights, and
-  vendor trees are not redistributed.
-  - `ops_da_literatura.py`: the reference implementation of the sixteen audited
-    operations, with the direction each source declares for its own statistic.
-    This is the module the constructed-pair and screening analyses call.
-  - `derived_data/`: every measurement file a number in the manuscript depends on.
-  - `paper_generators/`: the scripts that emit each table and figure from those
-    files, so that no number in the body is typed by hand.
-  - `paper_guards/`: the checks run before every build, each with a two-legged
-    self-test that must approve the correct state and reject the reintroduced
-    defect. `verifica_tudo.py` runs generators, build and guards in order.
-### What runs from a clone, measured
+## Read the article
 
-Cloning this repository and running every script in `reproducibility/` with the
-author's local paths made unreachable, **26 of the 40 scripts complete**. The
-fourteen that do not are accounted for:
+- [Manuscript, 27 pages](submission/manuscript.pdf)
+- [Online Resource 1: supplementary material, 54 pages](submission/ESM_1.pdf)
+- [Title page](submission/title_page.pdf)
+- [Cover letter](submission/cover_letter.pdf)
+- [Editable LaTeX sources](source/)
+- [Code, derived results and sample input](code_and_data/)
 
-- **six** need database images or the source media that is not redistributed
-  (KADID-10k and KonIQ-10k score tables, CLIVE, extracted frames);
-- **five** need a vendor tree or a package that is not vendored here (`DOVER`,
-  `moviepy`, a `transformers` version);
-- **one**, `indomain_bovw.py`, reads an intermediate cluster file that no longer
-  exists in any working copy, and is kept for provenance rather than for reuse;
-- **one** is `verifica_tudo.py`, which belongs to the manuscript tree and needs
-  `paper/` and `supplement/` beside it;
-- **one** is a scoring stub that requires model weights.
+The PDFs are byte-identical to the prepared Downloads package. The paper audits the evaluated visual-selection implementations when reused for technical quality; it does not propose a new summarizer or infer failure of every method in a class.
 
-Scripts in the first two groups used to exit successfully while writing a
-**partial** result when their inputs were missing: running the whole directory in
-one pass once let a two-cluster control file overwrite the shipped
-forty-two-cluster one and break a downstream script. **Two changes close that
-hole:**
+## Quick verification: Python only, no GPU
 
-- `exige.py` provides `entrada()`, which raises `SystemExit` on a missing or
-  empty input instead of returning nothing, and `grava()`, which **refuses to
-  overwrite an existing result with fewer records** and writes through a
-  temporary file so no half-written JSON is ever left in place. Shrinking a
-  published result is possible only with an explicit `permitir_encolher=True`,
-  which shows up in the code and in the diff.
-- `paper_guards/guarda_cardinalidade_dos_artefatos.py` checks the counts the
-  manuscript relies on (42 clusters, 20 sampled segments, 820 scored conditions
-  per model) and fails naming the file and both numbers. Its self-test rebuilds
-  the exact defect, a 42-cluster control reduced to 2, and requires the guard to
-  reject it.
-
-Still run a script that needs media only in a tree where that media is present:
-the guards make a silent partial write impossible, not the media appear.
-
-`paper_guards/guarda_scripts_rodam_do_clone.py` keeps the first claim honest: it
-clones the repository, blanks the author's paths, and runs the analysis scripts
-that are supposed to be self-contained.
-
-- `release-assets/`: local-only staging area for the complete submission and
-  reproducibility archives. These files are attached to a private GitHub
-  release rather than committed to Git.
-
-## Build
-
-The manuscript and supplement use Springer Nature's `sn-jnl` class. From the
-repository root:
+Clone this branch and verify the frozen artifacts:
 
 ```bash
-cd paper
-latexmk -pdf main.tex
-
-cd ../supplement
-latexmk -pdf supplementary.tex
+git clone --branch mtap-review-2026-10-25 --single-branch https://github.com/Prism411/evaluality-mtap-submission.git
+cd evaluality-mtap-submission
+python3 tools/verify_snapshot.py
 ```
 
-The frozen PDFs contain 33 pages for the manuscript and 35 pages for the
-supplement. The manuscript source of truth is `paper/main.tex`; no compact or
-alternate manuscript route is used.
+The command validates all 361 file hashes and checks internal counts in two archived summaries. It does not modify the archived data. It reports 42 clusters, 21 implementations and 18 distinct representative-selection sets. These are checks of the frozen results, not a new execution of the experiments.
 
-## Provenance
+## Rebuild the PDFs
 
-This snapshot was assembled from:
+Requirements: Python 3, `pdflatex`, `bibtex`, `pdftotext`, `pdfinfo`, and the LaTeX packages imported by `source/*.tex` (TeX Live with recommended/extra packages and Latin Modern). The Springer class and bibliography style are supplied.
 
-- manuscript repository commit
-  `0bfb654b2be51cbc397546e7ae9fdde91ef3e309`;
-- analysis repository commit
-  `af9e8d50b48463efc8bb48d9ac52c35d9f973673`;
-- prediction-recording commit
-  `9377c07ca080ac61c7cff80e0ff6c7507b6ebaba`.
+```bash
+python3 tools/build_pdfs.py
+```
 
-The prediction-recording content and provenance note are tracked on `main`.
-The original Git object and its parent history are preserved in the private
-release asset `registered_prediction_commit.bundle`; see
-`reproducibility/registered_prediction_commit.md` for verification steps.
+The command compiles in isolated `build/` directories, checks the page counts and compares extracted text against all four supplied PDFs. It leaves `source/`, published PDFs and derived results unchanged. The supplied PDFs were visually checked locally, including the table S22 layout; text equality is not a substitute for visual inspection in a different TeX installation.
 
-## Reproducibility boundary
+## Reproduction boundary
 
-The archived JSON and CSV outputs are the source of truth for the reported
-numerical results. The repository supports reconstruction of the reported
-statistics and inspection of inference settings. It does not claim
-bit-identical recreation of every neural-model inference because the original
-inference environment was not preserved as a fully pinned lockfile.
+`code_and_data/` preserves all 313 entries of the submitted Online Resource 2. Its [historical README](code_and_data/README_ANONYMIZED.md) documents path/identity substitutions made for the earlier journal; it does not describe MTAP's review policy. [README_MTAP.txt](README_MTAP.txt) identifies this package.
 
-Source databases and broadcast videos remain governed by their original access
-terms. No restricted media or model weights are included here.
+The [analysis README](code_and_data/reproducibility/README.md) documents the experiment scripts and external requirements; [requirements.txt](code_and_data/reproducibility/requirements.txt) records dependency bounds, not a fully pinned environment. Historical paths in scripts may require adaptation. Some notes refer to earlier article titles or private releases and are retained as provenance. The quick verifier and PDF rebuild above are the tested entry points for this snapshot.
 
-## Status and reuse
+The archive contains derived scores and a **one-topic, three-video sample** (`bebe_real`). It does not include the full broadcast corpus, public IQA database images, model weights or all vendor implementations. The full inference pipeline has not been rerun for this packaging update. Run experimental scripts in a separate working copy after obtaining their documented inputs; do not run every legacy script indiscriminately over the frozen results.
 
-Private manuscript under review. No public DOI or reuse licence has yet been
-assigned to this submission snapshot. Public release, archival deposition, and
-licensing remain subject to author approval and the journal's review policy.
+The registered-prediction Git bundle is not in this snapshot. Its later public release remains described in the manuscript. Git author dates are not independent trusted timestamps.
+
+## Provenance and changes
+
+This snapshot derives from the MTAP package assembled on 21 October and checked on 25 October. The main manuscript text is unchanged. Packaging fixes load `xcolor` on the title page, clarify the three-video sample in the letter, move the complete S22 notes outside an oversized float, and add MTAP metadata to the archive. No measurement or scientific table entry was changed.
+
+`MANIFEST.sha256` identifies the distributed PDFs, LaTeX files, code, data and sample media. The preparation audit is in [REVIEW-CHECKS.txt](REVIEW-CHECKS.txt). The funding confirmation is the remaining author declaration, not a failed compilation check.
+
+## Rights and contact
+
+No new blanket reuse licence is granted by this preparation. Data, media, Springer template files and third-party implementations retain their applicable rights and access conditions. Repository access does not itself change those rights.
+
+Corresponding author: Jader L. de Souza Gonçalves, **jaderlouis@usp.br**. Co-author: Rudinei Goularte, **rudinei@icmc.usp.br**.

@@ -1,0 +1,17 @@
+%% GERADO por gera_tab_reimplementacao.py -- nao editar a mao
+\begin{table}[!ht]
+\centering
+\caption{The SIFT+BoVW operation measured twice on the same 800 pairs: the reported run and an independent reimplementation of the same published operation under the same protocol. \textbf{The failure reproduces}: both collapse on white noise and JPEG, and both stay below the weakest published no-reference model at 80.8 per cent. They differ on desaturation, where the reported run inverts and the reimplementation does not, which is the one place where implementation detail changes a verdict. Red marks a cell below the 50 per cent chance floor.}
+\label{tab:reimplementacao}
+\scriptsize
+\setlength{\tabcolsep}{2.2pt}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{2.6cm}cccccccc c@{}}
+\toprule
+\rowcolor{headerblue}
+\hd{Run} & \hd{Darken} & \hd{Motion} & \hd{Blur} & \hd{H.264} & \hd{Rescale} & \hd{Satur.} & \hd{Noise} & \hd{JPEG} & \hd{Mean} \\
+\midrule
+Reported & 100 & 100 & 90 & 90 & 88 & \textcolor{accentred}{\textbf{39}} & \textcolor{accentred}{\textbf{8}} & \textcolor{accentred}{\textbf{6}} & \textbf{65.1} \\
+\rowcolor{rowlight}Independent reimplementation & 100 & 100 & 92 & 94 & 93 & 56 & \textcolor{accentred}{\textbf{10}} & \textcolor{accentred}{\textbf{6}} & \textbf{68.9} \\
+\bottomrule
+\end{tabular}
+\end{table}

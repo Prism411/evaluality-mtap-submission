@@ -1,0 +1,23 @@
+%% GERADO por gera_tab_protocolo.py -- nao editar a mao
+\begin{table}[!ht]
+\centering
+\caption{How the audited operations were identified, and what the protocol does and does not reach. The operations were not assembled from a database query, so the population of inference is the archive named in the first row and every count in this table is a count within it; no claim of exhaustive coverage is made. \textbf{The search instrument is itself measured against a manual reading, with the direction of the residual bias stated}, because a search whose accuracy is unknown cannot bound what it missed.}
+\label{tab:protocolo}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.15}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{2.2cm}>{\raggedright\arraybackslash}p{6.6cm}>{\raggedright\arraybackslash}p{2.9cm}@{}}
+\toprule
+\rowcolor{headerblue}
+\hd{Step} & \hd{What was done} & \hd{What it yielded} \\
+\midrule
+\textbf{Corpus} & Curated full-text archive on video and multi-document summarization and on image-quality assessment, searched on 5 September 2026. \textbf{Not a database query, so the population of inference is this archive.} & 186 PDFs \\
+\rowcolor{rowlight}\textbf{Patterns} & One specific expression per operation family, never a bare word, so that \emph{contrast} alone does not match. Reference lists are cut before matching; a cut leaving under 40\,\% of the PDF is refused and the work enters whole. Spatial information counts only when its context window carries ITU, the SI/TI pair, \emph{index} or Sobel. & 13 patterns \\
+\textbf{Instrument accuracy} & Measured against a manual reading of the sources. \textbf{The reading and the inventory were done by the same author}, so the estimates may be optimistic. \textbf{The assessed articles are not a random sample of the archive}: they are the source works of the inventory together with articles selected because their combinations came closest to passing, and the second group inflates false positives by construction, so precision is not an unbiased estimate for the archive as a whole. Cutting reference lists raised precision from .47 without moving recall. & recall .81, precision .63, on 21 articles \\
+\rowcolor{rowlight}\textbf{Inventory inclusion rule} & An operation enters only if its source declares a direction for its own statistic and scores a single frame. \textbf{No operation without a declared direction was screened in.} The 3 that declare a direction and stay out are sequence-level: \texttt{qaroush\_movimento}, \texttt{qaroush\_ses}, \texttt{sobel\_cv}. & 15 of 24 mapped operations \\
+\textbf{Coverage achieved} & Share of the operation mentions in the archive that the screened set covers. A mention is not an article: one PDF may name several. & 41 of 71 mentions (57.7\,\%) \\
+\rowcolor{rowlight}\textbf{What is left out, and why} & \textbf{Of the 30 mentions outside, 25 were excluded under the inventory inclusion rule}, because the source specifies no direction (14) or no combination rule (11). & 25 of 30 excluded \\
+\textbf{What the archive does instead} & The term sweep is an automated retrieval check over an archive assembled during the thesis research; it is not a systematic mapping, and a match implies no reading of the matched work. Works citing no dedicated no-reference quality model, and how many of those match the patterns of one of the audited operations. \textbf{These are term matches, not confirmed use}: they were not read individually, and the same search precision applies here. & 173 of 186 cite none; 33 of those matched an operation pattern \\
+\bottomrule
+\end{tabular}
+\end{table}

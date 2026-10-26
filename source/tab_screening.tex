@@ -1,0 +1,38 @@
+\begin{table}[!ht]
+\centering
+\caption{Complete-case method screening. Sensitivity reports the within-reference
+mean and number of KADID types above .50. Generalization is the lowest signed
+$\rho^{*}$ over all unseen databases. Floor is normalized agreement with Q-Align
+on the common 42 clusters and its lower bound (L) under the \senBlocos{} separate topic
+labels, \textbf{which is the sensitivity grouping}: the primary interval of Section~4.5
+of the main text resamples the \fusBlocos{} source-aware blocks and gives \finLiqe{}
+for LIQE Sup.: K =
+KonIQ-10k opinion training; L = LIVE; OU = opinion-unaware; -- = no opinion
+training; M = multi-database mixture. A dagger marks a value measured on a database the method trained on: Q-Align's mixture includes KADID-10k. Q-Align is a reference, not a candidate.}
+\label{tab:screening}
+\scriptsize
+\setlength{\tabcolsep}{1.7pt}
+\renewcommand{\arraystretch}{1.08}
+\begin{tabular}{@{}lcccccc@{}}
+\toprule
+\rowcolor{headerblue}
+\hd{Method} & \hd{Sup.} & \hd{Pol.} & \hd{Sensitivity} &
+\hd{Lowest unseen $\rho^{*}$} & \hd{Floor; L} & \hd{Eligible} \\
+\midrule
+\rowcolor{accentgreen!15}\textbf{LIQE} & K & \polup & .807; 22 & .723 & .551; .284 & \textbf{yes} \\
+\rowcolor{accentgreen!15}\textbf{QualiCLIP} & OU & \polup & .849; 22 & .665 & .371; .143 & \textbf{yes} \\
+\rowcolor{accentgreen!15}\textbf{CLIP-IQA$+$} & K & \polup & .808; 22 & .654 & .236; .034 & \textbf{yes} \\
+\midrule
+TOPIQ & K & \polup & .721; 20 & .511 & .506; .289 & no \\
+\rowcolor{rowlight}MUSIQ & K & \polup & .733; 20 & .556 & .551; .297 & no \\
+DBCNN & K & \polup & .668; 19 & .484 & .461; .274 & no \\
+\rowcolor{rowlight}HyperIQA & K & \polup & .673; 19 & .462 & .371; .122 & no \\
+NIQE & OU & \poldown & .607; 19 & .368 & .281; .012 & no \\
+\rowcolor{rowlight}BRISQUE & L & \poldown & .657; 19 & .236 & .371; .136 & no \\
+CLIP-IQA & OU & \polup & .645; 20 & .501 & .371; .045 & no \\
+\rowcolor{focoauditado!12}SIFT+BoVW & -- & \polup & $-.077$; 5 & $-.445$ & .056; $-.308$ & no \\
+\midrule
+\rowcolor{rowlight}Q-Align & M & \polup & .880$^{\dagger}$; 23$^{\dagger}$ & -- & -- & reference \\
+\bottomrule
+\end{tabular}
+\end{table}

@@ -1,0 +1,316 @@
+\section{Results}\label{sec:results}
+
+%% ⛔ 21/09 (parecer, E00, criterios 21, 26, 29, 45, 48): o roteiro dizia «six blocks»,
+%% apontava para a Secao 3.1, que e METODOLOGIA, e punha o mecanismo por ultimo quando
+%% ele e o terceiro. Sao sete subsecoes; a ordem abaixo e a ordem em que aparecem.
+%% ⛔ 22/09 (parecer v2, V2-042): o roteiro de sete blocos repetia o que os titulos das
+%% subsecoes ja dizem. ⛔ 25/09 (parecer v11): a frase de transicao que ficou no lugar dele
+%% fazia o mesmo trabalho duas vezes, e saiu. Os titulos carregam a ordem sozinhos.
+
+\subsection{Classes of scoring method, and what the testbed instantiates}\label{sec:taxonomy_results}
+
+%% ⛔ 22/09 (parecer v2, V2-045): «confirmed corpus», «account for the remainder» e «the
+%% three screened here» implicavam particao e cobertura que a propria tabela nega (os
+%% grupos se sobrepoem, ha trabalhos sem nenhum, e a classe contextual nao recebe o mesmo
+%% teste). A frase passa a falar dos conjuntos efetivamente avaliados.
+Table~\ref{tab:taxonomy} gives what the testbed instantiates in each class, and the
+screening of Section~\ref{sec:screen_results} covers the scalar operations that the
+isolated-image protocol admits. Of the three deep proxies implemented over the DINOv2
+ViT-S/14 embedding, only the norm of the feature vector is an absolute per-frame score.
+Frame coherence needs several frames and the distance to the cluster centre, the quality
+term of Ref.~\citep{jeong2016static}, needs a candidate set, so both are \emph{not
+applicable} to the external databases, which score isolated images. The feature-norm reading
+is a construction of ours used as a diagnostic: no audited source states it. All three appear
+in the last band of Table~\ref{tab:constructed}.
+
+The class does not fail as a block. The norm averages \taxNormaPar{} per cent and ranks
+the degraded copy above the original on \taxNormaInverte{} of the eight types: degrading
+a frame lengthens its representation, so reading vector length as quality is reversed. It fails outside the pairs as well: its lowest correlation on an unseen database is \taxNormaExt{}, and its agreement with the reference on the operational clusters \taxNormaPiso{}.
+Frame coherence averages \taxCoerPar{} per cent and inverts on \taxCoerInverte{} type. Its
+score is the negated mean distance of the frames to their own centroid, so a per-frame
+perturbation that scatters the representations, white noise among them, lowers it. Both
+readings were registered as opposing predictions before the measuring script was run. On
+the pipeline's own clusters frame coherence agrees with the reference at
+\taxCoerKappa{}, a point estimate without the interval the in-domain condition requires.
+
+Two candidates are equidistant from their own midpoint, so the cluster-centre distance
+cannot decide a pair alone. Placed in the original's operational cluster, with the
+centroid computed over all members, it prefers the original on \taxCentPar{} per cent of
+the 800 pairs (95\% CI \taxCentIC{} by segment) and on no type falls below
+\taxCentMin{}, under every dedicated model of Table~\ref{tab:constructed}, the lowest of which reaches \taxModeloMin{}. Most of that preference does not need the cluster: in a control added after this
+result, members drawn from other topics leave \taxCentOutros{} per cent, and the real
+cluster adds \taxCentDif{} points, computed pair by pair (\taxCentDifIC{}). The proxy mostly registers
+that a degraded copy moves away from typical broadcast content in the embedding. On the operational clusters it decides only in the \taxCentroideDecide{} with three or more members, too few for the in-domain condition.
+
+\subsection{Responses to controlled degradation}\label{sec:class}
+
+All \fontesDaLiteratura{} operations prefer the degraded copy on at least one type;
+\resRuido{} do so under white noise, and \resZeroRuido{} are wrong on all 100 noise pairs
+(Figure~S3).
+
+Under the one-sided, Holm-corrected randomization of Section~\ref{sec:controlled}, how many inversions survive depends on the nested unit. Over the 20 segments, \invSig{} of the \invCelulas{}
+cells below chance survive, in \invOpsSig{} of the \fontesDaLiteratura{} operations;
+over topics, the more conservative reading, \invSigTop{} cells in \invOpsSigTop{}
+operations. The topic unit is \invBlocos{} source-aware blocks; keeping the two shared
+labels apart would leave \invSigRotulo{} cells. What does not depend on the unit is the core: the
+\invPerfeitas{} cells in which an operation is wrong on all one hundred pairs survive in every unit. The same test leaves
+\invModelosLimpos{} of the \invModelos{} published models with no type below chance, and
+removing the two types aligned with an operation's own attribute leaves all
+\tipoSemAlinhados{} still inverting. Table~S27 lists the \invCelulas{} cells with the
+verdict under each unit, and Table~S26 recomputes every interval under the rival unit.
+
+White noise concentrates the failures, and it is the only tested transformation
+whose median energy ratio exceeds one. Measured as the median ratio of Laplacian
+variance after to before, \eneAdicionam{} of the eight types raises it: noise multiplies
+it by \eneRuido{},
+every other type leaves it at or below \eneMaiorSemRuido{} of the original, JPEG included at \eneJpeg{}; Figure~S2 shows the paired accuracy of the fifteen operations against the same eight types. Laplacian variance indicates local high-frequency content; these operations are statistics of local
+structure, and additive noise raises such statistics, so an operation reading more
+structure as more quality prefers the noisier frame. Across the fifteen that is a pattern, and Section~\ref{sec:mechanism} measures the chain end to end for the SIFT+BoVW score.
+
+The same 800 pairs place the evaluated scalar scorers, the no-reference models and the three deep proxies on one scale (Table~\ref{tab:constructed}). SIFT+BoVW is not an outlier among the scorers this
+literature supplies: it is correct on \mchImplantada{}\%
+of the pairs, which sits at the median of the literature-derived operations
+(\tipMediana{}\%; Table~S32). LIQE is correct on \mchLiqe{}\%, a paired difference of
+$+\mchDif{}$ points, with 95\% CI $\mchICTop{}$ over the \mchTopicos{} source-aware blocks, $\mchICSeg{}$ by segment block and $\mchICTopSem{}$ under the separate-label grouping. Table~S32 records the literature operations with their
+accuracies and the comparisons behind each.
+
+\begin{table}[!ht]
+\centering
+\caption{\textbf{Strict} accuracy $W/(W+L+T)$, in per cent, on 800 unmodified--degraded broadcast pairs: 20
+segments, eight types and five levels. \emph{dark}: darkening; \emph{motion}: motion
+blur; \emph{blur}: Gaussian blur; \emph{H.264}: video recompression; \emph{rescale}:
+downscale and restore; \emph{satur.}: desaturation; \emph{noise}: white noise. Values below the 50\% chance
+floor are \textbf{descriptive inversions} where $L>W$, in bold and in colour;
+which of them survive the corrected exact tests is reported in the text and in Table~S27.
+No row ties, so strict and decisive accuracy coincide, except the cluster-centre distance, whose \taxCentMeios{} pairs with the original in two disagreeing clusters count one half. The first band holds SIFT+BoVW and the three best-scoring literature operations. ARNIQA appears on this paired axis but stays outside the
+complete-case screening of Section~\ref{sec:screen_results}. The last band holds the deep proxies of Section~\ref{sec:taxonomy_results}; for the cluster-centre distance the degraded copy joins the original's cluster.}
+\label{tab:constructed}
+\scriptsize
+\setlength{\tabcolsep}{1.9pt}
+\begin{tabular}{@{}lccccccccc@{}}
+\toprule
+\textbf{Method} & \textbf{dark} & \textbf{motion} & \textbf{blur} & \textbf{H.264}
+& \textbf{rescale} & \textbf{satur.} & \textbf{noise} & \textbf{JPEG} & \textbf{mean} \\
+\midrule
+SIFT+BoVW & 100 & 100 & 90 & 90 & 88 &
+\textcolor{accentred}{\textbf{39}} & \textcolor{accentred}{\textbf{8}} &
+\textcolor{accentred}{\textbf{6}} & \textbf{65.1} \\
+Mean rule~\citep{srinivas2016rank} & 100 & 100 & 100 & 100 & 100 & 98 & \textcolor{accentred}{\textbf{29}} & 69 & \textbf{87.0} \\
+Colourfulness~\citep{hasler2003colorfulness} & 100 & 100 & 100 & 100 & 100 & 100 & \textcolor{accentred}{\textbf{3}} & 79 & \textbf{85.2} \\
+Averaged aesthetics~\citep{gygli2014summe} & 100 & 100 & 100 & 100 & 100 & 100 & \textcolor{accentred}{\textbf{3}} & 67 & \textbf{83.8} \\
+\midrule
+LIQE & 97 & 100 & 100 & 100 & 100 & 100 & 99 & 100 & \textbf{99.5} \\
+TOPIQ & 93 & 100 & 100 & 100 & 100 & 93 & 100 & 100 & 98.2 \\
+MUSIQ & 93 & 100 & 100 & 100 & 100 & 86 & 100 & 100 & 97.4 \\
+QualiCLIP & 99 & 100 & 95 & 100 & 96 & 76 & 96 & 71 & 91.6 \\
+ARNIQA & 91 & 100 & 99 & 98 & 100 & 61 & 82 & 98 & 91.1 \\
+DBCNN & 84 & 97 & 92 & 97 & 95 & 92 & 85 & 81 & 90.4 \\
+NIQE & 100 & 100 & 98 & 97 & 98 & \textcolor{accentred}{\textbf{0}} & 100 & 96 & 86.1 \\
+CLIP-IQA$+$ & 76 & 99 & 79 & 100 & 91 & 87 & 84 & 64 & 85.0 \\
+HyperIQA & \textcolor{accentred}{\textbf{47}} & 100 & 100 & 100 & 100 & \textcolor{accentred}{\textbf{30}} & 100 & 100 & 84.6 \\
+CLIP-IQA & 58 & 100 & 83 & 100 & 92 & 91 & 55 & 76 & 81.9 \\
+BRISQUE & 100 & 100 & 100 & 99 & 100 & \textcolor{accentred}{\textbf{0}} & 67 & 80 & 80.8 \\
+\midrule
+Feature-vector norm & \textcolor{accentred}{\textbf{33}} & \textcolor{accentred}{\textbf{10}} & \textcolor{accentred}{\textbf{19}} & \textcolor{accentred}{\textbf{10}} & \textcolor{accentred}{\textbf{19}} & 60 & \textcolor{accentred}{\textbf{14}} & \textcolor{accentred}{\textbf{14}} & \textcolor{accentred}{\textbf{22.4}} \\
+Frame coherence & 62 & 50 & 76 & \textcolor{accentred}{\textbf{44}} & 77 & 63 & 72 & 86 & 66.2 \\
+Cluster-centre distance & 56 & 86 & 65 & 77 & 71 & 76 & 91 & 72 & 74.1 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Excluding darkening and desaturation leaves 600
+comparisons and does not repair the SIFT+BoVW operation: its accuracy is 63.7\%,
+whereas LIQE reaches 99.8\% and Q-Align 100\% (Table~S11). 
+
+The average conceals the diagnostic result: SIFT+BoVW is at or above 88\% on five
+types but selects the degraded copy in 92\% of white-noise pairs and 94\% of JPEG pairs.
+Section~\ref{sec:mechanism} examines what the descriptor count and the
+inverse-document-frequency weighting contribute to those reversals.
+
+Q-Align is correct on 98.2\% of these pairs (95\% CI $[97.2,99.1]$), which
+supports its technical-degradation competence on this broadcast content. The exact downstream DOVER technical branch (DOVER-T) output
+reaches 97.6\% ($[96.1,99.0]$), or 99.8\% ($[99.5,100]$) without darkening and
+desaturation. The registered prediction audit, including the two overlay predictions, is in Table~S11.
+\subsection{Why a count of local detail reads as quality}\label{sec:mechanism}
+
+The decomposition below separates the contribution of the descriptor count from that of
+the mean rarity weight. 
+
+\begin{equation}
+\mathrm{score}_i=\sum_v\mathrm{tf}_{iv}\mathrm{idf}_v
+=D_i\underbrace{\sum_v p_i(v)\mathrm{idf}_v}_{\overline{\mathrm{idf}}_i}.
+\label{eq:factor}
+\end{equation}
+Here $D_i$ is the number of descriptors the extractor finds in segment $i$,
+$\mathrm{tf}_{iv}$ how many fall in visual word $v$, and $p_i(v)$ that count as a fraction
+of $D_i$, so the score is a descriptor count times a mean inverse-document weight,
+and which channel dominates is measured rather than assumed. %% ⛔ 22/09 (parecer v2): «a different weighting breaks it» e falso. Trocar um vetor de
+%% pesos constantes por outro preserva a identidade; o que a quebra e o peso deixar de ser
+%% constante por palavra, ou a agregacao deixar de ser soma sobre frequencias cruas.
+%% ⛔ 25/09 (parecer v10, 2.1): e «uma agregacao que nao e essa soma REMOVE o fator de
+%% contagem» tambem era falso, no outro sentido. A media sobre F quadros da
+%% (D_i/F)*idf_barra: o fator de contagem SOBREVIVE, virando contagem POR QUADRO. So a
+%% divisao pela contagem o remove. A frase agora diz cada caso pela sua definicao.
+The identity is algebraic and holds for any weights, since $p_i(v)=\mathrm{tf}_{iv}/D_i$
+by definition, whenever the aggregation is a sum over raw term frequencies and $D_i>0$.
+Averaging frame scores leaves a count-per-frame factor, $(D_i/F)\,\overline{\mathrm{idf}}_i$
+over $F$ frames, and only dividing by the descriptor count removes it.
+
+In the deployment regime the count channel dominates: $\rho(S_{\mathrm{dep}},D)
+=\mecRhoContagem{}$, and on the 800 constructed pairs the signs of the score and count differences
+agree in \mecConcordam{}, the three exceptions differing by at most \excDelta{}
+descriptors against a median count of \excMediana{}. \textbf{Replacing the score by that count leaves every representative choice unchanged}, \redEscolhas{} of \redDe{} on the application clusters, while replacing it by the number of key frames the selector retains preserves only \redQuadros{}; Table~S33 reports the reduction. The degraded copy carries more
+descriptors in 92\% of noise pairs and 95\% of JPEG pairs, so noise and blocking
+raise the count channel of Eq.~\ref{eq:factor} while structure-removing distortions
+happen to move it in the direction of fidelity: the score is responsive, but not
+consistently to quality. The 19 convolutional extractors average 44.9\% (CI $[41.0,48.9]$)
+and remain dominated by their descriptor count, which refutes the registered
+prediction that fixed feature maps would force chance performance.
+
+Exchanging the extractor therefore changes individual choices without making the ordering
+a better predictor of quality, and the normalization variants evaluated here did
+not repair the reading either. Figure~S1 shows the two channels; the supplement gives the exact relation between the two inverse-document-frequency formulations, which differ by an additive count term, and the per-extractor external correlations.
+
+\subsection{Literature-derived composites and source-specified rules}\label{sec:combinations}
+
+\textbf{Nineteen attribute configurations combine the implemented statistics} (Table~S29). Twelve
+combine more than one term and seven are single terms, aggregated by a $z$-score mean or a ridge model defined here. None of the nineteen satisfies both external screening
+requirements under either aggregation. One $z$-score combination passes sensitivity with
+a within-reference mean of $.524$ on 17 of 25 types, above the requirement no
+individual operation met, but its KonIQ-10k correlation is $\rho^{*}=.061$ against a
+requirement of $.65$.
+
+Several sources specify how their own terms combine, and those specifications were
+implemented over the same attribute vector so the comparison isolates the rule.
+%% ⛔ 22/09 (parecer v2, V2-062): a reescrita apagou POR QUE estes numeros diferem dos da
+%% Tabela 6, e o leitor ficava com 74,3 contra 77,5 sem explicacao. Nao e inconsistencia:
+%% o contraste exclui o tipo alinhado a construcao do modulo. Populacao e exclusao saem
+%% por macro para nao sumirem de novo num corte.
+In both sources that specify a complete module, the published rule scores below
+its own best component, and each contrast excludes the degradation type aligned
+with that module's own construction, so it runs on seven types rather than eight. For Ref.~\citep{qaroush2025diversity} the contrast excludes \vaTipoFora{} and uses \vaPares{}
+comparisons from 20 segments: \vaModulo{} per cent against \vaMelhorMembro{} for its best
+term, colourfulness, a paired contrast of \vaContraste{} points with an interval of \vaIC{} that excludes
+zero. For Ref.~\citep{korolkov2025keyframe} it excludes \koTipoFora{} and uses \koPares{}
+comparisons from the \koN{} of \koDe{} segments carrying both inputs: \koModulo{} against
+\koMelhorMembro{}, a contrast of \koContraste{} points with a segment-block interval of
+\koIC{} that touches zero. The source-level synthesis of Section~\ref{sec:synthesis} reports the corresponding
+all-eight-type means instead, \vaMediaOito{} and \koMediaOito{} per cent, which is why the
+two sets of numbers differ. The comparator is each module's best component, chosen after the results were seen. The adapted classifier of Ref.~\citep{ke2006highlevel} reaches \regraKe{} per cent against \regraMedia{}
+for the unweighted mean, as a task adaptation (Section~\ref{sec:prov}).
+
+In two sources the published expression carries the opposite sign to the property
+the surrounding text names for it: the contrast term of the objective of Ref.~\citep{qaroush2025diversity} is the difference between the standard deviations before and after histogram equalization, not a measure of contrast itself, and in a controlled sweep over \ctNiveis{} levels it is perfectly inversely associated, at $\ctRho{}$, with the contrast used to build the inputs. The result is established for the tested sweep. The
+brightness term of the module of Ref.~\citep{korolkov2025keyframe} needs no such condition: it is described as
+penalizing over-exposure while the mean luminance it specifies is monotone in exposure and
+enters with a positive weight. Both statements concern the formulations as published; Table~S21 gives the sweep.
+
+\subsection{External validation and screening}\label{sec:screen_results}
+
+No evaluated operation clears either external eligibility condition. The best
+within-reference mean among the fifteen is $.298$ against a requirement of $.50$, and the
+best lowest-unseen correlation is $.139$ against $.65$; spatial information carries no verdict, reaching $.218$ only in an increasing direction its source does not declare. \textbf{Which database decides the failure is not fixed}: for \basePiorKadid{} of the \fontesDaLiteratura{} operations the worst case is on the synthetic KADID-10k and for the remaining \basePiorKoniq{} it is on the authentic KonIQ-10k, so the generalization axis is not carried by a single database. Table~\ref{tab:families} reports each
+group's best value per axis. The result is stable: across \refB{} resamples of the reference images, \refViram{} of the fifteen changes verdict, and four operations are \emph{negative} on the first requirement, their response running against the direction their own use assumes. \textbf{The fifteen screened literature operations all belong to the first class}, and SIFT+BoVW is the one screened member of the second: the isolated-image protocol admits scalar per-frame statistics, and that is what the summarization literature supplies. Table~\ref{tab:taxonomy} shows the other side of the same asymmetry, that the class of dedicated models, with ten operations instantiated here, is matched to one paper in the archive. The narrow coverage of this screening therefore follows from what the field publishes.
+
+\input{tab_familias}
+
+%% ⭐ 28/09 (parecer + decisao do Jader): o detalhe de elegibilidade POR MODELO, o piso por
+%% modelo, a comparacao de referencia comum e o custo sao benchmark de modelo, nao auditoria
+%% das operacoes, e foram para o suplementar (secao «Model eligibility and output quality»).
+%% Aqui fica o que responde a pergunta do artigo.
+Three dedicated models are eligible, LIQE, QualiCLIP and CLIP-IQA$+$, and the set is stable
+under the threshold variations of Table~S9. Within-reference KADID sensitivity separates the
+SIFT+BoVW operation sharply: its mean is $-.077$ (95\% CI $[-.124,-.030]$) with 5 of 25
+types above .50, against .807 to .849 for the three eligible methods. On the in-domain
+floor, against LIQE, the reference the protocol assigns to the literature-derived
+operations, it agrees on \subResta{} of \pisoDe{} clusters
+($\kappa_{\mathrm{uniform}}=\subKappa{}$), an interval that crosses chance. Several
+literature-derived operations meet this condition on unmodified broadcasts despite failing
+both external ones, and \pisoFrageis{} lose that pass when one topic is removed. The sensitivity verdict is also conditional on the benchmark: applied to the constructed pairs, the same rule admits six of the fifteen, and none meets it on both. The
+per-model floor intervals, the common-reference comparison, the regime term behind the
+KADID gap and the cost are in the supplement.
+
+\FloatBarrier
+
+\subsection{Effect of the implementation on content selection}\label{sec:menu}
+
+Across the 42 operational clusters, \disOps{} evaluated scoring implementations
+of the one criterion produce \disResumos{} distinct representative selections, with the
+decoded frames and the remaining criteria held fixed, and at least two disagree in
+\disClusters{} of the 42. Every candidate in every cluster is selected by at least one
+operation, so the mean of $\escMedia{}$ distinct choices per cluster is the ceiling the
+cluster sizes allow, and the outputs that match do so because the operations compute the
+same quantity. Implementation identity therefore changes the selection under a
+fixed candidate set. This measures selection sensitivity and uses no reference method; it does not identify the better representative.
+
+Pairwise, the median agreement is \dupComMediana{} per cent against a chance floor of
+$\dupPiso{}$, and \dupComAbaixo{} of the \dupComPares{} pairs agree below chance
+(Figure~\ref{fig:menu}). Collapsing the duplicate computations leaves \dupDistintas{}
+distinct operations and \dupPares{} pairs, with a median of \dupMediana{}, so the
+spread is not an artefact of counting one computation twice. Among the source
+works read in full, none evaluates its operation against the others on common material.
+
+\input{fig_menu}
+
+Read against one fixed choice, the same swaps rewrite much of the stage output
+(Figure~S4): of the \jusTotal{} alternatives, \jusAbaixo{} retain less than chance.
+\textbf{That comparison shares the clusters but not the frames}: the per-frame operations
+score one frame per second, while SIFT+BoVW runs its own key-frame selector.
+
+%% ⭐ 27/09 (cli-3, alvo de 28 p do Jader): o \FloatBarrier que ficava aqui deixava MEIA
+%% pagina vazia antes da Figura 2, porque o texto seguinte nao podia subir enquanto a
+%% figura nao saisse. A barreira do fim da 4.7 continua segurando a figura antes da 5.
+LIQE was used for the complete-implementation substitution, having the largest
+generalization margin among the three eligible methods. The substitution changes \casCompleta{} of the 42 representatives, the two operations agreeing in \subResta{} clusters (\subPct{} per cent, 95\% CI \fusIC{} over the \fusBlocos{} source-aware blocks), close to the \subAcaso{} per cent uniform-choice expectation. Whether the substitution also improves the output, measured with the technical branch of DOVER, is model-based evidence reported in the supplement, where for the complete substitution both intervals cross zero.
+
+Under matched inputs the picture sharpens. Given at most ten uniformly spaced
+frames, \casQuadrosMedia{} in common on average, and mean pooling for both, SIFT+BoVW and
+LIQE still select different representatives in 16 of the 42 clusters.
+Holding the scorer fixed while changing only sampling and pooling already moves
+\casSoCasamento{} decisions against \casCompleta{} for the complete operation; an exact
+McNemar test separates the two regimes ($p=\casP{}$), as does the block sign-flip over the
+\mcnBlocos{} topics ($p=\mcnBloco{}$). Both scorer identity and input sampling carry part of the effect.
+
+%% ⚠️ este ponteiro vive longe do da Figura~S4 de proposito: os dois na mesma janela
+%% faziam o sincronizador reescrever o numero de um com o do outro.
+The retention percentages above put all \disOps{} operations of Figure~\ref{fig:menu}
+on one frame per second, which makes their spread attributable to the scorer; Table~S19
+scores each complete operation under its own sampling.
+
+\subsection{Source-level synthesis of the audit}\label{sec:synthesis}
+
+Table~\ref{tab:synthesis} brings together the roles the sources document and the results of
+the implementations evaluated here, organized by work and component. \textbf{The one audited source that names technical fidelity as the aim of a term}, Ref.~\citep{xu2024property}, implements it with BRISQUE, one of five dimensions of its regret-minimization query; evaluated alone here, BRISQUE does not meet both external conditions.
+
+\input{tab_sintese}
+
+
+%% ⛔ 21/09 (parecer, E71, criterios 7, 8, 9, 20, 35, 47): o denominador \acvPdfs{} e o
+%% ACERVO INTEIRO — textos, IQA e sumarizadores —, nao o conjunto elegivel, e «nao citar
+%% modelo dedicado» nao demonstra que o trabalho use uma operacao no lugar nem que
+%% pretenda medir qualidade tecnica. A ausencia de citacao deixa de sustentar inferencia
+%% de substituicao ou de intencao; ficam os casos documentados.
+Three patterns emerge in the sources read in full: attribute borrowing, role
+reassignment, and summary-level validation. The counts are of confirmed uses, each with a verbatim excerpt.
+
+\emph{Role reassignment} shows the same computation carrying different claims. Laplacian
+variance appears as a threshold discarding blurred frames in Ref.~\citep{cakmak2025tripss} and as the dominant weighted term of a keyframe score in Ref.~\citep{korolkov2025keyframe}. What
+was measured is the statistic \emph{as a scorer}: it answers blur on every pair and
+inverts under noise. The published threshold was not run: a scorer can order a pair correctly while a threshold keeps or drops both members.
+
+\emph{Attribute borrowing} and the level of validation are read from each source. Of the
+\valComPdf{} works whose full text is in the archive, \valPropriedade{} test a measure
+against human judgement of the property it names, evidence for a different construct: neither validates a single attribute as a stand-alone
+score of technical fidelity. By the provenance rule of Section~\ref{sec:prov},
+\autAutonomas{} of the \autVerificadas{} operations is a stand-alone index in its
+source, and it indexes colourfulness rather than quality; the rest enter as classifier
+features, terms of a sum, or signals in a discard filter. Among the remaining works,
+\valSoResumo{} report summary-level evaluation, which does not isolate the component's
+validity, and the \valSemTeste{} left reports no isolated test of its own rule or
+weights, so the three categories account for all \valComPdf{}.
+
+
+
+%% ⚠️ 28/09 (cli-3): a barreira que segurava a Tabela 6 aqui deixava meia pagina vazia no fim
+%% da 4.7 e levou o corpo a 29 p. Ela foi para antes da 5.1, na discussao: a Tabela 6 continua
+%% sem escapar para depois das referencias.

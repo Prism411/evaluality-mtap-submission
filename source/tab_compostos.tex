@@ -1,0 +1,34 @@
+%% GERADO por gera_tab_compostos.py -- nao editar a mao
+\begin{table}[!ht]
+\centering
+\caption{\emph{Source works} lists the archive citekeys whose full text matches the terms of each combination. \textbf{A dagger marks the works whose use was verified against the source with a recorded excerpt}, held in \texttt{o\_que\_cada\_fonte\_valida.json} of the reproducibility package; the others are retrieval matches and are not evidence that the work adopts that combination, so the rows without a dagger are evaluated here as diagnostic configurations rather than as published algorithms. Screening of 19 diagnostic configurations built from attributes identified in the archive; \textbf{the aggregations are defined in this study}, not taken from a published algorithm. \emph{LBP} is the local binary pattern. \emph{Sens.} is the within-reference mean against the degradation level on KADID-10k under the $z$-score aggregation and \emph{Types} the count above $.50$ of 25. \emph{Gen.}\,($z$) is the direction-aligned correlation on KonIQ-10k as a magnitude, in the same configuration as \emph{Sens.}; \emph{Gen.}\,(ridge) is the generous variant, fitted outside the reference and reported separately. \textbf{Orientation comes from the data}, under the polarity-permissive rule of Section~3.3 of the main text, so a single-attribute row carries the opposite sign to Table~\ref{tab:literature} exactly when the declared direction contradicts the data. Eligibility uses the $z$-score configuration throughout; green marks the 1 row that clears the sensitivity gate.}
+\label{tab:compostos}
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{2.7cm}>{\raggedright\arraybackslash}p{3.55cm}ccccc@{}}
+\toprule
+\rowcolor{headerblue}
+\hd{Combination} & \hd{Source works} & \hd{Sens.} & \hd{Types} & \hd{Gen. ($z$)} & \hd{Gen. (ridge)} & \hd{Eligible} \\
+\midrule
+colourfulness + Laplacian variance + LBP uniformity & \cite{cakmak2025tripss}$^{\dagger}$ & \textcolor{accentgreen}{\textbf{.524}} & 17 & .061 & .067 & no \\
+Laplacian variance + LBP uniformity & \cite{singh2026subevent} & .439 & 15 & .080 & .082 & no \\
+edge distribution & \cite{kannao2020semantic}, \cite{wang2012tag_localization} & .298 & 9 & .099 & .099 & no \\
+spatial information & \cite{kishi2019correlation}, \cite{swain1991colorindexing}, \cite{taylor2017superresolution}, \cite{wu2026multimodal_gcl}, \cite{zhu2014keyobservation} & .251 & 13 & .513 & .513 & no \\
+LBP uniformity + gradient magnitude & \cite{nandini2022edgelbp} & .189 & 8 & .177 & .007 & no \\
+colourfulness & \cite{gygli2014creating}, \cite{hasler2003colorfulness}$^{\dagger}$ & .182 & 9 & .007 & .007 & no \\
+LBP uniformity & \cite{barbieri2020webmedia}, \cite{barbieri2021content}, \cite{barbieri2021tese}, \cite{gharbi2019repeatability} & .175 & 12 & .205 & .205 & no \\
+colourfulness + exposure & \cite{datta2006aesthetics} & .173 & 10 & .243 & .003 & no \\
+edge distribution + hue count + Laplacian variance & \cite{ke2006highlevel}$^{\dagger}$ & .156 & 7 & .204 & .347 & no \\
+colourfulness + edge distribution + hue count + saliency & \cite{srinivas2016rank}$^{\dagger}$, \cite{tang2013content} & .148 & 7 & .162 & .117 & no \\
+exposure + Laplacian variance & \cite{korolkov2025keyframe}$^{\dagger}$ & .108 & 9 & .500 & .357 & no \\
+colourfulness + gradient magnitude & \cite{qaroush2025diversity}$^{\dagger}$ & .108 & 11 & .296 & .066 & no \\
+exposure & \cite{huang2024aesthetic}$^{\dagger}$ & .102 & 4 & .343 & .343 & no \\
+GLCM contrast + entropy & \cite{yang2024keyframe}$^{\dagger}$ & .092 & 11 & .371 & .084 & no \\
+LBP uniformity + saliency & \cite{qaroush2025centrality}, \cite{zhang2015aesthetics}, \cite{zhang2016georeferenced} & .089 & 9 & .071 & .277 & no \\
+saliency & \cite{hussain2021mvs}, \cite{ngo2005graphmodeling}, \cite{nie2016perceptual}, \cite{park2025videograph}, \cite{zhang2015handheld}, \cite{zhang2015skimlets} & .075 & 3 & .333 & .333 & no \\
+Laplacian variance & \cite{jeong2017static}, \cite{mittal2012brisque}, \cite{mittal2013niqe} & .047 & 9 & .601 & .601 & no \\
+colourfulness + edge distribution & \cite{xu2024property}$^{\dagger}$ & .017 & 4 & .085 & .051 & no \\
+LBP uniformity + entropy & \cite{chitrakala2025symmetry} & .009 & 8 & .007 & .285 & no \\
+\bottomrule
+\end{tabular}
+\end{table}

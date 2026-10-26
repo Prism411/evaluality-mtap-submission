@@ -1,0 +1,125 @@
+{
+ "_o_que_e": "⭐⭐ AS QUATRO CLASSES CONTRA O QUE O TESTBED INSTANCIA: onde o artigo esta cheio e\nonde esta vazio.\n\nPOR QUE EXISTE (21/09/2026). O e-mail do [co-author] pede que a literatura seja\nclassificada em CLASSES de metodo de qualidade visual, que se escolha um representante\nde cada classe, e que a tabela taxonomica mostre quais sumarizadores usam quais classes.\nEste script cruza as duas metades da pergunta:\n  (a) quantos trabalhos da literatura usam cada classe  -> `taxonomia_das_classes.json`\n  (b) quantas operacoes o nosso testbed instancia em cada classe -> declarado aqui\n\n⛔ A TAXONOMIA E DELE, e fica declarada como tal no artigo. As quatro classes sao as do\ne-mail de 21/09/2026.\n\n⚠️ O QUE ESTE SCRIPT NAO E. Ele nao mede nada novo: recombina a varredura com o\ninventario do artigo. O numero de trabalhos por classe vem de varredura por termo, cuja\nprecisao medida e 0,63, e portanto e RASTREIO. O numero de operacoes por classe vem do\ninventario, que foi conferido fonte a fonte, e esse e firme. As duas colunas nao tem o\nmesmo estatuto e a legenda diz isso.",
+ "taxonomia_de": "[co-author], e-mail de 21/09/2026; nao e nossa",
+ "n_pdfs_no_acervo": 212,
+ "n_sumarizadores": 85,
+ "por_classe": {
+  "C1": {
+   "classe": "Heuristicas de baixo nivel (sinais/pixels)",
+   "trabalhos_na_literatura": 50,
+   "de_sumarizadores_lidos": 85,
+   "operacoes_instanciadas_no_testbed": 16,
+   "operacoes": [
+    "Averaged aesthetics (3)",
+    "Colourfulness (Hasler)",
+    "Colourfulness (Ke)",
+    "Composite of five",
+    "Contrast",
+    "Edge distribution",
+    "Entropy",
+    "GLCM contrast",
+    "Gradient magnitude",
+    "Gradient orientation",
+    "Grey-level dispersion",
+    "Hue count",
+    "Laplacian variance",
+    "Saliency area",
+    "Saturation",
+    "Spatial information"
+   ],
+   "controle_diagnostico_fora_da_contagem": [],
+   "tem_representante": true,
+   "instanciadas_sem_veredito_de_triagem": {}
+  },
+  "C2": {
+   "classe": "BoVW / contagem de recursos (hand-crafted)",
+   "trabalhos_na_literatura": 39,
+   "de_sumarizadores_lidos": 85,
+   "operacoes_instanciadas_no_testbed": 3,
+   "operacoes": [
+    "SIFT+BoVW (deployed)",
+    "Keypoint density",
+    "19 CNN+BoVW (ablation)"
+   ],
+   "controle_diagnostico_fora_da_contagem": [],
+   "tem_representante": true,
+   "instanciadas_sem_veredito_de_triagem": {}
+  },
+  "C3": {
+   "classe": "NR-IQA estatistico classico",
+   "trabalhos_na_literatura": 1,
+   "de_sumarizadores_lidos": 85,
+   "operacoes_instanciadas_no_testbed": 10,
+   "operacoes": [
+    "BRISQUE",
+    "NIQE",
+    "DBCNN",
+    "HyperIQA",
+    "MUSIQ",
+    "TOPIQ",
+    "CLIP-IQA",
+    "CLIP-IQA+",
+    "QualiCLIP",
+    "LIQE"
+   ],
+   "controle_diagnostico_fora_da_contagem": [],
+   "tem_representante": true,
+   "instanciadas_sem_veredito_de_triagem": {}
+  },
+  "C4": {
+   "classe": "Proxies de diversidade/representatividade profunda (CNN/ViT)",
+   "trabalhos_na_literatura": 23,
+   "de_sumarizadores_lidos": 85,
+   "operacoes_instanciadas_no_testbed": 3,
+   "operacoes": [
+    "Feature-vector norm",
+    "Frame coherence",
+    "Distance to the cluster centre"
+   ],
+   "controle_diagnostico_fora_da_contagem": [
+    "DINOv2 (patch-token norm)",
+    "ResNet-50 (pooled norm)"
+   ],
+   "tem_representante": true,
+   "instanciadas_sem_veredito_de_triagem": {
+    "Feature-vector norm": "nenhuma fonte do acervo a computa; construcao nossa",
+    "Frame coherence": "precisa de varios quadros, e a bancada externa pontua imagem",
+    "Distance to the cluster centre": "e identidade num par, e 36 dos 42 clusters tem dois"
+   }
+  }
+ },
+ "⭐_CLASSES_SEM_REPRESENTANTE": [],
+ "⭐_SOBREPOSICAO_ENTRE_CLASSES": {
+  "por_quantas_classes": {
+   "0": 19,
+   "1": 27,
+   "2": 31,
+   "3": 8
+  },
+  "usam_mais_de_uma": 39,
+  "usam_nenhuma": 19,
+  "soma_das_colunas": 113,
+  "total_de_sumarizadores": 85,
+  "⚠️_por_que_a_soma_excede": "as classes nao sao exclusivas: um trabalho pode computar mais de uma. Sem esta linha o leitor soma as colunas e conclui erro."
+ },
+ "⭐⭐_o_achado_estrutural": "as DEZESSEIS operacoes TRIADAS sao TODAS da classe 1. O artigo audita uma classe em profundidade, tem a classe 2 como caso implantado, a classe 3 como conjunto de candidatos, e a classe 4 instanciada com 3 representantes que NENHUM eixo externo consegue triar. E por isso que a auditoria se le como sendo de um trabalho so: nao e falta de operacao, e falta de CLASSE.",
+ "⭐⭐_a_desconexao_por_classe": {
+  "C3_entre_sumarizadores": 1,
+  "quais": [
+   "xu2024property.pdf"
+  ],
+  "leitura": "de 85 sumarizadores do acervo, 1 cita uma metrica NR-IQA dedicada. A literatura usa as classes 1, 2 e 4 e praticamente nunca a 3, que e a unica desenhada para medir qualidade"
+ },
+ "⛔_a_norma_do_vetor_nao_tem_fonte": {
+  "ocorrencias_no_acervo_inteiro": 0,
+  "consequencia": "o representante da classe 4 que o nosso codigo ja tem (norma da feicao, em DINOv2 e ResNet-50) NAO corresponde a nenhum uso declarado na literatura varrida. Ele e construcao NOSSA e vai declarado como tal, no mesmo padrao com que o artigo ja declara que a media do Gygli e escolha nossa. A distancia ao centroide, essa sim, tem lastro"
+ },
+ "⚠️_classe_4_contagem": {
+  "cru": 45,
+  "firme_centroide_ou_representatividade": 23,
+  "ambiguo_so_por_cosseno": 22,
+  "por_que": "similaridade de cosseno em sumarizacao serve sobretudo a redundancia e agrupamento, que nao e escore de qualidade. Contar os dois juntos inflaria a classe"
+ },
+ "⚠️_estatuto_das_duas_colunas": "trabalhos por classe vem de varredura por termo, precisao medida 0,63: e RASTREIO e pede leitura. Operacoes por classe vem do inventario conferido fonte a fonte: e firme. A legenda da tabela separa as duas",
+ "⚠️_vies_do_acervo": "o acervo foi montado procurando operacoes de qualidade visual, entao a taxa de quem NAO usa nenhuma e PISO, nao teto"
+}

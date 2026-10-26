@@ -1,0 +1,337 @@
+{
+  "_o_que_e": "⭐⭐ O ACERVO INTEIRO COM OS DOIS CONSERTOS: quanto os números do artigo mudam?\n\nPOR QUE EXISTE (05/09). Os dois consertos (cortar a bibliografia; exigir contexto de MEDIDA\npara `spatial information`) foram medidos em 21 artigos e sobem a precisao de 0,47 para\n0,63 sem perder cobertura. ⭐ Falta a consequencia: o artigo reporta \"33 dos 173\" e \"41 com\ntermo\", e esses numeros vem do varredor NAO consertado.\n\n⚠️ Isto NAO substitui o numero do artigo por decisao minha. Mede o delta, para o [author]\ndecidir qual reportar, e para o artigo poder dizer o tamanho do efeito.",
+  "unidade_de_reamostragem": "PDF do acervo",
+  "consertos": [
+    "corta a bibliografia (ultima ocorrencia do cabecalho; recusa corte que deixaria menos de 40 %)",
+    "`spatial information` so conta com contexto de MEDIDA (ITU, SI/TI, index, Sobel) numa janela de 260 caracteres"
+  ],
+  "n_pdfs": 186,
+  "ANTES": {
+    "com_termo": 41,
+    "por_termo": {
+      "lbp": 11,
+      "estetica": 11,
+      "saliencia": 11,
+      "colorfulness": 8,
+      "ke_edge_distr": 6,
+      "nitidez/blur": 5,
+      "spatial_info": 5,
+      "laplacian_var": 3,
+      "exposicao": 3,
+      "hue_count": 3,
+      "entropia": 2,
+      "sobel/gradiente": 2,
+      "glcm": 1
+    }
+  },
+  "DEPOIS": {
+    "com_termo": 33,
+    "por_termo": {
+      "estetica": 11,
+      "saliencia": 10,
+      "lbp": 8,
+      "colorfulness": 8,
+      "ke_edge_distr": 6,
+      "laplacian_var": 3,
+      "exposicao": 3,
+      "hue_count": 3,
+      "nitidez/blur": 3,
+      "sobel/gradiente": 2,
+      "entropia": 1,
+      "glcm": 1
+    }
+  },
+  "DELTA_com_termo": -8,
+  "DOS_173_SEM_NRIQA_DEDICADO": {
+    "antes": 33,
+    "depois": 25,
+    "delta": -8,
+    "de_um_total_de": 173,
+    "fracao_depois": 0.1445,
+    "porcentagem_antes": 19.1,
+    "porcentagem_depois": 14.5,
+    "⚠️": "este e o numero que o artigo reporta como 33 dos 173. Com os consertos ele muda, e o delta esta aqui para o [author] decidir qual reportar."
+  },
+  "fracao_mantida_mediana": 0.867,
+  "⚠️_o_que_isto_e": "medida do efeito dos consertos no acervo inteiro. NAO substitui o numero do artigo por decisao minha: o artigo reporta o varredor original, e este arquivo diz o tamanho da diferenca.",
+  "por_pdf": {
+    "ahuja2022aspectnews.pdf": [],
+    "aleixo2008cstnews.pdf": [],
+    "antici2023subjectivity.pdf": [],
+    "antiqueira2009complexnetwork.pdf": [],
+    "apostolidis2021survey.pdf": [],
+    "argaw2024scaling.pdf": [],
+    "barbara2025prompts_summaries.pdf": [],
+    "barbieri2020[venue].pdf": [],
+    "barbieri2021content.pdf": [
+      "estetica",
+      "lbp"
+    ],
+    "barbieri2021tese.pdf": [
+      "lbp"
+    ],
+    "barzilay2008entitygrid.pdf": [],
+    "bergkirkpatrick2012significance.pdf": [],
+    "beserra2020evaluating.pdf": [],
+    "beserra2023multimodal.pdf": [],
+    "cai2010simultaneous.pdf": [],
+    "cakmak2025tripss.pdf": [
+      "colorfulness",
+      "laplacian_var"
+    ],
+    "cao2024_5w1h_llms.pdf": [],
+    "carbonell1998mmr.pdf": [],
+    "card2020littlepower.pdf": [],
+    "cardoso2013discourse.pdf": [],
+    "castrojorge2010cstsumm.pdf": [],
+    "chasanis2008spectral.pdf": [],
+    "chen2021reffree.pdf": [],
+    "chitrakala2025symmetry.pdf": [
+      "lbp"
+    ],
+    "choi2000advances.pdf": [],
+    "chu2015video_cosummarization.pdf": [],
+    "clarke2008alphandcg.pdf": [],
+    "datta2006aesthetics.pdf": [
+      "colorfulness",
+      "estetica",
+      "exposicao"
+    ],
+    "dedomenico2015reducibility.pdf": [],
+    "deutsch2021infoquality.pdf": [],
+    "deutsch2021qaeval.pdf": [],
+    "deutsch2022reffreelimits.pdf": [],
+    "dror2018hitchhiker.pdf": [],
+    "duygulu2004autodoc.pdf": [],
+    "ebu_r128_v5.pdf": [],
+    "erkan2004lexrank.pdf": [],
+    "ernst2022procluster.pdf": [],
+    "eyal2019apes.pdf": [],
+    "fabbri2020summeval.pdf": [],
+    "fu2010multiview.pdf": [],
+    "gao2019pyreval.pdf": [],
+    "gao2020supert.pdf": [],
+    "gharbi2017modularity.pdf": [],
+    "gharbi2019repeatability.pdf": [
+      "lbp"
+    ],
+    "ghinassi2023encoders.pdf": [],
+    "goldstein1998summarization.pdf": [],
+    "golo2023[venue].pdf": [],
+    "gygli2014creating.pdf": [
+      "colorfulness",
+      "estetica"
+    ],
+    "hamborg2018giveme5w.pdf": [],
+    "hamborg2019b.pdf": [],
+    "hasler2003colorfulness.pdf": [
+      "colorfulness"
+    ],
+    "he2023blindspots.pdf": [],
+    "hearst1997texttiling.pdf": [],
+    "hendrycks2019imagenetc.pdf": [],
+    "hong2011beyond_search.pdf": [],
+    "hong2014repository.pdf": [],
+    "hovy2006basicelements.pdf": [],
+    "hua2025v2xum.pdf": [
+      "estetica"
+    ],
+    "huang2024aesthetic.pdf": [
+      "estetica",
+      "exposicao"
+    ],
+    "hussain2021mvs.pdf": [],
+    "islam2025multimodal.pdf": [],
+    "itu_r_bs1770_5.pdf": [],
+    "jeong2017static.pdf": [],
+    "ji2018mvs_hds.pdf": [],
+    "ji2019quasc.pdf": [],
+    "kadam2025systematic.pdf": [],
+    "kalkhorani2024beyond_frame.pdf": [],
+    "kannao2019newssegment.pdf": [],
+    "kannao2020semantic.pdf": [
+      "ke_edge_distr"
+    ],
+    "kaushal2020visiocity.pdf": [],
+    "ke2006highlevel.pdf": [
+      "hue_count",
+      "ke_edge_distr"
+    ],
+    "kedzie2018contentselection.pdf": [],
+    "kishi2018fused.pdf": [],
+    "kishi2019correlation.pdf": [],
+    "koehn2004significance.pdf": [],
+    "korolkov2025keyframe.pdf": [
+      "exposicao",
+      "laplacian_var",
+      "nitidez/blur"
+    ],
+    "koshorek2018text.pdf": [],
+    "lapata2006kendalltau.pdf": [],
+    "lee2025llmvs.pdf": [],
+    "li2010videommr.pdf": [],
+    "li2012balanced_avmmr.pdf": [],
+    "li2025lgrln.pdf": [],
+    "li2025spivg.pdf": [],
+    "lin2004rouge.pdf": [],
+    "lin2011submodular.pdf": [],
+    "lin2024videogenic.pdf": [],
+    "linbilmes2010budgeted.pdf": [],
+    "liu2017rankiqa.pdf": [],
+    "manzato2011multimedia.pdf": [],
+    "mao2020rlmmr.pdf": [],
+    "messaoud2021deepqamvs.pdf": [],
+    "mihalcea2004textrank.pdf": [],
+    "min2023factscore.pdf": [],
+    "mittal2012brisque.pdf": [
+      "nitidez/blur"
+    ],
+    "mittal2013niqe.pdf": [
+      "nitidez/blur"
+    ],
+    "moraes2022subjectivity.pdf": [],
+    "muramatsu2014viewpoint.pdf": [],
+    "nandini2022edgelbp.pdf": [
+      "lbp",
+      "sobel/gradiente"
+    ],
+    "narvala2023threads.pdf": [],
+    "nayeem2018paraphrastic.pdf": [],
+    "nenkova2004pyramid.pdf": [],
+    "ngo2005graphmodeling.pdf": [
+      "saliencia"
+    ],
+    "nie2016perceptual.pdf": [
+      "estetica",
+      "saliencia"
+    ],
+    "nonmonotone2022routing.pdf": [],
+    "otani2019rethinking.pdf": [],
+    "over2008trecvid.pdf": [],
+    "padmakumar2021pmi.pdf": [],
+    "panda2016camera_network.pdf": [],
+    "panda2016embedded_multiview.pdf": [],
+    "panda2017collaborative.pdf": [],
+    "panda2017diversity.pdf": [
+      "estetica"
+    ],
+    "panda2017multiview_surveillance.pdf": [],
+    "panda2017sparse_topic.pdf": [],
+    "park2020sumgraph.pdf": [],
+    "park2025videograph.pdf": [
+      "saliencia"
+    ],
+    "peyrard2019scoring.pdf": [],
+    "pitt2013fabricated.pdf": [],
+    "qaroush2025centrality.pdf": [
+      "lbp",
+      "saliencia"
+    ],
+    "qaroush2025diversity.pdf": [
+      "colorfulness",
+      "sobel/gradiente"
+    ],
+    "radev2000centroid.pdf": [],
+    "radovanovic2010hubs.pdf": [],
+    "ribaldo2016rsumm.pdf": [],
+    "ribeiro2020checklist.pdf": [],
+    "rojaschaves2024videosage.pdf": [],
+    "sai2021perturbation.pdf": [],
+    "saqib2018mme.pdf": [],
+    "sarmento2024sumarizacaopt.pdf": [],
+    "schnitzer2012scaling.pdf": [],
+    "scialom2019answersunite.pdf": [],
+    "scialom2021questeval.pdf": [],
+    "shao2010complex_graph.pdf": [],
+    "shapira2018lengths.pdf": [],
+    "shen2007qov.pdf": [],
+    "sidiropoulos2011temporal.pdf": [],
+    "singh2026subevent.pdf": [
+      "laplacian_var"
+    ],
+    "soares2018topicsegment.pdf": [],
+    "solbiati2021segmentation.pdf": [],
+    "srinivas2016rank.pdf": [
+      "colorfulness",
+      "hue_count",
+      "ke_edge_distr",
+      "saliencia"
+    ],
+    "stil2015proceedings.pdf": [],
+    "sun2019targetlength.pdf": [],
+    "swain1991colorindexing.pdf": [],
+    "tang2013content.pdf": [
+      "colorfulness",
+      "hue_count",
+      "ke_edge_distr",
+      "saliencia"
+    ],
+    "tang2021knapsack.pdf": [],
+    "taylor2017superresolution.pdf": [],
+    "tohalino2018multilayer.pdf": [],
+    "traag2011resolutionfree.pdf": [],
+    "traag2019leiden.pdf": [],
+    "trojahn2012avsa.pdf": [],
+    "trojahn2021temporal.pdf": [],
+    "tur2001topicseg.pdf": [],
+    "verhaverbeke2025_french5w1h.pdf": [],
+    "walden2024_seamus.pdf": [],
+    "wan2006affinitygraph.pdf": [],
+    "wan2008clusterlink.pdf": [],
+    "wan2008documentimpact.pdf": [],
+    "wang2009multidoc.pdf": [],
+    "wang2012tag_localization.pdf": [
+      "ke_edge_distr"
+    ],
+    "wen2022mvs_gcn_asd.pdf": [],
+    "wolhandler2022howmulti.pdf": [],
+    "wu2006threading.pdf": [],
+    "wu2019mvsgcn.pdf": [],
+    "wu2020dyngcn.pdf": [
+      "estetica"
+    ],
+    "wu2026multimodal_gcl.pdf": [],
+    "xiao2020redundancy.pdf": [],
+    "xiao2023metriceval.pdf": [],
+    "xie2008affinity.pdf": [],
+    "xu2024property.pdf": [
+      "colorfulness",
+      "ke_edge_distr"
+    ],
+    "yang2016peak.pdf": [],
+    "yang2023chatgptaspect.pdf": [],
+    "yang2024keyframe.pdf": [
+      "entropia",
+      "glcm"
+    ],
+    "ye2023complementary.pdf": [],
+    "yeh2025gcn_compressed.pdf": [],
+    "yu2026deep.pdf": [],
+    "zerocontrol2025length.pdf": [],
+    "zhang2013geospace.pdf": [],
+    "zhang2015aesthetics.pdf": [
+      "estetica",
+      "lbp",
+      "saliencia"
+    ],
+    "zhang2015handheld.pdf": [
+      "estetica",
+      "saliencia"
+    ],
+    "zhang2015skimlets.pdf": [
+      "estetica",
+      "saliencia"
+    ],
+    "zhang2016georeferenced.pdf": [
+      "lbp",
+      "saliencia"
+    ],
+    "zhang2020bertscore.pdf": [],
+    "zhang2023_iesumm.pdf": [],
+    "zhao2019moverscore.pdf": [],
+    "zhao2026graphvsum.pdf": [],
+    "zheng2019pacsum.pdf": [],
+    "zhu2014keyobservation.pdf": [],
+    "zhu2023topicaware.pdf": []
+  }
+}

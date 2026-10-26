@@ -1,0 +1,393 @@
+{
+ "_o_que_e": "OS DEZESSETE NA REGUA CANONICA — a mesma da Tabela 6 do corpo.\n\nPOR QUE EXISTE (25/09/2026, parecer v9, §1.1). O revisor achou a Tabela 6 e a S32\ndando acuracias diferentes para as MESMAS operacoes sobre os MESMOS 800 pares, e\ntratou como bloqueio de submissao. Estava certo em bloquear.\n\n⭐ O QUE SE APUROU: nao ha duas rodadas. As acuracias POR TIPO sao identicas nos dois\narquivos. O que diverge sao DUAS escolhas de agregacao, independentes entre si:\n\n  1. EMPATE. `ops_da_literatura_designA.json` conta empate como erro — acuracia\n     ESTRITA, que e o que a legenda da Tabela 6 declara. O `TABELA_FINAL.json` tira\n     empate do denominador (decisiva). So muda onde ha empate.\n  2. ESCOPO DA MEDIA. O `TABELA_FINAL.media` exclui os tipos ALINHADOS POR CONSTRUCAO,\n     que sao OUTROS em cada operacao. A Tabela 6 usa as oito em todas as linhas.\n\n⛔ A S32 publicou as DUAS escolhas nao canonicas ao mesmo tempo, sob a legenda da\nTabela 6 — e com um IC que cerca a media COM exclusao, ao lado de uma acuracia sem\nela. As duas se movem em sentidos contrarios (empate sobe, exclusao desce), e e por\nisso que a S32 saia ora acima ora ABAIXO da Tabela 6, como o revisor notou.\n\n⭐ CANONICA = estrita, media sobre as OITO, de `ops_da_literatura_designA.json`. E a\nque a legenda da Tabela 6 declara, e a decisao de 08/09 (`gera_tab_sintese.py`) fixa:\nexcluir tipos diferentes por linha faz as linhas deixarem de ser comparaveis entre si,\nque e a unica coisa que uma coluna de media serve para fazer.\n\n⚠️ `qaroush_movimento` nao esta no `resumo_designA` (e operacao de SEQUENCIA, fora do\ninventario de quadro isolado), so nos escores crus. Recomputo aqui, e o CONTROLE e\nreproduzir o `sobel_cv` publicado celula a celula antes de usar qualquer numero.",
+ "_regua": "acuracia ESTRITA (empate conta como erro), media sobre as OITO degradacoes — a mesma da Tabela 6 do corpo",
+ "implantada_pct": 65.1,
+ "direcao_movimento_maior_melhor": true,
+ "dezessete": {
+  "n": 17,
+  "abaixo": 8,
+  "mediana": 66.0,
+  "minimo": 33.375,
+  "maximo": 87.0
+ },
+ "quinze_do_inventario_direcional": {
+  "n": 15,
+  "abaixo": 6,
+  "mediana": 74.75,
+  "minimo": 33.375,
+  "maximo": 87.0
+ },
+ "fora_do_inventario_direcional": [
+  "sobel_cv",
+  "qaroush_movimento"
+ ],
+ "membros": {
+  "qaroush_saliencia": {
+   "por_tipo": {
+    "dark": 62.0,
+    "motion": 29.0,
+    "blur": 20.0,
+    "h264": 94.0,
+    "rescale": 21.0,
+    "satur": 18.0,
+    "noise": 13.0,
+    "jpeg": 10.0
+   },
+   "media_estrita_oito": 33.375,
+   "no_inventario_direcional": true,
+   "origem": "resumo_designA",
+   "n_comparacoes": 800,
+   "rival_decisiva_sem_alinhados": 33.5,
+   "rival_tipos_excluidos": [],
+   "rival_n_comparacoes": 800
+  },
+  "ke_hue_count": {
+   "por_tipo": {
+    "dark": 20.0,
+    "motion": 13.0,
+    "blur": 10.0,
+    "h264": 77.0,
+    "rescale": 11.0,
+    "satur": 4.0,
+    "noise": 100.0,
+    "jpeg": 59.0
+   },
+   "media_estrita_oito": 36.75,
+   "no_inventario_direcional": true,
+   "origem": "resumo_designA",
+   "n_comparacoes": 800,
+   "rival_decisiva_sem_alinhados": 39.0,
+   "rival_tipos_excluidos": [],
+   "rival_n_comparacoes": 800
+  },
+  "qaroush_go": {
+   "por_tipo": {
+    "dark": 100.0,
+    "motion": 80.0,
+    "blur": 26.0,
+    "h264": 95.0,
+    "rescale": 9.0,
+    "satur": 21.0,
+    "noise": 0.0,
+    "jpeg": 100.0
+   },
+   "media_estrita_oito": 53.875,
+   "no_inventario_direcional": true,
+   "origem": "resumo_designA",
+   "n_comparacoes": 800,
+   "rival_decisiva_sem_alinhados": 53.9,
+   "rival_tipos_excluidos": [],
+   "rival_n_comparacoes": 800
+  },
+  "sobel_cv": {
+   "por_tipo": {
+    "dark": 80.0,
+    "motion": 72.0,
+    "blur": 67.0,
+    "h264": 63.0,
+    "rescale": 67.0,
+    "satur": 49.0,
+    "noise": 14.0,
+    "jpeg": 65.0
+   },
+   "media_estrita_oito": 59.625,
+   "no_inventario_direcional": false,
+   "origem": "resumo_designA",
+   "n_comparacoes": 800,
+   "rival_decisiva_sem_alinhados": 56.3,
+   "rival_tipos_excluidos": [
+    "blur",
+    "motion"
+   ],
+   "rival_n_comparacoes": 600
+  },
+  "huang_saturacao": {
+   "por_tipo": {
+    "dark": 13.0,
+    "motion": 100.0,
+    "blur": 100.0,
+    "h264": 15.0,
+    "rescale": 100.0,
+    "satur": 100.0,
+    "noise": 1.0,
+    "jpeg": 90.0
+   },
+   "media_estrita_oito": 64.875,
+   "no_inventario_direcional": true,
+   "origem": "resumo_designA",
+   "n_comparacoes": 800,
+   "rival_decisiva_sem_alinhados": 59.9,
+   "rival_tipos_excluidos": [
+    "satur"
+   ],
+   "rival_n_comparacoes": 700
+  },
+  "qaroush_movimento": {
+   "por_tipo": {
+    "dark": 100.0,
+    "motion": 76.0,
+    "blur": 99.0,
+    "h264": 94.0,
+    "rescale": 99.0,
+    "satur": 20.0,
+    "noise": 3.0,
+    "jpeg": 17.0
+   },
+   "media_estrita_oito": 63.5,
+   "no_inventario_direcional": false,
+   "origem": "recomputado dos escores crus, controle sobel_cv",
+   "n_comparacoes": 800,
+   "rival_decisiva_sem_alinhados": 61.7,
+   "rival_tipos_excluidos": [
+    "motion"
+   ],
+   "rival_n_comparacoes": 700
+  },
+  "qaroush_entropia": {
+   "por_tipo": {
+    "dark": 100.0,
+    "motion": 77.0,
+    "blur": 83.0,
+    "h264": 10.0,
+    "rescale": 77.0,
+    "satur": 97.0,
+    "noise": 0.0,
+    "jpeg": 66.0
+   },
+   "media_estrita_oito": 63.75,
+   "no_inventario_direcional": true,
+   "origem": "resumo_designA",
+   "n_comparacoes": 800,
+   "rival_decisiva_sem_alinhados": 63.8,
+   "rival_tipos_excluidos": [],
+   "rival_n_comparacoes": 800
+  },
+  "ke_edge_distribution": {
+   "por_tipo": {
+    "dark": 70.0,
+    "motion": 62.0,
+    "blur": 62.0,
+    "h264": 11.0,
+    "rescale": 74.0,
+    "satur": 97.0,
+    "noise": 100.0,
+    "jpeg": 31.0
+   },
+   "media_estrita_oito": 63.375,
+   "no_inventario_direcional": true,
+   "origem": "resumo_designA",
+   "n_comparacoes": 800,
+   "rival_decisiva_sem_alinhados": 64.3,
+   "rival_tipos_excluidos": [
+    "blur",
+    "motion"
+   ],
+   "rival_n_comparacoes": 600
+  },
+  "qaroush_gm": {
+   "por_tipo": {
+    "dark": 100.0,
+    "motion": 100.0,
+    "blur": 100.0,
+    "h264": 100.0,
+    "rescale": 100.0,
+    "satur": 23.0,
+    "noise": 0.0,
+    "jpeg": 5.0
+   },
+   "media_estrita_oito": 66.0,
+   "no_inventario_direcional": true,
+   "origem": "resumo_designA",
+   "n_comparacoes": 800,
+   "rival_decisiva_sem_alinhados": 66.0,
+   "rival_tipos_excluidos": [],
+   "rival_n_comparacoes": 800
+  },
+  "gygli_media_crua": {
+   "por_tipo": {
+    "dark": 100.0,
+    "motion": 100.0,
+    "blur": 100.0,
+    "h264": 100.0,
+    "rescale": 100.0,
+    "satur": 100.0,
+    "noise": 3.0,
+    "jpeg": 67.0
+   },
+   "media_estrita_oito": 83.75,
+   "no_inventario_direcional": true,
+   "origem": "resumo_designA",
+   "n_comparacoes": 800,
+   "rival_decisiva_sem_alinhados": 67.5,
+   "rival_tipos_excluidos": [
+    "blur",
+    "dark",
+    "motion",
+    "satur"
+   ],
+   "rival_n_comparacoes": 400
+  },
+  "laplacian_var": {
+   "por_tipo": {
+    "dark": 100.0,
+    "motion": 100.0,
+    "blur": 100.0,
+    "h264": 95.0,
+    "rescale": 100.0,
+    "satur": 50.0,
+    "noise": 0.0,
+    "jpeg": 66.0
+   },
+   "media_estrita_oito": 76.375,
+   "no_inventario_direcional": true,
+   "origem": "resumo_designA",
+   "n_comparacoes": 800,
+   "rival_decisiva_sem_alinhados": 68.5,
+   "rival_tipos_excluidos": [
+    "blur",
+    "motion"
+   ],
+   "rival_n_comparacoes": 600
+  },
+  "ke_contraste": {
+   "por_tipo": {
+    "dark": 100.0,
+    "motion": 100.0,
+    "blur": 100.0,
+    "h264": 98.0,
+    "rescale": 100.0,
+    "satur": 30.0,
+    "noise": 10.0,
+    "jpeg": 60.0
+   },
+   "media_estrita_oito": 74.75,
+   "no_inventario_direcional": true,
+   "origem": "resumo_designA",
+   "n_comparacoes": 800,
+   "rival_decisiva_sem_alinhados": 72.2,
+   "rival_tipos_excluidos": [
+    "dark"
+   ],
+   "rival_n_comparacoes": 700
+  },
+  "srinivas_quality": {
+   "por_tipo": {
+    "dark": 100.0,
+    "motion": 100.0,
+    "blur": 100.0,
+    "h264": 100.0,
+    "rescale": 100.0,
+    "satur": 98.0,
+    "noise": 29.0,
+    "jpeg": 69.0
+   },
+   "media_estrita_oito": 87.0,
+   "no_inventario_direcional": true,
+   "origem": "resumo_designA",
+   "n_comparacoes": 800,
+   "rival_decisiva_sem_alinhados": 74.5,
+   "rival_tipos_excluidos": [
+    "blur",
+    "dark",
+    "motion",
+    "satur"
+   ],
+   "rival_n_comparacoes": 400
+  },
+  "contraste_variancia": {
+   "por_tipo": {
+    "dark": 100.0,
+    "motion": 100.0,
+    "blur": 100.0,
+    "h264": 100.0,
+    "rescale": 100.0,
+    "satur": 22.0,
+    "noise": 25.0,
+    "jpeg": 90.0
+   },
+   "media_estrita_oito": 79.625,
+   "no_inventario_direcional": true,
+   "origem": "resumo_designA",
+   "n_comparacoes": 800,
+   "rival_decisiva_sem_alinhados": 76.7,
+   "rival_tipos_excluidos": [
+    "dark"
+   ],
+   "rival_n_comparacoes": 700
+  },
+  "glcm_contraste": {
+   "por_tipo": {
+    "dark": 100.0,
+    "motion": 100.0,
+    "blur": 100.0,
+    "h264": 100.0,
+    "rescale": 100.0,
+    "satur": 67.0,
+    "noise": 0.0,
+    "jpeg": 72.0
+   },
+   "media_estrita_oito": 79.875,
+   "no_inventario_direcional": true,
+   "origem": "resumo_designA",
+   "n_comparacoes": 800,
+   "rival_decisiva_sem_alinhados": 77.0,
+   "rival_tipos_excluidos": [
+    "dark"
+   ],
+   "rival_n_comparacoes": 700
+  },
+  "hasler_colorfulness": {
+   "por_tipo": {
+    "dark": 100.0,
+    "motion": 100.0,
+    "blur": 100.0,
+    "h264": 100.0,
+    "rescale": 100.0,
+    "satur": 100.0,
+    "noise": 3.0,
+    "jpeg": 79.0
+   },
+   "media_estrita_oito": 85.25,
+   "no_inventario_direcional": true,
+   "origem": "resumo_designA",
+   "n_comparacoes": 800,
+   "rival_decisiva_sem_alinhados": 83.1,
+   "rival_tipos_excluidos": [
+    "satur"
+   ],
+   "rival_n_comparacoes": 700
+  },
+  "ke_colorfulness": {
+   "por_tipo": {
+    "dark": 100.0,
+    "motion": 100.0,
+    "blur": 100.0,
+    "h264": 100.0,
+    "rescale": 100.0,
+    "satur": 100.0,
+    "noise": 3.0,
+    "jpeg": 79.0
+   },
+   "media_estrita_oito": 85.25,
+   "no_inventario_direcional": true,
+   "origem": "resumo_designA",
+   "n_comparacoes": 800,
+   "rival_decisiva_sem_alinhados": 83.1,
+   "rival_tipos_excluidos": [
+    "satur"
+   ],
+   "rival_n_comparacoes": 700
+  }
+ },
+ "_a_regua_rival": {
+  "_o_que_e": "a do TABELA_FINAL.media: decisiva E com os tipos alinhados por construcao fora. Fica como SENSIBILIDADE, nunca como a coluna principal: ela exclui celulas diferentes em cada linha.",
+  "dezessete": {
+   "abaixo": 8,
+   "mediana": 66.0
+  },
+  "quinze": {
+   "abaixo": 6,
+   "mediana": 67.5
+  }
+ }
+}

@@ -1,0 +1,390 @@
+{
+ "_o_que_e": "Pontua o SIFT+BoVW (o modulo IMPLANTADO) nos MESMOS clusters, para servir de\nreferencia do efeito a jusante.\n\nRoda separado porque o SIFT+BoVW e operacao de CLUSTER, nao de quadro: o\nvocabulario BoVW e ajustado com os segmentos do proprio cluster (N tipicamente 2\na 4), entao ele so pode ser pontuado com o cluster inteiro na mao. As 14\noperacoes da literatura sao por quadro e ja rodaram na passada anterior.\n\nReusa clusters_all.json, reconstruido pelo efeito_a_jusante.py.",
+ "topicos": {
+  "acordo_mariana": [
+   {
+    "n": 2,
+    "escores": {
+     "acordo_mariana|jornal_nacional|191.51|220.8": 99.94195856044175,
+     "acordo_mariana|cnn|60.14|86.6": 42.74625938428533
+    },
+    "vencedor": "acordo_mariana|jornal_nacional|191.51|220.8"
+   }
+  ],
+  "aumento_cafe": [
+   {
+    "n": 4,
+    "escores": {
+     "aumento_cafe|cafe_cnn|124.64|169.96": 438.85822314717484,
+     "aumento_cafe|cafe_cnn|0.0|45.02": 96.30378141610385,
+     "aumento_cafe|cafe_record|0.21|45.41": 91.7715829284509,
+     "aumento_cafe|cafe_band|0.27|45.43": 14.578449938764322
+    },
+    "vencedor": "aumento_cafe|cafe_cnn|124.64|169.96"
+   }
+  ],
+  "bebe_real": [
+   {
+    "n": 3,
+    "escores": {
+     "bebe_real|jornal_da_record|0.62|37.86": 44.238288267382764,
+     "bebe_real|jornal_da_band|6.28|24.72": 14.26339198351018,
+     "bebe_real|jornal_nacional|0.72|41.48": 8.276289175617016
+    },
+    "vencedor": "bebe_real|jornal_da_record|0.62|37.86"
+   },
+   {
+    "n": 2,
+    "escores": {
+     "bebe_real|jornal_da_band|37.86|47.52": 103.85534850407349,
+     "bebe_real|jornal_da_record|46.12|56.9": 2.4082399653118496
+    },
+    "vencedor": "bebe_real|jornal_da_band|37.86|47.52"
+   }
+  ],
+  "bolsonaro_trump": [
+   {
+    "n": 2,
+    "escores": {
+     "bolsonaro_trump|jornal_nacional|56.66|79.6": 115.59551833496877,
+     "bolsonaro_trump|jornal_da_band|20.64|74.48": 11.439139835231284
+    },
+    "vencedor": "bolsonaro_trump|jornal_nacional|56.66|79.6"
+   },
+   {
+    "n": 2,
+    "escores": {
+     "bolsonaro_trump|jornal_nacional|0.18|56.46": 47.863769310573005,
+     "bolsonaro_trump|jornal_da_record|1.22|38.04": 31.30711954905404
+    },
+    "vencedor": "bolsonaro_trump|jornal_nacional|0.18|56.46"
+   },
+   {
+    "n": 2,
+    "escores": {
+     "bolsonaro_trump|jornal_da_band|273.72|337.2": 56.59363918482846,
+     "bolsonaro_trump|jornal_da_record|144.22|162.42": 23.480339661790534
+    },
+    "vencedor": "bolsonaro_trump|jornal_da_band|273.72|337.2"
+   }
+  ],
+  "brasil_omc": [
+   {
+    "n": 2,
+    "escores": {
+     "brasil_omc|record_news|126.96|156.04": 65.6245390547479,
+     "brasil_omc|uol|27.68|54.92": 62.313209102444105
+    },
+    "vencedor": "brasil_omc|record_news|126.96|156.04"
+   }
+  ],
+  "brumadinho": [
+   {
+    "n": 2,
+    "escores": {
+     "brumadinho|jornal_da_band|69.7|177.96": 407.8956441246945,
+     "brumadinho|jornal_nacional|78.0|97.32": 1.2041199826559248
+    },
+    "vencedor": "brumadinho|jornal_da_band|69.7|177.96"
+   },
+   {
+    "n": 2,
+    "escores": {
+     "brumadinho|jornal_da_record|264.5|452.12": 70.74204898103558,
+     "brumadinho|jornal_nacional|206.32|226.44": 31.006089553390062
+    },
+    "vencedor": "brumadinho|jornal_da_record|264.5|452.12"
+   },
+   {
+    "n": 2,
+    "escores": {
+     "brumadinho|jornal_da_record|264.5|452.12": 134.86143805746357,
+     "brumadinho|jornal_da_band|0.0|12.86": 7.52574989159953
+    },
+    "vencedor": "brumadinho|jornal_da_record|264.5|452.12"
+   }
+  ],
+  "catedral_notre_dame": [
+   {
+    "n": 3,
+    "escores": {
+     "catedral_notre_dame|jornal_da_record|31.88|49.78": 37.5074381788601,
+     "catedral_notre_dame|jornal_da_band|0.06|94.12": 21.30704234573743,
+     "catedral_notre_dame|jornal_nacional|0.4|51.22": 17.05233329766724
+    },
+    "vencedor": "catedral_notre_dame|jornal_da_record|31.88|49.78"
+   },
+   {
+    "n": 2,
+    "escores": {
+     "catedral_notre_dame|jornal_da_record|51.04|72.1": 251.66107637508827,
+     "catedral_notre_dame|jornal_da_band|0.06|94.12": 0.0
+    },
+    "vencedor": "catedral_notre_dame|jornal_da_record|51.04|72.1"
+   }
+  ],
+  "cessar_fogo_ucrania": [
+   {
+    "n": 2,
+    "escores": {
+     "cessar_fogo_ucrania|ucrania_cnn|21.56|67.12": 172.7912175111252,
+     "cessar_fogo_ucrania|ucrania_band|0.24|39.88": 22.276219679134606
+    },
+    "vencedor": "cessar_fogo_ucrania|ucrania_cnn|21.56|67.12"
+   },
+   {
+    "n": 2,
+    "escores": {
+     "cessar_fogo_ucrania|ucrania_sbt|0.05|45.37": 132.15216809648774,
+     "cessar_fogo_ucrania|ucrania_band|41.44|86.54": 41.5421394016294
+    },
+    "vencedor": "cessar_fogo_ucrania|ucrania_sbt|0.05|45.37"
+   },
+   {
+    "n": 2,
+    "escores": {
+     "cessar_fogo_ucrania|ucrania_cnn|21.56|67.12": 135.16246805312755,
+     "cessar_fogo_ucrania|ucrania_sbt|0.05|45.37": 18.663859731166834
+    },
+    "vencedor": "cessar_fogo_ucrania|ucrania_cnn|21.56|67.12"
+   }
+  ],
+  "cigarro_eletronico": [],
+  "cpi_inss": [],
+  "esquema_pcc": [
+   {
+    "n": 2,
+    "escores": {
+     "esquema_pcc|band|168.62|197.54": 345.2814050265864,
+     "esquema_pcc|g1|236.22|265.82": 6.923689900271567
+    },
+    "vencedor": "esquema_pcc|band|168.62|197.54"
+   },
+   {
+    "n": 2,
+    "escores": {
+     "esquema_pcc|g1|65.68|94.12": 84.89045877724269,
+     "esquema_pcc|gazeta|141.04|170.56": 39.133899436317556
+    },
+    "vencedor": "esquema_pcc|g1|65.68|94.12"
+   },
+   {
+    "n": 2,
+    "escores": {
+     "esquema_pcc|band|27.56|54.24": 114.9934583436408,
+     "esquema_pcc|gazeta|256.58|286.36": 55.9915791935005
+    },
+    "vencedor": "esquema_pcc|band|27.56|54.24"
+   }
+  ],
+  "fone_cancelamento_ruido": [
+   {
+    "n": 2,
+    "escores": {
+     "fone_cancelamento_ruido|fone-cancelamento_ruido_olhardigital|92.04|121.72": 123.72332821789627,
+     "fone_cancelamento_ruido|fone-cancelamento_ruido_bbc|59.56|75.98": 44.25140936260524
+    },
+    "vencedor": "fone_cancelamento_ruido|fone-cancelamento_ruido_olhardigital|92.04|121.72"
+   },
+   {
+    "n": 2,
+    "escores": {
+     "fone_cancelamento_ruido|fone_cancelamento_ruido_band|18.56|46.48": 49.66994928455689,
+     "fone_cancelamento_ruido|fone-cancelamento_ruido_bbc|29.6|59.42": 16.857679757182943
+    },
+    "vencedor": "fone_cancelamento_ruido|fone_cancelamento_ruido_band|18.56|46.48"
+   },
+   {
+    "n": 2,
+    "escores": {
+     "fone_cancelamento_ruido|fone_cancelamento_ruido_band|46.98|76.18": 186.63859731166835,
+     "fone_cancelamento_ruido|fone-cancelamento_ruido_olhardigital|149.61|174.96": 0.0
+    },
+    "vencedor": "fone_cancelamento_ruido|fone_cancelamento_ruido_band|46.98|76.18"
+   }
+  ],
+  "fraude_inss": [
+   {
+    "n": 2,
+    "escores": {
+     "fraude_inss|fraude_inss_SBT|0.0|45.04": 69.83895899404362,
+     "fraude_inss|fraude_inss_fraude|0.4|45.46": 50.87406926721282
+    },
+    "vencedor": "fraude_inss|fraude_inss_SBT|0.0|45.04"
+   },
+   {
+    "n": 2,
+    "escores": {
+     "fraude_inss|fraude_inss_SBT|135.92|181.14": 78.26779887263511,
+     "fraude_inss|fraude_inss_cnn|0.0|45.06": 42.746259384285324
+    },
+    "vencedor": "fraude_inss|fraude_inss_SBT|135.92|181.14"
+   },
+   {
+    "n": 2,
+    "escores": {
+     "fraude_inss|fraude_inss_cnn|0.0|45.06": 157.43868773226214,
+     "fraude_inss|fraude_inss_fraude|0.4|45.46": 68.93586900705169
+    },
+    "vencedor": "fraude_inss|fraude_inss_cnn|0.0|45.06"
+   }
+  ],
+  "google_huawei": [
+   {
+    "n": 2,
+    "escores": {
+     "google_huawei|sbt_brasil|0.44|45.08": 11.740169830895267,
+     "google_huawei|jornal_nacional|22.62|93.9": 9.632959861247397
+    },
+    "vencedor": "google_huawei|sbt_brasil|0.44|45.08"
+   },
+   {
+    "n": 2,
+    "escores": {
+     "google_huawei|sbt_brasil|56.68|73.32": 202.59318708185936,
+     "google_huawei|jornal_da_band|0.08|43.64": 0.0
+    },
+    "vencedor": "google_huawei|sbt_brasil|56.68|73.32"
+   },
+   {
+    "n": 2,
+    "escores": {
+     "google_huawei|jornal_nacional|22.62|93.9": 67.1296890330678,
+     "google_huawei|jornal_da_band|0.08|43.64": 3.3113299523037933
+    },
+    "vencedor": "google_huawei|jornal_nacional|22.62|93.9"
+   }
+  ],
+  "isencao_imposto": [
+   {
+    "n": 2,
+    "escores": {
+     "isencao_imposto|isencao_band|166.52|196.46": 40.03698942330949,
+     "isencao_imposto|isencao_cnn|72.12|97.32": 12.64325981788721
+    },
+    "vencedor": "isencao_imposto|isencao_band|166.52|196.46"
+   },
+   {
+    "n": 2,
+    "escores": {
+     "isencao_imposto|isencao_sbt|78.0|103.62": 107.76873844770526,
+     "isencao_imposto|isencao_band|0.04|26.92": 30.70505955772608
+    },
+    "vencedor": "isencao_imposto|isencao_sbt|78.0|103.62"
+   },
+   {
+    "n": 2,
+    "escores": {
+     "isencao_imposto|isencao_cnn|147.68|175.87": 140.2799779794152,
+     "isencao_imposto|isencao_sbt|78.0|103.62": 1.806179973983887
+    },
+    "vencedor": "isencao_imposto|isencao_cnn|147.68|175.87"
+   }
+  ],
+  "julgamento_bolsonaro": [
+   {
+    "n": 2,
+    "escores": {
+     "julgamento_bolsonaro|jornal_record|119.28|148.6": 102.95225851708156,
+     "julgamento_bolsonaro|g1|29.56|40.7": 17.158709752846928
+    },
+    "vencedor": "julgamento_bolsonaro|jornal_record|119.28|148.6"
+   },
+   {
+    "n": 2,
+    "escores": {
+     "julgamento_bolsonaro|sbt|48.66|77.32": 87.59972873821853,
+     "julgamento_bolsonaro|g1|70.32|83.92": 14.148409796207115
+    },
+    "vencedor": "julgamento_bolsonaro|sbt|48.66|77.32"
+   },
+   {
+    "n": 2,
+    "escores": {
+     "julgamento_bolsonaro|sbt|135.28|161.48": 62.313209102444105,
+     "julgamento_bolsonaro|jornal_record|119.28|148.6": 38.230809449325605
+    },
+    "vencedor": "julgamento_bolsonaro|sbt|135.28|161.48"
+   }
+  ],
+  "mounjaro": [
+   {
+    "n": 4,
+    "escores": {
+     "mounjaro|mounjaro_domingo_esptacular|126.1|142.14": 135.14344286014543,
+     "mounjaro|mounjaro_domingo_esptacular|187.42|212.76": 111.72602599884289,
+     "mounjaro|mounjaro_record|0.1|14.12": 44.42478002855785,
+     "mounjaro|mounjaro_band|0.74|8.84": 24.693509329384
+    },
+    "vencedor": "mounjaro|mounjaro_domingo_esptacular|126.1|142.14"
+   }
+  ],
+  "recorde_calor_2024": [
+   {
+    "n": 3,
+    "escores": {
+     "recorde_calor_2024|recorde_calor_cultura|53.4|81.42": 492.60283256289745,
+     "recorde_calor_2024|recorde_calor_record|0.6|24.66": 69.73213858604977,
+     "recorde_calor_2024|recorde_calor_band|0.0|26.3": 2.993551403946581
+    },
+    "vencedor": "recorde_calor_2024|recorde_calor_cultura|53.4|81.42"
+   },
+   {
+    "n": 2,
+    "escores": {
+     "recorde_calor_2024|recorde_calor_record|25.0|48.28": 236.00751660056127,
+     "recorde_calor_2024|recorde_calor_cultura|0.48|27.84": 1.2041199826559248
+    },
+    "vencedor": "recorde_calor_2024|recorde_calor_record|25.0|48.28"
+   }
+  ],
+  "rio_celular": [
+   {
+    "n": 2,
+    "escores": {
+     "rio_celular|rio_celular_cnn|0.12|28.16": 146.9026378840228,
+     "rio_celular|rio_celular_jornal_nacional|1.32|25.58": 22.577249674798587
+    },
+    "vencedor": "rio_celular|rio_celular_cnn|0.12|28.16"
+   }
+  ],
+  "ucrania": [
+   {
+    "n": 2,
+    "escores": {
+     "ucrania|ucrania_cnn|115.9|145.3": 93.62032865149814,
+     "ucrania|ucrania_band|69.56|98.5": 52.680249241196705
+    },
+    "vencedor": "ucrania|ucrania_cnn|115.9|145.3"
+   },
+   {
+    "n": 2,
+    "escores": {
+     "ucrania|ucrania_sbt|0.4|27.36": 139.07585799675928,
+     "ucrania|ucrania_band|42.1|69.18": 39.43492943198153
+    },
+    "vencedor": "ucrania|ucrania_sbt|0.4|27.36"
+   },
+   {
+    "n": 2,
+    "escores": {
+     "ucrania|ucrania_cnn|29.2|57.28": 131.85113810082373,
+     "ucrania|ucrania_sbt|27.76|52.88": 9.93398985691138
+    },
+    "vencedor": "ucrania|ucrania_cnn|29.2|57.28"
+   }
+  ],
+  "ultraprocessados": [
+   {
+    "n": 4,
+    "escores": {
+     "ultraprocessados|ultraprocessados_sbt|0.0|45.18": 295.41178600941385,
+     "ultraprocessados|ultraprocessados_sc|71.49|116.57": 164.77428048773712,
+     "ultraprocessados|ultraprocessados_sbt|45.18|90.8": 107.400695282529,
+     "ultraprocessados|ultraprocessados_record|0.34|45.54": 19.389951594735408
+    },
+    "vencedor": "ultraprocessados|ultraprocessados_sbt|0.0|45.18"
+   }
+  ]
+ }
+}

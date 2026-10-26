@@ -1,0 +1,32 @@
+%% GERADO por gera_tab_dezessete.py -- nao editar a mao
+\begin{table}[!ht]
+\centering
+\caption{The seventeen operations of the auxiliary comparison in Section~4.2 of the main text. \textbf{\emph{Accuracy} is the same quantity the source-level synthesis (Section~4.7) of the main text reports}: strict accuracy in per cent, ties counted as errors, averaged over all eight transformation types, on the 800 original--transformed comparisons. \emph{Aligned-excluded} is a second aggregation of the same measurement, reported here because it appears elsewhere in this supplement: it drops ties from the denominator and averages only over the types not aligned by construction with the operation, which differ from row to row, so it rests on the smaller number of comparisons in the last column. \emph{Excluded} names those types and \emph{Pairs} counts the comparisons they leave, \textbf{before ties are removed}, so the denominator that aggregation actually uses is smaller again wherever the operation ties. \textbf{The two aggregations are not interchangeable}: relative to the canonical column the second is higher for some operations, lower for others and equal where neither ties nor alignment applies. Both columns are derived from the same pair-level measurements. A double dagger marks the two sequence operations, which the isolated-frame inclusion rule excludes from the directional inventory and which enter only this auxiliary comparison. Under the canonical aggregation 8 of the seventeen fall below SIFT+BoVW at 65.1\% and the median is 66.0\%; over the 15 of the directional inventory alone the count is 6 and the median 74.8\%. Identifiers in \texttt{typewriter} are function names in the released package, kept verbatim so each row can be matched to the code that produced it.}
+\label{tab:dezessete}
+\footnotesize
+\setlength{\tabcolsep}{3.5pt}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.0cm}>{\raggedright\arraybackslash}p{2.5cm}rr>{\raggedright\arraybackslash}p{1.35cm}r@{}}
+\toprule
+\rowcolor{headerblue}
+\hd{Identifier} & \hd{Operation} & \hd{Acc.} & \hd{Aligned-ex.} & \hd{Excluded} & \hd{Pairs} \\
+\midrule
+\rowcolor{rowwhite}\texttt{qaroush\_\allowbreak{}saliencia} & Saliency & 33.4 & 33.5 & --- & 800 \\
+\rowcolor{rowlight}\texttt{ke\_\allowbreak{}hue\_\allowbreak{}count} & Hue count (Ke) & 36.8 & 39.0 & --- & 800 \\
+\rowcolor{rowwhite}\texttt{qaroush\_\allowbreak{}go} & Gradient orientation & 53.9 & 53.9 & --- & 800 \\
+\rowcolor{rowlight}\texttt{sobel\_\allowbreak{}cv}$^{\ddagger}$ & Sobel variation coefficient & 59.6 & 56.3 & Bl, Mo & 600 \\
+\rowcolor{rowwhite}\texttt{ke\_\allowbreak{}edge\_\allowbreak{}distribution} & Edge distribution & 63.4 & 64.3 & Bl, Mo & 600 \\
+\rowcolor{rowlight}\texttt{qaroush\_\allowbreak{}movimento}$^{\ddagger}$ & Motion & 63.5 & 61.7 & Mo & 700 \\
+\rowcolor{rowwhite}\texttt{qaroush\_\allowbreak{}entropia} & Entropy & 63.8 & 63.8 & --- & 800 \\
+\rowcolor{rowlight}\texttt{huang\_\allowbreak{}saturacao} & Saturation & 64.9 & 59.9 & St & 700 \\
+\rowcolor{rowwhite}\texttt{qaroush\_\allowbreak{}gm} & Gradient magnitude & 66.0 & 66.0 & --- & 800 \\
+\rowcolor{rowlight}\texttt{ke\_\allowbreak{}contraste} & Contrast (Ke) & 74.8 & 72.2 & Dk & 700 \\
+\rowcolor{rowwhite}\texttt{laplacian\_\allowbreak{}var} & Laplacian variance & 76.4 & 68.5 & Bl, Mo & 600 \\
+\rowcolor{rowlight}\texttt{contraste\_\allowbreak{}variancia} & Grey-level dispersion & 79.6 & 76.7 & Dk & 700 \\
+\rowcolor{rowwhite}\texttt{glcm\_\allowbreak{}contraste} & GLCM contrast & 79.9 & 77.0 & Dk & 700 \\
+\rowcolor{rowlight}\texttt{gygli\_\allowbreak{}media\_\allowbreak{}crua} & Averaged aesthetics (Gygli) & 83.8 & 67.5 & Bl, Dk, Mo, St & 400 \\
+\rowcolor{rowwhite}\texttt{hasler\_\allowbreak{}colorfulness} & Colourfulness (Hasler) & 85.2 & 83.1 & St & 700 \\
+\rowcolor{rowlight}\texttt{ke\_\allowbreak{}colorfulness} & Colourfulness (Ke) & 85.2 & 83.1 & St & 700 \\
+\rowcolor{rowwhite}\texttt{srinivas\_\allowbreak{}quality} & The mean rule (Srinivas) & 87.0 & 74.5 & Bl, Dk, Mo, St & 400 \\
+\bottomrule
+\end{tabular}
+\end{table}

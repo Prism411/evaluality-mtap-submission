@@ -1,0 +1,108 @@
+{
+ "_o_que_e": "⛔ QUEM SAO OS DEZESSETE DA COMPARACAO DA 4.2?\n\nPOR QUE EXISTE (22/09/2026, parecer v7, 2.4). O corpo dizia «8 de 17 operacoes e\ncomposites com cobertura completa ficam abaixo da implantada, mediana 66,0» e remetia\na S17 + a 4.4, onde o leitor acha 15 e 19. O revisor refez a conta com as 15 do\ninventario direcional e obteve 6 de 15 com mediana 74,8 — e pediu a populacao.\n\n⭐ A RESPOSTA: os 17 sao as 15 do inventario direcional MAIS duas operacoes que a\nregra de inclusao deixa de fora por NAO serem de quadro isolado, e ambas caem abaixo\nda implantada. Por isso a mediana desce de 74,8 para 66,0.\n⚠️ A comparacao mistura entao quadro isolado com SEQUENCIA, e isso vai escrito onde o\nnumero aparece.",
+ "implantada_pct": 65.1,
+ "n": 17,
+ "abaixo_da_implantada": 8,
+ "mediana": 66.0,
+ "fora_do_inventario_direcional": [
+  "sobel_cv",
+  "qaroush_movimento"
+ ],
+ "sem_os_extras": {
+  "n": 15,
+  "abaixo": 6,
+  "mediana": 67.5
+ },
+ "membros": [
+  {
+   "nome": "qaroush_saliencia",
+   "media": 33.5,
+   "no_inventario_direcional": true
+  },
+  {
+   "nome": "ke_hue_count",
+   "media": 39.0,
+   "no_inventario_direcional": true
+  },
+  {
+   "nome": "qaroush_go",
+   "media": 53.9,
+   "no_inventario_direcional": true
+  },
+  {
+   "nome": "sobel_cv",
+   "media": 56.3,
+   "no_inventario_direcional": false
+  },
+  {
+   "nome": "huang_saturacao",
+   "media": 59.9,
+   "no_inventario_direcional": true
+  },
+  {
+   "nome": "qaroush_movimento",
+   "media": 61.7,
+   "no_inventario_direcional": false
+  },
+  {
+   "nome": "qaroush_entropia",
+   "media": 63.8,
+   "no_inventario_direcional": true
+  },
+  {
+   "nome": "ke_edge_distribution",
+   "media": 64.3,
+   "no_inventario_direcional": true
+  },
+  {
+   "nome": "qaroush_gm",
+   "media": 66.0,
+   "no_inventario_direcional": true
+  },
+  {
+   "nome": "gygli_media_crua",
+   "media": 67.5,
+   "no_inventario_direcional": true
+  },
+  {
+   "nome": "laplacian_var",
+   "media": 68.5,
+   "no_inventario_direcional": true
+  },
+  {
+   "nome": "ke_contraste",
+   "media": 72.2,
+   "no_inventario_direcional": true
+  },
+  {
+   "nome": "srinivas_quality",
+   "media": 74.5,
+   "no_inventario_direcional": true
+  },
+  {
+   "nome": "contraste_variancia",
+   "media": 76.7,
+   "no_inventario_direcional": true
+  },
+  {
+   "nome": "glcm_contraste",
+   "media": 77.0,
+   "no_inventario_direcional": true
+  },
+  {
+   "nome": "hasler_colorfulness",
+   "media": 83.1,
+   "no_inventario_direcional": true
+  },
+  {
+   "nome": "ke_colorfulness",
+   "media": 83.1,
+   "no_inventario_direcional": true
+  }
+ ],
+ "previsoes": {
+  "1_os_dois_extras_ficam_abaixo_da_implantada": "CONFIRMADA",
+  "2_a_conferencia_do_revisor_reproduz": "PARCIAL: a CONTAGEM reproduz (6 de 15), a MEDIANA nao (67,5 aqui contra 74,8 dele)"
+ },
+ "_nota_sobre_a_divergencia": "⚠️ O revisor refez a conta pelas medias impressas na Tabela 6 e obteve mediana 74,8; aqui, sobre a MESMA coluna de onde o numero sai (media dos oito tipos na TABELA_FINAL), a mediana das 15 e 67,5. A contagem de 6 bate nos dois caminhos. ⭐ A divergencia de mediana e razao adicional para publicar a lista: com ela a conta deixa de depender de qual tabela o leitor soma."
+}

@@ -1,0 +1,63 @@
+{
+ "_o_que_e": "⛔ A FUSAO DAS FONTES PARTILHADAS, QUE OS PARES FAZEM, MUDA A APLICACAO?\n\nPOR QUE EXISTE (22/09/2026, parecer v4, ponto 2.4). Nos pares construidos o artigo funde\n`cessar_fogo_ucrania` e `ucrania` num so bloco, porque os dois rotulos partilham os tres\n`.mp4` de origem: sao 12 blocos, nao 13. ⛔ **Na aplicacao os dois continuam entrando como\ntopicos separados**, e o intervalo por bloco de topico reamostra 19 chaves.\n\n⚠️ O revisor nao afirma que o intervalo esta errado. Afirma que a MESMA dependencia,\nreconhecida numa analise, nao foi tratada na outra. Isto mede o efeito.\n\n⭐ PREVISOES, declaradas ANTES de rodar:\n  1. a fusao existe de fato na aplicacao: os dois rotulos aparecem e partilham fonte;\n  2. o veredito NAO muda — o intervalo continua do mesmo lado do acaso;\n  3. a largura muda pouco, porque e um bloco a menos em 19.\n⚠️ Se a 2 falhar, o corpo precisa do numero fundido, nao de uma nota de rodape.\n",
+ "previsoes": {
+  "1_os_dois_rotulos_estao_na_aplicacao": "CONFIRMADA",
+  "2_o_veredito_nao_muda": "CONFIRMADA",
+  "3_a_largura_muda_pouco": "CONFIRMADA"
+ },
+ "por_linha": {
+  "liqe_x_implantada": {
+   "sem_fundir": {
+    "n_blocos": 19,
+    "ic": [
+     31.8,
+     61.7
+    ]
+   },
+   "fundido": {
+    "n_blocos": 18,
+    "ic": [
+     32.4,
+     61.4
+    ]
+   },
+   "delta_largura": -0.87
+  },
+  "controle_identicas": {
+   "sem_fundir": {
+    "n_blocos": 19,
+    "ic": [
+     100.0,
+     100.0
+    ]
+   },
+   "fundido": {
+    "n_blocos": 18,
+    "ic": [
+     100.0,
+     100.0
+    ]
+   },
+   "delta_largura": 0.0
+  },
+  "controle_sorteio": {
+   "sem_fundir": {
+    "n_blocos": 19,
+    "ic": [
+     36.8,
+     63.2
+    ]
+   },
+   "fundido": {
+    "n_blocos": 18,
+    "ic": [
+     36.6,
+     64.1
+    ]
+   },
+   "delta_largura": 1.2
+  }
+ },
+ "acaso_medio_pct": 47.0,
+ "linhas_que_mudam_de_veredito": []
+}

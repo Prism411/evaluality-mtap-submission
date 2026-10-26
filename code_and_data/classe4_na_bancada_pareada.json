@@ -1,0 +1,102 @@
+{
+ "_o_que_e": "⭐⭐ A CLASSE 4 NA BANCADA PAREADA: os proxies profundos preferem o original?\n\nPOR QUE EXISTE (21/09/2026). O `classe4_proxies_profundos.json` mediu os proxies profundos\nnos eixos do dominio (piso in-domain e jusante). Falta o eixo que carrega a manchete do\nartigo: a bancada pareada de original contra copia degradada, no MESMO Desenho A das\ndezesseis operacoes ja auditadas.\n\n⚠️ MESMO DESENHO, e isso e o que torna a linha comparavel: `segmentos_avaliados()` devolve\nos MESMOS 20 segmentos e `condicoes()` gera as MESMAS 8 degradacoes em 5 niveis, pelo\nmesmo decodificador, em memoria. Acerta quem ordena o `orig` acima do degradado, na\ndirecao declarada. 20 segmentos x 5 niveis = 100 pares por tipo, 800 no total.\n\nAS DUAS OPERACOES QUE ENTRAM, e por que nao sao tres:\n\n  `deep_norma`      media das normas L2 dos vetores de feicao por quadro. Escalar\n                    ABSOLUTO, definido num quadro isolado. Direcao declarada: maior e\n                    melhor, a mesma que o artigo ja declara para o DINOv2.\n                    ⚠️ construcao NOSSA: «feature norm» tem ZERO ocorrencias nos 212 PDF\n                    do acervo, e isso vai declarado ao lado da linha.\n  `deep_coerencia`  menos a distancia media dos quadros ao centroide do proprio segmento.\n                    ABSOLUTO no conjunto de quadros. Direcao: maior e melhor, que e a\n                    leitura de reuso que este artigo audita (a fonte usa a medida para\n                    REPRESENTATIVIDADE, nao para qualidade, e e exatamente essa\n                    transposicao que esta sob teste).\n\n  ⛔ `deep_centroide` NAO ENTRA, e o motivo e de principio e nao de custo: num par os dois\n     candidatos equidistam do proprio centroide por identidade algebrica, entao ele empata\n     em 100 % dos pares, para qualquer tipo e qualquer nivel. Ja demonstrado por\n     construcao em `classe4_proxies_profundos.json`. E da mesma familia do `si`, cuja\n     fonte nao declara direcao: ausencia por propriedade do construto.\n\n⭐ PREVISOES DECLARADAS ANTES DE RODAR:\n 1. a `deep_norma` INVERTE sob ruido branco, como 13 das 15 heuristicas, porque ruido\n    aditivo aumenta a energia local e a norma do vetor de feicao segue energia;\n 2. a `deep_coerencia` tambem inverte sob ruido, e pelo motivo OPOSTO: ruido independente\n    por quadro ESPALHA os vetores, a distancia ao centroide sobe e o escore cai, logo ela\n    ACERTA no ruido. ⚠️ As duas previsoes nao podem estar as duas certas, e e de proposito:\n    se a 2 valer, a classe 4 nao falha em bloco e a conclusao fica condicional;\n 3. nenhuma das duas alcanca a acuracia media dos dez modelos NR-IQA.",
+ "desenho": "Desenho A, os mesmos 20 segmentos, 8 tipos x 5 niveis, 800 pares",
+ "extrator": "DINOv2 ViT-S/14 com registros, patch tokens, media espacial (384-d)",
+ "direcao_declarada_antes": {
+  "deep_norma": true,
+  "deep_coerencia": true
+ },
+ "⛔_fora_por_principio": {
+  "deep_centroide": "num par os dois candidatos equidistam do proprio centroide por identidade algebrica; empata em 100 % dos pares. Ausencia por propriedade do construto, como o `si`"
+ },
+ "por_operacao": {
+  "deep_norma": {
+   "direcao_maior_melhor": true,
+   "acuracia_por_tipo": [
+    33.0,
+    10.0,
+    19.0,
+    10.0,
+    19.0,
+    60.0,
+    14.0,
+    14.0
+   ],
+   "delta_medio_por_tipo": [
+    0.0224,
+    0.4842,
+    0.1172,
+    0.277,
+    0.0864,
+    -0.0317,
+    0.2505,
+    0.2693
+   ],
+   "ordem": [
+    "dark",
+    "motion",
+    "blur",
+    "h264",
+    "rescale",
+    "satur",
+    "noise",
+    "jpeg"
+   ],
+   "media": 22.4,
+   "inverte_em": [
+    "dark",
+    "motion",
+    "blur",
+    "h264",
+    "rescale",
+    "noise",
+    "jpeg"
+   ],
+   "n_pares_por_tipo": 100
+  },
+  "deep_coerencia": {
+   "direcao_maior_melhor": true,
+   "acuracia_por_tipo": [
+    62.0,
+    50.0,
+    76.0,
+    44.0,
+    77.0,
+    63.0,
+    72.0,
+    86.0
+   ],
+   "delta_medio_por_tipo": [
+    -0.0159,
+    -0.0354,
+    -0.049,
+    0.0377,
+    -0.0622,
+    -0.0577,
+    -0.1502,
+    -0.1958
+   ],
+   "ordem": [
+    "dark",
+    "motion",
+    "blur",
+    "h264",
+    "rescale",
+    "satur",
+    "noise",
+    "jpeg"
+   ],
+   "media": 66.2,
+   "inverte_em": [
+    "h264"
+   ],
+   "n_pares_por_tipo": 100
+  }
+ },
+ "previsoes_declaradas_antes": {
+  "1_deep_norma_inverte_no_ruido": true,
+  "2_deep_coerencia_NAO_inverte_no_ruido": true,
+  "_as_duas_nao_podem_ser_ambas_verdadeiras_por_acaso": "a 1 preve inversao por ENERGIA e a 2 preve acerto por DISPERSAO; se as duas valerem, a classe 4 nao falha em bloco e a conclusao do artigo fica condicional, que e o resultado mais informativo"
+ },
+ "⚠️_norma_sem_fonte": "«feature norm» tem ZERO ocorrencias nos 212 PDF do acervo: a operacao e construcao nossa e vai declarada assim"
+}

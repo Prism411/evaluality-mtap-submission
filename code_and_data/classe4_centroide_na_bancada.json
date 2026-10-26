@@ -1,0 +1,83 @@
+{
+ "_o_que_e": "A DISTANCIA AO CENTROIDE NA BANCADA PAREADA, com o par posto dentro do cluster real.\n\nPOR QUE EXISTE (27/09/2026). Na Tabela 3 do artigo do [venue] o `deep_centroide` saia como\n«identity on a pair»: com dois candidatos sozinhos, os dois equidistam do ponto medio.\nMas os 20 segmentos do Desenho A saem dos 83 dos 42 clusters, entao o par nao precisa\nestar sozinho: a copia degradada entra no cluster REAL do original, e o centroide passa a\ndecidir entre os dois. Desenho, metrica e leituras fixados ANTES em\n`PRE-REGISTRO-centroide-na-bancada.md` (commit e6ef9e3).\n\n⚠️ CONTROLE POSITIVO antes de ler o centroide: no mesmo passe se recomputam `deep_norma` e\n`deep_coerencia` de todas as condicoes, e elas tem de reproduzir\n`classe4_bancada_escores.json`. Se nao reproduzirem, o script para sem gravar o resultado.",
+ "pre_registro": "PRE-REGISTRO-centroide-na-bancada.md, commit e6ef9e3",
+ "desenho": "Desenho A: 20 segmentos x 8 tipos x 5 niveis = 800 pares",
+ "extrator": "DINOv2 ViT-S/14 com registros, patch tokens, media espacial (384-d); vetor de segmento = media dos quadros",
+ "tamanho_dos_clusters_dos_20": {
+  "[4]": 2,
+  "[2]": 14,
+  "[3]": 2,
+  "[2, 2]": 2
+ },
+ "primaria_centroide_com_todos_os_membros_mais_a_copia": {
+  "acuracia_por_tipo": [
+   56.0,
+   86.0,
+   65.0,
+   76.5,
+   70.5,
+   75.5,
+   91.0,
+   72.0
+  ],
+  "ordem": [
+   "dark",
+   "motion",
+   "blur",
+   "h264",
+   "rescale",
+   "satur",
+   "noise",
+   "jpeg"
+  ],
+  "media": 74.1,
+  "ic95_bootstrap_segmentos": [
+   67.5,
+   80.2
+  ],
+  "inverte_em": [],
+  "n_decisoes": 800,
+  "n_decisoes_por_tipo": 100,
+  "n_empates": 0,
+  "leitura": "prefere o original"
+ },
+ "sensibilidade_centroide_so_dos_outros_membros": {
+  "acuracia_por_tipo": [
+   56.0,
+   86.0,
+   65.0,
+   76.5,
+   70.5,
+   75.5,
+   91.0,
+   72.0
+  ],
+  "ordem": [
+   "dark",
+   "motion",
+   "blur",
+   "h264",
+   "rescale",
+   "satur",
+   "noise",
+   "jpeg"
+  ],
+  "media": 74.1,
+  "ic95_bootstrap_segmentos": [
+   67.5,
+   80.2
+  ],
+  "inverte_em": [],
+  "n_decisoes": 800,
+  "n_decisoes_por_tipo": 100,
+  "n_empates": 0,
+  "leitura": "prefere o original"
+ },
+ "controle_positivo": {
+  "escalares_comparados": 1640,
+  "maior_diferenca_norma_coerencia_contra_publicado": 0.0,
+  "maior_diferenca_vetor_original_contra_cache": 0.0,
+  "tolerancia": 0.001,
+  "passou": true
+ }
+}

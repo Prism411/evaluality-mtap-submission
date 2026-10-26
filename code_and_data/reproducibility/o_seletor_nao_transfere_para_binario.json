@@ -1,0 +1,29 @@
+{
+ "_o_que_e": "🔴 O SELETOR DE QUADRO-CHAVE DO IMPLANTADO NAO TRANSFERE PARA DESCRITOR BINARIO.\n\nPOR QUE EXISTE (21/09/2026). Pondo o ORB na ablacao de descritores, a rodada ficou lenta\ndemais para o custo esperado. Investigando, a causa nao era volume: era que o filtro de\nquadro-chave DEGENERA.\n\n⛔ E O MECANISMO NAO E O QUE EU SUPUS NA PRIMEIRA LEITURA. Eu tinha escrito que o limiar\nabsoluto de 0,95 sobre produto escalar «passa a valer sempre» com `uint8`. Isso e verdade\nmas NAO e a causa: o que decide e o `is_keyframe`, que exige\n`num_matches < 0.1 * descriptor_size`, e os DOIS lados andam na direcao errada ao mesmo\ntempo. Medido em 28 quadros consecutivos do corpus:\n\n    SIFT: 692 casamentos contra limiar  85,3  ->  692 > 85,3  -> NAO e keyframe ->  1 de 28\n    ORB :  75 casamentos contra limiar 318,9  ->   75 < 318,9 ->  E  keyframe    -> 28 de 28\n\nO ORB casa MENOS entre quadros vizinhos (75 contra 692) e ao mesmo tempo tem MAIS\ndescritores, o que SOBE o limiar (318,9 contra 85,3). Cada quadro parece novo.\n\n⛔ CONSEQUENCIA PARA A ABLACAO: comparar SIFT com ORB nesse caminho NAO e «so o extrator\nmudou». A diferenca de contagem de descritores vem do FILTRO, que e o estagio ANTERIOR ao\nescore. Rodar assim e reportar acuracia seria publicar um numero cujo eixo esta quebrado.\n\n⭐ ESTE E O RESULTADO, e ele responde ao pedido do orientador melhor que um numero: a\noperacao da classe 2 NAO e plugavel por troca de descritor quando o descritor e binario,\nporque o estagio anterior a ela depende da ESCALA do descritor.\n\n⚠️ O QUE ISTO NAO DIZ: nada sobre as 19 CNNs. Elas tambem passam por este filtro, e se\ndegeneram do mesmo jeito isso e propriedade PRE-EXISTENTE da ablacao publicada, nao do ORB.\nFica declarado como pergunta aberta, nao respondida aqui.",
+ "limiar_absoluto_do_num_matches": 0.95,
+ "por_extrator": [
+  {
+   "extrator": "SIFT (float32, 128-D)",
+   "quadros": 28,
+   "viram_keyframe": 1,
+   "descritores_totais": 853,
+   "produto_escalar_tipico": 261884.0,
+   "num_matches_mediano": 692,
+   "limiar_de_is_keyframe": 85.3,
+   "segundos": 1.9
+  },
+  {
+   "extrator": "ORB (uint8, 32-B)",
+   "quadros": 28,
+   "viram_keyframe": 28,
+   "descritores_totais": 92144,
+   "produto_escalar_tipico": 797039.0,
+   "num_matches_mediano": 75,
+   "limiar_de_is_keyframe": 318.9,
+   "segundos": 33.7
+  }
+ ],
+ "razao_de_descritores": 108.0,
+ "⚠️_o_que_isto_NAO_diz": "nada sobre as 19 CNNs: elas passam pelo mesmo filtro e se degeneram igual isso e propriedade pre-existente da ablacao publicada. Pergunta aberta, nao respondida aqui.",
+ "⭐_leitura": "SIFT (float32, 128-D) seleciona 1 de 28 quadros e ORB (uint8, 32-B) seleciona 28 de 28: o filtro degenera e a contagem de descritores difere por 108.0x, pelo ESTAGIO ANTERIOR e nao pelo descritor. A ablacao por troca de extrator nao tem eixo limpo para descritor binario sem recalibrar esse estagio."
+}

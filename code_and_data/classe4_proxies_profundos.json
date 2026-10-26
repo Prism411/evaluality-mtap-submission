@@ -1,0 +1,116 @@
+{
+ "_o_que_e": "⭐⭐ A CLASSE 4 DO [CO-AUTHOR], INSTANCIADA: proxies profundos de representatividade.\n\nPOR QUE EXISTE (21/09/2026). O e-mail do [co-author] nomeia quatro classes de metodo de\nqualidade visual e pede um representante de cada uma no testbed. A varredura do acervo\n(`classes_contra_o_testbed.json`) mostrou que as classes 1, 2 e 3 estao cobertas e a\nclasse 4 esta VAZIA: o DINOv2 e o ResNet-50 existem no artigo com papel de CONTROLE\nDIAGNOSTICO, fora das dezesseis auditadas e fora da triagem.\n\n⭐⭐ E A VARREDURA TROUXE UMA CORRECAO QUE MUDA O ENQUADRAMENTO DOS DOIS REPRESENTANTES:\n\n  `norma do vetor de feicoes`  -> ZERO ocorrencias em 212 PDF do acervo\n  `distancia ao centroide`     -> 22 dos 86 sumarizadores\n\n⛔ Ou seja, o representante da classe 4 que o nosso codigo ja tinha (a norma, em DINOv2 e\nResNet-50) NAO corresponde a nenhum uso declarado na literatura varrida. Ele e construcao\nNOSSA, e vai declarado como tal, no mesmo padrao com que o artigo ja declara que a media\ndo Gygli e escolha da implementacao. Quem tem lastro e a distancia ao centroide.\n\nAS TRES OPERACOES MEDIDAS AQUI, sobre feicoes DINOv2 ViT-S/14 (patch tokens, media\nespacial), que e o mesmo extrator ja usado no artigo:\n\n  `deep_norma`      media das normas L2 por quadro. ABSOLUTA, definida em qualquer eixo.\n                    ⚠️ construcao nossa, sem fonte no acervo.\n  `deep_coerencia`  menos a distancia media dos quadros ao centroide DO PROPRIO SEGMENTO.\n                    ABSOLUTA, definida em qualquer eixo. E a leitura de «quadro\n                    representativo do proprio plano», que e como a extracao de\n                    quadro-chave por k-means pontua.\n  `deep_centroide`  menos a distancia do segmento ao centroide DO CLUSTER. RELATIVA ao\n                    conjunto de candidatos. E o proxy que o e-mail nomeia e que 22\n                    trabalhos usam.\n\n⛔⛔ E UM RESULTADO QUE NAO PRECISA DE RODADA, porque sai da definicao:\n    O `deep_centroide` E INDEFINIDO NUM PAR. Com dois candidatos, o centroide e o ponto\n    medio e OS DOIS ESTAO A MESMA DISTANCIA DELE, exatamente. Logo, na bancada pareada de\n    original contra copia degradada, ele empata em 100 % dos pares, para qualquer\n    degradacao e qualquer nivel. Isto e demonstrado por construcao neste script, e nao\n    medido, porque medir uma identidade algebrica seria teatro.\n\n⭐ A CONSEQUENCIA E A PARTE INTERESSANTE, e ela serve a conclusao sistemica: o proxy mais\nusado da classe 4 NAO E UMA MEDIDA DE QUALIDADE. Ele nao tem escala absoluta; so ordena\ncandidatos entre si. Perguntar se ele responde a degradacao e uma pergunta mal posta, e a\nausencia dele na bancada pareada e motivo de PRINCIPIO, da mesma familia do `si`, cuja\nfonte nao declara direcao.\n\nPREVISOES DECLARADAS ANTES DE RODAR:\n 1. o `deep_centroide` empata em 42 de 42 clusters quando o cluster tem 2 membros, e so\n    decide quando tem 3 ou mais;\n 2. o `deep_norma` fica abaixo do limiar do piso in-domain, como as heuristicas;\n 3. as tres operacoes discordam entre si a jusante em mais de um terco dos clusters, o\n    que mostraria que «proxy profundo» nao nomeia UMA operacao.",
+ "extrator": "DINOv2 ViT-S/14 com registros, patch tokens, media espacial (384-d)",
+ "n_clusters": 42,
+ "n_segmentos_com_feicao": 83,
+ "tamanho_dos_clusters": {
+  "2": 36,
+  "4": 3,
+  "3": 3
+ },
+ "⛔_centroide_indefinido_num_par": {
+  "n_pares_testados": 1000,
+  "maior_diferenca_de_distancia": 3.552713678800501e-15,
+  "e_identidade": true,
+  "prova": "com dois pontos, c = (a+b)/2 e |a-c| = |b-c| = |a-b|/2"
+ },
+ "jusante_contra_o_sift_implantado": {
+  "deep_norma": {
+   "concorda": 10,
+   "n": 42,
+   "de_clusters": 42,
+   "pct": 23.8,
+   "muda_o_resumo_pct": 76.2,
+   "⚠️_nao_decide_em": 0
+  },
+  "deep_coerencia": {
+   "concorda": 25,
+   "n": 42,
+   "de_clusters": 42,
+   "pct": 59.5,
+   "muda_o_resumo_pct": 40.5,
+   "⚠️_nao_decide_em": 0
+  },
+  "deep_centroide": {
+   "concorda": 1,
+   "n": 6,
+   "de_clusters": 42,
+   "pct": 16.7,
+   "muda_o_resumo_pct": 83.3,
+   "⚠️_nao_decide_em": 36
+  }
+ },
+ "piso_in_domain": {
+  "deep_norma": {
+   "kappa": -0.2584,
+   "ic_inferior": -0.5167,
+   "passa": false,
+   "n": 42
+  },
+  "deep_coerencia": {
+   "kappa": 0.3258,
+   "ic_inferior": 0.0539,
+   "passa": true,
+   "n": 42
+  },
+  "deep_centroide": {
+   "kappa": null,
+   "ic_inferior": null,
+   "passa": null,
+   "n": 6,
+   "⛔": "menos de 10 clusters com decisao: o piso nao e computavel"
+  }
+ },
+ "em_que_eixos_e_definivel": {
+  "deep_norma": {
+   "bancada_pareada": true,
+   "kadid_sensibilidade": true,
+   "generalizacao": true,
+   "piso_in_domain": true,
+   "jusante": true,
+   "motivo": "escalar absoluto por quadro; definida em toda parte"
+  },
+  "deep_coerencia": {
+   "bancada_pareada": true,
+   "kadid_sensibilidade": false,
+   "generalizacao": false,
+   "piso_in_domain": true,
+   "jusante": true,
+   "motivo": "precisa de MULTIPLOS QUADROS. KADID, KonIQ e LIVE pontuam IMAGEM ISOLADA, entao o eixo externo nao existe para ela. Motivo de principio, nao de implementacao"
+  },
+  "deep_centroide": {
+   "bancada_pareada": false,
+   "kadid_sensibilidade": false,
+   "generalizacao": false,
+   "piso_in_domain": true,
+   "jusante": true,
+   "motivo": "precisa de um CONJUNTO DE CANDIDATOS. Num par os dois equidistam do centroide por identidade; numa imagem isolada nao ha conjunto. So decide com tres ou mais candidatos"
+  }
+ },
+ "⭐⭐_o_achado_da_classe_4": "dois dos tres proxies profundos NAO SAO AVALIAVEIS nas bancadas externas de qualidade, e o motivo e de construcao e nao de implementacao: KADID, KonIQ e LIVE pontuam IMAGEM ISOLADA, enquanto a coerencia precisa de varios quadros e o centroide precisa de um conjunto de candidatos. ⭐ O unico da classe que atravessa todos os eixos e a NORMA DO VETOR, que e justamente o que NAO tem nenhuma ocorrencia na literatura varrida. Ou seja: a classe que o campo mais adota e, em boa parte, a que nao se deixa avaliar como medida de qualidade",
+ "as_tres_concordam_entre_si": {
+  "deep_norma x deep_coerencia": {
+   "iguais": 9,
+   "de": 42,
+   "pct": 21.4
+  },
+  "deep_norma x deep_centroide": {
+   "iguais": 1,
+   "de": 6,
+   "pct": 16.7
+  },
+  "deep_coerencia x deep_centroide": {
+   "iguais": 1,
+   "de": 6,
+   "pct": 16.7
+  }
+ },
+ "previsoes_declaradas_antes": {
+  "1_centroide_e_identidade_num_par": true,
+  "2_deep_norma_abaixo_do_limiar_do_piso": null,
+  "3_as_tres_discordam_em_mais_de_um_terco": true
+ },
+ "⚠️_norma_sem_fonte": "«feature norm» tem ZERO ocorrencias nos 212 PDF do acervo; a operacao e construcao nossa e vai declarada assim",
+ "⚠️_centroide_com_lastro": "22 dos 86 sumarizadores do acervo",
+ "⛔_o_numero_que_eu_quase_publiquei": "o `deep_centroide` rendia 20 de 42 (47,6 por cento), colado no piso do acaso (47,0), e parecia medicao. Era artefato: 36 dos 42 clusters tem DOIS membros, os dois equidistam do centroide por identidade algebrica, e o desempate saia da ORDEM DE INSERCAO do dicionario. Restrito aos clusters em que ele DECIDE, o n cai para 6. ⭐ E o piso do acaso proximo nao era coincidencia: escolher pela ordem da lista E escolher ao acaso, entao o numero media o piso e nao a operacao."
+}

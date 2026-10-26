@@ -1,0 +1,256 @@
+{
+ "_o_que_e": "O PISO NO DOMINIO, NAS DUAS FAMILIAS, na mesma conta.\n\nJunta `piso_no_dominio_das_15.json` (operacoes) com `piso_dos_modelos.json`\n(modelos) e aplica a mesma aritmetica do artigo:\n\n  p_e = |C|^-1 * soma_c (1/k_c)\n  kappa_uniform = (p_o - p_e) / (1 - p_e)\n  passa se kappa > 0 E o limite inferior do bootstrap por bloco de topico > 0\n\n⛔ A referencia e o LIQE e nao o Q-Align, e o LIQE NAO entra como candidato.\n",
+ "referencia": "liqe (substituto declarado do q-align)",
+ "n_clusters": 42,
+ "n_topicos": 19,
+ "B": 10000,
+ "semente": 42,
+ "unidade_de_reamostragem": "bloco de topico",
+ "por_metodo": {
+  "contraste_variancia": {
+   "familia": "operacao",
+   "concordancia_bruta": 0.5238,
+   "kappa_uniform": 0.1011,
+   "ic95": [
+    -0.1523,
+    0.3832
+   ],
+   "PASSA": false,
+   "n_clusters": 42
+  },
+  "hasler_colorfulness": {
+   "familia": "operacao",
+   "concordancia_bruta": 0.619,
+   "kappa_uniform": 0.2809,
+   "ic95": [
+    0.0143,
+    0.5368
+   ],
+   "PASSA": true,
+   "n_clusters": 42
+  },
+  "huang_saturacao": {
+   "familia": "operacao",
+   "concordancia_bruta": 0.4524,
+   "kappa_uniform": -0.0337,
+   "ic95": [
+    -0.3333,
+    0.2716
+   ],
+   "PASSA": false,
+   "n_clusters": 42
+  },
+  "ke_colorfulness": {
+   "familia": "operacao",
+   "concordancia_bruta": 0.619,
+   "kappa_uniform": 0.2809,
+   "ic95": [
+    0.0222,
+    0.5368
+   ],
+   "PASSA": true,
+   "n_clusters": 42
+  },
+  "ke_contraste": {
+   "familia": "operacao",
+   "concordancia_bruta": 0.6667,
+   "kappa_uniform": 0.3708,
+   "ic95": [
+    0.1095,
+    0.6276
+   ],
+   "PASSA": true,
+   "n_clusters": 42
+  },
+  "ke_edge_distribution": {
+   "familia": "operacao",
+   "concordancia_bruta": 0.3333,
+   "kappa_uniform": -0.2584,
+   "ic95": [
+    -0.4852,
+    -0.0337
+   ],
+   "PASSA": false,
+   "n_clusters": 42
+  },
+  "ke_hue_count": {
+   "familia": "operacao",
+   "concordancia_bruta": 0.3571,
+   "kappa_uniform": -0.2135,
+   "ic95": [
+    -0.4644,
+    0.0504
+   ],
+   "PASSA": false,
+   "n_clusters": 42
+  },
+  "laplacian_var": {
+   "familia": "operacao",
+   "concordancia_bruta": 0.7619,
+   "kappa_uniform": 0.5506,
+   "ic95": [
+    0.3333,
+    0.7619
+   ],
+   "PASSA": true,
+   "n_clusters": 42
+  },
+  "sobel_cv": {
+   "familia": "operacao",
+   "concordancia_bruta": 0.6429,
+   "kappa_uniform": 0.3258,
+   "ic95": [
+    0.0491,
+    0.589
+   ],
+   "PASSA": true,
+   "n_clusters": 42
+  },
+  "srinivas_quality": {
+   "familia": "operacao",
+   "concordancia_bruta": 0.6905,
+   "kappa_uniform": 0.4157,
+   "ic95": [
+    0.1549,
+    0.6701
+   ],
+   "PASSA": true,
+   "n_clusters": 42
+  },
+  "si": {
+   "familia": "operacao",
+   "concordancia_bruta": 0.7381,
+   "kappa_uniform": 0.5056,
+   "ic95": [
+    0.2809,
+    0.7165
+   ],
+   "PASSA": true,
+   "n_clusters": 42
+  },
+  "topiq_nr": {
+   "familia": "NR-IQA",
+   "concordancia_bruta": 0.881,
+   "kappa_uniform": 0.7753,
+   "ic95": [
+    0.6129,
+    0.9167
+   ],
+   "PASSA": true,
+   "n_clusters": 42
+  },
+  "musiq": {
+   "familia": "NR-IQA",
+   "concordancia_bruta": 0.8571,
+   "kappa_uniform": 0.7303,
+   "ic95": [
+    0.5404,
+    0.9084
+   ],
+   "PASSA": true,
+   "n_clusters": 42
+  },
+  "qualiclip": {
+   "familia": "NR-IQA",
+   "concordancia_bruta": 0.8571,
+   "kappa_uniform": 0.7303,
+   "ic95": [
+    0.5541,
+    0.904
+   ],
+   "PASSA": true,
+   "n_clusters": 42
+  },
+  "clipiqa+": {
+   "familia": "NR-IQA",
+   "concordancia_bruta": 0.6667,
+   "kappa_uniform": 0.3708,
+   "ic95": [
+    0.1148,
+    0.5987
+   ],
+   "PASSA": true,
+   "n_clusters": 42
+  },
+  "dbcnn": {
+   "familia": "NR-IQA",
+   "concordancia_bruta": 0.8571,
+   "kappa_uniform": 0.7303,
+   "ic95": [
+    0.542,
+    0.9055
+   ],
+   "PASSA": true,
+   "n_clusters": 42
+  },
+  "hyperiqa": {
+   "familia": "NR-IQA",
+   "concordancia_bruta": 0.8571,
+   "kappa_uniform": 0.7303,
+   "ic95": [
+    0.4844,
+    0.9178
+   ],
+   "PASSA": true,
+   "n_clusters": 42
+  },
+  "niqe": {
+   "familia": "NR-IQA",
+   "concordancia_bruta": 0.6905,
+   "kappa_uniform": 0.4157,
+   "ic95": [
+    0.1618,
+    0.6732
+   ],
+   "PASSA": true,
+   "n_clusters": 42
+  },
+  "brisque": {
+   "familia": "NR-IQA",
+   "concordancia_bruta": 0.8333,
+   "kappa_uniform": 0.6854,
+   "ic95": [
+    0.4507,
+    0.8804
+   ],
+   "PASSA": true,
+   "n_clusters": 42
+  },
+  "arniqa": {
+   "familia": "NR-IQA",
+   "concordancia_bruta": 0.7857,
+   "kappa_uniform": 0.5955,
+   "ic95": [
+    0.313,
+    0.8577
+   ],
+   "PASSA": true,
+   "n_clusters": 42
+  },
+  "clipiqa": {
+   "familia": "NR-IQA",
+   "concordancia_bruta": 0.8095,
+   "kappa_uniform": 0.6404,
+   "ic95": [
+    0.4187,
+    0.8519
+   ],
+   "PASSA": true,
+   "n_clusters": 42
+  }
+ },
+ "resumo": {
+  "operacao": {
+   "n": 11,
+   "passam": 7,
+   "kappa_mediano": 0.2809,
+   "kappa_maximo": 0.5506
+  },
+  "NR-IQA": {
+   "n": 10,
+   "passam": 10,
+   "kappa_mediano": 0.7078,
+   "kappa_maximo": 0.7753
+  }
+ }
+}

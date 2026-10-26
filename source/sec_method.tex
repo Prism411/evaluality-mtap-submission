@@ -1,0 +1,207 @@
+\section{Audit design}\label{sec:method}
+
+%% ⛔ PROSA SUBSTITUIDA em 22/09/2026 pela reescrita do parecer v3 (2774 -> ~1900 palavras).
+%% ⚠️ A conversao dos numeros foi feita UMA A UMA, nao por casamento de valor: o casamento
+%% automatico trocou «10,125» por «\reiRuido{},125» e «19 of 21 topics» por «\taxNenhuma{}».
+%% ⛔ E um numero da prosa dela estava ERRADO: «Of 30 uncovered mentions, fourteen ... and
+%% eleven ...» soma 25, nao 30. A nossa formulacao (25 de 30 careciam de UMA das duas) e a
+%% que volta. A Figura 1, a Tabela 2 e as duas equacoes sao os nossos ambientes originais.
+
+The study combines provenance analysis with four complementary tests: controlled degradation, external opinion-score evaluation, mechanistic diagnosis and representative-selection sensitivity (Figure~\ref{fig:overview}). The main scalar inventory contains \fontesDaLiteratura{} directionally specified operations catalogued from \fontesTrabalhos{} source works, plus the International Telecommunication Union's spatial-information index, which has no quality polarity and is excluded from directional screening. To these are added \invModelos{} dedicated NR-IQA models, which form the complete-case comparator set.
+
+Three other sets have distinct purposes. The \resCombinacoes{} attribute configurations test combinations of the implemented statistics; \disOps{} scoring implementations, the \jusAuditadas{} audited operations and \jusSoJusante{} further terms that enter only this comparison (Figure~\ref{fig:menu}), support the application-stage comparison; and the SIFT+BoVW operation supports an internal decomposition. That score is not one of the \fontesOperacoes{} and is screened by the same rule. These sets overlap, and Table~S18 gives the coverage of each analysis for the \fontesOperacoes{} audited operations.
+
+Eligibility is a study-defined screening rule that combines response to synthetic degradation, association with human opinion on unseen databases, and above-chance agreement with a designated model in the broadcast domain; the first two are the external conditions.
+
+\begin{figure}[!ht]
+\centering
+\resizebox{0.86\textwidth}{!}{%
+\begin{tikzpicture}[
+  stage/.style={rectangle,rounded corners=2.2pt,minimum height=.68cm,
+    text width=2.05cm,align=center,font=\sffamily\scriptsize,
+    draw=rulegray!85,fill=gray!5,line width=.55pt,inner xsep=3pt},
+  focus/.style={stage,draw=focoauditado,fill=focoauditado!10,line width=1.15pt,
+    font=\sffamily\bfseries\scriptsize},
+  operation/.style={rectangle,rounded corners=3pt,minimum height=.78cm,
+    text width=11.55cm,align=center,font=\sffamily\scriptsize,
+    draw=focoauditado,fill=focoauditado!6,line width=.9pt,inner ysep=4pt},
+  %% ⚠️ altura FIXA nas quatro: a caixa 02 tem tres linhas de corpo e as
+  %% outras duas. Como o no cresce em torno do centro, a 02 subia mais que as
+  %% vizinhas e encostava na tarja «FOUR COMPLEMENTARY TESTS».
+  audit/.style={rectangle,rounded corners=2.5pt,minimum height=1.42cm,
+    text width=5.62cm,align=left,font=\sffamily\scriptsize,
+    draw=rulegray!90,fill=gray!3,line width=.65pt,inner xsep=7pt,inner ysep=5pt},
+  evidencehead/.style={rectangle,rounded corners=5pt,minimum height=.38cm,
+    font=\sffamily\bfseries\tiny,text=white,fill=headerblue,draw=headerblue,
+    inner xsep=9pt,inner ysep=2.5pt},
+  flow/.style={-{Stealth[length=4.8pt,width=4.2pt]},line width=.65pt,
+    draw=rulegray!95,shorten <=1pt,shorten >=1pt},
+  focusflow/.style={-{Stealth[length=5.2pt,width=4.6pt]},line width=.9pt,
+    draw=focoauditado,shorten <=1pt,shorten >=1pt}]
+
+\node[font=\sffamily\bfseries\tiny,text=headerblue,anchor=west]
+  at (-6.15,5.50) {THE TESTBED\enspace\textcolor{black!45}{a pipeline whose
+  content-selection criteria are explicit}};
+\node[stage] (a) at (-5.10,4.92) {Introductory\\passages};
+\node[stage] (b) at (-2.55,4.92) {Subjectivity\\filtering};
+\node[stage] (c) at (0,4.92) {Redundancy\\detection};
+\node[focus] (d) at (2.55,4.92) {Quality\\criterion};
+\node[stage] (e) at (5.10,4.92) {Chronological\\ordering};
+\draw[flow] (a.east)--(b.west);
+\draw[flow] (b.east)--(c.west);
+\draw[flow] (c.east)--(d.west);
+\draw[flow] (d.east)--(e.west);
+
+\node[operation] (op) at (0,3.45)
+  {\textcolor{focoauditado}{\textbf{WHAT IS AUDITED}}\enspace scoring methods evaluated for the
+   quality criterion\\[1pt]
+   \textbf{15} from \textbf{11} source works, \textbf{+1} from ITU-T, plus the \textbf{19} attribute configurations and \textbf{10} dedicated quality models\\[1pt]
+   \textcolor{black!55}{\itshape source-derived scalar operations, dedicated quality models
+   and separate diagnostic controls; not every group receives every test}};
+\draw[focusflow] (d.south)--(d.south |- op.north);
+
+%% ⛔ 27/09: a tarja ficava em 2,18 e a borda da caixa 01/02 chegava a 1,94:
+%% ela sentava EM CIMA da moldura. ⚠️ Nenhuma guarda pega, porque o que se
+%% sobrepoe e um traco, nao uma palavra, e `sobrepostos` mede caixas de PALAVRA.
+%% ⚠️ 28/09 (cli-3): as caixas tem 5,62 cm + 2x7 pt de margem = ~6,1 cm e estavam a
+%% +-2,98 cm: 01/02 e 03/04 se invadiam no meio. Afastadas para +-3,12. A guarda de
+%% sobreposicao nao pega, porque mede caixas de PALAVRA e o que encostava era o traco.
+\node[evidencehead] (eh) at (0,2.30) {FOUR COMPLEMENTARY TESTS};
+
+\node[audit] (m) at (-3.12,1.16)
+  {\textcolor{headerblue}{\textbf{01\enspace Constructed truth}}\\[2pt]
+   20 segments, 800 paired decisions;\\the untransformed \mbox{member} is the reference.};
+\node[audit] (x) at (3.12,1.16)
+  {\textcolor{headerblue}{\textbf{02\enspace External validation}}\\[2pt]
+   % ⛔ esta linha quebrava em DUAS no box de 5,25cm e o no crescia para quatro linhas:
+   % como o `audit` cresce em torno do centro, ele cobria a tarja acima e o box 04 abaixo.
+   % So apareceu ao RENDERIZAR a pagina; o LaTeX nao reclama de no sobreposto.
+   KADID-10k, KonIQ-10k, LIVE In the Wild (CLIVE);\\human scores and degradation levels.};
+\node[audit] (g) at (-3.12,-.38)
+  {\textcolor{headerblue}{\textbf{03\enspace Mechanism}}\\[2pt]
+   Count $\times$ mean IDF weight;\\19 CNN extractors in place of SIFT.};
+\node[audit] (p) at (3.12,-.38)
+  {\textcolor{headerblue}{\textbf{04\enspace Decision sensitivity}}\\[2pt]
+   42 clusters; how far the choice\\of operation moves selections.};
+\end{tikzpicture}}
+\caption{Scope and evidence flow. \textbf{Top}: the content-selection criteria of a
+segment-based multi-video summarizer, with the quality criterion as the one under study.
+\textbf{Middle}: the scoring methods audited as implementations of that criterion, from the provenance audit. \textbf{Bottom}: the four tests.
+Each test reaches a different subset of the audited operations, recorded in Table~S18. All other pipeline stages are held fixed (Section~\ref{sec:data}).}
+\label{fig:overview}
+\end{figure}
+
+\subsection{Identifying the operations, and reproducing the published rules}\label{sec:prov}
+
+The experimental inventory was selected before the principal scoring runs from operations associated with visual selection in the cited literature. Inclusion required an isolated-frame statistic and a declared direction for that statistic. Graph-based multi-video methods such as MvsGCN~\citep{wu2020mvsgcn} score frames through learned representations and name no quality statistic that can be isolated per frame, so they fall outside this rule. Table~S17 lists the operations that meet it, reimplemented from their sources. The inventory therefore holds three kinds of row: expressions the source specifies, implementations adapted at the input or the normalization, and \emph{combinations aggregated here} from attributes a source names without stating how it combines them. The last kind enters because each attribute it averages satisfies the rule on its own; the aggregation is ours and is marked as such in Table~S22.  The coverage accounting for the archive sweep, the search patterns and the limits of that instrument are recorded in Table~S30.
+
+Table~S16 states the objective and role recorded for each source, and the verbatim excerpt that fixes the validation evidence is in Tables~S24 and~S25. Standalone ordering is distinguished from classifier features, terms within a larger objective and threshold-based filtering. Validation evidence is coded by its object, attribute, module or summary, and reference, such as human ratings, summary evaluation or ablation. All \fontesTrabalhos{} source works were read in full.
+
+Implementations reproduce the specified expression where its inputs are available; task and interface adaptations are recorded separately in Table~S22. In particular, saliency area uses a spectral-residual map ~\citep{hou2007spectral} rather than the source's learned map; the rule of Ref.~\citep{korolkov2025keyframe} uses normalization over the benchmark candidates, including original and transformed members; and the comparator of Ref.~\citep{ke2006highlevel} is a Gaussian naive Bayes classifier trained on constructed-degradation labels with leave-one-segment-out validation. These variants evaluate adapted components.
+
+Polarity is attached to the actual quantity extracted. In Ref.~\citep{jeong2016static}, raw pixel variance is transformed into a badness penalty before entering a minimized cost. The present statistic is the grey-level dispersion, implemented as the standard deviation rather than the variance the source states. That source names three badness terms, contrast, blur and skew, inside one multiplicative cost, and only the contrast term is audited here: the other two are not separable from the published expression as isolated-frame statistics, which is the same inclusion rule that admits the contrast term. A second polarity ambiguity appears in Ref.~\citep{xu2024property}, which states that all five entity scores are normalized to $[0,1]$ with higher meaning better while using BRISQUE, whose published direction is lower-is-better, without stating an inversion; the direction evaluated here is the one the scorer itself declares. 
+
+\subsection{Data and units of analysis}\label{sec:data}
+
+KADID-10k contains 10,125 distorted images generated from 81 references, 25 distortion types and five levels ~\citep{lin2019kadid}. Its released opinion-score field is named `dmos` but increases with quality. KonIQ-10k and LIVE In the Wild, also denoted CLIVE, supply authentic distortions and Mean Opinion Scores (MOS) ~\citep{ghadiyaram2016clive,hosu2020koniq}. No dedicated NR-IQA model is retrained or fine-tuned. The fitted combination variants are identified separately.
+
+HSMVideoSumm provides the modular broadcast-news testbed ~\citep{barbieri2021tese,barbieri2021content,moraes2024hsmvideosumm}. Its visual-word operation is one of the audited works of this study: the source proposes scoring a segment by the sum of TF-IDF weights over a $K=300$ visual-word vocabulary~\citep{barbieri2021tese}, and the released code is the implementation these measurements run~\citep{moraes2024hsmvideosumm}. \textbf{It was chosen because it is modular, open and documented at the stage this audit targets}: the quality criterion is a replaceable component, so an operation can be swapped without touching the rest of the pipeline, which is what the substitution analyses require. It was also developed in our laboratory, which gave access to the released code and to the corpus it runs on. That source defines the criterion of the stage audited here as whether a segment \emph{contains images of interest}, a relevance criterion, and the same study reports that aesthetic quality was not relevant to its participants. We reuse its modular pipeline to evaluate a separate requirement, technical fidelity, defined in this audit. Original redundancy groups and the remaining pipeline stages are retained.
+
+The application uses the \disClusters{} multi-member clusters produced by the redundancy stage over 19 of the 21 topics, containing 93 segment slots and 83 distinct segments. Some segments occupy more than one cluster. Still-image scorers ordinarily receive frames sampled at one frame per second and use the segment mean
+\begin{equation}
+S(s)=\frac{1}{n_s}\sum_{i=1}^{n_s}\phi(f_i),
+\label{eq:meanpool}
+\end{equation}
+where $\phi(f_i)$ is the frame score. The SIFT+BoVW counting operation instead uses its own keyframe selector and a vocabulary of $K=300$ visual words.
+
+Each implementation ranks candidates within a fixed cluster and selects the highest-ranked candidate after polarity alignment. The two treatments are reported separately and distinguish the effects of implementation and scoring. The complete-implementation comparison preserves each operation's own sampling and aggregation. The matched-input control supplies both scorers with the same, at most ten, uniformly spaced frames and mean pooling. Only the matched-input control isolates scoring under a common input regime.
+
+The independent unit follows the analysis: KADID reference image for synthetic-distortion sensitivity; source-aware topic block for the primary constructed-pair inference; and news topic for application inference. Segment-block and hierarchical alternatives quantify sensitivity to dependence assumptions. Individual frames, transformations and overlapping segment slots are not treated as independent replicates.
+
+\subsection{Scorers, references and polarity}\label{sec:methods}
+
+The complete-case comparator set contains \invModelos{} no-reference image quality assessment (NR-IQA) models: BRISQUE, NIQE, DBCNN, HyperIQA, MUSIQ, TOPIQ, CLIP-IQA, CLIP-IQA$+$, LIQE and QualiCLIP. ARNIQA and TReS extend completed axes but do not enter complete-case screening ~\citep{agnolucci2024arniqa,golestaneh2022tres}; MANIQA was incomplete at the scoring freeze ~\citep{yang2022maniqa}. Released checkpoint, supervision, preprocessing and decision polarity identify the evaluated configuration in Table~\ref{tab:methods}.
+
+%% ⭐ 28/09 (parecer): a coluna das bases nao vistas repetia a mesma string em 12 linhas e e derivavel
+%% do treino; «Role» era C em 12 de 13. A regra das nao vistas vai UMA vez na legenda, e as
+%% faixas separam candidato, referencia e cobertura parcial, que antes dividiam um bloco.
+\begin{table}[!tbp]
+\centering
+\caption{No-reference comparators and reference. \emph{Opinion training}: the database
+whose human scores trained the released checkpoint; \emph{none} marks opinion-unaware
+models. The transfer condition is tested on every evaluated database (KADID-10k,
+KonIQ-10k, LIVE In the Wild) absent from that training; the LIVE database of the BRISQUE
+checkpoint is not among them, so all three are unseen for it. \emph{Pol.}: declared polarity,
+fixed before evaluation; \polup{}, a higher score means better quality; \poldown{}, a lower
+score means better quality. Constructs, released weights, endpoints and preprocessing, with the diagnostic
+controls and the 19-extractor ablation, are in Table~S12.}
+\label{tab:methods}
+\small
+\renewcommand{\arraystretch}{1.1}
+\begin{tabular}{@{}p{3.4cm}p{6.2cm}c@{}}
+\toprule
+\rowcolor{headerblue}
+\hd{Method} & \hd{Opinion training} & \hd{Pol.} \\
+\midrule
+\multicolumn{3}{@{}l}{\emph{Candidates, opinion-unaware}}\\[1pt]
+NIQE & none & \poldown \\
+\rowcolor{rowlight}CLIP-IQA & none & \polup \\
+QualiCLIP & none & \polup \\
+\addlinespace[3pt]
+\multicolumn{3}{@{}l}{\emph{Candidates, opinion-trained}}\\[1pt]
+BRISQUE & LIVE~\citep{sheikh2006live} & \poldown \\
+\rowcolor{rowlight}DBCNN & KonIQ-10k & \polup \\
+HyperIQA & KonIQ-10k & \polup \\
+\rowcolor{rowlight}MUSIQ & KonIQ-10k & \polup \\
+TOPIQ & KonIQ-10k & \polup \\
+\rowcolor{rowlight}CLIP-IQA$+$ & KonIQ-10k & \polup \\
+LIQE & KonIQ-10k & \polup \\
+\addlinespace[3pt]
+\multicolumn{3}{@{}l}{\emph{Reference}}\\[1pt]
+Q-Align & multiple databases & \polup \\
+\addlinespace[3pt]
+\multicolumn{3}{@{}l}{\emph{Partial coverage, outside screening}}\\[1pt]
+ARNIQA & KonIQ-10k & \polup \\
+\rowcolor{rowlight}TReS & KonIQ-10k & \polup \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Diagnostic controls include keypoint density, spatial information, a second inverse-document-frequency formulation and deep-feature measurements. The deep controls use DINOv2 ~\citep{oquab2024dinov2}, specifically ViT-S/14 with registers ~\citep{darcet2024registers} at half precision (FP16), averaging patch tokens into a 384-dimensional frame vector. They measure vector norm, the negated mean distance of frames to their segment centroid, and distance to the centroid of the operational cluster, which Ref.~\citep{jeong2016static} adds to its quality terms as the distance of a frame from its cluster centre; here it is computed between segment vectors. On the constructed pairs the degraded copy joins the original's cluster and the centroid of all members decides between the two. A separate ablation over 19 convolutional extractors replaces SIFT while preserving vocabulary construction, weighting and aggregation. Two counting-descriptor substitutions were also excluded. SURF is excluded for lack of a redistributable implementation, being patented and absent from the OpenCV build these measurements ran on. The second was excluded because exchanging it would require recalibrating the key-frame selector that runs before the score. Table~S12 records configurations, endpoints and the build environment.
+
+Q-Align, an architecturally distinct model at the inventory freeze, is the in-domain reference for the NR-IQA candidate set; LIQE is the reference for the literature-derived operations. The two groups are compared directly only in a common-reference analysis (Section~\ref{sec:screen_results}).
+
+DOVER~\citep{wu2023dover} scores the selected outputs as model-based evidence of output quality, independently of eligibility; its protocol and results are in the supplement.
+
+For a score $q$ and target $y$, direction-aligned Spearman correlation is $\rho^*=s_m s_y\rho(q,y)$, where $s_m=+1$ for a higher-is-better score and $-1$ otherwise; $s_y$ specifies the target's direction. All released opinion targets used here have $s_y=+1$. In contrast, larger distortion levels $d$ denote more degradation, so sensitivity requires $s_y=-1$ and $\rho^*_{\mathrm{level}}=-s_m\rho(q,d)$. This target-specific definition separates a polarity convention from a genuine reversal.
+
+For the \resCombinacoes{} attribute configurations, an additional oracle-polarity diagnostic uses the absolute correlation separately on each database or axis. It gives a favourable retrospective orientation, since the sign is inferred from the test outcomes; conclusions about transfer rely on the declared directions.
+
+\subsection{Controlled degradation and constructed truth}\label{sec:controlled}
+
+A seeded draw without replacement selects twenty of the 83 broadcast segments, which come from \invRotulos{} of the 19 operational topics (Table~S2); two of those labels share source videos and overlapping segments, so they are merged into \invBlocosN{} source-aware blocks. Eight deterministic transformations at five levels produce $20\times8\times5=800$ original--transformed comparisons per fully covered operation. The transformations are darkening, motion blur, Gaussian blur, H.264 recompression, downscale-and-restore, desaturation, white noise and JPEG compression.
+
+The untransformed member is the fidelity reference the protocol defines. A sensitivity analysis excludes darkening and desaturation, which need not worsen appearance for every viewer. With $W$, $L$ and $T$ the pairs in which an operation prefers the untransformed member, the transformed one or neither, \emph{strict} accuracy is $W/(W+L+T)$ and \emph{decisive} accuracy $W/(W+L)$; the two are not interchangeable, so the main tables report strict accuracy, the per-cell tests decisive accuracy, and a descriptive inversion is $L>W$. Only \empOps{} of the \fontesDaLiteratura{} operations tie at all.
+
+For each operation--transformation cell, exact sign-flip randomization uses source-aware block means and enumerates all $2^b$ sign assignments. The reported directional tests use the lower tail with Holm correction over \fontesDaLiteratura{} operations and eight transformations, or \invTestes{} tests. The convention matters at this sample size: with \invBlocosN{} blocks the smallest attainable one-sided $p$ is $\invPmin{}$ against a first Holm threshold of $\invCorteHolm{}$, so a two-sided convention would reject nothing. Segment-level results provide an alternative dependence assumption. Table~S27 reports cell-level tests and Table~S26 the alternative intervals.
+
+A second analysis correlates score with transformation level within each segment--type combination. On KADID, correlation across five levels is computed separately for each reference image and distortion type before averaging. This prevents the many derivatives of one reference from inflating the number of independent source images. 
+
+\subsection{Screening and application inference}\label{sec:screen}
+
+Scoring methods are evaluated against three eligibility conditions, which admit methods without ordering them. The sensitivity condition uses KADID only. It requires mean direction-aligned Spearman Rank Correlation Coefficient (SRCC) of at least .50, with at least 15 of the 25 distortion types exceeding .50 after reference-wise averaging. The eight-type broadcast experiment is complementary and does not determine this condition. The external-transfer condition requires database-wide direction-aligned SRCC of at least .65 on every database absent from a checkpoint's opinion training. Threshold sensitivity is reported in Table~S9.
+
+The two aggregations of attribute configurations are author-defined. The $z$-score mean re-estimates a mean and a standard deviation per operation on each database, so its KonIQ-10k figure uses a normalization fitted on KonIQ-10k. The ridge is fitted on KADID-10k with the distortion level as target and a fixed penalty of one over standardized inputs, so its KADID figures are in-sample and its KonIQ-10k figure applies the KADID coefficients. Both are reported as diagnostic associations, and the in-sample ridge is an optimistic diagnostic that only shows whether a negative outcome survives the more favourable aggregation.
+
+The in-domain condition requires above-chance agreement with the designated reference and a positive lower bound of its 95\% topic-block bootstrap confidence interval. For cluster $c$ with $k_c$ candidates, independent uniform choices agree with probability $1/k_c$. Across the common \disClusters{} clusters, $\bar p_e=|C|^{-1}\sum_{c\in C}1/k_c=\dupPisoDec{}$, and normalized agreement is $\kappa_{\mathrm{uniform}}=(p_o-\bar p_e)/(1-\bar p_e)$. This is a uniform-choice correction, not Cohen's kappa.
+
+ 
+
+The principal inventory, scoring runs and caches were frozen on 23 August 2026; dependence-aware derived analyses were subsequently computed from those caches, and the deep-proxy controls were completed on 21 September, with the cluster-centre test on the constructed pairs registered and run on 27 September. Archived prediction statements refer only to their specified diagnostic tests.
+
+\paragraph{Use of large language models.} Language-model assistants were used to write
+the analysis and verification scripts and to draft and revise the text. Every quantitative
+statement reaches the manuscript through a macro emitted by a versioned script from a
+stored result file, and is checked by the consistency suite released with the package; the
+authors took every methodological decision and are responsible for the content. The full
+declaration, naming the assistants, is in the Statements and Declarations.

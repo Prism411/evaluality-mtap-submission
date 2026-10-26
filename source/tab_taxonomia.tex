@@ -1,0 +1,19 @@
+\begin{table}[!ht]
+\centering
+\caption{\textbf{Four classes of scoring method for the quality criterion.} \emph{Ops}: operations instantiated in this testbed. \emph{Papers}: of the 85 summarization papers in the archive, those in which a term sweep finds the technique mentioned, not its use as a quality score (triage, not confirmed adoption; Table~S31). \emph{Sources}: works whose operations are audited (Table~\ref{tab:synthesis}). SIFT: scale-invariant feature transform; BoVW: bag of visual words; TF-IDF: term frequency--inverse document frequency.}
+\label{tab:taxonomy}
+\small
+\renewcommand{\arraystretch}{1.15}
+\setlength{\tabcolsep}{5pt}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.6cm}rr>{\raggedright\arraybackslash}p{2.9cm}>{\raggedright\arraybackslash}p{3.1cm}@{}}
+\toprule
+\rowcolor{headerblue}
+\hd{Class} & \hd{Ops} & \hd{Papers} & \hd{Sources} & \hd{Example here} \\
+\midrule
+Low-level pixel heuristics & 16 & 50 & 11 works (Table~\ref{tab:synthesis}) & Laplacian variance, colourfulness \\
+\rowcolor{rowlight}Visual-word counting & 3 & 39 & \citep{barbieri2021tese} & SIFT+BoVW with TF-IDF \\
+Dedicated NR-IQA models & 10 & 1 & \citep{xu2024property} & BRISQUE, NIQE, LIQE, MUSIQ \\
+\rowcolor{rowlight}Deep representativeness proxies & 3 & 23 & \citep{jeong2016static} & Distance to cluster centroid \\
+\bottomrule
+\end{tabular}
+\end{table}

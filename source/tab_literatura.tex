@@ -1,0 +1,30 @@
+\begin{table}[!ht]
+\centering
+\caption{The sixteen visual-selection operations the video-summarization literature uses at the selection stage, reimplemented from the published equations and measured under one protocol. \emph{Sensitivity} is the SRCC against the degradation level within each KADID-10k reference, aligned to the direction the source declares for its own statistic, averaged over the 25 distortion types, with the count of types above $.50$; \emph{Generalization} is the lowest such correlation on any database the method was not fitted on; \emph{Floor} is chance-corrected agreement on the operational clusters. \textbf{The two families use different reference models there}: operations against LIQE, the ten no-reference models against Q-Align, so that column is not a comparison between families. The damage columns share one protocol. The rule admits a method when sensitivity exceeds $.5$ on at least $15$ of 25 types and generalization exceeds $.65$. \textbf{No operation clears either external screening criterion}: the best sensitivity is $.298$ and the best generalization among the fifteen evaluated is $.139$. Spatial information declares no direction, carries no verdict and is excluded from every count. \textbf{The fifteen are not fifteen independent measurements}: on KADID-10k their score matrix has rank thirteen, because one colourfulness implementation duplicates another exactly and one operation is the mean of three others. The \emph{Floor} column reports the in-domain agreement against the reference model with the lower end of its 95\% interval in brackets, so a pass can be read for how much of it survives the interval: the weakest passing operation in this table has a lower bound of $+.016$.}
+\label{tab:literature}
+\small
+\setlength{\tabcolsep}{5pt}
+\begin{tabular}{@{}l l r r r r c@{}}
+\toprule
+\rowcolor{headerblue}
+\hd{Operation} & \hd{Source} & \hd{Sens.} & \hd{Types} & \hd{Gen.} & \hd{Floor $\kappa$ [95\% lo]} & \hd{Elig.} \\
+\midrule
+Edge distribution & \citep{ke2006highlevel} & $.298$ & 9/25 & $+.083$ & $-.124$ \ \tiny[$-.388$] & no \\
+\rowcolor{rowlight}Gradient orientation & \citep{qaroush2025diversity} & $.291$ & 12/25 & $-.035$ & $+.461$ \ \tiny[$+.200$] & no \\
+Spatial information & \citep{itu_p910} & $.251$ & 13/25 & $+.218$ & $+.506$ \ \tiny[$+.279$] & --- \\
+\rowcolor{rowlight}Contrast & \citep{ke2006highlevel} & $.185$ & 10/25 & $+.139$ & $+.326$ \ \tiny[$+.056$] & no \\
+Grey-level dispersion & \citep{jeong2016static} & $.149$ & 11/25 & $+.096$ & $+.191$ \ \tiny[$-.071$] & no \\
+\rowcolor{rowlight}Hue count & \citep{ke2006highlevel} & $.147$ & 6/25 & $-.162$ & $-.258$ \ \tiny[$-.494$] & no \\
+Entropy & \citep{qaroush2025diversity} & $.117$ & 11/25 & $+.102$ & $+.236$ \ \tiny[$-.024$] & no \\
+\rowcolor{rowlight}Gradient magnitude & \citep{qaroush2025diversity} & $.104$ & 11/25 & $+.129$ & $+.551$ \ \tiny[$+.380$] & no \\
+Saliency area & \citep{qaroush2025diversity} & $.075$ & 3/25 & $+.031$ & $+.101$ \ \tiny[$-.196$] & no \\
+\rowcolor{rowlight}Averaged aesthetics (3) & \citep{gygli2014summe} & $.032$ & 8/25 & $+.027$ & $+.461$ \ \tiny[$+.108$] & no \\
+Composite of five & \citep{srinivas2016rank} & $.029$ & 11/25 & $-.020$ & $+.371$ \ \tiny[$+.094$] & no \\
+\rowcolor{rowlight}GLCM contrast & \citep{yang2024keyframe} & $.019$ & 9/25 & $+.136$ & $+.461$ \ \tiny[$+.247$] & no \\
+Laplacian variance & \citep{cakmak2025tripss} & $-.047$ & 9/25 & $+.095$ & $+.506$ \ \tiny[$+.284$] & no \\
+\rowcolor{rowlight}Saturation & \citep{huang2024aesthetic} & $-.092$ & 7/25 & $-.254$ & $+.011$ \ \tiny[$-.311$] & no \\
+Colourfulness (Hasler) & \citep{hasler2003colorfulness} & $-.182$ & 4/25 & $-.062$ & $+.281$ \ \tiny[$+.016$] & no \\
+\rowcolor{rowlight}Colourfulness (Ke) & \citep{ke2006highlevel} & $-.182$ & 4/25 & $-.062$ & $+.281$ \ \tiny[$+.016$] & no \\
+\bottomrule
+\end{tabular}
+\end{table}

@@ -1,0 +1,70 @@
+{
+  "_o_que_e": "⭐⭐ A reducao do §365 no regime IMPLANTADO, com o `e2e_sift.json` do proprio artigo: `bovw_sum` e `n_desc` vem dos quadros-chave do pipeline, entao os dois lados estao no mesmo regime.",
+  "fonte": "e2e_sift.json da pasta do artigo",
+  "n_clusters": 42,
+  "n_segmentos_distintos": 83,
+  "n_pertencimentos_a_cluster": 93,
+  "⚠️_por_que_dois_numeros": "dez segmentos pertencem a dois clusters; a correlacao global usa os DISTINTOS e as contagens por cluster usam os pertencimentos, que e o certo em cada caso",
+  "⭐_por_quantidade_substituta": {
+    "n_desc": {
+      "escolhas_iguais": 42,
+      "de_clusters": 42,
+      "pares_na_mesma_ordem": 63,
+      "de_pares": 63,
+      "fracao_escolhas": 1.0,
+      "fracao_pares": 1.0
+    },
+    "kp_density": {
+      "escolhas_iguais": 29,
+      "de_clusters": 42,
+      "pares_na_mesma_ordem": 44,
+      "de_pares": 63,
+      "fracao_escolhas": 0.6905,
+      "fracao_pares": 0.6984
+    },
+    "n_frames": {
+      "escolhas_iguais": 23,
+      "de_clusters": 42,
+      "pares_na_mesma_ordem": 39,
+      "de_pares": 63,
+      "fracao_escolhas": 0.5476,
+      "fracao_pares": 0.619
+    }
+  },
+  "correlacao_com_o_score_publicado": {
+    "n_desc": {
+      "spearman_com_bovw_sum": 0.9945,
+      "p": 2.7575571960448434e-81
+    },
+    "kp_density": {
+      "spearman_com_bovw_sum": 0.5991,
+      "p": 2.1918537119566877e-09
+    },
+    "n_frames": {
+      "spearman_com_bovw_sum": 0.177,
+      "p": 0.10952693118720475
+    },
+    "bovw_per_frame": {
+      "spearman_com_bovw_sum": 0.7219,
+      "p": 1.3497729468220127e-14
+    },
+    "bovw_per_desc": {
+      "spearman_com_bovw_sum": 0.1145,
+      "p": 0.30249491840501297
+    }
+  },
+  "⚠️_a_duracao_pergunta_5_da_critica_10": {
+    "spearman_duracao_x_bovw_sum": 0.165,
+    "p": 0.13611832745853622,
+    "spearman_duracao_x_n_desc": 0.1754,
+    "p_desc": 0.11281987189289051,
+    "duracao_s": {
+      "min": 8.1,
+      "mediana": 28.9,
+      "max": 187.6
+    },
+    "leitura": "a critica 10 pergunta como segmentos de 8 s e 188 s ficam comparaveis; o corpo ja responde para a operacao implantada dizendo que o seletor de quadro-chave torna a contagem quase independente da duracao, e estes numeros sao a medida disso."
+  },
+  "⭐_o_mesmo_sob_entrada_casada_no_365": "42 de 42 escolhas, 63 de 63 pares",
+  "⚠️_ler_com": "`n_desc` aqui vem dos quadros-chave que o pipeline seleciona, nao dos dez quadros casados; sao regimes diferentes e por isso os numeros diferem do §365."
+}

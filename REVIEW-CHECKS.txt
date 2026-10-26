@@ -1,0 +1,19 @@
+Preparation checks, 25 October 2026
+
+27 packaging checks passed in the local submission preparation:
+- Four documents compile; no undefined references/citations or oversized vertical floats.
+- Main manuscript: 27 pages, unchanged extracted text.
+- Supplement: 54 pages; only pages 26–27 rearranged; S22 entries and both notes literal.
+- Abstract: 248 words. Keywords: five.
+- Required declaration headings present; funding wording still awaits current author confirmation.
+- Code/data archive: all 313 original entries preserved byte for byte; 312 existing manifest checksums match.
+- ZIP integrity checked; MTAP identification added separately.
+- Local visual inspection of title page, manuscript first page, letter and S22.
+
+Repository-specific commands:
+  python3 tools/verify_snapshot.py
+  python3 tools/build_pdfs.py
+
+The package is prepared, not submitted or accepted. No new full scientific audit or neural-model inference was performed. Portal uploads and public reviewer access have not been tested. The existing GitHub repository remains private until the owner decides otherwise.
+
+Repository commands executed successfully on 25 October 2026: all 361 hashes verified; all four PDF rebuilds matched page counts and extracted text. Main 27 pages, supplement 54, title page 1, cover letter 1. No new scientific experiment was executed.

@@ -1,0 +1,243 @@
+#!/usr/bin/env python3
+"""⛔ TODO «Table~SN» / «Fig.~SN» DO CORPO EXISTE NO SUPLEMENTAR?
+
+POR QUE EXISTE (07/09/2026). O corpo prometia «Table~S1 of the supplement carries the
+correspondence» e a tabela de rastreio era a **S17**. Como sao dois documentos separados,
+o `\\ref` do LaTeX nao alcanca: o numero e DIGITADO, e nada reprova quando ele envelhece.
+Bastou a tabela mudar de posicao no suplementar para o corpo apontar para outra coisa.
+
+O QUE ELA FAZ: le os rotulos que o `supplementary.aux` de fato produziu e exige que todo
+numero citado no corpo exista la.
+"""
+import re
+import sys
+from pathlib import Path
+
+AQUI = Path(__file__).parent
+CORPO = ['main.tex', 'sec_intro.tex', 'sec_related.tex', 'sec_method.tex',
+         'sec_results.tex', 'sec_discussion.tex', 'sec_conclusion.tex']
+
+
+def existentes(aux=None, especie=None):
+    """Os S-numeros que o suplementar produziu, opcionalmente de uma especie so.
+
+    ⚠️ Tabela e figura tem CONTADORES SEPARADOS, entao «Table S4» e «Figure S4» sao objetos
+    diferentes e ambos existem: em 08/09 o suplementar tinha tabelas S1--S26 e figuras
+    S1--S4. Conferir so o numero deixaria «Table~S3» passar apontando para uma FIGURA.
+    """
+    txt = (aux or (AQUI / 'supplementary.aux')).read_text()
+    pref = {'tab': 'tab', 'fig': 'fig'}.get(especie, '(?:tab|fig)')
+    return {m.group(1) for m in
+            re.finditer(r'\\newlabel\{' + pref + r':[^}]*\}\{\{(S\d+)\}', txt)}
+
+
+def citados(arquivos=None):
+    """Os S-numeros que o corpo cita, com arquivo, linha e ESPECIE citada."""
+    out = []
+    for nome in (arquivos or CORPO):
+        p = Path(nome) if Path(nome).is_absolute() else AQUI / nome
+        if not p.exists():
+            continue
+        for i, linha in enumerate(p.read_text().split('\n'), 1):
+            for m in re.finditer(r'(Tables?|Figs?\.|Figures?)~?~?(S\d+)', linha):
+                esp = 'tab' if m.group(1).startswith('Table') else 'fig'
+                out.append((nome, i, m.group(2), esp))
+    return out
+
+
+def especie_confere():
+    """Todo «Table~Sx» e mesmo tabela, e todo «Figure~Sx» e mesmo figura?"""
+    tabs, figs = existentes(especie='tab'), existentes(especie='fig')
+    erradas = []
+    for nome, i, s, esp in citados():
+        alvo = tabs if esp == 'tab' else figs
+        if s not in alvo:
+            erradas.append('%s:%d cita %s como %s, e nao existe assim' % (nome, i, s, esp))
+    return not erradas, erradas
+
+
+# ⛔ IDENTIDADE, nao so existencia. Em 07/09 inserir uma tabela no suplementar empurrou o
+# rastreio de S17 para S18, e o corpo continuou dizendo S17 — que EXISTE, e passava.
+# Cada entrada liga um trecho do corpo ao rotulo que ele deve estar citando.
+ESPERADO = {
+    # ⚠️ 22/09 (reescrita do parecer v3): a frase virou «adaptations are recorded
+    # separately in Table~S22». O ponteiro e o mesmo; a redacao e que mudou.
+    'adaptations are recorded separately in': 'tab:trace',
+    # ⚠️ 22/09 (parecer v5, 2.3): a frase ancora era exatamente a alegacao forte
+    # demais que o parecer mandou retirar. O ponteiro continua; a redacao e outra.
+    'concern the formulations as published': 'tab:ct',  # 27/09 (cli-3)
+    'the same swaps rewrite much of the stage output': 'fig:jusante',
+    # ⭐ 12/09/2026: tres ancoras novas. As duas tabelas abaixo sao vizinhas de numero e
+    # falam de coisas diferentes — inventario e cobertura — e o corpo ja tinha trocado uma
+    # pela outra na legenda da Figura 1.
+    # ⛔ 21/09: a frase da 4.6 que cita a cobertura foi reescrita para casar ESTA mesma
+    # ancora, que ja existia aqui. Ela nao tinha ancora propria e o ponteiro dela foi
+    # CORROMPIDO de S18 para S19 pela janela de outra. A entrada cobre as duas ocorrencias.
+    'gives the coverage of each analysis': 'tab:coverage',  # 27/09 (cli-3)
+    'states the objective and role recorded for each': 'tab:inventory',
+}
+
+
+def numeros_reais(aux=None):
+    """rotulo -> S-numero que o suplementar de fato atribuiu."""
+    txt = (aux or (AQUI / 'supplementary.aux')).read_text()
+    return {m.group(1): m.group(2) for m in
+            re.finditer(r'\\newlabel\{([^}]*)\}\{\{(S\d+)\}', txt)}
+
+
+def _padrao(trecho):
+    """O trecho como regex tolerante a quebra de linha.
+
+    ⛔ POR QUE (12/09/2026). A versao anterior casava `trecho in linha`, LINHA A LINHA. O
+    ponteiro do `tab:ct` estava escrito ao longo de duas linhas do `sec_results.tex`
+    («...is visible in the\nequation before any measurement (Table~S19...»), entao o
+    trecho nao existia em linha isolada nenhuma e a checagem de identidade NUNCA rodou
+    ali. A guarda dizia ✅ enquanto o corpo apontava para a tabela errada.
+    """
+    return re.compile(r'\s+'.join(re.escape(p) for p in trecho.split()))
+
+
+def _frase_ao_redor(texto, i, j):
+    """A frase que contem o trecho. O ponteiro mora na FRASE, nao na linha.
+
+    ⚠️ Procurar na linha perde o ponteiro que caiu na linha seguinte; procurar no arquivo
+    inteiro acha qualquer «Table~Sx» e aprova por acidente. A frase e a janela certa.
+    """
+    ini = max(texto.rfind('. ', 0, i), texto.rfind('.\n', 0, i))
+    fim = texto.find('.', j)
+    return texto[(ini + 1) if ini > 0 else 0: (fim + 1) if fim > 0 else len(texto)]
+
+
+def identidade(arquivos=None):
+    """Cada ponteiro do corpo cita o S-numero do rotulo CERTO?"""
+    reais, ruins, por_ancora = numeros_reais(), [], {k: 0 for k in ESPERADO}
+    for nome in (arquivos or CORPO):
+        q = Path(nome) if Path(nome).is_absolute() else AQUI / nome
+        if not q.exists():
+            continue
+        texto = q.read_text()
+        for trecho, rot in ESPERADO.items():
+            for m in _padrao(trecho).finditer(texto):
+                por_ancora[trecho] += 1
+                frase = _frase_ao_redor(texto, m.start(), m.end())
+                cit = re.findall(r'(?:Tables?|Figs?\.|Figures?)~?(S\d+)', frase)
+                alvo = reais.get(rot)
+                linha = texto[:m.start()].count('\n') + 1
+                if alvo and cit and alvo not in cit:
+                    ruins.append((nome, linha, rot, alvo, cit))
+    return not ruins, ruins, por_ancora
+
+
+def ancoras_mortas(arquivos=None):
+    """⛔ Ancora que nao acha nada e BUG, nao passe.
+
+    Foi exatamente assim que o furo anterior ficou invisivel: o trecho do `tab:ct` nao
+    casava em lugar nenhum, a guarda nao checava nada e devolvia ✅. Zero ocorrencia
+    agora REPROVA, do mesmo jeito que um agregado vazio.
+    """
+    _, _, por_ancora = identidade(arquivos)
+    return sorted(k for k, n in por_ancora.items() if n == 0)
+
+
+def confere(arquivos=None):
+    tem = existentes()
+    assert tem, '⛔ nenhum rotulo S no supplementary.aux: rodar pdflatex antes'
+    vistos = citados(arquivos)
+    assert vistos, '⛔ zero ponteiros lidos: aprovaria no vacuo'
+    ruins = [(f, i, n) for f, i, n, _e in vistos if n not in tem]
+    return not ruins, ruins, tem
+
+
+def _autoteste():
+    """⭐ So vale se REPROVAR quando o ponteiro quebra. Aqui o defeito volta de verdade."""
+    import tempfile
+    ok, _, _ = confere()
+    assert ok, 'o estado atual deveria passar'
+    with tempfile.TemporaryDirectory() as td:
+        bom = Path(td) / 'bom.tex'
+        bom.write_text('vide Table~S17 do suplementar\n')
+        ruim = Path(td) / 'ruim.tex'
+        ruim.write_text('vide Table~S99 do suplementar\n')
+        # ⭐ as DUAS pernas: passa no mundo certo E reprova no mundo errado
+        assert confere([str(bom)])[0], '⛔ reprova um ponteiro valido'
+        mau, quais, _ = confere([str(ruim)])
+        assert not mau and quais[0][2] == 'S99', '⛔ NAO pega o ponteiro quebrado'
+    return True
+
+
+def _autoteste_especie():
+    """⭐ Tabela e figura tem contadores separados: «Table~S3» apontando para uma FIGURA
+    tem de reprovar, e conferir so o numero nao separaria isso."""
+    tabs, figs = existentes(especie='tab'), existentes(especie='fig')
+    assert tabs and figs, '⛔ nao li as duas especies do .aux'
+    so_fig = figs - tabs
+    if not so_fig:
+        return True   # nao ha numero exclusivo de figura para montar o mundo errado
+    n = sorted(so_fig)[0]
+    import tempfile
+    with tempfile.TemporaryDirectory() as td:
+        q = Path(td) / 'x.tex'
+        q.write_text('vide Table~%s do suplementar\n' % n)
+        maus = [c for c in citados([str(q)]) if c[2] not in tabs]
+        assert maus, '⛔ NAO separa: «Table~%s» apontando para figura passou' % n
+    return True
+
+
+def _autoteste_quebra_de_linha():
+    """⭐ O DEFEITO REAL, reintroduzido: o mesmo ponteiro escrito em uma linha e em duas.
+
+    As duas pernas sao o ponto. A guarda antiga aprovava a segunda por nao enxerga-la.
+    """
+    import tempfile
+    reais = numeros_reais()
+    certo, errado = reais.get('tab:ct'), 'S99'
+    assert certo, '⛔ nao li tab:ct do .aux'
+    # ⛔ 22/09: o molde trazia a frase ANTIGA digitada. Quando o parecer v5 mandou trocar
+    #    aquela redacao, o controle deixou de casar a ancora e parou de detectar — controle
+    #    preso a uma redacao, o defeito que esta guarda existe para pegar.
+    #    ⭐ Agora o molde sai da PROPRIA ancora declarada, e acompanha qualquer reescrita.
+    _anc = [k for k, v in ESPERADO.items() if v == 'tab:ct']
+    assert _anc, '⛔ tab:ct perdeu a ancora: nao ha molde para o controle'
+    _frase = _anc[0]
+    _meio = _frase.rfind(' ', 0, len(_frase) // 2 + 1) or len(_frase) // 2
+    uma = _frase + ' (Table~%s).'
+    duas = _frase[:_meio] + '\n' + _frase[_meio + 1:] + ' (Table~%s).'
+    with tempfile.TemporaryDirectory() as td:
+        for molde, rotulo in ((uma, 'uma linha'), (duas, 'duas linhas')):
+            bom = Path(td) / 'bom.tex'
+            bom.write_text(molde % certo)
+            assert identidade([str(bom)])[0], '⛔ reprova o ponteiro certo em %s' % rotulo
+            ruim = Path(td) / 'ruim.tex'
+            ruim.write_text(molde % errado)
+            ok, quais, _ = identidade([str(ruim)])
+            assert not ok, '⛔ NAO PEGA o ponteiro trocado quando ele cai em %s' % rotulo
+            assert quais[0][3] == certo
+    print('  autoteste ✅ (o ponteiro trocado REPROVA tambem quebrado entre duas linhas)')
+    return True
+
+
+if __name__ == '__main__':
+    assert _autoteste()
+    assert _autoteste_especie()
+    assert _autoteste_quebra_de_linha()
+    ok, ruins, tem = confere()
+    ok2, trocados, por_ancora = identidade()
+    mortas = [k for k, n in por_ancora.items() if n == 0]
+    ok3, erradas = especie_confere()
+    print(f'  autoteste ✅   {len(tem)} rotulos S no suplementar')
+    print(f'  {"✅" if ok2 else "⛔"} identidade: cada ponteiro cita o rotulo certo')
+    print(f'  {"✅" if ok3 else "⛔"} especie: «Table~Sx» e tabela, «Figure~Sx» e figura')
+    for x in erradas:
+        print(f'    {x}')
+    for f, i, rot, alvo, cit in trocados:
+        print(f'    {f}:{i} devia citar {alvo} ({rot}) e cita {cit}')
+    print('  %s ancoras: %d/%d acham o trecho no corpo'
+          % ('✅' if not mortas else '⛔', len(por_ancora) - len(mortas), len(por_ancora)))
+    for k in mortas:
+        print('    ancora morta, nao casa em lugar nenhum: %r' % k)
+    ok = ok and ok2 and ok3 and not mortas
+    print(f'  {len(citados())} ponteiros no corpo')
+    print(f'  {"✅ APROVA" if ok else "⛔ REPROVA"}')
+    for f, i, n in ruins:
+        print(f'    {f}:{i} aponta para {n}, que nao existe')
+    sys.exit(0 if ok else 1)

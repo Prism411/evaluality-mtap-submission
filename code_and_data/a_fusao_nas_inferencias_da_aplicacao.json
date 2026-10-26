@@ -1,0 +1,62 @@
+{
+ "_o_que_e": "⛔ A FUSAO DAS FONTES PARTILHADAS NAS TRES INFERENCIAS DA APLICACAO.\n\nPOR QUE EXISTE (22/09/2026, parecer v5, 2.1). Os pares construidos fundem os dois\nrotulos que partilham os tres .mp4; a aplicacao reamostrava 19 topicos. Medido com um\npatch de uma linha nos proprios scripts publicados, atras da flag FUNDIR_FONTES.\n\n⭐ CONTROLE: a estimativa PONTUAL e identica nos tres casos, como tem de ser — a\nunidade de reamostragem so pode mover o intervalo, nunca o ponto. Se o ponto tivesse\nmudado, o patch teria quebrado a analise em vez de reagrupa-la.\n⚠️ E os arquivos publicados foram RESTAURADOS depois da medicao: o artigo continua\nlendo os numeros de 19 blocos, e o de 18 entra como sensibilidade declarada.",
+ "n_blocos": {
+  "sem_fundir": 19,
+  "fundido": 18
+ },
+ "por_analise": {
+  "concordancia_no_dominio_liqe": {
+   "ponto": 0.5506,
+   "ic_19": [
+    0.2842,
+    0.7857
+   ],
+   "ic_18": [
+    0.2727,
+    0.7922
+   ],
+   "veredito": "acima em ambos"
+  },
+  "concordancia_no_dominio_implantada": {
+   "ponto": 0.0562,
+   "ic_19": [
+    -0.3083,
+    0.4118
+   ],
+   "ic_18": [
+    -0.3023,
+    0.4201
+   ],
+   "veredito": "cruza em ambos"
+  },
+  "dover_t_substituicao_completa": {
+   "ponto": 25.53,
+   "ic_19": [
+    -12.1,
+    54.9
+   ],
+   "ic_18": [
+    -13.5,
+    54.6
+   ],
+   "veredito": "cruza em ambos"
+  },
+  "dover_t_entradas_casadas": {
+   "ponto": 27.11,
+   "ic_19": [
+    5.6,
+    47.8
+   ],
+   "ic_18": [
+    5.2,
+    46.6
+   ],
+   "veredito": "positivo em ambos"
+  }
+ },
+ "previsoes": {
+  "1_o_ponto_nao_muda": "CONFIRMADA",
+  "2_nenhum_veredito_muda": "CONFIRMADA"
+ },
+ "linhas_que_mudam_de_veredito": []
+}

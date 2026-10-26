@@ -1,0 +1,20 @@
+%% GERADO por gera_tab_reducao.py -- nao editar a mao
+\begin{table}[!ht]
+\centering
+\caption{Replacing the score by a simpler quantity, on the 42 application clusters and 83 distinct segments. \emph{$\rho$} is the Spearman correlation with the published score; \emph{Same choice} counts the clusters whose selected representative is unchanged when the quantity replaces the score, and \emph{Same order} the ordered pairs it preserves. \textbf{The descriptor count reproduces every choice}, so the operation is that count. \textbf{How many key frames the selector retains does not}: it tracks the score at $+.177$ and reproduces barely more than half the choices, while keypoints per frame tracks it at $+.599$. The count is therefore carried by detail per frame rather than by the number of frames. Segment duration ranges from 8.1 to 187.6 seconds and does not predict the score ($\rho=+.165$) or the count ($\rho=+.175$). Marks: $^{\ast}$ $p<.05$, $^{\mathrm{ns}}$ not significant; all other rows have $p<.01$.}
+\label{tab:reducao}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{2.9cm}>{\raggedright\arraybackslash}p{4.6cm}ccc@{}}
+\toprule
+\rowcolor{headerblue}
+\hd{Quantity} & \hd{What it is} & \hd{$\rho$} & \hd{Same choice} & \hd{Same order} \\
+\midrule
+\rowcolor{rowwhite}Descriptor count & the number of SIFT descriptors the key frames yield & $+.995$ & 42\,/\,42 & 63\,/\,63 \\
+\rowcolor{rowlight}Keypoints per frame & descriptor count divided by frames retained & $+.599$ & 29\,/\,42 & 44\,/\,63 \\
+\rowcolor{rowwhite}Frames retained & how many key frames the selector keeps & $+.177$$^{\mathrm{ns}}$ & 23\,/\,42 & 39\,/\,63 \\
+\rowcolor{rowlight}Score per frame & the score divided by frames retained & $+.722$ & --- & --- \\
+\rowcolor{rowwhite}Score per descriptor & the mean rarity weight of Eq.~3 of the main article & $+.115$$^{\mathrm{ns}}$ & --- & --- \\
+\bottomrule
+\end{tabular}
+\end{table}

@@ -1,0 +1,244 @@
+{
+ "_o_que_e": "A REGRA DE TRIAGEM DO ARTIGO, APLICADA AS 15 OPERACOES DA LITERATURA.\n\nA regra esta no sec_method (\"Screening and application inference\") e tem tres\npartes:\n\n  1. SENSIBILIDADE  passa se a media dentro da referencia (KADID) for >= 0,50 E\n                    pelo menos 15 dos 25 tipos excederem 0,50\n  2. GENERALIZACAO  passa se o SRCC alinhado for >= 0,65 em TODA base ausente do\n                    treino de opiniao do checkpoint liberado\n  3. PISO NO DOMINIO concordancia com Q-Align acima do acaso e limite inferior do\n                    bootstrap por bloco de topico > 0 nos 42 clusters comuns\n\n⭐ As operacoes da literatura NAO tem treino de opiniao em base nenhuma, entao\npara elas TODA base e \"nao vista\" e a parte 2 vale em KADID E KonIQ.\n\n⚠️ O que este arquivo NAO calcula: a parte 3, que exige a concordancia com o\nQ-Align nos 42 clusters e nao esta medida aqui. ⭐ Isso nao impede a conclusao,\nporque a regra e CONJUNCAO: reprovar em 1 ou 2 ja decide.\n\n📌 E a tabela `tab:screening` do artigo tem as colunas Sup., Pol., Sensitivity,\nLowest unseen rho*, Floor e Eligible. Este arquivo preenche as que da.\n",
+ "regra": {
+  "sensibilidade_media_min": 0.5,
+  "sensibilidade_tipos_min": "15/25",
+  "generalizacao_min": 0.65,
+  "piso_no_dominio": "NAO calculado aqui; a regra e conjuncao e reprovar antes ja decide"
+ },
+ "por_operacao": {
+  "ke_edge_distribution": {
+   "sensibilidade_media": 0.298,
+   "sensibilidade_tipos": "9/25",
+   "passa_sensibilidade": false,
+   "kadid_global": 0.083,
+   "koniq_global": 0.0992,
+   "menor_rho_em_base_nao_vista": 0.083,
+   "passa_generalizacao": false,
+   "elegivel": false,
+   "reprova_em": [
+    "sensibilidade",
+    "generalizacao"
+   ]
+  },
+  "qaroush_go": {
+   "sensibilidade_media": 0.291,
+   "sensibilidade_tipos": "12/25",
+   "passa_sensibilidade": false,
+   "kadid_global": 0.095,
+   "koniq_global": -0.0346,
+   "menor_rho_em_base_nao_vista": -0.035,
+   "passa_generalizacao": false,
+   "elegivel": false,
+   "reprova_em": [
+    "sensibilidade",
+    "generalizacao"
+   ]
+  },
+  "ke_contraste": {
+   "sensibilidade_media": 0.185,
+   "sensibilidade_tipos": "10/25",
+   "passa_sensibilidade": false,
+   "kadid_global": 0.1389,
+   "koniq_global": 0.2793,
+   "menor_rho_em_base_nao_vista": 0.139,
+   "passa_generalizacao": false,
+   "elegivel": false,
+   "reprova_em": [
+    "sensibilidade",
+    "generalizacao"
+   ]
+  },
+  "contraste_variancia": {
+   "sensibilidade_media": 0.149,
+   "sensibilidade_tipos": "11/25",
+   "passa_sensibilidade": false,
+   "kadid_global": 0.0964,
+   "koniq_global": 0.2526,
+   "menor_rho_em_base_nao_vista": 0.096,
+   "passa_generalizacao": false,
+   "elegivel": false,
+   "reprova_em": [
+    "sensibilidade",
+    "generalizacao"
+   ]
+  },
+  "ke_hue_count": {
+   "sensibilidade_media": 0.147,
+   "sensibilidade_tipos": "6/25",
+   "passa_sensibilidade": false,
+   "kadid_global": 0.0601,
+   "koniq_global": -0.1624,
+   "menor_rho_em_base_nao_vista": -0.162,
+   "passa_generalizacao": false,
+   "elegivel": false,
+   "reprova_em": [
+    "sensibilidade",
+    "generalizacao"
+   ]
+  },
+  "qaroush_entropia": {
+   "sensibilidade_media": 0.117,
+   "sensibilidade_tipos": "11/25",
+   "passa_sensibilidade": false,
+   "kadid_global": 0.1018,
+   "koniq_global": 0.2454,
+   "menor_rho_em_base_nao_vista": 0.102,
+   "passa_generalizacao": false,
+   "elegivel": false,
+   "reprova_em": [
+    "sensibilidade",
+    "generalizacao"
+   ]
+  },
+  "qaroush_gm": {
+   "sensibilidade_media": 0.104,
+   "sensibilidade_tipos": "11/25",
+   "passa_sensibilidade": false,
+   "kadid_global": 0.1289,
+   "koniq_global": 0.4852,
+   "menor_rho_em_base_nao_vista": 0.129,
+   "passa_generalizacao": false,
+   "elegivel": false,
+   "reprova_em": [
+    "sensibilidade",
+    "generalizacao"
+   ]
+  },
+  "qaroush_saliencia": {
+   "sensibilidade_media": 0.075,
+   "sensibilidade_tipos": "3/25",
+   "passa_sensibilidade": false,
+   "kadid_global": 0.0307,
+   "koniq_global": 0.3333,
+   "menor_rho_em_base_nao_vista": 0.031,
+   "passa_generalizacao": false,
+   "elegivel": false,
+   "reprova_em": [
+    "sensibilidade",
+    "generalizacao"
+   ]
+  },
+  "gygli_media_crua": {
+   "sensibilidade_media": 0.032,
+   "sensibilidade_tipos": "8/25",
+   "passa_sensibilidade": false,
+   "kadid_global": 0.0267,
+   "koniq_global": 0.2436,
+   "menor_rho_em_base_nao_vista": 0.027,
+   "passa_generalizacao": false,
+   "elegivel": false,
+   "reprova_em": [
+    "sensibilidade",
+    "generalizacao"
+   ]
+  },
+  "srinivas_quality": {
+   "sensibilidade_media": 0.029,
+   "sensibilidade_tipos": "11/25",
+   "passa_sensibilidade": false,
+   "kadid_global": -0.0199,
+   "koniq_global": 0.3617,
+   "menor_rho_em_base_nao_vista": -0.02,
+   "passa_generalizacao": false,
+   "elegivel": false,
+   "reprova_em": [
+    "sensibilidade",
+    "generalizacao"
+   ]
+  },
+  "glcm_contraste": {
+   "sensibilidade_media": 0.019,
+   "sensibilidade_tipos": "9/25",
+   "passa_sensibilidade": false,
+   "kadid_global": 0.1361,
+   "koniq_global": 0.5588,
+   "menor_rho_em_base_nao_vista": 0.136,
+   "passa_generalizacao": false,
+   "elegivel": false,
+   "reprova_em": [
+    "sensibilidade",
+    "generalizacao"
+   ]
+  },
+  "laplacian_var": {
+   "sensibilidade_media": -0.047,
+   "sensibilidade_tipos": "9/25",
+   "passa_sensibilidade": false,
+   "kadid_global": 0.0946,
+   "koniq_global": 0.6011,
+   "menor_rho_em_base_nao_vista": 0.095,
+   "passa_generalizacao": false,
+   "elegivel": false,
+   "reprova_em": [
+    "sensibilidade",
+    "generalizacao"
+   ]
+  },
+  "huang_saturacao": {
+   "sensibilidade_media": -0.092,
+   "sensibilidade_tipos": "7/25",
+   "passa_sensibilidade": false,
+   "kadid_global": 0.0168,
+   "koniq_global": -0.2538,
+   "menor_rho_em_base_nao_vista": -0.254,
+   "passa_generalizacao": false,
+   "elegivel": false,
+   "reprova_em": [
+    "sensibilidade",
+    "generalizacao"
+   ]
+  },
+  "hasler_colorfulness": {
+   "sensibilidade_media": -0.182,
+   "sensibilidade_tipos": "4/25",
+   "passa_sensibilidade": false,
+   "kadid_global": -0.0617,
+   "koniq_global": -0.007,
+   "menor_rho_em_base_nao_vista": -0.062,
+   "passa_generalizacao": false,
+   "elegivel": false,
+   "reprova_em": [
+    "sensibilidade",
+    "generalizacao"
+   ]
+  },
+  "ke_colorfulness": {
+   "sensibilidade_media": -0.182,
+   "sensibilidade_tipos": "4/25",
+   "passa_sensibilidade": false,
+   "kadid_global": -0.0617,
+   "koniq_global": -0.007,
+   "menor_rho_em_base_nao_vista": -0.062,
+   "passa_generalizacao": false,
+   "elegivel": false,
+   "reprova_em": [
+    "sensibilidade",
+    "generalizacao"
+   ]
+  },
+  "si": {
+   "sensibilidade_media": 0.2512,
+   "sensibilidade_tipos": "13/25",
+   "passa_sensibilidade": false,
+   "kadid_global": 0.2185,
+   "koniq_global": 0.5134,
+   "menor_rho_em_base_nao_vista": 0.218,
+   "passa_generalizacao": false,
+   "elegivel": false,
+   "reprova_em": [
+    "sensibilidade",
+    "generalizacao"
+   ],
+   "nota": "entra pelo menu do [co-author]; vive fora do ops_da_literatura.DIRECAO"
+  }
+ },
+ "resumo": {
+  "n_operacoes": 16,
+  "passam_sensibilidade": 0,
+  "passam_generalizacao": 0,
+  "elegiveis": 0,
+  "melhor_menor_rho": 0.218,
+  "distancia_da_melhor_ao_limiar": 0.432
+ }
+}

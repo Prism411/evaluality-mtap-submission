@@ -1,0 +1,346 @@
+{
+ "_o_que_e": "⛔ CORRECAO DE SINAL (03/09): a coluna se chama `dmos` mas os valores sao MOS,\ncom ALTO = MELHOR. Confirmado por tres caminhos: (1) o dmos CAI monotonicamente com\no nivel de distorcao (Spearman -0,6756); (2) o `liqe`, maior-melhor, da +0,7229; (3)\no `brisque`, menor-melhor, da -0,3297. A minha primeira orientacao estava INVERTIDA\ne todos os rho do KADID trocaram de sinal.\n\nANALISE DA VALIDACAO EXTERNA: as duas familias contra DMOS HUMANO no KADID-10k.\n\n⭐ Este e o teste mais externo do projeto: a verdade e HUMANA, de um conjunto que\nninguem aqui montou, com 10.125 imagens e 25 tipos de distorcao nomeados.\n\n⛔ SINAL CORRIGIDO: a coluna chamada `dmos` no KADID e um MOS: ALTO = MELHOR. Reporto o rho ORIENTADO pela direcao declarada de cada\noperacao, de modo que POSITIVO significa sempre \"concorda com o julgamento humano\".\n\nOs NR-IQA ja tem escores em cache (results/kadid10k/scores_cache), medidos por\noutra rodada deste projeto, entao a comparacao de familia sai no mesmo conjunto.",
+ "PARCIAL": false,
+ "n_imagens": 10125,
+ "por_metodo": {
+  "contraste_variancia": {
+   "rho_orientado": 0.0964,
+   "familia": "sumarizacao"
+  },
+  "glcm_contraste": {
+   "rho_orientado": 0.1361,
+   "familia": "sumarizacao"
+  },
+  "gygli_media_crua": {
+   "rho_orientado": 0.0267,
+   "familia": "sumarizacao"
+  },
+  "hasler_colorfulness": {
+   "rho_orientado": -0.0617,
+   "familia": "sumarizacao"
+  },
+  "huang_saturacao": {
+   "rho_orientado": 0.0168,
+   "familia": "sumarizacao"
+  },
+  "ke_colorfulness": {
+   "rho_orientado": -0.0617,
+   "familia": "sumarizacao"
+  },
+  "ke_contraste": {
+   "rho_orientado": 0.1389,
+   "familia": "sumarizacao"
+  },
+  "ke_edge_distribution": {
+   "rho_orientado": 0.083,
+   "familia": "sumarizacao"
+  },
+  "ke_hue_count": {
+   "rho_orientado": 0.0601,
+   "familia": "sumarizacao"
+  },
+  "laplacian_var": {
+   "rho_orientado": 0.0946,
+   "familia": "sumarizacao"
+  },
+  "qaroush_entropia": {
+   "rho_orientado": 0.1018,
+   "familia": "sumarizacao"
+  },
+  "qaroush_gm": {
+   "rho_orientado": 0.1289,
+   "familia": "sumarizacao"
+  },
+  "qaroush_go": {
+   "rho_orientado": 0.095,
+   "familia": "sumarizacao"
+  },
+  "qaroush_saliencia": {
+   "rho_orientado": 0.0307,
+   "familia": "sumarizacao"
+  },
+  "srinivas_quality": {
+   "rho_orientado": -0.0199,
+   "familia": "sumarizacao"
+  },
+  "brisque": {
+   "rho_orientado": 0.3297,
+   "familia": "NR-IQA/cache",
+   "n": 10125
+  },
+  "convnext_small_bovw": {
+   "rho_orientado": 0.3417,
+   "familia": "NR-IQA/cache",
+   "n": 10125
+  },
+  "convnext_tiny_bovw": {
+   "rho_orientado": 0.3733,
+   "familia": "NR-IQA/cache",
+   "n": 10125
+  },
+  "densenet121_bovw": {
+   "rho_orientado": 0.3072,
+   "familia": "NR-IQA/cache",
+   "n": 10125
+  },
+  "densenet201_bovw": {
+   "rho_orientado": 0.3371,
+   "familia": "NR-IQA/cache",
+   "n": 10125
+  },
+  "dinov2": {
+   "rho_orientado": -0.0185,
+   "familia": "NR-IQA/cache",
+   "n": 10125
+  },
+  "efficientnet_b4_bovw": {
+   "rho_orientado": -0.2037,
+   "familia": "NR-IQA/cache",
+   "n": 10125
+  },
+  "efficientnet_bovw": {
+   "rho_orientado": -0.2445,
+   "familia": "NR-IQA/cache",
+   "n": 10125
+  },
+  "inception_v3_bovw": {
+   "rho_orientado": 0.3793,
+   "familia": "NR-IQA/cache",
+   "n": 10125
+  },
+  "kp_density": {
+   "rho_orientado": 0.1228,
+   "familia": "NR-IQA/cache",
+   "n": 10125
+  },
+  "liqe": {
+   "rho_orientado": 0.7229,
+   "familia": "NR-IQA/cache",
+   "n": 10125
+  },
+  "mobilenet_bovw": {
+   "rho_orientado": 0.2719,
+   "familia": "NR-IQA/cache",
+   "n": 10125
+  },
+  "mobilenet_v2_bovw": {
+   "rho_orientado": -0.4177,
+   "familia": "NR-IQA/cache",
+   "n": 10125
+  },
+  "niqe": {
+   "rho_orientado": 0.3794,
+   "familia": "NR-IQA/cache",
+   "n": 10125
+  },
+  "qalign": {
+   "rho_orientado": 0.9511,
+   "familia": "NR-IQA/cache",
+   "n": 10125
+  },
+  "qualiclip": {
+   "rho_orientado": 0.6651,
+   "familia": "NR-IQA/cache",
+   "n": 10125
+  },
+  "resnet101_bovw": {
+   "rho_orientado": -0.3755,
+   "familia": "NR-IQA/cache",
+   "n": 10125
+  },
+  "resnet18_bovw": {
+   "rho_orientado": 0.3555,
+   "familia": "NR-IQA/cache",
+   "n": 10125
+  },
+  "resnet50": {
+   "rho_orientado": 0.1902,
+   "familia": "NR-IQA/cache",
+   "n": 10125
+  },
+  "resnet50_bovw": {
+   "rho_orientado": 0.349,
+   "familia": "NR-IQA/cache",
+   "n": 10125
+  },
+  "resnext101_bovw": {
+   "rho_orientado": -0.3167,
+   "familia": "NR-IQA/cache",
+   "n": 10125
+  },
+  "resnext50_bovw": {
+   "rho_orientado": 0.3742,
+   "familia": "NR-IQA/cache",
+   "n": 10125
+  },
+  "si": {
+   "rho_orientado": 0.2185,
+   "familia": "NR-IQA/cache",
+   "n": 10125
+  },
+  "sift_bovw": {
+   "rho_orientado": 0.1226,
+   "familia": "NR-IQA/cache",
+   "n": 10125
+  },
+  "sift_bovw_fixed": {
+   "rho_orientado": 0.1253,
+   "familia": "NR-IQA/cache",
+   "n": 10125
+  },
+  "squeezenet_bovw": {
+   "rho_orientado": 0.1563,
+   "familia": "NR-IQA/cache",
+   "n": 10125
+  },
+  "vgg16_bovw": {
+   "rho_orientado": 0.2597,
+   "familia": "NR-IQA/cache",
+   "n": 10125
+  },
+  "vgg19_bovw": {
+   "rho_orientado": 0.2593,
+   "familia": "NR-IQA/cache",
+   "n": 10125
+  },
+  "wide_resnet101_bovw": {
+   "rho_orientado": 0.3437,
+   "familia": "NR-IQA/cache",
+   "n": 10125
+  },
+  "wide_resnet50_bovw": {
+   "rho_orientado": -0.3752,
+   "familia": "NR-IQA/cache",
+   "n": 10125
+  }
+ },
+ "por_tipo_de_distorcao": {
+  "gaussian_blur": {
+   "rho_mediano": 0.1473,
+   "abaixo_de_zero": 1,
+   "n_ops": 15
+  },
+  "lens_blur": {
+   "rho_mediano": 0.1046,
+   "abaixo_de_zero": 2,
+   "n_ops": 15
+  },
+  "motion_blur": {
+   "rho_mediano": 0.0937,
+   "abaixo_de_zero": 0,
+   "n_ops": 15
+  },
+  "color_diffusion": {
+   "rho_mediano": 0.1918,
+   "abaixo_de_zero": 6,
+   "n_ops": 15
+  },
+  "color_shift": {
+   "rho_mediano": 0.0007,
+   "abaixo_de_zero": 7,
+   "n_ops": 15
+  },
+  "color_quantization": {
+   "rho_mediano": -0.0983,
+   "abaixo_de_zero": 10,
+   "n_ops": 15
+  },
+  "color_saturation_1": {
+   "rho_mediano": 0.0851,
+   "abaixo_de_zero": 3,
+   "n_ops": 15
+  },
+  "color_saturation_2": {
+   "rho_mediano": 0.1064,
+   "abaixo_de_zero": 5,
+   "n_ops": 15
+  },
+  "jpeg2000": {
+   "rho_mediano": 0.0789,
+   "abaixo_de_zero": 5,
+   "n_ops": 15
+  },
+  "jpeg": {
+   "rho_mediano": 0.067,
+   "abaixo_de_zero": 6,
+   "n_ops": 15
+  },
+  "white_noise": {
+   "rho_mediano": -0.1321,
+   "abaixo_de_zero": 9,
+   "n_ops": 15
+  },
+  "white_noise_color": {
+   "rho_mediano": -0.1608,
+   "abaixo_de_zero": 10,
+   "n_ops": 15
+  },
+  "impulse_noise": {
+   "rho_mediano": -0.0806,
+   "abaixo_de_zero": 10,
+   "n_ops": 15
+  },
+  "multiplicative_noise": {
+   "rho_mediano": -0.2831,
+   "abaixo_de_zero": 12,
+   "n_ops": 15
+  },
+  "denoise": {
+   "rho_mediano": 0.1083,
+   "abaixo_de_zero": 6,
+   "n_ops": 15
+  },
+  "brighten": {
+   "rho_mediano": 0.019,
+   "abaixo_de_zero": 6,
+   "n_ops": 15
+  },
+  "darken": {
+   "rho_mediano": 0.117,
+   "abaixo_de_zero": 4,
+   "n_ops": 15
+  },
+  "mean_shift": {
+   "rho_mediano": 0.0243,
+   "abaixo_de_zero": 6,
+   "n_ops": 15
+  },
+  "jitter": {
+   "rho_mediano": 0.1851,
+   "abaixo_de_zero": 4,
+   "n_ops": 15
+  },
+  "non_ecc_patch": {
+   "rho_mediano": 0.0424,
+   "abaixo_de_zero": 6,
+   "n_ops": 15
+  },
+  "pixelate": {
+   "rho_mediano": -0.0151,
+   "abaixo_de_zero": 8,
+   "n_ops": 15
+  },
+  "quantization": {
+   "rho_mediano": 0.0625,
+   "abaixo_de_zero": 7,
+   "n_ops": 15
+  },
+  "color_block": {
+   "rho_mediano": -0.0253,
+   "abaixo_de_zero": 10,
+   "n_ops": 15
+  },
+  "high_sharpen": {
+   "rho_mediano": 0.0187,
+   "abaixo_de_zero": 7,
+   "n_ops": 15
+  },
+  "contrast_change": {
+   "rho_mediano": 0.0654,
+   "abaixo_de_zero": 2,
+   "n_ops": 15
+  }
+ },
+ "mediana_sumarizacao": 0.083,
+ "mediana_nriqa": 0.2658
+}

@@ -1,0 +1,175 @@
+{
+  "_o_que_e": "⭐⭐ Uma previsao pontual da reducao contra um numero que o artigo publica: se a decisao da operacao E a contagem, escolher pela contagem tem de dar os mesmos 21 de 42 e o mesmo kappa contra o Q-Align.",
+  "o_que_o_corpo_publica": {
+    "acertos": 21,
+    "de": 42,
+    "kappa": 0.056,
+    "ic95": [
+      -0.308,
+      0.412
+    ],
+    "fonte": "sec_results.tex, subsecao da triagem"
+  },
+  "B": 10000,
+  "semente": 42,
+  "unidade_de_reamostragem": "bloco de topico (o protocolo do artigo)",
+  "⭐_por_quantidade": {
+    "score publicado (a operacao)": {
+      "acertos": 21,
+      "de": 42,
+      "p_o": 0.5,
+      "p_e": 0.4702,
+      "kappa_uniform": 0.0562,
+      "ic95_bloco_de_topico": [
+        -0.3074,
+        0.4135
+      ]
+    },
+    "contagem de descritores": {
+      "acertos": 21,
+      "de": 42,
+      "p_o": 0.5,
+      "p_e": 0.4702,
+      "kappa_uniform": 0.0562,
+      "ic95_bloco_de_topico": [
+        -0.3101,
+        0.4223
+      ]
+    },
+    "densidade por quadro": {
+      "acertos": 21,
+      "de": 42,
+      "p_o": 0.5,
+      "p_e": 0.4702,
+      "kappa_uniform": 0.0562,
+      "ic95_bloco_de_topico": [
+        -0.2429,
+        0.3445
+      ]
+    },
+    "numero de quadros": {
+      "acertos": 17,
+      "de": 42,
+      "p_o": 0.4048,
+      "p_e": 0.4702,
+      "kappa_uniform": -0.1236,
+      "ic95_bloco_de_topico": [
+        -0.4419,
+        0.2059
+      ]
+    },
+    "MODELO liqe": {
+      "acertos": 32,
+      "de": 42,
+      "p_o": 0.7619,
+      "p_e": 0.4702,
+      "kappa_uniform": 0.5506,
+      "ic95_bloco_de_topico": [
+        0.2917,
+        0.7938
+      ]
+    },
+    "MODELO qualiclip": {
+      "acertos": 28,
+      "de": 42,
+      "p_o": 0.6667,
+      "p_e": 0.4702,
+      "kappa_uniform": 0.3708,
+      "ic95_bloco_de_topico": [
+        0.1429,
+        0.5966
+      ]
+    },
+    "MODELO clipiqa+": {
+      "acertos": 25,
+      "de": 42,
+      "p_o": 0.5952,
+      "p_e": 0.4702,
+      "kappa_uniform": 0.236,
+      "ic95_bloco_de_topico": [
+        0.0382,
+        0.4307
+      ]
+    }
+  },
+  "⭐⭐_validacao_do_meu_bootstrap_contra_o_publicado": [
+    {
+      "modelo": "liqe",
+      "acertos_meus": 32,
+      "acertos_publicados": 32,
+      "kappa_meu": 0.5506,
+      "kappa_publicado": 0.551,
+      "ic_meu": [
+        0.2917,
+        0.7938
+      ],
+      "ic_publicado": [
+        0.284,
+        0.786
+      ],
+      "acertos_batem": true,
+      "kappa_bate_em_3_casas": true,
+      "ic_bate_em_2_casas": true
+    },
+    {
+      "modelo": "qualiclip",
+      "acertos_meus": 28,
+      "acertos_publicados": 28,
+      "kappa_meu": 0.3708,
+      "kappa_publicado": 0.371,
+      "ic_meu": [
+        0.1429,
+        0.5966
+      ],
+      "ic_publicado": [
+        0.143,
+        0.597
+      ],
+      "acertos_batem": true,
+      "kappa_bate_em_3_casas": true,
+      "ic_bate_em_2_casas": true
+    },
+    {
+      "modelo": "clipiqa+",
+      "acertos_meus": 25,
+      "acertos_publicados": 25,
+      "kappa_meu": 0.236,
+      "kappa_publicado": 0.236,
+      "ic_meu": [
+        0.0382,
+        0.4307
+      ],
+      "ic_publicado": [
+        0.034,
+        0.435
+      ],
+      "acertos_batem": true,
+      "kappa_bate_em_3_casas": true,
+      "ic_bate_em_2_casas": true
+    }
+  ],
+  "⭐⭐_mesmo_numero_nao_e_mesmo_conjunto": {
+    "sobreposicao": {
+      "operacao_x_contagem": {
+        "iguais": 21,
+        "so_op": 0,
+        "so_outro": 0
+      },
+      "operacao_x_densidade": {
+        "iguais": 15,
+        "so_op": 6,
+        "so_outro": 6
+      }
+    },
+    "⭐_leitura": "a contagem acerta os MESMOS clusters que a operacao, como o §370 preve. A densidade por quadro acerta o mesmo NUMERO e um conjunto diferente, embora discorde da operacao em 13 dos 42. Logo o piso, como estatistica, nao distingue a operacao de uma quantidade que escolhe diferente num terco dos clusters."
+  },
+  "⭐_a_previsao_bate": {
+    "acertos_iguais": true,
+    "kappa_igual": true,
+    "acertos": [
+      21,
+      21
+    ]
+  },
+  "⚠️_ler_com": "o Q-Align aqui e o `qalign` do `e2e_scores.json`, a mesma referencia do corpo; o meu IC usa o mesmo protocolo mas nao e o mesmo codigo, entao diferenca de milesimo no limite e esperada."
+}

@@ -1,0 +1,924 @@
+{
+ "_o_que_e": "⭐⭐⭐ OS 173 QUE NAO CITAM NR-IQA DEDICADO USAM O QUE NO LUGAR?\n\nPOR QUE EXISTE (05/09). O `desconexao_das_duas_literaturas.json` conta quantos PDF do\nacervo citam ALGUMA medida de qualidade, e a prosa do corpo escreve isso como\n\"cite no image-quality measure of ANY KIND\". ⛔ Mas a busca so procura NOMES DE\nMEDIDA DEDICADA (PSNR, SSIM, BRISQUE, NIQE, BLIINDS, ...). As quinze operacoes que\neste trabalho audita SAO medidas de qualidade de imagem, e nao estao na lista.\n\n🔴 Entao a frase esta imprecisa contra o proprio argumento: um artigo que usa\nvariancia do laplaciano para escolher quadro E um artigo que mede qualidade, e\nestaria contado como quem \"nao cita nenhuma\".\n\n⭐ E medir o complemento AFIA o enquadramento em vez de enfraquecer: se boa parte dos\n173 usa uma das operacoes, a leitura deixa de ser \"a literatura ignora qualidade\" e\npassa a ser \"a literatura MEDE qualidade, com termos que reprovam nas tres portas\".\n\n⚠️ BUSCA POR TERMO E GROSSEIRA, e a ressalva vai junto: \"contrast\" aparece em\nqualquer artigo. Por isso cada padrao e uma EXPRESSAO especifica da operacao, os\nresultados vao por termo (para a grosseria ficar visivel) e a leitura e de PISO:\nquem usa a operacao sem nomea-la nao e contado.\n",
+ "unidade_de_reamostragem": "PDF do acervo",
+ "n_pdfs": 186,
+ "n_sem_nriqa_dedicado": 173,
+ "n_com_nriqa_dedicado": 13,
+ "dos_sem_dedicado_quantos_usam_operacao": 33,
+ "fracao_dos_sem_dedicado_que_usam_operacao": 0.1908,
+ "n_sem_nenhuma_das_duas": 140,
+ "fracao_sem_nenhuma_das_duas": 0.7527,
+ "termos_mais_frequentes": [
+  [
+   "lbp",
+   11
+  ],
+  [
+   "estetica",
+   11
+  ],
+  [
+   "saliencia",
+   11
+  ],
+  [
+   "colorfulness",
+   8
+  ],
+  [
+   "ke_edge_distr",
+   6
+  ],
+  [
+   "nitidez/blur",
+   5
+  ],
+  [
+   "spatial_info",
+   5
+  ],
+  [
+   "laplacian_var",
+   3
+  ],
+  [
+   "exposicao",
+   3
+  ],
+  [
+   "hue_count",
+   3
+  ],
+  [
+   "entropia",
+   2
+  ],
+  [
+   "sobel/gradiente",
+   2
+  ],
+  [
+   "glcm",
+   1
+  ]
+ ],
+ "leitura": "PISO: quem usa a operacao sem nomea-la nao e contado",
+ "por_pdf": {
+  "ahuja2022aspectnews.pdf": {
+   "termos": [],
+   "chars": 51650
+  },
+  "aleixo2008cstnews.pdf": {
+   "termos": [],
+   "chars": 25180
+  },
+  "antici2023subjectivity.pdf": {
+   "termos": [],
+   "chars": 54171
+  },
+  "antiqueira2009complexnetwork.pdf": {
+   "termos": [],
+   "chars": 82724
+  },
+  "apostolidis2021survey.pdf": {
+   "termos": [],
+   "chars": 147292
+  },
+  "argaw2024scaling.pdf": {
+   "termos": [],
+   "chars": 73923
+  },
+  "barbara2025prompts_summaries.pdf": {
+   "termos": [],
+   "chars": 118987
+  },
+  "barbieri2020[venue].pdf": {
+   "termos": [
+    "lbp"
+   ],
+   "chars": 45505
+  },
+  "barbieri2021content.pdf": {
+   "termos": [
+    "estetica",
+    "lbp"
+   ],
+   "chars": 62476
+  },
+  "barbieri2021tese.pdf": {
+   "termos": [
+    "lbp"
+   ],
+   "chars": 254399
+  },
+  "barzilay2008entitygrid.pdf": {
+   "termos": [],
+   "chars": 118057
+  },
+  "bergkirkpatrick2012significance.pdf": {
+   "termos": [],
+   "chars": 41285
+  },
+  "beserra2020evaluating.pdf": {
+   "termos": [],
+   "chars": 51577
+  },
+  "beserra2023multimodal.pdf": {
+   "termos": [],
+   "chars": 56119
+  },
+  "cai2010simultaneous.pdf": {
+   "termos": [],
+   "chars": 31667
+  },
+  "cakmak2025tripss.pdf": {
+   "termos": [
+    "colorfulness",
+    "laplacian_var",
+    "lbp"
+   ],
+   "chars": 31946
+  },
+  "cao2024_5w1h_llms.pdf": {
+   "termos": [],
+   "chars": 50166
+  },
+  "carbonell1998mmr.pdf": {
+   "termos": [],
+   "chars": 11230
+  },
+  "card2020littlepower.pdf": {
+   "termos": [],
+   "chars": 118785
+  },
+  "cardoso2013discourse.pdf": {
+   "termos": [],
+   "chars": 20229
+  },
+  "castrojorge2010cstsumm.pdf": {
+   "termos": [],
+   "chars": 32935
+  },
+  "chasanis2008spectral.pdf": {
+   "termos": [],
+   "chars": 21725
+  },
+  "chen2021reffree.pdf": {
+   "termos": [],
+   "chars": 45916
+  },
+  "chitrakala2025symmetry.pdf": {
+   "termos": [
+    "entropia",
+    "lbp"
+   ],
+   "chars": 85576
+  },
+  "choi2000advances.pdf": {
+   "termos": [],
+   "chars": 28761
+  },
+  "chu2015video_cosummarization.pdf": {
+   "termos": [],
+   "chars": 44886
+  },
+  "clarke2008alphandcg.pdf": {
+   "termos": [],
+   "chars": 43170
+  },
+  "datta2006aesthetics.pdf": {
+   "termos": [
+    "colorfulness",
+    "estetica",
+    "exposicao"
+   ],
+   "chars": 42424
+  },
+  "dedomenico2015reducibility.pdf": {
+   "termos": [],
+   "chars": 53144
+  },
+  "deutsch2021infoquality.pdf": {
+   "termos": [],
+   "chars": 41242
+  },
+  "deutsch2021qaeval.pdf": {
+   "termos": [],
+   "chars": 65391
+  },
+  "deutsch2022reffreelimits.pdf": {
+   "termos": [],
+   "chars": 64409
+  },
+  "dror2018hitchhiker.pdf": {
+   "termos": [],
+   "chars": 40608
+  },
+  "duygulu2004autodoc.pdf": {
+   "termos": [],
+   "chars": 42540
+  },
+  "ebu_r128_v5.pdf": {
+   "termos": [],
+   "chars": 9589
+  },
+  "erkan2004lexrank.pdf": {
+   "termos": [],
+   "chars": 58293
+  },
+  "ernst2022procluster.pdf": {
+   "termos": [],
+   "chars": 62724
+  },
+  "eyal2019apes.pdf": {
+   "termos": [],
+   "chars": 42406
+  },
+  "fabbri2020summeval.pdf": {
+   "termos": [],
+   "chars": 72357
+  },
+  "fu2010multiview.pdf": {
+   "termos": [],
+   "chars": 72275
+  },
+  "gao2019pyreval.pdf": {
+   "termos": [],
+   "chars": 59597
+  },
+  "gao2020supert.pdf": {
+   "termos": [],
+   "chars": 32818
+  },
+  "gharbi2017modularity.pdf": {
+   "termos": [],
+   "chars": 20652
+  },
+  "gharbi2019repeatability.pdf": {
+   "termos": [
+    "lbp"
+   ],
+   "chars": 35133
+  },
+  "ghinassi2023encoders.pdf": {
+   "termos": [],
+   "chars": 100951
+  },
+  "goldstein1998summarization.pdf": {
+   "termos": [],
+   "chars": 59128
+  },
+  "golo2023[venue].pdf": {
+   "termos": [],
+   "chars": 55904
+  },
+  "gygli2014creating.pdf": {
+   "termos": [
+    "colorfulness",
+    "estetica"
+   ],
+   "chars": 41453
+  },
+  "hamborg2018giveme5w.pdf": {
+   "termos": [],
+   "chars": 31710
+  },
+  "hamborg2019b.pdf": {
+   "termos": [],
+   "chars": 51973
+  },
+  "hasler2003colorfulness.pdf": {
+   "termos": [
+    "colorfulness"
+   ],
+   "chars": 20199
+  },
+  "he2023blindspots.pdf": {
+   "termos": [],
+   "chars": 103252
+  },
+  "hearst1997texttiling.pdf": {
+   "termos": [],
+   "chars": 109964
+  },
+  "hendrycks2019imagenetc.pdf": {
+   "termos": [],
+   "chars": 58741
+  },
+  "hong2011beyond_search.pdf": {
+   "termos": [],
+   "chars": 64411
+  },
+  "hong2014repository.pdf": {
+   "termos": [],
+   "chars": 44321
+  },
+  "hovy2006basicelements.pdf": {
+   "termos": [],
+   "chars": 15799
+  },
+  "hua2025v2xum.pdf": {
+   "termos": [
+    "estetica"
+   ],
+   "chars": 55747
+  },
+  "huang2024aesthetic.pdf": {
+   "termos": [
+    "estetica",
+    "exposicao"
+   ],
+   "chars": 48690
+  },
+  "hussain2021mvs.pdf": {
+   "termos": [
+    "saliencia"
+   ],
+   "chars": 76114
+  },
+  "islam2025multimodal.pdf": {
+   "termos": [],
+   "chars": 43648
+  },
+  "itu_r_bs1770_5.pdf": {
+   "termos": [],
+   "chars": 57160
+  },
+  "jeong2017static.pdf": {
+   "termos": [
+    "nitidez/blur"
+   ],
+   "chars": 52771
+  },
+  "ji2018mvs_hds.pdf": {
+   "termos": [],
+   "chars": 49194
+  },
+  "ji2019quasc.pdf": {
+   "termos": [],
+   "chars": 42727
+  },
+  "kadam2025systematic.pdf": {
+   "termos": [],
+   "chars": 49021
+  },
+  "kalkhorani2024beyond_frame.pdf": {
+   "termos": [],
+   "chars": 47241
+  },
+  "kannao2019newssegment.pdf": {
+   "termos": [],
+   "chars": 107900
+  },
+  "kannao2020semantic.pdf": {
+   "termos": [
+    "ke_edge_distr"
+   ],
+   "chars": 115753
+  },
+  "kaushal2020visiocity.pdf": {
+   "termos": [],
+   "chars": 58354
+  },
+  "ke2006highlevel.pdf": {
+   "termos": [
+    "hue_count",
+    "ke_edge_distr",
+    "nitidez/blur"
+   ],
+   "chars": 37250
+  },
+  "kedzie2018contentselection.pdf": {
+   "termos": [],
+   "chars": 50493
+  },
+  "kishi2018fused.pdf": {
+   "termos": [],
+   "chars": 43116
+  },
+  "kishi2019correlation.pdf": {
+   "termos": [
+    "spatial_info"
+   ],
+   "chars": 74504
+  },
+  "koehn2004significance.pdf": {
+   "termos": [],
+   "chars": 31630
+  },
+  "korolkov2025keyframe.pdf": {
+   "termos": [
+    "exposicao",
+    "laplacian_var",
+    "nitidez/blur"
+   ],
+   "chars": 56551
+  },
+  "koshorek2018text.pdf": {
+   "termos": [],
+   "chars": 19031
+  },
+  "lapata2006kendalltau.pdf": {
+   "termos": [],
+   "chars": 43787
+  },
+  "lee2025llmvs.pdf": {
+   "termos": [],
+   "chars": 64091
+  },
+  "li2010videommr.pdf": {
+   "termos": [],
+   "chars": 19003
+  },
+  "li2012balanced_avmmr.pdf": {
+   "termos": [],
+   "chars": 29084
+  },
+  "li2025lgrln.pdf": {
+   "termos": [],
+   "chars": 104274
+  },
+  "li2025spivg.pdf": {
+   "termos": [],
+   "chars": 78017
+  },
+  "lin2004rouge.pdf": {
+   "termos": [],
+   "chars": 36994
+  },
+  "lin2011submodular.pdf": {
+   "termos": [],
+   "chars": 43680
+  },
+  "lin2024videogenic.pdf": {
+   "termos": [],
+   "chars": 58585
+  },
+  "linbilmes2010budgeted.pdf": {
+   "termos": [],
+   "chars": 34576
+  },
+  "liu2017rankiqa.pdf": {
+   "termos": [],
+   "chars": 48738
+  },
+  "manzato2011multimedia.pdf": {
+   "termos": [],
+   "chars": 71132
+  },
+  "mao2020rlmmr.pdf": {
+   "termos": [],
+   "chars": 61530
+  },
+  "messaoud2021deepqamvs.pdf": {
+   "termos": [],
+   "chars": 56919
+  },
+  "mihalcea2004textrank.pdf": {
+   "termos": [],
+   "chars": 41622
+  },
+  "min2023factscore.pdf": {
+   "termos": [],
+   "chars": 97165
+  },
+  "mittal2012brisque.pdf": {
+   "termos": [
+    "nitidez/blur"
+   ],
+   "chars": 68212
+  },
+  "mittal2013niqe.pdf": {
+   "termos": [
+    "nitidez/blur"
+   ],
+   "chars": 22380
+  },
+  "moraes2022subjectivity.pdf": {
+   "termos": [],
+   "chars": 54240
+  },
+  "muramatsu2014viewpoint.pdf": {
+   "termos": [],
+   "chars": 20741
+  },
+  "nandini2022edgelbp.pdf": {
+   "termos": [
+    "lbp",
+    "sobel/gradiente"
+   ],
+   "chars": 40332
+  },
+  "narvala2023threads.pdf": {
+   "termos": [],
+   "chars": 86536
+  },
+  "nayeem2018paraphrastic.pdf": {
+   "termos": [],
+   "chars": 49670
+  },
+  "nenkova2004pyramid.pdf": {
+   "termos": [],
+   "chars": 38516
+  },
+  "ngo2005graphmodeling.pdf": {
+   "termos": [
+    "saliencia"
+   ],
+   "chars": 46635
+  },
+  "nie2016perceptual.pdf": {
+   "termos": [
+    "estetica",
+    "saliencia"
+   ],
+   "chars": 62417
+  },
+  "nonmonotone2022routing.pdf": {
+   "termos": [],
+   "chars": 56439
+  },
+  "otani2019rethinking.pdf": {
+   "termos": [],
+   "chars": 47646
+  },
+  "over2008trecvid.pdf": {
+   "termos": [],
+   "chars": 70431
+  },
+  "padmakumar2021pmi.pdf": {
+   "termos": [],
+   "chars": 35120
+  },
+  "panda2016camera_network.pdf": {
+   "termos": [],
+   "chars": 34057
+  },
+  "panda2016embedded_multiview.pdf": {
+   "termos": [],
+   "chars": 26206
+  },
+  "panda2017collaborative.pdf": {
+   "termos": [],
+   "chars": 50548
+  },
+  "panda2017diversity.pdf": {
+   "termos": [
+    "estetica"
+   ],
+   "chars": 75651
+  },
+  "panda2017multiview_surveillance.pdf": {
+   "termos": [],
+   "chars": 67860
+  },
+  "panda2017sparse_topic.pdf": {
+   "termos": [],
+   "chars": 25472
+  },
+  "park2020sumgraph.pdf": {
+   "termos": [],
+   "chars": 39502
+  },
+  "park2025videograph.pdf": {
+   "termos": [
+    "saliencia"
+   ],
+   "chars": 103649
+  },
+  "peyrard2019scoring.pdf": {
+   "termos": [],
+   "chars": 25545
+  },
+  "pitt2013fabricated.pdf": {
+   "termos": [],
+   "chars": 181837
+  },
+  "qaroush2025centrality.pdf": {
+   "termos": [
+    "lbp",
+    "saliencia"
+   ],
+   "chars": 120059
+  },
+  "qaroush2025diversity.pdf": {
+   "termos": [
+    "colorfulness",
+    "sobel/gradiente"
+   ],
+   "chars": 80725
+  },
+  "radev2000centroid.pdf": {
+   "termos": [],
+   "chars": 33075
+  },
+  "radovanovic2010hubs.pdf": {
+   "termos": [],
+   "chars": 134276
+  },
+  "ribaldo2016rsumm.pdf": {
+   "termos": [],
+   "chars": 69361
+  },
+  "ribeiro2020checklist.pdf": {
+   "termos": [],
+   "chars": 51606
+  },
+  "rojaschaves2024videosage.pdf": {
+   "termos": [],
+   "chars": 34183
+  },
+  "sai2021perturbation.pdf": {
+   "termos": [],
+   "chars": 82170
+  },
+  "saqib2018mme.pdf": {
+   "termos": [],
+   "chars": 46687
+  },
+  "sarmento2024sumarizacaopt.pdf": {
+   "termos": [],
+   "chars": 30401
+  },
+  "schnitzer2012scaling.pdf": {
+   "termos": [],
+   "chars": 83821
+  },
+  "scialom2019answersunite.pdf": {
+   "termos": [],
+   "chars": 42950
+  },
+  "scialom2021questeval.pdf": {
+   "termos": [],
+   "chars": 42729
+  },
+  "shao2010complex_graph.pdf": {
+   "termos": [],
+   "chars": 29078
+  },
+  "shapira2018lengths.pdf": {
+   "termos": [],
+   "chars": 21679
+  },
+  "shen2007qov.pdf": {
+   "termos": [],
+   "chars": 16672
+  },
+  "sidiropoulos2011temporal.pdf": {
+   "termos": [],
+   "chars": 79511
+  },
+  "singh2026subevent.pdf": {
+   "termos": [
+    "laplacian_var",
+    "lbp"
+   ],
+   "chars": 78768
+  },
+  "soares2018topicsegment.pdf": {
+   "termos": [],
+   "chars": 52775
+  },
+  "solbiati2021segmentation.pdf": {
+   "termos": [],
+   "chars": 26281
+  },
+  "srinivas2016rank.pdf": {
+   "termos": [
+    "colorfulness",
+    "hue_count",
+    "ke_edge_distr",
+    "saliencia"
+   ],
+   "chars": 22801
+  },
+  "stil2015proceedings.pdf": {
+   "termos": [],
+   "chars": 819809
+  },
+  "sun2019targetlength.pdf": {
+   "termos": [],
+   "chars": 36680
+  },
+  "swain1991colorindexing.pdf": {
+   "termos": [
+    "spatial_info"
+   ],
+   "chars": 78558
+  },
+  "tang2013content.pdf": {
+   "termos": [
+    "colorfulness",
+    "hue_count",
+    "ke_edge_distr",
+    "saliencia"
+   ],
+   "chars": 36458
+  },
+  "tang2021knapsack.pdf": {
+   "termos": [],
+   "chars": 66104
+  },
+  "taylor2017superresolution.pdf": {
+   "termos": [
+    "spatial_info"
+   ],
+   "chars": 59251
+  },
+  "tohalino2018multilayer.pdf": {
+   "termos": [],
+   "chars": 48968
+  },
+  "traag2011resolutionfree.pdf": {
+   "termos": [],
+   "chars": 44777
+  },
+  "traag2019leiden.pdf": {
+   "termos": [],
+   "chars": 97090
+  },
+  "trojahn2012avsa.pdf": {
+   "termos": [],
+   "chars": 22912
+  },
+  "trojahn2021temporal.pdf": {
+   "termos": [],
+   "chars": 85568
+  },
+  "tur2001topicseg.pdf": {
+   "termos": [],
+   "chars": 81205
+  },
+  "verhaverbeke2025_french5w1h.pdf": {
+   "termos": [],
+   "chars": 36326
+  },
+  "walden2024_seamus.pdf": {
+   "termos": [],
+   "chars": 93502
+  },
+  "wan2006affinitygraph.pdf": {
+   "termos": [],
+   "chars": 15518
+  },
+  "wan2008clusterlink.pdf": {
+   "termos": [],
+   "chars": 40054
+  },
+  "wan2008documentimpact.pdf": {
+   "termos": [],
+   "chars": 31752
+  },
+  "wang2009multidoc.pdf": {
+   "termos": [],
+   "chars": 19958
+  },
+  "wang2012tag_localization.pdf": {
+   "termos": [
+    "ke_edge_distr"
+   ],
+   "chars": 54242
+  },
+  "wen2022mvs_gcn_asd.pdf": {
+   "termos": [],
+   "chars": 64162
+  },
+  "wolhandler2022howmulti.pdf": {
+   "termos": [],
+   "chars": 32210
+  },
+  "wu2006threading.pdf": {
+   "termos": [],
+   "chars": 40404
+  },
+  "wu2019mvsgcn.pdf": {
+   "termos": [],
+   "chars": 45445
+  },
+  "wu2020dyngcn.pdf": {
+   "termos": [
+    "estetica"
+   ],
+   "chars": 68068
+  },
+  "wu2026multimodal_gcl.pdf": {
+   "termos": [
+    "spatial_info"
+   ],
+   "chars": 78382
+  },
+  "xiao2020redundancy.pdf": {
+   "termos": [],
+   "chars": 47926
+  },
+  "xiao2023metriceval.pdf": {
+   "termos": [],
+   "chars": 64767
+  },
+  "xie2008affinity.pdf": {
+   "termos": [],
+   "chars": 25824
+  },
+  "xu2024property.pdf": {
+   "termos": [
+    "colorfulness",
+    "ke_edge_distr"
+   ],
+   "chars": 62551
+  },
+  "yang2016peak.pdf": {
+   "termos": [],
+   "chars": 35540
+  },
+  "yang2023chatgptaspect.pdf": {
+   "termos": [],
+   "chars": 39847
+  },
+  "yang2024keyframe.pdf": {
+   "termos": [
+    "entropia",
+    "glcm"
+   ],
+   "chars": 78191
+  },
+  "ye2023complementary.pdf": {
+   "termos": [],
+   "chars": 64136
+  },
+  "yeh2025gcn_compressed.pdf": {
+   "termos": [],
+   "chars": 51639
+  },
+  "yu2026deep.pdf": {
+   "termos": [],
+   "chars": 123691
+  },
+  "zerocontrol2025length.pdf": {
+   "termos": [],
+   "chars": 69812
+  },
+  "zhang2013geospace.pdf": {
+   "termos": [],
+   "chars": 31199
+  },
+  "zhang2015aesthetics.pdf": {
+   "termos": [
+    "estetica",
+    "lbp",
+    "saliencia"
+   ],
+   "chars": 75840
+  },
+  "zhang2015handheld.pdf": {
+   "termos": [
+    "estetica",
+    "saliencia"
+   ],
+   "chars": 40264
+  },
+  "zhang2015skimlets.pdf": {
+   "termos": [
+    "estetica",
+    "saliencia"
+   ],
+   "chars": 48910
+  },
+  "zhang2016georeferenced.pdf": {
+   "termos": [
+    "lbp",
+    "saliencia"
+   ],
+   "chars": 62073
+  },
+  "zhang2020bertscore.pdf": {
+   "termos": [],
+   "chars": 134885
+  },
+  "zhang2023_iesumm.pdf": {
+   "termos": [],
+   "chars": 49798
+  },
+  "zhao2019moverscore.pdf": {
+   "termos": [],
+   "chars": 58543
+  },
+  "zhao2026graphvsum.pdf": {
+   "termos": [],
+   "chars": 55520
+  },
+  "zheng2019pacsum.pdf": {
+   "termos": [],
+   "chars": 52439
+  },
+  "zhu2014keyobservation.pdf": {
+   "termos": [
+    "spatial_info"
+   ],
+   "chars": 49937
+  },
+  "zhu2023topicaware.pdf": {
+   "termos": [],
+   "chars": 53931
+  }
+ }
+}

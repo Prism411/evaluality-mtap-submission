@@ -1,0 +1,569 @@
+\begin{thebibliography}{101}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{{#1}}
+\providecommand{\urlprefix}{URL }
+\providecommand{\doi}[1]{\url{https://doi.org/#1}}
+\providecommand{\eprint}[2][]{\url{#2}}
+ \bibcommenthead
+
+\bibitem[{lin(2024)}]{lin2024videogenic}
+ (2024) Videogenic: Identifying highlight moments in videos with professional
+  photographs as a prior. In: ACM Creativity and Cognition (C\&C),
+  \doi{10.1145/3635636.3656186}
+
+\bibitem[{chi(2025)}]{chitrakala2025symmetry}
+ (2025) Contextual feature fusion-based keyframe selection using semantic
+  attention and diversity-aware optimization. Symmetry 17(10):1737.
+  \doi{10.3390/sym17101737}
+
+\bibitem[{Apostolidis et~al.(2021)Apostolidis, Adamantidou, Metsai, Mezaris,
+  and Patras}]{apostolidis2021survey}
+Apostolidis E, Adamantidou E, Metsai AI, et~al (2021) Video summarization using
+  deep neural networks: A survey. Proceedings of the IEEE 109(11):1838--1863.
+  \doi{10.1109/JPROC.2021.3117472}
+
+\bibitem[{Argaw et~al.(2024)Argaw, Yoon, Caba~Heilbron, Deilamsalehy, Bui,
+  Wang, Dernoncourt, and Chung}]{argaw2024scaling}
+Argaw DM, Yoon S, Caba~Heilbron F, et~al (2024) Scaling up video summarization
+  pretraining with large language models. In: IEEE/CVF Conference on Computer
+  Vision and Pattern Recognition (CVPR), pp 8332--8341,
+  \doi{10.1109/CVPR52733.2024.00796}
+
+\bibitem[{de~Avila et~al.(2011)de~Avila, Lopes, da~Luz~Jr., and
+  de~Albuquerque~Ara\'{u}jo}]{avila2011vsumm}
+de~Avila SEF, Lopes APBa, da~Luz~Jr. A, et~al (2011) {VSUMM}: A mechanism
+  designed to produce static video summaries and a novel evaluation method.
+  Pattern Recognition Letters 32(1):56--68
+
+\bibitem[{Barbara and Maalouf(2025)}]{barbara2025prompts_summaries}
+Barbara M, Maalouf A (2025) Prompts to summaries: Zero-shot language-guided
+  video summarization. arXiv, \urlprefix\url{https://arxiv.org/abs/2506.10807}
+
+\bibitem[{Barbieri(2021)}]{barbieri2021tese}
+Barbieri TTdS (2021) Sumariza\c{c}\~{a}o autom\'{a}tica multiv\'{i}deo baseada
+  em estrat\'{e}gias humanas. PhD thesis, Instituto de Ci\^{e}ncias
+  Matem\'{a}ticas e de Computa\c{c}\~{a}o, Universidade de S\~{a}o Paulo,
+  S\~{a}o Carlos, \doi{10.11606/T.55.2021.tde-27092021-101106}
+
+\bibitem[{Barbieri and Goularte(2021)}]{barbieri2021content}
+Barbieri TTdS, Goularte R (2021) Content selection criteria for news
+  multi-video summarization based on human strategies. International Journal on
+  Digital Libraries 22:1--14. \doi{10.1007/s00799-020-00281-9}
+
+\bibitem[{Basavarajaiah and Sharma(2019)}]{basavarajaiah2019compressed}
+Basavarajaiah M, Sharma P (2019) Survey of compressed domain video
+  summarization techniques. ACM Computing Surveys
+
+\bibitem[{Beserra and Goularte(2023)}]{beserra2023multimodal}
+Beserra AAR, Goularte R (2023) Multimodal early fusion operators for temporal
+  video scene segmentation tasks. Multimedia Tools and Applications
+  82:31539--31556. \doi{10.1007/s11042-023-14953-6}
+
+\bibitem[{Beserra et~al.(2020)Beserra, Kishi, and
+  Goularte}]{beserra2020evaluating}
+Beserra AAR, Kishi RM, Goularte R (2020) Evaluating early fusion operators at
+  mid-level feature space. In: Proc. Brazilian Symposium on Multimedia and the
+  Web (WebMedia), pp 113--120, \doi{10.1145/3428658.3431079}
+
+\bibitem[{Cakmak et~al.(2025)Cakmak, Agarwal, and Poudel}]{cakmak2025tripss}
+Cakmak MC, Agarwal N, Poudel D (2025) {TriPSS}: A tri-modal keyframe extraction
+  framework using perceptual, structural and semantic representations.
+  ArXiv:2506.05395v2
+
+\bibitem[{Chasanis et~al.(2008)Chasanis, Likas, and
+  Galatsanos}]{chasanis2008spectral}
+Chasanis V, Likas A, Galatsanos N (2008) Efficient video shot summarization
+  using an enhanced spectral clustering approach. In: Artificial Neural
+  Networks (ICANN)
+
+\bibitem[{Chaves and Tripathi(2024)}]{rojaschaves2024videosage}
+Chaves JMR, Tripathi S (2024) Videosage: Video summarization with graph
+  representation learning. In: CVPR Workshop SG2RL, p s.p.,
+  \urlprefix\url{https://arxiv.org/abs/2404.10539}
+
+\bibitem[{Chen and Mo(2022)}]{chen2022pyiqa}
+Chen C, Mo J (2022) {IQA-PyTorch}: {PyTorch} toolbox for image quality
+  assessment. GitHub, \urlprefix\url{https://github.com/chaofengc/IQA-PyTorch}
+
+\bibitem[{Chu et~al.(2015)Chu, Song, and Jaimes}]{chu2015video_cosummarization}
+Chu WS, Song Y, Jaimes A (2015) Video co-summarization: Video summarization by
+  visual co-occurrence. In: CVPR, pp 3584--3592,
+  \doi{10.1109/CVPR.2015.7298981},
+  \urlprefix\url{https://openaccess.thecvf.com/content_cvpr_2015/html/Chu_Video_Co-Summarization_Video_2015_CVPR_paper.html}
+
+\bibitem[{Datta et~al.(2006)Datta, Joshi, Li, and Wang}]{datta2006aesthetics}
+Datta R, Joshi D, Li J, et~al (2006) Studying aesthetics in photographic images
+  using a computational approach. In: Computer Vision -- ECCV 2006, Lecture
+  Notes in Computer Science, vol 3953. Springer, pp 288--301
+
+\bibitem[{Dettmers et~al.(2023)Dettmers, Pagnoni, Holtzman, and
+  Zettlemoyer}]{dettmers2023qlora}
+Dettmers T, Pagnoni A, Holtzman A, et~al (2023) {QLoRA}: Efficient finetuning
+  of quantized {LLMs}. In: NeurIPS, arXiv:2305.14314
+
+\bibitem[{Duygulu et~al.(2004)Duygulu, Pan, and Forsyth}]{duygulu2004autodoc}
+Duygulu P, Pan JY, Forsyth DA (2004) Towards auto-documentary: Tracking the
+  evolution of news stories. In: Proceedings of the 12th annual ACM
+  international conference on Multimedia, \doi{10.1145/1027527.1027719}
+
+\bibitem[{Fu et~al.(2010)Fu, Guo, Zhu, Liu, Song, and Zhou}]{fu2010multiview}
+Fu Y, Guo Y, Zhu Y, et~al (2010) Multi-view video summarization. IEEE
+  Transactions on Multimedia pp 717--729. \doi{10.1109/TMM.2010.2052025},
+  \urlprefix\url{https://doi.org/10.1109/TMM.2010.2052025}
+
+\bibitem[{Gharbi et~al.(2017)Gharbi, Bahroun, Massaoudi, and
+  Zagrouba}]{gharbi2017modularity}
+Gharbi H, Bahroun S, Massaoudi M, et~al (2017) Key frames extraction using
+  graph modularity clustering for efficient video summarization. In: IEEE
+  International Conference on Acoustics, Speech and Signal Processing (ICASSP)
+
+\bibitem[{Gharbi et~al.(2019)Gharbi, Bahroun, and
+  Zagrouba}]{gharbi2019repeatability}
+Gharbi H, Bahroun S, Zagrouba E (2019) Key frame extraction for video
+  summarization using local description and repeatability graph clustering.
+  Signal, Image and Video Processing 13(3):507--515
+
+\bibitem[{Gygli et~al.(2014{\natexlab{a}})Gygli, Grabner, Riemenschneider, and
+  Gool}]{gygli2014creating}
+Gygli M, Grabner H, Riemenschneider H, et~al (2014{\natexlab{a}}) Creating
+  summaries from user videos. In: Computer Vision -- ECCV 2014, Lecture Notes
+  in Computer Science, vol 8695. Springer, pp 505--520,
+  \doi{10.1007/978-3-319-10584-0_33}
+
+\bibitem[{Gygli et~al.(2014{\natexlab{b}})Gygli, Grabner, Riemenschneider, and
+  Van~Gool}]{gygli2014summe}
+Gygli M, Grabner H, Riemenschneider H, et~al (2014{\natexlab{b}}) Creating
+  summaries from user videos. In: ECCV, pp 505--520,
+  \doi{10.1007/978-3-319-10584-0_33}
+
+\bibitem[{Hasler and S{\"u}sstrunk(2003)}]{hasler2003colorfulness}
+Hasler D, S{\"u}sstrunk S (2003) Measuring colourfulness in natural images. In:
+  Human Vision and Electronic Imaging VIII, pp 87--95, \doi{10.1117/12.477378}
+
+\bibitem[{Hong et~al.(2011)Hong, Tang, Tan, Ngo, Yan, and
+  Chua}]{hong2011beyond_search}
+Hong R, Tang J, Tan HK, et~al (2011) Beyond search: Event-driven summarization
+  for web videos. ACM Transactions on Multimedia Computing, Communications, and
+  Applications 7(4):1--18. \doi{10.1145/2043612.2043613}
+
+\bibitem[{Hou and Zhang(2007)}]{hou2007spectral}
+Hou X, Zhang L (2007) Saliency detection: A spectral residual approach. In:
+  2007 IEEE Conference on Computer Vision and Pattern Recognition, pp 1--8,
+  \doi{10.1109/CVPR.2007.383267}
+
+\bibitem[{Hua et~al.(2025)Hua, Tang, Xu, and Luo}]{hua2025v2xum}
+Hua H, Tang Y, Xu C, et~al (2025) V2xum-llm: Cross-modal video summarization
+  with temporal prompt instruction tuning. In: AAAI, p s.p.,
+  \urlprefix\url{https://arxiv.org/abs/2404.12353}
+
+\bibitem[{Huang et~al.(2024)Huang, Wu, Pang, and Xie}]{huang2024aesthetic}
+Huang H, Wu Z, Pang G, et~al (2024) An aesthetic-driven approach to
+  unsupervised video summarization. IEEE Access 12.
+  \doi{10.1109/ACCESS.2024.3434508}
+
+\bibitem[{Hussain et~al.(2021)Hussain, Muhammad, Ding, Lloret, Baik, and
+  de~Albuquerque}]{hussain2021mvs}
+Hussain T, Muhammad K, Ding W, et~al (2021) A comprehensive survey of
+  multi-view video summarization. Pattern Recognition p 107567.
+  \doi{10.1016/j.patcog.2020.107567},
+  \urlprefix\url{https://doi.org/10.1016/j.patcog.2020.107567}
+
+\bibitem[{{International Telecommunication Union}(2008)}]{itu_p910}
+{International Telecommunication Union} (2008) Subjective video quality
+  assessment methods for multimedia applications. ITU-T Recommendation P.910
+
+\bibitem[{{International Telecommunication Union}(2020)}]{itu_p1401}
+{International Telecommunication Union} (2020) Methods, metrics and procedures
+  for statistical evaluation of objective quality prediction models. ITU-T
+  Recommendation P.1401
+
+\bibitem[{Islam et~al.(2025)Islam, Kakouros, Heikkil\"{a}, and
+  Oussalah}]{islam2025multimodal}
+Islam MM, Kakouros S, Heikkil\"{a} J, et~al (2025) Towards an automated
+  multimodal approach for video summarization: Building a bridge between text,
+  audio and facial cue-based summarization. In: Proceedings of the Workshop
+
+\bibitem[{Jeong et~al.(2017{\natexlab{a}})Jeong, Yoo, and
+  Cho}]{jeong2016static}
+Jeong Dj, Yoo HJ, Cho NI (2017{\natexlab{a}}) A static video summarization
+  method based on the sparse coding of features and representativeness of
+  frames. EURASIP Journal on Image and Video Processing 2017(1):1.
+  \doi{10.1186/s13640-016-0122-9}
+
+\bibitem[{Jeong et~al.(2017{\natexlab{b}})Jeong, Yoo, and
+  Cho}]{jeong2017static}
+Jeong DJ, Yoo HJ, Cho NI (2017{\natexlab{b}}) A static video summarization
+  method based on the sparse coding of features and representativeness of
+  frames. EURASIP Journal on Image and Video Processing 2017:1.
+  \doi{10.1186/s13640-016-0122-9},
+  \urlprefix\url{https://doi.org/10.1186/s13640-016-0122-9}
+
+\bibitem[{Ji et~al.(2018)Ji, Ma, Pang, and Li}]{ji2018mvs_hds}
+Ji Z, Ma Y, Pang Y, et~al (2018) Hypergraph dominant set based multi-video
+  summarization. Signal Processing pp 114--123.
+  \doi{10.1016/j.sigpro.2018.01.028},
+  \urlprefix\url{https://doi.org/10.1016/j.sigpro.2018.01.028}
+
+\bibitem[{Ji et~al.(2019)Ji, Ma, Pang, and Li}]{ji2019quasc}
+Ji Z, Ma Y, Pang Y, et~al (2019) Query-aware sparse coding for web multi-video
+  summarization. Information Sciences pp 274--289.
+  \doi{10.1016/j.ins.2018.09.050},
+  \urlprefix\url{https://arxiv.org/abs/1707.04021}
+
+\bibitem[{Kadam and Vora(2025)}]{kadam2025systematic}
+Kadam P, Vora D (2025) Systematic frame selection and quality assessment for
+  efficient video summarization. Multimedia Systems 31(4):279.
+  \doi{10.1007/s00530-025-01860-z}
+
+\bibitem[{Kalkhorani et~al.(2024)}]{kalkhorani2024beyond_frame}
+Kalkhorani V, et~al (2024) Beyond the frame: Single and multiple video
+  summarization. arXiv, \urlprefix\url{https://arxiv.org/abs/2401.10254}
+
+\bibitem[{Kannao and Guha(2020)}]{kannao2020semantic}
+Kannao R, Guha P (2020) A system for semantic segmentation of {TV} news
+  broadcast videos. Multimedia Tools and Applications 79(9--10):6191--6225.
+  \doi{10.1007/s11042-019-08445-9}
+
+\bibitem[{Kaushal et~al.(2020)Kaushal, Kothawade, Iyer, and
+  Ramakrishnan}]{kaushal2020visiocity}
+Kaushal V, Kothawade S, Iyer R, et~al (2020) Realistic video summarization
+  through {VISIOCITY}: A new benchmark and evaluation framework. In:
+  Proceedings of the 2nd International Workshop on AI for Smart TV Content
+  Production, Access and Delivery (AI4TV), ACM MM,
+  \doi{10.1145/3422839.3423064}
+
+\bibitem[{Ke et~al.(2006)Ke, Tang, and Jing}]{ke2006highlevel}
+Ke Y, Tang X, Jing F (2006) The design of high-level features for photo quality
+  assessment. In: IEEE Conference on Computer Vision and Pattern Recognition
+  (CVPR), pp 419--426, \doi{10.1109/CVPR.2006.303}
+
+\bibitem[{Kishi et~al.(2019)Kishi, Trojahn, and
+  Goularte}]{kishi2019correlation}
+Kishi RM, Trojahn TH, Goularte R (2019) Correlation based feature fusion for
+  the temporal video scene segmentation task. Multimedia Tools and Applications
+  78(11):15623--15646. \doi{10.1007/s11042-018-6959-4}
+
+\bibitem[{Korolkov(2025)}]{korolkov2025keyframe}
+Korolkov V (2025) Scene detection policies and keyframe extraction strategies
+  for large-scale video analysis. ArXiv:2506.00667
+
+\bibitem[{Lee et~al.(2025)Lee, Gong, and Cho}]{lee2025llmvs}
+Lee MJ, Gong D, Cho M (2025) Video summarization with large language models.
+  In: Proc. CVPR, pp 18981--18991, \doi{10.1109/CVPR52734.2025.01768}
+
+\bibitem[{Lei et~al.(2019)Lei, Zhang, Zhang, and Qiu}]{lei2019framerank}
+Lei Z, Zhang C, Zhang Q, et~al (2019) {FrameRank}: A text processing approach
+  to video summarization. In: IEEE International Conference on Multimedia and
+  Expo (ICME)
+
+\bibitem[{Li et~al.(2025{\natexlab{a}})Li, Han, Deng, Xiong, and
+  Fan}]{li2025spivg}
+Li W, Han W, Deng LJ, et~al (2025{\natexlab{a}}) Spiking variational graph
+  representation inference for video summarization. IEEE Transactions on Image
+  Processing pp 5697--5709. \doi{10.1109/TIP.2025.3602649},
+  \urlprefix\url{https://arxiv.org/abs/2508.15389}
+
+\bibitem[{Li et~al.(2025{\natexlab{b}})Li, Han, Man, Zuo, Fan, and
+  Tian}]{li2025lgrln}
+Li W, Han W, Man H, et~al (2025{\natexlab{b}}) Language-guided graph
+  representation learning for video summarization. arXiv / TPAMI accepted,
+  \urlprefix\url{https://arxiv.org/abs/2511.10953}
+
+\bibitem[{Li and Merialdo(2010)}]{li2010videommr}
+Li Y, Merialdo B (2010) Multi-video summarization based on {Video-MMR}. In:
+  Proc. WIAMIS
+
+\bibitem[{Li and Merialdo(2012)}]{li2012balanced_avmmr}
+Li Y, Merialdo B (2012) Video summarization based on balanced av-mmr. In:
+  MultiMedia Modeling, pp 370--382, \doi{10.1007/978-3-642-27355-1_35},
+  \urlprefix\url{https://www.eurecom.fr/publication/3510}
+
+\bibitem[{Luo et~al.(2013)Luo, Wang, and Tang}]{tang2013content}
+Luo W, Wang X, Tang X (2013) Content-based photo quality assessment. IEEE
+  Transactions on Multimedia 15(8):1930--1943. \doi{10.1109/TMM.2013.2269899}
+
+\bibitem[{Messaoud et~al.(2021)Messaoud, Lourentzou, Boughoula, Zehni, Zhao,
+  Zhai, and Schwing}]{messaoud2021deepqamvs}
+Messaoud S, Lourentzou I, Boughoula A, et~al (2021) Deepqamvs: Query-aware
+  hierarchical pointer networks for multi-video summarization. In: SIGIR, pp
+  1389--1399, \doi{10.1145/3404835.3462959},
+  \urlprefix\url{https://arxiv.org/abs/2105.06441}
+
+\bibitem[{Mittal et~al.(2012)Mittal, Moorthy, and Bovik}]{mittal2012brisque}
+Mittal A, Moorthy AK, Bovik AC (2012) No-reference image quality assessment in
+  the spatial domain. IEEE Transactions on Image Processing 21(12):4695--4708.
+  \doi{10.1109/TIP.2012.2214050}
+
+\bibitem[{Mittal et~al.(2013)Mittal, Soundararajan, and Bovik}]{mittal2013niqe}
+Mittal A, Soundararajan R, Bovik AC (2013) Making a ``completely blind'' image
+  quality analyzer. IEEE Signal Processing Letters 20(3):209--212.
+  \doi{10.1109/LSP.2012.2227726}
+
+\bibitem[{Moraes et~al.(2022)Moraes, Marcacini, and
+  Goularte}]{moraes2022subjectivity}
+Moraes L, Marcacini RM, Goularte R (2022) Video summarization using text
+  subjectivity classification. In: Proc. WebMedia, pp 141--149,
+  \doi{10.1145/3539637.3556998}
+
+\bibitem[{Nandini et~al.(2022)Nandini, Chethan, and
+  Rashmi}]{nandini2022edgelbp}
+Nandini HM, Chethan HK, Rashmi BS (2022) Shot based keyframe extraction using
+  edge-lbp approach. Journal of King Saud University - Computer and Information
+  Sciences 34(7):4537--4545. \doi{10.1016/j.jksuci.2020.10.031}
+
+\bibitem[{Ngo et~al.(2005)Ngo, Ma, and Zhang}]{ngo2005graphmodeling}
+Ngo CW, Ma YF, Zhang HJ (2005) Video summarization and scene detection by graph
+  modeling. IEEE Transactions on Circuits and Systems for Video Technology
+  15(2):296--305
+
+\bibitem[{Nie et~al.(2016)Nie, Hong, Zhang, Xia, Tao, and
+  Sebe}]{nie2016perceptual}
+Nie L, Hong R, Zhang L, et~al (2016) Perceptual attributes optimization for
+  multivideo summarization. IEEE Transactions on Cybernetics 46(12):2991--3003.
+  \doi{10.1109/TCYB.2015.2493558},
+  \urlprefix\url{https://doi.org/10.1109/TCYB.2015.2493558}
+
+\bibitem[{Otani et~al.(2019)Otani, Nakashima, Rahtu, and
+  Heikkilä}]{otani2019rethinking}
+Otani M, Nakashima Y, Rahtu E, et~al (2019) Rethinking the evaluation of video
+  summaries. In: 2019 IEEE/CVF Conference on Computer Vision and Pattern
+  Recognition (CVPR), pp 7588--7596, \doi{10.1109/CVPR.2019.00778}
+
+\bibitem[{Over et~al.(2008)Over, Smeaton, and Awad}]{over2008trecvid}
+Over P, Smeaton AF, Awad G (2008) The {TRECVid} 2008 {BBC} rushes summarization
+  evaluation. In: Proceedings of the 2nd ACM TRECVid Video Summarization
+  Workshop (TVS '08). ACM, \doi{10.1145/1463563.1463564}
+
+\bibitem[{Panda and Roy-Chowdhury(2017{\natexlab{a}})}]{panda2017collaborative}
+Panda R, Roy-Chowdhury AK (2017{\natexlab{a}}) Collaborative summarization of
+  topic-related videos. In: Proc. CVPR, pp 4274--4283,
+  \doi{10.1109/CVPR.2017.455}
+
+\bibitem[{Panda and
+  Roy-Chowdhury(2017{\natexlab{b}})}]{panda2017multiview_surveillance}
+Panda R, Roy-Chowdhury AK (2017{\natexlab{b}}) Multi-view surveillance video
+  summarization via joint embedding and sparse optimization. IEEE Transactions
+  on Multimedia pp 2010--2021. \doi{10.1109/TMM.2017.2708981},
+  \urlprefix\url{https://arxiv.org/abs/1706.03121}
+
+\bibitem[{Panda and Roy-Chowdhury(2017{\natexlab{c}})}]{panda2017sparse_topic}
+Panda R, Roy-Chowdhury AK (2017{\natexlab{c}}) Sparse modeling for
+  topic-oriented video summarization. In: ICASSP, pp 1388--1392,
+  \doi{10.1109/ICASSP.2017.7952384},
+  \urlprefix\url{https://dblp.org/rec/conf/icassp/PandaR17}
+
+\bibitem[{Panda et~al.(2016{\natexlab{a}})Panda, Das, and
+  Roy-Chowdhury}]{panda2016embedded_multiview}
+Panda R, Das A, Roy-Chowdhury AK (2016{\natexlab{a}}) Embedded sparse coding
+  for summarizing multi-view videos. In: IEEE ICIP, pp 191--195,
+  \doi{10.1109/ICIP.2016.7532345},
+  \urlprefix\url{https://rpand002.github.io/data/ICIP_2016.pdf}
+
+\bibitem[{Panda et~al.(2016{\natexlab{b}})Panda, Das, and
+  Roy-Chowdhury}]{panda2016camera_network}
+Panda R, Das A, Roy-Chowdhury AK (2016{\natexlab{b}}) Video summarization in a
+  multi-view camera network. ICPR / arXiv,
+  \urlprefix\url{https://arxiv.org/abs/1608.00310}
+
+\bibitem[{Panda et~al.(2017)Panda, Mithun, and
+  Roy-Chowdhury}]{panda2017diversity}
+Panda R, Mithun NC, Roy-Chowdhury AK (2017) Diversity-aware multi-video
+  summarization. IEEE Transactions on Image Processing 26(10):4712--4724.
+  \doi{10.1109/TIP.2017.2708902}
+
+\bibitem[{Park et~al.(2020)Park, Lee, Kim, and Sohn}]{park2020sumgraph}
+Park J, Lee J, Kim IJ, et~al (2020) Sumgraph: Video summarization via recursive
+  graph modeling. In: Lecture Notes in Computer Science, pp 647--663,
+  \doi{10.1007/978-3-030-58595-2_39},
+  \urlprefix\url{https://arxiv.org/abs/2007.08809}
+
+\bibitem[{Park et~al.(2025)Park, Lee, and Sohn}]{park2025videograph}
+Park J, Lee J, Sohn K (2025) Language-guided recursive spatiotemporal graph
+  modeling for video summarization. International Journal of Computer Vision pp
+  8617--8641. \doi{10.1007/s11263-025-02577-2},
+  \urlprefix\url{https://doi.org/10.1007/s11263-025-02577-2}
+
+\bibitem[{Qaroush et~al.(2025{\natexlab{a}})Qaroush, Jubran, and
+  Olayan}]{qaroush2025centrality}
+Qaroush AM, Jubran M, Olayan Q (2025{\natexlab{a}}) Graph-based centrality
+  framework for effective multi-video summarization. Information Processing \&
+  Management p 104276. \doi{10.1016/j.ipm.2025.104276},
+  \urlprefix\url{https://doi.org/10.1016/j.ipm.2025.104276}
+
+\bibitem[{Qaroush et~al.(2025{\natexlab{b}})Qaroush, Jubran, Olayyan, and
+  Qutait}]{qaroush2025diversity}
+Qaroush AM, Jubran M, Olayyan Q, et~al (2025{\natexlab{b}}) Maximum relevant
+  diversity aware, multi-video summarization using clustering and evolutionally
+  multi-objective optimization. Expert Systems with Applications 292:128631.
+  \doi{10.1016/j.eswa.2025.128631}
+
+\bibitem[{Saqib and Kazmi(2018)}]{saqib2018mme}
+Saqib S, Kazmi SAR (2018) Video summarization for sign languages using the
+  median of entropy of mean frames method. Entropy 20(10):748.
+  \doi{10.3390/e20100748}, \urlprefix\url{https://doi.org/10.3390/e20100748}
+
+\bibitem[{Shao et~al.(2010)Shao, Jiang, Wang, Chen, and
+  Yao}]{shao2010complex_graph}
+Shao J, Jiang D, Wang M, et~al (2010) Multi-video summarization using complex
+  graph clustering and mining. Computer Science and Information Systems pp
+  85--98. \doi{10.2298/CSIS1001085S},
+  \urlprefix\url{https://doiserbia.nb.rs/Article.aspx?id=1820-02141001085S}
+
+\bibitem[{Sidiropoulos et~al.(2011)Sidiropoulos, Mezaris, Kompatsiaris
+  et~al.}]{sidiropoulos2011temporal}
+Sidiropoulos P, Mezaris V, Kompatsiaris I, et~al (2011) Temporal video
+  segmentation to scenes using high-level audiovisual features. IEEE TCSVT
+  21(8):1163--1177. \doi{10.1109/TCSVT.2011.2138830}
+
+\bibitem[{Singh and Ooi(2026)}]{singh2026subevent}
+Singh M, Ooi WT (2026) Graph-based event and sub-event grouping in
+  user-generated videos with distortion-aware keyframe clustering. ACM
+  Transactions on Multimedia Computing, Communications and Applications
+
+\bibitem[{Soares and Barr\`{e}re(2018)}]{soares2018topicsegment}
+Soares ER, Barr\`{e}re E (2018) Automatic topic segmentation for video lectures
+  using low and high-level audio features. In: Proceedings of the 24th
+  Brazilian Symposium on Multimedia and the Web (WebMedia), pp 189--196,
+  \doi{10.1145/3243082.3243096}
+
+\bibitem[{Song et~al.(2015)Song, Vallmitjana, Stent, and
+  Jaimes}]{song2015tvsum}
+Song Y, Vallmitjana J, Stent A, et~al (2015) {TVSum}: Summarizing web videos
+  using titles. In: Proc. CVPR, pp 5179--5187, \doi{10.1109/CVPR.2015.7299154}
+
+\bibitem[{de~Souza~Barbieri and Goularte(2020)}]{barbieri2020webmedia}
+de~Souza~Barbieri TT, Goularte R (2020) Investigating subjectivity criterion
+  for multi-video summarization. In: Proceedings of the Brazilian Symposium on
+  Multimedia and the Web (WebMedia). ACM, pp 137--144,
+  \doi{10.1145/3428658.3430964}
+
+\bibitem[{Srinivas et~al.(2016)Srinivas, Pai, and Pai}]{srinivas2016rank}
+Srinivas M, Pai MMM, Pai RM (2016) An improved algorithm for video
+  summarization --- a rank based approach. Procedia Computer Science
+  89:812--819. \doi{10.1016/j.procs.2016.06.065}
+
+\bibitem[{Steiger(1980)}]{steiger1980comparing}
+Steiger JH (1980) Tests for comparing elements of a correlation matrix.
+  Psychological Bulletin 87(2):245--251. \doi{10.1037/0033-2909.87.2.245}
+
+\bibitem[{Swain and Ballard(1991)}]{swain1991colorindexing}
+Swain MJ, Ballard DH (1991) Color indexing. International Journal of Computer
+  Vision 7(1):11--32. \doi{10.1007/BF00130487}
+
+\bibitem[{Taylor et~al.(2017)Taylor, Caceres, and
+  Mucha}]{taylor2017superresolution}
+Taylor D, Caceres RS, Mucha PJ (2017) Super-resolution community detection for
+  layer-aggregated multilayer networks. Physical Review X 7(3):031056
+
+\bibitem[{Trojahn and Goularte(2021)}]{trojahn2021temporal}
+Trojahn TH, Goularte R (2021) Temporal video scene segmentation using
+  deep-learning. Multimedia Tools and Applications 80(12):17487--17513.
+  \doi{10.1007/s11042-020-10450-2}
+
+\bibitem[{Wang and Merialdo(2009)}]{wang2009multidoc}
+Wang F, Merialdo B (2009) Multi-document video summarization. In: IEEE ICME, pp
+  1326--1329, \doi{10.1109/ICME.2009.5202747},
+  \urlprefix\url{https://www.eurecom.fr/publication/2751}
+
+\bibitem[{Wang et~al.(2012)Wang, Hong, Li, Zha, Yan, and
+  Chua}]{wang2012tag_localization}
+Wang M, Hong R, Li G, et~al (2012) Event-driven web video summarization by tag
+  localization and key-shot identification. IEEE Transactions on Multimedia pp
+  975--985. \doi{10.1109/TMM.2012.2185041},
+  \urlprefix\url{https://doi.org/10.1109/TMM.2012.2185041}
+
+\bibitem[{Wu et~al.(2026)Wu, Wang, and Ma}]{wu2026multimodal_gcl}
+Wu G, Wang M, Ma N (2026) Multimodal video summarization based on graph
+  contrastive learning with fine-grained graph interaction. Signal Processing p
+  110250. \doi{10.1016/j.sigpro.2025.110250},
+  \urlprefix\url{https://doi.org/10.1016/j.sigpro.2025.110250}
+
+\bibitem[{Wu et~al.(2019)Wu, hua Zhong, and Liu}]{wu2019mvsgcn}
+Wu J, hua Zhong S, Liu Y (2019) Mvsgcn: A novel graph convolutional network for
+  multi-video summarization. In: ACM Multimedia, pp 827--835,
+  \doi{10.1145/3343031.3350938},
+  \urlprefix\url{https://research.polyu.edu.hk/en/publications/a-novel-graph-convolutional-network-for-multi-video-summarization/}
+
+\bibitem[{Wu et~al.(2020)Wu, hua Zhong, and Liu}]{wu2020dyngcn}
+Wu J, hua Zhong S, Liu Y (2020) Dynamic graph convolutional network for
+  multi-video summarization. Pattern Recognition p 107382.
+  \doi{10.1016/j.patcog.2020.107382},
+  \urlprefix\url{https://doi.org/10.1016/j.patcog.2020.107382}
+
+\bibitem[{Xie and Wu(2008)}]{xie2008affinity}
+Xie Xn, Wu F (2008) Automatic video summarization by affinity propagation
+  clustering and semantic content mining. In: International Symposium on
+  Electronic Commerce and Security
+
+\bibitem[{Xu et~al.(2024)Xu, Zheng, and Tao}]{xu2024property}
+Xu Y, Zheng J, Tao Y (2024) Property constrained video summarization via regret
+  minimization. SN Computer Science 5:254. \doi{10.1007/s42979-023-02588-1}
+
+\bibitem[{Yang et~al.(2024)Yang, He, Su, Li, and Hu}]{yang2024keyframe}
+Yang G, He Z, Su Z, et~al (2024) Keyframe recommendation based on feature
+  intercross and fusion. Complex \& Intelligent Systems 10:4955--4971.
+  \doi{10.1007/s40747-024-01417-z}
+
+\bibitem[{Yeh et~al.(2025)Yeh, Lien, Zhan, Tsai, and
+  Chen}]{yeh2025gcn_compressed}
+Yeh CH, Lien CM, Zhan ZX, et~al (2025) Graph convolutional network for fast
+  video summarization in compressed domain. Neurocomputing p 128945.
+  \doi{10.1016/j.neucom.2024.128945},
+  \urlprefix\url{https://doi.org/10.1016/j.neucom.2024.128945}
+
+\bibitem[{Yu et~al.(2026)Yu, Wang, Wei, and Yu}]{yu2026deep}
+Yu Q, Wang Z, Wei G, et~al (2026) Deep learning for video summarization:
+  Systematic review, challenges and opportunities. IEEE/CAA Journal of
+  Automatica Sinica 13(1):21--42. \doi{10.1109/JAS.2025.125864}
+
+\bibitem[{Zhang et~al.(2015{\natexlab{a}})Zhang, Gao, Hong, Hu, Ji, and
+  Dai}]{zhang2015skimlets}
+Zhang L, Gao Y, Hong R, et~al (2015{\natexlab{a}}) Probabilistic skimlets
+  fusion for summarizing multiple consumer landmark videos. IEEE Transactions
+  on Multimedia 17(1):40--49. \doi{10.1109/TMM.2014.2370257}
+
+\bibitem[{Zhang et~al.(2015{\natexlab{b}})Zhang, Xia, Mao, Ma, and
+  Shan}]{zhang2015handheld}
+Zhang L, Xia Y, Mao K, et~al (2015{\natexlab{b}}) An effective video
+  summarization framework toward handheld devices. IEEE Transactions on
+  Industrial Electronics 62(2):1309--1316. \doi{10.1109/TIE.2014.2336639}
+
+\bibitem[{Zhang and Zimmermann(2016)}]{zhang2016georeferenced}
+Zhang Y, Zimmermann R (2016) Efficient summarization from multiple
+  georeferenced user-generated videos. IEEE Transactions on Multimedia
+  18(3):418--431. \doi{10.1109/TMM.2016.2520827}
+
+\bibitem[{Zhang et~al.(2013)Zhang, Ma, and Zimmermann}]{zhang2013geospace}
+Zhang Y, Ma H, Zimmermann R (2013) Dynamic multi-video summarization of
+  sensor-rich videos in geo-space. In: Advances in Multimedia Modeling (MMM),
+  Lecture Notes in Computer Science, vol 7732. Springer, pp 380--390,
+  \doi{10.1007/978-3-642-35725-1_35}
+
+\bibitem[{Zhang et~al.(2015{\natexlab{c}})Zhang, Zhang, and
+  Zimmermann}]{zhang2015aesthetics}
+Zhang Y, Zhang L, Zimmermann R (2015{\natexlab{c}}) Aesthetics-guided
+  summarization from multiple user generated videos. ACM Transactions on
+  Multimedia Computing, Communications, and Applications 11(2):24:1--24:23.
+  \doi{10.1145/2659520}, \urlprefix\url{https://doi.org/10.1145/2659520}
+
+\bibitem[{Zhao et~al.(2026)Zhao, Bai, and Hao}]{zhao2026graphvsum}
+Zhao Z, Bai C, Hao P (2026) Graphvsum: Graph guided multimodal video
+  summarization. Multimedia Systems p s.p. \doi{10.1007/s00530-025-02084-x},
+  \urlprefix\url{https://doi.org/10.1007/s00530-025-02084-x}
+
+\bibitem[{Zhou et~al.(2018)Zhou, Qiao, and Xiang}]{zhou2018drdsn}
+Zhou K, Qiao Y, Xiang T (2018) Deep reinforcement learning for unsupervised
+  video summarization with diversity-representativeness reward. In: Proc. AAAI
+  Conference on Artificial Intelligence, pp 7582--7589
+
+\bibitem[{Zhu et~al.(2014)Zhu, Liu, Wang, and Lu}]{zhu2014keyobservation}
+Zhu X, Liu J, Wang J, et~al (2014) Key observation selection-based effective
+  video synopsis for camera network. Machine Vision and Applications
+  25:145--157. \doi{10.1007/s00138-013-0519-8}
+
+\bibitem[{Zhu et~al.(2023)Zhu, Zhao, Hua, and Wu}]{zhu2023topicaware}
+Zhu Y, Zhao W, Hua R, et~al (2023) Topic-aware video summarization using
+  multimodal transformer. Pattern Recognition 140:109578.
+  \doi{10.1016/j.patcog.2023.109578}
+
+\end{thebibliography}

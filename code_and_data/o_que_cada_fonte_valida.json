@@ -1,0 +1,88 @@
+{
+ "_o_que_e": "⭐⭐ QUE EVIDENCIA CADA TRABALHO-FONTE APRESENTA DE QUE SEU ATRIBUTO MEDE O QUE DIZ MEDIR?\n\nPOR QUE EXISTE (08/09/2026). O artigo mostrava COMO cada operacao se comporta na nossa\nbancada, e nao mostrava o que a propria fonte ja tinha (ou nao tinha) medido. Sem isso a\ncritica fica no ar: uma operacao pode falhar aqui e ter sido validada la para outra coisa.\n\n⛔ REGRA DE PREENCHIMENTO, e ela muda o que se pode escrever:\n  «nao encontrei no material conferido» e «o trabalho nao validou» sao afirmacoes\n  DIFERENTES. Cada linha abaixo so entra com TRECHO LITERAL do PDF da fonte. Fonte sem PDF\n  no acervo entra como `sem_pdf_no_acervo`, e NAO como ausencia de validacao.\n\n⭐ O QUE A LEITURA MOSTROU: das oito fontes com PDF, **duas** validam uma medida contra\njulgamento humano DA PROPRIEDADE QUE ELA NOMEIA (Ke, qualidade de foto; Hasler,\ncolorfulness). As outras seis avaliam o RESUMO, nao a medida. E a unica que valida\ncolorfulness valida colorfulness, nao qualidade.\n",
+ "_regra": "cada linha exige trecho literal do PDF; sem PDF nao vira ausencia de validacao",
+ "n_com_pdf": 10,
+ "n_sem_pdf": 0,
+ "por_tipo": {
+  "julgamento humano da propriedade": 2,
+  "so o resumo": 4,
+  "nem a regra nem os pesos": 1,
+  "so o resumo, com ablacao de modulo": 3
+ },
+ "validam_a_propriedade_que_nomeiam": [
+  "ke2006highlevel",
+  "hasler2003colorfulness"
+ ],
+ "avaliam_so_o_resumo": [
+  "srinivas2016rank",
+  "qaroush2025diversity",
+  "cakmak2025tripss",
+  "yang2024keyframe",
+  "gygli2014summe",
+  "jeong2016static",
+  "huang2024aesthetic"
+ ],
+ "por_fonte": {
+  "ke2006highlevel": {
+   "tipo": "julgamento humano da propriedade",
+   "resumo": "ratings de comunidade (DPChallenge) como gabarito; curvas PR por atributo e classificador combinado, EER 27,8 %",
+   "ressalva": "so os extremos: top e bottom 10 %, os 80 % do meio foram descartados. E o que a curva valida e o classificador, nao o atributo como escore",
+   "verbatim": "the photos have been rated by its community of users, giving us ground truth on the quality of each photo ... The top and bottom 10% of the photos were extracted ... we chose to ignore the middle 80%"
+  },
+  "hasler2003colorfulness": {
+   "tipo": "julgamento humano da propriedade",
+   "resumo": "experimento psicofisico de escala por categorias, 7 categorias de colourfulness; metrica AJUSTADA aos dados, correlacao 94,0 %",
+   "ressalva": "valida COLOURFULNESS, que e o que o indice nomeia. Nao e uma validacao de qualidade tecnica",
+   "verbatim": "We set up a psychophysical category scaling experiment, and ask people to rate images using 7 categories of colourfulness. We then fit a metric to the results"
+  },
+  "srinivas2016rank": {
+   "tipo": "so o resumo",
+   "resumo": "precisao, revocacao e F dos quadros-chave contra o gabarito do open-video.org, em 7 videos",
+   "ressalva": "nenhuma medicao de que o escore de qualidade mede qualidade",
+   "verbatim": "results are compared with the ground truth keyframes provided by open-video.org"
+  },
+  "qaroush2025diversity": {
+   "tipo": "so o resumo",
+   "resumo": "precisao, revocacao e F1 dos segmentos contra resumos de referencia",
+   "ressalva": "o VAScore nunca e testado como medida de qualidade, so pelo resumo final",
+   "verbatim": "The evaluation focuses on comparing segments extracted by our system with those identified in ground truth summaries"
+  },
+  "korolkov2025keyframe": {
+   "tipo": "nem a regra nem os pesos",
+   "resumo": "pesos FIXADOS, nao ajustados; ablacoes existem mas sao de segmentacao. O quadro-chave e avaliado por cobertura e por revisao humana QUALITATIVA de representatividade",
+   "ressalva": "a regra 0,7/0,3 nunca e testada contra nada",
+   "verbatim": "We set wsharp = 0.7, wbright = 0.3 to favor focused frames"
+  },
+  "cakmak2025tripss": {
+   "tipo": "so o resumo, com ablacao de modulo",
+   "resumo": "TVSum20 e SumMe com escores humanos de importancia, mais ablacao removendo cada modalidade",
+   "ressalva": "a ablacao mede contribuicao para a SUMARIZACAO, nao validade como medida de qualidade",
+   "verbatim": "Table 1 presents the results of an ablation study analyzing the contribution of each modality. Removing any single component"
+  },
+  "yang2024keyframe": {
+   "tipo": "so o resumo, com ablacao de modulo",
+   "resumo": "ablacao estrutural e de atributos medida por F score no SumMe, sobre 15 anotacoes",
+   "ressalva": "mesma ressalva: a regua da ablacao e o resumo",
+   "verbatim": "we conducted experiments on the SumMe dataset for structural ablation of the model and for feature ablation"
+  },
+  "gygli2014summe": {
+   "tipo": "so o resumo, com ablacao de modulo",
+   "resumo": "f-measure contra multiplos resumos humanos por video, colhidos em estudo com psicologos da percepcao, mais uma ablacao que mede o ganho de acrescentar cada atributo ao conjunto",
+   "ressalva": "a ablacao mede contribuicao para a SUMARIZACAO, nao valida o atributo como medida de qualidade",
+   "verbatim": "We evaluate our method using multiple `ground truth' summaries per video, which we acquired in a study in collaboration with perception psychologists"
+  },
+  "jeong2016static": {
+   "tipo": "so o resumo",
+   "resumo": "MOS de sujeitos humanos e precisao/revocacao contra eventos rotulados, nos datasets SumMe e ADL; nenhuma ablacao ou teste isolado do termo de contraste",
+   "ressalva": "o trabalho DECLARA medir visual quality («the visual quality is the combination of contrast, blur, and image skew measures»); o que nao ha e validacao do componente sozinho",
+   "verbatim": "the visual quality is the combination of contrast, blur, and image skew measures"
+  },
+  "huang2024aesthetic": {
+   "tipo": "so o resumo",
+   "resumo": "coeficientes de correlacao de ordem (Spearman, Kendall) contra anotacoes humanas em TVSum e SumMe",
+   "ressalva": "a correlacao e sobre a ORDENACAO do resumo, nao sobre o atributo",
+   "verbatim": "rank correlation coefficients measure how well the ordering"
+  }
+ },
+ "sem_pdf_no_acervo": {}
+}
