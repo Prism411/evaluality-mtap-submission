@@ -2,9 +2,9 @@
 
 Review package for **Do Visual-Selection Operations Track Technical Quality? A Controlled Audit for Multi-Video Summarization**, by Jader L. de Souza Gonçalves and Rudinei Goularte, ICMC, University of São Paulo.
 
-This branch freezes the package prepared for *Multimedia Tools and Applications* on 25 October 2026. It is a submission candidate, not an accepted article. The manuscript's funding declaration is awaiting the authors' current confirmation. Journal policy is [single-blind review](https://link.springer.com/journal/11042/submission-guidelines): author identification is intentional.
+This repository freezes the package prepared for *Multimedia Tools and Applications* on 25 October 2026. It is a submission candidate, not an accepted article. The manuscript's funding declaration is awaiting the authors' current confirmation. Journal policy is [single-blind review](https://link.springer.com/journal/11042/submission-guidelines): author identification is intentional.
 
-**Use this branch, `mtap-review-2026-10-25`.** The repository's older `main` branch and releases contain earlier snapshots and are not the matching version. The repository is currently private; a URL alone does not grant reviewers access.
+**The current submission package is on `main`.** Older releases contain earlier snapshots and are not the matching version. The repository is currently private; a URL alone does not grant reviewers access.
 
 ## Read the article
 
@@ -19,10 +19,10 @@ The PDFs are byte-identical to the prepared Downloads package. The paper audits 
 
 ## Quick verification: Python only, no GPU
 
-Clone this branch and verify the frozen artifacts:
+Clone the default branch and verify the frozen artifacts:
 
 ```bash
-git clone --branch mtap-review-2026-10-25 --single-branch https://github.com/Prism411/evaluality-mtap-submission.git
+git clone https://github.com/Prism411/evaluality-mtap-submission.git
 cd evaluality-mtap-submission
 python3 tools/verify_snapshot.py
 ```
