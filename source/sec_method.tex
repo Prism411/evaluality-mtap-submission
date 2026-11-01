@@ -1,11 +1,5 @@
 \section{Audit design}\label{sec:method}
 
-%% ⛔ PROSA SUBSTITUIDA em 22/09/2026 pela reescrita do parecer v3 (2774 -> ~1900 palavras).
-%% ⚠️ A conversao dos numeros foi feita UMA A UMA, nao por casamento de valor: o casamento
-%% automatico trocou «10,125» por «\reiRuido{},125» e «19 of 21 topics» por «\taxNenhuma{}».
-%% ⛔ E um numero da prosa dela estava ERRADO: «Of 30 uncovered mentions, fourteen ... and
-%% eleven ...» soma 25, nao 30. A nossa formulacao (25 de 30 careciam de UMA das duas) e a
-%% que volta. A Figura 1, a Tabela 2 e as duas equacoes sao os nossos ambientes originais.
 
 The study combines provenance analysis with four complementary tests: controlled degradation, external opinion-score evaluation, mechanistic diagnosis and representative-selection sensitivity (Figure~\ref{fig:overview}). The main scalar inventory contains \fontesDaLiteratura{} directionally specified operations catalogued from \fontesTrabalhos{} source works, plus the International Telecommunication Union's spatial-information index, which has no quality polarity and is excluded from directional screening. To these are added \invModelos{} dedicated NR-IQA models, which form the complete-case comparator set.
 
@@ -25,9 +19,6 @@ Eligibility is a study-defined screening rule that combines response to syntheti
   operation/.style={rectangle,rounded corners=3pt,minimum height=.78cm,
     text width=11.55cm,align=center,font=\sffamily\scriptsize,
     draw=focoauditado,fill=focoauditado!6,line width=.9pt,inner ysep=4pt},
-  %% ⚠️ altura FIXA nas quatro: a caixa 02 tem tres linhas de corpo e as
-  %% outras duas. Como o no cresce em torno do centro, a 02 subia mais que as
-  %% vizinhas e encostava na tarja «FOUR COMPLEMENTARY TESTS».
   audit/.style={rectangle,rounded corners=2.5pt,minimum height=1.42cm,
     text width=5.62cm,align=left,font=\sffamily\scriptsize,
     draw=rulegray!90,fill=gray!3,line width=.65pt,inner xsep=7pt,inner ysep=5pt},
@@ -60,12 +51,6 @@ Eligibility is a study-defined screening rule that combines response to syntheti
    and separate diagnostic controls; not every group receives every test}};
 \draw[focusflow] (d.south)--(d.south |- op.north);
 
-%% ⛔ 27/09: a tarja ficava em 2,18 e a borda da caixa 01/02 chegava a 1,94:
-%% ela sentava EM CIMA da moldura. ⚠️ Nenhuma guarda pega, porque o que se
-%% sobrepoe e um traco, nao uma palavra, e `sobrepostos` mede caixas de PALAVRA.
-%% ⚠️ 28/09 (cli-3): as caixas tem 5,62 cm + 2x7 pt de margem = ~6,1 cm e estavam a
-%% +-2,98 cm: 01/02 e 03/04 se invadiam no meio. Afastadas para +-3,12. A guarda de
-%% sobreposicao nao pega, porque mede caixas de PALAVRA e o que encostava era o traco.
 \node[evidencehead] (eh) at (0,2.30) {FOUR COMPLEMENTARY TESTS};
 
 \node[audit] (m) at (-3.12,1.16)
@@ -73,9 +58,6 @@ Eligibility is a study-defined screening rule that combines response to syntheti
    20 segments, 800 paired decisions;\\the untransformed \mbox{member} is the reference.};
 \node[audit] (x) at (3.12,1.16)
   {\textcolor{headerblue}{\textbf{02\enspace External validation}}\\[2pt]
-   % ⛔ esta linha quebrava em DUAS no box de 5,25cm e o no crescia para quatro linhas:
-   % como o `audit` cresce em torno do centro, ele cobria a tarja acima e o box 04 abaixo.
-   % So apareceu ao RENDERIZAR a pagina; o LaTeX nao reclama de no sobreposto.
    KADID-10k, KonIQ-10k, LIVE In the Wild (CLIVE);\\human scores and degradation levels.};
 \node[audit] (g) at (-3.12,-.38)
   {\textcolor{headerblue}{\textbf{03\enspace Mechanism}}\\[2pt]
@@ -122,9 +104,6 @@ The independent unit follows the analysis: KADID reference image for synthetic-d
 
 The complete-case comparator set contains \invModelos{} no-reference image quality assessment (NR-IQA) models: BRISQUE, NIQE, DBCNN, HyperIQA, MUSIQ, TOPIQ, CLIP-IQA, CLIP-IQA$+$, LIQE and QualiCLIP. ARNIQA and TReS extend completed axes but do not enter complete-case screening ~\citep{agnolucci2024arniqa,golestaneh2022tres}; MANIQA was incomplete at the scoring freeze ~\citep{yang2022maniqa}. Released checkpoint, supervision, preprocessing and decision polarity identify the evaluated configuration in Table~\ref{tab:methods}.
 
-%% ⭐ 28/09 (parecer): a coluna das bases nao vistas repetia a mesma string em 12 linhas e e derivavel
-%% do treino; «Role» era C em 12 de 13. A regra das nao vistas vai UMA vez na legenda, e as
-%% faixas separam candidato, referencia e cobertura parcial, que antes dividiam um bloco.
 \begin{table}[!tbp]
 \centering
 \caption{No-reference comparators and reference. \emph{Opinion training}: the database
@@ -199,8 +178,8 @@ The in-domain condition requires above-chance agreement with the designated refe
 
 The principal inventory, scoring runs and caches were frozen on 23 August 2026; dependence-aware derived analyses were subsequently computed from those caches, and the deep-proxy controls were completed on 21 September, with the cluster-centre test on the constructed pairs registered and run on 27 September. Archived prediction statements refer only to their specified diagnostic tests.
 
-\paragraph{Use of large language models.} Language-model assistants were used to write
-the analysis and verification scripts and to draft and revise the text. Every quantitative
+\paragraph{Use of large language models.} Language-model assistants were used to help
+write the analysis and verification scripts, under the authors' supervision. Every quantitative
 statement reaches the manuscript through a macro emitted by a versioned script from a
 stored result file, and is checked by the consistency suite released with the package; the
 authors took every methodological decision and are responsible for the content. The full

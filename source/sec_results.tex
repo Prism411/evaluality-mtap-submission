@@ -1,18 +1,8 @@
 \section{Results}\label{sec:results}
 
-%% ⛔ 21/09 (parecer, E00, criterios 21, 26, 29, 45, 48): o roteiro dizia «six blocks»,
-%% apontava para a Secao 3.1, que e METODOLOGIA, e punha o mecanismo por ultimo quando
-%% ele e o terceiro. Sao sete subsecoes; a ordem abaixo e a ordem em que aparecem.
-%% ⛔ 22/09 (parecer v2, V2-042): o roteiro de sete blocos repetia o que os titulos das
-%% subsecoes ja dizem. ⛔ 25/09 (parecer v11): a frase de transicao que ficou no lugar dele
-%% fazia o mesmo trabalho duas vezes, e saiu. Os titulos carregam a ordem sozinhos.
 
 \subsection{Classes of scoring method, and what the testbed instantiates}\label{sec:taxonomy_results}
 
-%% ⛔ 22/09 (parecer v2, V2-045): «confirmed corpus», «account for the remainder» e «the
-%% three screened here» implicavam particao e cobertura que a propria tabela nega (os
-%% grupos se sobrepoem, ha trabalhos sem nenhum, e a classe contextual nao recebe o mesmo
-%% teste). A frase passa a falar dos conjuntos efetivamente avaliados.
 Table~\ref{tab:taxonomy} gives what the testbed instantiates in each class, and the
 screening of Section~\ref{sec:screen_results} covers the scalar operations that the
 isolated-image protocol admits. Of the three deep proxies implemented over the DINOv2
@@ -144,13 +134,7 @@ the mean rarity weight.
 Here $D_i$ is the number of descriptors the extractor finds in segment $i$,
 $\mathrm{tf}_{iv}$ how many fall in visual word $v$, and $p_i(v)$ that count as a fraction
 of $D_i$, so the score is a descriptor count times a mean inverse-document weight,
-and which channel dominates is measured rather than assumed. %% ⛔ 22/09 (parecer v2): «a different weighting breaks it» e falso. Trocar um vetor de
-%% pesos constantes por outro preserva a identidade; o que a quebra e o peso deixar de ser
-%% constante por palavra, ou a agregacao deixar de ser soma sobre frequencias cruas.
-%% ⛔ 25/09 (parecer v10, 2.1): e «uma agregacao que nao e essa soma REMOVE o fator de
-%% contagem» tambem era falso, no outro sentido. A media sobre F quadros da
-%% (D_i/F)*idf_barra: o fator de contagem SOBREVIVE, virando contagem POR QUADRO. So a
-%% divisao pela contagem o remove. A frase agora diz cada caso pela sua definicao.
+and which channel dominates is measured rather than assumed. %
 The identity is algebraic and holds for any weights, since $p_i(v)=\mathrm{tf}_{iv}/D_i$
 by definition, whenever the aggregation is a sum over raw term frequencies and $D_i>0$.
 Averaging frame scores leaves a count-per-frame factor, $(D_i/F)\,\overline{\mathrm{idf}}_i$
@@ -182,10 +166,6 @@ requirement of $.65$.
 
 Several sources specify how their own terms combine, and those specifications were
 implemented over the same attribute vector so the comparison isolates the rule.
-%% ⛔ 22/09 (parecer v2, V2-062): a reescrita apagou POR QUE estes numeros diferem dos da
-%% Tabela 6, e o leitor ficava com 74,3 contra 77,5 sem explicacao. Nao e inconsistencia:
-%% o contraste exclui o tipo alinhado a construcao do modulo. Populacao e exclusao saem
-%% por macro para nao sumirem de novo num corte.
 In both sources that specify a complete module, the published rule scores below
 its own best component, and each contrast excludes the degradation type aligned
 with that module's own construction, so it runs on seven types rather than eight. For Ref.~\citep{qaroush2025diversity} the contrast excludes \vaTipoFora{} and uses \vaPares{}
@@ -214,10 +194,6 @@ group's best value per axis. The result is stable: across \refB{} resamples of t
 
 \input{tab_familias}
 
-%% ⭐ 28/09 (parecer + decisao do Jader): o detalhe de elegibilidade POR MODELO, o piso por
-%% modelo, a comparacao de referencia comum e o custo sao benchmark de modelo, nao auditoria
-%% das operacoes, e foram para o suplementar (secao «Model eligibility and output quality»).
-%% Aqui fica o que responde a pergunta do artigo.
 Three dedicated models are eligible, LIQE, QualiCLIP and CLIP-IQA$+$, and the set is stable
 under the threshold variations of Table~S9. Within-reference KADID sensitivity separates the
 SIFT+BoVW operation sharply: its mean is $-.077$ (95\% CI $[-.124,-.030]$) with 5 of 25
@@ -257,9 +233,6 @@ Read against one fixed choice, the same swaps rewrite much of the stage output
 \textbf{That comparison shares the clusters but not the frames}: the per-frame operations
 score one frame per second, while SIFT+BoVW runs its own key-frame selector.
 
-%% ⭐ 27/09 (cli-3, alvo de 28 p do Jader): o \FloatBarrier que ficava aqui deixava MEIA
-%% pagina vazia antes da Figura 2, porque o texto seguinte nao podia subir enquanto a
-%% figura nao saisse. A barreira do fim da 4.7 continua segurando a figura antes da 5.
 LIQE was used for the complete-implementation substitution, having the largest
 generalization margin among the three eligible methods. The substitution changes \casCompleta{} of the 42 representatives, the two operations agreeing in \subResta{} clusters (\subPct{} per cent, 95\% CI \fusIC{} over the \fusBlocos{} source-aware blocks), close to the \subAcaso{} per cent uniform-choice expectation. Whether the substitution also improves the output, measured with the technical branch of DOVER, is model-based evidence reported in the supplement, where for the complete substitution both intervals cross zero.
 
@@ -271,8 +244,6 @@ Holding the scorer fixed while changing only sampling and pooling already moves
 McNemar test separates the two regimes ($p=\casP{}$), as does the block sign-flip over the
 \mcnBlocos{} topics ($p=\mcnBloco{}$). Both scorer identity and input sampling carry part of the effect.
 
-%% ⚠️ este ponteiro vive longe do da Figura~S4 de proposito: os dois na mesma janela
-%% faziam o sincronizador reescrever o numero de um com o do outro.
 The retention percentages above put all \disOps{} operations of Figure~\ref{fig:menu}
 on one frame per second, which makes their spread attributable to the scorer; Table~S19
 scores each complete operation under its own sampling.
@@ -285,11 +256,6 @@ the implementations evaluated here, organized by work and component. \textbf{The
 \input{tab_sintese}
 
 
-%% ⛔ 21/09 (parecer, E71, criterios 7, 8, 9, 20, 35, 47): o denominador \acvPdfs{} e o
-%% ACERVO INTEIRO — textos, IQA e sumarizadores —, nao o conjunto elegivel, e «nao citar
-%% modelo dedicado» nao demonstra que o trabalho use uma operacao no lugar nem que
-%% pretenda medir qualidade tecnica. A ausencia de citacao deixa de sustentar inferencia
-%% de substituicao ou de intencao; ficam os casos documentados.
 Three patterns emerge in the sources read in full: attribute borrowing, role
 reassignment, and summary-level validation. The counts are of confirmed uses, each with a verbatim excerpt.
 
@@ -311,6 +277,3 @@ weights, so the three categories account for all \valComPdf{}.
 
 
 
-%% ⚠️ 28/09 (cli-3): a barreira que segurava a Tabela 6 aqui deixava meia pagina vazia no fim
-%% da 4.7 e levou o corpo a 29 p. Ela foi para antes da 5.1, na discussao: a Tabela 6 continua
-%% sem escapar para depois das referencias.

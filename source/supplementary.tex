@@ -1,12 +1,3 @@
-%% ===========================================================================
-%%  Multimedia Tools and Applications (Springer Nature) -- sn-jnl.cls
-%%  Evaluality: benchmark of no-reference quality scoring methods for the
-%%  visual-quality selection criterion in multi-video summarization.
-%%
-%%  Build:  pdflatex main && bibtex main && pdflatex main && pdflatex main
-%% ===========================================================================
-%% MTAP requires sequential numbered citations in square brackets; the
-%% reference list keeps the Springer Nature Basic format (sn-basic.bst).
 \documentclass[sn-basic,Numbered]{sn-jnl}
 
 \usepackage{graphicx}
@@ -14,7 +5,7 @@
 \usepackage{amsmath,amssymb,amsfonts}
 \usepackage{booktabs}
 \usepackage[table,dvipsnames]{xcolor}
-\usepackage{manyfoot}      % required by sn-jnl.cls for \DeclareNewFootnote
+\usepackage{manyfoot}      %
 \usepackage{hyperref}
 \usepackage{tikz}
 \usepackage{pgfplots}
@@ -25,12 +16,7 @@
 \usepackage{array}
 \usepackage{threeparttable}
 \usepackage{placeins}
-% ⭐ 21/09: a tabela taxonomica por trabalho tem 86 linhas e precisa quebrar entre
-% paginas. Sem isto o ambiente longtable fica indefinido e o suplementar nao compila.
 \usepackage{longtable}
-%% ⚠️ o `longtable` nao usa a legenda da classe: ele traz a propria, que separa
-%% rotulo e texto com DOIS-PONTOS. A S31 era a unica tabela do suplementar a
-%% sair «Table S31: ...»; as outras saem «Table S1 ...».
 \makeatletter
 \renewcommand{\LT@makecaption}[3]{%
   \LT@mcol\LT@cols c{\hbox to\z@{\hss\parbox[t]\LTcapwidth{%
@@ -41,52 +27,40 @@
 \makeatother
 \newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
 
-%% ---------------------------------------------------------------------------
-%%  VISUAL SYSTEM
-%%  One palette for the whole paper: categorical hues encode *method family*
-%%  and a divergent red-to-green ramp encodes *performance*. Both ramps are
-%%  used consistently in every table and every figure.
-%% ---------------------------------------------------------------------------
 
-% Structural colours
 \definecolor{headerblue}{HTML}{1B4F72}
 \definecolor{rowlight}{HTML}{EDF3F8}
 \definecolor{rowwhite}{HTML}{FFFFFF}
 \definecolor{rulegray}{HTML}{9AA5B1}
 
-% Performance ramp (red = poor, green = strong) -- used for cell shading
-\definecolor{perf5}{HTML}{1E8449}   % strong          |SRCC| >= 0.70
-\definecolor{perf4}{HTML}{7DCEA0}   % moderate        0.50 -- 0.70
-\definecolor{perf3}{HTML}{F9E79F}   % weak            0.30 -- 0.50
-\definecolor{perf2}{HTML}{F5B041}   % very weak       0.15 -- 0.30
-\definecolor{perf1}{HTML}{E74C3C}   % negligible      < 0.15
+\definecolor{perf5}{HTML}{1E8449}   %
+\definecolor{perf4}{HTML}{7DCEA0}   %
+\definecolor{perf3}{HTML}{F9E79F}   %
+\definecolor{perf2}{HTML}{F5B041}   %
+\definecolor{perf1}{HTML}{E74C3C}   %
 
-% Accents
 \definecolor{accentgreen}{HTML}{1E8449}
 \definecolor{accentred}{HTML}{C0392B}
 \definecolor{accentorange}{HTML}{E67E22}
 \definecolor{accentblue}{HTML}{2471A3}
 
-% Phase colours (methodological figures)
 \definecolor{phase1color}{HTML}{2980B9}
 \definecolor{phase2color}{HTML}{1E8449}
 \definecolor{phase3color}{HTML}{7D3C98}
 \definecolor{phase4color}{HTML}{E67E22}
 
-% Categorical colours -- one per evaluation paradigm
-\definecolor{catlmm}{HTML}{1B4F72}      % NR-IQA, LMM-based (reference model)
-\definecolor{catclip}{HTML}{1E8449}     % NR-IQA, CLIP-based
-\definecolor{catnss}{HTML}{C0392B}      % NR-IQA, NSS-based
-\definecolor{catdeep}{HTML}{7D3C98}     % deep features, no BoVW
-\definecolor{catitu}{HTML}{E67E22}      % ITU-T complexity
-\definecolor{cathand}{HTML}{6C757D}     % handcrafted baseline
-\definecolor{focoauditado}{HTML}{C2185B}     % SIFT + BoVW (the HSMVideoSumm scoring method)
-\definecolor{catcnnbovw}{HTML}{17A2B8}  % CNN + BoVW (ablation)
-\definecolor{catcnn}{HTML}{0E6655}      % NR-IQA, CNN regression
-\definecolor{cattrans}{HTML}{5B2C6F}    % NR-IQA, transformer
+\definecolor{catlmm}{HTML}{1B4F72}      %
+\definecolor{catclip}{HTML}{1E8449}     %
+\definecolor{catnss}{HTML}{C0392B}      %
+\definecolor{catdeep}{HTML}{7D3C98}     %
+\definecolor{catitu}{HTML}{E67E22}      %
+\definecolor{cathand}{HTML}{6C757D}     %
+\definecolor{focoauditado}{HTML}{C2185B}     %
+\definecolor{catcnnbovw}{HTML}{17A2B8}  %
+\definecolor{catcnn}{HTML}{0E6655}      %
+\definecolor{cattrans}{HTML}{5B2C6F}    %
 \definecolor{accentpurple}{HTML}{7D3C98}
 
-%% Performance-shaded table cells. \pfA is the strongest band, \pfE the weakest.
 \newcommand{\pfA}[1]{\cellcolor{perf5}\textcolor{white}{\textbf{#1}}}
 \newcommand{\pfB}[1]{\cellcolor{perf4}#1}
 \newcommand{\pfC}[1]{\cellcolor{perf3}#1}
@@ -94,10 +68,8 @@
 \newcommand{\pfE}[1]{\cellcolor{perf1}\textcolor{white}{#1}}
 \newcommand{\pfNA}{\cellcolor{gray!12}\textcolor{gray!70}{n/a}}
 
-%% Column head on the dark band
 \newcommand{\hd}[1]{\textcolor{white}{\textbf{#1}}}
 
-%% Score polarity markers (see Section 3.4)
 \newcommand{\polup}{\ensuremath{\uparrow}}
 \newcommand{\poldown}{\ensuremath{\downarrow}}
 
@@ -128,13 +100,10 @@
 
 \renewcommand{\thetable}{S\arabic{table}}
 \renewcommand{\theHtable}{S\arabic{table}}
-% ⚠️ o suplementar nunca tivera figura; sem isto a Fig. S1 sairia como «Fig. 1»
 \renewcommand{\thefigure}{S\arabic{figure}}
 \renewcommand{\theHfigure}{S\arabic{figure}}
 \setcounter{table}{0}
 
-% ⭐ 14/09: o suplementar tambem cita numero medido; le o mesmo arquivo que o corpo,
-% para que nenhum valor seja digitado aqui.
 \input{regras_publicadas}
 
 This supplement provides operation provenance, implementation detail, complete results
@@ -143,7 +112,6 @@ Table~S1, Table~S2, and so on.
 
 \noindent\small\emph{Abbreviations used in the tables}: SRCC, Spearman rank correlation coefficient; PLCC, Pearson linear correlation coefficient; RMSE, root mean square error; OR, outlier ratio; NR-IQA, no-reference image quality assessment; DOVER-T, the technical branch of DOVER.\normalsize
 
-%% --- tab:dataset ---
 \begin{table}[!ht]
 \centering
 \caption{In-domain collection: topics of Brazilian television news, with the
@@ -225,7 +193,6 @@ application analysis.}\par\smallskip
 \end{center}
 
 
-%% --- tab:degradation ---
 \begin{table}[!ht]
 \centering
 \caption{Illustration of the sensitivity axis on a single broadcast frame and
@@ -299,7 +266,6 @@ represents 13 topics: one segment each from \texttt{aumento\_cafe},
 \end{center}
 
 
-%% --- tab:sensitivity ---
 \begin{table}[!ht]
 \centering
 \caption{Sensitivity to distortion level on KADID-10k. Direction-aligned SRCC is
@@ -343,7 +309,6 @@ methods in the screening rule because the required CLIVE evaluations were not av
 \end{table}
 
 
-%% --- tab:p1401 ---
 \begin{table}[!ht]
 \centering
 \caption{P.1401 point report after the logistic mapping. PLCC measures linearity,
@@ -388,7 +353,6 @@ on training data.}
 \end{table}
 
 
-%% --- tab:cat ---
 \begin{table}[!ht]
 \centering
 \caption{Mean direction-aligned SRCC by paradigm. The two blocks are separated
@@ -430,7 +394,6 @@ $+0.096$.} \\
 \end{table}
 
 
-%% --- tab:variants ---
 \begin{table}[!ht]
 \centering
 \caption{The BoVW variants in the domain, on the agreement axis and on what they
@@ -465,7 +428,6 @@ diagnostic.}
 \end{table}
 
 
-%% --- tab:agree ---
 \begin{table}[!ht]
 \centering
 \caption{Descriptive in-domain agreement with the Q-Align reference model over
@@ -502,7 +464,6 @@ Roles: D = the HSMVideoSumm operation, C = candidate, X = diagnostic.}
 \end{table}
 
 
-%% --- tab:divergence ---
 \begin{table}[!ht]
 \centering
 \caption{The four redundancy clusters in which the method under study
@@ -545,19 +506,8 @@ Record \ 0:00 (14\,s)    & 815.2  & \pR{4.93} & \pR{4.76} & 4.26 & \pR{0.63} & \
 \end{table}
 
 
-%% --- tab:pooling ---
-%% ⛔ A tabela dos quatro agrupamentos temporais (antiga S9) foi RETIRADA em
-%% 14/09/2026. Motivo: proveniencia nao recuperavel. Nenhum gerador dela sobreviveu no
-%% acervo, e refazer exigiria escores POR FRAME dos modelos nos 15 clusters, que nao
-%% existem: `e2e_scores.json` guarda um valor por segmento, ja agregado, e os frames
-%% foram descartados. A celula do QualiCLIP divergia da fonte da S7 (9/15 contra 10/15) e
-%% nao havia como dizer qual execucao a produziu.
-%% ⚠️ O criterio da retirada e a proveniencia, nao o valor: a divergencia era DESFAVORAVEL
-%% a nos, e mante-la seria mais confortavel que retira-la. O artefato historico continua no
-%% repositorio, identificado como tal.
 
 
-%% --- tab:threshold_sens ---
 \begin{table}[!ht]
 \centering
 \caption{Eligible set as a function of the generalization threshold, under both
@@ -591,7 +541,6 @@ of a topic-block lower limit does not change the three-method set.} \\
 \end{table}
 
 
-%% --- tab:e2e ---
 \begin{table}[!ht]
 \centering
 \caption{The same comparison on the 15 redundancy clusters. The two references
@@ -684,7 +633,6 @@ the control isolates scorer identity, not the historical operation itself.} \\
 \end{tabular}
 \end{center}
 
-%% --- registered predictions ---
 \begin{table}[!ht]
 \centering
 \caption{The eight predictions registered at commit \texttt{9377c07} before the
@@ -778,7 +726,6 @@ fragment seed 42.} \\
 \end{tabular}
 \end{center}
 
-%% --- method inventory ---
 \begin{table}[!ht]
 \centering
 \caption{Method inventory and released-weight supervision. \emph{Sup.}:
@@ -904,7 +851,6 @@ sensitivity analysis; it is not the official standardised fusion or DOVER++. \\
 \end{table}
 \renewcommand{\theHtable}{S\arabic{table}}
 
-%% --- computational cost ---
 \begin{table}[!ht]
 \centering
 \caption{Computational cost measured on one RTX~4060 over the same inputs.
@@ -947,7 +893,6 @@ approximate normalization rather than an identical-path microbenchmark.} \\
 \end{tabular}
 \end{table}
 
-%% --- S15: descriptive training-database and database-regime contrasts ---
 \begin{table}[!ht]
 \centering
 \caption{Descriptive three-database contrasts and released-weight exposure.
@@ -989,7 +934,6 @@ not causal estimates.} \\
 \end{tabular}
 \end{table}
 
-%% --- S16: detectable-keypoint conditioning ---
 \begin{table}[!ht]
 \centering
 \caption{Spearman association with human scores before and after conditioning
@@ -1122,10 +1066,6 @@ their intervals, are in the reproducibility archive.
 
 \input{fig_inversao}
 
-%% ⛔ a figura de retencao entra DEPOIS da de inversao, de proposito: inserida antes, ela
-%% empurraria o numero de toda figura seguinte e quebraria ponteiros do corpo que nada tem
-%% a ver com ela. As macros que o corpo usa sao carregadas por `macros_jusante.tex`, antes
-%% do `\begin{document}`, e nao dependem de onde esta figura entra.
 \clearpage
 \input{fig_jusante}
 
@@ -1148,21 +1088,11 @@ their intervals, are in the reproducibility archive.
 \clearpage
 \input{tab_compostos}
 
-%% --- o protocolo de identificacao das operacoes ---
 \clearpage
 \input{tab_protocolo}
 
-% ⚠️ o suplementar cita 19 fontes na tabela de rastreio e nao tinha bibliografia
-% ⭐ 21/09: a tabela taxonomica entra por ULTIMO de proposito. Inserida no
-% meio, ela empurra o numero de todas as tabelas seguintes e quebra ponteiros
-% do corpo que nada tem a ver com ela.
 \input{tab_taxonomia_por_trabalho}
 
-%% ⭐ 21/09: PROCEDIMENTO INFERENCIAL, movido do corpo. O corpo tinha dez paginas de
-%% metodo, das quais boa parte era detalhe de execucao — transformadas de Fisher, Steiger,
-%% margens, familias de multiplicidade, hardware. Isso pertence aqui: o corpo diz o QUE foi
-%% feito e sob que unidade, e este bloco diz COMO. Entra no FIM para nao empurrar a
-%% numeracao de nenhuma tabela.
 \clearpage
 \section*{Inferential procedure in full}\label{sup:inference}
 
@@ -1221,9 +1151,6 @@ assumed. Frames are decoded once and cached, and latency is re-measured in one s
 environment after ten warm-up and sixty timed iterations.
 
 \clearpage
-%% ⭐ 23/09 (parecer v8, §3): a lista dos dezessete, que o corpo promete e o
-%% revisor nao achou. Entra no FIM de proposito: inserir no meio renumeraria
-%% os ponteiros sem ancora do corpo, calado.
 \input{tab_dezessete}
 
 \clearpage
@@ -1234,10 +1161,6 @@ environment after ten warm-up and sixty timed iterations.
 
 
 
-%% ⭐ 28/09 (parecer + decisao do Jader): o benchmark de MODELO saiu do corpo (4.5 e 4.6)
-%% para ca, para o artigo principal ficar na pergunta da auditoria. O texto e o mesmo que
-%% estava no corpo, com os numeros pelas mesmas macros. Secao sem numero e sem tabela, no
-%% fim: nao renumera nenhuma Tabela S.
 \clearpage
 \section*{Model eligibility and output quality}\label{sup:benchmark}
 
@@ -1258,16 +1181,10 @@ agreeing with Q-Align, the in-domain reference of the model set, on
 95\% CI \finLiqe{} over the \fusBlocos{} source-aware blocks). The SIFT+BoVW operation
 agrees on \pisoSiftAcertos{}, only \pisoAcima{} decisions above the uniform expectation,
 and its interval crosses chance ($\pisoSiftKappa{}$, \finSift{}).
-%% ⛔ 27/09 (parecer, B): o piso e computado contra o Q-Align para TODOS, mas o
-%% SIFT+BoVW e operacao derivada da literatura, e a 3.3 declara o LIQE como
-%% referencia dessas. Reportar so contra o Q-Align deixava a medida fora da
-%% referencia que o proprio metodo lhe atribui. Os dois numeros sao medidos.
 Against LIQE, the reference the protocol assigns to the literature-derived
 operations, the same operation agrees on \subResta{} of \pisoDe{}
 ($\kappa_{\mathrm{uniform}}=\subKappa{}$), and that interval crosses chance as well. Several literature-derived operations meet this condition on unmodified broadcasts despite failing both external ones, and \pisoFrageis{} lose that pass when one topic is removed. Keeping the \senBlocos{} topic labels apart leaves both verdicts unchanged (\senLiqe{} and \senSift{}).
 
-%% ⛔ 21/09: esta declaracao foi cortada por engano ao compactar, e sem ela os dois
-%% conjuntos de dez (o do piso e o dos candidatos) diferem sem que o corpo diga por que.
 An auxiliary comparison places every scorer against one common reference, and its
 group is not the complete-case candidate set. Because LIQE is the designated reference for
 the literature-derived operations, it cannot also be a candidate there, so the group

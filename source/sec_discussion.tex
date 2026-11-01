@@ -1,17 +1,5 @@
 \section{Discussion and limitations}\label{sec:discussion}
 
-%% ⛔ PROSA SUBSTITUIDA em 04/10/2026 pelo texto do Prof. Rudinei (e-mail ao Jader): secao
-%% corrida, sem a subsecao Limitations, e sem parte das autocriticas, que ele tirou de
-%% proposito («ou vao confundir o revisor ou ja sao esperadas»). NAO restaurar as autocriticas.
-%% Aplicada com quatro ajustes, decididos pelo Jader em 04/10, que mudam o que o texto AFIRMA:
-%%  1. «keypoint density» -> «descriptor count»: a fatoracao e em D_i, e keypoint density e
-%%     outro controle diagnostico do Metodo (sec_method, controles diagnosticos).
-%%  2. o ruido nas OUTRAS operacoes fica como consistencia, nao causa: o mecanismo so e medido
-%%     no SIFT+BoVW, e a Conclusao diz «measured for that score and consistent with the others».
-%%  3. a citacao do Otani e o ponteiro as Tabelas S24 e S25 voltaram.
-%%  4. sem «across hardware runs» (causa que o artigo nao afirma) e «later», nao «prospective».
-%%  5. «visual quality» saiu duas vezes (convencao de termos de 08/09).
-%% Os numeros que ja eram macro continuam macro.
 
 The central finding of this study is that visual-selection statistics derived from the video summarization literature, when reused as standalone technical-quality scores, fail to satisfy the technical-fidelity requirements proposed here. The algebraic factorization of the SIFT+BoVW raw-count score demonstrates that its behavior is overwhelmingly driven by descriptor count rather than visual fidelity; replacing the score with the raw descriptor count preserves every single choice across the \redDe{} operational clusters. For other operations, the concentration of reversals under white noise is consistent with noise inflating local high-frequency detail, which these statistics can misread as superior quality. At the application level, our evaluation separates scoring behavior from output preference, establishing selection sensitivity rather than guaranteeing product improvement. Consequently, practical reuses of these operations require explicit documentation of the intended property, exact statistics, declared polarity, sampling, and aggregation regimes. Although dedicated no-reference image quality assessment (NR-IQA) models offer better-supported alternatives, their robustness remains tightly bound to training exposure, distortion types, and domain characteristics. These findings reframe two readings in the current literature: first, extending the evaluation-side insight of Ref.~\citep{otani2019rethinking}, that protocol choices can dominate summarization scores, to the selection stage; and second, showing that isolated visual attributes frequently fail when extracted from the broader objective functions in which they were originally embedded.
 

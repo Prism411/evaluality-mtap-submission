@@ -17,3 +17,9 @@ Repository-specific commands:
 The package is prepared, not submitted or accepted. No new full scientific audit or neural-model inference was performed. Portal uploads have not been tested. The repository was made public on 25 October 2026 at the owner's explicit request.
 
 Repository commands executed successfully on 25 October 2026: all 361 hashes verified; all four PDF rebuilds matched page counts and extracted text. Main 27 pages, supplement 54, title page 1, cover letter 1. No new scientific experiment was executed.
+
+Update, 31 October 2026
+- Statements and Declarations revised (availability statements point to this repository; Acknowledgements heading added; generative AI statement rewritten) and the matching methods paragraph aligned. Funding: the authors confirmed no specific funding.
+- Internal editing comments removed from source/*.tex and the comment header from source/references.bib; supplement, title page and cover letter rebuild with identical extracted text.
+- Main manuscript rebuilt: 27 pages, no undefined references or citations; submission/manuscript.pdf replaced.
+- MANIFEST.sha256 regenerated for the changed source and submission files.

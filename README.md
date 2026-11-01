@@ -2,7 +2,7 @@
 
 Review package for **Do Visual-Selection Operations Track Technical Quality? A Controlled Audit for Multi-Video Summarization**, by Jader L. de Souza Gonçalves and Rudinei Goularte, ICMC, University of São Paulo.
 
-This repository freezes the package prepared for *Multimedia Tools and Applications* on 25 October 2026. It is a submission candidate, not an accepted article. The manuscript's funding declaration is awaiting the authors' current confirmation. Journal policy is [single-blind review](https://link.springer.com/journal/11042/submission-guidelines): author identification is intentional.
+This repository freezes the package prepared for *Multimedia Tools and Applications* on 25 October 2026 and updated on 31 October 2026. It is a submitted manuscript, not an accepted article. Journal policy is [single-blind review](https://link.springer.com/journal/11042/submission-guidelines): author identification is intentional.
 
 **The current submission package is on `main`.** Older releases contain earlier snapshots and are not the matching version. The repository is public and can be accessed by reviewers without a GitHub account.
 
@@ -15,7 +15,7 @@ This repository freezes the package prepared for *Multimedia Tools and Applicati
 - [Editable LaTeX sources](source/)
 - [Code, derived results and sample input](code_and_data/)
 
-The PDFs are byte-identical to the prepared Downloads package. The paper audits the evaluated visual-selection implementations when reused for technical quality; it does not propose a new summarizer or infer failure of every method in a class.
+The manuscript PDF is rebuilt from `source/`; the other three PDFs are unchanged since 25 October. The paper audits the evaluated visual-selection implementations when reused for technical quality; it does not propose a new summarizer or infer failure of every method in a class.
 
 ## Quick verification: Python only, no GPU
 
@@ -51,9 +51,9 @@ The registered-prediction Git bundle is not in this snapshot. Its later public r
 
 ## Provenance and changes
 
-This snapshot derives from the MTAP package assembled on 21 October and checked on 25 October. The main manuscript text is unchanged. Packaging fixes load `xcolor` on the title page, clarify the three-video sample in the letter, move the complete S22 notes outside an oversized float, and add MTAP metadata to the archive. No measurement or scientific table entry was changed.
+This snapshot derives from the MTAP package assembled on 21 October and checked on 25 October. On 31 October the Statements and Declarations were revised: the data and code availability statements point to this repository, an Acknowledgements heading was added, and the statement on generative AI use was rewritten; the methods paragraph on the same topic was aligned with it. Internal editing comments were removed from the LaTeX sources, which leaves the compiled text unchanged. No other manuscript text was changed. Packaging fixes load `xcolor` on the title page, clarify the three-video sample in the letter, move the complete S22 notes outside an oversized float, and add MTAP metadata to the archive. No measurement or scientific table entry was changed.
 
-`MANIFEST.sha256` identifies the distributed PDFs, LaTeX files, code, data and sample media. The preparation audit is in [REVIEW-CHECKS.txt](REVIEW-CHECKS.txt). The funding confirmation is the remaining author declaration, not a failed compilation check.
+`MANIFEST.sha256` identifies the distributed PDFs, LaTeX files, code, data and sample media. The preparation audit is in [REVIEW-CHECKS.txt](REVIEW-CHECKS.txt).
 
 ## Rights and contact
 
